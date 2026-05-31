@@ -141,6 +141,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"articles": {
+"alcoa-plus-deep-dive.md": {
+	id: "alcoa-plus-deep-dive.md";
+  slug: "alcoa-plus-deep-dive";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "building-ai-tools-for-gxp.md": {
 	id: "building-ai-tools-for-gxp.md";
   slug: "building-ai-tools-for-gxp";
@@ -148,9 +155,23 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"cell-gene-therapy-data-integrity.md": {
+	id: "cell-gene-therapy-data-integrity.md";
+  slug: "cell-gene-therapy-data-integrity";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "data-integrity-in-gene-therapy.md": {
 	id: "data-integrity-in-gene-therapy.md";
   slug: "data-integrity-in-gene-therapy";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"fda-warning-letters-patterns.md": {
+	id: "fda-warning-letters-patterns.md";
+  slug: "fda-warning-letters-patterns";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

@@ -1,73 +1,103 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="About" description="Goutham Madhadi — Director of Digital Quality and Data Integrity at Beam Therapeutics.">
+<Layout title="About" description="Goutham Madhadi — data integrity practitioner and quality leader in cell and gene therapy biotech.">
   <div class="about">
-    <div class="about-header">
-      <h1>About</h1>
+    <div class="page-header">
+      <div class="page-label">About</div>
+      <h1>Goutham Madhadi</h1>
+      <p class="tagline">Director of Digital Quality & Data Integrity · Cell & Gene Therapy</p>
     </div>
 
     <div class="about-body">
       <p>
-        I'm <strong>Goutham Madhadi</strong>, Director of Digital Quality &amp; Data Integrity at
-        <a href="https://beamtx.com" target="_blank" rel="noopener">Beam Therapeutics</a> — a
-        biotech company pioneering base editing for genetic medicines.
+        I lead data integrity and digital quality programs in the cell and gene therapy space —
+        a domain where the data underpinning a single lot release can include millions of instrument
+        records, dozens of novel assays, and scrutiny that extends all the way to BLA submission.
       </p>
 
       <p>
-        My work sits at the intersection of regulated quality systems, data governance, and modern
-        software engineering. I lead data integrity programs across GxP systems — from LIMS and ELN
-        platforms to manufacturing execution and BLA submissions.
+        This site exists because data integrity is frequently taught wrong: as a compliance exercise
+        rather than as a fundamental property of good science. My goal here is to write about it
+        the way practitioners actually experience it — not as a checklist, but as a discipline
+        with real failure modes, real regulatory consequences, and real engineering solutions.
       </p>
 
       <h2>What I work on</h2>
       <ul>
-        <li>FDA 21 CFR Part 11 compliance and audit trail integrity</li>
-        <li>ALCOA+ data quality frameworks for clinical and manufacturing data</li>
-        <li>BLA (Biologics License Application) submissions and data packages</li>
-        <li>GxP system validation, CSV, and computerized system compliance</li>
-        <li>AI-assisted tools for quality monitoring and anomaly detection</li>
+        <li>FDA 21 CFR Part 11 compliance and audit trail integrity programs</li>
+        <li>ALCOA+ data quality frameworks across GxP systems</li>
+        <li>Computerized system validation (CSV) and change control</li>
+        <li>BLA data packages and regulatory submission strategy</li>
+        <li>AI-assisted tools for compliance monitoring and anomaly detection</li>
+        <li>Data governance: roles, metadata standards, system interoperability</li>
       </ul>
-
-      <h2>This site</h2>
-      <p>
-        I write here about data integrity in regulated biotech, practical AI tooling for GxP
-        environments, and anything else I find worth publishing. Opinions are my own.
-      </p>
 
       <h2>Background</h2>
       <p>
-        Before Beam, I built quality and data systems across pharma and biotech. Over the years
-        I've developed a strong interest in applying software automation — particularly AI — to
-        the compliance and data quality problems that regulated industries have historically
-        solved with paper and spreadsheets.
+        I've spent 15+ years across pharma and biotech building quality systems,
+        leading inspections, and designing the data infrastructure that supports
+        regulated manufacturing and clinical operations.
+      </p>
+      <p>
+        Along the way I've sat in FDA inspection conference rooms, led data
+        integrity remediation programs after findings, built LIMS and ELN validation
+        packages from scratch, and watched companies both succeed and fail at
+        building durable data quality cultures.
+      </p>
+      <p>
+        I've also built most of the tools on this site myself — because the commercial
+        options for GxP data intelligence are expensive, inflexible, and usually not
+        designed by people who have actually run a GxP audit trail review.
       </p>
 
+      <h2>Why cell & gene therapy</h2>
       <p>
-        Outside of work, I'm a quantitative trader with a focus on options flow intelligence
-        and momentum signals. I build my own tools — none of this is financial advice.
+        CGT sits at an unusual intersection: novel science, limited historical precedent,
+        intense regulatory scrutiny, and an expectation of BLA-quality data from very
+        early in development. The data integrity challenges are not just bigger — they're
+        structurally different. That's what makes it worth writing about in depth.
       </p>
 
       <h2>Get in touch</h2>
       <p>
-        Email me at <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a>. I'm open to
-        conversations about data integrity, GxP systems, AI in regulated industries, or anything
-        on this site.
+        Email me at <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a>.
+        I'm open to conversations about data integrity programs, GxP system design,
+        AI in regulated environments, or anything written on this site.
       </p>
+
+      <div class="disclaimer">
+        All opinions on this site are my own. Nothing here constitutes legal or regulatory advice.
+        For specific compliance questions, consult a qualified regulatory affairs professional.
+      </div>
     </div>
   </div>
 </Layout>
 
 <style>
-  .about-header {
+  .page-header {
     margin-bottom: 2.5rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border);
   }
 
-  .about-header h1 {
-    font-size: 2rem;
-    letter-spacing: -0.03em;
+  .page-label {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.35rem; }
+
+  .tagline {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-family: var(--mono);
+    margin: 0;
   }
 
   .about-body {
@@ -76,29 +106,36 @@ import Layout from '../layouts/Layout.astro';
     max-width: 640px;
   }
 
-  .about-body p {
-    margin-bottom: 1.25rem;
-  }
+  .about-body p { margin-bottom: 1.25rem; color: #94a3b8; }
 
   .about-body h2 {
-    font-size: 1.2rem;
-    margin: 2.5rem 0 0.75rem;
-    letter-spacing: -0.02em;
+    font-size: 1.15rem;
+    margin: 2.75rem 0 0.85rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-dim);
+    color: var(--text);
   }
 
   .about-body ul {
     margin-bottom: 1.25rem;
+    color: #94a3b8;
   }
 
-  .about-body li {
-    margin-bottom: 0.4rem;
-    color: #d4d4d8;
-  }
-
-  .about-body strong { color: var(--text); }
+  .about-body li { margin-bottom: 0.5rem; }
 
   .about-body a {
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+
+  .disclaimer {
+    margin-top: 3rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
   }
 </style>

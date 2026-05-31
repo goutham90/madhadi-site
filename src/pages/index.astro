@@ -5,125 +5,251 @@ import { getCollection } from 'astro:content';
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const recent = allArticles
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-  .slice(0, 3);
+  .slice(0, 4);
+
+const tracks = [
+  {
+    icon: '◎',
+    label: 'Foundations',
+    title: 'Why Data Integrity Matters',
+    desc: 'The regulatory basis, ALCOA+ principles, and what FDA/EMA actually inspect. Start here if you are building a program from scratch.',
+    tags: ['ALCOA+', '21 CFR Part 11', 'FDA'],
+    color: '#4f8ef7',
+  },
+  {
+    icon: '◈',
+    label: 'Implementation',
+    title: 'How to Build a Program',
+    desc: 'System validation, audit trail design, OOS procedures, and AI-assisted compliance tools that actually work in regulated environments.',
+    tags: ['Validation', 'CSV', 'AI Tools'],
+    color: '#34d399',
+  },
+  {
+    icon: '◇',
+    label: 'Cell & Gene Therapy',
+    title: 'Specialized Challenges',
+    desc: 'Why CGT presents unique data integrity risks — novel assays, complex manufacturing, BLA-level scrutiny, and real-time batch data.',
+    tags: ['CGT', 'BLA', 'Potency'],
+    color: '#a78bfa',
+  },
+];
+
+const topics = [
+  { name: 'ALCOA+', count: 3 },
+  { name: 'FDA', count: 4 },
+  { name: 'GxP', count: 5 },
+  { name: '21 CFR Part 11', count: 3 },
+  { name: 'AI Tools', count: 2 },
+  { name: 'Cell & Gene Therapy', count: 2 },
+  { name: 'Audit Trail', count: 3 },
+  { name: 'Warning Letters', count: 2 },
+  { name: 'CSV', count: 2 },
+  { name: 'BLA', count: 1 },
+  { name: 'LIMS', count: 2 },
+  { name: 'ELN', count: 1 },
+];
 ---
-<Layout title="Home">
+<Layout title="Home" wide={true}>
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-label">Director of Digital Quality &amp; Data Integrity</div>
-    <h1>Goutham Madhadi</h1>
-    <p class="hero-sub">
-      Writing about data integrity in regulated biotech, AI tools for GxP compliance,
-      and the intersection of software engineering with life sciences.
-    </p>
-    <div class="hero-links">
-      <a href="/articles" class="btn-primary">Read Articles →</a>
-      <a href="/about" class="btn-ghost">About Me</a>
+    <div class="hero-inner">
+      <div class="hero-badge">Data Integrity · Regulated Biotech · AI Tools</div>
+      <h1>
+        <span class="gradient-text">Everything you need to know<br/>about data integrity.</span>
+      </h1>
+      <p class="hero-sub">
+        In-depth guides, regulatory case studies, and practical implementation frameworks
+        for quality professionals in pharma and cell & gene therapy.
+        Written by a practitioner, not a consultant.
+      </p>
+      <div class="hero-actions">
+        <a href="/articles" class="btn-primary">Browse Articles →</a>
+        <a href="#tracks" class="btn-ghost">Explore Topics</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-n">{allArticles.length}</span>
+          <span class="stat-l">Articles</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-n">5+</span>
+          <span class="stat-l">Topics</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-n">15+</span>
+          <span class="stat-l">Years in GxP</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="pillars">
-    <div class="pillar">
-      <div class="pillar-icon">⬡</div>
-      <h3>Data Integrity</h3>
-      <p>FDA 21 CFR Part 11, ALCOA+, audit trails, and building compliant systems in regulated biotech environments.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">⬡</div>
-      <h3>AI & Automation</h3>
-      <p>Practical AI tools for GxP compliance, signal detection, and automation in pharma and biotech workflows.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">⬡</div>
-      <h3>Gene Editing</h3>
-      <p>Quality systems, BLA submissions, and data governance in the context of next-generation genetic medicines.</p>
+  <!-- Learning Tracks -->
+  <section class="tracks" id="tracks">
+    <div class="section-label">Start Here</div>
+    <h2 class="section-title">Three ways in</h2>
+    <div class="tracks-grid">
+      {tracks.map(t => (
+        <div class="track-card" style={`--track-color: ${t.color}`}>
+          <div class="track-icon">{t.icon}</div>
+          <div class="track-label">{t.label}</div>
+          <h3 class="track-title">{t.title}</h3>
+          <p class="track-desc">{t.desc}</p>
+          <div class="track-tags">
+            {t.tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+          <a href="/articles" class="track-link">Read articles →</a>
+        </div>
+      ))}
     </div>
   </section>
 
+  <!-- What You'll Find -->
+  <section class="coverage">
+    <div class="coverage-inner">
+      <div class="coverage-text">
+        <div class="section-label">Coverage</div>
+        <h2 class="section-title">The full depth of the discipline</h2>
+        <p>This isn't a glossary site or a compliance checklist. Every article goes into the mechanics — why things fail, how regulators think, and what an inspector is actually looking for when they open a system audit trail.</p>
+        <a href="/articles" class="btn-outline">All articles →</a>
+      </div>
+      <div class="coverage-list">
+        {[
+          ['Regulatory Framework', 'FDA 21 CFR Parts 11/211, EMA Annex 11, ICH Q10'],
+          ['ALCOA+ In Practice', 'What each principle means when your LIMS crashes'],
+          ['System Validation', 'CSV, IQ/OQ/PQ, and what actually fails inspections'],
+          ['Audit Trail Design', 'What to log, at what level, and how to review it'],
+          ['AI & Automation', '21 CFR-compliant AI tooling for compliance workflows'],
+          ['Warning Letter Analysis', 'Pattern analysis from real FDA enforcement actions'],
+          ['Cell & Gene Therapy', 'Potency assays, vector manufacturing, BLA data packs'],
+          ['Data Governance', 'Roles, responsibilities, and metadata management'],
+        ].map(([title, desc]) => (
+          <div class="cov-item">
+            <div class="cov-title">{title}</div>
+            <div class="cov-desc">{desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Articles -->
   {recent.length > 0 && (
     <section class="recent">
       <div class="section-header">
-        <h2>Recent Articles</h2>
-        <a href="/articles" class="see-all">All articles →</a>
+        <div>
+          <div class="section-label">Latest</div>
+          <h2 class="section-title">Recent Articles</h2>
+        </div>
+        <a href="/articles" class="see-all">View all →</a>
       </div>
-      <ul class="article-list">
-        {recent.map(post => (
-          <li class="article-item">
-            <a href={`/articles/${post.slug}`} class="article-link">
-              <span class="article-title">{post.data.title}</span>
-              <span class="article-arrow">→</span>
+      <div class="articles-grid">
+        {recent.map((post, i) => {
+          const wordCount = post.body?.split(/\s+/).length ?? 0;
+          const readTime = Math.max(1, Math.ceil(wordCount / 220));
+          return (
+            <a href={`/articles/${post.slug}`} class={`article-card ${i === 0 ? 'featured' : ''}`}>
+              <div class="article-card-inner">
+                <div class="article-card-tags">
+                  {post.data.tags.slice(0, 2).map(t => <span class="tag">{t}</span>)}
+                </div>
+                <h3 class="article-card-title">{post.data.title}</h3>
+                <p class="article-card-desc">{post.data.description}</p>
+                <div class="article-card-foot">
+                  <time>{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
+                  <span>{readTime} min read</span>
+                </div>
+              </div>
             </a>
-            <p class="article-excerpt">{post.data.description}</p>
-            <div class="article-foot">
-              <time class="article-date">
-                {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-              </time>
-              {post.data.tags.slice(0, 2).map(tag => <span class="tag">{tag}</span>)}
-            </div>
-          </li>
-        ))}
-      </ul>
+          );
+        })}
+      </div>
     </section>
   )}
+
+  <!-- Topics -->
+  <section class="topics-section">
+    <div class="section-label">Browse</div>
+    <h2 class="section-title">All Topics</h2>
+    <div class="topics-cloud">
+      {topics.map(t => (
+        <a href={`/topics#${t.name.toLowerCase().replace(/\s+/g, '-')}`} class="topic-pill">
+          {t.name}
+          <span class="topic-count">{t.count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
 </Layout>
 
 <style>
+  /* ── Hero ── */
   .hero {
-    padding: 3rem 0 3.5rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 3rem;
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border-dim);
+    margin-bottom: 5rem;
   }
 
-  .hero-label {
-    font-size: 0.8rem;
+  .hero-inner { max-width: 680px; }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.72rem;
     font-family: var(--mono);
     color: var(--accent);
-    letter-spacing: 0.08em;
+    background: var(--accent-glow);
+    border: 1px solid rgba(79, 142, 247, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    font-weight: 600;
   }
 
   h1 {
-    font-size: clamp(2.2rem, 6vw, 3.5rem);
-    font-weight: 700;
-    letter-spacing: -0.04em;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
     line-height: 1.1;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.04em;
   }
 
   .hero-sub {
     font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 520px;
+    color: var(--muted-light);
     line-height: 1.7;
-    margin-bottom: 2rem;
+    max-width: 560px;
+    margin-bottom: 2.25rem;
   }
 
-  .hero-links {
+  .hero-actions {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
+    margin-bottom: 3rem;
   }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
     background: var(--accent);
-    color: #09090b;
-    font-weight: 600;
+    color: #080910;
+    font-weight: 700;
     font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
+    padding: 0.65rem 1.35rem;
     border-radius: 8px;
-    transition: background 0.15s;
+    transition: background 0.15s, transform 0.1s;
   }
 
-  .btn-primary:hover { background: var(--accent-h); color: #09090b; }
+  .btn-primary:hover { background: var(--accent-h); color: #080910; transform: translateY(-1px); }
 
   .btn-ghost {
     display: inline-flex;
     align-items: center;
-    color: var(--muted);
+    color: var(--muted-light);
     font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
+    padding: 0.65rem 1.35rem;
     border: 1px solid var(--border);
     border-radius: 8px;
     transition: color 0.15s, border-color 0.15s;
@@ -131,121 +257,297 @@ const recent = allArticles
 
   .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
 
-  /* Pillars */
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 3.5rem;
-  }
-
-  .pillar {
-    background: var(--bg);
-    padding: 1.75rem 1.5rem;
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent);
+    font-size: 0.875rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(79, 142, 247, 0.3);
+    border-radius: 8px;
+    margin-top: 1.5rem;
     transition: background 0.15s;
   }
 
-  .pillar:hover { background: var(--surface); }
+  .btn-outline:hover { background: var(--accent-glow); }
 
-  .pillar-icon {
-    font-size: 1.2rem;
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 0.15rem; }
+  .stat-n { font-size: 1.4rem; font-weight: 700; color: var(--text); letter-spacing: -0.03em; }
+  .stat-l { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
+  .stat-div { width: 1px; height: 30px; background: var(--border); }
+
+  /* ── Sections ── */
+  section { margin-bottom: 5rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-family: var(--mono);
     color: var(--accent);
-    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
   }
 
-  .pillar h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+  .section-title {
+    font-size: 1.75rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
   }
 
-  .pillar p {
+  /* ── Tracks ── */
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .track-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .track-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--track-color);
+    opacity: 0.7;
+  }
+
+  .track-card:hover {
+    border-color: var(--track-color, var(--accent));
+    transform: translateY(-2px);
+  }
+
+  .track-icon {
+    font-size: 1.5rem;
+    color: var(--track-color);
+    margin-bottom: 0.25rem;
+  }
+
+  .track-label {
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    color: var(--track-color);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+
+  .track-title {
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+
+  .track-desc {
     font-size: 0.875rem;
-    color: var(--muted);
+    color: var(--muted-light);
     line-height: 1.6;
+    flex: 1;
   }
 
-  /* Recent articles */
+  .track-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin: 0.5rem 0; }
+
+  .track-link {
+    font-size: 0.82rem;
+    color: var(--track-color);
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+
+  .track-link:hover { color: var(--text); }
+
+  /* ── Coverage ── */
+  .coverage-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .coverage-text p {
+    font-size: 1rem;
+    color: var(--muted-light);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .coverage-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .cov-item {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-dim);
+    border-right: 1px solid var(--border-dim);
+  }
+
+  .cov-item:nth-child(even) { border-right: none; }
+  .cov-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  .cov-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .cov-desc {
+    font-size: 0.775rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── Recent articles ── */
   .section-header {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
-  .section-header h2 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
+  .section-header .section-title { margin-bottom: 0; }
 
   .see-all {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     color: var(--muted);
+    padding-bottom: 0.15rem;
   }
 
   .see-all:hover { color: var(--accent); }
 
-  .article-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .article-item {
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .article-item:last-child { border-bottom: none; }
-
-  .article-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    color: var(--text);
-    margin-bottom: 0.4rem;
   }
 
-  .article-link:hover .article-title { color: var(--accent); }
-
-  .article-title {
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.15s;
+  .article-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color 0.2s, transform 0.2s;
+    color: inherit;
   }
 
-  .article-arrow {
-    color: var(--border);
-    flex-shrink: 0;
-    transition: color 0.15s;
+  .article-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
   }
 
-  .article-link:hover .article-arrow { color: var(--accent); }
-
-  .article-excerpt {
-    font-size: 0.875rem;
-    color: var(--muted);
-    margin-bottom: 0.6rem;
-    line-height: 1.5;
+  .article-card.featured {
+    grid-column: 1 / -1;
+    background: var(--surface2);
   }
 
-  .article-foot {
+  .article-card-inner { padding: 1.5rem; }
+
+  .article-card-tags {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem;
+    margin-bottom: 0.85rem;
     flex-wrap: wrap;
   }
 
-  .article-date {
-    font-size: 0.78rem;
+  .article-card-title {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    line-height: 1.35;
+    transition: color 0.15s;
+  }
+
+  .article-card:hover .article-card-title { color: var(--accent); }
+
+  .article-card.featured .article-card-title { font-size: 1.25rem; }
+
+  .article-card-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .article-card-foot {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.775rem;
     color: var(--muted);
     font-family: var(--mono);
+    border-top: 1px solid var(--border-dim);
+    padding-top: 0.85rem;
+  }
+
+  /* ── Topics ── */
+  .topics-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .topic-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.875rem;
+    color: var(--muted-light);
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+
+  .topic-pill:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    background: var(--accent-glow);
+  }
+
+  .topic-count {
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    background: var(--surface2);
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 900px) {
+    .tracks-grid { grid-template-columns: 1fr; }
+    .coverage-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .article-card.featured { grid-column: 1; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 3rem 0 2.5rem; }
+    .hero-stats { gap: 1rem; }
+    .coverage-list { grid-template-columns: 1fr; }
+    .cov-item { border-right: none; }
+    .cov-item:nth-last-child(1) { border-bottom: none; }
+    .cov-item:nth-last-child(2) { border-bottom: 1px solid var(--border-dim); }
   }
 </style>

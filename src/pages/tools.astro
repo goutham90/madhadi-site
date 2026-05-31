@@ -3,59 +3,76 @@ import Layout from '../layouts/Layout.astro';
 
 const tools = [
   {
-    name: 'Options Flow Intelligence',
-    description: 'Scans unusual options activity for single-leg call buying patterns, correlating with insider signals, volume anomalies, and catalyst windows. Scores each ticker 0–100.',
+    name: 'Audit Trail Anomaly Detector',
+    desc: 'Statistical analysis of LIMS/ELN audit trail exports. Flags off-hours entries, back-to-back edit sequences, bulk modifications, and user behavior outliers. Outputs a prioritized review queue for QA.',
     status: 'Active',
-    tags: ['Python', 'Options API', 'Telegram'],
+    stack: ['Python', 'Pandas', 'LIMS Export'],
+    detail: 'Covers temporal anomalies, sequential edit patterns, metadata gaps, and statistical deviation from baseline user behavior.',
   },
   {
-    name: 'Momentum Alpha Scanner',
-    description: 'Identifies momentum breakouts using convergence scoring across technical signals, options flow, and short interest. Built for 2–5 day swing trades.',
+    name: 'ALCOA+ Gap Analyzer',
+    desc: 'Parses SOP, batch record, or protocol text and cross-references it against ALCOA+ requirements and FDA data integrity guidance. Returns a structured gap report with severity ratings.',
     status: 'Active',
-    tags: ['Python', 'yFinance', 'IBKR'],
+    stack: ['Python', 'Claude API', 'NLP'],
+    detail: 'Output includes: missing attributability controls, contemporaneity gaps, completeness issues, and record endurance risks.',
   },
   {
-    name: 'GxP Data Integrity Auditor',
-    description: 'Automated audit trail analysis tool for regulated laboratory systems. Flags ALCOA+ violations, sequence anomalies, and metadata gaps across LIMS/ELN exports.',
-    status: 'Internal',
-    tags: ['Python', 'Pandas', 'Pharma'],
+    name: 'Deviation Pattern Classifier',
+    desc: 'AI-based classifier for incoming deviation reports. Categorizes by type, assigns a risk tier, and surfaces the three most similar historical deviations for investigator reference.',
+    status: 'Active',
+    stack: ['Python', 'scikit-learn', 'CAPA DB'],
+    detail: 'Reduces triage time and improves consistency in deviation categorization across sites.',
   },
   {
-    name: 'Catalyst Pre-Signal Scanner',
-    description: 'Detects pre-catalyst alpha in micro/small-cap biotech using SEC 8-K filings, dark pool flow, and volume deviation. Identifies signals 24–72 hours before announcements.',
+    name: '21 CFR Part 11 Assessment Tool',
+    desc: 'Evaluates a computerized system against 21 CFR Part 11 requirements. Generates a readiness matrix covering audit trails, access controls, electronic signatures, and record retention.',
     status: 'Active',
-    tags: ['Python', 'EDGAR', 'SEC API'],
+    stack: ['Python', 'Excel Output', 'GxP'],
+    detail: 'Designed for pre-qualification assessment and periodic review of validated systems.',
   },
   {
-    name: 'Long-Term Company Analyzer',
-    description: 'Deep-dive fundamental analysis pipeline: earnings transcripts via SEC, 8-quarter XBRL financials, and AI-generated investment thesis. Output as structured Telegram report.',
+    name: 'Chromatography Data System Auditor',
+    desc: 'Specialized audit tool for CDS platforms (Empower, Chemstation). Detects sequence injection anomalies, processing method changes, result set deletions, and integration parameter manipulation.',
     status: 'Active',
-    tags: ['Python', 'Claude AI', 'XBRL'],
+    stack: ['Python', 'CDS API', 'QC'],
+    detail: 'CDS platforms are the most common source of data integrity findings in analytical QC labs.',
   },
   {
-    name: 'Trading System Audit',
-    description: 'Daily health check across all trading tools: API liveness, scanner freshness, process checks, env var validation, and auto-remediation. Runs at 3AM ET.',
+    name: 'Data Integrity Risk Register',
+    desc: 'Systematic risk assessment framework for GxP systems. Scores each system on data criticality, control gaps, and detection capability. Prioritizes remediation by risk exposure.',
     status: 'Active',
-    tags: ['Python', 'launchd', 'Telegram'],
+    stack: ['Python', 'Risk Matrix', 'GxP'],
+    detail: 'Generates a prioritized remediation roadmap aligned to FDA and EMA data integrity guidance.',
   },
 ];
 ---
-<Layout title="Tools" description="Tools built by Goutham Madhadi for trading intelligence and GxP data quality.">
+<Layout title="Tools" description="Data integrity tools for GxP compliance — audit trail analysis, ALCOA+ gap assessment, deviation classification, and 21 CFR Part 11 evaluation.">
   <div class="page-header">
+    <div class="page-label">Built Tools</div>
     <h1>Tools</h1>
-    <p>Automation systems I've built for signal detection, data integrity, and compliance analysis.</p>
+    <p>
+      Automation systems built to solve real data integrity problems in regulated biotech.
+      All tools are designed with GxP validation in mind — documented, testable, and auditable.
+    </p>
+    <div class="callout">
+      <div class="callout-title">Note</div>
+      <p>These tools are built for internal GxP environments. Any AI-assisted output feeds a documented human review process — AI flags, humans decide, decisions are logged.</p>
+    </div>
   </div>
 
   <div class="tools-grid">
     {tools.map(tool => (
       <div class="tool-card">
-        <div class="tool-top">
+        <div class="tool-header">
           <h2 class="tool-name">{tool.name}</h2>
-          <span class={`status status-${tool.status.toLowerCase()}`}>{tool.status}</span>
+          <span class="status-badge">{tool.status}</span>
         </div>
-        <p class="tool-desc">{tool.description}</p>
-        <div class="tool-tags">
-          {tool.tags.map(tag => <span class="tag">{tag}</span>)}
+        <p class="tool-desc">{tool.desc}</p>
+        <div class="tool-detail">{tool.detail}</div>
+        <div class="tool-footer">
+          <div class="tool-stack">
+            {tool.stack.map(s => <span class="stack-tag">{s}</span>)}
+          </div>
         </div>
       </div>
     ))}
@@ -64,39 +81,47 @@ const tools = [
 
 <style>
   .page-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border);
   }
 
-  .page-header h1 {
-    font-size: 2rem;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.5rem;
+  .page-label {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
   }
 
-  .page-header p { color: var(--muted); }
+  .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  .page-header > p { color: var(--muted-light); margin-bottom: 1.5rem; }
 
   .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 1rem;
   }
 
   .tool-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: border-color 0.15s;
+    border-radius: 14px;
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    transition: border-color 0.2s, transform 0.2s;
   }
 
-  .tool-card:hover { border-color: var(--accent); }
+  .tool-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
 
-  .tool-top {
+  .tool-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -106,43 +131,57 @@ const tools = [
   .tool-name {
     font-size: 1rem;
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.35;
+    color: var(--text);
   }
 
-  .status {
-    font-size: 0.7rem;
+  .status-badge {
+    font-size: 0.68rem;
     font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     padding: 0.2rem 0.55rem;
     border-radius: 999px;
+    background: rgba(52, 211, 153, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(52, 211, 153, 0.2);
     flex-shrink: 0;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .status-active {
-    background: rgba(34, 197, 94, 0.12);
-    color: #4ade80;
-    border: 1px solid rgba(34, 197, 94, 0.25);
-  }
-
-  .status-internal {
-    background: rgba(96, 165, 250, 0.1);
-    color: var(--accent);
-    border: 1px solid rgba(96, 165, 250, 0.2);
   }
 
   .tool-desc {
     font-size: 0.875rem;
+    color: var(--muted-light);
+    line-height: 1.65;
+  }
+
+  .tool-detail {
+    font-size: 0.8rem;
     color: var(--muted);
-    line-height: 1.6;
+    line-height: 1.55;
+    padding: 0.75rem 1rem;
+    background: var(--surface2);
+    border-radius: 7px;
+    border-left: 2px solid var(--border);
     flex: 1;
   }
 
-  .tool-tags {
+  .tool-footer { margin-top: 0.5rem; }
+
+  .tool-stack {
     display: flex;
     gap: 0.4rem;
     flex-wrap: wrap;
+  }
+
+  .stack-tag {
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    padding: 0.2rem 0.55rem;
+    border-radius: 5px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
   }
 
   @media (max-width: 600px) {
