@@ -1,0 +1,119 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags: string[];
+}
+
+const { title, description, pubDate, tags } = Astro.props;
+
+const formatted = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+<Layout title={title} description={description}>
+  <article>
+    <header class="article-header">
+      <div class="article-meta">
+        <time datetime={pubDate.toISOString()}>{formatted}</time>
+        {tags.length > 0 && (
+          <div class="article-tags">
+            {tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        )}
+      </div>
+      <h1>{title}</h1>
+      <p class="article-desc">{description}</p>
+    </header>
+
+    <div class="article-body">
+      <slot />
+    </div>
+
+    <footer class="article-footer">
+      <a href="/articles">← Back to articles</a>
+    </footer>
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .article-meta time {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  .article-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4vw, 2.25rem);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.03em;
+  }
+
+  .article-desc {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .article-body :global(h2) {
+    font-size: 1.4rem;
+    margin: 2.5rem 0 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .article-body :global(h3) {
+    font-size: 1.15rem;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .article-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-body :global(ul),
+  .article-body :global(ol) {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-body :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .article-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+</style>

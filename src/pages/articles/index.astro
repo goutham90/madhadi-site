@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const sorted = allArticles.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+<Layout title="Articles" description="Writing on data integrity, AI tools, and biotech by Goutham Madhadi.">
+  <div class="page-header">
+    <h1>Articles</h1>
+    <p>Thoughts on data integrity, AI tools for regulated biotech, and gene editing.</p>
+  </div>
+
+  {sorted.length === 0 ? (
+    <p class="empty">No articles yet. Check back soon.</p>
+  ) : (
+    <ul class="article-list">
+      {sorted.map(post => (
+        <li class="article-item">
+          <a href={`/articles/${post.slug}`} class="article-link">
+            <div class="article-main">
+              <h2 class="article-title">{post.data.title}</h2>
+              <p class="article-desc">{post.data.description}</p>
+              <div class="article-foot">
+                <time class="article-date">
+                  {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                {post.data.tags.slice(0, 3).map(tag => <span class="tag">{tag}</span>)}
+              </div>
+            </div>
+            <span class="article-arrow">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p { color: var(--muted); }
+
+  .empty { color: var(--muted); font-style: italic; }
+
+  .article-list { list-style: none; padding: 0; }
+
+  .article-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .article-item:last-child { border-bottom: none; }
+
+  .article-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    color: inherit;
+    transition: background 0.15s;
+  }
+
+  .article-link:hover .article-title { color: var(--accent); }
+  .article-link:hover .article-arrow { color: var(--accent); }
+
+  .article-main { flex: 1; }
+
+  .article-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+    transition: color 0.15s;
+  }
+
+  .article-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .article-foot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .article-date {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+
+  .article-arrow {
+    color: var(--border);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: color 0.15s;
+  }
+</style>

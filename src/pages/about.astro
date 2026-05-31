@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="About" description="Goutham Madhadi — Director of Digital Quality and Data Integrity at Beam Therapeutics.">
+  <div class="about">
+    <div class="about-header">
+      <h1>About</h1>
+    </div>
+
+    <div class="about-body">
+      <p>
+        I'm <strong>Goutham Madhadi</strong>, Director of Digital Quality &amp; Data Integrity at
+        <a href="https://beamtx.com" target="_blank" rel="noopener">Beam Therapeutics</a> — a
+        biotech company pioneering base editing for genetic medicines.
+      </p>
+
+      <p>
+        My work sits at the intersection of regulated quality systems, data governance, and modern
+        software engineering. I lead data integrity programs across GxP systems — from LIMS and ELN
+        platforms to manufacturing execution and BLA submissions.
+      </p>
+
+      <h2>What I work on</h2>
+      <ul>
+        <li>FDA 21 CFR Part 11 compliance and audit trail integrity</li>
+        <li>ALCOA+ data quality frameworks for clinical and manufacturing data</li>
+        <li>BLA (Biologics License Application) submissions and data packages</li>
+        <li>GxP system validation, CSV, and computerized system compliance</li>
+        <li>AI-assisted tools for quality monitoring and anomaly detection</li>
+      </ul>
+
+      <h2>This site</h2>
+      <p>
+        I write here about data integrity in regulated biotech, practical AI tooling for GxP
+        environments, and anything else I find worth publishing. Opinions are my own.
+      </p>
+
+      <h2>Background</h2>
+      <p>
+        Before Beam, I built quality and data systems across pharma and biotech. Over the years
+        I've developed a strong interest in applying software automation — particularly AI — to
+        the compliance and data quality problems that regulated industries have historically
+        solved with paper and spreadsheets.
+      </p>
+
+      <p>
+        Outside of work, I'm a quantitative trader with a focus on options flow intelligence
+        and momentum signals. I build my own tools — none of this is financial advice.
+      </p>
+
+      <h2>Get in touch</h2>
+      <p>
+        Email me at <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a>. I'm open to
+        conversations about data integrity, GxP systems, AI in regulated industries, or anything
+        on this site.
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .about-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-header h1 {
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+  }
+
+  .about-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 640px;
+  }
+
+  .about-body p {
+    margin-bottom: 1.25rem;
+  }
+
+  .about-body h2 {
+    font-size: 1.2rem;
+    margin: 2.5rem 0 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .about-body ul {
+    margin-bottom: 1.25rem;
+  }
+
+  .about-body li {
+    margin-bottom: 0.4rem;
+    color: #d4d4d8;
+  }
+
+  .about-body strong { color: var(--text); }
+
+  .about-body a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

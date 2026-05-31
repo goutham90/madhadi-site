@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tools = [
+  {
+    name: 'Options Flow Intelligence',
+    description: 'Scans unusual options activity for single-leg call buying patterns, correlating with insider signals, volume anomalies, and catalyst windows. Scores each ticker 0–100.',
+    status: 'Active',
+    tags: ['Python', 'Options API', 'Telegram'],
+  },
+  {
+    name: 'Momentum Alpha Scanner',
+    description: 'Identifies momentum breakouts using convergence scoring across technical signals, options flow, and short interest. Built for 2–5 day swing trades.',
+    status: 'Active',
+    tags: ['Python', 'yFinance', 'IBKR'],
+  },
+  {
+    name: 'GxP Data Integrity Auditor',
+    description: 'Automated audit trail analysis tool for regulated laboratory systems. Flags ALCOA+ violations, sequence anomalies, and metadata gaps across LIMS/ELN exports.',
+    status: 'Internal',
+    tags: ['Python', 'Pandas', 'Pharma'],
+  },
+  {
+    name: 'Catalyst Pre-Signal Scanner',
+    description: 'Detects pre-catalyst alpha in micro/small-cap biotech using SEC 8-K filings, dark pool flow, and volume deviation. Identifies signals 24–72 hours before announcements.',
+    status: 'Active',
+    tags: ['Python', 'EDGAR', 'SEC API'],
+  },
+  {
+    name: 'Long-Term Company Analyzer',
+    description: 'Deep-dive fundamental analysis pipeline: earnings transcripts via SEC, 8-quarter XBRL financials, and AI-generated investment thesis. Output as structured Telegram report.',
+    status: 'Active',
+    tags: ['Python', 'Claude AI', 'XBRL'],
+  },
+  {
+    name: 'Trading System Audit',
+    description: 'Daily health check across all trading tools: API liveness, scanner freshness, process checks, env var validation, and auto-remediation. Runs at 3AM ET.',
+    status: 'Active',
+    tags: ['Python', 'launchd', 'Telegram'],
+  },
+];
+---
+<Layout title="Tools" description="Tools built by Goutham Madhadi for trading intelligence and GxP data quality.">
+  <div class="page-header">
+    <h1>Tools</h1>
+    <p>Automation systems I've built for signal detection, data integrity, and compliance analysis.</p>
+  </div>
+
+  <div class="tools-grid">
+    {tools.map(tool => (
+      <div class="tool-card">
+        <div class="tool-top">
+          <h2 class="tool-name">{tool.name}</h2>
+          <span class={`status status-${tool.status.toLowerCase()}`}>{tool.status}</span>
+        </div>
+        <p class="tool-desc">{tool.description}</p>
+        <div class="tool-tags">
+          {tool.tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      </div>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p { color: var(--muted); }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+
+  .tool-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .tool-card:hover { border-color: var(--accent); }
+
+  .tool-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .tool-name {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .status {
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .status-active {
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+  }
+
+  .status-internal {
+    background: rgba(96, 165, 250, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+  }
+
+  .tool-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .tool-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .tools-grid { grid-template-columns: 1fr; }
+  }
+</style>
