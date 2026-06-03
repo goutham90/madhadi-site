@@ -19,7 +19,7 @@ GAMP 5 isn't a regulation. It isn't FDA guidance. It's an industry best-practice
 
 The document's full title is "GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems." That phrase — risk-based — is the central idea. Not all systems carry the same risk. Not all validation activities need to be documented to the same depth. The framework gives you the logic to decide what level of validation evidence is appropriate for a specific system in a specific context.
 
-The 2022 second edition was issued to respond to years of industry experience with the first edition (2008) and to align with the FDA's 2022 Computer Software Assurance draft guidance. The key updates: greater emphasis on critical thinking over documentation, explicit support for agile development approaches, and a more nuanced discussion of testing approaches.
+The 2022 second edition was issued to respond to years of industry experience with the first edition (2008) and to align with FDA's CSA philosophy (which FDA finalized in February 2026). The key updates: greater emphasis on critical thinking over documentation, explicit support for agile development approaches, a more nuanced discussion of testing approaches, and new appendices covering AI/ML systems, IT infrastructure, blockchain, and the Enabling Innovation framework.
 
 ---
 
@@ -133,6 +133,6 @@ The outcome of the supplier assessment affects the validation plan: a mature sup
 
 ## GAMP 5 and the FDA's CSA Guidance
 
-The [FDA's September 2022 draft guidance on Computer Software Assurance](https://www.fda.gov/media/161521/download) aligns closely with GAMP 5's second edition philosophy, but there are nuanced differences in framing. The CSA guidance is covered in detail in the [CSA article](/articles/computer-software-assurance-fda) — but the key point here is that GAMP 5 and the FDA CSA draft are complementary, not competing. A GAMP 5-compliant validation approach, applied with appropriate risk-based calibration, satisfies the intent of the CSA guidance.
+FDA finalized its Computer Software Assurance (CSA) guidance on February 3, 2026 — the culmination of a process that started with the September 2022 draft. The CSA guidance aligns closely with GAMP 5's second edition philosophy but approaches it from the regulatory enforcement angle rather than the industry best-practice angle. The CSA guidance is covered in detail in the [CSA article](/articles/computer-software-assurance-fda) — but the key point here is that GAMP 5 and the FDA CSA final guidance are complementary, not competing. A GAMP 5-compliant validation approach, applied with appropriate risk-based calibration, satisfies the intent of the CSA guidance.
 
 The 2022 GAMP 5 second edition was developed with awareness of the evolving CSA approach, and ISPE participated in FDA discussions around CSA. Using the second edition (not the 2008 first edition) is important if you want alignment with current FDA thinking.

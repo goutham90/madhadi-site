@@ -1,17 +1,17 @@
 ---
 title: "FDA Computer Software Assurance: What Changed and What Didn't"
-description: "A clear-eyed look at FDA's CSA draft guidance — what it actually says about risk-based testing, scripted vs exploratory testing, and the shift from documentation-heavy CSV to critical thinking. Plus the honest gaps."
+description: "FDA's final CSA guidance (February 2026) — what it actually requires, how it changes testing scope, scripted vs exploratory testing, leveraging supplier evidence, and what the finalization means for inspection expectations."
 pubDate: 2026-05-16
 tags: ["CSV", "CSA", "FDA", "validation", "GAMP", "GxP"]
 pillar: "csv-csa"
 tier: "Advanced"
 ---
 
-FDA published a draft guidance on Computer Software Assurance (CSA) in September 2022. If you work in computer system validation, you've seen the presentations. You've probably heard the phrase "critical thinking over documentation" quoted many times.
+FDA finalized the Computer Software Assurance (CSA) guidance on February 3, 2026. The draft had circulated since September 2022, which means industry spent more than three years operating under the draft's principles — and now those principles carry the full weight of final FDA guidance. If you work in computer system validation, you need to understand exactly what this guidance says, because "critical thinking over documentation" is no longer an industry aspiration. It's what FDA expects.
 
-Here's what the guidance actually says, what it changes in practice, and where it's still ambiguous enough that reasonable people disagree.
+Here's what the guidance actually requires, what it changes in practice, and what questions the finalization answered — and which ones are still being worked out in inspection practice.
 
-The reference document: [FDA Computer Software Assurance for Production and Quality System Software — Draft Guidance for Industry and FDA Staff (September 2022)](https://www.fda.gov/media/161521/download).
+The reference document: [FDA Computer Software Assurance for Production and Quality System Software — Final Guidance for Industry and FDA Staff (February 2026)](https://www.fda.gov/media/161521/download).
 
 ---
 
@@ -77,17 +77,21 @@ The validation package is smaller. The evidence for the critical functions is ju
 
 ---
 
-## Honest Gaps and Industry Disagreement
+## What Finalization Means for Your Program
 
-The CSA guidance is a draft, not a final guidance. As of mid-2026, FDA has not published a final version. This creates real uncertainty: it's not clear whether FDA inspectors will consistently apply the draft guidance's principles in inspections, or whether some inspectors will continue to expect traditional documentation-heavy validation packages.
+The CSA guidance is now final FDA guidance — which means inspectors are expected to apply it, and companies can cite it as the basis for their assurance approach. This resolves several uncertainties that existed under the draft, but some questions are still being answered through inspection practice.
 
-**The "critical thinking over documentation" principle lacks specifics.** The guidance doesn't define what documentation is sufficient to demonstrate critical thinking. Different inspectors may apply different thresholds. Until there's more inspection precedent under CSA, the conservative approach is to document the reasoning for every significant scope decision.
+**The uncertainty around draft vs. final is gone.** For the past three years, companies faced the question: should we apply draft guidance principles, or will an inspector reject them? That's settled now. CSA-informed approaches are the expected approach, not an experimental one. If your validation program is still generating documentation-heavy test packages for low-risk configured software, you're out of alignment with current FDA expectations.
 
-**The supplier documentation standard isn't defined.** "Leveraging supplier activities" is endorsed but not operationalized in the guidance. What level of supplier quality system assessment justifies what degree of reduced site testing? The guidance doesn't specify, and industry practice varies widely.
+**Documentation of critical thinking is now a clear requirement.** The guidance requires that critical thinking — the reasoning behind scope decisions, the risk logic, the rationale for leveraging supplier evidence — be documented. Not in a prescribed format, but demonstrably present. An inspector reviewing your validation package should be able to reconstruct: why did you scope testing this way? What risk factors drove that decision? A validation plan that says "scripted OQ testing was applied to the following functions based on risk" needs to be backed by the risk analysis, not just the assertion.
 
-**Unscripted testing documentation is unclear.** The guidance endorses unscripted testing for lower-risk functions but doesn't specify what documentation of unscripted testing is sufficient. A test summary that describes what was tested and what was found? A screen recording? A set of notes from the tester? The guidance leaves this open.
+**Supplier leverage has clearer standing but still needs assessment documentation.** One of the most practically important CSA principles is leveraging supplier activities — using vendor test documentation to reduce site-level scripted testing. The final guidance supports this, but the mechanism requires a documented supplier assessment. You can't simply point to a vendor's SOC 2 report and call it sufficient. The assessment needs to address: Does the vendor's development and testing process meet the quality bar required to justify relying on their output? For well-established GxP software vendors (major LIMS, MES, ERP platforms), this assessment is usually favorable and substantially documented. For niche or emerging vendors, it requires more work.
 
-My view: for high-risk functions, continue to use scripted testing and don't confuse CSA's flexibility with a reduction in rigor for critical controls. For low-risk functions on well-established commercial platforms, start applying the risk-based reduction the guidance supports — but document your reasoning. The FDA inspector reviewing your validation package should be able to reconstruct why you tested what you tested and why you concluded the scope was sufficient.
+**Unscripted testing documentation remains judgment-dependent.** The guidance endorses unscripted and exploratory testing for lower-risk functions but doesn't mandate a specific record format. In practice, a written test summary — what functions were explored, what the tester was looking for, what was found, and a statement that the system met expectations — is the minimum defensible record. Some organizations use screen recordings for specific functions. Others use structured exploratory test templates. All of these are defensible if they demonstrate purposeful, documented testing rather than ad hoc activity with no record.
+
+**The transition for legacy validation programs.** If your organization has established procedures that require comprehensive scripted testing for all functions regardless of risk, those procedures need updating to reflect CSA expectations. An SOP that requires 100% scripted OQ coverage for all Category 4 systems is now out of step with FDA expectations — and more importantly, it creates compliance overhead that doesn't add assurance value. Update validation master plans, validation SOPs, and qualification approach templates to incorporate risk-based scope decisions with documented rationale.
+
+My view: apply CSA principles fully for new validations and system upgrades. For existing validated systems, a retrospective risk assessment determining which functions actually warranted scripted testing is reasonable documentation of CSA alignment — you don't need to re-execute testing that was already done, but documenting the risk logic ties your historical validation to the current guidance framework.
 
 ---
 
@@ -98,7 +102,7 @@ My view: for high-risk functions, continue to use scripted testing and don't con
 | Testing scope | All functions, comprehensive scripts | Risk-stratified; scripted for critical, exploratory/vendor evidence for lower-risk |
 | Documentation volume | High (binder per system) | Lower, focused on critical functions |
 | Supplier evidence | Supplementary | Can reduce site testing scope |
-| Regulatory basis | FDA Part 11, GAMP 5 first ed | FDA Part 11, GAMP 5 second ed, CSA draft |
+| Regulatory basis | FDA Part 11, GAMP 5 first ed | FDA Part 11, GAMP 5 second ed, CSA final (Feb 2026) |
 | Risk of over-documentation | High | Lower |
 | Risk of under-documentation | Low | Exists if risk stratification is undocumented |
 | Inspection track record | Well-established | Evolving |

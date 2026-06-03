@@ -253,6 +253,13 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"csv-csa-audit-checklist.md": {
+	id: "csv-csa-audit-checklist.md";
+  slug: "csv-csa-audit-checklist";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "csv-risk-assessment-methodology.md": {
 	id: "csv-risk-assessment-methodology.md";
   slug: "csv-risk-assessment-methodology";
@@ -316,9 +323,23 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"di-self-audit-checklist.md": {
+	id: "di-self-audit-checklist.md";
+  slug: "di-self-audit-checklist";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "document-control-fundamentals.md": {
 	id: "document-control-fundamentals.md";
   slug: "document-control-fundamentals";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"equipment-qualification-audit-checklist.md": {
+	id: "equipment-qualification-audit-checklist.md";
+  slug: "equipment-qualification-audit-checklist";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -361,6 +382,13 @@ declare module 'astro:content' {
 "gamp5-csv-framework.md": {
 	id: "gamp5-csv-framework.md";
   slug: "gamp5-csv-framework";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"gxp-computerized-systems-operations.md": {
+	id: "gxp-computerized-systems-operations.md";
+  slug: "gxp-computerized-systems-operations";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -431,6 +459,13 @@ declare module 'astro:content' {
 "process-validation-lifecycle.md": {
 	id: "process-validation-lifecycle.md";
   slug: "process-validation-lifecycle";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"qms-self-audit-checklist.md": {
+	id: "qms-self-audit-checklist.md";
+  slug: "qms-self-audit-checklist";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

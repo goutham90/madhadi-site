@@ -35,7 +35,7 @@ The FDA has not published specific guidance for validating AI/ML systems in manu
 
 **FDA [Artificial Intelligence/Machine Learning (AI/ML)-Based Software as a Medical Device (SaMD): Action Plan (January 2021)](https://www.fda.gov/media/145022/download)** — This document addresses AI in medical devices, not pharmaceutical manufacturing quality systems. But it introduces concepts — transparency, predetermined change control plans (PCCPs), performance monitoring — that are directly relevant to GxP AI validation.
 
-**FDA CSA Draft Guidance (September 2022)** — While not specific to AI, the CSA framework's emphasis on intended use and critical thinking over documentation is the right starting principle for AI systems. Testing should focus on the performance characteristics that matter for the intended use.
+**FDA CSA Final Guidance (February 3, 2026)** — FDA finalized the Computer Software Assurance guidance in February 2026. While not specific to AI, the CSA framework's emphasis on intended use and critical thinking over documentation is the right starting principle for AI systems. Testing should focus on the performance characteristics that matter for the intended use — and that principle applies to AI just as it applies to traditional software.
 
 **GAMP 5 Second Edition (2022)** — Chapter 5 of the 2022 edition addresses novel/innovative technologies, including ML. ISPE has also published supplementary guidance on AI/ML systems. The core GAMP 5 principle — calibrate validation effort to risk, defined by intended use and software category — applies to AI as well.
 
