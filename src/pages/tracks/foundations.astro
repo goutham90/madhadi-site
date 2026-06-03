@@ -1,0 +1,283 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const steps = [
+  {
+    num: '01',
+    title: 'What is GxP, and why does it exist?',
+    desc: 'Before learning the procedures, understand the regulatory map. What FDA, EMA, MHRA, WHO, and ICH actually do. How the regulatory framework connects to patient safety and product quality. Why GxP exists — the historical context of enforcement actions and what prompted modern data integrity expectations.',
+    articles: [
+      { title: 'Data Integrity Foundations: What It Is and Why Regulators Care', slug: 'data-integrity-foundations' },
+    ],
+    pillar: 'Data Integrity',
+    pillarSlug: 'data-integrity',
+    color: '#4f8ef7',
+  },
+  {
+    num: '02',
+    title: 'The ALCOA+ principles — the language of DI',
+    desc: 'ALCOA+ is cited in every data integrity document from every major regulatory agency. Understanding each principle — and the specific failure modes it addresses — gives you the vocabulary to diagnose any data integrity problem you encounter.',
+    articles: [
+      { title: 'ALCOA+: The Framework Behind Every Data Integrity Requirement', slug: 'alcoa-plus-deep-dive' },
+    ],
+    pillar: 'Data Integrity',
+    pillarSlug: 'data-integrity',
+    color: '#4f8ef7',
+  },
+  {
+    num: '03',
+    title: 'The pharmaceutical quality system',
+    desc: 'How QA, QC, validation, and data integrity actually fit together. Most beginners get the relationships wrong. ICH Q10 provides the framework that connects all GxP disciplines into a coherent quality system.',
+    articles: [
+      { title: 'The Pharmaceutical Quality System: ICH Q10 and How QA Actually Works', slug: 'pharmaceutical-quality-system' },
+    ],
+    pillar: 'Quality Assurance',
+    pillarSlug: 'quality-assurance',
+    color: '#f87171',
+  },
+  {
+    num: '04',
+    title: 'Computer system validation — the basics',
+    desc: 'Most GxP data lives in computerized systems. Understanding GAMP 5 software categories, the V-model, and what validation actually requires is foundational for any quality or validation career.',
+    articles: [
+      { title: 'GAMP 5 Second Edition: The Framework for Risk-Based Computer System Validation', slug: 'gamp5-csv-framework' },
+    ],
+    pillar: 'CSV & CSA',
+    pillarSlug: 'csv-csa',
+    color: '#34d399',
+  },
+  {
+    num: '05',
+    title: 'Equipment qualification basics',
+    desc: 'Why equipment must be qualified before use in GxP activities, what DQ/IQ/OQ/PQ actually involves, and how calibration relates to qualification.',
+    articles: [
+      { title: 'Equipment Qualification: DQ/IQ/OQ/PQ and the Qualification Lifecycle', slug: 'equipment-qualification-lifecycle' },
+    ],
+    pillar: 'Equipment Qualification',
+    pillarSlug: 'equipment-qualification',
+    color: '#fbbf24',
+  },
+  {
+    num: '06',
+    title: 'How FDA inspections work — and what they find',
+    desc: 'Understanding how FDA inspections are structured, what investigators look for, and what patterns show up repeatedly in warning letters changes how you think about daily GxP practice.',
+    articles: [
+      { title: 'FDA Data Integrity Warning Letters: 8 Patterns That Repeat', slug: 'fda-warning-letters-patterns' },
+    ],
+    pillar: 'Audits & Inspection',
+    pillarSlug: 'audits-inspection',
+    color: '#fb923c',
+  },
+  {
+    num: '07',
+    title: 'Career roadmap: how to build expertise',
+    desc: 'Where to learn, what credentials matter, how to specialize, and what a realistic career trajectory in GxP quality and validation looks like.',
+    articles: [
+      { title: 'Breaking Into GxP: A Realistic Career Guide for Validation and Quality', slug: 'career-guide-gxp-validation' },
+    ],
+    pillar: 'Career',
+    pillarSlug: null,
+    color: '#64748b',
+  },
+];
+---
+<Layout title="Foundations Track" description="A sequenced reading path for GxP beginners — the regulatory map, ALCOA+, quality systems, CSV basics, and a career roadmap. Start here if you're new to pharma quality and validation.">
+  <div class="track-header">
+    <a href="/tracks" class="back-link">← Learning Tracks</a>
+    <div class="track-badge" style="--tc: #34d399">Foundations</div>
+    <h1>Breaking In: From Zero to Competent</h1>
+    <p class="track-intro">
+      This track is for anyone starting a career in GxP quality, validation, or data integrity — or anyone who wants to understand the field before diving into the technical details. It covers the regulatory landscape, core frameworks, and gives you a concrete roadmap for building expertise.
+    </p>
+    <div class="track-for-box">
+      <strong>For:</strong> Students, career changers, new hires entering their first GxP quality or validation role.
+    </div>
+  </div>
+
+  <div class="steps">
+    {steps.map(step => (
+      <div class="step">
+        <div class="step-num">{step.num}</div>
+        <div class="step-content">
+          <div class="step-pillar" style={`color: ${step.color}`}>{step.pillar}</div>
+          <h2 class="step-title">{step.title}</h2>
+          <p class="step-desc">{step.desc}</p>
+          <div class="step-articles">
+            {step.articles.map(a => (
+              <a href={`/articles/${a.slug}`} class="step-article-link">
+                <span class="article-icon">→</span>
+                {a.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="next-track">
+    <div class="next-inner">
+      <div>
+        <div class="next-label">When you're ready</div>
+        <h2>Continue to the Implementation Track</h2>
+        <p>Once you have the foundations, the Implementation track takes you into execution: how to actually run validations, design audit trails, and manage GxP systems in practice.</p>
+      </div>
+      <a href="/tracks/implementation" class="btn-primary">Implementation Track →</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .back-link { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); }
+
+  .track-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(52,211,153,0.1);
+    color: var(--tc, #34d399);
+    border: 1px solid rgba(52,211,153,0.3);
+    margin-bottom: 1rem;
+  }
+
+  h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
+
+  .track-intro {
+    font-size: 1.05rem;
+    color: var(--muted-light);
+    line-height: 1.75;
+    max-width: 640px;
+    margin-bottom: 1.25rem;
+  }
+
+  .track-for-box {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--muted-light);
+    padding: 0.6rem 1rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 3rem;
+  }
+
+  .track-for-box strong { color: var(--text); }
+
+  .steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 4rem; }
+
+  .step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-dim);
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-size: 1.4rem;
+    font-family: var(--mono);
+    font-weight: 800;
+    color: var(--border);
+    padding-top: 0.2rem;
+    line-height: 1;
+  }
+
+  .step-pillar {
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .step-title {
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+    line-height: 1.35;
+  }
+
+  .step-desc {
+    font-size: 0.9rem;
+    color: var(--muted-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .step-articles { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  .step-article-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--accent);
+    padding: 0.5rem 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: background 0.15s, border-color 0.15s;
+    text-decoration: none;
+  }
+
+  .step-article-link:hover { background: var(--surface2); border-color: var(--accent); }
+  .article-icon { font-size: 0.75rem; color: var(--accent); flex-shrink: 0; }
+
+  .next-track {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+  }
+
+  .next-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .next-label {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .next-inner h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+  .next-inner p { font-size: 0.875rem; color: var(--muted-light); max-width: 520px; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: var(--accent);
+    color: #080910;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.65rem 1.35rem;
+    border-radius: 8px;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--accent-h); color: #080910; }
+
+  @media (max-width: 600px) {
+    .step { grid-template-columns: 1fr; }
+    .step-num { display: none; }
+    .next-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>

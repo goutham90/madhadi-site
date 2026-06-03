@@ -6,10 +6,18 @@ interface Props {
   description: string;
   pubDate: Date;
   tags: string[];
+  tier?: string;
+  pillar?: string;
   body?: string;
 }
 
-const { title, description, pubDate, tags, body = '' } = Astro.props;
+const { title, description, pubDate, tags, tier, pillar, body = '' } = Astro.props;
+
+const tierColors: Record<string, string> = {
+  Beginner: '#34d399',
+  Intermediate: '#4f8ef7',
+  Advanced: '#a78bfa',
+};
 
 const formatted = pubDate.toLocaleDateString('en-US', {
   year: 'numeric', month: 'long', day: 'numeric',
@@ -25,6 +33,10 @@ const readTime = Math.max(1, Math.ceil(wordCount / 220));
         <time datetime={pubDate.toISOString()}>{formatted}</time>
         <span class="sep">·</span>
         <span class="read-time">{readTime} min read</span>
+        {tier && (
+          <span class="sep">·</span>
+          <span class="tier-badge" style={`background: ${tierColors[tier] ?? '#64748b'}22; color: ${tierColors[tier] ?? '#64748b'}; border-color: ${tierColors[tier] ?? '#64748b'}44`}>{tier}</span>
+        )}
         {tags.length > 0 && (
           <span class="sep">·</span>
           <div class="article-tags">
@@ -34,6 +46,11 @@ const readTime = Math.max(1, Math.ceil(wordCount / 220));
           </div>
         )}
       </div>
+      {pillar && (
+        <div class="article-pillar">
+          <a href={`/pillars/${pillar}`}>← Back to pillar</a>
+        </div>
+      )}
       <h1>{title}</h1>
       <p class="article-desc">{description}</p>
     </header>
@@ -73,6 +90,31 @@ const readTime = Math.max(1, Math.ceil(wordCount / 220));
   }
 
   .sep { color: var(--border); font-size: 0.8rem; }
+
+  .tier-badge {
+    font-size: 0.68rem;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid;
+  }
+
+  .article-pillar {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-pillar a {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-family: var(--mono);
+    transition: color 0.15s;
+  }
+
+  .article-pillar a:hover { color: var(--accent); }
 
   .article-tags {
     display: flex;

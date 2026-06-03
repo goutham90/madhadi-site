@@ -3,6 +3,8 @@ title: "Building AI Tools for GxP: What Actually Works"
 description: "Practical lessons from building AI-assisted compliance tools in regulated pharma environments — where the hype ends and the useful stuff begins."
 pubDate: 2026-05-20
 tags: ["AI", "GxP", "automation", "compliance"]
+tier: "Intermediate"
+pillar: "ai-automation"
 ---
 
 Everyone in pharma has sat through a presentation about AI transforming drug development. The slides are always the same: neural networks reading MRI scans, AI writing clinical study reports, machine learning cutting trial times in half.

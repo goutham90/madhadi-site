@@ -3,6 +3,8 @@ title: "Data Integrity in Gene Therapy: What FDA Really Expects"
 description: "A practical breakdown of FDA's data integrity expectations for gene therapy manufacturers — beyond the checklist, into the actual inspection findings."
 pubDate: 2026-05-28
 tags: ["data-integrity", "FDA", "gene-therapy", "GxP"]
+tier: "Advanced"
+pillar: "cell-gene-therapy"
 ---
 
 Gene therapy is arguably the most data-intensive category of biologics the FDA regulates. A single BLA submission for a base editing therapeutic can involve hundreds of assay datasets, manufacturing batch records, stability profiles, and clinical data packages — all of which need to hold together under the scrutiny of a regulatory reviewer who has seen every kind of data manipulation, system misconfiguration, and documentation failure imaginable.

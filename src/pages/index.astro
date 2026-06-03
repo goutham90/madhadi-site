@@ -11,60 +11,62 @@ const tracks = [
   {
     icon: '◎',
     label: 'Foundations',
-    title: 'Why Data Integrity Matters',
-    desc: 'The regulatory basis, ALCOA+ principles, and what FDA/EMA actually inspect. Start here if you are building a program from scratch.',
-    tags: ['ALCOA+', '21 CFR Part 11', 'FDA'],
+    href: '/tracks/foundations',
+    title: 'Start with the essentials',
+    desc: 'Regulatory framework, ALCOA+ principles, GAMP 5, and what FDA/EMA actually inspect. For anyone entering the field or building a program from scratch.',
+    tags: ['ALCOA+', '21 CFR Part 11', 'GAMP 5'],
     color: '#4f8ef7',
   },
   {
     icon: '◈',
     label: 'Implementation',
-    title: 'How to Build a Program',
-    desc: 'System validation, audit trail design, OOS procedures, and AI-assisted compliance tools that actually work in regulated environments.',
-    tags: ['Validation', 'CSV', 'AI Tools'],
+    href: '/tracks/implementation',
+    title: 'Build and validate systems',
+    desc: 'Audit trail design, validation deliverables, CSV/CSA, manufacturing automation, and inspection readiness. For practitioners building or inheriting GxP systems.',
+    tags: ['Validation', 'Audit Trail', 'MES/SCADA'],
     color: '#34d399',
   },
   {
     icon: '◇',
-    label: 'Cell & Gene Therapy',
-    title: 'Specialized Challenges',
-    desc: 'Why CGT presents unique data integrity risks — novel assays, complex manufacturing, BLA-level scrutiny, and real-time batch data.',
-    tags: ['CGT', 'BLA', 'Potency'],
+    label: 'Advanced',
+    href: '/tracks/advanced',
+    title: 'Program design and leadership',
+    desc: 'Enterprise DI program architecture, 483 responses, CSA, cloud validation, CGT-specific challenges, and AI tooling in regulated environments.',
+    tags: ['DI Architecture', '483 Response', 'CGT'],
     color: '#a78bfa',
   },
 ];
 
 const topics = [
-  { name: 'ALCOA+', count: 3 },
-  { name: 'FDA', count: 4 },
-  { name: 'GxP', count: 5 },
-  { name: '21 CFR Part 11', count: 3 },
+  { name: 'Data Integrity', count: 7 },
+  { name: 'FDA', count: 6 },
+  { name: 'GxP', count: 8 },
+  { name: 'ALCOA+', count: 4 },
+  { name: 'Validation', count: 6 },
+  { name: '21 CFR Part 11', count: 4 },
+  { name: 'Audit Trail', count: 4 },
+  { name: 'Cell & Gene Therapy', count: 3 },
+  { name: 'MES/SCADA', count: 2 },
+  { name: 'Warning Letters', count: 3 },
   { name: 'AI Tools', count: 2 },
-  { name: 'Cell & Gene Therapy', count: 2 },
-  { name: 'Audit Trail', count: 3 },
-  { name: 'Warning Letters', count: 2 },
-  { name: 'CSV', count: 2 },
-  { name: 'BLA', count: 1 },
-  { name: 'LIMS', count: 2 },
-  { name: 'ELN', count: 1 },
+  { name: 'GAMP 5', count: 3 },
 ];
 ---
 <Layout title="Home" wide={true}>
   <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-badge">Data Integrity · Regulated Biotech · AI Tools</div>
+      <div class="hero-badge">GxP Quality · Validation · Data Integrity · AI Tools</div>
       <h1>
-        <span class="gradient-text">Everything you need to know<br/>about data integrity.</span>
+        <span class="gradient-text">The practitioner's knowledge hub<br/>for GxP quality and validation.</span>
       </h1>
       <p class="hero-sub">
-        In-depth guides, regulatory case studies, and practical implementation frameworks
-        for quality professionals in pharma and cell & gene therapy.
-        Written by a practitioner, not a consultant.
+        In-depth guides across data integrity, CSV/CSA, equipment qualification, manufacturing
+        automation, inspection readiness, and cell &amp; gene therapy. Written by a practitioner, not a consultant.
       </p>
       <div class="hero-actions">
-        <a href="/articles" class="btn-primary">Browse Articles →</a>
-        <a href="#tracks" class="btn-ghost">Explore Topics</a>
+        <a href="/pillars" class="btn-primary">Browse Pillars →</a>
+        <a href="/tracks" class="btn-ghost">Learning Tracks</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
@@ -73,13 +75,13 @@ const topics = [
         </div>
         <div class="stat-div"></div>
         <div class="stat">
-          <span class="stat-n">5+</span>
-          <span class="stat-l">Topics</span>
+          <span class="stat-n">8</span>
+          <span class="stat-l">Pillars</span>
         </div>
         <div class="stat-div"></div>
         <div class="stat">
-          <span class="stat-n">15+</span>
-          <span class="stat-l">Years in GxP</span>
+          <span class="stat-n">3</span>
+          <span class="stat-l">Learning Tracks</span>
         </div>
       </div>
     </div>
@@ -87,7 +89,7 @@ const topics = [
 
   <!-- Learning Tracks -->
   <section class="tracks" id="tracks">
-    <div class="section-label">Start Here</div>
+    <div class="section-label">Learning Tracks</div>
     <h2 class="section-title">Three ways in</h2>
     <div class="tracks-grid">
       {tracks.map(t => (
@@ -99,7 +101,7 @@ const topics = [
           <div class="track-tags">
             {t.tags.map(tag => <span class="tag">{tag}</span>)}
           </div>
-          <a href="/articles" class="track-link">Read articles →</a>
+          <a href={t.href} class="track-link">Start track →</a>
         </div>
       ))}
     </div>
@@ -110,20 +112,20 @@ const topics = [
     <div class="coverage-inner">
       <div class="coverage-text">
         <div class="section-label">Coverage</div>
-        <h2 class="section-title">The full depth of the discipline</h2>
+        <h2 class="section-title">Eight discipline pillars</h2>
         <p>This isn't a glossary site or a compliance checklist. Every article goes into the mechanics — why things fail, how regulators think, and what an inspector is actually looking for when they open a system audit trail.</p>
-        <a href="/articles" class="btn-outline">All articles →</a>
+        <a href="/pillars" class="btn-outline">Browse all pillars →</a>
       </div>
       <div class="coverage-list">
         {[
-          ['Regulatory Framework', 'FDA 21 CFR Parts 11/211, EMA Annex 11, ICH Q10'],
-          ['ALCOA+ In Practice', 'What each principle means when your LIMS crashes'],
-          ['System Validation', 'CSV, IQ/OQ/PQ, and what actually fails inspections'],
-          ['Audit Trail Design', 'What to log, at what level, and how to review it'],
-          ['AI & Automation', '21 CFR-compliant AI tooling for compliance workflows'],
-          ['Warning Letter Analysis', 'Pattern analysis from real FDA enforcement actions'],
-          ['Cell & Gene Therapy', 'Potency assays, vector manufacturing, BLA data packs'],
-          ['Data Governance', 'Roles, responsibilities, and metadata management'],
+          ['Data Integrity', 'ALCOA+, DI program architecture, audit trail design, warning letter patterns'],
+          ['CSV / CSA', 'GAMP 5, validation lifecycle, CSA risk-based approach, cloud/SaaS'],
+          ['Equipment Qualification', 'IQ/OQ/PQ, USP <1058>, AIQ lifecycle, analytical instruments'],
+          ['Quality Assurance', 'PQS, ICH Q10, change control, CAPA, document management'],
+          ['Audits & Inspection', 'FDA inspection readiness, 483 responses, front/back room operations'],
+          ['Cell & Gene Therapy', 'CGT data integrity, potency assays, BLA-level scrutiny, viral vectors'],
+          ['Manufacturing Automation', 'MES, EBR, SCADA, DCS, PLC audit trails, review-by-exception'],
+          ['AI & Automation', '21 CFR-compliant AI tools, NLP for audit trail review, data pipelines'],
         ].map(([title, desc]) => (
           <div class="cov-item">
             <div class="cov-title">{title}</div>

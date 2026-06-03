@@ -3,6 +3,8 @@ title: "Cell & Gene Therapy: Why Data Integrity Is Structurally Different"
 description: "How the scientific and regulatory characteristics of CGT create data integrity challenges that don't exist in conventional drug manufacturing — and what to do about them."
 pubDate: 2026-05-05
 tags: ["Cell & Gene Therapy", "BLA", "GxP", "Potency"]
+tier: "Intermediate"
+pillar: "cell-gene-therapy"
 ---
 
 Data integrity in conventional pharmaceutical manufacturing is well-understood territory. The failure modes are documented in decades of warning letters. The systems — LIMS, CDS, MES — have established validation playbooks. The regulatory expectations are mature.

@@ -8,6 +8,8 @@ const articles = defineCollection({
     pubDate: z.coerce.date(),
     tags: z.array(z.string()).optional().default([]),
     draft: z.boolean().optional().default(false),
+    tier: z.enum(['Beginner', 'Intermediate', 'Advanced']).optional(),
+    pillar: z.string().optional(),
   }),
 });
 

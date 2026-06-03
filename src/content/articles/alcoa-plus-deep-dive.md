@@ -3,6 +3,8 @@ title: "ALCOA+: The Framework Behind Every Data Integrity Requirement"
 description: "A complete breakdown of ALCOA+ — what each principle actually means, where programs fail, and how to assess compliance in practice."
 pubDate: 2026-05-15
 tags: ["ALCOA+", "FDA", "GxP", "foundations"]
+tier: "Intermediate"
+pillar: "data-integrity"
 ---
 
 ALCOA+ is the most referenced framework in pharmaceutical data integrity. It appears in FDA guidance, EMA Annex 11, WHO TRS, and virtually every quality management standard in regulated biotech. Yet it's also routinely misapplied — treated as a checklist rather than as a set of principles with real engineering and process implications.

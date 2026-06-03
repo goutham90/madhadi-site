@@ -141,9 +141,44 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"articles": {
+"21-cfr-part-11-eu-annex-11.md": {
+	id: "21-cfr-part-11-eu-annex-11.md";
+  slug: "21-cfr-part-11-eu-annex-11";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"483-warning-letter-response.md": {
+	id: "483-warning-letter-response.md";
+  slug: "483-warning-letter-response";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "alcoa-plus-deep-dive.md": {
 	id: "alcoa-plus-deep-dive.md";
   slug: "alcoa-plus-deep-dive";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"analytical-instrument-qualification.md": {
+	id: "analytical-instrument-qualification.md";
+  slug: "analytical-instrument-qualification";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"audit-trail-design-and-review.md": {
+	id: "audit-trail-design-and-review.md";
+  slug: "audit-trail-design-and-review";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"breaking-into-gxp-quality.md": {
+	id: "breaking-into-gxp-quality.md";
+  slug: "breaking-into-gxp-quality";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -155,9 +190,44 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"career-guide-gxp-validation.md": {
+	id: "career-guide-gxp-validation.md";
+  slug: "career-guide-gxp-validation";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "cell-gene-therapy-data-integrity.md": {
 	id: "cell-gene-therapy-data-integrity.md";
   slug: "cell-gene-therapy-data-integrity";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"cloud-saas-validation.md": {
+	id: "cloud-saas-validation.md";
+  slug: "cloud-saas-validation";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"computer-software-assurance-fda.md": {
+	id: "computer-software-assurance-fda.md";
+  slug: "computer-software-assurance-fda";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"data-governance-framework.md": {
+	id: "data-governance-framework.md";
+  slug: "data-governance-framework";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"data-integrity-foundations.md": {
+	id: "data-integrity-foundations.md";
+  slug: "data-integrity-foundations";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -169,9 +239,100 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"data-lifecycle-and-metadata.md": {
+	id: "data-lifecycle-and-metadata.md";
+  slug: "data-lifecycle-and-metadata";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"di-program-architecture.md": {
+	id: "di-program-architecture.md";
+  slug: "di-program-architecture";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"equipment-qualification-lifecycle.md": {
+	id: "equipment-qualification-lifecycle.md";
+  slug: "equipment-qualification-lifecycle";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"fda-483-response-strategy.md": {
+	id: "fda-483-response-strategy.md";
+  slug: "fda-483-response-strategy";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"fda-inspection-readiness.md": {
+	id: "fda-inspection-readiness.md";
+  slug: "fda-inspection-readiness";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "fda-warning-letters-patterns.md": {
 	id: "fda-warning-letters-patterns.md";
   slug: "fda-warning-letters-patterns";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"gamp5-csv-framework.md": {
+	id: "gamp5-csv-framework.md";
+  slug: "gamp5-csv-framework";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"gxp-manufacturing-systems.md": {
+	id: "gxp-manufacturing-systems.md";
+  slug: "gxp-manufacturing-systems";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"inspection-readiness.md": {
+	id: "inspection-readiness.md";
+  slug: "inspection-readiness";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"mes-ebr-scada-data-integrity.md": {
+	id: "mes-ebr-scada-data-integrity.md";
+  slug: "mes-ebr-scada-data-integrity";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"pharmaceutical-quality-system.md": {
+	id: "pharmaceutical-quality-system.md";
+  slug: "pharmaceutical-quality-system";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"quality-risk-management.md": {
+	id: "quality-risk-management.md";
+  slug: "quality-risk-management";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"validating-ai-gxp-systems.md": {
+	id: "validating-ai-gxp-systems.md";
+  slug: "validating-ai-gxp-systems";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"validation-deliverables-guide.md": {
+	id: "validation-deliverables-guide.md";
+  slug: "validation-deliverables-guide";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

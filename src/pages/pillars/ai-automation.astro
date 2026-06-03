@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('articles', ({ data }) => !data.draft && data.pillar === 'ai-automation');
+const sorted = all.sort((a, b) => {
+  const tierOrder = { Beginner: 0, Intermediate: 1, Advanced: 2 };
+  return (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1);
+});
+const tierColors: Record<string, string> = { Beginner: '#34d399', Intermediate: '#4f8ef7', Advanced: '#a78bfa' };
+---
+<Layout title="AI & Automation in Compliance" description="Building Part 11-compliant AI tooling for GxP, validating AI-enabled systems, audit trail triage, and where AI genuinely helps in quality and compliance workflows.">
+  <div class="pillar-header">
+    <a href="/pillars" class="back-link">← All Pillars</a>
+    <div class="pillar-label">Cross-Cutting</div>
+    <h1>AI &amp; Automation in Compliance</h1>
+    <p class="pillar-intro">
+      AI is genuinely useful in compliance — for specific, bounded tasks where the risk of error is caught downstream by a human reviewer. It is not useful as an autonomous decision-maker in regulated workflows. Building AI tools for GxP requires understanding this distinction from the start, then designing the validation infrastructure around it before writing a line of code.
+    </p>
+    <div class="reg-basis">
+      <div class="reg-label">Regulatory basis</div>
+      <div class="reg-links">
+        <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/computer-software-assurance-production-and-quality-system-software" target="_blank" rel="noopener">FDA CSA Draft Guidance (Sep 2022)</a>
+        <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11" target="_blank" rel="noopener">21 CFR Part 11</a>
+        <a href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-and-machine-learning-software-medical-device" target="_blank" rel="noopener">FDA AI/ML Framework</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pillar-body">
+    <div class="articles-section">
+      <h2>Articles in this pillar</h2>
+      {sorted.length === 0 ? (
+        <p class="empty">Articles coming soon.</p>
+      ) : (
+        <div class="article-list">
+          {sorted.map(post => {
+            const readTime = Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 220));
+            const tier = post.data.tier ?? 'Intermediate';
+            const color = tierColors[tier] ?? '#64748b';
+            return (
+              <a href={`/articles/${post.slug}`} class="article-row">
+                <div class="article-row-main">
+                  <div class="article-row-top">
+                    <span class="tier-badge" style={`background:${color}22;color:${color};border-color:${color}44`}>{tier}</span>
+                    <h3>{post.data.title}</h3>
+                  </div>
+                  <p>{post.data.description}</p>
+                </div>
+                <div class="article-row-meta"><span>{readTime} min</span><span class="arrow">→</span></div>
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </div>
+    <aside class="pillar-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-label">What this pillar covers</div>
+        <ul>
+          <li>What AI tools actually work in GxP (and what doesn't)</li>
+          <li>Building Part 11-compliant AI tooling</li>
+          <li>Validation of AI-enabled GxP systems</li>
+          <li>Audit trail anomaly detection with AI</li>
+          <li>Document gap analysis and deviation triage</li>
+          <li>Logging and human review requirements for AI outputs</li>
+          <li>Validating AI/ML and dynamic systems</li>
+          <li>CSA's approach to higher-complexity software</li>
+        </ul>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-label">Related pillars</div>
+        <a href="/pillars/csv-csa" class="related-pill">CSV &amp; CSA →</a>
+        <a href="/pillars/data-integrity" class="related-pill">Data Integrity →</a>
+        <a href="/pillars/manufacturing-automation" class="related-pill">Manufacturing Systems →</a>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-label">Learning tracks</div>
+        <a href="/tracks/implementation" class="track-link">Implementation Track</a>
+        <a href="/tracks/advanced" class="track-link">Advanced Track</a>
+      </div>
+    </aside>
+  </div>
+</Layout>
+
+<style>
+  .back-link { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); }
+  .pillar-label { font-size: 0.72rem; font-family: var(--mono); color: #e879f9; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 0.6rem; }
+  h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
+  .pillar-intro { font-size: 1.05rem; color: var(--muted-light); line-height: 1.75; max-width: 680px; margin-bottom: 1.5rem; }
+  .reg-basis { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 3rem; }
+  .reg-label { font-size: 0.72rem; font-family: var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; flex-shrink: 0; }
+  .reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .reg-links a { font-size: 0.78rem; color: var(--accent); padding: 0.2rem 0.6rem; border: 1px solid rgba(79,142,247,0.25); border-radius: 999px; transition: background 0.15s; }
+  .reg-links a:hover { background: var(--accent-glow); }
+  .pillar-body { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
+  h2 { font-size: 1.1rem; color: var(--text); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-dim); }
+  .empty { color: var(--muted); font-size: 0.9rem; }
+  .article-list { display: flex; flex-direction: column; }
+  .article-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border-dim); text-decoration: none; color: inherit; transition: background 0.15s; border-radius: 8px; }
+  .article-row:last-child { border-bottom: none; }
+  .article-row:hover { background: var(--surface); padding-left: 0.75rem; padding-right: 0.75rem; }
+  .article-row-main { flex: 1; }
+  .article-row-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
+  .tier-badge { font-size: 0.65rem; font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border-radius: 999px; border: 1px solid; flex-shrink: 0; }
+  .article-row-main h3 { font-size: 1rem; color: var(--text); line-height: 1.35; transition: color 0.15s; }
+  .article-row:hover .article-row-main h3 { color: var(--accent); }
+  .article-row-main p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; margin: 0; }
+  .article-row-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; flex-shrink: 0; }
+  .article-row-meta span { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
+  .arrow { color: var(--muted); transition: color 0.15s; }
+  .article-row:hover .arrow { color: var(--accent); }
+  .pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+  .sidebar-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .sidebar-label { font-size: 0.7rem; font-family: var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.85rem; }
+  .sidebar-block ul { padding-left: 1rem; list-style: disc; color: var(--muted-light); font-size: 0.825rem; line-height: 1.6; }
+  .sidebar-block li { margin-bottom: 0.35rem; }
+  .related-pill, .track-link { display: block; font-size: 0.825rem; color: var(--muted-light); padding: 0.4rem 0; border-bottom: 1px solid var(--border-dim); transition: color 0.15s; }
+  .related-pill:last-child, .track-link:last-child { border-bottom: none; }
+  .related-pill:hover, .track-link:hover { color: var(--accent); }
+  @media (max-width: 860px) { .pillar-body { grid-template-columns: 1fr; } .pillar-sidebar { order: -1; } }
+</style>
