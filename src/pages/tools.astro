@@ -172,10 +172,10 @@ import Layout from '../layouts/Layout.astro';
  <p class="checklist-desc">Select validation type to see required and recommended deliverables. Based on GAMP 5 Second Edition and FDA/EMA expectations.</p>
  <div class="vd-selector">
  <div class="vd-type-btns">
- <button class="vd-type-btn active" onclick="selectVDType('csv')">Computer System (CSV)</button>
- <button class="vd-type-btn" onclick="selectVDType('equipment')">Equipment / Instrument</button>
- <button class="vd-type-btn" onclick="selectVDType('process')">Process Validation</button>
- <button class="vd-type-btn" onclick="selectVDType('cleaning')">Cleaning Validation</button>
+ <button class="vd-type-btn active" onclick="selectVDType('csv', this)">Computer System (CSV)</button>
+ <button class="vd-type-btn" onclick="selectVDType('equipment', this)">Equipment / Instrument</button>
+ <button class="vd-type-btn" onclick="selectVDType('process', this)">Process Validation</button>
+ <button class="vd-type-btn" onclick="selectVDType('cleaning', this)">Cleaning Validation</button>
  </div>
  <div class="vd-list" id="vd-content">
  <!-- populated by JS -->
@@ -186,35 +186,38 @@ import Layout from '../layouts/Layout.astro';
  </div>
 </Layout>
 
-<script>
- // ── ALCOA+ Progress ────────────────────────────────────────────────────────
+<script is:inline>
+ // ── ALCOA+ and 483 progress bars ──────────────────────────────────────────
  function updateChecklistProgress(group, total) {
- const checked = document.querySelectorAll(`input[data-group="${group}"]:checked`).length;
- const fill = document.getElementById(`${group}-fill`);
- const countEl = document.getElementById(`${group}-count`);
- const labelEl = document.getElementById(`${group}-label`);
+ var checked = document.querySelectorAll('input[data-group="' + group + '"]:checked').length;
+ var fill = document.getElementById(group + '-fill');
+ var countEl = document.getElementById(group + '-count');
+ var labelEl = document.getElementById(group + '-label');
  if (!fill) return;
- const pct = Math.round((checked / total) * 100);
+ var pct = Math.round((checked / total) * 100);
  fill.style.width = pct + '%';
- if (countEl) countEl.textContent = `${checked} / ${total}`;
+ if (countEl) countEl.textContent = checked + ' / ' + total;
  if (labelEl) {
  if (checked === 0) labelEl.textContent = 'Not assessed';
  else if (checked === total) labelEl.textContent = 'All principles satisfied';
- else labelEl.textContent = `${pct}% — ${total - checked} gap(s) remain`;
+ else labelEl.textContent = pct + '% — ' + (total - checked) + ' gap(s) remain';
  }
  fill.style.background = checked === total ? '#34d399' : checked >= total * 0.7 ? '#4f8ef7' : '#f87171';
  }
 
- document.querySelectorAll('input[data-group="alcoa"]').forEach(cb => {
- cb.addEventListener('change', () => updateChecklistProgress('alcoa', 9));
+ document.addEventListener('DOMContentLoaded', function () {
+ document.querySelectorAll('input[data-group="alcoa"]').forEach(function (cb) {
+ cb.addEventListener('change', function () { updateChecklistProgress('alcoa', 9); });
  });
- document.querySelectorAll('input[data-group="fda483"]').forEach(cb => {
- cb.addEventListener('change', () => updateChecklistProgress('fda483', 10));
+ document.querySelectorAll('input[data-group="fda483"]').forEach(function (cb) {
+ cb.addEventListener('change', function () { updateChecklistProgress('fda483', 10); });
+ });
+ renderVD('csv');
  });
 
  // ── GAMP Decision Aid ─────────────────────────────────────────────────────
  function gampAnswer(q, answer) {
- document.getElementById(`gamp-q${q}`).classList.add('hidden');
+ document.getElementById('gamp-q' + q).classList.add('hidden');
  if (q === 1) {
  if (answer === 'yes') { document.getElementById('gamp-cat1').classList.remove('hidden'); }
  else { document.getElementById('gamp-q2').classList.remove('hidden'); }
@@ -228,21 +231,21 @@ import Layout from '../layouts/Layout.astro';
  }
 
  function gampReset() {
- ['gamp-q2','gamp-q3','gamp-cat1','gamp-cat3','gamp-cat4','gamp-cat5'].forEach(id => {
+ ['gamp-q2','gamp-q3','gamp-cat1','gamp-cat3','gamp-cat4','gamp-cat5'].forEach(function (id) {
  document.getElementById(id).classList.add('hidden');
  });
  document.getElementById('gamp-q1').classList.remove('hidden');
  }
 
  // ── Validation Deliverables ───────────────────────────────────────────────
- const vdData = {
+ var vdData = {
  csv: {
- required: ['Validation Plan / Master Validation Plan','User Requirements Specification (URS)','Functional Requirements Specification (FRS)','System Design Specification (SDS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Traceability Matrix (URS → Test Scripts)','Validation Summary Report','SOPs for system use and administration'],
+ required: ['Validation Plan / Master Validation Plan','User Requirements Specification (URS)','Functional Requirements Specification (FRS)','System Design Specification (SDS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Traceability Matrix (URS to Test Scripts)','Validation Summary Report','SOPs for system use and administration'],
  recommended: ['Supplier Assessment / Audit Report','Hardware and Software Design Review','Risk Assessment (system-level, GAMP appendix B)','Data Migration Validation (if applicable)','Periodic Review SOP and schedule','User Acceptance Testing (UAT) documentation'],
  },
  equipment: {
  required: ['Instrument Qualification Plan','User Requirements Specification (URS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Maintenance and calibration SOPs','Requalification trigger criteria (documented)'],
- recommended: ['Supplier / vendor documentation review','Design Qualification (DQ) for custom equipment','Preventive maintenance records integration','Risk assessment per USP <1058>','Analytical Instrument Classification (AIC) decision'],
+ recommended: ['Supplier / vendor documentation review','Design Qualification (DQ) for custom equipment','Preventive maintenance records integration','Risk assessment per USP 1058','Analytical Instrument Classification (AIC) decision'],
  },
  process: {
  required: ['Process Validation Protocol (PPQ stage 3)','Process Design summary (stage 1 data)','Process Performance Qualification (PPQ) report','Continued Process Verification (CPV) plan','Statistical process control criteria','Linkage to batch record and specifications'],
@@ -255,26 +258,25 @@ import Layout from '../layouts/Layout.astro';
  };
 
  function renderVD(type) {
- const data = vdData[type];
- const container = document.getElementById('vd-content');
- container.innerHTML = `
- <div class="vd-section">
- <div class="vd-section-title required-label">Required Deliverables</div>
- <ul class="vd-list-items">${data.required.map(d => `<li class="vd-item req">${d}</li>`).join('')}</ul>
- </div>
- <div class="vd-section">
- <div class="vd-section-title recommended-label">Recommended / Risk-Based</div>
- <ul class="vd-list-items">${data.recommended.map(d => `<li class="vd-item rec">${d}</li>`).join('')}</ul>
- </div>`;
+ var data = vdData[type];
+ var container = document.getElementById('vd-content');
+ if (!container || !data) return;
+ container.innerHTML =
+ '<div class="vd-section">' +
+ '<div class="vd-section-title required-label">Required Deliverables</div>' +
+ '<ul class="vd-list-items">' + data.required.map(function (d) { return '<li class="vd-item req">' + d + '</li>'; }).join('') + '</ul>' +
+ '</div>' +
+ '<div class="vd-section">' +
+ '<div class="vd-section-title recommended-label">Recommended / Risk-Based</div>' +
+ '<ul class="vd-list-items">' + data.recommended.map(function (d) { return '<li class="vd-item rec">' + d + '</li>'; }).join('') + '</ul>' +
+ '</div>';
  }
 
- function selectVDType(type) {
- document.querySelectorAll('.vd-type-btn').forEach(btn => btn.classList.remove('active'));
- event.target.classList.add('active');
+ function selectVDType(type, btn) {
+ document.querySelectorAll('.vd-type-btn').forEach(function (b) { b.classList.remove('active'); });
+ btn.classList.add('active');
  renderVD(type);
  }
-
- renderVD('csv'); // default
 </script>
 
 <style>
