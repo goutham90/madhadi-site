@@ -16,6 +16,11 @@ import Layout from '../layouts/Layout.astro';
  equipment qualification, automation systems, QMS, clinical systems, and GxP quality.
  Written for practitioners, from people new to the field through senior program leaders.
  </p>
+ <p class="zero-agenda">
+ What I get from this: nothing, except knowing it helped someone avoid learning things the hard way.
+ That's genuinely enough. If it's not useful to you, the tab close button is right there and there is no 6-step cancellation flow, no passive-aggressive popup, and no email sequence asking why you left.
+ And if something is wrong, outdated, or missing, <a href="mailto:goutham90@gmail.com" class="feedback-link">I actually want to know</a>.
+ </p>
  <div class="disclaimer-box">
  <div class="disclaimer-label">Educational disclaimer</div>
  <p>
@@ -292,8 +297,25 @@ import Layout from '../layouts/Layout.astro';
  color: var(--muted-light);
  line-height: 1.7;
  max-width: 620px;
- margin-bottom: 2rem;
+ margin-bottom: 1rem;
  }
+
+ .zero-agenda {
+ font-size: 0.825rem;
+ color: var(--muted);
+ line-height: 1.65;
+ max-width: 600px;
+ margin-bottom: 2rem;
+ font-style: italic;
+ }
+
+ .feedback-link {
+ color: var(--accent);
+ text-decoration: underline;
+ text-underline-offset: 2px;
+ }
+
+ .feedback-link:hover { color: var(--accent-h); }
 
  .disclaimer-box {
  background: var(--surface);
