@@ -1,6 +1,6 @@
 ---
 title: "Data Integrity Gap Assessment: How to Conduct One That Actually Finds Something"
-description: "A complete methodology for conducting a GxP data integrity gap assessment — scoping the assessment, evaluating each system layer, scoring findings, producing a defensible report, and prioritizing remediation. For DI program leaders and quality directors."
+description: "A complete methodology for conducting a GxP data integrity gap assessment, scoping the assessment, evaluating each system layer, scoring findings, producing a defensible report, and prioritizing remediation. For DI program leaders and quality directors."
 pubDate: 2026-05-02
 tags: ["data integrity", "gap assessment", "DI program", "ALCOA+", "audit"]
 tier: "Advanced"

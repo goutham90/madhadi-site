@@ -1,6 +1,6 @@
 ---
 title: "Validating AI-Enabled GxP Systems: The Framework That's Still Being Built"
-description: "How to approach validation for AI and machine learning systems in regulated pharmaceutical environments — what's different about AI validation, the current regulatory gaps, and a practical framework for getting it right now."
+description: "How to approach validation for AI and machine learning systems in regulated pharmaceutical environments, what's different about AI validation, the current regulatory gaps, and a practical framework for getting it right now."
 pubDate: 2026-05-25
 tags: ["AI", "validation", "CSV", "GxP", "21-CFR-Part-11", "machine-learning"]
 pillar: "ai-automation"

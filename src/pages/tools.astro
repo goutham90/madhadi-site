@@ -2,756 +2,756 @@
 import Layout from '../layouts/Layout.astro';
 
 const tools = [
-  {
-    name: 'Audit Trail Anomaly Detector',
-    desc: 'Statistical analysis of LIMS/ELN audit trail exports. Flags off-hours entries, back-to-back edit sequences, bulk modifications, and user behavior outliers. Outputs a prioritized review queue for QA.',
-    status: 'Active',
-    stack: ['Python', 'Pandas', 'LIMS Export'],
-    detail: 'Covers temporal anomalies, sequential edit patterns, metadata gaps, and statistical deviation from baseline user behavior.',
-  },
-  {
-    name: 'ALCOA+ Gap Analyzer',
-    desc: 'Parses SOP, batch record, or protocol text and cross-references it against ALCOA+ requirements and FDA data integrity guidance. Returns a structured gap report with severity ratings.',
-    status: 'Active',
-    stack: ['Python', 'Claude API', 'NLP'],
-    detail: 'Output includes: missing attributability controls, contemporaneity gaps, completeness issues, and record endurance risks.',
-  },
-  {
-    name: 'Deviation Pattern Classifier',
-    desc: 'AI-based classifier for incoming deviation reports. Categorizes by type, assigns a risk tier, and surfaces the three most similar historical deviations for investigator reference.',
-    status: 'Active',
-    stack: ['Python', 'scikit-learn', 'CAPA DB'],
-    detail: 'Reduces triage time and improves consistency in deviation categorization across sites.',
-  },
-  {
-    name: '21 CFR Part 11 Assessment Tool',
-    desc: 'Evaluates a computerized system against 21 CFR Part 11 requirements. Generates a readiness matrix covering audit trails, access controls, electronic signatures, and record retention.',
-    status: 'Active',
-    stack: ['Python', 'Excel Output', 'GxP'],
-    detail: 'Designed for pre-qualification assessment and periodic review of validated systems.',
-  },
-  {
-    name: 'Chromatography Data System Auditor',
-    desc: 'Specialized audit tool for CDS platforms (Empower, Chemstation). Detects sequence injection anomalies, processing method changes, result set deletions, and integration parameter manipulation.',
-    status: 'Active',
-    stack: ['Python', 'CDS API', 'QC'],
-    detail: 'CDS platforms are the most common source of data integrity findings in analytical QC labs.',
-  },
-  {
-    name: 'Data Integrity Risk Register',
-    desc: 'Systematic risk assessment framework for GxP systems. Scores each system on data criticality, control gaps, and detection capability. Prioritizes remediation by risk exposure.',
-    status: 'Active',
-    stack: ['Python', 'Risk Matrix', 'GxP'],
-    detail: 'Generates a prioritized remediation roadmap aligned to FDA and EMA data integrity guidance.',
-  },
+ {
+ name: 'Audit Trail Anomaly Detector',
+ desc: 'Statistical analysis of LIMS/ELN audit trail exports. Flags off-hours entries, back-to-back edit sequences, bulk modifications, and user behavior outliers. Outputs a prioritized review queue for QA.',
+ status: 'Active',
+ stack: ['Python', 'Pandas', 'LIMS Export'],
+ detail: 'Covers temporal anomalies, sequential edit patterns, metadata gaps, and statistical deviation from baseline user behavior.',
+ },
+ {
+ name: 'ALCOA+ Gap Analyzer',
+ desc: 'Parses SOP, batch record, or protocol text and cross-references it against ALCOA+ requirements and FDA data integrity guidance. Returns a structured gap report with severity ratings.',
+ status: 'Active',
+ stack: ['Python', 'Claude API', 'NLP'],
+ detail: 'Output includes: missing attributability controls, contemporaneity gaps, completeness issues, and record endurance risks.',
+ },
+ {
+ name: 'Deviation Pattern Classifier',
+ desc: 'AI-based classifier for incoming deviation reports. Categorizes by type, assigns a risk tier, and surfaces the three most similar historical deviations for investigator reference.',
+ status: 'Active',
+ stack: ['Python', 'scikit-learn', 'CAPA DB'],
+ detail: 'Reduces triage time and improves consistency in deviation categorization across sites.',
+ },
+ {
+ name: '21 CFR Part 11 Assessment Tool',
+ desc: 'Evaluates a computerized system against 21 CFR Part 11 requirements. Generates a readiness matrix covering audit trails, access controls, electronic signatures, and record retention.',
+ status: 'Active',
+ stack: ['Python', 'Excel Output', 'GxP'],
+ detail: 'Designed for pre-qualification assessment and periodic review of validated systems.',
+ },
+ {
+ name: 'Chromatography Data System Auditor',
+ desc: 'Specialized audit tool for CDS platforms (Empower, Chemstation). Detects sequence injection anomalies, processing method changes, result set deletions, and integration parameter manipulation.',
+ status: 'Active',
+ stack: ['Python', 'CDS API', 'QC'],
+ detail: 'CDS platforms are the most common source of data integrity findings in analytical QC labs.',
+ },
+ {
+ name: 'Data Integrity Risk Register',
+ desc: 'Systematic risk assessment framework for GxP systems. Scores each system on data criticality, control gaps, and detection capability. Prioritizes remediation by risk exposure.',
+ status: 'Active',
+ stack: ['Python', 'Risk Matrix', 'GxP'],
+ detail: 'Generates a prioritized remediation roadmap aligned to FDA and EMA data integrity guidance.',
+ },
 ];
 ---
-<Layout title="Tools" description="Data integrity tools for GxP compliance — audit trail analysis, ALCOA+ gap assessment, deviation classification, and 21 CFR Part 11 evaluation.">
-  <div class="page-header">
-    <div class="page-label">Built Tools</div>
-    <h1>Tools</h1>
-    <p>
-      Automation systems built to solve real data integrity problems in regulated biotech.
-      All tools are designed with GxP validation in mind — documented, testable, and auditable.
-    </p>
-    <div class="callout">
-      <div class="callout-title">Note</div>
-      <p>These tools are built for internal GxP environments. Any AI-assisted output feeds a documented human review process — AI flags, humans decide, decisions are logged.</p>
-    </div>
-  </div>
+<Layout title="Tools" description="Data integrity tools for GxP compliance, audit trail analysis, ALCOA+ gap assessment, deviation classification, and 21 CFR Part 11 evaluation.">
+ <div class="page-header">
+ <div class="page-label">Built Tools</div>
+ <h1>Tools</h1>
+ <p>
+ Automation systems built to solve real data integrity problems in regulated biotech.
+ All tools are designed with GxP validation in mind, documented, testable, and auditable.
+ </p>
+ <div class="callout">
+ <div class="callout-title">Note</div>
+ <p>These tools are built for internal GxP environments. Any AI-assisted output feeds a documented human review process, AI flags, humans decide, decisions are logged.</p>
+ </div>
+ </div>
 
-  <div class="tools-grid">
-    {tools.map(tool => (
-      <div class="tool-card">
-        <div class="tool-header">
-          <h2 class="tool-name">{tool.name}</h2>
-          <span class="status-badge">{tool.status}</span>
-        </div>
-        <p class="tool-desc">{tool.desc}</p>
-        <div class="tool-detail">{tool.detail}</div>
-        <div class="tool-footer">
-          <div class="tool-stack">
-            {tool.stack.map(s => <span class="stack-tag">{s}</span>)}
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
+ <div class="tools-grid">
+ {tools.map(tool => (
+ <div class="tool-card">
+ <div class="tool-header">
+ <h2 class="tool-name">{tool.name}</h2>
+ <span class="status-badge">{tool.status}</span>
+ </div>
+ <p class="tool-desc">{tool.desc}</p>
+ <div class="tool-detail">{tool.detail}</div>
+ <div class="tool-footer">
+ <div class="tool-stack">
+ {tool.stack.map(s => <span class="stack-tag">{s}</span>)}
+ </div>
+ </div>
+ </div>
+ ))}
+ </div>
 
-  <!-- Audit Guides -->
-  <div class="section-divider">
-    <div class="page-label">Audit Guides</div>
-    <h2 class="section-heading">Self-Audit Checklists</h2>
-    <p class="section-desc">Detailed structured checklists to evaluate compliance programs — designed to find what FDA and EMA inspectors find.</p>
-  </div>
+ <!-- Audit Guides -->
+ <div class="section-divider">
+ <div class="page-label">Audit Guides</div>
+ <h2 class="section-heading">Self-Audit Checklists</h2>
+ <p class="section-desc">Detailed structured checklists to evaluate compliance programs, designed to find what FDA and EMA inspectors find.</p>
+ </div>
 
-  <div class="audit-grid">
-    <a href="/articles/di-self-audit-checklist" class="audit-card">
-      <div class="audit-icon" style="color:#4f8ef7">DI</div>
-      <div class="audit-body">
-        <div class="audit-title">Data Integrity Self-Audit</div>
-        <div class="audit-desc">5-layer DI compliance audit: infrastructure controls, system configuration, procedural controls, work practice forensics, and culture indicators. Structured around FDA, MHRA, WHO, and PIC/S DI expectations.</div>
-        <div class="audit-meta">Advanced · Data Integrity</div>
-      </div>
-    </a>
-    <a href="/articles/csv-csa-audit-checklist" class="audit-card">
-      <div class="audit-icon" style="color:#34d399">CSV</div>
-      <div class="audit-body">
-        <div class="audit-title">CSV / CSA Program Self-Audit</div>
-        <div class="audit-desc">Evaluate your computer system validation program: system inventory, GAMP category assignments, validation documentation quality, traceability, supplier assessment, change control, and periodic review. Aligned with GAMP 5 Second Edition and FDA CSA final guidance (Feb 2026).</div>
-        <div class="audit-meta">Advanced · CSV &amp; CSA</div>
-      </div>
-    </a>
-    <a href="/articles/equipment-qualification-audit-checklist" class="audit-card">
-      <div class="audit-icon" style="color:#fbbf24">EQ</div>
-      <div class="audit-body">
-        <div class="audit-title">Equipment Qualification Audit</div>
-        <div class="audit-desc">Full lifecycle qualification audit for analytical instruments and manufacturing equipment: DQ, IQ, OQ, PQ, calibration, maintenance, periodic review, and change control. References USP &lt;1058&gt;, EU Annex 15, and ISPE C&amp;Q Baseline Guide.</div>
-        <div class="audit-meta">Intermediate · Equipment Qualification</div>
-      </div>
-    </a>
-    <a href="/articles/qms-self-audit-checklist" class="audit-card">
-      <div class="audit-icon" style="color:#f87171">QMS</div>
-      <div class="audit-body">
-        <div class="audit-title">QMS Self-Audit</div>
-        <div class="audit-desc">Complete quality management system audit: document control, deviation management, CAPA quality and effectiveness, change control, training, supplier qualification, internal audits, and quality metrics. Aligned with ICH Q10 and FDA/EMA inspection expectations.</div>
-        <div class="audit-meta">Intermediate · Quality Assurance</div>
-      </div>
-    </a>
-  </div>
+ <div class="audit-grid">
+ <a href="/articles/di-self-audit-checklist" class="audit-card">
+ <div class="audit-icon" style="color:#4f8ef7">DI</div>
+ <div class="audit-body">
+ <div class="audit-title">Data Integrity Self-Audit</div>
+ <div class="audit-desc">5-layer DI compliance audit: infrastructure controls, system configuration, procedural controls, work practice forensics, and culture indicators. Structured around FDA, MHRA, WHO, and PIC/S DI expectations.</div>
+ <div class="audit-meta">Advanced · Data Integrity</div>
+ </div>
+ </a>
+ <a href="/articles/csv-csa-audit-checklist" class="audit-card">
+ <div class="audit-icon" style="color:#34d399">CSV</div>
+ <div class="audit-body">
+ <div class="audit-title">CSV / CSA Program Self-Audit</div>
+ <div class="audit-desc">Evaluate your computer system validation program: system inventory, GAMP category assignments, validation documentation quality, traceability, supplier assessment, change control, and periodic review. Aligned with GAMP 5 Second Edition and FDA CSA final guidance (Feb 2026).</div>
+ <div class="audit-meta">Advanced · CSV &amp; CSA</div>
+ </div>
+ </a>
+ <a href="/articles/equipment-qualification-audit-checklist" class="audit-card">
+ <div class="audit-icon" style="color:#fbbf24">EQ</div>
+ <div class="audit-body">
+ <div class="audit-title">Equipment Qualification Audit</div>
+ <div class="audit-desc">Full lifecycle qualification audit for analytical instruments and manufacturing equipment: DQ, IQ, OQ, PQ, calibration, maintenance, periodic review, and change control. References USP &lt;1058&gt;, EU Annex 15, and ISPE C&amp;Q Baseline Guide.</div>
+ <div class="audit-meta">Intermediate · Equipment Qualification</div>
+ </div>
+ </a>
+ <a href="/articles/qms-self-audit-checklist" class="audit-card">
+ <div class="audit-icon" style="color:#f87171">QMS</div>
+ <div class="audit-body">
+ <div class="audit-title">QMS Self-Audit</div>
+ <div class="audit-desc">Complete quality management system audit: document control, deviation management, CAPA quality and effectiveness, change control, training, supplier qualification, internal audits, and quality metrics. Aligned with ICH Q10 and FDA/EMA inspection expectations.</div>
+ <div class="audit-meta">Intermediate · Quality Assurance</div>
+ </div>
+ </a>
+ </div>
 
-  <!-- Interactive Reference Checklists -->
-  <div class="section-divider">
-    <div class="page-label">Reference Tools</div>
-    <h2 class="section-heading">Interactive Quick-Reference</h2>
-    <p class="section-desc">Client-side reference tools for common GxP assessments. Nothing is sent anywhere — these run in your browser.</p>
-  </div>
+ <!-- Interactive Reference Checklists -->
+ <div class="section-divider">
+ <div class="page-label">Reference Tools</div>
+ <h2 class="section-heading">Interactive Quick-Reference</h2>
+ <p class="section-desc">Client-side reference tools for common GxP assessments. Nothing is sent anywhere, these run in your browser.</p>
+ </div>
 
-  <div class="checklists-grid">
+ <div class="checklists-grid">
 
-    <!-- ALCOA+ Self-Assessment -->
-    <div class="checklist-card" id="alcoa-card">
-      <div class="checklist-header">
-        <h3>ALCOA+ Self-Assessment</h3>
-        <span class="checklist-count" id="alcoa-count">0 / 9</span>
-      </div>
-      <p class="checklist-desc">Evaluate a GxP record or system against all nine ALCOA+ principles. Check each principle only if your current controls fully satisfy it.</p>
-      <div class="checklist-items" id="alcoa-items">
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Attributable</strong> — Every entry can be traced to the person who made it. Individual accounts, no shared logins, signatures tied to individuals.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Legible</strong> — Records are readable and permanently recorded. No pencil, no whitespace over corrections, no degraded ink or media.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Contemporaneous</strong> — Recorded at the time the activity occurs. No backdating, no transcription from scratch paper, no post-hoc reconstruction.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Original</strong> — The first capture of data is preserved. Raw data is retained; processed results do not overwrite originals.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Accurate</strong> — Records reflect what actually happened. No manipulation of values, integration parameters, or reportable results.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Complete</strong> — All data is included, including invalidated runs and OOS results. Nothing is selectively omitted.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Consistent</strong> — Dates, times, and sequences are internally consistent and match across independent systems.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Enduring</strong> — Records are stored in a durable format with defined retention periods and tested recovery procedures.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Available</strong> — Records can be retrieved and presented in human-readable form throughout the retention period, including to regulators.</span></label>
-      </div>
-      <div class="checklist-progress">
-        <div class="progress-bar"><div class="progress-fill" id="alcoa-fill" style="width:0%"></div></div>
-        <span class="progress-label" id="alcoa-label">Not assessed</span>
-      </div>
-    </div>
+ <!-- ALCOA+ Self-Assessment -->
+ <div class="checklist-card" id="alcoa-card">
+ <div class="checklist-header">
+ <h3>ALCOA+ Self-Assessment</h3>
+ <span class="checklist-count" id="alcoa-count">0 / 9</span>
+ </div>
+ <p class="checklist-desc">Evaluate a GxP record or system against all nine ALCOA+ principles. Check each principle only if your current controls fully satisfy it.</p>
+ <div class="checklist-items" id="alcoa-items">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Attributable</strong>, Every entry can be traced to the person who made it. Individual accounts, no shared logins, signatures tied to individuals.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Legible</strong>, Records are readable and permanently recorded. No pencil, no whitespace over corrections, no degraded ink or media.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Contemporaneous</strong>, Recorded at the time the activity occurs. No backdating, no transcription from scratch paper, no post-hoc reconstruction.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Original</strong>, The first capture of data is preserved. Raw data is retained; processed results do not overwrite originals.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Accurate</strong>, Records reflect what actually happened. No manipulation of values, integration parameters, or reportable results.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Complete</strong>, All data is included, including invalidated runs and OOS results. Nothing is selectively omitted.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Consistent</strong>, Dates, times, and sequences are internally consistent and match across independent systems.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Enduring</strong>, Records are stored in a durable format with defined retention periods and tested recovery procedures.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Available</strong>, Records can be retrieved and presented in human-readable form throughout the retention period, including to regulators.</span></label>
+ </div>
+ <div class="checklist-progress">
+ <div class="progress-bar"><div class="progress-fill" id="alcoa-fill" style="width:0%"></div></div>
+ <span class="progress-label" id="alcoa-label">Not assessed</span>
+ </div>
+ </div>
 
-    <!-- GAMP Category Decision Aid -->
-    <div class="checklist-card" id="gamp-card">
-      <div class="checklist-header">
-        <h3>GAMP 5 Category Decision Aid</h3>
-        <span class="checklist-result" id="gamp-result"></span>
-      </div>
-      <p class="checklist-desc">Answer questions to determine the GAMP 5 software category for a system under evaluation. Based on GAMP 5 Second Edition (2022).</p>
-      <div class="gamp-questions">
-        <div class="gamp-q" id="gamp-q1">
-          <div class="gamp-q-text">Is this infrastructure software (OS, middleware, database engine, network services) that is not GxP-specific?</div>
-          <div class="gamp-btns">
-            <button class="gamp-btn" onclick="gampAnswer(1,'yes')">Yes</button>
-            <button class="gamp-btn" onclick="gampAnswer(1,'no')">No</button>
-          </div>
-        </div>
-        <div class="gamp-q hidden" id="gamp-q2">
-          <div class="gamp-q-text">Is this COTS software used without configuration (non-configurable, used as-delivered)?</div>
-          <div class="gamp-btns">
-            <button class="gamp-btn" onclick="gampAnswer(2,'yes')">Yes</button>
-            <button class="gamp-btn" onclick="gampAnswer(2,'no')">No</button>
-          </div>
-        </div>
-        <div class="gamp-q hidden" id="gamp-q3">
-          <div class="gamp-q-text">Is this COTS software configured to meet business requirements (workflow setup, report templates, access roles)?</div>
-          <div class="gamp-btns">
-            <button class="gamp-btn" onclick="gampAnswer(3,'yes')">Yes</button>
-            <button class="gamp-btn" onclick="gampAnswer(3,'no')">No</button>
-          </div>
-        </div>
-        <div class="gamp-answer hidden" id="gamp-cat1">
-          <div class="gamp-cat cat1">Category 1 — Infrastructure Software</div>
-          <div class="gamp-cat-desc">Operating systems, DBMS, network services, and similar infrastructure. Validation activities focus on qualification of the installation environment and vendor support documentation. Supplier audits and patch management controls apply.</div>
-          <button class="gamp-reset" onclick="gampReset()">Start over</button>
-        </div>
-        <div class="gamp-answer hidden" id="gamp-cat3">
-          <div class="gamp-cat cat3">Category 3 — Non-Configured Software</div>
-          <div class="gamp-cat-desc">COTS software used as-delivered (instrument firmware, embedded controllers). Testing focuses on operational qualification of the supplied functionality. Vendor documentation review and supplier assessment are primary activities.</div>
-          <button class="gamp-reset" onclick="gampReset()">Start over</button>
-        </div>
-        <div class="gamp-answer hidden" id="gamp-cat4">
-          <div class="gamp-cat cat4">Category 4 — Configured Software</div>
-          <div class="gamp-cat-desc">COTS applications configured to meet requirements (LIMS, ELN, MES, QMS). IQ/OQ/PQ applies. Testing scope covers configured functionality. Configuration specifications and test scripts required. Change control governs configuration changes post-validation.</div>
-          <button class="gamp-reset" onclick="gampReset()">Start over</button>
-        </div>
-        <div class="gamp-answer hidden" id="gamp-cat5">
-          <div class="gamp-cat cat5">Category 5 — Custom Software</div>
-          <div class="gamp-cat-desc">Custom-developed or heavily customized applications. Highest validation rigor — full software development lifecycle controls, code review, unit/integration/system testing, and comprehensive documentation. SDLC must be defined and controlled.</div>
-          <button class="gamp-reset" onclick="gampReset()">Start over</button>
-        </div>
-      </div>
-    </div>
+ <!-- GAMP Category Decision Aid -->
+ <div class="checklist-card" id="gamp-card">
+ <div class="checklist-header">
+ <h3>GAMP 5 Category Decision Aid</h3>
+ <span class="checklist-result" id="gamp-result"></span>
+ </div>
+ <p class="checklist-desc">Answer questions to determine the GAMP 5 software category for a system under evaluation. Based on GAMP 5 Second Edition (2022).</p>
+ <div class="gamp-questions">
+ <div class="gamp-q" id="gamp-q1">
+ <div class="gamp-q-text">Is this infrastructure software (OS, middleware, database engine, network services) that is not GxP-specific?</div>
+ <div class="gamp-btns">
+ <button class="gamp-btn" onclick="gampAnswer(1,'yes')">Yes</button>
+ <button class="gamp-btn" onclick="gampAnswer(1,'no')">No</button>
+ </div>
+ </div>
+ <div class="gamp-q hidden" id="gamp-q2">
+ <div class="gamp-q-text">Is this COTS software used without configuration (non-configurable, used as-delivered)?</div>
+ <div class="gamp-btns">
+ <button class="gamp-btn" onclick="gampAnswer(2,'yes')">Yes</button>
+ <button class="gamp-btn" onclick="gampAnswer(2,'no')">No</button>
+ </div>
+ </div>
+ <div class="gamp-q hidden" id="gamp-q3">
+ <div class="gamp-q-text">Is this COTS software configured to meet business requirements (workflow setup, report templates, access roles)?</div>
+ <div class="gamp-btns">
+ <button class="gamp-btn" onclick="gampAnswer(3,'yes')">Yes</button>
+ <button class="gamp-btn" onclick="gampAnswer(3,'no')">No</button>
+ </div>
+ </div>
+ <div class="gamp-answer hidden" id="gamp-cat1">
+ <div class="gamp-cat cat1">Category 1, Infrastructure Software</div>
+ <div class="gamp-cat-desc">Operating systems, DBMS, network services, and similar infrastructure. Validation activities focus on qualification of the installation environment and vendor support documentation. Supplier audits and patch management controls apply.</div>
+ <button class="gamp-reset" onclick="gampReset()">Start over</button>
+ </div>
+ <div class="gamp-answer hidden" id="gamp-cat3">
+ <div class="gamp-cat cat3">Category 3, Non-Configured Software</div>
+ <div class="gamp-cat-desc">COTS software used as-delivered (instrument firmware, embedded controllers). Testing focuses on operational qualification of the supplied functionality. Vendor documentation review and supplier assessment are primary activities.</div>
+ <button class="gamp-reset" onclick="gampReset()">Start over</button>
+ </div>
+ <div class="gamp-answer hidden" id="gamp-cat4">
+ <div class="gamp-cat cat4">Category 4, Configured Software</div>
+ <div class="gamp-cat-desc">COTS applications configured to meet requirements (LIMS, ELN, MES, QMS). IQ/OQ/PQ applies. Testing scope covers configured functionality. Configuration specifications and test scripts required. Change control governs configuration changes post-validation.</div>
+ <button class="gamp-reset" onclick="gampReset()">Start over</button>
+ </div>
+ <div class="gamp-answer hidden" id="gamp-cat5">
+ <div class="gamp-cat cat5">Category 5, Custom Software</div>
+ <div class="gamp-cat-desc">Custom-developed or heavily customized applications. Highest validation rigor, full software development lifecycle controls, code review, unit/integration/system testing, and comprehensive documentation. SDLC must be defined and controlled.</div>
+ <button class="gamp-reset" onclick="gampReset()">Start over</button>
+ </div>
+ </div>
+ </div>
 
-    <!-- 483 Response Checklist -->
-    <div class="checklist-card" id="fda483-card">
-      <div class="checklist-header">
-        <h3>483 Response Completeness Check</h3>
-        <span class="checklist-count" id="fda483-count">0 / 10</span>
-      </div>
-      <p class="checklist-desc">Before submitting a 483 response, verify each element is present and substantive. Check only items that are genuinely complete, not just drafts.</p>
-      <div class="checklist-items" id="fda483-items">
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Acknowledgment</strong> — Each observation is addressed individually with a clear statement of agreement or disagreement.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Root cause analysis</strong> — Goes beyond the symptom to identify the underlying system failure (procedure gap, training gap, oversight gap, system design gap).</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Immediate correction</strong> — Specific action taken to fix the observed condition. Completed before submission if possible.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Systemic CAPA</strong> — Preventive action addresses not just the cited instance but all similar situations across the site.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Specific timelines</strong> — Each action has a specific completion date. No vague language ("in the coming months").</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Evidence attached</strong> — Completed actions are supported by evidence (SOPs, training records, validation documentation).</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Scope assessment</strong> — Response addresses whether similar issues exist in other systems, products, or sites beyond what was directly cited.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Data integrity retrospective</strong> — If applicable: historical data affected by the finding has been assessed for impact on prior quality decisions.</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Effectiveness monitoring</strong> — Plan is in place to verify that corrective actions are working (not just implemented).</span></label>
-        <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Senior management acknowledgment</strong> — Response reflects management understanding of the issue and organizational commitment to corrective action.</span></label>
-      </div>
-      <div class="checklist-progress">
-        <div class="progress-bar"><div class="progress-fill" id="fda483-fill" style="width:0%"></div></div>
-        <span class="progress-label" id="fda483-label">Not assessed</span>
-      </div>
-    </div>
+ <!-- 483 Response Checklist -->
+ <div class="checklist-card" id="fda483-card">
+ <div class="checklist-header">
+ <h3>483 Response Completeness Check</h3>
+ <span class="checklist-count" id="fda483-count">0 / 10</span>
+ </div>
+ <p class="checklist-desc">Before submitting a 483 response, verify each element is present and substantive. Check only items that are genuinely complete, not just drafts.</p>
+ <div class="checklist-items" id="fda483-items">
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Acknowledgment</strong>, Each observation is addressed individually with a clear statement of agreement or disagreement.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Root cause analysis</strong>, Goes beyond the symptom to identify the underlying system failure (procedure gap, training gap, oversight gap, system design gap).</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Immediate correction</strong>, Specific action taken to fix the observed condition. Completed before submission if possible.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Systemic CAPA</strong>, Preventive action addresses not just the cited instance but all similar situations across the site.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Specific timelines</strong>, Each action has a specific completion date. No vague language ("in the coming months").</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Evidence attached</strong>, Completed actions are supported by evidence (SOPs, training records, validation documentation).</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Scope assessment</strong>, Response addresses whether similar issues exist in other systems, products, or sites beyond what was directly cited.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Data integrity retrospective</strong>, If applicable: historical data affected by the finding has been assessed for impact on prior quality decisions.</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Effectiveness monitoring</strong>, Plan is in place to verify that corrective actions are working (not just implemented).</span></label>
+ <label class="cl-item"><input type="checkbox" data-group="fda483" /><span class="cl-label"><strong>Senior management acknowledgment</strong>, Response reflects management understanding of the issue and organizational commitment to corrective action.</span></label>
+ </div>
+ <div class="checklist-progress">
+ <div class="progress-bar"><div class="progress-fill" id="fda483-fill" style="width:0%"></div></div>
+ <span class="progress-label" id="fda483-label">Not assessed</span>
+ </div>
+ </div>
 
-    <!-- Validation Deliverable Selector -->
-    <div class="checklist-card" id="vd-card">
-      <div class="checklist-header">
-        <h3>Validation Deliverable Selector</h3>
-        <span class="checklist-result" id="vd-result"></span>
-      </div>
-      <p class="checklist-desc">Select validation type to see required and recommended deliverables. Based on GAMP 5 Second Edition and FDA/EMA expectations.</p>
-      <div class="vd-selector">
-        <div class="vd-type-btns">
-          <button class="vd-type-btn active" onclick="selectVDType('csv')">Computer System (CSV)</button>
-          <button class="vd-type-btn" onclick="selectVDType('equipment')">Equipment / Instrument</button>
-          <button class="vd-type-btn" onclick="selectVDType('process')">Process Validation</button>
-          <button class="vd-type-btn" onclick="selectVDType('cleaning')">Cleaning Validation</button>
-        </div>
-        <div class="vd-list" id="vd-content">
-          <!-- populated by JS -->
-        </div>
-      </div>
-    </div>
+ <!-- Validation Deliverable Selector -->
+ <div class="checklist-card" id="vd-card">
+ <div class="checklist-header">
+ <h3>Validation Deliverable Selector</h3>
+ <span class="checklist-result" id="vd-result"></span>
+ </div>
+ <p class="checklist-desc">Select validation type to see required and recommended deliverables. Based on GAMP 5 Second Edition and FDA/EMA expectations.</p>
+ <div class="vd-selector">
+ <div class="vd-type-btns">
+ <button class="vd-type-btn active" onclick="selectVDType('csv')">Computer System (CSV)</button>
+ <button class="vd-type-btn" onclick="selectVDType('equipment')">Equipment / Instrument</button>
+ <button class="vd-type-btn" onclick="selectVDType('process')">Process Validation</button>
+ <button class="vd-type-btn" onclick="selectVDType('cleaning')">Cleaning Validation</button>
+ </div>
+ <div class="vd-list" id="vd-content">
+ <!-- populated by JS -->
+ </div>
+ </div>
+ </div>
 
-  </div>
+ </div>
 </Layout>
 
 <script>
-  // ── ALCOA+ Progress ────────────────────────────────────────────────────────
-  function updateChecklistProgress(group, total) {
-    const checked = document.querySelectorAll(`input[data-group="${group}"]:checked`).length;
-    const fill = document.getElementById(`${group}-fill`);
-    const countEl = document.getElementById(`${group}-count`);
-    const labelEl = document.getElementById(`${group}-label`);
-    if (!fill) return;
-    const pct = Math.round((checked / total) * 100);
-    fill.style.width = pct + '%';
-    if (countEl) countEl.textContent = `${checked} / ${total}`;
-    if (labelEl) {
-      if (checked === 0) labelEl.textContent = 'Not assessed';
-      else if (checked === total) labelEl.textContent = 'All principles satisfied';
-      else labelEl.textContent = `${pct}% — ${total - checked} gap(s) remain`;
-    }
-    fill.style.background = checked === total ? '#34d399' : checked >= total * 0.7 ? '#4f8ef7' : '#f87171';
-  }
+ // ── ALCOA+ Progress ────────────────────────────────────────────────────────
+ function updateChecklistProgress(group, total) {
+ const checked = document.querySelectorAll(`input[data-group="${group}"]:checked`).length;
+ const fill = document.getElementById(`${group}-fill`);
+ const countEl = document.getElementById(`${group}-count`);
+ const labelEl = document.getElementById(`${group}-label`);
+ if (!fill) return;
+ const pct = Math.round((checked / total) * 100);
+ fill.style.width = pct + '%';
+ if (countEl) countEl.textContent = `${checked} / ${total}`;
+ if (labelEl) {
+ if (checked === 0) labelEl.textContent = 'Not assessed';
+ else if (checked === total) labelEl.textContent = 'All principles satisfied';
+ else labelEl.textContent = `${pct}% — ${total - checked} gap(s) remain`;
+ }
+ fill.style.background = checked === total ? '#34d399' : checked >= total * 0.7 ? '#4f8ef7' : '#f87171';
+ }
 
-  document.querySelectorAll('input[data-group="alcoa"]').forEach(cb => {
-    cb.addEventListener('change', () => updateChecklistProgress('alcoa', 9));
-  });
-  document.querySelectorAll('input[data-group="fda483"]').forEach(cb => {
-    cb.addEventListener('change', () => updateChecklistProgress('fda483', 10));
-  });
+ document.querySelectorAll('input[data-group="alcoa"]').forEach(cb => {
+ cb.addEventListener('change', () => updateChecklistProgress('alcoa', 9));
+ });
+ document.querySelectorAll('input[data-group="fda483"]').forEach(cb => {
+ cb.addEventListener('change', () => updateChecklistProgress('fda483', 10));
+ });
 
-  // ── GAMP Decision Aid ─────────────────────────────────────────────────────
-  function gampAnswer(q, answer) {
-    document.getElementById(`gamp-q${q}`).classList.add('hidden');
-    if (q === 1) {
-      if (answer === 'yes') { document.getElementById('gamp-cat1').classList.remove('hidden'); }
-      else { document.getElementById('gamp-q2').classList.remove('hidden'); }
-    } else if (q === 2) {
-      if (answer === 'yes') { document.getElementById('gamp-cat3').classList.remove('hidden'); }
-      else { document.getElementById('gamp-q3').classList.remove('hidden'); }
-    } else if (q === 3) {
-      if (answer === 'yes') { document.getElementById('gamp-cat4').classList.remove('hidden'); }
-      else { document.getElementById('gamp-cat5').classList.remove('hidden'); }
-    }
-  }
+ // ── GAMP Decision Aid ─────────────────────────────────────────────────────
+ function gampAnswer(q, answer) {
+ document.getElementById(`gamp-q${q}`).classList.add('hidden');
+ if (q === 1) {
+ if (answer === 'yes') { document.getElementById('gamp-cat1').classList.remove('hidden'); }
+ else { document.getElementById('gamp-q2').classList.remove('hidden'); }
+ } else if (q === 2) {
+ if (answer === 'yes') { document.getElementById('gamp-cat3').classList.remove('hidden'); }
+ else { document.getElementById('gamp-q3').classList.remove('hidden'); }
+ } else if (q === 3) {
+ if (answer === 'yes') { document.getElementById('gamp-cat4').classList.remove('hidden'); }
+ else { document.getElementById('gamp-cat5').classList.remove('hidden'); }
+ }
+ }
 
-  function gampReset() {
-    ['gamp-q2','gamp-q3','gamp-cat1','gamp-cat3','gamp-cat4','gamp-cat5'].forEach(id => {
-      document.getElementById(id).classList.add('hidden');
-    });
-    document.getElementById('gamp-q1').classList.remove('hidden');
-  }
+ function gampReset() {
+ ['gamp-q2','gamp-q3','gamp-cat1','gamp-cat3','gamp-cat4','gamp-cat5'].forEach(id => {
+ document.getElementById(id).classList.add('hidden');
+ });
+ document.getElementById('gamp-q1').classList.remove('hidden');
+ }
 
-  // ── Validation Deliverables ───────────────────────────────────────────────
-  const vdData = {
-    csv: {
-      required: ['Validation Plan / Master Validation Plan','User Requirements Specification (URS)','Functional Requirements Specification (FRS)','System Design Specification (SDS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Traceability Matrix (URS → Test Scripts)','Validation Summary Report','SOPs for system use and administration'],
-      recommended: ['Supplier Assessment / Audit Report','Hardware and Software Design Review','Risk Assessment (system-level, GAMP appendix B)','Data Migration Validation (if applicable)','Periodic Review SOP and schedule','User Acceptance Testing (UAT) documentation'],
-    },
-    equipment: {
-      required: ['Instrument Qualification Plan','User Requirements Specification (URS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Maintenance and calibration SOPs','Requalification trigger criteria (documented)'],
-      recommended: ['Supplier / vendor documentation review','Design Qualification (DQ) for custom equipment','Preventive maintenance records integration','Risk assessment per USP <1058>','Analytical Instrument Classification (AIC) decision'],
-    },
-    process: {
-      required: ['Process Validation Protocol (PPQ stage 3)','Process Design summary (stage 1 data)','Process Performance Qualification (PPQ) report','Continued Process Verification (CPV) plan','Statistical process control criteria','Linkage to batch record and specifications'],
-      recommended: ['Design of Experiments (DoE) data package','Process risk assessment (FMEA)','Scale-up / tech transfer summary','Site-specific contamination control strategy','Annual Product Review integration plan'],
-    },
-    cleaning: {
-      required: ['Cleaning Validation Protocol','Acceptable Residue Limits (ARL) calculations','Swab and rinse recovery validation data','Worst-case product/equipment matrix','Cleaning Validation Report','Cleaning SOP and associated training records'],
-      recommended: ['Visual inspection limits justification','Analytical method validation for residue testing','Hold time studies (dirty and clean)','Product grouping / bracketing rationale','Annual revalidation trigger criteria'],
-    },
-  };
+ // ── Validation Deliverables ───────────────────────────────────────────────
+ const vdData = {
+ csv: {
+ required: ['Validation Plan / Master Validation Plan','User Requirements Specification (URS)','Functional Requirements Specification (FRS)','System Design Specification (SDS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Traceability Matrix (URS → Test Scripts)','Validation Summary Report','SOPs for system use and administration'],
+ recommended: ['Supplier Assessment / Audit Report','Hardware and Software Design Review','Risk Assessment (system-level, GAMP appendix B)','Data Migration Validation (if applicable)','Periodic Review SOP and schedule','User Acceptance Testing (UAT) documentation'],
+ },
+ equipment: {
+ required: ['Instrument Qualification Plan','User Requirements Specification (URS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Maintenance and calibration SOPs','Requalification trigger criteria (documented)'],
+ recommended: ['Supplier / vendor documentation review','Design Qualification (DQ) for custom equipment','Preventive maintenance records integration','Risk assessment per USP <1058>','Analytical Instrument Classification (AIC) decision'],
+ },
+ process: {
+ required: ['Process Validation Protocol (PPQ stage 3)','Process Design summary (stage 1 data)','Process Performance Qualification (PPQ) report','Continued Process Verification (CPV) plan','Statistical process control criteria','Linkage to batch record and specifications'],
+ recommended: ['Design of Experiments (DoE) data package','Process risk assessment (FMEA)','Scale-up / tech transfer summary','Site-specific contamination control strategy','Annual Product Review integration plan'],
+ },
+ cleaning: {
+ required: ['Cleaning Validation Protocol','Acceptable Residue Limits (ARL) calculations','Swab and rinse recovery validation data','Worst-case product/equipment matrix','Cleaning Validation Report','Cleaning SOP and associated training records'],
+ recommended: ['Visual inspection limits justification','Analytical method validation for residue testing','Hold time studies (dirty and clean)','Product grouping / bracketing rationale','Annual revalidation trigger criteria'],
+ },
+ };
 
-  function renderVD(type) {
-    const data = vdData[type];
-    const container = document.getElementById('vd-content');
-    container.innerHTML = `
-      <div class="vd-section">
-        <div class="vd-section-title required-label">Required Deliverables</div>
-        <ul class="vd-list-items">${data.required.map(d => `<li class="vd-item req">${d}</li>`).join('')}</ul>
-      </div>
-      <div class="vd-section">
-        <div class="vd-section-title recommended-label">Recommended / Risk-Based</div>
-        <ul class="vd-list-items">${data.recommended.map(d => `<li class="vd-item rec">${d}</li>`).join('')}</ul>
-      </div>`;
-  }
+ function renderVD(type) {
+ const data = vdData[type];
+ const container = document.getElementById('vd-content');
+ container.innerHTML = `
+ <div class="vd-section">
+ <div class="vd-section-title required-label">Required Deliverables</div>
+ <ul class="vd-list-items">${data.required.map(d => `<li class="vd-item req">${d}</li>`).join('')}</ul>
+ </div>
+ <div class="vd-section">
+ <div class="vd-section-title recommended-label">Recommended / Risk-Based</div>
+ <ul class="vd-list-items">${data.recommended.map(d => `<li class="vd-item rec">${d}</li>`).join('')}</ul>
+ </div>`;
+ }
 
-  function selectVDType(type) {
-    document.querySelectorAll('.vd-type-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    renderVD(type);
-  }
+ function selectVDType(type) {
+ document.querySelectorAll('.vd-type-btn').forEach(btn => btn.classList.remove('active'));
+ event.target.classList.add('active');
+ renderVD(type);
+ }
 
-  renderVD('csv'); // default
+ renderVD('csv'); // default
 </script>
 
 <style>
-  .page-header {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-  }
+ .page-header {
+ margin-bottom: 3rem;
+ padding-bottom: 2rem;
+ border-bottom: 1px solid var(--border);
+ }
 
-  .page-label {
-    font-size: 0.72rem;
-    font-family: var(--mono);
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-    margin-bottom: 0.6rem;
-  }
+ .page-label {
+ font-size: 0.72rem;
+ font-family: var(--mono);
+ color: var(--accent);
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ font-weight: 700;
+ margin-bottom: 0.6rem;
+ }
 
-  .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-  .page-header > p { color: var(--muted-light); margin-bottom: 1.5rem; }
+ .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+ .page-header > p { color: var(--muted-light); margin-bottom: 1.5rem; }
 
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1rem;
-  }
+ .tools-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+ gap: 1rem;
+ }
 
-  .tool-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
+ .tool-card {
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: 14px;
+ padding: 1.75rem;
+ display: flex;
+ flex-direction: column;
+ gap: 0.75rem;
+ transition: border-color 0.2s, transform 0.2s;
+ }
 
-  .tool-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
+ .tool-card:hover {
+ border-color: var(--accent);
+ transform: translateY(-2px);
+ }
 
-  .tool-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-  }
+ .tool-header {
+ display: flex;
+ align-items: flex-start;
+ justify-content: space-between;
+ gap: 1rem;
+ }
 
-  .tool-name {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--text);
-  }
+ .tool-name {
+ font-size: 1rem;
+ font-weight: 600;
+ line-height: 1.35;
+ color: var(--text);
+ }
 
-  .status-badge {
-    font-size: 0.68rem;
-    font-family: var(--mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 0.2rem 0.55rem;
-    border-radius: 999px;
-    background: rgba(52, 211, 153, 0.1);
-    color: var(--green);
-    border: 1px solid rgba(52, 211, 153, 0.2);
-    flex-shrink: 0;
-  }
+ .status-badge {
+ font-size: 0.68rem;
+ font-family: var(--mono);
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.06em;
+ padding: 0.2rem 0.55rem;
+ border-radius: 999px;
+ background: rgba(52, 211, 153, 0.1);
+ color: var(--green);
+ border: 1px solid rgba(52, 211, 153, 0.2);
+ flex-shrink: 0;
+ }
 
-  .tool-desc {
-    font-size: 0.875rem;
-    color: var(--muted-light);
-    line-height: 1.65;
-  }
+ .tool-desc {
+ font-size: 0.875rem;
+ color: var(--muted-light);
+ line-height: 1.65;
+ }
 
-  .tool-detail {
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.55;
-    padding: 0.75rem 1rem;
-    background: var(--surface2);
-    border-radius: 7px;
-    border-left: 2px solid var(--border);
-    flex: 1;
-  }
+ .tool-detail {
+ font-size: 0.8rem;
+ color: var(--muted);
+ line-height: 1.55;
+ padding: 0.75rem 1rem;
+ background: var(--surface2);
+ border-radius: 7px;
+ border-left: 2px solid var(--border);
+ flex: 1;
+ }
 
-  .tool-footer { margin-top: 0.5rem; }
+ .tool-footer { margin-top: 0.5rem; }
 
-  .tool-stack {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-  }
+ .tool-stack {
+ display: flex;
+ gap: 0.4rem;
+ flex-wrap: wrap;
+ }
 
-  .stack-tag {
-    font-size: 0.7rem;
-    font-family: var(--mono);
-    padding: 0.2rem 0.55rem;
-    border-radius: 5px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--muted);
-  }
+ .stack-tag {
+ font-size: 0.7rem;
+ font-family: var(--mono);
+ padding: 0.2rem 0.55rem;
+ border-radius: 5px;
+ background: var(--surface2);
+ border: 1px solid var(--border);
+ color: var(--muted);
+ }
 
-  /* ── Audit Guides ── */
-  .audit-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
+ /* ── Audit Guides ── */
+ .audit-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+ gap: 1rem;
+ margin-top: 1.5rem;
+ }
 
-  .audit-card {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem;
-    text-decoration: none;
-    transition: border-color 0.2s, transform 0.2s;
-  }
+ .audit-card {
+ display: flex;
+ gap: 1rem;
+ align-items: flex-start;
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: 14px;
+ padding: 1.5rem;
+ text-decoration: none;
+ transition: border-color 0.2s, transform 0.2s;
+ }
 
-  .audit-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
+ .audit-card:hover {
+ border-color: var(--accent);
+ transform: translateY(-2px);
+ }
 
-  .audit-icon {
-    font-size: 0.7rem;
-    font-family: var(--mono);
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    padding: 0.4rem 0.55rem;
-    border-radius: 6px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-  }
+ .audit-icon {
+ font-size: 0.7rem;
+ font-family: var(--mono);
+ font-weight: 800;
+ letter-spacing: 0.05em;
+ padding: 0.4rem 0.55rem;
+ border-radius: 6px;
+ background: var(--surface2);
+ border: 1px solid var(--border);
+ flex-shrink: 0;
+ margin-top: 0.1rem;
+ }
 
-  .audit-body { display: flex; flex-direction: column; gap: 0.4rem; }
+ .audit-body { display: flex; flex-direction: column; gap: 0.4rem; }
 
-  .audit-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.3;
-  }
+ .audit-title {
+ font-size: 0.95rem;
+ font-weight: 600;
+ color: var(--text);
+ line-height: 1.3;
+ }
 
-  .audit-desc {
-    font-size: 0.8rem;
-    color: var(--muted-light);
-    line-height: 1.6;
-  }
+ .audit-desc {
+ font-size: 0.8rem;
+ color: var(--muted-light);
+ line-height: 1.6;
+ }
 
-  .audit-meta {
-    font-size: 0.68rem;
-    font-family: var(--mono);
-    color: var(--muted);
-    margin-top: 0.2rem;
-  }
+ .audit-meta {
+ font-size: 0.68rem;
+ font-family: var(--mono);
+ color: var(--muted);
+ margin-top: 0.2rem;
+ }
 
-  /* ── Checklist section ── */
-  .section-divider {
-    margin: 4rem 0 2rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--border);
-  }
+ /* ── Checklist section ── */
+ .section-divider {
+ margin: 4rem 0 2rem;
+ padding-top: 3rem;
+ border-top: 1px solid var(--border);
+ }
 
-  .section-heading {
-    font-size: 1.5rem;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.5rem;
-  }
+ .section-heading {
+ font-size: 1.5rem;
+ letter-spacing: -0.03em;
+ margin-bottom: 0.5rem;
+ }
 
-  .section-desc {
-    color: var(--muted);
-    font-size: 0.875rem;
-    margin-bottom: 0;
-  }
+ .section-desc {
+ color: var(--muted);
+ font-size: 0.875rem;
+ margin-bottom: 0;
+ }
 
-  .checklists-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-    gap: 1.25rem;
-    margin-top: 1.5rem;
-  }
+ .checklists-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+ gap: 1.25rem;
+ margin-top: 1.5rem;
+ }
 
-  .checklist-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+ .checklist-card {
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: 14px;
+ padding: 1.75rem;
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+ }
 
-  .checklist-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
+ .checklist-header {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 1rem;
+ }
 
-  .checklist-header h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text);
-  }
+ .checklist-header h3 {
+ font-size: 1rem;
+ font-weight: 600;
+ color: var(--text);
+ }
 
-  .checklist-count, .checklist-result {
-    font-size: 0.72rem;
-    font-family: var(--mono);
-    color: var(--muted);
-    white-space: nowrap;
-  }
+ .checklist-count, .checklist-result {
+ font-size: 0.72rem;
+ font-family: var(--mono);
+ color: var(--muted);
+ white-space: nowrap;
+ }
 
-  .checklist-desc {
-    font-size: 0.825rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin: 0;
-  }
+ .checklist-desc {
+ font-size: 0.825rem;
+ color: var(--muted);
+ line-height: 1.6;
+ margin: 0;
+ }
 
-  .checklist-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+ .checklist-items {
+ display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
+ }
 
-  .cl-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    cursor: pointer;
-    padding: 0.6rem 0.75rem;
-    border-radius: 7px;
-    border: 1px solid transparent;
-    transition: border-color 0.15s, background 0.15s;
-  }
+ .cl-item {
+ display: flex;
+ align-items: flex-start;
+ gap: 0.6rem;
+ cursor: pointer;
+ padding: 0.6rem 0.75rem;
+ border-radius: 7px;
+ border: 1px solid transparent;
+ transition: border-color 0.15s, background 0.15s;
+ }
 
-  .cl-item:hover { border-color: var(--border); background: var(--surface2); }
+ .cl-item:hover { border-color: var(--border); background: var(--surface2); }
 
-  .cl-item input[type="checkbox"] {
-    margin-top: 0.15rem;
-    accent-color: var(--accent);
-    flex-shrink: 0;
-    width: 14px;
-    height: 14px;
-  }
+ .cl-item input[type="checkbox"] {
+ margin-top: 0.15rem;
+ accent-color: var(--accent);
+ flex-shrink: 0;
+ width: 14px;
+ height: 14px;
+ }
 
-  .cl-label {
-    font-size: 0.8rem;
-    color: var(--muted-light);
-    line-height: 1.55;
-  }
+ .cl-label {
+ font-size: 0.8rem;
+ color: var(--muted-light);
+ line-height: 1.55;
+ }
 
-  .cl-label strong { color: var(--text); }
+ .cl-label strong { color: var(--text); }
 
-  .checklist-progress {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
+ .checklist-progress {
+ display: flex;
+ flex-direction: column;
+ gap: 0.4rem;
+ }
 
-  .progress-bar {
-    height: 4px;
-    background: var(--surface2);
-    border-radius: 99px;
-    overflow: hidden;
-  }
+ .progress-bar {
+ height: 4px;
+ background: var(--surface2);
+ border-radius: 99px;
+ overflow: hidden;
+ }
 
-  .progress-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 99px;
-    transition: width 0.3s, background 0.3s;
-  }
+ .progress-fill {
+ height: 100%;
+ background: var(--accent);
+ border-radius: 99px;
+ transition: width 0.3s, background 0.3s;
+ }
 
-  .progress-label {
-    font-size: 0.72rem;
-    font-family: var(--mono);
-    color: var(--muted);
-  }
+ .progress-label {
+ font-size: 0.72rem;
+ font-family: var(--mono);
+ color: var(--muted);
+ }
 
-  /* GAMP decision aid */
-  .gamp-questions { display: flex; flex-direction: column; gap: 0.75rem; }
+ /* GAMP decision aid */
+ .gamp-questions { display: flex; flex-direction: column; gap: 0.75rem; }
 
-  .gamp-q { display: flex; flex-direction: column; gap: 0.6rem; }
-  .gamp-q-text { font-size: 0.85rem; color: var(--muted-light); line-height: 1.55; }
-  .gamp-btns { display: flex; gap: 0.5rem; }
+ .gamp-q { display: flex; flex-direction: column; gap: 0.6rem; }
+ .gamp-q-text { font-size: 0.85rem; color: var(--muted-light); line-height: 1.55; }
+ .gamp-btns { display: flex; gap: 0.5rem; }
 
-  .gamp-btn {
-    font-size: 0.8rem;
-    font-family: var(--mono);
-    padding: 0.35rem 0.9rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--surface2);
-    color: var(--muted-light);
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
-  }
+ .gamp-btn {
+ font-size: 0.8rem;
+ font-family: var(--mono);
+ padding: 0.35rem 0.9rem;
+ border: 1px solid var(--border);
+ border-radius: 6px;
+ background: var(--surface2);
+ color: var(--muted-light);
+ cursor: pointer;
+ transition: border-color 0.15s, color 0.15s;
+ }
 
-  .gamp-btn:hover { border-color: var(--accent); color: var(--text); }
+ .gamp-btn:hover { border-color: var(--accent); color: var(--text); }
 
-  .gamp-answer { display: flex; flex-direction: column; gap: 0.75rem; }
+ .gamp-answer { display: flex; flex-direction: column; gap: 0.75rem; }
 
-  .gamp-cat {
-    font-size: 0.875rem;
-    font-weight: 700;
-    padding: 0.5rem 0.85rem;
-    border-radius: 7px;
-  }
+ .gamp-cat {
+ font-size: 0.875rem;
+ font-weight: 700;
+ padding: 0.5rem 0.85rem;
+ border-radius: 7px;
+ }
 
-  .cat1 { background: rgba(148,163,184,0.1); color: #94a3b8; border-left: 3px solid #94a3b8; }
-  .cat3 { background: rgba(251,191,36,0.1); color: #fbbf24; border-left: 3px solid #fbbf24; }
-  .cat4 { background: rgba(79,142,247,0.1); color: #4f8ef7; border-left: 3px solid #4f8ef7; }
-  .cat5 { background: rgba(167,139,250,0.1); color: #a78bfa; border-left: 3px solid #a78bfa; }
+ .cat1 { background: rgba(148,163,184,0.1); color: #94a3b8; border-left: 3px solid #94a3b8; }
+ .cat3 { background: rgba(251,191,36,0.1); color: #fbbf24; border-left: 3px solid #fbbf24; }
+ .cat4 { background: rgba(79,142,247,0.1); color: #4f8ef7; border-left: 3px solid #4f8ef7; }
+ .cat5 { background: rgba(167,139,250,0.1); color: #a78bfa; border-left: 3px solid #a78bfa; }
 
-  .gamp-cat-desc { font-size: 0.8rem; color: var(--muted-light); line-height: 1.6; }
+ .gamp-cat-desc { font-size: 0.8rem; color: var(--muted-light); line-height: 1.6; }
 
-  .gamp-reset {
-    font-size: 0.75rem;
-    font-family: var(--mono);
-    color: var(--muted);
-    background: none;
-    border: 1px solid var(--border-dim);
-    border-radius: 5px;
-    padding: 0.3rem 0.7rem;
-    cursor: pointer;
-    align-self: flex-start;
-  }
+ .gamp-reset {
+ font-size: 0.75rem;
+ font-family: var(--mono);
+ color: var(--muted);
+ background: none;
+ border: 1px solid var(--border-dim);
+ border-radius: 5px;
+ padding: 0.3rem 0.7rem;
+ cursor: pointer;
+ align-self: flex-start;
+ }
 
-  .gamp-reset:hover { color: var(--accent); border-color: var(--accent); }
+ .gamp-reset:hover { color: var(--accent); border-color: var(--accent); }
 
-  .hidden { display: none !important; }
+ .hidden { display: none !important; }
 
-  /* Validation deliverables */
-  .vd-type-btns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-  }
+ /* Validation deliverables */
+ .vd-type-btns {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.4rem;
+ margin-bottom: 1rem;
+ }
 
-  .vd-type-btn {
-    font-size: 0.75rem;
-    font-family: var(--mono);
-    padding: 0.35rem 0.8rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--surface2);
-    color: var(--muted-light);
-    cursor: pointer;
-    transition: all 0.15s;
-  }
+ .vd-type-btn {
+ font-size: 0.75rem;
+ font-family: var(--mono);
+ padding: 0.35rem 0.8rem;
+ border: 1px solid var(--border);
+ border-radius: 6px;
+ background: var(--surface2);
+ color: var(--muted-light);
+ cursor: pointer;
+ transition: all 0.15s;
+ }
 
-  .vd-type-btn.active, .vd-type-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-glow);
-  }
+ .vd-type-btn.active, .vd-type-btn:hover {
+ border-color: var(--accent);
+ color: var(--accent);
+ background: var(--accent-glow);
+ }
 
-  .vd-section { margin-bottom: 0.75rem; }
+ .vd-section { margin-bottom: 0.75rem; }
 
-  .vd-section-title {
-    font-size: 0.7rem;
-    font-family: var(--mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    margin-bottom: 0.4rem;
-  }
+ .vd-section-title {
+ font-size: 0.7rem;
+ font-family: var(--mono);
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.07em;
+ margin-bottom: 0.4rem;
+ }
 
-  .required-label { color: #4f8ef7; }
-  .recommended-label { color: var(--muted); }
+ .required-label { color: #4f8ef7; }
+ .recommended-label { color: var(--muted); }
 
-  .vd-list-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
+ .vd-list-items {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ display: flex;
+ flex-direction: column;
+ gap: 0.2rem;
+ }
 
-  .vd-item {
-    font-size: 0.8rem;
-    color: var(--muted-light);
-    padding: 0.3rem 0.6rem;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+ .vd-item {
+ font-size: 0.8rem;
+ color: var(--muted-light);
+ padding: 0.3rem 0.6rem;
+ border-radius: 5px;
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ }
 
-  .vd-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-  .vd-item.req::before { background: #4f8ef7; }
-  .vd-item.rec::before { background: var(--border); }
-  .vd-item.req { background: rgba(79,142,247,0.04); }
+ .vd-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+ .vd-item.req::before { background: #4f8ef7; }
+ .vd-item.rec::before { background: var(--border); }
+ .vd-item.req { background: rgba(79,142,247,0.04); }
 
-  @media (max-width: 600px) {
-    .tools-grid { grid-template-columns: 1fr; }
-    .checklists-grid { grid-template-columns: 1fr; }
-  }
+ @media (max-width: 600px) {
+ .tools-grid { grid-template-columns: 1fr; }
+ .checklists-grid { grid-template-columns: 1fr; }
+ }
 </style>

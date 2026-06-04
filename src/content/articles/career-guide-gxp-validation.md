@@ -1,6 +1,6 @@
 ---
 title: "Breaking Into GxP: A Realistic Career Guide for Validation and Quality"
-description: "A practical roadmap for anyone starting a career in pharmaceutical quality, validation, or data integrity — what the field is, what employers are looking for, how to learn it, and what a career progression actually looks like."
+description: "A practical roadmap for anyone starting a career in pharmaceutical quality, validation, or data integrity, what the field is, what employers are looking for, how to learn it, and what a career progression actually looks like."
 pubDate: 2025-12-22
 tags: ["career", "GxP", "validation", "quality-assurance", "foundations"]
 tier: "Beginner"

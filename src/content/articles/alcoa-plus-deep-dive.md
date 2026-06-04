@@ -1,6 +1,6 @@
 ---
 title: "ALCOA+: The Framework Behind Every Data Integrity Requirement"
-description: "A complete breakdown of ALCOA+ — what each principle actually means, where programs fail, and how to assess compliance in practice."
+description: "A complete breakdown of ALCOA+, what each principle actually means, where programs fail, and how to assess compliance in practice."
 pubDate: 2025-07-16
 tags: ["ALCOA+", "FDA", "GxP", "foundations"]
 tier: "Intermediate"

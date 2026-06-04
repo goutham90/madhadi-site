@@ -2,213 +2,213 @@
 import Layout from './Layout.astro';
 
 interface Props {
-  title: string;
-  description: string;
-  pubDate: Date;
-  tags: string[];
-  tier?: string;
-  pillar?: string;
-  body?: string;
+ title: string;
+ description: string;
+ pubDate: Date;
+ tags: string[];
+ tier?: string;
+ pillar?: string;
+ body?: string;
 }
 
 const { title, description, pubDate, tags, tier, pillar, body = '' } = Astro.props;
 
 const tierColors: Record<string, string> = {
-  Beginner: '#34d399',
-  Intermediate: '#4f8ef7',
-  Advanced: '#a78bfa',
+ Beginner: '#34d399',
+ Intermediate: '#4f8ef7',
+ Advanced: '#a78bfa',
 };
 
 const formatted = pubDate.toLocaleDateString('en-US', {
-  year: 'numeric', month: 'long', day: 'numeric',
+ year: 'numeric', month: 'long', day: 'numeric',
 });
 
 const wordCount = body.split(/\s+/).length;
 const readTime = Math.max(1, Math.ceil(wordCount / 220));
 ---
 <Layout title={title} description={description}>
-  <article>
-    <header class="article-header">
-      <div class="article-meta">
-        <time datetime={pubDate.toISOString()}>{formatted}</time>
-        <span class="sep">·</span>
-        <span class="read-time">{readTime} min read</span>
-        {tier && (
-          <span class="sep">·</span>
-          <span class="tier-badge" style={`background: ${tierColors[tier] ?? '#64748b'}22; color: ${tierColors[tier] ?? '#64748b'}; border-color: ${tierColors[tier] ?? '#64748b'}44`}>{tier}</span>
-        )}
-        {tags.length > 0 && (
-          <span class="sep">·</span>
-          <div class="article-tags">
-            {tags.map(tag => (
-              <a href={`/topics#${tag}`} class="tag">{tag}</a>
-            ))}
-          </div>
-        )}
-      </div>
-      {pillar && (
-        <div class="article-pillar">
-          <a href={`/pillars/${pillar}`}>← Back to pillar</a>
-        </div>
-      )}
-      <h1>{title}</h1>
-      <p class="article-desc">{description}</p>
-    </header>
+ <article>
+ <header class="article-header">
+ <div class="article-meta">
+ <time datetime={pubDate.toISOString()}>{formatted}</time>
+ <span class="sep">·</span>
+ <span class="read-time">{readTime} min read</span>
+ {tier && (
+ <span class="sep">·</span>
+ <span class="tier-badge" style={`background: ${tierColors[tier] ?? '#64748b'}22; color: ${tierColors[tier] ?? '#64748b'}; border-color: ${tierColors[tier] ?? '#64748b'}44`}>{tier}</span>
+ )}
+ {tags.length > 0 && (
+ <span class="sep">·</span>
+ <div class="article-tags">
+ {tags.map(tag => (
+ <a href={`/topics#${tag}`} class="tag">{tag}</a>
+ ))}
+ </div>
+ )}
+ </div>
+ {pillar && (
+ <div class="article-pillar">
+ <a href={`/pillars/${pillar}`}>← Back to pillar</a>
+ </div>
+ )}
+ <h1>{title}</h1>
+ <p class="article-desc">{description}</p>
+ </header>
 
-    <div class="article-body">
-      <slot />
-    </div>
+ <div class="article-body">
+ <slot />
+ </div>
 
-    <footer class="article-footer">
-      <div class="article-footer-inner">
-        <a href="/articles" class="back-link">← All articles</a>
-        <a href="mailto:goutham@madhadi.com" class="feedback-link">Send feedback →</a>
-      </div>
-    </footer>
-  </article>
+ <footer class="article-footer">
+ <div class="article-footer-inner">
+ <a href="/articles" class="back-link">← All articles</a>
+ <a href="mailto:goutham@madhadi.com" class="feedback-link">Send feedback →</a>
+ </div>
+ </footer>
+ </article>
 </Layout>
 
 <style>
-  .article-header {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-  }
+ .article-header {
+ margin-bottom: 3rem;
+ padding-bottom: 2rem;
+ border-bottom: 1px solid var(--border);
+ }
 
-  .article-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-  }
+ .article-meta {
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ flex-wrap: wrap;
+ margin-bottom: 1.5rem;
+ }
 
-  .article-meta time, .read-time {
-    font-size: 0.82rem;
-    color: var(--muted);
-    font-family: var(--mono);
-  }
+ .article-meta time, .read-time {
+ font-size: 0.82rem;
+ color: var(--muted);
+ font-family: var(--mono);
+ }
 
-  .sep { color: var(--border); font-size: 0.8rem; }
+ .sep { color: var(--border); font-size: 0.8rem; }
 
-  .tier-badge {
-    font-size: 0.68rem;
-    font-family: var(--mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 0.2rem 0.55rem;
-    border-radius: 999px;
-    border: 1px solid;
-  }
+ .tier-badge {
+ font-size: 0.68rem;
+ font-family: var(--mono);
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.06em;
+ padding: 0.2rem 0.55rem;
+ border-radius: 999px;
+ border: 1px solid;
+ }
 
-  .article-pillar {
-    margin-bottom: 1.25rem;
-  }
+ .article-pillar {
+ margin-bottom: 1.25rem;
+ }
 
-  .article-pillar a {
-    font-size: 0.8rem;
-    color: var(--muted);
-    text-decoration: none;
-    font-family: var(--mono);
-    transition: color 0.15s;
-  }
+ .article-pillar a {
+ font-size: 0.8rem;
+ color: var(--muted);
+ text-decoration: none;
+ font-family: var(--mono);
+ transition: color 0.15s;
+ }
 
-  .article-pillar a:hover { color: var(--accent); }
+ .article-pillar a:hover { color: var(--accent); }
 
-  .article-tags {
-    display: flex;
-    gap: 0.35rem;
-    flex-wrap: wrap;
-  }
+ .article-tags {
+ display: flex;
+ gap: 0.35rem;
+ flex-wrap: wrap;
+ }
 
-  h1 {
-    font-size: clamp(1.75rem, 4.5vw, 2.5rem);
-    margin-bottom: 1rem;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-  }
+ h1 {
+ font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+ margin-bottom: 1rem;
+ letter-spacing: -0.03em;
+ line-height: 1.2;
+ }
 
-  .article-desc {
-    font-size: 1.15rem;
-    color: var(--muted-light);
-    line-height: 1.65;
-    max-width: 600px;
-  }
+ .article-desc {
+ font-size: 1.15rem;
+ color: var(--muted-light);
+ line-height: 1.65;
+ max-width: 600px;
+ }
 
-  .article-body {
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: #94a3b8;
-  }
+ .article-body {
+ font-size: 1.05rem;
+ line-height: 1.85;
+ color: #94a3b8;
+ }
 
-  .article-body :global(h2) {
-    font-size: 1.45rem;
-    margin: 3rem 0 1rem;
-    color: var(--text);
-    padding-top: 1rem;
-    border-top: 1px solid var(--border-dim);
-  }
+ .article-body :global(h2) {
+ font-size: 1.45rem;
+ margin: 3rem 0 1rem;
+ color: var(--text);
+ padding-top: 1rem;
+ border-top: 1px solid var(--border-dim);
+ }
 
-  .article-body :global(h3) {
-    font-size: 1.15rem;
-    margin: 2.25rem 0 0.75rem;
-    color: var(--text);
-  }
+ .article-body :global(h3) {
+ font-size: 1.15rem;
+ margin: 2.25rem 0 0.75rem;
+ color: var(--text);
+ }
 
-  .article-body :global(h4) {
-    font-size: 1rem;
-    margin: 1.75rem 0 0.5rem;
-    color: var(--muted-light);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.8rem;
-  }
+ .article-body :global(h4) {
+ font-size: 1rem;
+ margin: 1.75rem 0 0.5rem;
+ color: var(--muted-light);
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ font-size: 0.8rem;
+ }
 
-  .article-body :global(p) {
-    margin-bottom: 1.4rem;
-    color: #94a3b8;
-  }
+ .article-body :global(p) {
+ margin-bottom: 1.4rem;
+ color: #94a3b8;
+ }
 
-  .article-body :global(ul),
-  .article-body :global(ol) {
-    margin-bottom: 1.4rem;
-    padding-left: 1.5rem;
-  }
+ .article-body :global(ul),
+ .article-body :global(ol) {
+ margin-bottom: 1.4rem;
+ padding-left: 1.5rem;
+ }
 
-  .article-body :global(li) { margin-bottom: 0.5rem; }
+ .article-body :global(li) { margin-bottom: 0.5rem; }
 
-  .article-body :global(strong) { color: var(--text); font-weight: 600; }
+ .article-body :global(strong) { color: var(--text); font-weight: 600; }
 
-  .article-body :global(a) {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: var(--border);
-  }
+ .article-body :global(a) {
+ text-decoration: underline;
+ text-underline-offset: 3px;
+ text-decoration-color: var(--border);
+ }
 
-  .article-body :global(a:hover) {
-    text-decoration-color: var(--accent);
-  }
+ .article-body :global(a:hover) {
+ text-decoration-color: var(--accent);
+ }
 
-  .article-body :global(table) { margin: 2rem 0; }
+ .article-body :global(table) { margin: 2rem 0; }
 
-  .article-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
+ .article-footer {
+ margin-top: 4rem;
+ padding-top: 2rem;
+ border-top: 1px solid var(--border);
+ }
 
-  .article-footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+ .article-footer-inner {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
 
-  .back-link, .feedback-link {
-    font-size: 0.875rem;
-    color: var(--muted);
-    transition: color 0.15s;
-  }
+ .back-link, .feedback-link {
+ font-size: 0.875rem;
+ color: var(--muted);
+ transition: color 0.15s;
+ }
 
-  .back-link:hover, .feedback-link:hover { color: var(--accent); }
+ .back-link:hover, .feedback-link:hover { color: var(--accent); }
 </style>

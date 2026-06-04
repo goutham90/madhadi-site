@@ -1,6 +1,6 @@
 ---
 title: "Audit Trail Design and Review: What FDA Actually Expects"
-description: "The mechanics of GxP audit trails — what to capture, how to configure it correctly, how to review it effectively, and how inspectors use it to find data integrity problems."
+description: "The mechanics of GxP audit trails, what to capture, how to configure it correctly, how to review it effectively, and how inspectors use it to find data integrity problems."
 pubDate: 2025-09-21
 tags: ["audit-trail", "FDA", "21-CFR-Part-11", "data-integrity", "GxP"]
 pillar: "data-integrity"

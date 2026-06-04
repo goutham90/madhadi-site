@@ -1,6 +1,6 @@
 ---
 title: "Validating Cloud and SaaS Systems in GxP: The Shared Responsibility Model"
-description: "How to approach validation for cloud-hosted and SaaS GxP systems — what IaaS, PaaS, and SaaS mean for validation scope, the shared responsibility model, and what your quality agreement must cover."
+description: "How to approach validation for cloud-hosted and SaaS GxP systems, what IaaS, PaaS, and SaaS mean for validation scope, the shared responsibility model, and what your quality agreement must cover."
 pubDate: 2026-01-12
 tags: ["CSV", "validation", "cloud", "SaaS", "GxP", "21-CFR-Part-11"]
 pillar: "csv-csa"

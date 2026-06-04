@@ -1,6 +1,6 @@
 ---
 title: "Retroactive Validation and Legacy Systems: What to Do When GxP Systems Were Never Properly Validated"
-description: "A practical guide to handling systems that have been in GxP use without proper validation — how to assess the risk, conduct a retrospective validation, manage the regulatory disclosure, and determine when a system needs replacement rather than remediation."
+description: "A practical guide to handling systems that have been in GxP use without proper validation, how to assess the risk, conduct a retrospective validation, manage the regulatory disclosure, and determine when a system needs replacement rather than remediation."
 pubDate: 2026-05-11
 tags: ["retroactive validation", "legacy systems", "CSV", "risk assessment", "remediation"]
 tier: "Advanced"

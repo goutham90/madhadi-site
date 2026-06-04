@@ -1,6 +1,6 @@
 ---
 title: "BLA Readiness: Architecting the Data Package for a Biologics License Application"
-description: "A strategic guide to data integrity and data package architecture for BLA submissions — CMC data organization, data integrity requirements for regulatory review, pre-BLA inspection readiness, and what the FDA reviewers and inspectors are actually looking for in the data."
+description: "A strategic guide to data integrity and data package architecture for BLA submissions, CMC data organization, data integrity requirements for regulatory review, pre-BLA inspection readiness, and what the FDA reviewers and inspectors are actually looking for in the data."
 pubDate: 2026-04-15
 tags: ["BLA", "regulatory submission", "biologics", "CMC", "data integrity", "FDA"]
 tier: "Advanced"

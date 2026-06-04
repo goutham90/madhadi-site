@@ -1,6 +1,6 @@
 ---
 title: "Batch Record Review: What It Is, What to Look For, and What Regulators Expect"
-description: "A practical guide to GMP batch record review — the process, what makes a batch record complete, how to conduct a meaningful review, common failures, and how automated systems change the picture."
+description: "A practical guide to GMP batch record review, the process, what makes a batch record complete, how to conduct a meaningful review, common failures, and how automated systems change the picture."
 pubDate: 2026-06-03
 tags: ["batch record", "GMP", "quality-assurance", "manufacturing", "data-integrity", "review"]
 pillar: "quality-assurance"

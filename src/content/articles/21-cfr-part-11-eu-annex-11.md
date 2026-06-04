@@ -1,6 +1,6 @@
 ---
 title: "21 CFR Part 11 and EU Annex 11: Electronic Records and Signatures Explained"
-description: "A practical breakdown of 21 CFR Part 11 and EU Annex 11 — what they require, how they differ, open vs closed systems, electronic signatures, and what actually gets cited in inspections."
+description: "A practical breakdown of 21 CFR Part 11 and EU Annex 11, what they require, how they differ, open vs closed systems, electronic signatures, and what actually gets cited in inspections."
 pubDate: 2025-09-09
 tags: ["21-CFR-Part-11", "CSV", "GxP", "electronic-records", "EU-Annex-11"]
 pillar: "csv-csa"

@@ -1,6 +1,6 @@
 ---
 title: "The GxP Validation Deliverable Set: What Each Document Is Actually For"
-description: "A practitioner's guide to the full set of computer system validation documents — URS, FRS, IQ/OQ/PQ protocols, RTM, validation plan and report — and what each one is actually trying to accomplish."
+description: "A practitioner's guide to the full set of computer system validation documents, URS, FRS, IQ/OQ/PQ protocols, RTM, validation plan and report, and what each one is actually trying to accomplish."
 pubDate: 2026-01-06
 tags: ["CSV", "validation", "GxP", "GAMP", "documentation"]
 pillar: "csv-csa"

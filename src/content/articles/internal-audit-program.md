@@ -1,6 +1,6 @@
 ---
 title: "Internal Audit Program: Planning, Executing, and Following Up"
-description: "A complete guide to designing and running a GxP internal audit program — the annual audit schedule, audit preparation, execution techniques, finding classification, CAPA linkage, and how to make internal audits genuinely useful rather than performative."
+description: "A complete guide to designing and running a GxP internal audit program, the annual audit schedule, audit preparation, execution techniques, finding classification, CAPA linkage, and how to make internal audits genuinely useful rather than performative."
 pubDate: 2025-11-08
 tags: ["internal audit", "QMS", "inspection readiness", "GxP", "CAPA"]
 tier: "Intermediate"
@@ -98,7 +98,7 @@ The checklist is a starting point, not a constraint. An effective auditor follow
 
 **Critical (or Major, depending on facility terminology):** A deficiency that represents a significant failure in a fundamental GxP requirement, or a potential patient safety risk. Examples: an audit trail disabled on a system generating release data, personnel performing critical activities without completed training, product released with a confirmed OOS with no investigation.
 
-**Major:** A substantial deviation from GxP requirements that could have a significant impact on product quality or data integrity, but is less immediately serious than a critical finding. Examples: OOS investigations consistently closed without documented root cause, change control records missing for implemented changes, training matrix that doesn't cover all critical procedures.
+**Major:** A substantial deviation from GxP requirements that could have a real impact on product quality or data integrity, but is less immediately serious than a critical finding. Examples: OOS investigations consistently closed without documented root cause, change control records missing for implemented changes, training matrix that doesn't cover all critical procedures.
 
 **Minor:** A deviation from GxP requirements that, in isolation, has limited direct quality impact but represents a weakness in the quality system. Examples: a completed form with a date in incorrect format, an SOP without a current review date, a training record that doesn't identify the document version.
 

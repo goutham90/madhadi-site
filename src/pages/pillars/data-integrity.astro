@@ -4,325 +4,325 @@ import { getCollection } from 'astro:content';
 
 const all = await getCollection('articles', ({ data }) => !data.draft && data.pillar === 'data-integrity');
 const sorted = all.sort((a, b) => {
-  const tierOrder = { Beginner: 0, Intermediate: 1, Advanced: 2 };
-  const ta = tierOrder[a.data.tier ?? 'Intermediate'] ?? 1;
-  const tb = tierOrder[b.data.tier ?? 'Intermediate'] ?? 1;
-  return ta - tb;
+ const tierOrder = { Beginner: 0, Intermediate: 1, Advanced: 2 };
+ const ta = tierOrder[a.data.tier ?? 'Intermediate'] ?? 1;
+ const tb = tierOrder[b.data.tier ?? 'Intermediate'] ?? 1;
+ return ta - tb;
 });
 
 const tierColors: Record<string, string> = {
-  Beginner: '#34d399',
-  Intermediate: '#4f8ef7',
-  Advanced: '#a78bfa',
+ Beginner: '#34d399',
+ Intermediate: '#4f8ef7',
+ Advanced: '#a78bfa',
 };
 
 const relatedPillars = [
-  { slug: 'csv-csa', title: 'CSV & CSA', color: '#34d399' },
-  { slug: 'audits-inspection', title: 'Audits & Inspection', color: '#fb923c' },
-  { slug: 'manufacturing-automation', title: 'Manufacturing Systems', color: '#22d3ee' },
+ { slug: 'csv-csa', title: 'CSV & CSA', color: '#34d399' },
+ { slug: 'audits-inspection', title: 'Audits & Inspection', color: '#fb923c' },
+ { slug: 'manufacturing-automation', title: 'Manufacturing Systems', color: '#22d3ee' },
 ];
 ---
-<Layout title="Data Integrity" description="Complete coverage of pharmaceutical data integrity — ALCOA+, audit trails, data lifecycle, regulatory basis, and program architecture for FDA/EMA compliance.">
-  <div class="pillar-header">
-    <a href="/pillars" class="back-link">← All Pillars</a>
-    <div class="pillar-label">Pillar 01</div>
-    <h1>Data Integrity</h1>
-    <p class="pillar-intro">
-      Data integrity is not a compliance checkbox — it is a fundamental property of every quality decision a pharmaceutical company makes. When an inspector opens a LIMS audit trail, they are not looking for evidence of fraud. They are looking for evidence that the data cannot be trusted, for any reason. Understanding this distinction is the starting point for building programs that hold.
-    </p>
-    <div class="reg-basis">
-      <div class="reg-label">Regulatory basis</div>
-      <div class="reg-links">
-        <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/data-integrity-and-compliance-drug-cgmp-guidance-industry" target="_blank" rel="noopener">FDA DI Guidance (Dec 2018)</a>
-        <a href="https://www.gov.uk/government/publications/guidance-on-gxp-data-integrity" target="_blank" rel="noopener">MHRA GXP DI Guidance (Mar 2018)</a>
-        <a href="https://www.who.int/publications/m/item/WHO-TRS-996-annex-5" target="_blank" rel="noopener">WHO TRS 996 Annex 5</a>
-        <a href="https://www.picscheme.org/en/publication?id=14" target="_blank" rel="noopener">PIC/S PI 041</a>
-      </div>
-    </div>
-  </div>
+<Layout title="Data Integrity" description="Complete coverage of pharmaceutical data integrity, ALCOA+, audit trails, data lifecycle, regulatory basis, and program architecture for FDA/EMA compliance.">
+ <div class="pillar-header">
+ <a href="/pillars" class="back-link">← All Pillars</a>
+ <div class="pillar-label">Pillar 01</div>
+ <h1>Data Integrity</h1>
+ <p class="pillar-intro">
+ Data integrity is not a compliance checkbox, it is a fundamental property of every quality decision a pharmaceutical company makes. When an inspector opens a LIMS audit trail, they are not looking for evidence of fraud. They are looking for evidence that the data cannot be trusted, for any reason. Understanding this distinction is the starting point for building programs that hold.
+ </p>
+ <div class="reg-basis">
+ <div class="reg-label">Regulatory basis</div>
+ <div class="reg-links">
+ <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/data-integrity-and-compliance-drug-cgmp-guidance-industry" target="_blank" rel="noopener">FDA DI Guidance (Dec 2018)</a>
+ <a href="https://www.gov.uk/government/publications/guidance-on-gxp-data-integrity" target="_blank" rel="noopener">MHRA GXP DI Guidance (Mar 2018)</a>
+ <a href="https://www.who.int/publications/m/item/WHO-TRS-996-annex-5" target="_blank" rel="noopener">WHO TRS 996 Annex 5</a>
+ <a href="https://www.picscheme.org/en/publication?id=14" target="_blank" rel="noopener">PIC/S PI 041</a>
+ </div>
+ </div>
+ </div>
 
-  <div class="pillar-body">
-    <div class="articles-section">
-      <h2>Articles in this pillar</h2>
-      {sorted.length === 0 ? (
-        <p class="empty">Articles coming soon.</p>
-      ) : (
-        <div class="article-list">
-          {sorted.map(post => {
-            const wordCount = post.body?.split(/\s+/).length ?? 0;
-            const readTime = Math.max(1, Math.ceil(wordCount / 220));
-            const tier = post.data.tier ?? 'Intermediate';
-            const color = tierColors[tier] ?? '#64748b';
-            return (
-              <a href={`/articles/${post.slug}`} class="article-row">
-                <div class="article-row-main">
-                  <div class="article-row-top">
-                    <span class="tier-badge" style={`background:${color}22;color:${color};border-color:${color}44`}>{tier}</span>
-                    <h3>{post.data.title}</h3>
-                  </div>
-                  <p>{post.data.description}</p>
-                </div>
-                <div class="article-row-meta">
-                  <span>{readTime} min</span>
-                  <span class="arrow">→</span>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      )}
-    </div>
+ <div class="pillar-body">
+ <div class="articles-section">
+ <h2>Articles in this pillar</h2>
+ {sorted.length === 0 ? (
+ <p class="empty">Articles coming soon.</p>
+ ) : (
+ <div class="article-list">
+ {sorted.map(post => {
+ const wordCount = post.body?.split(/\s+/).length ?? 0;
+ const readTime = Math.max(1, Math.ceil(wordCount / 220));
+ const tier = post.data.tier ?? 'Intermediate';
+ const color = tierColors[tier] ?? '#64748b';
+ return (
+ <a href={`/articles/${post.slug}`} class="article-row">
+ <div class="article-row-main">
+ <div class="article-row-top">
+ <span class="tier-badge" style={`background:${color}22;color:${color};border-color:${color}44`}>{tier}</span>
+ <h3>{post.data.title}</h3>
+ </div>
+ <p>{post.data.description}</p>
+ </div>
+ <div class="article-row-meta">
+ <span>{readTime} min</span>
+ <span class="arrow">→</span>
+ </div>
+ </a>
+ );
+ })}
+ </div>
+ )}
+ </div>
 
-    <aside class="pillar-sidebar">
-      <div class="sidebar-block">
-        <div class="sidebar-label">What this pillar covers</div>
-        <ul>
-          <li>ALCOA+ — each principle, its failure modes, and how to assess it</li>
-          <li>Regulatory framework: FDA, MHRA, WHO, PIC/S, EMA</li>
-          <li>Data lifecycle: generation through archival and destruction</li>
-          <li>Audit trail design, review, and review-by-exception</li>
-          <li>Static vs. dynamic records; metadata as part of the record</li>
-          <li>Data governance: ownership, system inventory, criticality tiers</li>
-          <li>Paper, hybrid, and electronic system risks</li>
-          <li>Warning letter patterns and program-level remediation</li>
-        </ul>
-      </div>
+ <aside class="pillar-sidebar">
+ <div class="sidebar-block">
+ <div class="sidebar-label">What this pillar covers</div>
+ <ul>
+ <li>ALCOA+, each principle, its failure modes, and how to assess it</li>
+ <li>Regulatory framework: FDA, MHRA, WHO, PIC/S, EMA</li>
+ <li>Data lifecycle: generation through archival and destruction</li>
+ <li>Audit trail design, review, and review-by-exception</li>
+ <li>Static vs. dynamic records; metadata as part of the record</li>
+ <li>Data governance: ownership, system inventory, criticality tiers</li>
+ <li>Paper, hybrid, and electronic system risks</li>
+ <li>Warning letter patterns and program-level remediation</li>
+ </ul>
+ </div>
 
-      <div class="sidebar-block">
-        <div class="sidebar-label">Related pillars</div>
-        {relatedPillars.map(p => (
-          <a href={`/pillars/${p.slug}`} class="related-pill" style={`--rc: ${p.color}`}>
-            {p.title} →
-          </a>
-        ))}
-      </div>
+ <div class="sidebar-block">
+ <div class="sidebar-label">Related pillars</div>
+ {relatedPillars.map(p => (
+ <a href={`/pillars/${p.slug}`} class="related-pill" style={`--rc: ${p.color}`}>
+ {p.title} →
+ </a>
+ ))}
+ </div>
 
-      <div class="sidebar-block">
-        <div class="sidebar-label">Learning tracks</div>
-        <a href="/tracks/foundations" class="track-link">Foundations Track — start here</a>
-        <a href="/tracks/implementation" class="track-link">Implementation Track</a>
-        <a href="/tracks/advanced" class="track-link">Advanced Track</a>
-      </div>
-    </aside>
-  </div>
+ <div class="sidebar-block">
+ <div class="sidebar-label">Learning tracks</div>
+ <a href="/tracks/foundations" class="track-link">Foundations Track, start here</a>
+ <a href="/tracks/implementation" class="track-link">Implementation Track</a>
+ <a href="/tracks/advanced" class="track-link">Advanced Track</a>
+ </div>
+ </aside>
+ </div>
 </Layout>
 
 <style>
-  .back-link {
-    font-size: 0.8rem;
-    color: var(--muted);
-    font-family: var(--mono);
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    transition: color 0.15s;
-  }
-  .back-link:hover { color: var(--accent); }
+ .back-link {
+ font-size: 0.8rem;
+ color: var(--muted);
+ font-family: var(--mono);
+ display: inline-block;
+ margin-bottom: 1.5rem;
+ transition: color 0.15s;
+ }
+ .back-link:hover { color: var(--accent); }
 
-  .pillar-label {
-    font-size: 0.72rem;
-    font-family: var(--mono);
-    color: #4f8ef7;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-    margin-bottom: 0.6rem;
-  }
+ .pillar-label {
+ font-size: 0.72rem;
+ font-family: var(--mono);
+ color: #4f8ef7;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ font-weight: 700;
+ margin-bottom: 0.6rem;
+ }
 
-  h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    letter-spacing: -0.03em;
-    margin-bottom: 1rem;
-  }
+ h1 {
+ font-size: clamp(2rem, 4vw, 3rem);
+ letter-spacing: -0.03em;
+ margin-bottom: 1rem;
+ }
 
-  .pillar-intro {
-    font-size: 1.05rem;
-    color: var(--muted-light);
-    line-height: 1.75;
-    max-width: 680px;
-    margin-bottom: 1.5rem;
-  }
+ .pillar-intro {
+ font-size: 1.05rem;
+ color: var(--muted-light);
+ line-height: 1.75;
+ max-width: 680px;
+ margin-bottom: 1.5rem;
+ }
 
-  .reg-basis {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.25rem;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 3rem;
-  }
+ .reg-basis {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ gap: 0.75rem;
+ padding: 1rem 1.25rem;
+ background: var(--surface2);
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ margin-bottom: 3rem;
+ }
 
-  .reg-label {
-    font-size: 0.72rem;
-    font-family: var(--mono);
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-right: 0.5rem;
-  }
+ .reg-label {
+ font-size: 0.72rem;
+ font-family: var(--mono);
+ color: var(--muted);
+ text-transform: uppercase;
+ letter-spacing: 0.08em;
+ font-weight: 700;
+ flex-shrink: 0;
+ margin-right: 0.5rem;
+ }
 
-  .reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+ .reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
-  .reg-links a {
-    font-size: 0.78rem;
-    color: var(--accent);
-    padding: 0.2rem 0.6rem;
-    border: 1px solid rgba(79, 142, 247, 0.25);
-    border-radius: 999px;
-    transition: background 0.15s;
-  }
+ .reg-links a {
+ font-size: 0.78rem;
+ color: var(--accent);
+ padding: 0.2rem 0.6rem;
+ border: 1px solid rgba(79, 142, 247, 0.25);
+ border-radius: 999px;
+ transition: background 0.15s;
+ }
 
-  .reg-links a:hover { background: var(--accent-glow); }
+ .reg-links a:hover { background: var(--accent-glow); }
 
-  .pillar-body {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 3rem;
-    align-items: start;
-  }
+ .pillar-body {
+ display: grid;
+ grid-template-columns: 1fr 280px;
+ gap: 3rem;
+ align-items: start;
+ }
 
-  h2 {
-    font-size: 1.1rem;
-    color: var(--text);
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border-dim);
-  }
+ h2 {
+ font-size: 1.1rem;
+ color: var(--text);
+ margin-bottom: 1.25rem;
+ padding-bottom: 0.75rem;
+ border-bottom: 1px solid var(--border-dim);
+ }
 
-  .empty { color: var(--muted); font-size: 0.9rem; }
+ .empty { color: var(--muted); font-size: 0.9rem; }
 
-  .article-list { display: flex; flex-direction: column; gap: 0; }
+ .article-list { display: flex; flex-direction: column; gap: 0; }
 
-  .article-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border-dim);
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.15s;
-    border-radius: 8px;
-  }
+ .article-row {
+ display: flex;
+ justify-content: space-between;
+ align-items: flex-start;
+ gap: 1rem;
+ padding: 1.25rem 0;
+ border-bottom: 1px solid var(--border-dim);
+ text-decoration: none;
+ color: inherit;
+ transition: background 0.15s;
+ border-radius: 8px;
+ }
 
-  .article-row:last-child { border-bottom: none; }
-  .article-row:hover { background: var(--surface); padding-left: 0.75rem; padding-right: 0.75rem; }
+ .article-row:last-child { border-bottom: none; }
+ .article-row:hover { background: var(--surface); padding-left: 0.75rem; padding-right: 0.75rem; }
 
-  .article-row-main { flex: 1; }
+ .article-row-main { flex: 1; }
 
-  .article-row-top {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.4rem;
-  }
+ .article-row-top {
+ display: flex;
+ align-items: center;
+ gap: 0.6rem;
+ margin-bottom: 0.4rem;
+ }
 
-  .tier-badge {
-    font-size: 0.65rem;
-    font-family: var(--mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.15rem 0.45rem;
-    border-radius: 999px;
-    border: 1px solid;
-    flex-shrink: 0;
-  }
+ .tier-badge {
+ font-size: 0.65rem;
+ font-family: var(--mono);
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ padding: 0.15rem 0.45rem;
+ border-radius: 999px;
+ border: 1px solid;
+ flex-shrink: 0;
+ }
 
-  .article-row-main h3 {
-    font-size: 1rem;
-    color: var(--text);
-    line-height: 1.35;
-    transition: color 0.15s;
-  }
+ .article-row-main h3 {
+ font-size: 1rem;
+ color: var(--text);
+ line-height: 1.35;
+ transition: color 0.15s;
+ }
 
-  .article-row:hover .article-row-main h3 { color: var(--accent); }
+ .article-row:hover .article-row-main h3 { color: var(--accent); }
 
-  .article-row-main p {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.55;
-    margin: 0;
-  }
+ .article-row-main p {
+ font-size: 0.85rem;
+ color: var(--muted);
+ line-height: 1.55;
+ margin: 0;
+ }
 
-  .article-row-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-    flex-shrink: 0;
-  }
+ .article-row-meta {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+ gap: 0.5rem;
+ flex-shrink: 0;
+ }
 
-  .article-row-meta span {
-    font-size: 0.75rem;
-    color: var(--muted);
-    font-family: var(--mono);
-  }
+ .article-row-meta span {
+ font-size: 0.75rem;
+ color: var(--muted);
+ font-family: var(--mono);
+ }
 
-  .arrow { color: var(--muted); transition: color 0.15s; }
-  .article-row:hover .arrow { color: var(--accent); }
+ .arrow { color: var(--muted); transition: color 0.15s; }
+ .article-row:hover .arrow { color: var(--accent); }
 
-  /* Sidebar */
-  .pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+ /* Sidebar */
+ .pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
 
-  .sidebar-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem;
-  }
+ .sidebar-block {
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: 12px;
+ padding: 1.25rem;
+ }
 
-  .sidebar-label {
-    font-size: 0.7rem;
-    font-family: var(--mono);
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 700;
-    margin-bottom: 0.85rem;
-  }
+ .sidebar-label {
+ font-size: 0.7rem;
+ font-family: var(--mono);
+ color: var(--accent);
+ text-transform: uppercase;
+ letter-spacing: 0.08em;
+ font-weight: 700;
+ margin-bottom: 0.85rem;
+ }
 
-  .sidebar-block ul {
-    padding-left: 1rem;
-    list-style: disc;
-    color: var(--muted-light);
-    font-size: 0.825rem;
-    line-height: 1.6;
-  }
+ .sidebar-block ul {
+ padding-left: 1rem;
+ list-style: disc;
+ color: var(--muted-light);
+ font-size: 0.825rem;
+ line-height: 1.6;
+ }
 
-  .sidebar-block li { margin-bottom: 0.35rem; }
+ .sidebar-block li { margin-bottom: 0.35rem; }
 
-  .related-pill {
-    display: block;
-    font-size: 0.825rem;
-    color: var(--muted-light);
-    padding: 0.4rem 0;
-    border-bottom: 1px solid var(--border-dim);
-    transition: color 0.15s;
-  }
+ .related-pill {
+ display: block;
+ font-size: 0.825rem;
+ color: var(--muted-light);
+ padding: 0.4rem 0;
+ border-bottom: 1px solid var(--border-dim);
+ transition: color 0.15s;
+ }
 
-  .related-pill:last-child { border-bottom: none; }
-  .related-pill:hover { color: var(--rc, var(--accent)); }
+ .related-pill:last-child { border-bottom: none; }
+ .related-pill:hover { color: var(--rc, var(--accent)); }
 
-  .track-link {
-    display: block;
-    font-size: 0.825rem;
-    color: var(--muted-light);
-    padding: 0.4rem 0;
-    border-bottom: 1px solid var(--border-dim);
-    transition: color 0.15s;
-  }
+ .track-link {
+ display: block;
+ font-size: 0.825rem;
+ color: var(--muted-light);
+ padding: 0.4rem 0;
+ border-bottom: 1px solid var(--border-dim);
+ transition: color 0.15s;
+ }
 
-  .track-link:last-child { border-bottom: none; }
-  .track-link:hover { color: var(--accent); }
+ .track-link:last-child { border-bottom: none; }
+ .track-link:hover { color: var(--accent); }
 
-  @media (max-width: 860px) {
-    .pillar-body { grid-template-columns: 1fr; }
-    .pillar-sidebar { order: -1; }
-  }
+ @media (max-width: 860px) {
+ .pillar-body { grid-template-columns: 1fr; }
+ .pillar-sidebar { order: -1; }
+ }
 </style>

@@ -2,228 +2,228 @@
 import Layout from '../../layouts/Layout.astro';
 
 const steps = [
-  {
-    num: '01',
-    title: 'Building a DI program: architecture and governance',
-    desc: 'What a mature, enterprise-level data integrity program looks like — system inventory and tiering, governance model, ownership structures, data-flow mapping, and how to assess where you are versus where you need to be.',
-    articles: [
-      { title: 'Building a Data Integrity Program: Architecture, Governance, and the Gap Assessment', slug: 'di-program-architecture' },
-    ],
-    pillar: 'Data Integrity',
-    color: '#4f8ef7',
-  },
-  {
-    num: '02',
-    title: 'FDA\'s Computer Software Assurance shift',
-    desc: 'FDA\'s September 2022 CSA draft guidance is the most significant change to GxP software compliance in decades. Understanding what it actually changes — and what it doesn\'t — is critical for senior practitioners advising programs.',
-    articles: [
-      { title: "FDA Computer Software Assurance: What Changed and What Didn't", slug: 'computer-software-assurance-fda' },
-    ],
-    pillar: 'CSV & CSA',
-    color: '#34d399',
-  },
-  {
-    num: '03',
-    title: 'Cloud and SaaS validation in GxP',
-    desc: 'Cloud-hosted systems are now standard in GxP environments. The shared-responsibility model, IaaS/PaaS/SaaS qualification implications, SOC 2 reports, and how to build and maintain a defensible qualification posture for cloud infrastructure.',
-    articles: [
-      { title: 'Cloud and SaaS Validation in GxP: The Shared-Responsibility Model', slug: 'cloud-saas-validation' },
-    ],
-    pillar: 'CSV & CSA',
-    color: '#34d399',
-  },
-  {
-    num: '04',
-    title: 'CGT data integrity: structural challenges and program design',
-    desc: 'Cell and gene therapy creates data integrity challenges that don\'t exist in conventional manufacturing — and building programs that address them requires understanding why they\'re different, not just applying the standard framework harder.',
-    articles: [
-      { title: 'Cell & Gene Therapy: Why Data Integrity Is Structurally Different', slug: 'cell-gene-therapy-data-integrity' },
-      { title: 'Data Integrity in Gene Therapy: What FDA Really Expects', slug: 'data-integrity-in-gene-therapy' },
-    ],
-    pillar: 'Cell & Gene Therapy',
-    color: '#a78bfa',
-  },
-  {
-    num: '05',
-    title: 'Handling a 483 and responding to Warning Letters',
-    desc: 'A 483 observation is the start of a process, not the end of an inspection. The quality of your response — root cause analysis, CAPA, realistic commitments — determines whether the matter stays as a 483 or escalates. This covers what good responses look like.',
-    articles: [
-      { title: 'FDA Form 483 and Warning Letters: How to Respond Effectively', slug: '483-warning-letter-response' },
-    ],
-    pillar: 'Audits & Inspection',
-    color: '#fb923c',
-  },
-  {
-    num: '06',
-    title: 'Warning letter patterns: what the enforcement record tells you',
-    desc: 'The public FDA enforcement record is one of the most useful training datasets in the industry. The same failures appear in different companies because they reflect the same underlying system weaknesses.',
-    articles: [
-      { title: 'FDA Data Integrity Warning Letters: 8 Patterns That Repeat', slug: 'fda-warning-letters-patterns' },
-    ],
-    pillar: 'Data Integrity',
-    color: '#4f8ef7',
-  },
-  {
-    num: '07',
-    title: 'USP 1058 and analytical instrument qualification at scale',
-    desc: 'USP 1058 provides the AIQ framework that integrates instrument qualification with CSV and data integrity. Understanding how to apply it proportionally across a diverse instrument fleet is an advanced program management challenge.',
-    articles: [
-      { title: 'Analytical Instrument Qualification: USP <1058> and the 4Qs Framework', slug: 'analytical-instrument-qualification' },
-    ],
-    pillar: 'Equipment Qualification',
-    color: '#fbbf24',
-  },
-  {
-    num: '08',
-    title: 'DI gap assessment: running one that finds something',
-    desc: 'The methodology for a comprehensive data integrity gap assessment — five layers from infrastructure through culture, system-by-system evaluation, finding classification, and turning findings into a prioritized remediation roadmap.',
-    articles: [
-      { title: 'Data Integrity Gap Assessment Methodology', slug: 'di-gap-assessment-methodology' },
-    ],
-    pillar: 'Data Integrity',
-    color: '#4f8ef7',
-  },
-  {
-    num: '09',
-    title: 'Running a DI remediation program',
-    desc: 'What happens after a data integrity warning letter — organizing the program, retrospective data review, rebuilding regulatory trust, managing the follow-up inspection, and transitioning to sustainable compliance.',
-    articles: [
-      { title: 'DI Remediation Program: From Warning Letter to Sustainable Compliance', slug: 'di-remediation-program' },
-    ],
-    pillar: 'Data Integrity',
-    color: '#4f8ef7',
-  },
-  {
-    num: '10',
-    title: 'FDA vs. EMA: inspection dynamics and strategic differences',
-    desc: 'Operating globally means managing two different inspection frameworks simultaneously. Structural differences in investigator authority, deficiency classification, pre-inspection notification, and enforcement consequences.',
-    articles: [
-      { title: 'FDA vs EMA Inspection Dynamics', slug: 'fda-vs-ema-inspection-dynamics' },
-    ],
-    pillar: 'Audits & Inspection',
-    color: '#fb923c',
-  },
-  {
-    num: '11',
-    title: 'BLA readiness: architecting the CMC data package',
-    desc: 'The CMC data package is the most scrutinized section of a biologics application. Data traceability requirements, pre-BLA data integrity audit methodology, what PLI investigators actually examine, and CGT-specific data architecture.',
-    articles: [
-      { title: 'BLA Readiness: Architecting the Data Package', slug: 'bla-readiness-data-package' },
-    ],
-    pillar: 'Data Integrity',
-    color: '#4f8ef7',
-  },
-  {
-    num: '12',
-    title: 'Quality culture and the behavioral science of DI failures',
-    desc: 'Why data integrity violations happen in organizations with good procedures. Organizational pressure, normalization of deviance, diffusion of responsibility, and the management behaviors that enable or prevent falsification.',
-    articles: [
-      { title: 'Quality Culture and DI Failures: The Behavioral Science', slug: 'quality-culture-di-failures' },
-    ],
-    pillar: 'Data Integrity',
-    color: '#4f8ef7',
-  },
-  {
-    num: '13',
-    title: 'Process validation lifecycle: Stage 1, 2, and 3',
-    desc: 'The three-stage lifecycle model under FDA\'s 2011 guidance and ICH Q8-Q10 — process design, process qualification (PPQ), and continued process verification with statistical process monitoring.',
-    articles: [
-      { title: 'Process Validation Lifecycle: Stage 1, 2, and 3', slug: 'process-validation-lifecycle' },
-    ],
-    pillar: 'Quality Assurance',
-    color: '#f87171',
-  },
-  {
-    num: '14',
-    title: 'Retroactive validation: when systems were never properly validated',
-    desc: 'The structured approach to bringing unvalidated legacy systems into a validated state — risk assessment, retrospective data review, what retroactive validation can and can\'t accomplish, and when replacement is the right answer.',
-    articles: [
-      { title: 'Retroactive Validation and Legacy Systems', slug: 'retroactive-validation-legacy-systems' },
-    ],
-    pillar: 'CSV & CSA',
-    color: '#34d399',
-  },
+ {
+ num: '01',
+ title: 'Building a DI program: architecture and governance',
+ desc: 'What a mature, enterprise-level data integrity program looks like, system inventory and tiering, governance model, ownership structures, data-flow mapping, and how to assess where you are versus where you need to be.',
+ articles: [
+ { title: 'Building a Data Integrity Program: Architecture, Governance, and the Gap Assessment', slug: 'di-program-architecture' },
+ ],
+ pillar: 'Data Integrity',
+ color: '#4f8ef7',
+ },
+ {
+ num: '02',
+ title: 'FDA\'s Computer Software Assurance shift',
+ desc: 'FDA\'s September 2022 CSA draft guidance is the most significant change to GxP software compliance in decades. Understanding what it actually changes, and what it doesn\'t, is critical for senior practitioners advising programs.',
+ articles: [
+ { title: "FDA Computer Software Assurance: What Changed and What Didn't", slug: 'computer-software-assurance-fda' },
+ ],
+ pillar: 'CSV & CSA',
+ color: '#34d399',
+ },
+ {
+ num: '03',
+ title: 'Cloud and SaaS validation in GxP',
+ desc: 'Cloud-hosted systems are now standard in GxP environments. The shared-responsibility model, IaaS/PaaS/SaaS qualification implications, SOC 2 reports, and how to build and maintain a defensible qualification posture for cloud infrastructure.',
+ articles: [
+ { title: 'Cloud and SaaS Validation in GxP: The Shared-Responsibility Model', slug: 'cloud-saas-validation' },
+ ],
+ pillar: 'CSV & CSA',
+ color: '#34d399',
+ },
+ {
+ num: '04',
+ title: 'CGT data integrity: structural challenges and program design',
+ desc: 'Cell and gene therapy creates data integrity challenges that don\'t exist in conventional manufacturing, and building programs that address them requires understanding why they\'re different, not just applying the standard framework harder.',
+ articles: [
+ { title: 'Cell & Gene Therapy: Why Data Integrity Is Structurally Different', slug: 'cell-gene-therapy-data-integrity' },
+ { title: 'Data Integrity in Gene Therapy: What FDA Really Expects', slug: 'data-integrity-in-gene-therapy' },
+ ],
+ pillar: 'Cell & Gene Therapy',
+ color: '#a78bfa',
+ },
+ {
+ num: '05',
+ title: 'Handling a 483 and responding to Warning Letters',
+ desc: 'A 483 observation is the start of a process, not the end of an inspection. The quality of your response, root cause analysis, CAPA, realistic commitments, determines whether the matter stays as a 483 or escalates. This covers what good responses look like.',
+ articles: [
+ { title: 'FDA Form 483 and Warning Letters: How to Respond Effectively', slug: '483-warning-letter-response' },
+ ],
+ pillar: 'Audits & Inspection',
+ color: '#fb923c',
+ },
+ {
+ num: '06',
+ title: 'Warning letter patterns: what the enforcement record tells you',
+ desc: 'The public FDA enforcement record is one of the most useful training datasets in the industry. The same failures appear in different companies because they reflect the same underlying system weaknesses.',
+ articles: [
+ { title: 'FDA Data Integrity Warning Letters: 8 Patterns That Repeat', slug: 'fda-warning-letters-patterns' },
+ ],
+ pillar: 'Data Integrity',
+ color: '#4f8ef7',
+ },
+ {
+ num: '07',
+ title: 'USP 1058 and analytical instrument qualification at scale',
+ desc: 'USP 1058 provides the AIQ framework that integrates instrument qualification with CSV and data integrity. Understanding how to apply it proportionally across a diverse instrument fleet is an advanced program management challenge.',
+ articles: [
+ { title: 'Analytical Instrument Qualification: USP <1058> and the 4Qs Framework', slug: 'analytical-instrument-qualification' },
+ ],
+ pillar: 'Equipment Qualification',
+ color: '#fbbf24',
+ },
+ {
+ num: '08',
+ title: 'DI gap assessment: running one that finds something',
+ desc: 'The methodology for a comprehensive data integrity gap assessment, five layers from infrastructure through culture, system-by-system evaluation, finding classification, and turning findings into a prioritized remediation roadmap.',
+ articles: [
+ { title: 'Data Integrity Gap Assessment Methodology', slug: 'di-gap-assessment-methodology' },
+ ],
+ pillar: 'Data Integrity',
+ color: '#4f8ef7',
+ },
+ {
+ num: '09',
+ title: 'Running a DI remediation program',
+ desc: 'What happens after a data integrity warning letter, organizing the program, retrospective data review, rebuilding regulatory trust, managing the follow-up inspection, and transitioning to sustainable compliance.',
+ articles: [
+ { title: 'DI Remediation Program: From Warning Letter to Sustainable Compliance', slug: 'di-remediation-program' },
+ ],
+ pillar: 'Data Integrity',
+ color: '#4f8ef7',
+ },
+ {
+ num: '10',
+ title: 'FDA vs. EMA: inspection dynamics and strategic differences',
+ desc: 'Operating globally means managing two different inspection frameworks simultaneously. Structural differences in investigator authority, deficiency classification, pre-inspection notification, and enforcement consequences.',
+ articles: [
+ { title: 'FDA vs EMA Inspection Dynamics', slug: 'fda-vs-ema-inspection-dynamics' },
+ ],
+ pillar: 'Audits & Inspection',
+ color: '#fb923c',
+ },
+ {
+ num: '11',
+ title: 'BLA readiness: architecting the CMC data package',
+ desc: 'The CMC data package is the most scrutinized section of a biologics application. Data traceability requirements, pre-BLA data integrity audit methodology, what PLI investigators actually examine, and CGT-specific data architecture.',
+ articles: [
+ { title: 'BLA Readiness: Architecting the Data Package', slug: 'bla-readiness-data-package' },
+ ],
+ pillar: 'Data Integrity',
+ color: '#4f8ef7',
+ },
+ {
+ num: '12',
+ title: 'Quality culture and the behavioral science of DI failures',
+ desc: 'Why data integrity violations happen in organizations with good procedures. Organizational pressure, normalization of deviance, diffusion of responsibility, and the management behaviors that enable or prevent falsification.',
+ articles: [
+ { title: 'Quality Culture and DI Failures: The Behavioral Science', slug: 'quality-culture-di-failures' },
+ ],
+ pillar: 'Data Integrity',
+ color: '#4f8ef7',
+ },
+ {
+ num: '13',
+ title: 'Process validation lifecycle: Stage 1, 2, and 3',
+ desc: 'The three-stage lifecycle model under FDA\'s 2011 guidance and ICH Q8-Q10, process design, process qualification (PPQ), and continued process verification with statistical process monitoring.',
+ articles: [
+ { title: 'Process Validation Lifecycle: Stage 1, 2, and 3', slug: 'process-validation-lifecycle' },
+ ],
+ pillar: 'Quality Assurance',
+ color: '#f87171',
+ },
+ {
+ num: '14',
+ title: 'Retroactive validation: when systems were never properly validated',
+ desc: 'The structured approach to bringing unvalidated legacy systems into a validated state, risk assessment, retrospective data review, what retroactive validation can and can\'t accomplish, and when replacement is the right answer.',
+ articles: [
+ { title: 'Retroactive Validation and Legacy Systems', slug: 'retroactive-validation-legacy-systems' },
+ ],
+ pillar: 'CSV & CSA',
+ color: '#34d399',
+ },
 ];
 ---
-<Layout title="Advanced Track" description="Program-level depth for senior GxP practitioners — DI program architecture, CSA, cloud validation, CGT, 483 response, and inspection defense.">
-  <div class="track-header">
-    <a href="/tracks" class="back-link">← Learning Tracks</a>
-    <div class="track-badge">Advanced</div>
-    <h1>Building Programs: Strategy &amp; Defense</h1>
-    <p class="track-intro">
-      This track covers what senior practitioners need — program architecture, regulatory strategy, inspection defense, and the judgment calls that separate programs that survive scrutiny from those that don't.
-    </p>
-    <div class="track-for-box">
-      <strong>For:</strong> Directors of quality, validation, and data integrity; heads of regulatory affairs; quality VPs; anyone leading a GxP program rather than executing within one.
-    </div>
-    <div class="prereq">
-      <span class="prereq-label">Prerequisites:</span>
-      This track assumes working familiarity with GxP quality and validation. Start with
-      <a href="/tracks/foundations">Foundations</a> or <a href="/tracks/implementation">Implementation</a> if you're earlier in your career.
-    </div>
-  </div>
+<Layout title="Advanced Track" description="Program-level depth for senior GxP practitioners, DI program architecture, CSA, cloud validation, CGT, 483 response, and inspection defense.">
+ <div class="track-header">
+ <a href="/tracks" class="back-link">← Learning Tracks</a>
+ <div class="track-badge">Advanced</div>
+ <h1>Building Programs: Strategy &amp; Defense</h1>
+ <p class="track-intro">
+ This track covers what senior practitioners need, program architecture, regulatory strategy, inspection defense, and the judgment calls that separate programs that survive scrutiny from those that don't.
+ </p>
+ <div class="track-for-box">
+ <strong>For:</strong> Directors of quality, validation, and data integrity; heads of regulatory affairs; quality VPs; anyone leading a GxP program rather than executing within one.
+ </div>
+ <div class="prereq">
+ <span class="prereq-label">Prerequisites:</span>
+ This track assumes working familiarity with GxP quality and validation. Start with
+ <a href="/tracks/foundations">Foundations</a> or <a href="/tracks/implementation">Implementation</a> if you're earlier in your career.
+ </div>
+ </div>
 
-  <div class="steps">
-    {steps.map(step => (
-      <div class="step">
-        <div class="step-num">{step.num}</div>
-        <div class="step-content">
-          <div class="step-pillar" style={`color: ${step.color}`}>{step.pillar}</div>
-          <h2 class="step-title">{step.title}</h2>
-          <p class="step-desc">{step.desc}</p>
-          <div class="step-articles">
-            {step.articles.map(a => (
-              <a href={`/articles/${a.slug}`} class="step-article-link">
-                <span class="article-icon">→</span>
-                {a.title}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
+ <div class="steps">
+ {steps.map(step => (
+ <div class="step">
+ <div class="step-num">{step.num}</div>
+ <div class="step-content">
+ <div class="step-pillar" style={`color: ${step.color}`}>{step.pillar}</div>
+ <h2 class="step-title">{step.title}</h2>
+ <p class="step-desc">{step.desc}</p>
+ <div class="step-articles">
+ {step.articles.map(a => (
+ <a href={`/articles/${a.slug}`} class="step-article-link">
+ <span class="article-icon">→</span>
+ {a.title}
+ </a>
+ ))}
+ </div>
+ </div>
+ </div>
+ ))}
+ </div>
 
-  <div class="all-pillars">
-    <div class="all-inner">
-      <div>
-        <div class="all-label">Browse by discipline</div>
-        <h2>Explore the full knowledge hub</h2>
-        <p>All articles organized by pillar — with regulatory references, tier tags, and cross-links.</p>
-      </div>
-      <a href="/pillars" class="btn-primary">View all pillars →</a>
-    </div>
-  </div>
+ <div class="all-pillars">
+ <div class="all-inner">
+ <div>
+ <div class="all-label">Browse by discipline</div>
+ <h2>Explore the full knowledge hub</h2>
+ <p>All articles organized by pillar, with regulatory references, tier tags, and cross-links.</p>
+ </div>
+ <a href="/pillars" class="btn-primary">View all pillars →</a>
+ </div>
+ </div>
 </Layout>
 
 <style>
-  .back-link { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
-  .back-link:hover { color: var(--accent); }
-  .track-badge { display: inline-block; font-size: 0.7rem; font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.65rem; border-radius: 999px; background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); margin-bottom: 1rem; }
-  h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
-  .track-intro { font-size: 1.05rem; color: var(--muted-light); line-height: 1.75; max-width: 640px; margin-bottom: 1.25rem; }
-  .track-for-box { display: inline-block; font-size: 0.85rem; color: var(--muted-light); padding: 0.6rem 1rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.75rem; }
-  .track-for-box strong { color: var(--text); }
-  .prereq { font-size: 0.82rem; color: var(--muted); margin-bottom: 3rem; }
-  .prereq-label { font-weight: 700; color: var(--muted-light); margin-right: 0.35rem; }
-  .prereq a { color: var(--accent); }
-  .steps { display: flex; flex-direction: column; margin-bottom: 4rem; }
-  .step { display: grid; grid-template-columns: 48px 1fr; gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border-dim); }
-  .step:last-child { border-bottom: none; }
-  .step-num { font-size: 1.4rem; font-family: var(--mono); font-weight: 800; color: var(--border); padding-top: 0.2rem; line-height: 1; }
-  .step-pillar { font-size: 0.7rem; font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
-  .step-title { font-size: 1.15rem; color: var(--text); margin-bottom: 0.6rem; line-height: 1.35; }
-  .step-desc { font-size: 0.9rem; color: var(--muted-light); line-height: 1.7; margin-bottom: 1rem; }
-  .step-articles { display: flex; flex-direction: column; gap: 0.35rem; }
-  .step-article-link { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--accent); padding: 0.5rem 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; transition: background 0.15s, border-color 0.15s; text-decoration: none; }
-  .step-article-link:hover { background: var(--surface2); border-color: var(--accent); }
-  .article-icon { font-size: 0.75rem; color: var(--accent); flex-shrink: 0; }
-  .all-pillars { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
-  .all-inner { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-  .all-label { font-size: 0.72rem; font-family: var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.5rem; }
-  .all-inner h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-  .all-inner p { font-size: 0.875rem; color: var(--muted-light); max-width: 520px; }
-  .btn-primary { display: inline-flex; align-items: center; white-space: nowrap; background: var(--accent); color: #080910; font-weight: 700; font-size: 0.875rem; padding: 0.65rem 1.35rem; border-radius: 8px; flex-shrink: 0; transition: background 0.15s; }
-  .btn-primary:hover { background: var(--accent-h); color: #080910; }
-  @media (max-width: 600px) { .step { grid-template-columns: 1fr; } .step-num { display: none; } .all-inner { flex-direction: column; align-items: flex-start; } }
+ .back-link { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
+ .back-link:hover { color: var(--accent); }
+ .track-badge { display: inline-block; font-size: 0.7rem; font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.65rem; border-radius: 999px; background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); margin-bottom: 1rem; }
+ h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
+ .track-intro { font-size: 1.05rem; color: var(--muted-light); line-height: 1.75; max-width: 640px; margin-bottom: 1.25rem; }
+ .track-for-box { display: inline-block; font-size: 0.85rem; color: var(--muted-light); padding: 0.6rem 1rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.75rem; }
+ .track-for-box strong { color: var(--text); }
+ .prereq { font-size: 0.82rem; color: var(--muted); margin-bottom: 3rem; }
+ .prereq-label { font-weight: 700; color: var(--muted-light); margin-right: 0.35rem; }
+ .prereq a { color: var(--accent); }
+ .steps { display: flex; flex-direction: column; margin-bottom: 4rem; }
+ .step { display: grid; grid-template-columns: 48px 1fr; gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid var(--border-dim); }
+ .step:last-child { border-bottom: none; }
+ .step-num { font-size: 1.4rem; font-family: var(--mono); font-weight: 800; color: var(--border); padding-top: 0.2rem; line-height: 1; }
+ .step-pillar { font-size: 0.7rem; font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+ .step-title { font-size: 1.15rem; color: var(--text); margin-bottom: 0.6rem; line-height: 1.35; }
+ .step-desc { font-size: 0.9rem; color: var(--muted-light); line-height: 1.7; margin-bottom: 1rem; }
+ .step-articles { display: flex; flex-direction: column; gap: 0.35rem; }
+ .step-article-link { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--accent); padding: 0.5rem 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; transition: background 0.15s, border-color 0.15s; text-decoration: none; }
+ .step-article-link:hover { background: var(--surface2); border-color: var(--accent); }
+ .article-icon { font-size: 0.75rem; color: var(--accent); flex-shrink: 0; }
+ .all-pillars { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
+ .all-inner { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+ .all-label { font-size: 0.72rem; font-family: var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.5rem; }
+ .all-inner h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+ .all-inner p { font-size: 0.875rem; color: var(--muted-light); max-width: 520px; }
+ .btn-primary { display: inline-flex; align-items: center; white-space: nowrap; background: var(--accent); color: #080910; font-weight: 700; font-size: 0.875rem; padding: 0.65rem 1.35rem; border-radius: 8px; flex-shrink: 0; transition: background 0.15s; }
+ .btn-primary:hover { background: var(--accent-h); color: #080910; }
+ @media (max-width: 600px) { .step { grid-template-columns: 1fr; } .step-num { display: none; } .all-inner { flex-direction: column; align-items: flex-start; } }
 </style>

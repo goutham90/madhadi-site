@@ -1,6 +1,6 @@
 ---
 title: "CSV/CSA Self-Audit: Evaluating Your Computer System Validation Program"
-description: "A detailed self-audit checklist for computer system validation programs — system inventory, validation documentation, testing evidence, change control, supplier management, and periodic review. Aligned with GAMP 5 Second Edition and FDA CSA final guidance."
+description: "A detailed self-audit checklist for computer system validation programs, system inventory, validation documentation, testing evidence, change control, supplier management, and periodic review. Aligned with GAMP 5 Second Edition and FDA CSA final guidance."
 pubDate: 2026-06-01
 tags: ["CSV", "CSA", "GAMP", "validation", "audit", "self-audit", "FDA"]
 tier: "Advanced"

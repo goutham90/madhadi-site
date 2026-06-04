@@ -1,6 +1,6 @@
 ---
 title: "Inspection Readiness: How to Demonstrate a Genuine State of Control"
-description: "What inspection readiness actually means — how to prepare a site for FDA or EMA inspection without theater, what inspectors are looking for, and how front room/back room operations actually work."
+description: "What inspection readiness actually means, how to prepare a site for FDA or EMA inspection without theater, what inspectors are looking for, and how front room/back room operations actually work."
 pubDate: 2025-11-18
 tags: ["inspections", "FDA", "GxP", "inspection-readiness", "data-integrity"]
 pillar: "audits-inspection"

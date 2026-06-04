@@ -1,6 +1,6 @@
 ---
 title: "Operating Validated GxP Computerized Systems: What Happens After Go-Live"
-description: "The practical operational controls required to maintain a computerized system in a validated state — handover, support services, incident management, change management, periodic review, backup and recovery, security, and archiving. Based on ISPE GAMP operational guidance."
+description: "The practical operational controls required to maintain a computerized system in a validated state, handover, support services, incident management, change management, periodic review, backup and recovery, security, and archiving. Based on ISPE GAMP operational guidance."
 pubDate: 2026-03-29
 tags: ["CSV", "GxP", "computerized-systems", "validation", "operations", "GAMP"]
 tier: "Intermediate"

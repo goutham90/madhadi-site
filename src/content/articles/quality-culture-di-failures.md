@@ -1,6 +1,6 @@
 ---
 title: "Quality Culture and Data Integrity Failures: The Behavioral Science Behind Why People Falsify Data"
-description: "Why data integrity violations happen in organizations with good procedures and trained people — organizational pressure, normalization of deviance, diffusion of responsibility, and the specific management behaviors that prevent or enable falsification. For quality leaders and compliance directors."
+description: "Why data integrity violations happen in organizations with good procedures and trained people, organizational pressure, normalization of deviance, diffusion of responsibility, and the specific management behaviors that prevent or enable falsification. For quality leaders and compliance directors."
 pubDate: 2026-04-19
 tags: ["quality culture", "data integrity", "behavioral science", "leadership", "organizational behavior"]
 tier: "Advanced"

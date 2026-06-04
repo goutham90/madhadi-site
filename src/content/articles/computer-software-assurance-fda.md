@@ -1,6 +1,6 @@
 ---
 title: "FDA Computer Software Assurance: What Changed and What Didn't"
-description: "FDA's final CSA guidance (February 2026) — what it actually requires, how it changes testing scope, scripted vs exploratory testing, using supplier evidence, and what the finalization means for inspection expectations."
+description: "FDA's final CSA guidance (February 2026), what it actually requires, how it changes testing scope, scripted vs exploratory testing, using supplier evidence, and what the finalization means for inspection expectations."
 pubDate: 2025-09-11
 tags: ["CSV", "CSA", "FDA", "validation", "GAMP", "GxP"]
 pillar: "csv-csa"

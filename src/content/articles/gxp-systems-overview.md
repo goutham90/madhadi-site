@@ -1,5 +1,5 @@
 ---
-title: "GxP Computerized Systems: LIMS, CDS, ELN, MES, CTMS, and More — A Complete Map"
+title: "GxP Computerized Systems: LIMS, CDS, ELN, MES, CTMS, and More, A Complete Map"
 description: "Every major computerized system used in pharmaceutical manufacturing and clinical operations, what each one does, the GxP data it generates, and the validation requirements that come with it."
 pubDate: 2025-07-18
 tags: ["LIMS", "CDS", "ELN", "MES", "CSV", "computerized systems", "foundations"]
@@ -9,7 +9,7 @@ pillar: "csv-csa"
 
 Pharmaceutical and biotech companies run on software. The number and variety of systems in a typical regulated facility is large, and each one generates GxP data that must be managed, validated, and protected. Understanding what each system does, what data it generates, and what validation it requires is foundational knowledge for anyone working in pharmaceutical quality, compliance, or validation.
 
-This guide covers the major system categories. The actual product landscape in each category has dozens of vendors, and system names are often used loosely in the industry. The important thing is understanding what a system category does and what its data integrity requirements are.
+This guide covers the major system categories. The actual product environment in each category has dozens of vendors, and system names are often used loosely in the industry. The important thing is understanding what a system category does and what its data integrity requirements are.
 
 ---
 

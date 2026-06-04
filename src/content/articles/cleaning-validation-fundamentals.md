@@ -1,6 +1,6 @@
 ---
 title: "Cleaning Validation in Pharmaceutical Manufacturing: ADE, PDE, and the Full Framework"
-description: "A complete operational guide to cleaning validation — regulatory basis, ADE/PDE calculations, worst-case product selection, swab sampling design, acceptance criteria, and what FDA inspectors focus on."
+description: "A complete operational guide to cleaning validation, regulatory basis, ADE/PDE calculations, worst-case product selection, swab sampling design, acceptance criteria, and what FDA inspectors focus on."
 pubDate: 2026-02-23
 tags: ["cleaning validation", "GMP", "manufacturing", "contamination", "ADE", "PDE"]
 tier: "Intermediate"

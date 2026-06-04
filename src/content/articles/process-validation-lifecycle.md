@@ -1,6 +1,6 @@
 ---
 title: "Process Validation Lifecycle: Stage 1, 2, and 3 Under ICH Q8/Q9/Q10"
-description: "A complete guide to pharmaceutical process validation using the modern three-stage lifecycle approach — process design, process qualification, and continued process verification — with practical detail on studies, documentation, statistics, and regulatory expectations."
+description: "A complete guide to pharmaceutical process validation using the modern three-stage lifecycle approach, process design, process qualification, and continued process verification, with practical detail on studies, documentation, statistics, and regulatory expectations."
 pubDate: 2026-03-10
 tags: ["process validation", "ICH Q8", "ICH Q10", "Stage 1", "Stage 2", "Stage 3", "manufacturing"]
 tier: "Advanced"
@@ -37,7 +37,7 @@ CQAs are derived from: knowledge of the mechanism of action (what molecular prop
 
 **Critical Process Parameters (CPPs)**
 
-CPPs are process parameters whose variability has a significant impact on a CQA. Not all process parameters are critical. Temperature during a non-critical mixing step is a process parameter but may not be critical if it has no meaningful effect on product quality within a wide range.
+CPPs are process parameters whose variability has a real impact on a CQA. Not all process parameters are critical. Temperature during a non-critical mixing step is a process parameter but may not be critical if it has no meaningful effect on product quality within a wide range.
 
 CPP identification comes from risk assessment (ICH Q9): which parameters could plausibly affect CQAs, and at what ranges? Followed by experimental confirmation: design of experiments (DoE) studies that systematically vary parameters across their operating ranges and measure the CQA response.
 

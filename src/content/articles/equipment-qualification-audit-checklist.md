@@ -1,6 +1,6 @@
 ---
 title: "Equipment and Instrument Qualification Audit Checklist"
-description: "A complete qualification audit checklist for pharmaceutical equipment and analytical instruments — DQ, IQ, OQ, PQ, calibration, maintenance, periodic review, and change control. Based on USP <1058>, EU Annex 15, and ISPE C&Q Baseline Guide."
+description: "A complete qualification audit checklist for pharmaceutical equipment and analytical instruments, DQ, IQ, OQ, PQ, calibration, maintenance, periodic review, and change control. Based on USP <1058>, EU Annex 15, and ISPE C&Q Baseline Guide."
 pubDate: 2026-03-21
 tags: ["equipment-qualification", "IQ", "OQ", "PQ", "audit", "self-audit", "USP-1058"]
 tier: "Intermediate"

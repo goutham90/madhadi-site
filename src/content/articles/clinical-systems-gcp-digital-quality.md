@@ -1,6 +1,6 @@
 ---
 title: "Clinical Systems and GCP Digital Quality: EDC, IRT, eTMF, and CTMS"
-description: "A practical guide to computerized systems in clinical trials — EDC, IRT/RTSM, eTMF, CTMS, and safety databases. What validation means for clinical systems, what FDA and ICH E6 require, and what inspectors check in a BIMO inspection."
+description: "A practical guide to computerized systems in clinical trials, EDC, IRT/RTSM, eTMF, CTMS, and safety databases. What validation means for clinical systems, what FDA and ICH E6 require, and what inspectors check in a BIMO inspection."
 pubDate: 2026-06-02
 tags: ["GCP", "clinical systems", "EDC", "validation", "data-integrity", "FDA", "BIMO"]
 pillar: "quality-assurance"

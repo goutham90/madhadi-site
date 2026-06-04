@@ -1,6 +1,6 @@
 ---
 title: "QMS Self-Audit: Evaluating Your Pharmaceutical Quality Management System"
-description: "A complete QMS self-audit framework — document control, deviation and CAPA management, change control, training, supplier qualification, internal audits, and quality metrics. Structured around ICH Q10 and FDA/EMA expectations."
+description: "A complete QMS self-audit framework, document control, deviation and CAPA management, change control, training, supplier qualification, internal audits, and quality metrics. Structured around ICH Q10 and FDA/EMA expectations."
 pubDate: 2026-03-24
 tags: ["QMS", "audit", "self-audit", "CAPA", "deviation", "document-control", "ICH-Q10"]
 tier: "Intermediate"

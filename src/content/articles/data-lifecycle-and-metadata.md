@@ -1,6 +1,6 @@
 ---
 title: "The Data Lifecycle in GxP: From Generation to Archival"
-description: "How pharmaceutical data moves through its full lifecycle — and where integrity breaks down at each stage. Static vs dynamic records, original vs true copy, and why metadata is part of the record."
+description: "How pharmaceutical data moves through its full lifecycle, and where integrity breaks down at each stage. Static vs dynamic records, original vs true copy, and why metadata is part of the record."
 pubDate: 2025-09-17
 tags: ["data-integrity", "GxP", "FDA", "metadata", "data-lifecycle"]
 pillar: "data-integrity"

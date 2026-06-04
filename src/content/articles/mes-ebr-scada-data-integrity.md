@@ -1,6 +1,6 @@
 ---
 title: "MES, EBR, SCADA, and the Shop Floor: Data Integrity in Manufacturing Automation"
-description: "How data integrity requirements apply to manufacturing automation systems — MES, electronic batch records, SCADA, DCS, PLCs, and historians. Where the compliance gaps are and how to address them."
+description: "How data integrity requirements apply to manufacturing automation systems, MES, electronic batch records, SCADA, DCS, PLCs, and historians. Where the compliance gaps are and how to address them."
 pubDate: 2025-10-23
 tags: ["MES", "SCADA", "manufacturing", "data-integrity", "21-CFR-Part-11", "GxP"]
 tier: "Intermediate"

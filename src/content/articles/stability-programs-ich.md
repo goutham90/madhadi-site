@@ -1,6 +1,6 @@
 ---
 title: "Stability Programs in Pharmaceutical QA: ICH Q1A Through Q1F in Practice"
-description: "A complete operational guide to pharmaceutical stability programs — ICH storage conditions, stability-indicating methods, shelf life determination, accelerated and long-term studies, ongoing stability, and what FDA and EMA reviewers look for in stability data packages."
+description: "A complete operational guide to pharmaceutical stability programs, ICH storage conditions, stability-indicating methods, shelf life determination, accelerated and long-term studies, ongoing stability, and what FDA and EMA reviewers look for in stability data packages."
 pubDate: 2026-03-04
 tags: ["stability", "ICH Q1A", "shelf life", "QA", "regulatory", "product quality"]
 tier: "Intermediate"

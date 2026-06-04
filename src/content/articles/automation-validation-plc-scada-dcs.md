@@ -1,6 +1,6 @@
 ---
 title: "Automation Systems Validation: PLC, SCADA, DCS, and Interface Controls"
-description: "Validation of automation systems in pharmaceutical manufacturing — PLC, SCADA, DCS, MES interfaces, recipes, alarms, audit trails, and what regulators expect from batch manufacturing control systems."
+description: "Validation of automation systems in pharmaceutical manufacturing, PLC, SCADA, DCS, MES interfaces, recipes, alarms, audit trails, and what regulators expect from batch manufacturing control systems."
 pubDate: 2026-06-03
 tags: ["automation", "SCADA", "PLC", "DCS", "validation", "MES", "data-integrity", "GMP"]
 pillar: "manufacturing-automation"

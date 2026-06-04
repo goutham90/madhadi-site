@@ -1,6 +1,6 @@
 ---
 title: "Building AI Tools for GxP: What Actually Works"
-description: "Practical lessons from building AI-assisted compliance tools in regulated pharma environments — where the hype ends and the useful stuff begins."
+description: "Practical lessons from building AI-assisted compliance tools in regulated pharma environments, where the hype ends and the useful stuff begins."
 pubDate: 2026-05-20
 tags: ["AI", "GxP", "automation", "compliance"]
 tier: "Intermediate"

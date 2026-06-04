@@ -1,6 +1,6 @@
 ---
 title: "Analytical Method Validation: ICH Q2(R2) in Practice"
-description: "A working guide to analytical method validation — the performance characteristics required by ICH Q2(R2), how to design studies for each, what acceptance criteria to set, and how to generate a validation report that holds up under regulatory scrutiny."
+description: "A working guide to analytical method validation, the performance characteristics required by ICH Q2(R2), how to design studies for each, what acceptance criteria to set, and how to generate a validation report that holds up under regulatory scrutiny."
 pubDate: 2026-02-07
 tags: ["method validation", "ICH Q2", "analytical", "QC", "laboratory"]
 tier: "Intermediate"

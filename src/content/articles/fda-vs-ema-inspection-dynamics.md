@@ -1,6 +1,6 @@
 ---
 title: "FDA vs. EMA Inspections: Strategic Differences Every Compliance Leader Needs to Know"
-description: "A practitioner's comparison of FDA and EMA inspection approaches — how they differ in structure, investigator authority, inspection scope, enforcement tools, and what each agency focuses on during data integrity assessments. For compliance directors managing global facilities."
+description: "A practitioner's comparison of FDA and EMA inspection approaches, how they differ in structure, investigator authority, inspection scope, enforcement tools, and what each agency focuses on during data integrity assessments. For compliance directors managing global facilities."
 pubDate: 2025-12-05
 tags: ["FDA", "EMA", "inspection", "regulatory", "compliance", "global"]
 tier: "Advanced"

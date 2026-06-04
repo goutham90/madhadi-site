@@ -1,6 +1,6 @@
 ---
 title: "Clinical Quality Assurance: GCP Data Integrity and EDC System Validation"
-description: "A practical guide to clinical QA — GCP requirements for data integrity, electronic data capture (EDC) validation, trial master file management, clinical audit strategy, and how clinical data quality connects to regulatory submissions."
+description: "A practical guide to clinical QA, GCP requirements for data integrity, electronic data capture (EDC) validation, trial master file management, clinical audit strategy, and how clinical data quality connects to regulatory submissions."
 pubDate: 2026-05-28
 tags: ["GCP", "clinical QA", "EDC", "clinical trials", "data integrity"]
 tier: "Intermediate"

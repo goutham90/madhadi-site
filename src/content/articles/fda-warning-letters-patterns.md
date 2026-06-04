@@ -1,6 +1,6 @@
 ---
 title: "FDA Data Integrity Warning Letters: 8 Patterns That Repeat"
-description: "Analysis of recurring failure modes across FDA data integrity enforcement actions — what inspectors actually find, and what the underlying system failures look like."
+description: "Analysis of recurring failure modes across FDA data integrity enforcement actions, what inspectors actually find, and what the underlying system failures look like."
 pubDate: 2025-11-24
 tags: ["FDA", "Warning Letters", "GxP", "audit-trail"]
 tier: "Advanced"

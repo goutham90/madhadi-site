@@ -1,6 +1,6 @@
 ---
 title: "Document Control in GxP: How Controlled Documents Actually Work"
-description: "A complete guide to GxP document control — the document lifecycle, SOP structure, version control, effective dates, training linkage, and what inspectors look for."
+description: "A complete guide to GxP document control, the document lifecycle, SOP structure, version control, effective dates, training linkage, and what inspectors look for."
 pubDate: 2025-07-27
 tags: ["document control", "SOP", "QMS", "GxP", "foundations"]
 tier: "Beginner"

@@ -1,6 +1,6 @@
 ---
 title: "FDA 483 and Warning Letter Responses: Strategy, Structure, and What Actually Works"
-description: "How to structure an effective FDA 483 response — root cause analysis depth, CAPA commitments, realistic timelines, and the difference between responses that close observations and responses that don't."
+description: "How to structure an effective FDA 483 response, root cause analysis depth, CAPA commitments, realistic timelines, and the difference between responses that close observations and responses that don't."
 pubDate: 2025-11-28
 tags: ["inspections", "FDA", "483", "warning-letter", "CAPA", "data-integrity"]
 pillar: "audits-inspection"

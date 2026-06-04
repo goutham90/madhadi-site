@@ -1,6 +1,6 @@
 ---
 title: "Analytical Method Transfer: Protocol Design, Acceptance Criteria, and Regulatory Filing"
-description: "A complete guide to analytical method transfer between laboratories — the transfer protocol structure, transfer approaches (comparative testing, revalidation, co-validation), acceptance criteria statistics, handling failures, and how to document transfers for regulatory submissions."
+description: "A complete guide to analytical method transfer between laboratories, the transfer protocol structure, transfer approaches (comparative testing, revalidation, co-validation), acceptance criteria statistics, handling failures, and how to document transfers for regulatory submissions."
 pubDate: 2026-02-14
 tags: ["method transfer", "analytical methods", "QC", "validation", "technology transfer"]
 tier: "Advanced"

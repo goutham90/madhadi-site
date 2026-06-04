@@ -1,6 +1,6 @@
 ---
 title: "Analytical Instrument Qualification: USP <1058> and the 4Qs Framework"
-description: "How USP <1058> defines analytical instrument qualification — the four Qs, instrument groups A/B/C, and how AIQ connects to computer system validation and data integrity requirements."
+description: "How USP <1058> defines analytical instrument qualification, the four Qs, instrument groups A/B/C, and how AIQ connects to computer system validation and data integrity requirements."
 pubDate: 2025-10-13
 tags: ["equipment-qualification", "USP-1058", "GxP", "analytical-instruments", "IQ-OQ-PQ"]
 pillar: "equipment-qualification"

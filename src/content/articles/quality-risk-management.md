@@ -1,6 +1,6 @@
 ---
 title: "Quality Risk Management: ICH Q9(R1), FMEA, and Risk-Based Decision Making in GxP"
-description: "How to apply ICH Q9(R1) quality risk management in practice — FMEA, risk ranking, risk assessment methodology, and when to use which tool. Written for practitioners who need to apply this, not just cite it."
+description: "How to apply ICH Q9(R1) quality risk management in practice, FMEA, risk ranking, risk assessment methodology, and when to use which tool. Written for practitioners who need to apply this, not just cite it."
 pubDate: 2025-08-28
 tags: ["risk-management", "ICH-Q9", "FMEA", "GxP", "QMS"]
 pillar: "quality-assurance"

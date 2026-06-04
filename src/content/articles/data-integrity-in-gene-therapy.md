@@ -1,6 +1,6 @@
 ---
 title: "Data Integrity in Gene Therapy: What FDA Really Expects"
-description: "A practical breakdown of FDA's data integrity expectations for gene therapy manufacturers — beyond the checklist, into the actual inspection findings."
+description: "A practical breakdown of FDA's data integrity expectations for gene therapy manufacturers, beyond the checklist, into the actual inspection findings."
 pubDate: 2026-04-07
 tags: ["data-integrity", "FDA", "gene-therapy", "GxP"]
 tier: "Advanced"

@@ -2,281 +2,281 @@
 import Layout from '../layouts/Layout.astro';
 
 const terms = [
-  // A
-  { term: 'ALCOA', def: 'The five core data integrity principles: Attributable, Legible, Contemporaneous, Original, Accurate. First applied in FDA GMP contexts; later expanded to ALCOA+.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  { term: 'ALCOA+', def: 'Extends ALCOA by adding four additional principles: Complete, Consistent, Enduring, Available. The full set of nine principles is the standard expectation in FDA, EMA, MHRA, and PIC/S guidance for GxP records.', refs: ['MHRA DI 2018', 'PIC/S PI 041'], pillar: 'data-integrity' },
-  { term: 'Annex 11', def: 'EU GMP Annex 11 — Computerised Systems. The European equivalent of 21 CFR Part 11 for electronic records in GMP manufacturing. Covers system validation, data integrity, audit trails, and electronic signatures in a risk-based framework.', refs: ['EudraLex Vol 4 Annex 11'], pillar: 'csv-csa' },
-  { term: 'Annex 15', def: 'EU GMP Annex 15 — Qualification and Validation. Covers the lifecycle approach to qualification of equipment and facilities, and validation of processes, cleaning, and computerized systems.', refs: ['EudraLex Vol 4 Annex 15'], pillar: 'equipment-qualification' },
-  { term: 'Audit Trail', def: 'A secure, computer-generated, time-stamped record that allows reconstruction of who did what and when in a computerized system. Required under 21 CFR 211.68, 21 CFR Part 11, and EU Annex 11. Must be enabled by default and protected from unauthorized modification or deletion.', refs: ['21 CFR 211.68', '21 CFR Part 11 §11.10(e)', 'Annex 11'], pillar: 'data-integrity' },
-  { term: 'Audit Trail Review', def: 'The process of systematically reviewing electronic audit trail records to verify that changes to GxP data were authorized, documented, and appropriate. A common area of inspection findings when review is absent or limited to passing results only.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  // B
-  { term: 'Backup', def: 'A copy of data and system records stored separately from the primary system, used to restore data in the event of failure, corruption, or disaster. GxP systems are typically expected to have a defined backup schedule, verified restore capability, and off-site or cloud storage.', refs: ['Annex 11', 'FDA DI Q&A'], pillar: 'data-integrity' },
-  { term: 'Batch Record', def: 'A complete record of the manufacture of a pharmaceutical batch. The master batch record defines the process; the executed batch record (EBR) captures what actually happened. The record must be complete, attributable, and retained per GMP requirements.', refs: ['21 CFR 211.188', 'EU GMP Vol 4'], pillar: 'manufacturing-automation' },
-  // C
-  { term: 'CAPA', def: 'Corrective and Preventive Action. A structured process to investigate the root cause of a quality failure (deviation, complaint, audit finding), implement a correction, and prevent recurrence. Weak CAPAs — those that address symptoms rather than root causes — are a frequent inspection observation.', refs: ['21 CFR 820.100', 'ICH Q10'], pillar: 'quality-assurance' },
-  { term: 'CDS', def: 'Chromatography Data System. Software that controls and records data from analytical instruments such as HPLC, GC, and CE. CDS platforms are high-risk for data integrity findings because they generate raw analytical data and allow reprocessing. Common systems: Empower, Chemstation, Chromeleon, Clarity.', refs: ['FDA DI Q&A 2018'], pillar: 'equipment-qualification' },
-  { term: 'Change Control', def: 'A documented process for managing changes to validated systems, processes, equipment, or procedures. In the context of GxP, change control ensures that changes are evaluated for impact, approved before implementation, documented, and do not compromise validated status.', refs: ['Annex 11', '21 CFR Part 211', 'GAMP 5'], pillar: 'csv-csa' },
-  { term: 'Complete Data', def: 'One of the ALCOA+ principles. All data generated during an activity must be retained and available — including data from failed runs, invalidated results, test injections, and rejected batches. Selective retention (keeping only passing results) is a data integrity violation.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  { term: 'Computer Software Assurance (CSA)', def: 'An FDA approach (finalized February 2026) for evaluating computerized systems based on intended use and associated risk. CSA emphasizes critical thinking and testing effort proportional to risk, rather than prescriptive IQ/OQ/PQ documentation. Supplements — not replaces — existing CSV approaches.', refs: ['FDA CSA Final Guidance 2026'], pillar: 'csv-csa' },
-  { term: 'Computer System Validation (CSV)', def: 'The documented process of demonstrating that a computerized system consistently produces results meeting its predetermined specifications and quality attributes. Governed by GAMP 5, 21 CFR Part 11, Annex 11, and applicable GxP regulations.', refs: ['GAMP 5 2022', '21 CFR Part 11', 'Annex 11'], pillar: 'csv-csa' },
-  { term: 'Configuration Specification', def: 'A document describing the configuration settings for a configured software system (GAMP Category 4). Defines workflows, roles, access controls, report templates, and other settings that were set during implementation. Required for validation traceability and change control.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
-  { term: 'Contemporaneous', def: 'One of the ALCOA+ principles. Data must be recorded at the time the activity occurs. Not transcribed later from scratch paper, not reconstructed from memory, and not backdated. Contemporaneity is destroyed when analysts write data on loose paper and re-enter it later.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  { term: 'Continued Process Verification (CPV)', def: 'Stage 3 of FDA process validation guidance. An ongoing program to collect and analyze data that provides statistical assurance that the process remains in a state of control during routine production. Required to maintain validated status post-commercialization.', refs: ['FDA Process Validation Guidance 2011'], pillar: 'quality-assurance' },
-  // D
-  { term: 'Data Governance', def: 'The organizational framework of policies, roles, responsibilities, and controls that ensure data quality and integrity across the data lifecycle. Encompasses data ownership, access management, review obligations, retention policy, and quality culture.', refs: ['PIC/S PI 041', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  { term: 'Data Lifecycle', def: 'The complete journey of a data record: generation, processing, review, reporting, storage, and archival/retirement. Data integrity must be maintained at every stage. Common failures occur at transfer points between systems.', refs: ['MHRA DI 2018', 'PIC/S PI 041'], pillar: 'data-integrity' },
-  { term: 'Data Migration', def: 'The process of transferring data from one system to another. GxP data migrations require a validation approach: data mapping, migration plan, pre- and post-migration verification, and evidence that data integrity was maintained throughout.', refs: ['GAMP 5 2022', 'MHRA DI 2018'], pillar: 'csv-csa' },
-  { term: 'Design Qualification (DQ)', def: 'Documentation that a proposed design meets defined requirements. Used for equipment, manufacturing systems, and analytical instruments. DQ verifies that what is specified in a URS is achievable with the proposed design before procurement.', refs: ['EU Annex 15', 'ISPE C&Q Baseline Guide'], pillar: 'equipment-qualification' },
-  { term: 'Deviation', def: 'A departure from an approved procedure, specification, or standard. In GMP, deviations must be documented, investigated for root cause, assessed for impact on product quality, and resolved through corrective action. Unrecorded deviations are a critical data integrity finding.', refs: ['21 CFR Part 211', 'EU GMP'], pillar: 'quality-assurance' },
-  { term: 'Document Control', def: 'A quality system element that manages the creation, review, approval, distribution, and retirement of controlled documents (SOPs, policies, work instructions, forms). Document control ensures that only current, approved versions are in use.', refs: ['21 CFR Part 211', 'ICH Q10'], pillar: 'quality-assurance' },
-  // E
-  { term: 'EBR (Electronic Batch Record)', def: 'An electronic system that captures manufacturing execution data in real time, replacing paper batch records. EBRs must have validated audit trails, access controls, and data integrity controls equivalent to or better than paper equivalents.', refs: ['21 CFR Part 11', 'Annex 11'], pillar: 'manufacturing-automation' },
-  { term: 'EDC (Electronic Data Capture)', def: 'Software used to collect clinical trial data from sites. EDC systems must be validated, include audit trails, and meet requirements for electronic records in clinical investigations under 21 CFR Part 11 and related FDA guidance.', refs: ['FDA Electronic Source Data Guidance 2013'], pillar: 'quality-assurance' },
-  { term: 'Electronic Signature', def: 'A computer data compilation that is the legally binding equivalent of a handwritten signature on an electronic record. Under 21 CFR Part 11, electronic signatures require individual authentication, cannot be shared, and must be linked to the record being signed.', refs: ['21 CFR Part 11 Subpart C'], pillar: 'data-integrity' },
-  { term: 'ELN (Electronic Laboratory Notebook)', def: 'Software that captures laboratory experiments, observations, and results electronically. GxP ELNs require the same data integrity controls as other GxP computerized systems: individual accounts, audit trails, access controls, and validated workflows.', refs: ['21 CFR Part 11', 'Annex 11'], pillar: 'csv-csa' },
-  // F
-  { term: 'FDA Form 483', def: 'A written list of inspectional observations provided to a facility at the close of an FDA inspection. Not a regulatory action in itself, but requires a formal written response addressing each observation. Multiple unaddressed 483s can escalate to Warning Letters.', refs: ['FDA Investigations Operations Manual'], pillar: 'audits-inspection' },
-  { term: 'Functional Requirements Specification (FRS)', def: 'A document describing what a system must do to meet the user requirements. The FRS translates URS requirements into specific system functions that can be tested. Part of the validation documentation hierarchy in GAMP 5.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
-  // G
-  { term: 'GAMP', def: 'Good Automated Manufacturing Practice. A framework developed by ISPE for the validation of computerized systems in regulated pharmaceutical and medical device environments. GAMP 5 Second Edition (2022) is the current version.', refs: ['GAMP 5 Second Edition 2022'], pillar: 'csv-csa' },
-  { term: 'GAMP Category', def: 'A classification system for software in GAMP 5: Category 1 (infrastructure software), Category 3 (non-configured COTS software), Category 4 (configured COTS software), Category 5 (custom software). Category determines the depth of validation effort required.', refs: ['GAMP 5 Second Edition 2022'], pillar: 'csv-csa' },
-  { term: 'GCP (Good Clinical Practice)', def: 'An international quality standard for designing, conducting, recording, and reporting clinical trials. GCP ensures the rights, integrity, and confidentiality of trial subjects are protected and that clinical data is credible. ICH E6 (R3) is the current version.', refs: ['ICH E6(R3)', '21 CFR Part 312'], pillar: 'quality-assurance' },
-  { term: 'GLP (Good Laboratory Practice)', def: 'A regulatory framework for non-clinical safety studies (toxicology, pharmacokinetics). GLP applies to preclinical research submitted to regulatory agencies. Separate from GMP and not applicable to GxP manufacturing unless specifically required.', refs: ['OECD GLP Principles', '21 CFR Part 58'], pillar: 'quality-assurance' },
-  { term: 'GMP (Good Manufacturing Practice)', def: 'Regulations and quality standards that ensure pharmaceutical products are consistently produced and controlled according to quality standards. In the US, GMP is codified in 21 CFR Parts 210, 211 (drugs) and Part 600 (biologics). The EU equivalent is EudraLex Volume 4.', refs: ['21 CFR Part 211', 'EudraLex Vol 4'], pillar: 'quality-assurance' },
-  { term: 'GxP', def: 'A collective term covering all pharmaceutical quality practices: GMP (manufacturing), GCP (clinical), GLP (laboratory/preclinical), GDP (distribution), GPvP (pharmacovigilance). The "x" is a placeholder for the practice area.', refs: [], pillar: 'quality-assurance' },
-  // H
-  { term: 'Hybrid Record', def: 'A record that exists in both electronic and paper form, where neither form alone is complete. Hybrid records create data integrity risks and require clear definition of which format is the original record, with controls to prevent discrepancy.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  // I
-  { term: 'ICH Q10', def: 'ICH guideline on Pharmaceutical Quality Systems. Describes a model quality system that applies to all stages of the product lifecycle. Covers quality manual, quality risk management, process performance and product quality monitoring, and CAPA systems.', refs: ['ICH Q10'], pillar: 'quality-assurance' },
-  { term: 'Installation Qualification (IQ)', def: 'Documented verification that equipment or software is installed correctly in its operating environment and meets defined installation criteria. Confirms that the hardware, software, and supporting infrastructure are installed as specified.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
-  { term: 'Intended Use', def: 'The specific purpose for which a system, equipment, or method is used in a GxP context. Intended use determines the scope of validation, the applicable regulatory requirements, and the risk profile. A system used to generate release data carries higher validation obligations than one used for informational purposes only.', refs: ['GAMP 5 2022', 'FDA CSA 2026'], pillar: 'csv-csa' },
-  { term: 'IQ/OQ/PQ', def: 'Installation Qualification / Operational Qualification / Performance Qualification. The standard three-stage lifecycle qualification approach for equipment and systems. IQ confirms installation, OQ confirms function under defined operating conditions, PQ confirms performance in actual use conditions.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
-  // L
-  { term: 'LIMS (Laboratory Information Management System)', def: 'Software that manages laboratory data — samples, test methods, results, specifications, and reports. LIMS validation requires the same documentation and controls as other GAMP Category 4 systems. Audit trail review and access control are key inspection focus areas.', refs: ['GAMP 5 2022', 'Annex 11'], pillar: 'csv-csa' },
-  // M
-  { term: 'MES (Manufacturing Execution System)', def: 'Software that manages and records manufacturing activities in real time, often replacing paper batch records with electronic workflows. MES validation is complex due to integrations with SCADA, ERP, LIMS, and other systems.', refs: ['GAMP 5 2022', 'FDA EBR Guidance'], pillar: 'manufacturing-automation' },
-  { term: 'Metadata', def: 'Data that describes other data — the when, who, where, and how of a record. Examples: timestamps, instrument serial numbers, analyst IDs, method versions. Loss of metadata can compromise data integrity because the context needed to verify data authenticity is gone.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  // O
-  { term: 'Operational Qualification (OQ)', def: 'Documented verification that equipment or a system operates correctly within defined operating limits. OQ tests functional performance under normal and extreme operating conditions to confirm that the system meets its operational requirements.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
-  { term: 'Original Record', def: 'The first capture of data — the first source of information, whether paper or electronic. For electronic systems, the raw data file generated by an instrument is the original record, not a printout or copy. Must be retained and accessible throughout the retention period.', refs: ['FDA DI Q&A 2018', '21 CFR 211.180'], pillar: 'data-integrity' },
-  { term: 'OOS (Out of Specification)', def: 'A laboratory result that falls outside established specifications or acceptance criteria. OOS investigations are required under 21 CFR 211.192. The investigation must determine whether the OOS result is due to a laboratory error, process failure, or neither before any invalidation.', refs: ['21 CFR 211.192', 'FDA OOS Guidance 2006'], pillar: 'quality-assurance' },
-  // P
-  { term: 'Part 11', def: '21 CFR Part 11 — the FDA regulation governing electronic records and electronic signatures. Applies when electronic records are used in place of paper under GxP regulations. Requirements cover system validation, audit trails, system access controls, and signature authentication.', refs: ['21 CFR Part 11', 'FDA Part 11 Scope Guidance 2003'], pillar: 'csv-csa' },
-  { term: 'Performance Qualification (PQ)', def: 'Documented verification that equipment or a system performs consistently in its intended operating environment under actual conditions of use. PQ is the final stage of the IQ/OQ/PQ lifecycle and provides the strongest evidence of fitness for use.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
-  { term: 'Periodic Review', def: 'A scheduled re-evaluation of a validated system to confirm it remains in a validated state. Typically includes review of change history, deviations, incident records, audit trail samples, user access reviews, and calibration status. Required under Annex 11 and GAMP 5.', refs: ['Annex 11 §11', 'GAMP 5 2022'], pillar: 'csv-csa' },
-  { term: 'PIC/S', def: 'Pharmaceutical Inspection Co-operation Scheme. An international arrangement between pharmaceutical regulatory authorities to harmonize inspection standards. PIC/S PI 041-1 is the key data integrity guidance, widely used alongside FDA and MHRA guidance.', refs: ['PIC/S PI 041-1'], pillar: 'audits-inspection' },
-  { term: 'Process Validation', def: 'Evidence that a pharmaceutical manufacturing process consistently produces a product meeting its predetermined specifications and quality attributes. The current FDA framework (2011 guidance) defines three stages: Process Design, Process Performance Qualification (PPQ), and Continued Process Verification (CPV).', refs: ['FDA Process Validation Guidance 2011', '21 CFR 211.100'], pillar: 'quality-assurance' },
-  // Q
-  { term: 'Qualification', def: 'Activities that demonstrate equipment, utilities, or facilities perform as intended. Qualification is a subset of validation. The stages are DQ, IQ, OQ, PQ. The term is typically used for physical equipment; validation is used for processes and computerized systems.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
-  { term: 'Quality Risk Management (QRM)', def: 'A systematic process for assessing, controlling, communicating, and reviewing risks to the quality of pharmaceutical products. ICH Q9(R1) is the primary guidance. QRM outputs should be proportionate to the level of risk and inform validation scope, test strategies, and control decisions.', refs: ['ICH Q9(R1)', '21 CFR Part 211'], pillar: 'quality-assurance' },
-  // R
-  { term: 'Raw Data', def: 'The original result or observation — the first recorded form of a measurement. For a chromatographic analysis, raw data is the instrument-generated data file. Raw data must be retained; processed results, calculations, or summaries do not replace it.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  { term: 'Remediation', def: 'Actions taken to correct identified data integrity violations or systematic quality failures. A DI remediation program typically includes immediate corrections, retroactive data review, system controls enhancement, procedural updates, training, and effectiveness verification.', refs: ['FDA 483 Response Guidance', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  { term: 'Requirements Traceability Matrix (RTM)', def: 'A document that maps user requirements to test scripts and test outcomes. The RTM provides evidence that every stated requirement has been tested and that no test was conducted without a requirement. Required for complete validation documentation.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
-  { term: 'Retroactive Validation', def: 'Validation performed on a system already in production use, where prospective validation was not done or documented. Retroactive validation requires a risk assessment to determine if historical data generated by the system remains acceptable. Common in legacy system remediation programs.', refs: ['GAMP 5 2022', 'FDA 21st Century GMP'], pillar: 'csv-csa' },
-  { term: 'Review by Exception', def: 'An audit trail review strategy where the reviewer focuses on flagged anomalies or changes rather than reviewing every record. Must be based on a defined risk strategy. Not a reason to skip review entirely — the exception criteria and actions taken must be documented.', refs: ['MHRA DI 2018', 'FDA DI Q&A 2018'], pillar: 'data-integrity' },
-  { term: 'Risk Assessment', def: 'A structured evaluation of potential failures, their likelihood, and their impact on product quality or data integrity. GxP risk assessments typically use qualitative or semi-quantitative tools (FMEA, risk matrices). Outputs drive validation scope and control design.', refs: ['ICH Q9(R1)', 'GAMP 5 2022'], pillar: 'csv-csa' },
-  // S
-  { term: 'SCADA', def: 'Supervisory Control and Data Acquisition. A control system architecture used to monitor and control industrial processes. SCADA systems in pharmaceutical manufacturing generate GxP process data and require audit trails, validated software, and change control.', refs: ['GAMP 5 2022', 'FDA EBR Guidance'], pillar: 'manufacturing-automation' },
-  { term: 'SOP (Standard Operating Procedure)', def: 'A written procedure specifying how an activity must be performed. SOPs must be approved, version-controlled, distributed to users, and followed as written. Deviations from SOPs must be documented and investigated.', refs: ['21 CFR Part 211', 'EU GMP Vol 4'], pillar: 'quality-assurance' },
-  { term: 'Supplier Assessment', def: 'A structured evaluation of a software or system vendor\'s quality system, development practices, and support capabilities before procurement. Supplier assessment is a key GAMP 5 principle — the extent of validation testing depends partly on supplier quality.', refs: ['GAMP 5 2022', 'ICH Q10'], pillar: 'csv-csa' },
-  { term: 'System Impact Assessment', def: 'An early-stage evaluation that determines whether a computerized system has a GxP impact and what level of validation is required. Considers intended use, data criticality, regulatory applicability, and connection to GxP records.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
-  // T
-  { term: 'True Copy', def: 'A copy that preserves the content and meaning of the original record, including data that allows the copy to be verified against the original. A paper printout of an electronic record is a true copy only if it includes all critical metadata. Printouts alone are not acceptable substitutes for electronic original records.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
-  { term: 'Training Record', def: 'Documentation that an individual completed required training for a procedure, system, or process. Under GMP, training records must be maintained and personnel must demonstrate competency before performing activities. Unqualified personnel using validated systems is a common inspection finding.', refs: ['21 CFR 211.68', 'EU GMP Chapter 2'], pillar: 'quality-assurance' },
-  // U
-  { term: 'URS (User Requirements Specification)', def: 'A document that defines what a system must do in business and regulatory terms. The URS drives the entire validation lifecycle — requirements must be testable, unambiguous, and complete. Gaps in the URS lead to gaps in testing.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
-  // V
-  { term: 'Validation', def: 'A documented program that demonstrates with a high degree of assurance that a process, system, or method will consistently produce a result or product meeting its predetermined specification. Validation requires planning, execution, review, and approval.', refs: ['21 CFR Part 211', 'EU Annex 15', 'GAMP 5 2022'], pillar: 'csv-csa' },
-  { term: 'Validation Plan', def: 'A document describing the strategy, scope, responsibilities, deliverables, and schedule for a validation project. The validation plan is typically approved before any protocol execution begins.', refs: ['GAMP 5 2022', 'EU Annex 15'], pillar: 'csv-csa' },
-  { term: 'Validation Summary Report (VSR)', def: 'A document that summarizes the results of a validation effort — what was tested, what passed, what failed, what deviations were raised, and the overall conclusion on validated status. Required to close a validation lifecycle.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
-  // W
-  { term: 'Warning Letter', def: 'A formal FDA communication notifying a company of significant violations of regulations. More serious than a 483. Warning letters are public record and typically require a response and corrective action plan. Repeated DI violations frequently result in Warning Letters.', refs: ['FDA Warning Letter Policy'], pillar: 'audits-inspection' },
+ // A
+ { term: 'ALCOA', def: 'The five core data integrity principles: Attributable, Legible, Contemporaneous, Original, Accurate. First applied in FDA GMP contexts; later expanded to ALCOA+.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ { term: 'ALCOA+', def: 'Extends ALCOA by adding four additional principles: Complete, Consistent, Enduring, Available. The full set of nine principles is the standard expectation in FDA, EMA, MHRA, and PIC/S guidance for GxP records.', refs: ['MHRA DI 2018', 'PIC/S PI 041'], pillar: 'data-integrity' },
+ { term: 'Annex 11', def: 'EU GMP Annex 11, Computerised Systems. The European equivalent of 21 CFR Part 11 for electronic records in GMP manufacturing. Covers system validation, data integrity, audit trails, and electronic signatures in a risk-based framework.', refs: ['EudraLex Vol 4 Annex 11'], pillar: 'csv-csa' },
+ { term: 'Annex 15', def: 'EU GMP Annex 15, Qualification and Validation. Covers the lifecycle approach to qualification of equipment and facilities, and validation of processes, cleaning, and computerized systems.', refs: ['EudraLex Vol 4 Annex 15'], pillar: 'equipment-qualification' },
+ { term: 'Audit Trail', def: 'A secure, computer-generated, time-stamped record that allows reconstruction of who did what and when in a computerized system. Required under 21 CFR 211.68, 21 CFR Part 11, and EU Annex 11. Must be enabled by default and protected from unauthorized modification or deletion.', refs: ['21 CFR 211.68', '21 CFR Part 11 §11.10(e)', 'Annex 11'], pillar: 'data-integrity' },
+ { term: 'Audit Trail Review', def: 'The process of systematically reviewing electronic audit trail records to verify that changes to GxP data were authorized, documented, and appropriate. A common area of inspection findings when review is absent or limited to passing results only.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ // B
+ { term: 'Backup', def: 'A copy of data and system records stored separately from the primary system, used to restore data in the event of failure, corruption, or disaster. GxP systems are typically expected to have a defined backup schedule, verified restore capability, and off-site or cloud storage.', refs: ['Annex 11', 'FDA DI Q&A'], pillar: 'data-integrity' },
+ { term: 'Batch Record', def: 'A complete record of the manufacture of a pharmaceutical batch. The master batch record defines the process; the executed batch record (EBR) captures what actually happened. The record must be complete, attributable, and retained per GMP requirements.', refs: ['21 CFR 211.188', 'EU GMP Vol 4'], pillar: 'manufacturing-automation' },
+ // C
+ { term: 'CAPA', def: 'Corrective and Preventive Action. A structured process to investigate the root cause of a quality failure (deviation, complaint, audit finding), implement a correction, and prevent recurrence. Weak CAPAs, those that address symptoms rather than root causes, are a frequent inspection observation.', refs: ['21 CFR 820.100', 'ICH Q10'], pillar: 'quality-assurance' },
+ { term: 'CDS', def: 'Chromatography Data System. Software that controls and records data from analytical instruments such as HPLC, GC, and CE. CDS platforms are high-risk for data integrity findings because they generate raw analytical data and allow reprocessing. Common systems: Empower, Chemstation, Chromeleon, Clarity.', refs: ['FDA DI Q&A 2018'], pillar: 'equipment-qualification' },
+ { term: 'Change Control', def: 'A documented process for managing changes to validated systems, processes, equipment, or procedures. In the context of GxP, change control ensures that changes are evaluated for impact, approved before implementation, documented, and do not compromise validated status.', refs: ['Annex 11', '21 CFR Part 211', 'GAMP 5'], pillar: 'csv-csa' },
+ { term: 'Complete Data', def: 'One of the ALCOA+ principles. All data generated during an activity must be retained and available, including data from failed runs, invalidated results, test injections, and rejected batches. Selective retention (keeping only passing results) is a data integrity violation.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ { term: 'Computer Software Assurance (CSA)', def: 'An FDA approach (finalized February 2026) for evaluating computerized systems based on intended use and associated risk. CSA emphasizes critical thinking and testing effort proportional to risk, rather than prescriptive IQ/OQ/PQ documentation. Supplements, not replaces, existing CSV approaches.', refs: ['FDA CSA Final Guidance 2026'], pillar: 'csv-csa' },
+ { term: 'Computer System Validation (CSV)', def: 'The documented process of demonstrating that a computerized system consistently produces results meeting its predetermined specifications and quality attributes. Governed by GAMP 5, 21 CFR Part 11, Annex 11, and applicable GxP regulations.', refs: ['GAMP 5 2022', '21 CFR Part 11', 'Annex 11'], pillar: 'csv-csa' },
+ { term: 'Configuration Specification', def: 'A document describing the configuration settings for a configured software system (GAMP Category 4). Defines workflows, roles, access controls, report templates, and other settings that were set during implementation. Required for validation traceability and change control.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
+ { term: 'Contemporaneous', def: 'One of the ALCOA+ principles. Data must be recorded at the time the activity occurs. Not transcribed later from scratch paper, not reconstructed from memory, and not backdated. Contemporaneity is destroyed when analysts write data on loose paper and re-enter it later.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ { term: 'Continued Process Verification (CPV)', def: 'Stage 3 of FDA process validation guidance. An ongoing program to collect and analyze data that provides statistical assurance that the process remains in a state of control during routine production. Required to maintain validated status post-commercialization.', refs: ['FDA Process Validation Guidance 2011'], pillar: 'quality-assurance' },
+ // D
+ { term: 'Data Governance', def: 'The organizational framework of policies, roles, responsibilities, and controls that ensure data quality and integrity across the data lifecycle. Encompasses data ownership, access management, review obligations, retention policy, and quality culture.', refs: ['PIC/S PI 041', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ { term: 'Data Lifecycle', def: 'The complete journey of a data record: generation, processing, review, reporting, storage, and archival/retirement. Data integrity must be maintained at every stage. Common failures occur at transfer points between systems.', refs: ['MHRA DI 2018', 'PIC/S PI 041'], pillar: 'data-integrity' },
+ { term: 'Data Migration', def: 'The process of transferring data from one system to another. GxP data migrations require a validation approach: data mapping, migration plan, pre- and post-migration verification, and evidence that data integrity was maintained throughout.', refs: ['GAMP 5 2022', 'MHRA DI 2018'], pillar: 'csv-csa' },
+ { term: 'Design Qualification (DQ)', def: 'Documentation that a proposed design meets defined requirements. Used for equipment, manufacturing systems, and analytical instruments. DQ verifies that what is specified in a URS is achievable with the proposed design before procurement.', refs: ['EU Annex 15', 'ISPE C&Q Baseline Guide'], pillar: 'equipment-qualification' },
+ { term: 'Deviation', def: 'A departure from an approved procedure, specification, or standard. In GMP, deviations must be documented, investigated for root cause, assessed for impact on product quality, and resolved through corrective action. Unrecorded deviations are a critical data integrity finding.', refs: ['21 CFR Part 211', 'EU GMP'], pillar: 'quality-assurance' },
+ { term: 'Document Control', def: 'A quality system element that manages the creation, review, approval, distribution, and retirement of controlled documents (SOPs, policies, work instructions, forms). Document control ensures that only current, approved versions are in use.', refs: ['21 CFR Part 211', 'ICH Q10'], pillar: 'quality-assurance' },
+ // E
+ { term: 'EBR (Electronic Batch Record)', def: 'An electronic system that captures manufacturing execution data in real time, replacing paper batch records. EBRs must have validated audit trails, access controls, and data integrity controls equivalent to or better than paper equivalents.', refs: ['21 CFR Part 11', 'Annex 11'], pillar: 'manufacturing-automation' },
+ { term: 'EDC (Electronic Data Capture)', def: 'Software used to collect clinical trial data from sites. EDC systems must be validated, include audit trails, and meet requirements for electronic records in clinical investigations under 21 CFR Part 11 and related FDA guidance.', refs: ['FDA Electronic Source Data Guidance 2013'], pillar: 'quality-assurance' },
+ { term: 'Electronic Signature', def: 'A computer data compilation that is the legally binding equivalent of a handwritten signature on an electronic record. Under 21 CFR Part 11, electronic signatures require individual authentication, cannot be shared, and must be linked to the record being signed.', refs: ['21 CFR Part 11 Subpart C'], pillar: 'data-integrity' },
+ { term: 'ELN (Electronic Laboratory Notebook)', def: 'Software that captures laboratory experiments, observations, and results electronically. GxP ELNs require the same data integrity controls as other GxP computerized systems: individual accounts, audit trails, access controls, and validated workflows.', refs: ['21 CFR Part 11', 'Annex 11'], pillar: 'csv-csa' },
+ // F
+ { term: 'FDA Form 483', def: 'A written list of inspectional observations provided to a facility at the close of an FDA inspection. Not a regulatory action in itself, but requires a formal written response addressing each observation. Multiple unaddressed 483s can escalate to Warning Letters.', refs: ['FDA Investigations Operations Manual'], pillar: 'audits-inspection' },
+ { term: 'Functional Requirements Specification (FRS)', def: 'A document describing what a system must do to meet the user requirements. The FRS translates URS requirements into specific system functions that can be tested. Part of the validation documentation hierarchy in GAMP 5.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
+ // G
+ { term: 'GAMP', def: 'Good Automated Manufacturing Practice. A framework developed by ISPE for the validation of computerized systems in regulated pharmaceutical and medical device environments. GAMP 5 Second Edition (2022) is the current version.', refs: ['GAMP 5 Second Edition 2022'], pillar: 'csv-csa' },
+ { term: 'GAMP Category', def: 'A classification system for software in GAMP 5: Category 1 (infrastructure software), Category 3 (non-configured COTS software), Category 4 (configured COTS software), Category 5 (custom software). Category determines the depth of validation effort required.', refs: ['GAMP 5 Second Edition 2022'], pillar: 'csv-csa' },
+ { term: 'GCP (Good Clinical Practice)', def: 'An international quality standard for designing, conducting, recording, and reporting clinical trials. GCP ensures the rights, integrity, and confidentiality of trial subjects are protected and that clinical data is credible. ICH E6 (R3) is the current version.', refs: ['ICH E6(R3)', '21 CFR Part 312'], pillar: 'quality-assurance' },
+ { term: 'GLP (Good Laboratory Practice)', def: 'A regulatory framework for non-clinical safety studies (toxicology, pharmacokinetics). GLP applies to preclinical research submitted to regulatory agencies. Separate from GMP and not applicable to GxP manufacturing unless specifically required.', refs: ['OECD GLP Principles', '21 CFR Part 58'], pillar: 'quality-assurance' },
+ { term: 'GMP (Good Manufacturing Practice)', def: 'Regulations and quality standards that ensure pharmaceutical products are consistently produced and controlled according to quality standards. In the US, GMP is codified in 21 CFR Parts 210, 211 (drugs) and Part 600 (biologics). The EU equivalent is EudraLex Volume 4.', refs: ['21 CFR Part 211', 'EudraLex Vol 4'], pillar: 'quality-assurance' },
+ { term: 'GxP', def: 'A collective term covering all pharmaceutical quality practices: GMP (manufacturing), GCP (clinical), GLP (laboratory/preclinical), GDP (distribution), GPvP (pharmacovigilance). The "x" is a placeholder for the practice area.', refs: [], pillar: 'quality-assurance' },
+ // H
+ { term: 'Hybrid Record', def: 'A record that exists in both electronic and paper form, where neither form alone is complete. Hybrid records create data integrity risks and require clear definition of which format is the original record, with controls to prevent discrepancy.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ // I
+ { term: 'ICH Q10', def: 'ICH guideline on Pharmaceutical Quality Systems. Describes a model quality system that applies to all stages of the product lifecycle. Covers quality manual, quality risk management, process performance and product quality monitoring, and CAPA systems.', refs: ['ICH Q10'], pillar: 'quality-assurance' },
+ { term: 'Installation Qualification (IQ)', def: 'Documented verification that equipment or software is installed correctly in its operating environment and meets defined installation criteria. Confirms that the hardware, software, and supporting infrastructure are installed as specified.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
+ { term: 'Intended Use', def: 'The specific purpose for which a system, equipment, or method is used in a GxP context. Intended use determines the scope of validation, the applicable regulatory requirements, and the risk profile. A system used to generate release data carries higher validation obligations than one used for informational purposes only.', refs: ['GAMP 5 2022', 'FDA CSA 2026'], pillar: 'csv-csa' },
+ { term: 'IQ/OQ/PQ', def: 'Installation Qualification / Operational Qualification / Performance Qualification. The standard three-stage lifecycle qualification approach for equipment and systems. IQ confirms installation, OQ confirms function under defined operating conditions, PQ confirms performance in actual use conditions.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
+ // L
+ { term: 'LIMS (Laboratory Information Management System)', def: 'Software that manages laboratory data, samples, test methods, results, specifications, and reports. LIMS validation requires the same documentation and controls as other GAMP Category 4 systems. Audit trail review and access control are key inspection focus areas.', refs: ['GAMP 5 2022', 'Annex 11'], pillar: 'csv-csa' },
+ // M
+ { term: 'MES (Manufacturing Execution System)', def: 'Software that manages and records manufacturing activities in real time, often replacing paper batch records with electronic workflows. MES validation is complex due to integrations with SCADA, ERP, LIMS, and other systems.', refs: ['GAMP 5 2022', 'FDA EBR Guidance'], pillar: 'manufacturing-automation' },
+ { term: 'Metadata', def: 'Data that describes other data, the when, who, where, and how of a record. Examples: timestamps, instrument serial numbers, analyst IDs, method versions. Loss of metadata can compromise data integrity because the context needed to verify data authenticity is gone.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ // O
+ { term: 'Operational Qualification (OQ)', def: 'Documented verification that equipment or a system operates correctly within defined operating limits. OQ tests functional performance under normal and extreme operating conditions to confirm that the system meets its operational requirements.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
+ { term: 'Original Record', def: 'The first capture of data, the first source of information, whether paper or electronic. For electronic systems, the raw data file generated by an instrument is the original record, not a printout or copy. Must be retained and accessible throughout the retention period.', refs: ['FDA DI Q&A 2018', '21 CFR 211.180'], pillar: 'data-integrity' },
+ { term: 'OOS (Out of Specification)', def: 'A laboratory result that falls outside established specifications or acceptance criteria. OOS investigations are required under 21 CFR 211.192. The investigation must determine whether the OOS result is due to a laboratory error, process failure, or neither before any invalidation.', refs: ['21 CFR 211.192', 'FDA OOS Guidance 2006'], pillar: 'quality-assurance' },
+ // P
+ { term: 'Part 11', def: '21 CFR Part 11, the FDA regulation governing electronic records and electronic signatures. Applies when electronic records are used in place of paper under GxP regulations. Requirements cover system validation, audit trails, system access controls, and signature authentication.', refs: ['21 CFR Part 11', 'FDA Part 11 Scope Guidance 2003'], pillar: 'csv-csa' },
+ { term: 'Performance Qualification (PQ)', def: 'Documented verification that equipment or a system performs consistently in its intended operating environment under actual conditions of use. PQ is the final stage of the IQ/OQ/PQ lifecycle and provides the strongest evidence of fitness for use.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
+ { term: 'Periodic Review', def: 'A scheduled re-evaluation of a validated system to confirm it remains in a validated state. Typically includes review of change history, deviations, incident records, audit trail samples, user access reviews, and calibration status. Required under Annex 11 and GAMP 5.', refs: ['Annex 11 §11', 'GAMP 5 2022'], pillar: 'csv-csa' },
+ { term: 'PIC/S', def: 'Pharmaceutical Inspection Co-operation Scheme. An international arrangement between pharmaceutical regulatory authorities to harmonize inspection standards. PIC/S PI 041-1 is the key data integrity guidance, widely used alongside FDA and MHRA guidance.', refs: ['PIC/S PI 041-1'], pillar: 'audits-inspection' },
+ { term: 'Process Validation', def: 'Evidence that a pharmaceutical manufacturing process consistently produces a product meeting its predetermined specifications and quality attributes. The current FDA framework (2011 guidance) defines three stages: Process Design, Process Performance Qualification (PPQ), and Continued Process Verification (CPV).', refs: ['FDA Process Validation Guidance 2011', '21 CFR 211.100'], pillar: 'quality-assurance' },
+ // Q
+ { term: 'Qualification', def: 'Activities that demonstrate equipment, utilities, or facilities perform as intended. Qualification is a subset of validation. The stages are DQ, IQ, OQ, PQ. The term is typically used for physical equipment; validation is used for processes and computerized systems.', refs: ['EU Annex 15', 'GAMP 5 2022'], pillar: 'equipment-qualification' },
+ { term: 'Quality Risk Management (QRM)', def: 'A systematic process for assessing, controlling, communicating, and reviewing risks to the quality of pharmaceutical products. ICH Q9(R1) is the primary guidance. QRM outputs should be proportionate to the level of risk and inform validation scope, test strategies, and control decisions.', refs: ['ICH Q9(R1)', '21 CFR Part 211'], pillar: 'quality-assurance' },
+ // R
+ { term: 'Raw Data', def: 'The original result or observation, the first recorded form of a measurement. For a chromatographic analysis, raw data is the instrument-generated data file. Raw data must be retained; processed results, calculations, or summaries do not replace it.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ { term: 'Remediation', def: 'Actions taken to correct identified data integrity violations or systematic quality failures. A DI remediation program typically includes immediate corrections, retroactive data review, system controls enhancement, procedural updates, training, and effectiveness verification.', refs: ['FDA 483 Response Guidance', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ { term: 'Requirements Traceability Matrix (RTM)', def: 'A document that maps user requirements to test scripts and test outcomes. The RTM provides evidence that every stated requirement has been tested and that no test was conducted without a requirement. Required for complete validation documentation.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
+ { term: 'Retroactive Validation', def: 'Validation performed on a system already in production use, where prospective validation was not done or documented. Retroactive validation requires a risk assessment to determine if historical data generated by the system remains acceptable. Common in legacy system remediation programs.', refs: ['GAMP 5 2022', 'FDA 21st Century GMP'], pillar: 'csv-csa' },
+ { term: 'Review by Exception', def: 'An audit trail review strategy where the reviewer focuses on flagged anomalies or changes rather than reviewing every record. Must be based on a defined risk strategy. Not a reason to skip review entirely, the exception criteria and actions taken must be documented.', refs: ['MHRA DI 2018', 'FDA DI Q&A 2018'], pillar: 'data-integrity' },
+ { term: 'Risk Assessment', def: 'A structured evaluation of potential failures, their likelihood, and their impact on product quality or data integrity. GxP risk assessments typically use qualitative or semi-quantitative tools (FMEA, risk matrices). Outputs drive validation scope and control design.', refs: ['ICH Q9(R1)', 'GAMP 5 2022'], pillar: 'csv-csa' },
+ // S
+ { term: 'SCADA', def: 'Supervisory Control and Data Acquisition. A control system architecture used to monitor and control industrial processes. SCADA systems in pharmaceutical manufacturing generate GxP process data and require audit trails, validated software, and change control.', refs: ['GAMP 5 2022', 'FDA EBR Guidance'], pillar: 'manufacturing-automation' },
+ { term: 'SOP (Standard Operating Procedure)', def: 'A written procedure specifying how an activity must be performed. SOPs must be approved, version-controlled, distributed to users, and followed as written. Deviations from SOPs must be documented and investigated.', refs: ['21 CFR Part 211', 'EU GMP Vol 4'], pillar: 'quality-assurance' },
+ { term: 'Supplier Assessment', def: 'A structured evaluation of a software or system vendor\'s quality system, development practices, and support capabilities before procurement. Supplier assessment is a key GAMP 5 principle, the extent of validation testing depends partly on supplier quality.', refs: ['GAMP 5 2022', 'ICH Q10'], pillar: 'csv-csa' },
+ { term: 'System Impact Assessment', def: 'An early-stage evaluation that determines whether a computerized system has a GxP impact and what level of validation is required. Considers intended use, data criticality, regulatory applicability, and connection to GxP records.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
+ // T
+ { term: 'True Copy', def: 'A copy that preserves the content and meaning of the original record, including data that allows the copy to be verified against the original. A paper printout of an electronic record is a true copy only if it includes all critical metadata. Printouts alone are not acceptable substitutes for electronic original records.', refs: ['FDA DI Q&A 2018', 'MHRA DI 2018'], pillar: 'data-integrity' },
+ { term: 'Training Record', def: 'Documentation that an individual completed required training for a procedure, system, or process. Under GMP, training records must be maintained and personnel must demonstrate competency before performing activities. Unqualified personnel using validated systems is a common inspection finding.', refs: ['21 CFR 211.68', 'EU GMP Chapter 2'], pillar: 'quality-assurance' },
+ // U
+ { term: 'URS (User Requirements Specification)', def: 'A document that defines what a system must do in business and regulatory terms. The URS drives the entire validation lifecycle, requirements must be testable, unambiguous, and complete. Gaps in the URS lead to gaps in testing.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
+ // V
+ { term: 'Validation', def: 'A documented program that demonstrates with a high degree of assurance that a process, system, or method will consistently produce a result or product meeting its predetermined specification. Validation requires planning, execution, review, and approval.', refs: ['21 CFR Part 211', 'EU Annex 15', 'GAMP 5 2022'], pillar: 'csv-csa' },
+ { term: 'Validation Plan', def: 'A document describing the strategy, scope, responsibilities, deliverables, and schedule for a validation project. The validation plan is typically approved before any protocol execution begins.', refs: ['GAMP 5 2022', 'EU Annex 15'], pillar: 'csv-csa' },
+ { term: 'Validation Summary Report (VSR)', def: 'A document that summarizes the results of a validation effort, what was tested, what passed, what failed, what deviations were raised, and the overall conclusion on validated status. Required to close a validation lifecycle.', refs: ['GAMP 5 2022'], pillar: 'csv-csa' },
+ // W
+ { term: 'Warning Letter', def: 'A formal FDA communication notifying a company of significant violations of regulations. More serious than a 483. Warning letters are public record and typically require a response and corrective action plan. Repeated DI violations frequently result in Warning Letters.', refs: ['FDA Warning Letter Policy'], pillar: 'audits-inspection' },
 ];
 
 // Group alphabetically
 const alphabet = [...new Set(terms.map(t => t.term[0].toUpperCase()))].sort();
 ---
 <Layout
-  title="Glossary"
-  description="Plain-language definitions for 70+ GxP, data integrity, CSV, quality assurance, and regulatory terms. For practitioners at all levels."
+ title="Glossary"
+ description="Plain-language definitions for 70+ GxP, data integrity, CSV, quality assurance, and regulatory terms. For practitioners at all levels."
 >
-  <div class="page-header">
-    <div class="page-label">Reference</div>
-    <h1>Glossary</h1>
-    <p>Plain-language definitions for common GxP, data integrity, CSV, and regulatory terms. Each definition distinguishes between what the term means and where it comes from in regulation or guidance.</p>
-    <div class="disclaimer-banner">
-      <span class="disclaimer-label">Educational use only</span>
-      These definitions are for learning purposes. Always verify current definitions against primary regulatory sources before using in quality documentation.
-    </div>
-  </div>
+ <div class="page-header">
+ <div class="page-label">Reference</div>
+ <h1>Glossary</h1>
+ <p>Plain-language definitions for common GxP, data integrity, CSV, and regulatory terms. Each definition distinguishes between what the term means and where it comes from in regulation or guidance.</p>
+ <div class="disclaimer-banner">
+ <span class="disclaimer-label">Educational use only</span>
+ These definitions are for learning purposes. Always verify current definitions against primary regulatory sources before using in quality documentation.
+ </div>
+ </div>
 
-  <!-- Alphabet jump nav -->
-  <div class="alpha-nav">
-    {alphabet.map(letter => (
-      <a href={`#letter-${letter}`} class="alpha-link">{letter}</a>
-    ))}
-  </div>
+ <!-- Alphabet jump nav -->
+ <div class="alpha-nav">
+ {alphabet.map(letter => (
+ <a href={`#letter-${letter}`} class="alpha-link">{letter}</a>
+ ))}
+ </div>
 
-  <!-- Terms -->
-  <div class="terms-list">
-    {alphabet.map(letter => {
-      const group = terms.filter(t => t.term[0].toUpperCase() === letter);
-      return (
-        <div class="alpha-group" id={`letter-${letter}`}>
-          <div class="alpha-header">{letter}</div>
-          {group.map(t => (
-            <div class="term-entry">
-              <div class="term-word">{t.term}</div>
-              <div class="term-def">{t.def}</div>
-              {t.refs.length > 0 && (
-                <div class="term-refs">
-                  {t.refs.map(r => <span class="term-ref">{r}</span>)}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      );
-    })}
-  </div>
+ <!-- Terms -->
+ <div class="terms-list">
+ {alphabet.map(letter => {
+ const group = terms.filter(t => t.term[0].toUpperCase() === letter);
+ return (
+ <div class="alpha-group" id={`letter-${letter}`}>
+ <div class="alpha-header">{letter}</div>
+ {group.map(t => (
+ <div class="term-entry">
+ <div class="term-word">{t.term}</div>
+ <div class="term-def">{t.def}</div>
+ {t.refs.length > 0 && (
+ <div class="term-refs">
+ {t.refs.map(r => <span class="term-ref">{r}</span>)}
+ </div>
+ )}
+ </div>
+ ))}
+ </div>
+ );
+ })}
+ </div>
 
-  <div class="glossary-footer">
-    <p>Missing a term? The <a href="/regulatory-refs">Regulatory References</a> page links to primary sources where authoritative definitions can be found. All regulatory definitions take precedence over any summary provided here.</p>
-  </div>
+ <div class="glossary-footer">
+ <p>Missing a term? The <a href="/regulatory-refs">Regulatory References</a> page links to primary sources where authoritative definitions can be found. All regulatory definitions take precedence over any summary provided here.</p>
+ </div>
 </Layout>
 
 <style>
-  .page-header {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-  }
+ .page-header {
+ margin-bottom: 2.5rem;
+ padding-bottom: 2rem;
+ border-bottom: 1px solid var(--border);
+ }
 
-  .page-label {
-    font-size: 0.72rem;
-    font-family: var(--mono);
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-    margin-bottom: 0.6rem;
-  }
+ .page-label {
+ font-size: 0.72rem;
+ font-family: var(--mono);
+ color: var(--accent);
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ font-weight: 700;
+ margin-bottom: 0.6rem;
+ }
 
-  .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-  .page-header > p { color: var(--muted-light); margin-bottom: 1rem; font-size: 0.95rem; }
+ .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+ .page-header > p { color: var(--muted-light); margin-bottom: 1rem; font-size: 0.95rem; }
 
-  .disclaimer-banner {
-    font-size: 0.8rem;
-    color: var(--muted);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--amber);
-    padding: 0.75rem 1rem;
-    border-radius: 7px;
-    line-height: 1.55;
-  }
+ .disclaimer-banner {
+ font-size: 0.8rem;
+ color: var(--muted);
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-left: 3px solid var(--amber);
+ padding: 0.75rem 1rem;
+ border-radius: 7px;
+ line-height: 1.55;
+ }
 
-  .disclaimer-label {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: var(--amber);
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    display: block;
-    margin-bottom: 0.2rem;
-  }
+ .disclaimer-label {
+ font-family: var(--mono);
+ font-size: 0.68rem;
+ font-weight: 700;
+ color: var(--amber);
+ text-transform: uppercase;
+ letter-spacing: 0.07em;
+ display: block;
+ margin-bottom: 0.2rem;
+ }
 
-  /* Alphabet nav */
-  .alpha-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    margin-bottom: 3rem;
-    padding: 1rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-  }
+ /* Alphabet nav */
+ .alpha-nav {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.3rem;
+ margin-bottom: 3rem;
+ padding: 1rem;
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: 10px;
+ }
 
-  .alpha-link {
-    font-size: 0.78rem;
-    font-family: var(--mono);
-    font-weight: 700;
-    color: var(--muted-light);
-    padding: 0.3rem 0.55rem;
-    border-radius: 5px;
-    transition: background 0.12s, color 0.12s;
-  }
+ .alpha-link {
+ font-size: 0.78rem;
+ font-family: var(--mono);
+ font-weight: 700;
+ color: var(--muted-light);
+ padding: 0.3rem 0.55rem;
+ border-radius: 5px;
+ transition: background 0.12s, color 0.12s;
+ }
 
-  .alpha-link:hover {
-    background: var(--accent-glow);
-    color: var(--accent);
-  }
+ .alpha-link:hover {
+ background: var(--accent-glow);
+ color: var(--accent);
+ }
 
-  /* Terms */
-  .alpha-group { margin-bottom: 2.5rem; }
+ /* Terms */
+ .alpha-group { margin-bottom: 2.5rem; }
 
-  .alpha-header {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--accent);
-    font-family: var(--mono);
-    letter-spacing: -0.02em;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-dim);
-    margin-bottom: 1rem;
-  }
+ .alpha-header {
+ font-size: 1.25rem;
+ font-weight: 700;
+ color: var(--accent);
+ font-family: var(--mono);
+ letter-spacing: -0.02em;
+ padding-bottom: 0.5rem;
+ border-bottom: 1px solid var(--border-dim);
+ margin-bottom: 1rem;
+ }
 
-  .term-entry {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-dim);
-  }
+ .term-entry {
+ padding: 1rem 0;
+ border-bottom: 1px solid var(--border-dim);
+ }
 
-  .term-entry:last-child { border-bottom: none; }
+ .term-entry:last-child { border-bottom: none; }
 
-  .term-word {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.35rem;
-    letter-spacing: -0.01em;
-  }
+ .term-word {
+ font-size: 0.95rem;
+ font-weight: 700;
+ color: var(--text);
+ margin-bottom: 0.35rem;
+ letter-spacing: -0.01em;
+ }
 
-  .term-def {
-    font-size: 0.875rem;
-    color: var(--muted-light);
-    line-height: 1.65;
-    margin-bottom: 0.5rem;
-  }
+ .term-def {
+ font-size: 0.875rem;
+ color: var(--muted-light);
+ line-height: 1.65;
+ margin-bottom: 0.5rem;
+ }
 
-  .term-refs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-  }
+ .term-refs {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.35rem;
+ }
 
-  .term-ref {
-    font-size: 0.65rem;
-    font-family: var(--mono);
-    color: var(--muted);
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 0.15rem 0.5rem;
-    border-radius: 5px;
-    letter-spacing: 0.02em;
-  }
+ .term-ref {
+ font-size: 0.65rem;
+ font-family: var(--mono);
+ color: var(--muted);
+ background: var(--surface2);
+ border: 1px solid var(--border);
+ padding: 0.15rem 0.5rem;
+ border-radius: 5px;
+ letter-spacing: 0.02em;
+ }
 
-  .glossary-footer {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
+ .glossary-footer {
+ margin-top: 3rem;
+ padding-top: 2rem;
+ border-top: 1px solid var(--border);
+ }
 
-  .glossary-footer p {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+ .glossary-footer p {
+ font-size: 0.85rem;
+ color: var(--muted);
+ line-height: 1.6;
+ }
 </style>

@@ -1,6 +1,6 @@
 ---
 title: "Deviation Management in GxP: Classification, Investigation, and Resolution"
-description: "How GMP deviations work from first report through closure — classification criteria, investigation requirements, impact assessment, and what distinguishes a thorough investigation from a compliance exercise."
+description: "How GMP deviations work from first report through closure, classification criteria, investigation requirements, impact assessment, and what distinguishes a thorough investigation from a compliance exercise."
 pubDate: 2025-08-06
 tags: ["deviations", "GMP", "QMS", "investigation", "foundations"]
 tier: "Beginner"

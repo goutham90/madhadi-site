@@ -1,6 +1,6 @@
 ---
 title: "Data Integrity in Pharma: What It Is and Why It Keeps Failing"
-description: "A ground-level introduction to pharmaceutical data integrity — what it actually means, why regulators treat it as a quality-critical issue, and what the real cost of failure looks like."
+description: "A ground-level introduction to pharmaceutical data integrity, what it actually means, why regulators treat it as a quality-critical issue, and what the real cost of failure looks like."
 pubDate: 2025-07-11
 tags: ["data-integrity", "FDA", "GxP", "foundations", "ALCOA+"]
 pillar: "data-integrity"

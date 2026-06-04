@@ -1,6 +1,6 @@
 ---
 title: "CSV Risk Assessment: How to Scope and Execute a Risk-Based Validation"
-description: "A working guide to validation risk assessment — FMEA, risk ranking matrices, criticality determination, GAMP 5 software categorization, and how to use risk to set your testing scope without over-validating or under-validating."
+description: "A working guide to validation risk assessment, FMEA, risk ranking matrices, criticality determination, GAMP 5 software categorization, and how to use risk to set your testing scope without over-validating or under-validating."
 pubDate: 2026-01-02
 tags: ["CSV", "risk assessment", "GAMP", "validation", "FMEA"]
 tier: "Intermediate"

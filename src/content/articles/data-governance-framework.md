@@ -1,6 +1,6 @@
 ---
 title: "Building a Data Governance Framework for GxP Operations"
-description: "How to design and operate a data governance program — system inventory, criticality tiering, data ownership, data-flow mapping, and the organizational structure that sustains it."
+description: "How to design and operate a data governance program, system inventory, criticality tiering, data ownership, data-flow mapping, and the organizational structure that sustains it."
 pubDate: 2026-01-22
 tags: ["data-integrity", "data-governance", "GxP", "FDA", "QMS"]
 pillar: "data-integrity"

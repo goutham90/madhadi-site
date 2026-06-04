@@ -1,6 +1,6 @@
 ---
 title: "GAMP 5 Second Edition: The Framework for Risk-Based Computer System Validation"
-description: "How GAMP 5 (2022) works in practice — software categories, the V-model, risk-based validation, and what the second edition changed. For practitioners who need to understand the standard, not just cite it."
+description: "How GAMP 5 (2022) works in practice, software categories, the V-model, risk-based validation, and what the second edition changed. For practitioners who need to understand the standard, not just cite it."
 pubDate: 2025-09-02
 tags: ["CSV", "GAMP", "validation", "GxP", "21-CFR-Part-11"]
 pillar: "csv-csa"

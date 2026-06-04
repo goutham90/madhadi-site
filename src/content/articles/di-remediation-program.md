@@ -1,6 +1,6 @@
 ---
 title: "Running a Data Integrity Remediation Program: From Warning Letter to Sustainable Compliance"
-description: "A practical guide to managing a DI remediation program after regulatory findings — organizing the response, prioritizing systemic remediation, managing inspector oversight, rebuilding trust with regulators, and transitioning from crisis to sustainable program. For quality directors and compliance leaders."
+description: "A practical guide to managing a DI remediation program after regulatory findings, organizing the response, prioritizing systemic remediation, managing inspector oversight, rebuilding trust with regulators, and transitioning from crisis to sustainable program. For quality directors and compliance leaders."
 pubDate: 2026-05-08
 tags: ["DI remediation", "warning letter", "FDA", "compliance", "program management"]
 tier: "Advanced"

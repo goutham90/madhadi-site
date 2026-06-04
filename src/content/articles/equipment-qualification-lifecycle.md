@@ -1,6 +1,6 @@
 ---
-title: "Equipment Qualification: DQ, IQ, OQ, PQ — What Each Phase Actually Proves"
-description: "A clear breakdown of the equipment qualification lifecycle — Design Qualification through Performance Qualification — what each phase is testing, where programs most commonly fail, and how this connects to data integrity."
+title: "Equipment Qualification: DQ, IQ, OQ, PQ, What Each Phase Actually Proves"
+description: "A clear breakdown of the equipment qualification lifecycle, Design Qualification through Performance Qualification, what each phase is testing, where programs most commonly fail, and how this connects to data integrity."
 pubDate: 2025-09-30
 tags: ["equipment-qualification", "IQ-OQ-PQ", "GxP", "EU-Annex-15", "validation"]
 pillar: "equipment-qualification"

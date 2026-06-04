@@ -1,6 +1,6 @@
 ---
 title: "OOS Investigations: The Step-by-Step Process FDA Expects"
-description: "A complete operational guide to out-of-specification investigations — Phase 1 laboratory investigation, Phase 2 full investigation, assignable cause determination, batch disposition, and what FDA inspectors actually examine."
+description: "A complete operational guide to out-of-specification investigations, Phase 1 laboratory investigation, Phase 2 full investigation, assignable cause determination, batch disposition, and what FDA inspectors actually examine."
 pubDate: 2026-02-19
 tags: ["OOS", "laboratory", "QC", "investigation", "FDA", "GxP"]
 tier: "Intermediate"

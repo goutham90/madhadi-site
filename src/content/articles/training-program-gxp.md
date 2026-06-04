@@ -1,6 +1,6 @@
 ---
 title: "GxP Training Program Design: Building a System That Actually Changes Behavior"
-description: "How to design and manage a GxP training program that meets regulatory requirements, creates defensible training records, and — critically — actually teaches people to work compliantly. Covers curriculum design, effectiveness checks, LMS requirements, and what inspectors examine."
+description: "How to design and manage a GxP training program that meets regulatory requirements, creates defensible training records, and, critically, actually teaches people to work compliantly. Covers curriculum design, effectiveness checks, LMS requirements, and what inspectors examine."
 pubDate: 2025-08-20
 tags: ["training", "GxP", "QMS", "data integrity", "compliance"]
 tier: "Intermediate"

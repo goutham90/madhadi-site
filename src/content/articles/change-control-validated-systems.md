@@ -1,6 +1,6 @@
 ---
 title: "Change Control for Validated Systems: What Triggers Revalidation and How to Manage It"
-description: "A practical guide to managing changes in a validated environment — impact assessment, revalidation scope determination, documentation requirements, and the difference between changes that need full revalidation vs. those that need a brief confirmation test."
+description: "A practical guide to managing changes in a validated environment, impact assessment, revalidation scope determination, documentation requirements, and the difference between changes that need full revalidation vs. those that need a brief confirmation test."
 pubDate: 2026-01-14
 tags: ["change control", "CSV", "validation", "GxP", "revalidation"]
 tier: "Intermediate"

@@ -1,6 +1,6 @@
 ---
 title: "Breaking Into GxP Quality: A Practitioner's Learning Roadmap"
-description: "How to start a career in pharmaceutical quality, CSV, data integrity, or validation — what to learn first, what credentials matter, and the honest path from zero to employed in regulated biotech."
+description: "How to start a career in pharmaceutical quality, CSV, data integrity, or validation, what to learn first, what credentials matter, and the honest path from zero to employed in regulated biotech."
 pubDate: 2025-12-17
 tags: ["career", "GxP", "foundations", "CSV", "data-integrity"]
 pillar: "data-integrity"

@@ -1,6 +1,6 @@
 ---
 title: "GxP Manufacturing and Laboratory Systems: MES, SCADA, LIMS, CDS, and ELN"
-description: "How the major GxP informatics systems — MES, SCADA, DCS, PLC, historians, LIMS, ELN, and CDS — generate and manage regulated data, their specific data integrity risks, and how 21 CFR Part 11 applies on the shop floor."
+description: "How the major GxP informatics systems, MES, SCADA, DCS, PLC, historians, LIMS, ELN, and CDS, generate and manage regulated data, their specific data integrity risks, and how 21 CFR Part 11 applies on the shop floor."
 pubDate: 2025-10-16
 tags: ["MES", "LIMS", "CDS", "SCADA", "GxP", "21-CFR-Part-11", "data-integrity"]
 pillar: "manufacturing-automation"

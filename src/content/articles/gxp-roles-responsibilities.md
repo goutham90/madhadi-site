@@ -1,6 +1,6 @@
 ---
 title: "GxP Roles Explained: Who Does What in a Regulated Biotech or Pharma Company"
-description: "A practical map of every quality and compliance role in a regulated organization — what each function owns, how they interact, and what a day in each role actually looks like."
+description: "A practical map of every quality and compliance role in a regulated organization, what each function owns, how they interact, and what a day in each role actually looks like."
 pubDate: 2025-07-04
 tags: ["career", "GxP", "QA", "roles", "beginners"]
 tier: "Beginner"
@@ -83,7 +83,7 @@ Regulatory Affairs manages the company's relationship with health authorities. T
 - Advises on regulatory strategy for new products and new markets
 - Reviews labeling for compliance with approved content
 - Manages post-approval changes (CBEs, PASes, variation applications)
-- Monitors the global regulatory landscape for changes affecting the portfolio
+- Monitors the global regulatory environment for changes affecting the portfolio
 - Coordinates with QA on GMP compliance for submissions
 
 RA and QA interact constantly because the data package submitted to regulators comes from the GMP quality system. Any data integrity problem that touches GMP records also potentially affects regulatory submissions. In some organizations, regulatory submissions quality (the data quality in the submission package) is formally owned by RA and QA jointly.

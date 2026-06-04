@@ -1,6 +1,6 @@
 ---
 title: "FDA Inspection Readiness: Building and Maintaining a State of Control"
-description: "What FDA inspection readiness actually means — not a sprint before an announced inspection, but maintaining systems that would survive one at any time. Covers inspection logistics, front room/back room, SME preparation, and how data integrity is assessed during an inspection."
+description: "What FDA inspection readiness actually means, not a sprint before an announced inspection, but maintaining systems that would survive one at any time. Covers inspection logistics, front room/back room, SME preparation, and how data integrity is assessed during an inspection."
 pubDate: 2025-11-10
 tags: ["FDA", "inspection", "GxP", "data-integrity", "CGMP"]
 tier: "Intermediate"

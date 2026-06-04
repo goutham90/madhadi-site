@@ -1,6 +1,6 @@
 ---
 title: "Supplier and Vendor Qualification in GxP: From Approved Vendor List to Audit"
-description: "A practical guide to GxP supplier qualification — the approved vendor list, qualification levels, audit programs, ongoing monitoring, and how to manage supplier qualification for cloud and SaaS vendors under 21 CFR Part 11."
+description: "A practical guide to GxP supplier qualification, the approved vendor list, qualification levels, audit programs, ongoing monitoring, and how to manage supplier qualification for cloud and SaaS vendors under 21 CFR Part 11."
 pubDate: 2025-10-28
 tags: ["supplier qualification", "vendor management", "QMS", "GxP", "audit"]
 tier: "Intermediate"

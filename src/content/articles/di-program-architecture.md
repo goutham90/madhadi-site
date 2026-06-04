@@ -1,6 +1,6 @@
 ---
 title: "Building a Data Integrity Program: Architecture, Governance, and the Gap Assessment"
-description: "What a mature enterprise-level data integrity program actually looks like — system inventory and criticality tiering, governance model, data-flow mapping, risk assessment methodology, and how to measure where you are against where you need to be."
+description: "What a mature enterprise-level data integrity program actually looks like, system inventory and criticality tiering, governance model, data-flow mapping, risk assessment methodology, and how to measure where you are against where you need to be."
 pubDate: 2026-02-04
 tags: ["data-integrity", "FDA", "GxP", "data-governance", "program-management"]
 tier: "Advanced"
