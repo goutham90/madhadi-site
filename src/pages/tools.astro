@@ -1,82 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const tools = [
- {
- name: 'Audit Trail Anomaly Detector',
- desc: 'Statistical analysis of LIMS/ELN audit trail exports. Flags off-hours entries, back-to-back edit sequences, bulk modifications, and user behavior outliers. Outputs a prioritized review queue for QA.',
- status: 'Blueprint',
- stack: ['Python', 'Pandas', 'LIMS Export'],
- detail: 'Covers temporal anomalies, sequential edit patterns, metadata gaps, and statistical deviation from baseline user behavior.',
- },
- {
- name: 'ALCOA+ Gap Analyzer',
- desc: 'Parses SOP, batch record, or protocol text and cross-references it against ALCOA+ requirements and FDA data integrity guidance. Returns a structured gap report with severity ratings.',
- status: 'Blueprint',
- stack: ['Python', 'Claude API', 'NLP'],
- detail: 'Output includes: missing attributability controls, contemporaneity gaps, completeness issues, and record endurance risks.',
- },
- {
- name: 'Deviation Pattern Classifier',
- desc: 'AI-based classifier for incoming deviation reports. Categorizes by type, assigns a risk tier, and surfaces the three most similar historical deviations for investigator reference.',
- status: 'Blueprint',
- stack: ['Python', 'scikit-learn', 'CAPA DB'],
- detail: 'Reduces triage time and improves consistency in deviation categorization across sites.',
- },
- {
- name: '21 CFR Part 11 Assessment Tool',
- desc: 'Evaluates a computerized system against 21 CFR Part 11 requirements. Generates a readiness matrix covering audit trails, access controls, electronic signatures, and record retention.',
- status: 'Blueprint',
- stack: ['Python', 'Excel Output', 'GxP'],
- detail: 'Designed for pre-qualification assessment and periodic review of validated systems.',
- },
- {
- name: 'Chromatography Data System Auditor',
- desc: 'Specialized audit tool for CDS platforms (Empower, Chemstation). Detects sequence injection anomalies, processing method changes, result set deletions, and integration parameter manipulation.',
- status: 'Blueprint',
- stack: ['Python', 'CDS API', 'QC'],
- detail: 'CDS platforms are the most common source of data integrity findings in analytical QC labs.',
- },
- {
- name: 'Data Integrity Risk Register',
- desc: 'Systematic risk assessment framework for GxP systems. Scores each system on data criticality, control gaps, and detection capability. Prioritizes remediation by risk exposure.',
- status: 'Blueprint',
- stack: ['Python', 'Risk Matrix', 'GxP'],
- detail: 'Generates a prioritized remediation roadmap aligned to FDA and EMA data integrity guidance.',
- },
-];
 ---
-<Layout title="Tools" description="Data integrity tools for GxP compliance, audit trail analysis, ALCOA+ gap assessment, deviation classification, and 21 CFR Part 11 evaluation.">
+<Layout title="Tools" description="Interactive GxP reference tools: ALCOA+ self-assessment, GAMP 5 category decision aid, 483 response checklist, validation deliverable selector, and self-audit checklists.">
  <div class="page-header">
- <div class="page-label">Tool Library</div>
+ <div class="page-label">Reference Tools</div>
  <h1>Tools</h1>
  <p>
- Tool concepts designed to solve real data integrity problems in regulated biotech.
- Each blueprint covers the logic, data inputs, and output format needed to build it.
- The interactive reference tools below this section run directly in your browser.
+ Interactive reference tools and self-audit checklists for GxP quality work.
+ Everything on this page runs in your browser. No login, no data sent anywhere.
  </p>
- <div class="callout">
- <div class="callout-title">About these blueprints</div>
- <p>The tool cards below are design specifications, not hosted applications. They describe what each tool does, what it needs as input, and what it produces. The interactive checklists and decision aids further down the page are fully functional and require no login.</p>
- </div>
- </div>
-
- <div class="tools-grid">
- {tools.map(tool => (
- <div class="tool-card">
- <div class="tool-header">
- <h2 class="tool-name">{tool.name}</h2>
- <span class="status-badge">{tool.status}</span>
- </div>
- <p class="tool-desc">{tool.desc}</p>
- <div class="tool-detail">{tool.detail}</div>
- <div class="tool-footer">
- <div class="tool-stack">
- {tool.stack.map(s => <span class="stack-tag">{s}</span>)}
- </div>
- </div>
- </div>
- ))}
  </div>
 
  <!-- Audit Guides -->
@@ -364,91 +296,6 @@ const tools = [
 
  .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
  .page-header > p { color: var(--muted-light); margin-bottom: 1.5rem; }
-
- .tools-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
- gap: 1rem;
- }
-
- .tool-card {
- background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 14px;
- padding: 1.75rem;
- display: flex;
- flex-direction: column;
- gap: 0.75rem;
- transition: border-color 0.2s, transform 0.2s;
- }
-
- .tool-card:hover {
- border-color: var(--accent);
- transform: translateY(-2px);
- }
-
- .tool-header {
- display: flex;
- align-items: flex-start;
- justify-content: space-between;
- gap: 1rem;
- }
-
- .tool-name {
- font-size: 1rem;
- font-weight: 600;
- line-height: 1.35;
- color: var(--text);
- }
-
- .status-badge {
- font-size: 0.68rem;
- font-family: var(--mono);
- font-weight: 700;
- text-transform: uppercase;
- letter-spacing: 0.06em;
- padding: 0.2rem 0.55rem;
- border-radius: 999px;
- background: rgba(251, 191, 36, 0.1);
- color: #fbbf24;
- border: 1px solid rgba(251, 191, 36, 0.2);
- flex-shrink: 0;
- }
-
- .tool-desc {
- font-size: 0.875rem;
- color: var(--muted-light);
- line-height: 1.65;
- }
-
- .tool-detail {
- font-size: 0.8rem;
- color: var(--muted);
- line-height: 1.55;
- padding: 0.75rem 1rem;
- background: var(--surface2);
- border-radius: 7px;
- border-left: 2px solid var(--border);
- flex: 1;
- }
-
- .tool-footer { margin-top: 0.5rem; }
-
- .tool-stack {
- display: flex;
- gap: 0.4rem;
- flex-wrap: wrap;
- }
-
- .stack-tag {
- font-size: 0.7rem;
- font-family: var(--mono);
- padding: 0.2rem 0.55rem;
- border-radius: 5px;
- background: var(--surface2);
- border: 1px solid var(--border);
- color: var(--muted);
- }
 
  /* ── Audit Guides ── */
  .audit-grid {
