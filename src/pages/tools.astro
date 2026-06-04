@@ -5,42 +5,42 @@ const tools = [
  {
  name: 'Audit Trail Anomaly Detector',
  desc: 'Statistical analysis of LIMS/ELN audit trail exports. Flags off-hours entries, back-to-back edit sequences, bulk modifications, and user behavior outliers. Outputs a prioritized review queue for QA.',
- status: 'Active',
+ status: 'Blueprint',
  stack: ['Python', 'Pandas', 'LIMS Export'],
  detail: 'Covers temporal anomalies, sequential edit patterns, metadata gaps, and statistical deviation from baseline user behavior.',
  },
  {
  name: 'ALCOA+ Gap Analyzer',
  desc: 'Parses SOP, batch record, or protocol text and cross-references it against ALCOA+ requirements and FDA data integrity guidance. Returns a structured gap report with severity ratings.',
- status: 'Active',
+ status: 'Blueprint',
  stack: ['Python', 'Claude API', 'NLP'],
  detail: 'Output includes: missing attributability controls, contemporaneity gaps, completeness issues, and record endurance risks.',
  },
  {
  name: 'Deviation Pattern Classifier',
  desc: 'AI-based classifier for incoming deviation reports. Categorizes by type, assigns a risk tier, and surfaces the three most similar historical deviations for investigator reference.',
- status: 'Active',
+ status: 'Blueprint',
  stack: ['Python', 'scikit-learn', 'CAPA DB'],
  detail: 'Reduces triage time and improves consistency in deviation categorization across sites.',
  },
  {
  name: '21 CFR Part 11 Assessment Tool',
  desc: 'Evaluates a computerized system against 21 CFR Part 11 requirements. Generates a readiness matrix covering audit trails, access controls, electronic signatures, and record retention.',
- status: 'Active',
+ status: 'Blueprint',
  stack: ['Python', 'Excel Output', 'GxP'],
  detail: 'Designed for pre-qualification assessment and periodic review of validated systems.',
  },
  {
  name: 'Chromatography Data System Auditor',
  desc: 'Specialized audit tool for CDS platforms (Empower, Chemstation). Detects sequence injection anomalies, processing method changes, result set deletions, and integration parameter manipulation.',
- status: 'Active',
+ status: 'Blueprint',
  stack: ['Python', 'CDS API', 'QC'],
  detail: 'CDS platforms are the most common source of data integrity findings in analytical QC labs.',
  },
  {
  name: 'Data Integrity Risk Register',
  desc: 'Systematic risk assessment framework for GxP systems. Scores each system on data criticality, control gaps, and detection capability. Prioritizes remediation by risk exposure.',
- status: 'Active',
+ status: 'Blueprint',
  stack: ['Python', 'Risk Matrix', 'GxP'],
  detail: 'Generates a prioritized remediation roadmap aligned to FDA and EMA data integrity guidance.',
  },
@@ -48,15 +48,16 @@ const tools = [
 ---
 <Layout title="Tools" description="Data integrity tools for GxP compliance, audit trail analysis, ALCOA+ gap assessment, deviation classification, and 21 CFR Part 11 evaluation.">
  <div class="page-header">
- <div class="page-label">Built Tools</div>
+ <div class="page-label">Tool Library</div>
  <h1>Tools</h1>
  <p>
- Automation systems built to solve real data integrity problems in regulated biotech.
- All tools are designed with GxP validation in mind, documented, testable, and auditable.
+ Tool concepts designed to solve real data integrity problems in regulated biotech.
+ Each blueprint covers the logic, data inputs, and output format needed to build it.
+ The interactive reference tools below this section run directly in your browser.
  </p>
  <div class="callout">
- <div class="callout-title">Note</div>
- <p>These tools are built for internal GxP environments. Any AI-assisted output feeds a documented human review process, AI flags, humans decide, decisions are logged.</p>
+ <div class="callout-title">About these blueprints</div>
+ <p>The tool cards below are design specifications, not hosted applications. They describe what each tool does, what it needs as input, and what it produces. The interactive checklists and decision aids further down the page are fully functional and require no login.</p>
  </div>
  </div>
 
@@ -408,9 +409,9 @@ const tools = [
  letter-spacing: 0.06em;
  padding: 0.2rem 0.55rem;
  border-radius: 999px;
- background: rgba(52, 211, 153, 0.1);
- color: var(--green);
- border: 1px solid rgba(52, 211, 153, 0.2);
+ background: rgba(251, 191, 36, 0.1);
+ color: #fbbf24;
+ border: 1px solid rgba(251, 191, 36, 0.2);
  flex-shrink: 0;
  }
 
