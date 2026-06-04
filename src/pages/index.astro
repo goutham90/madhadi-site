@@ -67,19 +67,29 @@ const topics = [
 <Layout title="Home" wide={true}>
  <!-- Hero -->
  <section class="hero">
- <div class="hero-inner">
- <div class="hero-badge">GxP Quality · Validation · Data Integrity · AI Tools</div>
+ <div class="hero-cols">
+ <!-- Left: intro -->
+ <div class="hero-left">
+ <div class="hero-badge-row">
+ <span class="hero-badge">GxP Quality · Validation · Data Integrity</span>
+ <span class="free-badge">Free · No login · No paywall</span>
+ </div>
  <h1>
- <span class="gradient-text">The practitioner's knowledge hub<br/>for GxP quality and validation.</span>
+ <span class="gradient-text">The practitioner's knowledge hub for GxP quality and validation.</span>
  </h1>
  <p class="hero-sub">
- Operational depth on data integrity, validation, QMS, process validation, method validation,
- cleaning validation, clinical QA, inspection readiness, and CGT. Written for practitioners
- who need to do the job, not pass a quiz.
+ Operational depth on data integrity, validation, QMS, process validation,
+ inspection readiness, and CGT. Written for practitioners who need to do the job,
+ not pass a quiz.
+ </p>
+ <p class="hero-aside">
+ What I get from this: nothing, except knowing it helped someone avoid learning things the hard way.
+ If it's not useful, close the tab — no popup, no guilt.
+ Wrong or missing something? <a href="mailto:goutham@madhadi.com" class="aside-link">Let me know.</a>
  </p>
  <div class="hero-actions">
- <a href="/pillars" class="btn-primary">Browse Pillars →</a>
- <a href="/tracks" class="btn-ghost">Learning Tracks</a>
+ <a href="/start" class="btn-primary">Start here →</a>
+ <a href="/articles" class="btn-ghost">All articles</a>
  </div>
  <div class="hero-stats">
  <div class="stat">
@@ -94,7 +104,48 @@ const topics = [
  <div class="stat-div"></div>
  <div class="stat">
  <span class="stat-n">3</span>
- <span class="stat-l">Learning Tracks</span>
+ <span class="stat-l">Tracks</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Right: where to start -->
+ <div class="hero-right">
+ <div class="entry-label">Where are you right now?</div>
+ <div class="entry-cards">
+ <a href="/tracks/foundations" class="entry-card beginner-card">
+ <div class="entry-level beginner-col">Beginner</div>
+ <div class="entry-title">New to GxP or quality</div>
+ <div class="entry-desc">Regulations, ALCOA+, GAMP 5, what FDA inspects. Start here if you're new or building foundations.</div>
+ <div class="entry-links">
+ <span>What Is GMP?</span>
+ <span>Data Integrity Foundations</span>
+ <span>GxP Roles Explained</span>
+ </div>
+ <div class="entry-cta">Foundations track →</div>
+ </a>
+ <a href="/tracks/implementation" class="entry-card intermediate-card">
+ <div class="entry-level intermediate-col">Intermediate</div>
+ <div class="entry-title">Practitioner building systems</div>
+ <div class="entry-desc">Audit trail design, CSV/CSA, validation deliverables, manufacturing systems, inspection readiness.</div>
+ <div class="entry-links">
+ <span>Audit Trail Design</span>
+ <span>GAMP 5 Second Edition</span>
+ <span>CSV Risk Assessment</span>
+ </div>
+ <div class="entry-cta">Implementation track →</div>
+ </a>
+ <a href="/tracks/advanced" class="entry-card advanced-card">
+ <div class="entry-level advanced-col">Advanced</div>
+ <div class="entry-title">Senior practitioner or program lead</div>
+ <div class="entry-desc">DI program architecture, 483 responses, BLA readiness, remediation programs, CGT.</div>
+ <div class="entry-links">
+ <span>DI Program Architecture</span>
+ <span>DI Gap Assessment</span>
+ <span>BLA Readiness</span>
+ </div>
+ <div class="entry-cta">Advanced track →</div>
+ </a>
  </div>
  </div>
  </div>
@@ -306,48 +357,77 @@ const topics = [
 <style>
  /* ── Hero ── */
  .hero {
- padding: 5rem 0 4rem;
+ padding: 4rem 0 3.5rem;
  border-bottom: 1px solid var(--border-dim);
- margin-bottom: 5rem;
+ margin-bottom: 4rem;
  }
 
- .hero-inner { max-width: 680px; }
+ .hero-cols {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 3.5rem;
+ align-items: start;
+ }
 
- .hero-badge {
+ .hero-badge-row {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.5rem;
+ margin-bottom: 1.5rem;
+ }
+
+ .hero-badge, .free-badge {
  display: inline-block;
- font-size: 0.72rem;
+ font-size: 0.7rem;
  font-family: var(--mono);
- color: var(--accent);
- background: var(--accent-glow);
- border: 1px solid rgba(79, 142, 247, 0.2);
  padding: 0.3rem 0.8rem;
  border-radius: 999px;
- margin-bottom: 1.75rem;
  letter-spacing: 0.06em;
  text-transform: uppercase;
  font-weight: 600;
  }
 
+ .hero-badge {
+ color: var(--accent);
+ background: var(--accent-glow);
+ border: 1px solid rgba(79, 142, 247, 0.2);
+ }
+
+ .free-badge {
+ color: var(--green);
+ background: rgba(52, 211, 153, 0.08);
+ border: 1px solid rgba(52, 211, 153, 0.2);
+ }
+
  h1 {
- font-size: clamp(2.25rem, 5vw, 3.75rem);
- line-height: 1.1;
- margin-bottom: 1.5rem;
+ font-size: clamp(1.9rem, 3.5vw, 3rem);
+ line-height: 1.12;
+ margin-bottom: 1.25rem;
  letter-spacing: -0.04em;
  }
 
  .hero-sub {
- font-size: 1.1rem;
+ font-size: 1rem;
  color: var(--muted-light);
  line-height: 1.7;
- max-width: 560px;
- margin-bottom: 2.25rem;
+ margin-bottom: 1rem;
  }
+
+ .hero-aside {
+ font-size: 0.8rem;
+ color: var(--muted);
+ line-height: 1.65;
+ font-style: italic;
+ margin-bottom: 1.75rem;
+ }
+
+ .aside-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 
  .hero-actions {
  display: flex;
  gap: 0.75rem;
  flex-wrap: wrap;
- margin-bottom: 3rem;
+ margin-bottom: 2.25rem;
  }
 
  .btn-primary {
@@ -401,6 +481,83 @@ const topics = [
  .stat-n { font-size: 1.4rem; font-weight: 700; color: var(--text); letter-spacing: -0.03em; }
  .stat-l { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
  .stat-div { width: 1px; height: 30px; background: var(--border); }
+
+ /* ── Hero right: entry cards ── */
+ .hero-right { display: flex; flex-direction: column; gap: 0.75rem; padding-top: 0.5rem; }
+
+ .entry-label {
+ font-size: 0.7rem;
+ font-family: var(--mono);
+ color: var(--muted);
+ text-transform: uppercase;
+ letter-spacing: 0.09em;
+ font-weight: 700;
+ margin-bottom: 0.25rem;
+ }
+
+ .entry-cards { display: flex; flex-direction: column; gap: 0.6rem; }
+
+ .entry-card {
+ display: flex;
+ flex-direction: column;
+ gap: 0.35rem;
+ padding: 1rem 1.15rem;
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: 11px;
+ transition: border-color 0.15s, transform 0.15s;
+ color: inherit;
+ text-decoration: none;
+ }
+
+ .entry-card:hover { transform: translateY(-2px); color: inherit; }
+ .beginner-card:hover { border-color: #f87171; }
+ .intermediate-card:hover { border-color: #34d399; }
+ .advanced-card:hover { border-color: #a78bfa; }
+
+ .entry-level {
+ font-size: 0.63rem;
+ font-family: var(--mono);
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.07em;
+ padding: 0.15rem 0.5rem;
+ border-radius: 999px;
+ align-self: flex-start;
+ }
+
+ .beginner-col { background: rgba(248,113,113,0.1); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
+ .intermediate-col { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+ .advanced-col { background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.2); }
+
+ .entry-title { font-size: 0.88rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+
+ .entry-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+
+ .entry-links {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 0.3rem;
+ margin-top: 0.1rem;
+ }
+
+ .entry-links span {
+ font-size: 0.68rem;
+ font-family: var(--mono);
+ color: var(--muted);
+ background: var(--surface2);
+ border: 1px solid var(--border-dim);
+ padding: 0.1rem 0.45rem;
+ border-radius: 4px;
+ }
+
+ .entry-cta {
+ font-size: 0.75rem;
+ font-family: var(--mono);
+ color: var(--accent);
+ margin-top: 0.15rem;
+ font-weight: 600;
+ }
 
  /* ── Sections ── */
  section { margin-bottom: 5rem; }
@@ -715,6 +872,7 @@ const topics = [
  }
 
  @media (max-width: 900px) {
+ .hero-cols { grid-template-columns: 1fr; gap: 2.5rem; }
  .tracks-grid { grid-template-columns: 1fr; }
  .coverage-inner { grid-template-columns: 1fr; gap: 2rem; }
  .articles-grid { grid-template-columns: 1fr; }
