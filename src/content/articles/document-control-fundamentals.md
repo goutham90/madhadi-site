@@ -1,13 +1,13 @@
 ---
 title: "Document Control in GxP: How Controlled Documents Actually Work"
 description: "A complete guide to GxP document control — the document lifecycle, SOP structure, version control, effective dates, training linkage, and what inspectors look for."
-pubDate: 2026-06-03
+pubDate: 2025-07-27
 tags: ["document control", "SOP", "QMS", "GxP", "foundations"]
 tier: "Beginner"
 pillar: "quality-assurance"
 ---
 
-Every regulated facility runs on controlled documents. SOPs, forms, batch manufacturing records, specifications, protocols, analytical methods, validation documents — all of them exist in a managed system where who can write them, who approves them, when they take effect, and when they're retired is defined and enforced.
+Every regulated facility runs on controlled documents. SOPs, forms, batch manufacturing records, specifications, protocols, analytical methods, validation documents, all of them exist in a managed system where who can write them, who approves them, when they take effect, and when they're retired is defined and enforced.
 
 Document control is one of those quality system elements that sounds administrative but has significant regulatory weight. An SOP followed correctly is evidence. An undated entry on a form is a data integrity problem. A procedure used after its expiry date is a GMP violation. The document control system is the infrastructure that makes the difference between defensible and indefensible records.
 
@@ -48,7 +48,7 @@ The blank forms that are filled in to create records. Batch records, deviation f
 ## The SOP Life Cycle
 
 **Step 1: Drafting**
-The document owner writes the draft. The author is typically the person closest to the process — a QC analyst writes the first draft of a test method, a manufacturing operator or supervisor writes the first draft of a manufacturing procedure. The draft exists outside the controlled system until it enters formal review.
+The document owner writes the draft. The author is typically the person closest to the process, a QC analyst writes the first draft of a test method, a manufacturing operator or supervisor writes the first draft of a manufacturing procedure. The draft exists outside the controlled system until it enters formal review.
 
 **Step 2: Review**
 Draft circulates to functional reviewers. Who reviews depends on the document: a manufacturing SOP typically goes to Manufacturing, QA, and possibly Engineering. Reviewers comment, author revises, until consensus is reached. The review must be documented.
@@ -89,7 +89,7 @@ Each version should have a revision history section that summarizes what changed
 
 ## Electronic vs. Paper Document Management Systems
 
-Most modern GxP organizations use an electronic document management system (EDMS) — platforms like Veeva Vault QMS, MasterControl, OpenText Documentum, or similar. Some smaller organizations still manage documents in paper-based or hybrid systems.
+Most modern GxP organizations use an electronic document management system (EDMS), platforms like Veeva Vault QMS, MasterControl, OpenText Documentum, or similar. Some smaller organizations still manage documents in paper-based or hybrid systems.
 
 **Electronic EDMS advantages:**
 - Automated version control prevents use of obsolete documents

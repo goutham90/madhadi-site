@@ -1,13 +1,13 @@
 ---
 title: "FDA Data Integrity Warning Letters: 8 Patterns That Repeat"
 description: "Analysis of recurring failure modes across FDA data integrity enforcement actions — what inspectors actually find, and what the underlying system failures look like."
-pubDate: 2026-05-10
+pubDate: 2025-11-24
 tags: ["FDA", "Warning Letters", "GxP", "audit-trail"]
 tier: "Advanced"
 pillar: "data-integrity"
 ---
 
-FDA data integrity warning letters follow patterns. Across hundreds of enforcement actions since 2013, the same failure modes appear in different companies, different countries, and different product types. Understanding these patterns is more useful than memorizing specific cases — because the pattern tells you what your own systems are likely to miss.
+FDA data integrity warning letters follow patterns. Across hundreds of enforcement actions since 2013, the same failure modes appear in different companies, different countries, and different product types. Understanding these patterns is more useful than memorizing specific cases, because the pattern tells you what your own systems are likely to miss.
 
 This analysis covers the eight most frequently cited failure modes in FDA data integrity enforcement actions, based on publicly available warning letters. No company-specific details beyond what FDA has already made public.
 
@@ -19,7 +19,7 @@ This analysis covers the eight most frequently cited failure modes in FDA data i
 
 **What inspectors find:** Chromatography data systems (CDS) with audit trails either disabled, configured to record only certain event types, or producing logs that capture "modified" without recording the original value.
 
-This is the single most common data integrity finding across FDA warning letters. Analytical instruments — particularly HPLC systems running Empower, Chemstation, or Chromeleon — are frequently configured to log that a change occurred without logging what the original value was. An investigator can prove something changed; they cannot reconstruct what the original result was.
+This is the single most common data integrity finding across FDA warning letters. Analytical instruments, particularly HPLC systems running Empower, Chemstation, or Chromeleon, are frequently configured to log that a change occurred without logging what the original value was. An investigator can prove something changed; they cannot reconstruct what the original result was.
 
 **The underlying system failure:** CDS platforms have configurable audit trail settings. Out-of-box defaults are frequently not compliant. System administrators configure audit trails at installation without understanding the regulatory requirements, and the configuration is never reviewed during qualification.
 
@@ -56,7 +56,7 @@ This is one of the more serious findings because it directly implicates the accu
 
 **What inspectors find:** Multiple analysts sharing a single login credential for a LIMS, instrument, or ELN. Records attributed to "admin," "analyst," or a named account that multiple people use.
 
-This is attributability failure in its most basic form. Shared credentials destroy the ability to attribute a record to a specific individual — which means the record can't be fully trusted.
+This is attributability failure in its most basic form. Shared credentials destroy the ability to attribute a record to a specific individual, which means the record can't be fully trusted.
 
 **Why it happens:** Laboratory systems with expensive per-seat licenses get "shared" to reduce costs. Instrument software doesn't support multiple user profiles and gets set up with a single account. IT policies require complex passwords that teams work around by sharing one account.
 
@@ -111,7 +111,7 @@ Backdating is found by cross-referencing independent time sources. FDA investiga
 
 ## Pattern 6: Incomplete or Circumvented OOS Procedures
 
-**What inspectors find:** Out-of-specification results that were investigated and invalidated without adequate scientific justification — or not investigated at all before the sample was retested.
+**What inspectors find:** Out-of-specification results that were investigated and invalidated without adequate scientific justification, or not investigated at all before the sample was retested.
 
 **The regulatory requirement:** FDA's 2006 guidance on OOS investigations (21 CFR 211.192) is explicit: before a failing result can be invalidated, there must be a documented Phase I investigation that identifies a specific, documented laboratory error. "The analyst said the instrument was acting up" is not a documented laboratory error.
 
@@ -121,7 +121,7 @@ Backdating is found by cross-referencing independent time sources. FDA investiga
 - Documenting "sample preparation error" without specifying what the error was and how it was identified.
 - Running a failing result through a "confirmation" injection and reporting the average when the original OOS result was not invalidated.
 
-**The data integrity connection:** OOS procedure failures are closely linked to audit trail findings. Inspectors often find OOS failures by noticing that the CDS shows more injections than the batch record reports — which leads them to the conclusion that a failing injection was run and not documented.
+**The data integrity connection:** OOS procedure failures are closely linked to audit trail findings. Inspectors often find OOS failures by noticing that the CDS shows more injections than the batch record reports, which leads them to the conclusion that a failing injection was run and not documented.
 
 ---
 
@@ -129,7 +129,7 @@ Backdating is found by cross-referencing independent time sources. FDA investiga
 
 **What inspectors find:** Data that exists in an archive but can't be retrieved, data in formats that are no longer readable, or audit trails that were truncated or lost during a system migration.
 
-This pattern is less about deliberate falsification and more about inadequate data lifecycle management — but the regulatory consequence is the same: data required to support a quality decision is unavailable.
+This pattern is less about deliberate falsification and more about inadequate data lifecycle management, but the regulatory consequence is the same: data required to support a quality decision is unavailable.
 
 **What happens in practice:**
 - LIMS is upgraded, and historical audit trail data is migrated to a new schema without verifying that all fields were transferred.
@@ -138,7 +138,7 @@ This pattern is less about deliberate falsification and more about inadequate da
 
 **FDA's position:** Data must be retained in a form that is readable and retrievable for the required retention period. Archival systems must be validated. Data migration must be validated, including verification that all records were transferred completely and accurately.
 
-**Prevention:** Data migration validation requires a complete reconciliation — not a sample — of all records before decommissioning the source system.
+**Prevention:** Data migration validation requires a complete reconciliation, not a sample, of all records before decommissioning the source system.
 
 ---
 
@@ -169,4 +169,4 @@ The systems that prevent these failures share common characteristics:
 - Periodic audit trail review as a defined quality activity, not a response to findings
 - Data lifecycle management plans that cover migration, archival, and decommissioning
 
-The companies that show up repeatedly in enforcement actions — and there are some — consistently share one feature: they treated data integrity as a documentation exercise rather than as a property of their systems. When you build a system with integrity, documentation is easy. When you rely on documentation to create the appearance of integrity, it eventually fails under inspection.
+The companies that show up repeatedly in enforcement actions, and there are some, consistently share one feature: they treated data integrity as a documentation exercise rather than as a property of their systems. When you build a system with integrity, documentation is easy. When you rely on documentation to create the appearance of integrity, it eventually fails under inspection.

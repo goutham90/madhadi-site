@@ -1,7 +1,7 @@
 ---
 title: "CSV Risk Assessment: How to Scope and Execute a Risk-Based Validation"
 description: "A working guide to validation risk assessment — FMEA, risk ranking matrices, criticality determination, GAMP 5 software categorization, and how to use risk to set your testing scope without over-validating or under-validating."
-pubDate: 2026-06-03
+pubDate: 2026-01-02
 tags: ["CSV", "risk assessment", "GAMP", "validation", "FMEA"]
 tier: "Intermediate"
 pillar: "csv-csa"
@@ -44,7 +44,7 @@ Software used essentially as delivered, with no configuration for GxP use beyond
 Software with a standard application platform (LIMS, MES, CTMS, eQMS) that is configured for site-specific use. The configuration drives the function. Most GxP enterprise software is Category 4. Full IQ/OQ/PQ, with validation scope focused on configured functions, especially GxP-critical ones.
 
 **Category 5: Custom Software**
-Software written specifically for the organization: custom scripts, custom applications, bespoke manufacturing control software. Highest validation burden because there's no vendor testing to leverage. Full software development lifecycle documentation, code review, and complete functional testing.
+Software written specifically for the organization: custom scripts, custom applications, bespoke manufacturing control software. Highest validation burden because there's no vendor testing to use. Full software development lifecycle documentation, code review, and complete functional testing.
 
 **Assignment note:** Category assignment isn't always obvious. A LIMS configured extensively for a specific process may border on Category 5 for those custom elements. Document your rationale.
 
@@ -139,7 +139,7 @@ FDA's CSA guidance explicitly supports this approach: "FDA recommends that testi
 
 ---
 
-## Step 6: Leverage Vendor Documentation
+## Step 6: use Vendor Documentation
 
 For functions addressed through vendor documentation rather than site testing, you need to assess what documentation actually exists and whether it's sufficient.
 
@@ -195,7 +195,7 @@ The risk assessment is written before protocols are finalized, because the proto
 
 ## Revalidation Risk Assessment
 
-When a change is made to a validated system, a new risk assessment is needed — but scoped to the change. The change control record should include an impact assessment that asks:
+When a change is made to a validated system, a new risk assessment is needed, but scoped to the change. The change control record should include an impact assessment that asks:
 
 - What does this change affect in the validated system?
 - Which validated functions are potentially impacted?

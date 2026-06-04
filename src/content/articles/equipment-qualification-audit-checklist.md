@@ -1,7 +1,7 @@
 ---
 title: "Equipment and Instrument Qualification Audit Checklist"
 description: "A complete qualification audit checklist for pharmaceutical equipment and analytical instruments — DQ, IQ, OQ, PQ, calibration, maintenance, periodic review, and change control. Based on USP <1058>, EU Annex 15, and ISPE C&Q Baseline Guide."
-pubDate: 2026-06-04
+pubDate: 2026-03-21
 tags: ["equipment-qualification", "IQ", "OQ", "PQ", "audit", "self-audit", "USP-1058"]
 tier: "Intermediate"
 pillar: "equipment-qualification"
@@ -9,7 +9,7 @@ pillar: "equipment-qualification"
 
 Equipment and instrument qualification is one of the most inspection-visible aspects of pharmaceutical QA. An FDA investigator or EU inspector walking into your facility will often start at an instrument, open the qualification binder, and within 15 minutes know whether your qualification program is real or performative.
 
-This checklist walks through the complete lifecycle of a GxP instrument or piece of equipment — from initial qualification through ongoing maintenance, periodic review, and change control. Use it for self-assessment before inspections, when taking over responsibility for a qualification program, or when auditing a contract manufacturing site.
+This checklist walks through the complete lifecycle of a GxP instrument or piece of equipment, from initial qualification through ongoing maintenance, periodic review, and change control. Use it for self-assessment before inspections, when taking over responsibility for a qualification program, or when auditing a contract manufacturing site.
 
 ---
 
@@ -43,7 +43,7 @@ If your EML has equipment with "last qualified" dates more than 3-4 years old an
 - [ ] For indirect impact equipment: is there a documented commissioning or equivalent approach?
 - [ ] Has the classification been reviewed when the equipment's use changes?
 
-**ISPE C&Q framework:** The ISPE Commissioning and Qualification Baseline Guide distinguishes between direct impact systems (those directly affecting product quality or patient safety) and indirect impact systems (those supporting direct impact systems). Direct impact equipment requires formal qualification through IQ/OQ/PQ. Indirect impact equipment requires commissioning but can follow a less formal process. The classification determines the rigor — but every classification decision should be documented.
+**ISPE C&Q framework:** The ISPE Commissioning and Qualification Baseline Guide distinguishes between direct impact systems (those directly affecting product quality or patient safety) and indirect impact systems (those supporting direct impact systems). Direct impact equipment requires formal qualification through IQ/OQ/PQ. Indirect impact equipment requires commissioning but can follow a less formal process. The classification determines the rigor, but every classification decision should be documented.
 
 For analytical instruments, the USP General Chapter <1058> Analytical Instrument Qualification provides an additional classification: AIQ Group A (no impact on measurements), AIQ Group B (standard instruments), and AIQ Group C (complex instruments with software-controlled measurements). The AIQ group drives qualification depth under the USP framework.
 
@@ -66,7 +66,7 @@ DQ is the documented evidence that the design of the equipment meets the user re
 - [ ] Are any gaps between vendor specifications and URS requirements documented and resolved before procurement?
 - [ ] If custom equipment was designed: is there a formal design review documented?
 
-**What DQ is not:** DQ is not a vendor's sales brochure reviewed and filed. It is a documented comparison between what you need the equipment to do and what the vendor says it will do — with specific attention to the GxP-critical attributes of the equipment's performance.
+**What DQ is not:** DQ is not a vendor's sales brochure reviewed and filed. It is a documented comparison between what you need the equipment to do and what the vendor says it will do, with specific attention to the GxP-critical attributes of the equipment's performance.
 
 ---
 
@@ -123,7 +123,7 @@ OQ proves the equipment operates within defined specifications across its full o
 - Automation system function verification (recipe execution, data recording)
 
 **For environmental monitoring systems (incubators, refrigerators, chambers):**
-- Temperature mapping (not just probe accuracy — spatial uniformity across the unit)
+- Temperature mapping (not just probe accuracy, spatial uniformity across the unit)
 - Alarm function at specification limits
 - Recovery time after door opening
 
@@ -150,7 +150,7 @@ PQ proves the equipment consistently performs in the actual use environment unde
 - [ ] Does PQ test performance across the full range of conditions that will be used in routine production (not just ideal conditions)?
 - [ ] Does PQ demonstrate reproducibility (not just one successful run)?
 
-**The distinction between OQ and PQ:** OQ proves the instrument works in specification. PQ proves it works in use. An HPLC that meets all OQ specifications in a controlled qualification condition but performs poorly with the actual sample matrices and mobile phase conditions used in routine testing needs PQ-level investigation. PQ is not a box-checking exercise — it's where the validation becomes meaningful for the actual use case.
+**The distinction between OQ and PQ:** OQ proves the instrument works in specification. PQ proves it works in use. An HPLC that meets all OQ specifications in a controlled qualification condition but performs poorly with the actual sample matrices and mobile phase conditions used in routine testing needs PQ-level investigation. PQ is not a box-checking exercise, it's where the validation becomes meaningful for the actual use case.
 
 ---
 
@@ -190,7 +190,7 @@ Qualification is not permanent. Equipment changes over time through wear, repair
 **Requalification triggers:** Periodic review determines whether requalification is needed. Specific events that should trigger immediate requalification consideration, outside the scheduled cycle:
 - Major repair or part replacement
 - Software/firmware upgrade
-- Relocation (even within the same building — temperature mapping no longer applies)
+- Relocation (even within the same building, temperature mapping no longer applies)
 - Significant change in use (new analytical method, expanded operating range)
 - Any calibration failure that may reflect instrument degradation rather than calibration drift
 
@@ -207,7 +207,7 @@ Equipment change control is where many qualification programs break down. An equ
 - [ ] For software-controlled instruments: are firmware upgrades managed through change control?
 - [ ] Are vendor-recommended software patches applied through a documented change control process?
 
-**The change control gap:** A bioreactor that is fully qualified, then has its impeller shaft replaced during a scheduled maintenance, then runs three more batches before anyone asks whether the impeller replacement required requalification — that's a gap. The batch records would show "qualified bioreactor" without documentation of whether the current configuration is still the qualified configuration. Any physical modification to a qualified instrument or piece of equipment requires a documented change control and impact assessment, even if the conclusion is that no requalification is needed.
+**The change control gap:** A bioreactor that is fully qualified, then has its impeller shaft replaced during a scheduled maintenance, then runs three more batches before anyone asks whether the impeller replacement required requalification, that's a gap. The batch records would show "qualified bioreactor" without documentation of whether the current configuration is still the qualified configuration. Any physical modification to a qualified instrument or piece of equipment requires a documented change control and impact assessment, even if the conclusion is that no requalification is needed.
 
 ---
 

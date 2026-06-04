@@ -1,7 +1,7 @@
 ---
 title: "Deviation Management in GxP: Classification, Investigation, and Resolution"
 description: "How GMP deviations work from first report through closure — classification criteria, investigation requirements, impact assessment, and what distinguishes a thorough investigation from a compliance exercise."
-pubDate: 2026-06-03
+pubDate: 2025-08-06
 tags: ["deviations", "GMP", "QMS", "investigation", "foundations"]
 tier: "Beginner"
 pillar: "quality-assurance"
@@ -45,7 +45,7 @@ Planned deviations are not a workaround for inadequate procedures. If the same p
 
 Classification determines the urgency and depth of investigation required. Definitions vary by facility, but the typical framework:
 
-**Critical Deviation:** The departure could directly affect patient safety, product efficacy, or data integrity in a way that cannot be remediated. A sterile product manufactured after a major HVAC failure, a batch manufactured with an unapproved substituted API, contamination of a filled product — these are critical. Critical deviations typically require immediate QA escalation, may require batch rejection, and always require a full root cause investigation.
+**Critical Deviation:** The departure could directly affect patient safety, product efficacy, or data integrity in a way that cannot be remediated. A sterile product manufactured after a major HVAC failure, a batch manufactured with an unapproved substituted API, contamination of a filled product, these are critical. Critical deviations typically require immediate QA escalation, may require batch rejection, and always require a full root cause investigation.
 
 **Major Deviation:** The departure represents a significant GMP violation that may affect product quality or the integrity of GMP records, but the risk can potentially be assessed and may be manageable. A process parameter exceeded its limit but remained within a broader acceptable range. A form was used without a signature but the activity was otherwise performed correctly. Major deviations require full investigation and may require batch rejection depending on impact assessment.
 

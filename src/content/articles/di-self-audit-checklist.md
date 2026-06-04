@@ -1,13 +1,13 @@
 ---
 title: "Data Integrity Self-Audit: A Compliance Checklist for GxP Organizations"
 description: "A complete data integrity self-audit framework covering infrastructure controls, system configuration, procedural controls, work practice verification, and culture indicators. Structured to find what FDA inspectors find."
-pubDate: 2026-06-04
+pubDate: 2026-05-31
 tags: ["data-integrity", "audit", "ALCOA+", "FDA", "self-audit", "compliance"]
 tier: "Advanced"
 pillar: "data-integrity"
 ---
 
-Running a data integrity self-audit is not a compliance exercise — it's an intelligence operation. The question isn't whether your documentation says the right things. It's whether your systems, procedures, and day-to-day practices actually produce ALCOA+ compliant records.
+Running a data integrity self-audit is not a compliance exercise, it's an intelligence operation. The question isn't whether your documentation says the right things. It's whether your systems, procedures, and day-to-day practices actually produce ALCOA+ compliant records.
 
 This checklist is structured in five layers: infrastructure controls, system configuration, procedural controls, work practice verification, and culture indicators. That layering matters. Most organizations can pass a documentation audit. Fewer can pass a forensic review of what their systems actually recorded over the past 12 months.
 
@@ -17,7 +17,7 @@ Work through each layer with someone who isn't the owner of the processes being 
 
 ## Before You Start: Define Your System Inventory
 
-Before any DI audit begins, confirm you have a complete, current inventory of all GxP-generating systems. Missing systems are the most common gap — not because organizations are hiding them, but because nobody knows what they don't know.
+Before any DI audit begins, confirm you have a complete, current inventory of all GxP-generating systems. Missing systems are the most common gap, not because organizations are hiding them, but because nobody knows what they don't know.
 
 Your inventory should include every system that generates, modifies, stores, or transmits GxP data. That means:
 
@@ -45,7 +45,7 @@ Infrastructure is the foundation that GxP systems sit on. If time is wrong, if b
 - [ ] Is there a documented process for investigating and documenting time discrepancies if they occur?
 - [ ] Are timestamps in audit trails from different systems consistent with each other for concurrent events?
 
-**What a finding looks like:** HPLC workstation times that are 4 minutes behind the LIMS, or an analyst who ran a test at 2:47 PM according to the instrument and at 2:30 PM according to the LIMS — which they share the same building, same network. Time sync failures are frequently cited in warning letters as evidence of audit trail manipulation because FDA investigators examine timestamps across systems.
+**What a finding looks like:** HPLC workstation times that are 4 minutes behind the LIMS, or an analyst who ran a test at 2:47 PM according to the instrument and at 2:30 PM according to the LIMS, which they share the same building, same network. Time sync failures are frequently cited in warning letters as evidence of audit trail manipulation because FDA investigators examine timestamps across systems.
 
 ### User Account Management
 
@@ -56,7 +56,7 @@ Infrastructure is the foundation that GxP systems sit on. If time is wrong, if b
 - [ ] Is there a periodic review of active accounts to confirm current users match current employees?
 - [ ] Can you pull an account activity report for a departed employee and confirm they had no access after their termination date?
 
-**Red flag:** If anyone says "we share the admin password between the lab manager and the backup analyst" — that's a finding. Immediately. Shared credentials eliminate attributability for every action taken under that account.
+**Red flag:** If anyone says "we share the admin password between the lab manager and the backup analyst", that's a finding. Immediately. Shared credentials eliminate attributability for every action taken under that account.
 
 ### Backup and Recovery
 
@@ -80,7 +80,7 @@ Infrastructure is the foundation that GxP systems sit on. If time is wrong, if b
 
 ## Layer 2: System Configuration
 
-This layer looks at whether GxP systems are actually configured to enforce data integrity requirements — not just whether the SOP says they should be.
+This layer looks at whether GxP systems are actually configured to enforce data integrity requirements, not just whether the SOP says they should be.
 
 ### Audit Trail Configuration
 
@@ -100,7 +100,7 @@ For each GxP system generating regulated records:
 - [ ] Do electronic approvals require a unique username AND password (two-factor verification)?
 - [ ] Is the electronic signature meaning (the what and why) captured at the time of signature?
 - [ ] Are electronic signatures linked to their associated records in a way that can't be separated or repudiated?
-- [ ] Is there a documented manifestation of the electronic signature — meaning does the signed record display the signatory's name, date/time, and meaning when printed or viewed?
+- [ ] Is there a documented manifestation of the electronic signature, meaning does the signed record display the signatory's name, date/time, and meaning when printed or viewed?
 - [ ] Are electronic signatures on GxP records (batch records, COAs, validation reports) as legally binding as handwritten signatures under the site's procedures?
 
 ### Access Controls and Role-Based Access
@@ -126,9 +126,9 @@ Good system configuration is necessary but not sufficient. The SOPs have to clos
 
 ### Data Recording Procedures
 
-- [ ] Do your SOPs specify that data must be recorded directly to the GxP record — not to scratch paper, post-its, lab notebooks, or re-recorded from temporary notes?
+- [ ] Do your SOPs specify that data must be recorded directly to the GxP record, not to scratch paper, post-its, lab notebooks, or re-recorded from temporary notes?
 - [ ] Do your procedures address what to do with pre-printed forms that have blanks, to prevent blank re-use or alteration?
-- [ ] Are there clear procedures for corrections to paper records (single line through, date, initial — never white-out)?
+- [ ] Are there clear procedures for corrections to paper records (single line through, date, initial, never white-out)?
 - [ ] Do procedures specify that electronic data must not be processed in non-GxP tools (e.g., Excel for CDS data) before entry into the official record?
 
 ### OOS/Anomaly Handling Procedures
@@ -139,7 +139,7 @@ Good system configuration is necessary but not sufficient. The SOPs have to clos
 - [ ] Are all analytical runs, including failing ones, retained in the system?
 - [ ] Does the procedure address what happens to "practice injections" or system suitability runs that precede actual sample analysis?
 
-**This specific issue:** If analysts routinely run samples, see unexpected results, and re-inject without documenting the first run — that's data integrity failure regardless of whether the system records it. The SOP needs to define the threshold for what constitutes a reportable run, and every run above that threshold must be in the official record.
+**This specific issue:** If analysts routinely run samples, see unexpected results, and re-inject without documenting the first run, that's data integrity failure regardless of whether the system records it. The SOP needs to define the threshold for what constitutes a reportable run, and every run above that threshold must be in the official record.
 
 ### Data Review Procedures
 
@@ -151,7 +151,7 @@ Good system configuration is necessary but not sufficient. The SOPs have to clos
 ### Training Procedures for DI
 
 - [ ] Does GxP training cover data integrity principles (ALCOA+, not just SOP compliance)?
-- [ ] Is DI training role-specific — analysts get instrument-specific DI training, not just generic GMP training?
+- [ ] Is DI training role-specific, analysts get instrument-specific DI training, not just generic GMP training?
 - [ ] Is there documented evidence of DI training for every person generating GxP records?
 - [ ] Is there a mechanism to ensure new hires don't generate GxP records before completing DI training?
 
@@ -205,11 +205,11 @@ Culture is the hardest layer to assess formally, but it's also the most predicti
 Have conversations with analysts, operators, and quality staff. The questions to explore:
 
 - [ ] Do analysts feel comfortable reporting an unexpected result without fear of being required to investigate until they find a lab error?
-- [ ] Is there pressure — implicit or explicit — to meet schedule or yield targets?
+- [ ] Is there pressure, implicit or explicit, to meet schedule or yield targets?
 - [ ] When investigators find no laboratory error assignable cause for an OOS, is it accepted, or is there persistent pressure to keep looking?
 - [ ] Are deviations and OOS investigations treated as learning opportunities or as blame exercises?
 
-**The behavioral science:** Organizations under production pressure develop a learned response over time — people figure out that certain results create problems and certain results don't. When that understanding influences how data gets recorded or reported, data integrity is compromised. It starts with small things (running a sequence twice and recording only the second run because "the first was a practice run") and escalates toward frank falsification.
+**The behavioral science:** Organizations under production pressure develop a learned response over time, people figure out that certain results create problems and certain results don't. When that understanding influences how data gets recorded or reported, data integrity is compromised. It starts with small things (running a sequence twice and recording only the second run because "the first was a practice run") and escalates toward frank falsification.
 
 ### Management Behavior
 
@@ -266,7 +266,7 @@ The requirements these audit questions map to:
 
 ## After the Audit
 
-A self-audit that finds nothing is either a reflection of a genuinely strong program — or an audit that wasn't looking hard enough. Challenge yourself on which it is.
+A self-audit that finds nothing is either a reflection of a genuinely strong program, or an audit that wasn't looking hard enough. Challenge yourself on which it is.
 
 If you find significant gaps: document them, assess their impact on specific batch records or regulatory submissions, and build a remediation plan. The fact that you found and are fixing them is a better inspection story than an inspector finding them first.
 

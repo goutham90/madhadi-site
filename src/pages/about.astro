@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="About" description="Goutham Madhadi — data integrity practitioner and quality leader in cell and gene therapy biotech.">
+<Layout title="About" description="Goutham Madhadi — data integrity practitioner and quality leader in cell and gene therapy biotech. The story behind madhadi.com.">
   <div class="about">
     <div class="page-header">
       <div class="page-label">About</div>
@@ -10,65 +10,113 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <div class="about-body">
+
+      <h2>Why this site exists</h2>
+
       <p>
-        I lead data integrity and digital quality programs in the cell and gene therapy space —
-        a domain where the data underpinning a single lot release can include millions of instrument
-        records, dozens of novel assays, and scrutiny that extends all the way to BLA submission.
+        When I started in this field, I didn't know where to look for anything. I could find the
+        regulations — they're public — but regulations tell you what is required, not how it actually
+        works in practice. I could find academic papers, compliance checklists, and expensive
+        training courses that repeated the same surface-level content. What I couldn't find was
+        someone explaining it the way a colleague would after a long inspection day. The real version.
+        What actually fails, what FDA actually cares about in the room, what a "validated system"
+        looks like in a company that's three months from a pre-approval inspection with a team of six.
       </p>
 
       <p>
-        This site exists because data integrity is frequently taught wrong: as a compliance exercise
-        rather than as a fundamental property of good science. My goal here is to write about it
-        the way practitioners actually experience it — not as a checklist, but as a discipline
-        with real failure modes, real regulatory consequences, and real engineering solutions.
+        I spent years collecting that knowledge the hard way. Sitting through inspections. Building
+        programs from scratch. Inheriting broken ones. Watching what happens when an analyst doesn't
+        understand why audit trails matter, or when a QA manager treats data integrity as a
+        documentation exercise. I've been on both sides of that — the side where everything holds up
+        and the side where it doesn't.
       </p>
 
-      <h2>What I work on</h2>
+      <p>
+        This site exists because that kind of knowledge shouldn't sit behind a paywall or live only
+        in the heads of people who've been doing this long enough. It should be free, public, and
+        written for the person who just started their first validation job and has no idea what they're
+        supposed to be learning. Or the experienced professional who's good at their specific role
+        but has never had to think about what an FDA investigator looks for in an audit trail review.
+        Or the quality director who needs to build a data integrity program from scratch at a startup
+        and has two months to get it inspection-ready.
+      </p>
+
+      <p>
+        The mission is simple: take what took years to learn in practice and make it available to
+        anyone, for free, at whatever level they're starting from.
+      </p>
+
+      <h2>Background</h2>
+
+      <p>
+        I've spent 15+ years across pharma and biotech. Started in validation doing the work — writing
+        protocols, running tests, building packages. Over time moved into designing the programs,
+        then into leading them. Currently I lead data integrity and digital quality at a cell and gene
+        therapy company, which is its own world — novel modalities, novel assays, a regulatory
+        environment that's still being defined in real time, and an expectation that your data is
+        BLA-ready even when you're still figuring out the process.
+      </p>
+
+      <p>
+        Along the way I've led FDA inspections and sat in the back room during them. I've written
+        483 responses. I've run data integrity remediation programs after findings. I've built LIMS
+        and ELN validation packages from scratch. I've designed audit trail review programs and
+        watched them get ignored by the people supposed to execute them. I know what a rigorous
+        program looks like and I know what a paper program that passes audits but doesn't actually
+        work looks like. There's a big difference, and it shows up at the worst time.
+      </p>
+
+      <p>
+        I've also built most of the tools and scanners on this site myself, because the commercial
+        options for GxP data quality analysis are expensive, not designed by practitioners, and
+        usually can't be customized for the specific questions you actually need answered.
+      </p>
+
+      <h2>What I work on day to day</h2>
       <ul>
         <li>FDA 21 CFR Part 11 compliance and audit trail integrity programs</li>
         <li>ALCOA+ data quality frameworks across GxP systems</li>
-        <li>Computerized system validation (CSV) and change control</li>
-        <li>BLA data packages and regulatory submission strategy</li>
-        <li>AI-assisted tools for compliance monitoring and anomaly detection</li>
-        <li>Data governance: roles, metadata standards, system interoperability</li>
+        <li>Computerized system validation and change control governance</li>
+        <li>BLA data packages and regulatory submission readiness</li>
+        <li>AI tools for compliance monitoring and anomaly detection in regulated systems</li>
+        <li>Data governance: ownership models, metadata standards, system interoperability</li>
+        <li>Inspection preparation and 483 response strategy</li>
       </ul>
 
-      <h2>Background</h2>
+      <h2>On the content here</h2>
+
       <p>
-        I've spent 15+ years across pharma and biotech building quality systems,
-        leading inspections, and designing the data infrastructure that supports
-        regulated manufacturing and clinical operations.
-      </p>
-      <p>
-        Along the way I've sat in FDA inspection conference rooms, led data
-        integrity remediation programs after findings, built LIMS and ELN validation
-        packages from scratch, and watched companies both succeed and fail at
-        building durable data quality cultures.
-      </p>
-      <p>
-        I've also built most of the tools on this site myself — because the commercial
-        options for GxP data intelligence are expensive, inflexible, and usually not
-        designed by people who have actually run a GxP audit trail review.
+        Everything on this site is based on public regulatory sources: FDA guidance, EU GMP,
+        ICH guidelines, PIC/S, MHRA. No proprietary internal information, no company-specific
+        details, no confidential processes. All examples use fictional or generic contexts.
+        The principles are real; the specifics are constructed to illustrate them.
       </p>
 
-      <h2>Why cell & gene therapy</h2>
       <p>
-        CGT sits at an unusual intersection: novel science, limited historical precedent,
-        intense regulatory scrutiny, and an expectation of BLA-quality data from very
-        early in development. The data integrity challenges are not just bigger — they're
-        structurally different. That's what makes it worth writing about in depth.
+        I write at three levels — beginner, intermediate, and advanced — because the same topic
+        needs to be explained differently depending on where you are. A first-year quality associate
+        needs to understand what an audit trail is and why it matters. A validation specialist needs
+        to know how to assess one. A program director needs to know how to build a review program
+        that holds up under regulatory scrutiny and doesn't collapse when a key person leaves.
+        Those are three different articles.
+      </p>
+
+      <p>
+        Nothing here is legal advice or regulatory consulting. It's practitioner knowledge, made public.
+        Read it, apply professional judgment, check primary sources, and adapt it to your situation.
       </p>
 
       <h2>Get in touch</h2>
       <p>
-        Email me at <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a>.
-        I'm open to conversations about data integrity programs, GxP system design,
-        AI in regulated environments, or anything written on this site.
+        Email: <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a><br>
+        If you found something useful here, if something is wrong, or if there's a topic
+        you think should be covered, I want to know.
       </p>
 
       <div class="disclaimer">
-        All opinions on this site are my own. Nothing here constitutes legal or regulatory advice.
-        For specific compliance questions, consult a qualified regulatory affairs professional.
+        All opinions on this site are my own and do not represent any employer, past or present.
+        Nothing here constitutes legal or regulatory advice. For specific compliance questions,
+        work with a qualified regulatory professional who knows your situation.
       </div>
     </div>
   </div>

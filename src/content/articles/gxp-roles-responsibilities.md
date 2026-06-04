@@ -1,7 +1,7 @@
 ---
 title: "GxP Roles Explained: Who Does What in a Regulated Biotech or Pharma Company"
 description: "A practical map of every quality and compliance role in a regulated organization — what each function owns, how they interact, and what a day in each role actually looks like."
-pubDate: 2026-06-03
+pubDate: 2025-07-04
 tags: ["career", "GxP", "QA", "roles", "beginners"]
 tier: "Beginner"
 pillar: "quality-assurance"

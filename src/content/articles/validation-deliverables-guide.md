@@ -1,7 +1,7 @@
 ---
 title: "The GxP Validation Deliverable Set: What Each Document Is Actually For"
 description: "A practitioner's guide to the full set of computer system validation documents — URS, FRS, IQ/OQ/PQ protocols, RTM, validation plan and report — and what each one is actually trying to accomplish."
-pubDate: 2026-05-12
+pubDate: 2026-01-06
 tags: ["CSV", "validation", "GxP", "GAMP", "documentation"]
 pillar: "csv-csa"
 tier: "Intermediate"
@@ -9,7 +9,7 @@ tier: "Intermediate"
 
 One of the most common frustrations in computer system validation is generating documents without understanding what they're actually for. Teams write URS documents that are really FRS documents, execute test scripts that don't trace to any requirement, and produce validation summary reports that summarize nothing of substance. The output looks like a validation package; the underlying logic is absent.
 
-This article breaks down the core validation deliverables — what each document is for, what makes it useful rather than just complete, and the common mistakes that turn each document into overhead.
+This article breaks down the core validation deliverables, what each document is for, what makes it useful rather than just complete, and the common mistakes that turn each document into overhead.
 
 The framework is GAMP 5 (second edition, 2022) aligned, using the IQ/OQ/PQ structure that remains the industry standard.
 
@@ -24,7 +24,7 @@ The framework is GAMP 5 (second edition, 2022) aligned, using the IQ/OQ/PQ struc
 - Regulatory basis for validation (which regulations and guidance apply)
 - Scope: what is included and explicitly what is excluded
 - Software category assignment (GAMP 5) with rationale
-- Validation approach — risk-based rationale for the testing depth and type
+- Validation approach, risk-based rationale for the testing depth and type
 - Deliverables list
 - Roles and responsibilities
 - Acceptance criteria for successful validation completion
@@ -57,7 +57,7 @@ The framework is GAMP 5 (second edition, 2022) aligned, using the IQ/OQ/PQ struc
 
 **Purpose:** Translates URS requirements into specific functional behaviors the system must exhibit. Where the URS is user-language ("the system shall allow QA review and approval of test results"), the FRS is more specific about the mechanism ("the system shall implement a two-step approval workflow requiring the original analyst and a QA reviewer, with electronic signatures captured for each step").
 
-**What makes it useful:** Direct traceability to URS requirements, so that every FRS item can be traced back to a business need. FRS items at a level of specificity that makes testing tractable — you should be able to write a test script directly from an FRS statement.
+**What makes it useful:** Direct traceability to URS requirements, so that every FRS item can be traced back to a business need. FRS items at a level of specificity that makes testing tractable, you should be able to write a test script directly from an FRS statement.
 
 **Note:** For some organizations, the URS and FRS are combined into a single document. For complex systems with multiple stakeholders, keeping them separate helps maintain the distinction between "what users need" and "what the system must do." Neither approach is wrong; what matters is that both layers of requirements are captured.
 
@@ -73,13 +73,13 @@ The framework is GAMP 5 (second edition, 2022) aligned, using the IQ/OQ/PQ struc
 - System interfaces and integration specifications
 - Data retention and archival configuration
 
-**What makes it useful:** A configuration specification that describes the approved configuration with enough detail to verify it during IQ — and to detect deviations from it during periodic review or after changes.
+**What makes it useful:** A configuration specification that describes the approved configuration with enough detail to verify it during IQ, and to detect deviations from it during periodic review or after changes.
 
 ---
 
 ## Requirements Traceability Matrix (RTM)
 
-**Purpose:** Maps each URS requirement to the FRS requirement(s) that address it, and to the test script(s) that verify it. Demonstrates that testing coverage is complete.
+**Purpose:** Maps each URS requirement to the FRS requirement(s) that address it, and to the test script(s) that verify it. shows that testing coverage is complete.
 
 **Structure:**
 
@@ -90,13 +90,13 @@ The framework is GAMP 5 (second edition, 2022) aligned, using the IQ/OQ/PQ struc
 
 **What makes it useful:** Built alongside the documents it traces, not assembled at the end from completed documents. A living RTM that gets updated as requirements change and tests are executed is a meaningful quality management tool. An RTM assembled after the fact to close out a validation package is overhead.
 
-**Common mistakes:** RTMs that trace FRS requirements to tests but not URS requirements to FRS — leaving the connection between business needs and testing unestablished. RTMs with "N/A" for requirements that weren't tested (with no documented rationale for why testing was unnecessary).
+**Common mistakes:** RTMs that trace FRS requirements to tests but not URS requirements to FRS, leaving the connection between business needs and testing unestablished. RTMs with "N/A" for requirements that weren't tested (with no documented rationale for why testing was unnecessary).
 
 ---
 
 ## Installation Qualification (IQ) Protocol and Report
 
-**Purpose:** Verifies that the system was installed correctly — that the hardware, software, and configuration match the approved design.
+**Purpose:** Verifies that the system was installed correctly, that the hardware, software, and configuration match the approved design.
 
 **What to test in IQ:**
 - Hardware inventory against specification (servers, clients, peripherals)
@@ -126,9 +126,9 @@ The framework is GAMP 5 (second edition, 2022) aligned, using the IQ/OQ/PQ struc
 **Design of OQ test scripts:**
 Each test script should state: the requirement being tested (FRS reference), the preconditions, the exact steps to execute, the expected result, and the acceptance criteria. The expected result must be defined before execution, not after observing what the system does.
 
-For audit trail testing specifically: test that the trail captures the event, the user ID, the timestamp, the field modified, the previous value, and the new value. Execute a modification and verify each element. This is a test that many validation packages get wrong — the test script says "verify audit trail captures modification" and the expected result is "audit trail is present," without specifying what it must contain.
+For audit trail testing specifically: test that the trail captures the event, the user ID, the timestamp, the field modified, the previous value, and the new value. Execute a modification and verify each element. This is a test that many validation packages get wrong, the test script says "verify audit trail captures modification" and the expected result is "audit trail is present," without specifying what it must contain.
 
-**Deviations:** When a test result doesn't match the expected result, a deviation is opened. Deviations must be investigated before OQ is considered complete. A deviation resolved by updating the expected result (because the system does something different from what was specified) may indicate a requirements gap, not a test failure — but it must be handled transparently and documented.
+**Deviations:** When a test result doesn't match the expected result, a deviation is opened. Deviations must be investigated before OQ is considered complete. A deviation resolved by updating the expected result (because the system does something different from what was specified) may indicate a requirements gap, not a test failure, but it must be handled transparently and documented.
 
 ---
 
@@ -152,20 +152,20 @@ For audit trail testing specifically: test that the trail captures the event, th
 
 **What it must contain:**
 - Summary of the validation scope and approach
-- Results of each qualification phase (IQ, OQ, PQ) — what was tested, what was found
+- Results of each qualification phase (IQ, OQ, PQ), what was tested, what was found
 - Summary of all deviations and their resolution
-- RTM completion status — all requirements tested
+- RTM completion status, all requirements tested
 - Any residual risk or accepted limitation
 - Conclusion: the system is validated for [specific intended use] as defined in the URS, with [any conditions or limitations]
 - Approval signatures from QA and the system owner
 
-**What makes it useful:** A VSR that can stand alone as a summary of the validation evidence — someone who reads only the VSR should be able to understand what the system does, why it was validated, what evidence was generated, and what the conclusion is. A VSR that is two pages of "all protocols were executed and passed" is not useful.
+**What makes it useful:** A VSR that can stand alone as a summary of the validation evidence, someone who reads only the VSR should be able to understand what the system does, why it was validated, what evidence was generated, and what the conclusion is. A VSR that is two pages of "all protocols were executed and passed" is not useful.
 
 ---
 
 ## Change Control and Revalidation
 
-Validation doesn't end at go-live. Every significant change to a validated system — new software version, configuration change, new interface, new user population — requires documented impact assessment and, where the change affects validated functions, revalidation testing.
+Validation doesn't end at go-live. Every significant change to a validated system, new software version, configuration change, new interface, new user population, requires documented impact assessment and, where the change affects validated functions, revalidation testing.
 
 The change control record should document:
 - Description of the change
@@ -189,4 +189,4 @@ Validated systems require periodic review to confirm they remain in a validated 
 - Assessment of whether the intended use has changed
 - Conclusion: system remains in a validated state / re-qualification required
 
-Periodic review is often underprioritized — it produces no new validation documentation, so it's easy to deprioritize in favor of new system validations. But a system that passed its original OQ in 2018, has had three software updates, and has never had a periodic review is a finding waiting to happen.
+Periodic review is often underprioritized, it produces no new validation documentation, so it's easy to deprioritize in favor of new system validations. But a system that passed its original OQ in 2018, has had three software updates, and has never had a periodic review is a finding waiting to happen.

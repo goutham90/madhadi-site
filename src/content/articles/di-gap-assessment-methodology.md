@@ -1,13 +1,13 @@
 ---
 title: "Data Integrity Gap Assessment: How to Conduct One That Actually Finds Something"
 description: "A complete methodology for conducting a GxP data integrity gap assessment — scoping the assessment, evaluating each system layer, scoring findings, producing a defensible report, and prioritizing remediation. For DI program leaders and quality directors."
-pubDate: 2026-06-03
+pubDate: 2026-05-02
 tags: ["data integrity", "gap assessment", "DI program", "ALCOA+", "audit"]
 tier: "Advanced"
 pillar: "data-integrity"
 ---
 
-A data integrity gap assessment is a systematic evaluation of how well a regulated organization's computerized systems, manual processes, and quality culture protect the integrity of GxP data across its entire lifecycle. It's the starting point for building or improving a DI program. It's also what a regulator effectively does during a DI-focused inspection — so doing it before they arrive is the point.
+A data integrity gap assessment is a systematic evaluation of how well a regulated organization's computerized systems, manual processes, and quality culture protect the integrity of GxP data across its entire lifecycle. It's the starting point for building or improving a DI program. It's also what a regulator effectively does during a DI-focused inspection, so doing it before they arrive is the point.
 
 The methodology matters. A gap assessment that reviews only system audit trail configurations but not the procedural controls around them, or that evaluates GMP lab systems but not clinical data systems, or that produces a list of findings with no remediation priority, has limited value. The methodology described here covers all layers.
 
@@ -69,7 +69,7 @@ What do people actually do? This is where procedure-versus-practice gaps are fou
 - Observe data entry practices: are analysts entering data directly as it's generated, or transcribing from informal scratch paper later?
 - Observe correction practices: when an error is made in an electronic record, what does the analyst do? Delete and retype? Or make a correction per the error correction procedure?
 - Observe instrument use: are individual logins being used, or is a group account in use?
-- Observe out-of-specification handling: when a result looks unusual, what is the first instinct — investigate or rerun?
+- Observe out-of-specification handling: when a result looks unusual, what is the first instinct, investigate or rerun?
 
 Work practice observation requires being present in the laboratory during operations. Reviewing records alone won't reveal these behaviors.
 
@@ -91,10 +91,10 @@ For each system in scope, populate an evaluation matrix. The matrix evaluates th
 | Control Category | Criterion | Status | Evidence | Priority |
 |---|---|---|---|---|
 | Audit trail enabled | All GxP events captured | Gap | Audit trail disabled for integration events in AU-04 | Critical |
-| User authentication | Individual accounts required | Compliant | User account review confirms no shared accounts | — |
+| User authentication | Individual accounts required | Compliant | User account review confirms no shared accounts |, |
 | Access control | Role-based access enforced | Gap | 3 users have admin rights without documented business need | Major |
 | Audit trail review | Periodic review procedure and records | Gap | No procedure for routine audit trail review | Major |
-| Backup | Daily backup with tested recovery | Compliant | Backup logs reviewed; recovery test documented | — |
+| Backup | Daily backup with tested recovery | Compliant | Backup logs reviewed; recovery test documented |, |
 | Clock sync | Synchronized to NTP | Gap | AU-04 clock not synchronized; 12-minute drift observed | Major |
 
 A matrix like this for each in-scope system provides the structured output needed for the assessment report and for remediation prioritization.
@@ -152,7 +152,7 @@ The assessment report is a controlled document. It must be specific, factual, an
 
 **External assessment:** Conducted by a qualified external consultant. Advantage: fresh perspective, no institutional bias, and if conducted by someone with regulatory agency background, closer alignment to what an inspector would observe. Disadvantage: assessors start with no context, requiring significant time investment for orientation.
 
-**Hybrid approach:** Internal team conducts the preliminary assessment; external consultant reviews the findings and conducts targeted follow-up on high-risk areas. This leverages internal knowledge while getting an independent perspective on the most critical gaps.
+**Hybrid approach:** Internal team conducts the preliminary assessment; external consultant reviews the findings and conducts targeted follow-up on high-risk areas. This use internal knowledge while getting an independent perspective on the most critical gaps.
 
 For organizations with a recent DI-related finding or preparing for a significant regulatory inspection, an external assessment is strongly advisable. The investment in an honest external opinion is small relative to the cost of a warning letter.
 
@@ -164,8 +164,8 @@ The gap assessment is only valuable if it drives remediation. Key principles:
 
 **Don't over-document the findings while under-addressing them.** A 200-page assessment report with 47 findings, none of which are addressed in the following year, is worse than a 30-page report with 15 findings that are systematically closed.
 
-**Address critical findings immediately.** If the assessment finds a critical gap — audit trail disabled on the QC CDS — don't wait for the remediation roadmap to be approved. Initiate immediate action while the formal CAPA is being set up.
+**Address critical findings immediately.** If the assessment finds a critical gap, audit trail disabled on the QC CDS, don't wait for the remediation roadmap to be approved. Initiate immediate action while the formal CAPA is being set up.
 
-**Communicate results to leadership.** DI program improvements require resources. A one-page executive summary of the assessment findings, framed in terms of inspection risk and patient safety impact, is more effective for resource allocation than a 200-page technical report.
+**Communicate results to leadership.** DI program improvements require resources. A one-page executive summary of the assessment findings, framed for inspection risk and patient safety impact, is more effective for resource allocation than a 200-page technical report.
 
 **Reassess after remediation.** A follow-up assessment 12-18 months after the initial assessment confirms that remediations were effective and identifies any new gaps. This creates the continuous improvement loop that characterizes a mature DI program.

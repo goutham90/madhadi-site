@@ -1,15 +1,15 @@
 ---
 title: "Supplier and Vendor Qualification in GxP: From Approved Vendor List to Audit"
 description: "A practical guide to GxP supplier qualification — the approved vendor list, qualification levels, audit programs, ongoing monitoring, and how to manage supplier qualification for cloud and SaaS vendors under 21 CFR Part 11."
-pubDate: 2026-06-03
+pubDate: 2025-10-28
 tags: ["supplier qualification", "vendor management", "QMS", "GxP", "audit"]
 tier: "Intermediate"
 pillar: "quality-assurance"
 ---
 
-Every product that goes through a GxP process depends on materials, services, and systems provided by external organizations. Raw materials, APIs, excipients, packaging components, contract manufacturing, contract testing, software systems, calibration services — all of them are supplied by vendors who are not directly under your quality management system but whose quality directly affects your product quality.
+Every product that goes through a GxP process depends on materials, services, and systems provided by external organizations. Raw materials, APIs, excipients, packaging components, contract manufacturing, contract testing, software systems, calibration services, all of them are supplied by vendors who are not directly under your quality management system but whose quality directly affects your product quality.
 
-Supplier qualification is the process of establishing that a supplier is capable of consistently providing materials or services that meet your requirements and applicable GxP standards. It's a regulatory requirement, not an optional best practice. 21 CFR 211.84 requires testing and approval of drug components from suppliers. 21 CFR 211.68 requires computer system validation — and for software vendors, that includes qualification of the supplier.
+Supplier qualification is the process of establishing that a supplier is capable of consistently providing materials or services that meet your requirements and applicable GxP standards. It's a regulatory requirement, not an optional best practice. 21 CFR 211.84 requires testing and approval of drug components from suppliers. 21 CFR 211.68 requires computer system validation, and for software vendors, that includes qualification of the supplier.
 
 ---
 
@@ -143,7 +143,7 @@ Software vendor qualification is a specialized form of supplier qualification th
 - How are security vulnerabilities identified and patched?
 - What is the vendor's data retention and business continuity plan?
 
-The output of software vendor qualification affects how much site-level validation is needed. A vendor with a mature quality system and strong regulatory documentation can justify reduced site-level testing for non-critical functions. A vendor with a limited quality system increases the site's validation burden because the vendor's own testing can't be leveraged.
+The output of software vendor qualification affects how much site-level validation is needed. A vendor with a mature quality system and strong regulatory documentation can justify reduced site-level testing for non-critical functions. A vendor with a limited quality system increases the site's validation burden because the vendor's own testing can't be use.
 
 For cloud and SaaS vendors, additionally assess: where is data stored (country/jurisdiction), what are the contractual protections for your GxP data, what happens to your data if the vendor goes out of business, and what audit rights do you have as a customer?
 

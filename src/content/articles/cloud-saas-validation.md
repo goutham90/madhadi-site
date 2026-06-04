@@ -1,7 +1,7 @@
 ---
 title: "Validating Cloud and SaaS Systems in GxP: The Shared Responsibility Model"
 description: "How to approach validation for cloud-hosted and SaaS GxP systems — what IaaS, PaaS, and SaaS mean for validation scope, the shared responsibility model, and what your quality agreement must cover."
-pubDate: 2026-05-08
+pubDate: 2026-01-12
 tags: ["CSV", "validation", "cloud", "SaaS", "GxP", "21-CFR-Part-11"]
 pillar: "csv-csa"
 tier: "Advanced"
@@ -9,7 +9,7 @@ tier: "Advanced"
 
 Cloud and SaaS systems are now the dominant model for new GxP system deployments. The major LIMS, ELN, QMS, and MES vendors have largely shifted to cloud-hosted or SaaS offerings. For pharmaceutical quality teams, this creates a validation challenge that doesn't fit neatly into the traditional on-premises CSV playbook.
 
-The core problem: in a cloud environment, the responsibilities for system operation, maintenance, and control are split between the cloud service provider (CSP), the software vendor, and the customer. Validation must account for all three layers — which means understanding what each party controls, what evidence exists for their controls, and what responsibilities fall to your site regardless of the cloud model.
+The core problem: in a cloud environment, the responsibilities for system operation, maintenance, and control are split between the cloud service provider (CSP), the software vendor, and the customer. Validation must account for all three layers, which means understanding what each party controls, what evidence exists for their controls, and what responsibilities fall to your site regardless of the cloud model.
 
 This article is aimed at practitioners who need to validate a cloud or SaaS system or assess an existing one. Foundational CSV concepts are covered in the [GAMP 5 article](/articles/gamp5-csv-framework) and [CSA guidance article](/articles/computer-software-assurance-fda).
 
@@ -23,11 +23,11 @@ For validation: IaaS is essentially an on-premises deployment on managed hardwar
 
 **Platform as a Service (PaaS):** The CSP provides infrastructure plus OS, middleware, and runtime. The customer manages the application and data. Example: deploying a custom application on Azure App Service.
 
-For validation: PaaS reduces the customer's infrastructure qualification scope — you don't need to validate the OS or database platform, because the CSP manages those. But the customer is still responsible for application validation. The PaaS layer is addressed through CSP compliance documentation.
+For validation: PaaS reduces the customer's infrastructure qualification scope, you don't need to validate the OS or database platform, because the CSP manages those. But the customer is still responsible for application validation. The PaaS layer is addressed through CSP compliance documentation.
 
 **Software as a Service (SaaS):** The vendor provides the complete application, running on infrastructure the vendor controls. The customer manages data and configuration within the application. Example: a cloud-native QMS or LIMS where the vendor hosts, maintains, and updates the software.
 
-For validation: SaaS has the most complex responsibility model. The vendor controls almost everything — infrastructure, platform, application, and software version. The customer controls only configuration and data. This is where the shared responsibility model matters most.
+For validation: SaaS has the most complex responsibility model. The vendor controls almost everything, infrastructure, platform, application, and software version. The customer controls only configuration and data. This is where the shared responsibility model matters most.
 
 ---
 
@@ -48,7 +48,7 @@ In a SaaS model, the validation responsibilities are distributed:
 | Incident response | Vendor manages | Customer monitors and escalates |
 | Compliance documentation | Vendor provides | Customer incorporates into validation |
 
-The practical implication: for a SaaS GxP system, a significant portion of your validation scope shifts from testing to evidence review. You can't test the underlying database platform — you review the vendor's documentation. You can't control the OS patch schedule — you review the vendor's change management process. What you validate directly is: the configuration of the application, the controls you implement within the system, and your procedures for using it.
+The practical implication: for a SaaS GxP system, a significant portion of your validation scope shifts from testing to evidence review. You can't test the underlying database platform, you review the vendor's documentation. You can't control the OS patch schedule, you review the vendor's change management process. What you validate directly is: the configuration of the application, the controls you implement within the system, and your procedures for using it.
 
 ---
 
@@ -67,7 +67,7 @@ The quality agreement between the pharmaceutical company and the SaaS vendor is 
 - Maintenance of a validated state through updates (or notification when a major release requires customer revalidation)
 
 **Access controls:**
-- Vendor employee access to customer data — conditions under which vendor staff can access your data, logging of such access, and customer notification requirements
+- Vendor employee access to customer data, conditions under which vendor staff can access your data, logging of such access, and customer notification requirements
 - Segregation of customer data from other customers' data
 
 **Availability and business continuity:**
@@ -91,7 +91,7 @@ The quality agreement between the pharmaceutical company and the SaaS vendor is 
 
 The validation approach for a SaaS system follows the same GAMP 5 / V-model structure as any other system, but the scope of testing differs:
 
-**URS and FRS:** Same as any system — document what you need the system to do in GxP use, and what functional requirements it must meet.
+**URS and FRS:** Same as any system, document what you need the system to do in GxP use, and what functional requirements it must meet.
 
 **Supplier assessment:** More extensive than for on-premises systems, because the vendor controls more. The supplier assessment should cover:
 - Quality management system documentation
@@ -101,9 +101,9 @@ The validation approach for a SaaS system follows the same GAMP 5 / V-model stru
 - Data center certifications
 - Audit rights exercise (either physical audit or documentation review)
 
-**IQ scope:** For SaaS, IQ is primarily a configuration verification — confirming that the production environment has been set up with the approved configuration (user roles, workflow settings, audit trail configuration, integration settings). The infrastructure and platform IQ is addressed by vendor documentation.
+**IQ scope:** For SaaS, IQ is primarily a configuration verification, confirming that the production environment has been set up with the approved configuration (user roles, workflow settings, audit trail configuration, integration settings). The infrastructure and platform IQ is addressed by vendor documentation.
 
-**OQ scope:** Tests the configured application against functional requirements. Leverages vendor test documentation for core application functionality; customer OQ focuses on the configuration and any custom workflows.
+**OQ scope:** Tests the configured application against functional requirements. use vendor test documentation for core application functionality; customer OQ focuses on the configuration and any custom workflows.
 
 **PQ/UAT scope:** End-to-end process testing, same as on-premises.
 
@@ -144,7 +144,7 @@ Before deploying any SaaS GxP system, define the exit plan:
 - Is audit trail data included, and in what format?
 - What is the vendor's data retention period after contract termination?
 
-The decommissioning of a cloud or SaaS system — including data migration validation — should follow the same requirements as any other system decommissioning: all GxP records verified as migrated, audit trails preserved, data readable in the destination system, and the decommissioned environment confirmed as no longer holding active GxP records.
+The decommissioning of a cloud or SaaS system, including data migration validation, should follow the same requirements as any other system decommissioning: all GxP records verified as migrated, audit trails preserved, data readable in the destination system, and the decommissioned environment confirmed as no longer holding active GxP records.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "GxP Computerized Systems: LIMS, CDS, ELN, MES, CTMS, and More — A Complete Map"
 description: "Every major computerized system used in pharmaceutical manufacturing and clinical operations, what each one does, the GxP data it generates, and the validation requirements that come with it."
-pubDate: 2026-06-03
+pubDate: 2025-07-18
 tags: ["LIMS", "CDS", "ELN", "MES", "CSV", "computerized systems", "foundations"]
 tier: "Beginner"
 pillar: "csv-csa"
@@ -73,7 +73,7 @@ This guide covers the major system categories. The actual product landscape in e
 
 ## Process Analytical Technology (PAT) / Data Historians
 
-**What it does:** Process historians (or data historians) capture time-series process data from manufacturing equipment: temperature, pressure, pH, dissolved oxygen, agitation speed. In bioreactor-based manufacturing, the historian captures thousands of data points per batch, creating the continuous process record that demonstrates the batch was manufactured within validated parameters.
+**What it does:** Process historians (or data historians) capture time-series process data from manufacturing equipment: temperature, pressure, pH, dissolved oxygen, agitation speed. In bioreactor-based manufacturing, the historian captures thousands of data points per batch, creating the continuous process record that shows the batch was manufactured within validated parameters.
 
 **Key data generated:** Continuous time-series records of critical and non-critical process parameters for every batch.
 
@@ -95,7 +95,7 @@ This guide covers the major system categories. The actual product landscape in e
 
 ---
 
-## Enterprise Resource Planning (ERP) — GxP Intersections
+## Enterprise Resource Planning (ERP), GxP Intersections
 
 **What it does:** ERP systems (SAP, Oracle, Microsoft Dynamics) manage business processes including purchasing, inventory, order management, and finance. In pharmaceutical operations, ERP intersects with GxP through inventory management (lot tracking, expiry management, quarantine status) and batch genealogy.
 
@@ -147,7 +147,7 @@ Not all systems need the same validation treatment. GAMP 5 Second Edition's risk
 
 1. **Business criticality:** Does this system directly affect product quality, patient safety, or the integrity of GxP records? A LIMS does. A HR management system doesn't.
 2. **System complexity:** Is this an off-the-shelf product used as-is (lower validation burden) or a heavily configured or custom system (higher burden)?
-3. **Existing evidence:** Does the vendor have a strong quality system and published validation documentation? If so, you can leverage it rather than reproducing it.
+3. **Existing evidence:** Does the vendor have a strong quality system and published validation documentation? If so, you can use it rather than reproducing it.
 
 The combination of these factors drives your validation strategy. A standard LIMS from a reputable vendor used with default configuration for a well-understood function gets a different validation treatment than a custom-built MES managing a novel CGT manufacturing process with no prior regulatory precedent.
 

@@ -1,7 +1,7 @@
 ---
 title: "Analytical Method Transfer: Protocol Design, Acceptance Criteria, and Regulatory Filing"
 description: "A complete guide to analytical method transfer between laboratories — the transfer protocol structure, transfer approaches (comparative testing, revalidation, co-validation), acceptance criteria statistics, handling failures, and how to document transfers for regulatory submissions."
-pubDate: 2026-06-03
+pubDate: 2026-02-14
 tags: ["method transfer", "analytical methods", "QC", "validation", "technology transfer"]
 tier: "Advanced"
 pillar: "equipment-qualification"
@@ -51,7 +51,7 @@ The transfer protocol is a controlled document, approved by QA before the transf
 
 **Analytical plan:** Which parameters will be assessed during the transfer, the number of replicates, the order of testing.
 
-**Acceptance criteria:** The statistical criteria that must be met for the transfer to be declared successful. These must be predefined — setting acceptance criteria after seeing the data is not acceptable.
+**Acceptance criteria:** The statistical criteria that must be met for the transfer to be declared successful. These must be predefined, setting acceptance criteria after seeing the data is not acceptable.
 
 **Deviation handling:** What happens if acceptance criteria are not met.
 
@@ -71,7 +71,7 @@ This approach requires the SU to run the method concurrently with the RU. It pro
 
 The RU revalidates the method in its own laboratory. If the RU's revalidation results meet the original validation acceptance criteria (from the SU's validation), the transfer is considered successful.
 
-This approach is used when the SU cannot run samples concurrently (e.g., the SU laboratory is closing). It provides less direct comparison to the SU but demonstrates that the method performs adequately at the RU. The revalidation scope is typically the same as the original validation, or a subset if some characteristics don't need to be re-established.
+This approach is used when the SU cannot run samples concurrently (e.g., the SU laboratory is closing). It provides less direct comparison to the SU but shows that the method performs adequately at the RU. The revalidation scope is typically the same as the original validation, or a subset if some characteristics don't need to be re-established.
 
 **Approach 3: Co-validation**
 
@@ -104,7 +104,7 @@ The most commonly used statistical framework for comparative transfer acceptance
 
 **For system suitability:**
 
-At the completion of the transfer, the RU must demonstrate that its system suitability criteria (retention time, peak symmetry, column efficiency, standard response precision) are met with its equipment under the method conditions. System suitability criteria defined in the validated method must be achievable at the RU.
+At the completion of the transfer, the RU must show that its system suitability criteria (retention time, peak symmetry, column efficiency, standard response precision) are met with its equipment under the method conditions. System suitability criteria defined in the validated method must be achievable at the RU.
 
 ---
 
@@ -144,7 +144,7 @@ If acceptance criteria are not met, the transfer is not declared successful. Opt
 
 **Conduct additional optimization at the RU.** For some methods, slight modifications may be needed at the RU (column length, gradient adjustment) to achieve equivalent performance with different instrumentation. These modifications require evaluation against the method's validation scope and may require partial revalidation or a documented method suitability assessment.
 
-**Escalate to SU method review.** Occasionally, a transfer failure reveals a weakness in the original method — the method is not robust across different equipment or column lots. This requires the SU to review the method and potentially improve it before transfer proceeds.
+**Escalate to SU method review.** Occasionally, a transfer failure reveals a weakness in the original method, the method is not robust across different equipment or column lots. This requires the SU to review the method and potentially improve it before transfer proceeds.
 
 What's not acceptable: adjusting acceptance criteria after seeing the data to make the transfer "pass." If the predefined criteria weren't met, the transfer didn't pass. Setting acceptance criteria wide enough to guarantee success regardless of data quality is equally unacceptable.
 
@@ -166,7 +166,7 @@ What's not acceptable: adjusting acceptance criteria after seeing the data to ma
 
 **Inadequate sample design.** Using only one sample at one concentration doesn't provide adequate information about the method's performance at the RU. Include samples across the relevant concentration range.
 
-**Different sample lots at SU and RU.** If the SU and RU test different batches of material, you're not doing a comparative transfer — you're doing two separate method suitability checks. The power of comparative testing depends on using the same samples.
+**Different sample lots at SU and RU.** If the SU and RU test different batches of material, you're not doing a comparative transfer, you're doing two separate method suitability checks. The power of comparative testing depends on using the same samples.
 
 **No documentation of sample chain of custody during shipping.** Samples shipped between sites without controlled shipping conditions documentation. A temperature excursion during shipping can explain a transfer failure that has nothing to do with the method.
 

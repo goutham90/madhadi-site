@@ -1,7 +1,7 @@
 ---
 title: "What Is GMP? A Plain-Language Introduction to Good Manufacturing Practice"
 description: "GMP explained without the bureaucratic fog. What the regulations actually require, why they exist, and how they shape every activity in a regulated manufacturing facility."
-pubDate: 2026-06-03
+pubDate: 2025-07-01
 tags: ["GMP", "FDA", "foundations", "regulations", "beginners"]
 tier: "Beginner"
 pillar: "quality-assurance"
@@ -31,7 +31,7 @@ GMP is grounded in a few non-negotiable ideas that show up across every regulato
 
 **All critical activities must be documented.** In GMP, if it isn't written down, it didn't happen. This applies to everything from batch manufacturing procedures to equipment cleaning to personnel training. The documentation is the evidence that GMP requirements were met. It's also what FDA investigators review during inspections.
 
-**Personnel must be qualified for the work they perform.** Every person who performs a GxP-relevant task must be trained on the procedure governing that task and must have demonstrated they can perform it correctly. Training records are maintained and reviewed.
+**Personnel must be qualified for the work they perform.** Every person who performs a GxP-relevant task must be trained on the procedure governing that task and must have showed they can perform it correctly. Training records are maintained and reviewed.
 
 **Facilities and equipment must be appropriate for their purpose.** Manufacturing areas must be designed to prevent contamination, mix-ups, and errors. Equipment must be qualified for its intended use, calibrated on schedule, and maintained.
 

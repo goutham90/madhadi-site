@@ -15,11 +15,11 @@ This article explains what each requirement actually means, how to assess a syst
 
 ## The regulatory context
 
-**21 CFR Part 11** (Code of Federal Regulations, Title 21, Part 11) was issued by FDA in 1997. It applies when electronic records are used under a predicate rule — a GxP regulation that requires records be kept (21 CFR Part 211 for drug GMP, Part 312 for clinical, Part 58 for GLP, and others). Part 11 doesn't require electronic records; it governs them when you choose to use them.
+**21 CFR Part 11** (Code of Federal Regulations, Title 21, Part 11) was issued by FDA in 1997. It applies when electronic records are used under a predicate rule, a GxP regulation that requires records be kept (21 CFR Part 211 for drug GMP, Part 312 for clinical, Part 58 for GLP, and others). Part 11 doesn't require electronic records; it governs them when you choose to use them.
 
-**EU Annex 11** is the EU GMP guideline on computerised systems. It applies to GxP computerized systems in EU manufacturing — not just to electronic records substituting for paper, but to all computerized systems in GxP scope. It was revised in 2011 and is under review again.
+**EU Annex 11** is the EU GMP guideline on computerised systems. It applies to GxP computerized systems in EU manufacturing, not just to electronic records substituting for paper, but to all computerized systems in GxP scope. It was revised in 2011 and is under review again.
 
-The key practical difference: Part 11 is about **electronic records and signatures**. Annex 11 is about **computerized systems broadly** — validation, data integrity, IT infrastructure, and operational controls for all GxP systems. Annex 11 covers more ground.
+The key practical difference: Part 11 is about **electronic records and signatures**. Annex 11 is about **computerized systems broadly**, validation, data integrity, IT infrastructure, and operational controls for all GxP systems. Annex 11 covers more ground.
 
 ### The predicate rule concept
 
@@ -31,81 +31,81 @@ Applying Part 11 to systems that aren't in scope wastes validation effort. Not a
 
 ---
 
-## Part 11 requirements — what they mean in practice
+## Part 11 requirements, what they mean in practice
 
 Part 11 has two subparts: Subpart B (Electronic Records) and Subpart C (Electronic Signatures). Here's what each requirement actually requires, not just what it says.
 
-### Subpart B — Electronic Records
+### Subpart B, Electronic Records
 
-**§11.10(a) — Validated systems**
+**§11.10(a), Validated systems**
 The system must be validated to ensure accuracy, reliability, consistent intended performance, and the ability to discern invalid or altered records.
 
-*In practice:* A formal validation package (URS, risk assessment, IQ/OQ/PQ, traceability matrix) for the system. Validation must demonstrate that the system correctly captures, stores, and retrieves records, and that it detects or prevents unauthorized alteration.
+*In practice:* A formal validation package (URS, risk assessment, IQ/OQ/PQ, traceability matrix) for the system. Validation must show that the system correctly captures, stores, and retrieves records, and that it detects or prevents unauthorized alteration.
 
-**§11.10(b) — Legible and available records throughout retention period**
+**§11.10(b), Legible and available records throughout retention period**
 Electronic records must be accurate, readily retrievable, and accessible throughout the retention period.
 
-*In practice:* Records must be retrievable in human-readable form — not just as raw database exports. When a system is retired, the records must be migrated to a new system or archived in a retrievable format. "We deleted the system" is not an acceptable retention strategy.
+*In practice:* Records must be retrievable in human-readable form, not just as raw database exports. When a system is retired, the records must be migrated to a new system or archived in a retrievable format. "We deleted the system" is not an acceptable retention strategy.
 
-**§11.10(c) — Protection from unauthorized alteration or deletion**
+**§11.10(c), Protection from unauthorized alteration or deletion**
 *In practice:* The system must enforce access controls that prevent unauthorized users from modifying or deleting records. Write-once storage, audit trails that capture all changes, and role-based access restrictions are the typical technical controls.
 
-**§11.10(d) — Limiting access to authorized individuals**
-*In practice:* Individual accounts for each user, no shared accounts, and a documented access provisioning process. Access levels must match job function — a data entry user doesn't need administrator access.
+**§11.10(d), Limiting access to authorized individuals**
+*In practice:* Individual accounts for each user, no shared accounts, and a documented access provisioning process. Access levels must match job function, a data entry user doesn't need administrator access.
 
-**§11.10(e) — Audit trail**
+**§11.10(e), Audit trail**
 A secure, computer-generated, time-stamped audit trail must record when entries are made or changed, who made the change, and what the original value was. This is one of the most inspection-critical requirements. The audit trail must be computer-generated (not manually filled in) and protected from modification.
 
-*In practice:* The audit trail must be enabled by default and cannot be disabled by users without exceptional authorization. It must capture every GxP data entry and change — not just final values. It must be reviewed regularly, not just available.
+*In practice:* The audit trail must be enabled by default and cannot be disabled by users without exceptional authorization. It must capture every GxP data entry and change, not just final values. It must be reviewed regularly, not just available.
 
-**§11.10(f) — Operational system checks**
+**§11.10(f), Operational system checks**
 The system must enforce sequencing of steps and events, where required.
 
-*In practice:* Workflow enforcement — if a review step must happen before an approval step, the system must enforce this sequence. A LIMS that allows batch records to be approved without a prior QA review step is not satisfying §11.10(f).
+*In practice:* Workflow enforcement, if a review step must happen before an approval step, the system must enforce this sequence. A LIMS that allows batch records to be approved without a prior QA review step is not satisfying §11.10(f).
 
-**§11.10(g) — Authority checks**
+**§11.10(g), Authority checks**
 The system must verify that only authorized individuals can use the system, create or modify electronic records, and operate electronic devices.
 
-*In practice:* Role-based access control, with defined roles aligned to job functions. The system should prevent unauthorized actions — not just log them after the fact.
+*In practice:* Role-based access control, with defined roles aligned to job functions. The system should prevent unauthorized actions, not just log them after the fact.
 
-**§11.10(h) — Device checks**
+**§11.10(h), Device checks**
 Where applicable, the system must check the validity of data sources such as input devices.
 
 *In practice:* Most relevant for instrument-connected systems. A CDS must have controls to prevent submission of results from an unqualified instrument or outside a validated parameter range.
 
-**§11.10(i) — Personnel training**
+**§11.10(i), Personnel training**
 Individuals using the system must have the appropriate training, education, and experience.
 
-*In practice:* Documented training records for all system users, covering both the technical operation and the GxP requirements. Training records must be current — someone who was trained three years ago and hasn't used the system since is not "trained" for current use.
+*In practice:* Documented training records for all system users, covering both the technical operation and the GxP requirements. Training records must be current, someone who was trained three years ago and hasn't used the system since is not "trained" for current use.
 
-**§11.10(j) — Accountability for electronic records**
+**§11.10(j), Accountability for electronic records**
 Records must be available throughout the time periods defined in the predicate rule regulations.
 
 *In practice:* Retention policy defined, implemented in the system, and with a tested backup and recovery procedure. Records cannot be deleted before the retention period ends.
 
-**§11.10(k) — Appropriate controls for system documentation**
+**§11.10(k), Appropriate controls for system documentation**
 Distribution of and access to system documentation (SOPs, user manuals, validation documentation) must be controlled.
 
 *In practice:* System SOPs under document control, validation documentation available for inspection. Not publicly accessible in a way that would compromise security.
 
 ---
 
-### Subpart C — Electronic Signatures
+### Subpart C, Electronic Signatures
 
-**§11.50 — Signature manifestations**
+**§11.50, Signature manifestations**
 Each electronic signature in a GxP record must include the full name of the signer, the date and time of signing, and the meaning (purpose) of the signature (e.g., "reviewed," "approved," "performed").
 
 *In practice:* A signature that just stamps "approved by: jsmith" at a timestamp is incomplete. The displayed signature must show the full name, timestamp, and what the signature means in the context of the record.
 
-**§11.70 — Signature/record linking**
+**§11.70, Signature/record linking**
 Electronic signatures must be linked to their respective electronic records in a way that prevents signature excision, copying, or other falsification.
 
 *In practice:* The signature must be embedded in or cryptographically linked to the record. A signature stored as a separate database field that could theoretically be copied to a different record doesn't satisfy this requirement.
 
-**§11.100 — General requirements for electronic signatures**
+**§11.100, General requirements for electronic signatures**
 Electronic signatures must be unique to an individual, not reused by anyone else, and must be verified before use.
 
-**§11.200 — Components of electronic signatures**
+**§11.200, Components of electronic signatures**
 - Signatures based on two distinct identification components (ID + password) must be used in conjunction
 - The system must not allow the same combination to be reused for different records unless the individual re-authenticates
 - Non-biometric signatures require two identification components at each signing unless they are used in a continuous period and specifically authorized otherwise
@@ -114,7 +114,7 @@ Electronic signatures must be unique to an individual, not reused by anyone else
 
 ---
 
-## EU Annex 11 requirements — what they add
+## EU Annex 11 requirements, what they add
 
 Annex 11 covers everything Part 11 covers, plus:
 
@@ -122,7 +122,7 @@ Annex 11 covers everything Part 11 covers, plus:
 
 **Data storage:** Annex 11 §7 requires data to be stored in a way that prevents unauthorized alteration, with backup and disaster recovery tested.
 
-**Printouts:** §7.1 requires that printouts of electronically stored data include the time and date of the printout. The original electronic record is always the authoritative source — printouts are copies.
+**Printouts:** §7.1 requires that printouts of electronically stored data include the time and date of the printout. The original electronic record is always the authoritative source, printouts are copies.
 
 **Audit trail review:** §9 requires that audit trails be reviewed regularly and that this review is risk-based and documented. The frequency of review must be appropriate to the system's GxP impact.
 
@@ -130,7 +130,7 @@ Annex 11 covers everything Part 11 covers, plus:
 
 **Supplier assessment:** Annex 11 §3 requires that a company's responsibility for the system remains with the regulated company regardless of whether the system is outsourced. Supplier assessment and ongoing oversight are required.
 
-**Business continuity:** §16 requires that a system for emergency recovery is available for GxP-relevant systems. A paper backup procedure for critical systems is a common approach — but the procedure must be defined, tested, and training provided.
+**Business continuity:** §16 requires that a system for emergency recovery is available for GxP-relevant systems. A paper backup procedure for critical systems is a common approach, but the procedure must be defined, tested, and training provided.
 
 ---
 
@@ -189,7 +189,7 @@ The Part 11 assessment should be referenced in the validation plan and summarize
 
 **7. SOPs don't address system misuse.** Part 11 compliance requires procedural controls as well as technical ones. If there's no SOP governing account management, password requirements, or what to do when someone's account is compromised, the procedural side of Part 11 is incomplete.
 
-**8. Printouts treated as official records.** Operators print reports and discard the underlying electronic record. The printout is missing metadata and audit trail — it's a paper shadow of the electronic original, not a compliant substitute.
+**8. Printouts treated as official records.** Operators print reports and discard the underlying electronic record. The printout is missing metadata and audit trail, it's a paper shadow of the electronic original, not a compliant substitute.
 
 ---
 
@@ -199,9 +199,9 @@ A minimal Part 11 assessment document contains:
 
 | Requirement | Applicable? | Current Control | Evidence | Gap? | Remediation |
 |---|---|---|---|---|---|
-| §11.10(a) — Validated system | Yes | Validation package on file | VMP-001, OQ-001 | No | — |
-| §11.10(e) — Audit trail | Yes | Audit trail enabled by default | Configuration screenshot, OQ test 3.2 | No | — |
-| §11.10(d) — Access control | Yes | Individual accounts; admin provisioning SOP | IT-SOP-012 | Partial — shared account used for batch approval | Open gap — individual accounts required |
+| §11.10(a), Validated system | Yes | Validation package on file | VMP-001, OQ-001 | No |, |
+| §11.10(e), Audit trail | Yes | Audit trail enabled by default | Configuration screenshot, OQ test 3.2 | No |, |
+| §11.10(d), Access control | Yes | Individual accounts; admin provisioning SOP | IT-SOP-012 | Partial, shared account used for batch approval | Open gap, individual accounts required |
 
 This table format, completed for all applicable requirements, constitutes the assessment. It supports the validation package, guides gap remediation, and is presented during inspection as evidence of compliance thinking.
 
@@ -222,7 +222,7 @@ This table format, completed for all applicable requirements, constitutes the as
 
 1. Written Part 11 assessment on file for each GxP computerized system in scope
 2. Audit trail enabled and its coverage documented (what it captures and for how long)
-3. Individual user accounts for all system users — no shared accounts
+3. Individual user accounts for all system users, no shared accounts
 4. Account management procedure covering provisioning, password requirements, and deprovisioning
 5. Electronic signatures include name, date/time, and meaning
 6. Periodic review procedure that covers audit trail review
@@ -231,9 +231,9 @@ This table format, completed for all applicable requirements, constitutes the as
 
 ## References
 
-- 21 CFR Part 11 — Electronic Records; Electronic Signatures (FDA, 1997)
-- FDA Guidance: Part 11, Electronic Records; Electronic Signatures — Scope and Application (August 2003)
-- EU GMP Annex 11 — Computerised Systems (January 2011)
+- 21 CFR Part 11, Electronic Records; Electronic Signatures (FDA, 1997)
+- FDA Guidance: Part 11, Electronic Records; Electronic Signatures, Scope and Application (August 2003)
+- EU GMP Annex 11, Computerised Systems (January 2011)
 - GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition (2022)
-- FDA DI Q&A Guidance (December 2018) — Sections on audit trails, access control, and electronic records
+- FDA DI Q&A Guidance (December 2018), Sections on audit trails, access control, and electronic records
 - MHRA GxP Data Integrity Guidance and Definitions (March 2018)

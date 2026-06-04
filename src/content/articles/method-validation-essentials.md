@@ -1,7 +1,7 @@
 ---
 title: "Analytical Method Validation: ICH Q2(R2) in Practice"
 description: "A working guide to analytical method validation — the performance characteristics required by ICH Q2(R2), how to design studies for each, what acceptance criteria to set, and how to generate a validation report that holds up under regulatory scrutiny."
-pubDate: 2026-06-03
+pubDate: 2026-02-07
 tags: ["method validation", "ICH Q2", "analytical", "QC", "laboratory"]
 tier: "Intermediate"
 pillar: "equipment-qualification"
@@ -21,7 +21,7 @@ The governing guidance is ICH Q2(R2), issued in 2023 (updating the original Q2(R
 - Methods transferred from development to QC (after transfer, not just before)
 - Any significant modification to an existing validated method
 
-Compendial methods (USP, Ph. Eur., JP) come with built-in validation data from the pharmacopeial organization. They still require verification — demonstrating that the method performs adequately in your laboratory with your equipment, reagents, and sample matrices — but full validation is not required unless you modify them.
+Compendial methods (USP, Ph. Eur., JP) come with built-in validation data from the pharmacopeial organization. They still require verification, demonstrating that the method performs adequately in your laboratory with your equipment, reagents, and sample matrices, but full validation is not required unless you modify them.
 
 ---
 
@@ -53,9 +53,9 @@ ICH Q2(R2) identifies the validation characteristics that must be evaluated for 
 
 *For HPLC assay methods:* Inject samples spiked with known potential interferents (placebo, known degradants, process-related impurities). Demonstrate chromatographic resolution between the analyte and interferents. Apply peak purity analysis (diode array or mass spectrometric) to confirm the analyte peak is homogeneous.
 
-*For identity tests:* Demonstrate the method distinguishes the correct analyte from closely related compounds. An IR identity test should distinguish the API from other compounds with similar but distinct spectra.
+*For identity tests:* show the method distinguishes the correct analyte from closely related compounds. An IR identity test should distinguish the API from other compounds with similar but distinct spectra.
 
-*Forced degradation:* Stress the drug substance or product under conditions that cause degradation (acid, base, oxidation, heat, light) and demonstrate the method resolves the degradants from the parent. This also demonstrates mass balance — the degradant peak areas account for the lost parent, confirming no degradant is co-eluting with the main peak.
+*Forced degradation:* Stress the drug substance or product under conditions that cause degradation (acid, base, oxidation, heat, light) and show the method resolves the degradants from the parent. This also demonstrates mass balance, the degradant peak areas account for the lost parent, confirming no degradant is co-eluting with the main peak.
 
 **Acceptance criteria:** Typically requires: no interference at the analyte peak from blank, placebo, or stressed samples; peak purity index >0.99 (platform-dependent); mass balance within ±5% for stressed samples.
 
@@ -91,7 +91,7 @@ For impurity methods: the matrix is the drug substance or product, and the impur
 
 **How to express precision:** As %RSD (relative standard deviation). The %RSD for intermediate precision should be calculated from the full data set across all analysts and days, not as an average of individual RSDs.
 
-**Acceptance criteria:** Typically ≤2% RSD for assay methods, ≤5-10% RSD for impurity methods at specification level. Set tighter criteria if the specification is tight. The precision must be fit for purpose — if the specification range is only 5%, a method with 3% RSD doesn't have the precision to measure product quality reliably.
+**Acceptance criteria:** Typically ≤2% RSD for assay methods, ≤5-10% RSD for impurity methods at specification level. Set tighter criteria if the specification is tight. The precision must be fit for purpose, if the specification range is only 5%, a method with 3% RSD doesn't have the precision to measure product quality reliably.
 
 ---
 
@@ -172,8 +172,8 @@ The 2023 revision introduced a lifecycle perspective. Validation isn't a one-tim
 
 **System suitability:** A predefined set of tests run at the beginning of each analytical sequence that confirms the chromatographic system and sample preparation are performing acceptably for that sequence. SST criteria are set based on validation data (typically retention time variability, peak symmetry, column efficiency, and standard response precision).
 
-**Trending and control charts:** Tracking method performance indicators over time — SST results, reference standard response factors, reagent lot comparisons — detects drift before it causes OOS results.
+**Trending and control charts:** Tracking method performance indicators over time, SST results, reference standard response factors, reagent lot comparisons, detects drift before it causes OOS results.
 
 **Method changes:** Any change to a validated method (reagent substitution, column change, instrument change) requires a change control record and may require partial or full revalidation, depending on the nature of the change.
 
-**Method transfer:** When a method is transferred from development to QC, or between laboratories, the transfer must be formally documented and the receiving laboratory must demonstrate the method performs equivalently. This is distinct from validation and is covered separately.
+**Method transfer:** When a method is transferred from development to QC, or between laboratories, the transfer must be formally documented and the receiving laboratory must show the method performs equivalently. This is distinct from validation and is covered separately.

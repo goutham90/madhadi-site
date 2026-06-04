@@ -1,7 +1,7 @@
 ---
 title: "Clinical Quality Assurance: GCP Data Integrity and EDC System Validation"
 description: "A practical guide to clinical QA — GCP requirements for data integrity, electronic data capture (EDC) validation, trial master file management, clinical audit strategy, and how clinical data quality connects to regulatory submissions."
-pubDate: 2026-06-03
+pubDate: 2026-05-28
 tags: ["GCP", "clinical QA", "EDC", "clinical trials", "data integrity"]
 tier: "Intermediate"
 pillar: "data-integrity"
@@ -144,6 +144,6 @@ The clinical data package is Module 5 of the Common Technical Document (CTD). It
 - Consistency between the statistical analysis plan and the reported analysis
 - Audit trail availability for EDC data on request
 
-A BLA with clinical data integrity issues — high rates of unresolved queries, protocol deviations not reflected in the analysis, or sites with a history of GCP findings — may receive a Complete Response Letter citing clinical data concerns, or may trigger an FDA clinical site inspection as part of the review.
+A BLA with clinical data integrity issues, high rates of unresolved queries, protocol deviations not reflected in the analysis, or sites with a history of GCP findings, may receive a Complete Response Letter citing clinical data concerns, or may trigger an FDA clinical site inspection as part of the review.
 
 The clinical QA function is the internal safeguard that catches these problems before they reach the submission. Investing in site auditing and data quality management during the trial is less costly than receiving a Complete Response after submission.

@@ -1,7 +1,7 @@
 ---
 title: "OOS Investigations: The Step-by-Step Process FDA Expects"
 description: "A complete operational guide to out-of-specification investigations — Phase 1 laboratory investigation, Phase 2 full investigation, assignable cause determination, batch disposition, and what FDA inspectors actually examine."
-pubDate: 2026-06-03
+pubDate: 2026-02-19
 tags: ["OOS", "laboratory", "QC", "investigation", "FDA", "GxP"]
 tier: "Intermediate"
 pillar: "quality-assurance"
@@ -18,7 +18,7 @@ An OOS occurs when a test result falls outside the established acceptance criter
 The moment an analyst observes an OOS result, the laboratory investigation begins. This phase is conducted by laboratory personnel under QA oversight. It must be completed before Phase 2, and it must not involve additional testing of the original sample.
 
 **What Phase 1 is investigating:**
-Whether the OOS result was caused by a laboratory error. Not whether the product is bad — that question comes later. Phase 1 is asking: did something happen in the laboratory that would explain this result independent of the product?
+Whether the OOS result was caused by a laboratory error. Not whether the product is bad, that question comes later. Phase 1 is asking: did something happen in the laboratory that would explain this result independent of the product?
 
 **Phase 1 checklist:**
 
@@ -34,7 +34,7 @@ Whether the OOS result was caused by a laboratory error. Not whether the product
 
 *Review analyst training:* Was the analyst trained on the method and instrument?
 
-*Review the raw data:* Look at the actual chromatogram or instrument output. Are there obvious signs of analytical problems — co-eluting peaks, abnormal peak shapes, baseline problems, detector saturation?
+*Review the raw data:* Look at the actual chromatogram or instrument output. Are there obvious signs of analytical problems, co-eluting peaks, abnormal peak shapes, baseline problems, detector saturation?
 
 **Phase 1 can only conclude one of two things:**
 
@@ -66,13 +66,13 @@ Phase 2 begins when Phase 1 finds no assignable laboratory cause. It involves bo
 
 *Review of process validation data:* Does the process validation data for this product establish that this process, under the conditions used, consistently produces product within specification? Does the OOS fall outside the validation design space?
 
-*Additional testing — retesting and resampling:*
+*Additional testing, retesting and resampling:*
 
 Retesting means taking additional test preparations from the original retained sample. It requires advance QA approval and a documented rationale. The number of retests and the criteria for using retest data must be predefined, not decided after seeing the results.
 
 Resampling means taking a new sample from the original batch. It's only justified when Phase 1 or Phase 2 investigation identifies a specific reason to believe the original sample was not representative of the batch. Random resampling hoping to get different results is not acceptable.
 
-FDA is explicit: "If a retest is performed, it is important to include all test results, including the outlier, in the final statistical evaluation."
+FDA is explicit: "If a retest is performed, you need to include all test results, including the outlier, in the final statistical evaluation."
 
 ---
 

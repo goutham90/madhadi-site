@@ -27,9 +27,9 @@ This is not as slow as it sounds if you design for it upfront. But if you build 
 
 ### 1. Document classification and gap analysis
 
-GxP environments produce enormous amounts of documentation: SOPs, batch records, validation protocols, training records, deviation reports, CAPAs. Ensuring that a batch record references the correct version of every associated SOP — and that the SOP itself covers every step in the batch record — is the kind of cross-referencing work that humans do slowly and inconsistently.
+GxP environments produce enormous amounts of documentation: SOPs, batch records, validation protocols, training records, deviation reports, CAPAs. Ensuring that a batch record references the correct version of every associated SOP, and that the SOP itself covers every step in the batch record, is the kind of cross-referencing work that humans do slowly and inconsistently.
 
-An LLM-based classifier does this well. You give it a batch record section and the relevant SOP, and ask: does this SOP provide adequate instruction for this step? The output isn't a decision — it's a flagged list for human review.
+An LLM-based classifier does this well. You give it a batch record section and the relevant SOP, and ask: does this SOP provide adequate instruction for this step? The output isn't a decision, it's a flagged list for human review.
 
 This pattern (AI screens, human decides, decision is documented) is the right model for GxP AI tools. It doesn't replace the reviewer. It makes the reviewer's time go further.
 
@@ -37,7 +37,7 @@ This pattern (AI screens, human decides, decision is documented) is the right mo
 
 Incoming deviation reports need to be categorized by type, assigned a risk level, and routed to the right investigator. In a busy manufacturing environment, this happens at volume.
 
-An AI classifier trained on historical deviations (or prompted with examples) categorizes new deviations with reasonable accuracy and suggests similar historical cases for reference. The investigator still writes the deviation report and the CAPA — the AI gives them a starting point and surfaces relevant precedent.
+An AI classifier trained on historical deviations (or prompted with examples) categorizes new deviations with reasonable accuracy and suggests similar historical cases for reference. The investigator still writes the deviation report and the CAPA, the AI gives them a starting point and surfaces relevant precedent.
 
 The accuracy doesn't need to be perfect. It needs to be good enough that the reviewer catches the errors, which requires the reviewer to actually review, not just approve. Design the workflow around that assumption.
 
@@ -67,15 +67,15 @@ For internal GxP AI tools, the stack I use:
 
 - **Python** for all processing and data handling
 - **Anthropic Claude API** for language tasks (classification, extraction, comparison)
-- **Structured prompts with explicit output schemas** — JSON output, validated against a schema before it touches anything
-- **All results written to a log** — every API call, input, output, timestamp, user context
-- **Human review step built into the workflow** — not as an afterthought, as a hard requirement in the code
+- **Structured prompts with explicit output schemas**, JSON output, validated against a schema before it touches anything
+- **All results written to a log**, every API call, input, output, timestamp, user context
+- **Human review step built into the workflow**, not as an afterthought, as a hard requirement in the code
 
 The logging requirement is non-negotiable for GxP use. If an AI-assisted review is ever questioned in an inspection, you need to show exactly what the AI was given, what it returned, and what the human reviewer did with that output. If you can't reconstruct that, the tool shouldn't be in a GxP workflow.
 
 ## The Honest Assessment
 
-AI tools in GxP are useful for specific, bounded tasks where the risk of error is caught by a downstream human review step. They are not useful — yet — as autonomous decision-makers in regulated workflows.
+AI tools in GxP are useful for specific, bounded tasks where the risk of error is caught by a downstream human review step. They are not useful, yet, as autonomous decision-makers in regulated workflows.
 
 The companies that will get the most value out of AI in compliance are the ones that understand this distinction, design accordingly, and build the validation infrastructure upfront instead of retrofitting it after the fact.
 

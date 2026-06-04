@@ -1,7 +1,7 @@
 ---
 title: "CSV/CSA Self-Audit: Evaluating Your Computer System Validation Program"
 description: "A detailed self-audit checklist for computer system validation programs — system inventory, validation documentation, testing evidence, change control, supplier management, and periodic review. Aligned with GAMP 5 Second Edition and FDA CSA final guidance."
-pubDate: 2026-06-04
+pubDate: 2026-06-01
 tags: ["CSV", "CSA", "GAMP", "validation", "audit", "self-audit", "FDA"]
 tier: "Advanced"
 pillar: "csv-csa"
@@ -9,7 +9,7 @@ pillar: "csv-csa"
 
 Most validation programs have documentation. Fewer have validation programs that actually demonstrate what the documentation says they do. This self-audit is designed to distinguish between the two.
 
-Use this when you're preparing for an inspection, assessing a validation program you've inherited, or doing an annual program health check. Work through each section with someone who can access the actual systems and documentation — not just the SOPs describing what should happen.
+Use this when you're preparing for an inspection, assessing a validation program you've inherited, or doing an annual program health check. Work through each section with someone who can access the actual systems and documentation, not just the SOPs describing what should happen.
 
 ---
 
@@ -51,14 +51,14 @@ For each validated system, check:
 
 - [ ] Is there an approved validation plan or master validation plan?
 - [ ] Does the validation plan describe the scope, approach, and rationale for the testing level applied?
-- [ ] Does the validation plan document the risk-based rationale for testing scope — specifically why certain functions were tested at depth and others were addressed through supplier evidence or exploratory testing?
+- [ ] Does the validation plan document the risk-based rationale for testing scope, specifically why certain functions were tested at depth and others were addressed through supplier evidence or exploratory testing?
 - [ ] Is the validation plan approved before testing begins, not after?
 - [ ] Does the plan identify who is responsible for executing, reviewing, and approving each deliverable?
 
 ### User Requirements Specifications
 
 - [ ] Does every validated system have a URS?
-- [ ] Does the URS describe what the system must do from a user perspective — not how it does it?
+- [ ] Does the URS describe what the system must do from a user perspective, not how it does it?
 - [ ] Does the URS identify which requirements are GxP-critical (those directly affecting product quality, patient safety, or record integrity)?
 - [ ] Is the URS approved before configuration or development begins?
 - [ ] Is the URS kept current through the system's lifecycle via change control?
@@ -69,9 +69,9 @@ For each validated system, check:
 
 For scripted test protocols:
 
-- [ ] Do all test scripts have predefined steps, expected results, and acceptance criteria — defined before execution?
+- [ ] Do all test scripts have predefined steps, expected results, and acceptance criteria, defined before execution?
 - [ ] Are test scripts linked to the requirements they verify (traceability matrix)?
-- [ ] Are test execution records complete — every step has a pass/fail result and an executor signature?
+- [ ] Are test execution records complete, every step has a pass/fail result and an executor signature?
 - [ ] Are deviations from expected results documented on the test record, not corrected and re-run without documentation?
 - [ ] Is there a documented review and approval of test results?
 
@@ -82,7 +82,7 @@ For unscripted/exploratory testing (under CSA):
 - [ ] Does the record include an assessment of whether the system behaved as expected?
 - [ ] Is the exploratory testing record approved by QA?
 
-**The CSA shift in practice:** The FDA final CSA guidance (February 2026) explicitly supports using exploratory testing for lower-risk functions. The practical change is that you now need documentation to justify why you applied exploratory rather than scripted testing — the risk reasoning must be documented. "This function was addressed through exploratory testing because it is not GxP-critical and the vendor's development documentation provides adequate evidence of its reliability" is a defensible entry in a validation plan. "We used exploratory testing because it was faster" is not.
+**The CSA shift in practice:** The FDA final CSA guidance (February 2026) explicitly supports using exploratory testing for lower-risk functions. The practical change is that you now need documentation to justify why you applied exploratory rather than scripted testing, the risk reasoning must be documented. "This function was addressed through exploratory testing because it is not GxP-critical and the vendor's development documentation provides adequate evidence of its reliability" is a defensible entry in a validation plan. "We used exploratory testing because it was faster" is not.
 
 ### Validation Summary Reports
 
@@ -95,7 +95,7 @@ For unscripted/exploratory testing (under CSA):
 
 ## Section 3: Requirements Traceability
 
-Traceability is the mechanism that proves your testing was complete — that every requirement was tested and every test result maps back to a requirement.
+Traceability is the mechanism that proves your testing was complete, that every requirement was tested and every test result maps back to a requirement.
 
 - [ ] Is there a requirements traceability matrix for each validated system?
 - [ ] Does the RTM map every URS requirement to at least one test script?
@@ -103,13 +103,13 @@ Traceability is the mechanism that proves your testing was complete — that eve
 - [ ] If the URS was updated through change control, was the RTM also updated?
 - [ ] Are there any URS requirements with no corresponding test? If so, is there documented rationale (e.g., covered by vendor documentation, addressed through supplier assessment)?
 
-**What incomplete traceability looks like:** A URS with 45 requirements and a test package with 60 test scripts — but no RTM. You don't know which tests cover which requirements. You don't know which requirements have no test. You can't demonstrate that the validation was complete. An inspector asking "which test proves that your system enforces your access control requirement?" should get a traceable answer in under two minutes.
+**What incomplete traceability looks like:** A URS with 45 requirements and a test package with 60 test scripts, but no RTM. You don't know which tests cover which requirements. You don't know which requirements have no test. You can't show that the validation was complete. An inspector asking "which test proves that your system enforces your access control requirement?" should get a traceable answer in under two minutes.
 
 ---
 
-## Section 4: Supplier Assessment and Leverage
+## Section 4: Supplier Assessment and use
 
-Supplier assessment is the foundation for leveraging vendor documentation to reduce site testing scope. Without a documented assessment, claiming supplier evidence as validation basis is not defensible.
+Supplier assessment is the foundation for use vendor documentation to reduce site testing scope. Without a documented assessment, claiming supplier evidence as validation basis is not defensible.
 
 - [ ] Has a supplier assessment been performed for each validated system?
 - [ ] Does the assessment evaluate the vendor's software development lifecycle and quality management system?
@@ -130,7 +130,7 @@ Change control for validated systems is where most ongoing validation programs h
 - [ ] Does the procedure require an impact assessment for every change request before it's approved?
 - [ ] Does the impact assessment evaluate: whether the change affects GxP-critical functions, what testing is required, and whether revalidation is needed?
 - [ ] Are changes categorized (minor/major or similar tier system) with defined testing and documentation requirements for each tier?
-- [ ] Are all changes — including vendor patches, version upgrades, and configuration changes — going through the change control process?
+- [ ] Are all changes, including vendor patches, version upgrades, and configuration changes, going through the change control process?
 - [ ] Is there evidence that the required testing for each change was actually performed and documented?
 - [ ] Is the validation summary report updated or supplemented when significant changes are made?
 
@@ -140,16 +140,16 @@ Change control for validated systems is where most ongoing validation programs h
 
 ## Section 6: Periodic Review
 
-Periodic review confirms that validated systems remain in a state of control — that the validation done at go-live still applies to the system as it's running today.
+Periodic review confirms that validated systems remain in a state of control, that the validation done at go-live still applies to the system as it's running today.
 
 - [ ] Is there a periodic review schedule for all validated systems?
 - [ ] Are reviews actually occurring on schedule? (Check the last review date for each system.)
 - [ ] Does the periodic review cover: change log review, deviation/OOS review related to the system, audit trail sampling, current software version vs. validated version, user access review, backup/recovery status?
-- [ ] Does the review produce a documented conclusion — does the system remain fit for intended use?
+- [ ] Does the review produce a documented conclusion, does the system remain fit for intended use?
 - [ ] When periodic review identifies gaps, are CAPAs opened and tracked to completion?
 - [ ] Are systems that have undergone significant changes since the last review flagged for a focused review before the scheduled periodic review?
 
-**The gap between schedule and execution:** It's common to see a validated system inventory with a note that system X requires annual periodic review — and then find that the last completed review was 26 months ago. The review schedule is only useful if it's enforced. Assign review ownership clearly in the system inventory, set calendar reminders, and track overdue reviews as compliance metrics.
+**The gap between schedule and execution:** It's common to see a validated system inventory with a note that system X requires annual periodic review, and then find that the last completed review was 26 months ago. The review schedule is only useful if it's enforced. Assign review ownership clearly in the system inventory, set calendar reminders, and track overdue reviews as compliance metrics.
 
 ---
 
@@ -182,7 +182,7 @@ System retirement is a validation lifecycle phase that's often skipped. When a s
 
 ### QA Oversight
 
-- [ ] Does QA review and approve validation plans, protocols, and reports — not just sign them?
+- [ ] Does QA review and approve validation plans, protocols, and reports, not just sign them?
 - [ ] Are QA reviewers challenging inadequate validation documentation, or just approving what's presented to them?
 - [ ] Is there a mechanism for QA to identify validation gaps proactively (not just at inspection time)?
 

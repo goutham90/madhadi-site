@@ -1,7 +1,7 @@
 ---
 title: "What Is a CAPA? Corrective and Preventive Action Explained"
 description: "CAPA is the backbone of every quality management system. This guide explains what CAPA is, when it's triggered, how to run one, and what separates an effective CAPA from a compliance checkbox."
-pubDate: 2026-06-03
+pubDate: 2025-08-17
 tags: ["CAPA", "QMS", "GxP", "quality", "foundations"]
 tier: "Beginner"
 pillar: "quality-assurance"

@@ -1,13 +1,13 @@
 ---
 title: "Cleaning Validation in Pharmaceutical Manufacturing: ADE, PDE, and the Full Framework"
 description: "A complete operational guide to cleaning validation — regulatory basis, ADE/PDE calculations, worst-case product selection, swab sampling design, acceptance criteria, and what FDA inspectors focus on."
-pubDate: 2026-06-03
+pubDate: 2026-02-23
 tags: ["cleaning validation", "GMP", "manufacturing", "contamination", "ADE", "PDE"]
 tier: "Intermediate"
 pillar: "quality-assurance"
 ---
 
-Cleaning validation is the documented evidence that your cleaning procedures effectively remove drug product residues (and cleaning agent residues) from manufacturing equipment to a level that does not pose a risk to the subsequent product or patient. It applies to any multi-product manufacturing equipment — any piece of equipment that is used to manufacture more than one product and is cleaned between campaigns.
+Cleaning validation is the documented evidence that your cleaning procedures effectively remove drug product residues (and cleaning agent residues) from manufacturing equipment to a level that does not pose a risk to the subsequent product or patient. It applies to any multi-product manufacturing equipment, any piece of equipment that is used to manufacture more than one product and is cleaned between campaigns.
 
 The regulatory basis is 21 CFR 211.67 (equipment cleaning and maintenance), FDA's 1993 Guide to Inspections of Validation of Cleaning Processes, and the 2014 EMA guideline on setting health-based exposure limits for use in risk identification in the manufacture of different medicinal products in shared facilities. The EMA 2014 guideline introduced ADE/PDE as the standard approach for setting acceptance criteria, replacing the older visual inspection and 10 ppm approaches that had been industry practice for decades.
 
@@ -111,11 +111,11 @@ The three runs must use the worst-case conditions throughout: worst-case soil, w
 
 ## Cleaning Agent Residue Limits
 
-Cleaning agent (detergent) residue must also be demonstrated acceptable. Options:
+Cleaning agent (detergent) residue must also be showed acceptable. Options:
 
 - ADE/toxicological approach: calculate acceptable daily exposure for the cleaning agent based on its toxicological profile
 - Biocompatibility approach: use a cleaning agent with an established GRAS (Generally Recognized as Safe) status with documented safety data
-- Non-detect standard: demonstrate the cleaning agent is below the validated LOQ of the analytical method in rinse samples (appropriate for agents where LOQ is well below any toxicological concern)
+- Non-detect standard: show the cleaning agent is below the validated LOQ of the analytical method in rinse samples (appropriate for agents where LOQ is well below any toxicological concern)
 
 For common detergents with established safety profiles (sodium lauryl sulfate, citric acid-based agents, many commercial alkaline cleaners), the non-detect approach is frequently sufficient. For proprietary or novel cleaning agents, a toxicological assessment is needed.
 
@@ -133,7 +133,7 @@ Both approaches must be justified in the validation plan and approved by QA.
 
 ## Verification and Lifecycle Management
 
-**Cleaning verification:** After each batch, a confirmation that cleaning was performed per the validated procedure. Not full analytical testing — that's done during validation. Verification is the operational check: cleaning time, agent concentration, temperature, and rinse checks per the SOP.
+**Cleaning verification:** After each batch, a confirmation that cleaning was performed per the validated procedure. Not full analytical testing, that's done during validation. Verification is the operational check: cleaning time, agent concentration, temperature, and rinse checks per the SOP.
 
 **Periodic revalidation:** Cleaning validation must be maintained. Triggers for revalidation or reassessment include:
 
