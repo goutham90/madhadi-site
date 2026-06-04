@@ -9,10 +9,12 @@ const { title, description = 'In-depth guides, case studies, and practical tools
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
+  { href: '/start', label: 'Start Here' },
   { href: '/articles', label: 'Articles' },
   { href: '/pillars', label: 'Pillars' },
   { href: '/tracks', label: 'Learn' },
-  { href: '/topics', label: 'Topics' },
+  { href: '/glossary', label: 'Glossary' },
+  { href: '/scenarios', label: 'Scenarios' },
   { href: '/tools', label: 'Tools' },
   { href: '/about', label: 'About' },
 ];
@@ -343,11 +345,16 @@ const navLinks = [
         <p>Data integrity knowledge for regulated biotech professionals.</p>
       </div>
       <div class="footer-links">
+        <a href="/start">Start Here</a>
         <a href="/articles">Articles</a>
         <a href="/pillars">Pillars</a>
         <a href="/tracks">Learn</a>
-        <a href="/topics">Topics</a>
+        <a href="/learning-paths">Learning Paths</a>
+        <a href="/scenarios">Scenarios</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/regulatory-refs">Regulatory Refs</a>
         <a href="/tools">Tools</a>
+        <a href="/topics">Topics</a>
         <a href="/about">About</a>
         <a href="mailto:goutham@madhadi.com">Contact</a>
       </div>

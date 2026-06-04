@@ -1,0 +1,513 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sources = [
+  {
+    jurisdiction: 'United States — FDA',
+    color: '#4f8ef7',
+    items: [
+      {
+        title: '21 CFR Part 11 — Electronic Records; Electronic Signatures',
+        type: 'Regulation',
+        year: '1997 (amended)',
+        what: 'Governs when electronic records may be used in place of paper records under FDA GxP regulations, and the requirements for electronic signatures. Audit trails, system validation, access controls, and signature authentication are the core requirements.',
+        applies: ['CSV/CSA', 'Data Integrity', 'All GxP'],
+        url: 'https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11',
+      },
+      {
+        title: '21 CFR Part 211 — Current Good Manufacturing Practice for Finished Pharmaceuticals',
+        type: 'Regulation',
+        year: 'Current',
+        what: 'The GMP regulation for finished drug products. Relevant sections for DI and CSV: §211.68 (automatic, mechanical, electronic equipment), §211.180 (general records retention), §211.188 (batch production records), §211.194 (laboratory records).',
+        applies: ['GMP', 'Data Integrity', 'Manufacturing', 'Laboratory'],
+        url: 'https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-211',
+      },
+      {
+        title: '21 CFR Part 210 — cGMP in Manufacturing, Processing, Packing, or Holding of Drugs',
+        type: 'Regulation',
+        year: 'Current',
+        what: 'Companion regulation to Part 211. Sets out the definitions and scope of GMP requirements.',
+        applies: ['GMP'],
+        url: 'https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-210',
+      },
+      {
+        title: 'FDA Guidance: Data Integrity and Compliance With Drug CGMP — Questions and Answers',
+        type: 'Guidance',
+        year: 'December 2018',
+        what: 'The primary FDA guidance on data integrity. Covers ALCOA+ definitions, audit trails, backup, metadata, original records, raw data, true copies, hybrid records, shared accounts, computer access controls, and the "data integrity framework." Referenced in nearly every DI inspection.',
+        applies: ['Data Integrity', 'All GxP'],
+        url: 'https://www.fda.gov/media/119267/download',
+      },
+      {
+        title: 'FDA Guidance: Guidance for Industry: Part 11, Electronic Records; Electronic Signatures — Scope and Application',
+        type: 'Guidance',
+        year: 'August 2003',
+        what: 'Clarifies when Part 11 applies and FDA\'s risk-based enforcement approach. Introduced the "predicate rule" concept — Part 11 requirements apply when electronic records are used under predicate regulations (Part 211, Part 58, etc.).',
+        applies: ['CSV/CSA', '21 CFR Part 11'],
+        url: 'https://www.fda.gov/media/75414/download',
+      },
+      {
+        title: 'FDA Guidance: Computer Software Assurance for Production and Quality System Software',
+        type: 'Guidance',
+        year: 'Finalized February 2026',
+        what: 'Introduces the FDA\'s CSA approach: risk-based, intended-use focused, emphasizing critical thinking over documentation volume. Applies to software used for production and quality activities. Supplements but does not replace GAMP 5.',
+        applies: ['CSV/CSA'],
+        url: 'https://www.fda.gov/regulatory-information/search-fda-guidance-documents/computer-software-assurance-production-and-quality-system-software',
+      },
+      {
+        title: 'FDA Guidance: Process Validation: General Principles and Practices',
+        type: 'Guidance',
+        year: 'January 2011',
+        what: 'Defines the three-stage process validation lifecycle (Process Design, PPQ, Continued Process Verification). The current FDA framework for pharmaceutical manufacturing validation.',
+        applies: ['Process Validation', 'Manufacturing'],
+        url: 'https://www.fda.gov/media/71021/download',
+      },
+      {
+        title: 'FDA Guidance: Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production',
+        type: 'Guidance',
+        year: 'October 2006',
+        what: 'The step-by-step FDA framework for OOS investigations: Phase I laboratory investigation, Phase II full investigation, invalidation criteria, and reporting requirements.',
+        applies: ['Laboratory', 'QMS'],
+        url: 'https://www.fda.gov/media/72704/download',
+      },
+      {
+        title: 'FDA Guidance: Submission of Electronic Records in Regulatory Submissions',
+        type: 'Guidance',
+        year: 'Various',
+        what: 'Guidance on electronic submissions to FDA, electronic record standards, and eCTD format. Relevant to BLA/NDA submissions and data packages.',
+        applies: ['Submissions', 'Clinical Systems'],
+        url: 'https://www.fda.gov/regulatory-information/search-fda-guidance-documents',
+      },
+    ],
+  },
+  {
+    jurisdiction: 'European Union — EMA / EudraLex',
+    color: '#34d399',
+    items: [
+      {
+        title: 'EudraLex Volume 4 — EU Guidelines for Good Manufacturing Practice, Annex 11: Computerised Systems',
+        type: 'Regulation / Guidance',
+        year: '2011 (under review)',
+        what: 'EU GMP requirements for computerized systems in pharmaceutical manufacturing. Covers validation, audit trails, data storage, backup and recovery, access controls, incident management, periodic review, and electronic signatures. The European counterpart to 21 CFR Part 11.',
+        applies: ['CSV/CSA', 'Data Integrity', 'Manufacturing'],
+        url: 'https://health.ec.europa.eu/system/files/2016-11/annex11_01-2011_en_0.pdf',
+      },
+      {
+        title: 'EudraLex Volume 4 — EU GMP Annex 15: Qualification and Validation',
+        type: 'Regulation / Guidance',
+        year: '2015',
+        what: 'EU GMP requirements for the qualification lifecycle (DQ, IQ, OQ, PQ), process validation, cleaning validation, change control, and revalidation. The foundational EU document for the validation lifecycle.',
+        applies: ['Qualification', 'Validation', 'Process Validation'],
+        url: 'https://health.ec.europa.eu/system/files/2016-11/2015-10_annex15_0.pdf',
+      },
+      {
+        title: 'EudraLex Volume 4 — EU GMP Chapter 4: Documentation',
+        type: 'Regulation',
+        year: 'Current',
+        what: 'EU GMP documentation requirements: data integrity requirements for paper and electronic records, retention, document control, and the definition of original records and true copies.',
+        applies: ['Data Integrity', 'Documentation', 'GMP'],
+        url: 'https://health.ec.europa.eu/system/files/2016-11/chapter4_0.pdf',
+      },
+      {
+        title: 'EudraLex Volume 4 — EU GMP Part II: Basic Requirements for Active Substances Used as Starting Materials',
+        type: 'Regulation',
+        year: 'Current',
+        what: 'ICH Q7 implemented as EU GMP Part II. Covers API manufacturing with the same data integrity and documentation requirements as finished product manufacturing.',
+        applies: ['API', 'Data Integrity', 'Manufacturing'],
+        url: 'https://health.ec.europa.eu/system/files/2016-11/2014-08_gmp_part-ii_en_0.pdf',
+      },
+    ],
+  },
+  {
+    jurisdiction: 'MHRA (UK)',
+    color: '#a78bfa',
+    items: [
+      {
+        title: 'MHRA GxP Data Integrity Guidance and Definitions',
+        type: 'Guidance',
+        year: 'March 2018',
+        what: 'One of the most specific and detailed DI guidances available. Covers ALCOA+ in depth, shared accounts, audit trail review, backup, hybrid records, management responsibilities, and what inspectors look for. Widely used alongside FDA guidance even outside UK.',
+        applies: ['Data Integrity', 'All GxP'],
+        url: 'https://www.gov.uk/government/publications/gxp-data-integrity-guidance-and-definitions',
+      },
+    ],
+  },
+  {
+    jurisdiction: 'ICH — International Council for Harmonisation',
+    color: '#fbbf24',
+    items: [
+      {
+        title: 'ICH Q10 — Pharmaceutical Quality System',
+        type: 'Guideline',
+        year: '2008',
+        what: 'Describes a model pharmaceutical quality system applicable across the product lifecycle. Covers quality manual, knowledge management, quality risk management, process performance and product quality monitoring, and CAPA system requirements.',
+        applies: ['QMS', 'Quality Assurance'],
+        url: 'https://www.ich.org/page/quality-guidelines',
+      },
+      {
+        title: 'ICH Q9(R1) — Quality Risk Management',
+        type: 'Guideline',
+        year: '2023 (Revision 1)',
+        what: 'Provides principles and tools for quality risk management across the pharmaceutical lifecycle. Tools include FMEA, HACCP, and risk ranking/filtering. R1 revision added guidance on subjectivity and human error in risk assessment.',
+        applies: ['QRM', 'Validation', 'All GxP'],
+        url: 'https://www.ich.org/page/quality-guidelines',
+      },
+      {
+        title: 'ICH Q2(R2) — Validation of Analytical Procedures',
+        type: 'Guideline',
+        year: '2022 (Revision 2)',
+        what: 'Current ICH guideline on method validation parameters: specificity, linearity, range, accuracy, precision, detection limit, quantitation limit, and robustness. R2 updated to address lifecycle approach and modern analytical technologies.',
+        applies: ['Method Validation', 'Analytical', 'Laboratory'],
+        url: 'https://www.ich.org/page/quality-guidelines',
+      },
+      {
+        title: 'ICH E6(R3) — Good Clinical Practice',
+        type: 'Guideline',
+        year: '2024 (draft/finalization)',
+        what: 'International standard for designing, conducting, recording, and reporting clinical trials. R3 revision adds risk-based monitoring, electronic records, and proportional oversight principles.',
+        applies: ['GCP', 'Clinical Systems'],
+        url: 'https://www.ich.org/page/efficacy-guidelines',
+      },
+    ],
+  },
+  {
+    jurisdiction: 'PIC/S — Pharmaceutical Inspection Co-operation Scheme',
+    color: '#f87171',
+    items: [
+      {
+        title: 'PIC/S PI 041-1 — Good Practices for Data Management and Integrity in Regulated GMP/GDP Environments',
+        type: 'Guidance',
+        year: 'Current version',
+        what: 'Comprehensive PIC/S guidance on data management and data integrity. Covers the data governance framework, risk-based approach to DI, ALCOA+ application, computerized systems, paper systems, hybrid systems, and expectations for quality culture. Widely cited alongside FDA and MHRA guidance.',
+        applies: ['Data Integrity', 'All GxP'],
+        url: 'https://picscheme.org/en/publications',
+      },
+    ],
+  },
+  {
+    jurisdiction: 'WHO — World Health Organization',
+    color: '#64748b',
+    items: [
+      {
+        title: 'WHO TRS 996 Annex 5 — Guidance on Good Data and Record Management Practices',
+        type: 'Guidance',
+        year: '2016',
+        what: 'WHO guidance on data and record management. Covers data lifecycle, ALCOA principles, computerized systems, data integrity culture, and the responsibilities of management. Widely used as a reference in developing country regulatory contexts.',
+        applies: ['Data Integrity', 'All GxP'],
+        url: 'https://www.who.int/medicines/areas/quality_safety/quality_assurance/trs/en/',
+      },
+    ],
+  },
+  {
+    jurisdiction: 'ISPE / GAMP',
+    color: '#94a3b8',
+    items: [
+      {
+        title: 'GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition',
+        type: 'Industry Standard',
+        year: '2022',
+        what: 'The industry standard framework for GxP computerized system validation. Covers software categorization (Categories 1-5), validation lifecycle, supplier assessment, testing strategies, cloud systems, data integrity, and change control. Published by ISPE. Copyright protected — reference by concept only.',
+        applies: ['CSV/CSA', 'All Systems'],
+        url: 'https://ispe.org/publications/guidance-documents/gamp-5',
+      },
+      {
+        title: 'ISPE Baseline Guide: Commissioning and Qualification, Second Edition',
+        type: 'Industry Guidance',
+        year: '2019',
+        what: 'ISPE framework for equipment and facility qualification (IQ/OQ/PQ). Covers the lifecycle approach, risk-based qualification, DQ, IQ, OQ, PQ, and integration with process validation. Referenced in EU Annex 15 context.',
+        applies: ['Equipment Qualification', 'Facilities'],
+        url: 'https://ispe.org/publications/guidance-documents',
+      },
+    ],
+  },
+  {
+    jurisdiction: 'USP — US Pharmacopeia',
+    color: '#64748b',
+    items: [
+      {
+        title: 'USP <1058> — Analytical Instrument Qualification',
+        type: 'Compendial Standard',
+        year: 'Current edition',
+        what: 'USP general chapter on the qualification of analytical instruments. Defines four groups of instruments by complexity and sets out qualification activities for each group. Group A (simple), Group B (instruments with measurable performance characteristics), Group C (complex computerized systems).',
+        applies: ['Analytical Instruments', 'Equipment Qualification', 'Laboratory'],
+        url: 'https://www.usp.org',
+      },
+    ],
+  },
+];
+---
+<Layout
+  title="Regulatory References"
+  description="Curated index of FDA, EMA, MHRA, ICH, PIC/S, WHO, and ISPE guidance for GxP quality, data integrity, CSV, and inspection readiness professionals."
+  wide={true}
+>
+  <div class="page-header">
+    <div class="page-label">Reference Index</div>
+    <h1>Regulatory References</h1>
+    <p>
+      Curated index of primary regulatory sources for GxP quality, data integrity, computer system validation,
+      equipment qualification, and inspection readiness. Organized by jurisdiction.
+      Links go to official sources where available.
+    </p>
+    <div class="disclaimer-box">
+      <span class="disclaimer-label">Use primary sources</span>
+      This index is a navigation aid, not a substitute for reading the actual documents. Regulatory guidance is updated — always check the current version at the official source. Links are provided for reference; verify currency before citing in quality documentation.
+    </div>
+  </div>
+
+  <!-- Jump nav -->
+  <div class="jump-nav">
+    {sources.map(s => (
+      <a href={`#${s.jurisdiction.replace(/[^a-zA-Z]/g, '-').toLowerCase()}`} class="jump-link">
+        {s.jurisdiction.split(' — ')[0]}
+      </a>
+    ))}
+  </div>
+
+  <!-- Sources by jurisdiction -->
+  <div class="sources-list">
+    {sources.map(s => (
+      <div class="jurisdiction-section" id={s.jurisdiction.replace(/[^a-zA-Z]/g, '-').toLowerCase()}>
+        <div class="jurisdiction-header" style={`border-left-color: ${s.color}`}>
+          <h2 class="jurisdiction-name">{s.jurisdiction}</h2>
+        </div>
+        <div class="refs-grid">
+          {s.items.map(item => (
+            <div class="ref-card">
+              <div class="ref-header">
+                <div class="ref-type-badge">{item.type}</div>
+                <div class="ref-year">{item.year}</div>
+              </div>
+              <h3 class="ref-title">{item.title}</h3>
+              <p class="ref-what">{item.what}</p>
+              <div class="ref-footer">
+                <div class="ref-applies">
+                  {item.applies.map(a => <span class="applies-tag">{a}</span>)}
+                </div>
+                {item.url && (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" class="ref-link">
+                    View source →
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="refs-footer">
+    <h3>How to use this index</h3>
+    <p>These sources are the primary regulatory basis for the content on this site. When an article makes a regulatory claim, it references one of these documents. Reading the primary sources — even selectively — is the most effective way to build regulatory knowledge that holds up under scrutiny in an inspection room.</p>
+    <p>For most GxP professionals, five documents cover 80% of the regulatory landscape: FDA DI Q&A (2018), MHRA DI Guidance (2018), 21 CFR Part 11, Annex 11, and GAMP 5 Second Edition. Start there.</p>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-label {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  .page-header > p { color: var(--muted-light); font-size: 0.95rem; margin-bottom: 1rem; }
+
+  .disclaimer-box {
+    font-size: 0.8rem;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    padding: 0.75rem 1rem;
+    border-radius: 7px;
+    line-height: 1.55;
+  }
+
+  .disclaimer-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Jump nav */
+  .jump-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 3rem;
+  }
+
+  .jump-link {
+    font-size: 0.78rem;
+    font-family: var(--mono);
+    color: var(--muted-light);
+    padding: 0.3rem 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.12s, color 0.12s;
+  }
+
+  .jump-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Jurisdiction sections */
+  .sources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .jurisdiction-header {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .jurisdiction-name {
+    font-size: 1.1rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .refs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Ref cards */
+  .ref-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.15s;
+  }
+
+  .ref-card:hover { border-color: var(--accent); }
+
+  .ref-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ref-type-badge {
+    font-size: 0.65rem;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 5px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted-light);
+  }
+
+  .ref-year {
+    font-size: 0.68rem;
+    font-family: var(--mono);
+    color: var(--muted);
+  }
+
+  .ref-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .ref-what {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+    margin: 0;
+  }
+
+  .ref-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-dim);
+  }
+
+  .ref-applies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    flex: 1;
+  }
+
+  .applies-tag {
+    font-size: 0.62rem;
+    font-family: var(--mono);
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border-dim);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+  }
+
+  .ref-link {
+    font-size: 0.75rem;
+    font-family: var(--mono);
+    color: var(--accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ref-link:hover { color: var(--accent-h); }
+
+  /* Footer */
+  .refs-footer {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    max-width: 680px;
+  }
+
+  .refs-footer h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .refs-footer p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    .refs-grid { grid-template-columns: 1fr; }
+  }
+</style>

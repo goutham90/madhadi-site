@@ -183,6 +183,20 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"automation-validation-plc-scada-dcs.md": {
+	id: "automation-validation-plc-scada-dcs.md";
+  slug: "automation-validation-plc-scada-dcs";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"batch-record-review-gmp.md": {
+	id: "batch-record-review-gmp.md";
+  slug: "batch-record-review-gmp";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "bla-readiness-data-package.md": {
 	id: "bla-readiness-data-package.md";
   slug: "bla-readiness-data-package";
@@ -235,6 +249,13 @@ declare module 'astro:content' {
 "clinical-qa-gcp-data-integrity.md": {
 	id: "clinical-qa-gcp-data-integrity.md";
   slug: "clinical-qa-gcp-data-integrity";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"clinical-systems-gcp-digital-quality.md": {
+	id: "clinical-systems-gcp-digital-quality.md";
+  slug: "clinical-systems-gcp-digital-quality";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -445,6 +466,13 @@ declare module 'astro:content' {
 "oos-investigation-process.md": {
 	id: "oos-investigation-process.md";
   slug: "oos-investigation-process";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"part-11-annex-11-practical-guide.md": {
+	id: "part-11-annex-11-practical-guide.md";
+  slug: "part-11-annex-11-practical-guide";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

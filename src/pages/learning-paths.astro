@@ -1,0 +1,486 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const paths = [
+  {
+    id: 'beginner',
+    label: 'Beginner',
+    color: '#f87171',
+    title: '7-Day GxP Foundations',
+    desc: 'For people new to GxP quality, pharmaceutical manufacturing, or data integrity. By day 7 you will understand the regulatory framework, what ALCOA+ means, how validation works, and what regulators actually inspect.',
+    days: [
+      {
+        day: 1,
+        title: 'What GMP is and why it exists',
+        task: 'Read "What Is GMP?" and "GxP Roles Explained." Write a one-paragraph summary of what GMP requires and why patient safety is the foundation, not a compliance checkbox.',
+        success: 'You can explain GMP to a non-specialist without using jargon. You understand the difference between GMP, GCP, and GLP.',
+        notdo: 'Don\'t try to memorize CFR section numbers. Don\'t read the actual CFR yet — the goal today is conceptual framing.',
+        output: 'A 3-sentence answer to: "What would happen to a pharmaceutical company that didn\'t follow GMP?"',
+      },
+      {
+        day: 2,
+        title: 'Data integrity: what it is and why it keeps failing',
+        task: 'Read "Data Integrity Foundations" and "ALCOA+ Deep Dive." For each of the nine ALCOA+ principles, write one concrete example of what a violation would look like in a lab.',
+        success: 'You can define all nine ALCOA+ principles without looking them up. You can give a real example of each one failing.',
+        notdo: 'Don\'t confuse ALCOA (five principles) with ALCOA+ (nine principles). Don\'t just memorize the acronym — understand what each principle is protecting against.',
+        output: 'A hand-written (or typed) ALCOA+ violation table: 9 principles × 1 example violation each.',
+      },
+      {
+        day: 3,
+        title: 'How GxP computerized systems work and why they need validation',
+        task: 'Read "GxP Computerized Systems Overview" and "GxP Systems: An Overview." Answer in writing: what is a LIMS, what is a CDS, and what does "validation" mean in simple terms?',
+        success: 'You understand why computerized systems need validation — not just "because FDA says so" but what specifically can go wrong without it.',
+        notdo: 'Don\'t confuse validation with testing. Testing is part of validation but validation is a documented program, not a single activity.',
+        output: 'A one-page explanation of what validation is written for a new hire who has never worked in pharma.',
+      },
+      {
+        day: 4,
+        title: 'The quality management system — how quality problems get solved',
+        task: 'Read "Deviation Management" and "What Is a CAPA?" For each, draw a simple flowchart of the process: what triggers it, what steps happen, what closes it.',
+        success: 'You understand the difference between a deviation (something happened) and a CAPA (root cause found and prevented from recurring). You understand why weak CAPAs are a major inspection finding.',
+        notdo: 'Don\'t confuse immediate correction with CAPA. An immediate correction fixes the symptom; CAPA fixes the system.',
+        output: 'Two simple flowcharts: deviation lifecycle and CAPA lifecycle.',
+      },
+      {
+        day: 5,
+        title: 'What an FDA inspection actually looks at',
+        task: 'Read "FDA Inspection Readiness" and scan the "FDA Warning Letter Patterns" article for the top 5 categories of data integrity findings. Make a list of what an FDA investigator would check in a QC laboratory.',
+        success: 'You can describe what happens during a typical FDA GMP inspection and what data integrity evidence an inspector requests.',
+        notdo: 'Don\'t assume inspections are purely about paperwork. Inspectors observe behavior, ask specific questions, and request electronic data.',
+        output: 'A list of 10 questions an FDA investigator might ask a QC analyst about data integrity.',
+      },
+      {
+        day: 6,
+        title: 'How validation deliverables connect',
+        task: 'Read "Validation Deliverables Guide" and use the interactive Validation Deliverable Selector on the Tools page for a CSV scenario. Trace the relationship: URS → FRS → test scripts → RTM → VSR.',
+        success: 'You can explain why each deliverable exists in the validation package and what gap it fills. You understand what a traceability matrix is and why it matters.',
+        notdo: 'Don\'t think of validation deliverables as forms to fill out. Each one answers a specific question that an inspector or auditor would ask.',
+        output: 'A diagram showing how URS requirements connect through to test execution and the final validation summary report.',
+      },
+      {
+        day: 7,
+        title: 'Putting it together — your 1-page regulatory map',
+        task: 'Review your outputs from days 1-6. Create a one-page summary covering: what GMP requires, what ALCOA+ protects against, why systems need validation, how quality problems get resolved, and what an FDA inspection evaluates. Use your own words.',
+        success: 'You can walk someone through the GxP quality framework in under 5 minutes without notes. You know what you still need to learn.',
+        notdo: 'Don\'t try to cover everything. The goal is a map you can hold in your head — not a comprehensive reference document.',
+        output: 'Your one-page GxP regulatory map. Keep it. Add to it over time.',
+      },
+    ],
+  },
+  {
+    id: 'intermediate',
+    label: 'Intermediate',
+    color: '#34d399',
+    title: '7-Day CSV and DI Practitioner',
+    desc: 'For practitioners already working in GxP quality or validation who want structured depth in computer system validation and data integrity. Assumes you already understand basic regulatory concepts.',
+    days: [
+      {
+        day: 1,
+        title: 'GAMP 5 Second Edition — what changed and why it matters',
+        task: 'Read "GAMP 5 Second Edition: Framework and What Changed" in full. Make a table comparing GAMP 5 First Edition to GAMP 5 Second Edition across five dimensions: categories, supplier assessment, testing approach, cloud, and agile/iterative development.',
+        success: 'You can explain the GAMP 5 category system and why Category 4 systems require more documentation than Category 3. You understand how CSA relates to GAMP 5 Second Edition.',
+        notdo: 'Don\'t treat GAMP categories as rigid boxes. The category determines the depth of validation effort, not a prescriptive document checklist.',
+        output: 'GAMP comparison table + one paragraph explaining when you\'d use a risk-based justification to reduce Category 4 testing scope.',
+      },
+      {
+        day: 2,
+        title: 'Audit trail design — what it must capture and why',
+        task: 'Read "Audit Trail Design and Review" in full. For each of five GxP systems (CDS, LIMS, ELN, MES, QMS), write what the audit trail must capture and what the three most inspection-risky gaps are.',
+        success: 'You can describe the difference between a compliant audit trail and a cosmetic one. You know what "review by exception" means, how to design it, and what it doesn\'t exempt you from.',
+        notdo: 'Don\'t assume an audit trail is compliant just because the system has one. The audit trail must be enabled, comprehensive, and regularly reviewed — and all three must be documented.',
+        output: 'Audit trail requirements matrix: 5 systems × what must be captured × top 3 risks.',
+      },
+      {
+        day: 3,
+        title: 'CSV risk assessment — practical scope decisions',
+        task: 'Read "CSV Risk Assessment Methodology." Using a fictional validated cloud LIMS as your example, draft a one-page risk assessment covering: intended use, GxP impact assessment, GAMP category, data criticality, and testing depth recommendation.',
+        success: 'You can apply a risk-based approach to scope a validation project. You can justify why some functions require more testing and others can be documented with less evidence.',
+        notdo: 'Don\'t conflate risk assessment with IQ/OQ/PQ. The risk assessment determines the scope and approach; the IQ/OQ/PQ executes the testing.',
+        output: 'One-page mock risk assessment for a cloud LIMS, with category justification and test scope recommendation.',
+      },
+      {
+        day: 4,
+        title: 'Change control for validated systems',
+        task: 'Read "Change Control for Validated Systems." Trace a fictional example: a LIMS vendor releases a patch. What is the change control process from notification to re-release? What determines whether testing is required?',
+        success: 'You understand the difference between a minor change (no re-testing), moderate change (targeted re-testing), and major change (significant re-testing). You know what impact assessment must cover.',
+        notdo: 'Don\'t use change control as a rubber stamp. The point of change control is to determine impact — if the impact assessment is always "no impact," the process is not being applied properly.',
+        output: 'A flowchart of change control for validated systems from notification to documentation close-out.',
+      },
+      {
+        day: 5,
+        title: 'Data lifecycle mapping — where integrity breaks',
+        task: 'Read "Data Lifecycle and Metadata" and "Data Governance Framework." For a fictional QC lab workflow (instrument → CDS → LIMS → batch release decision), map every point where data transfers, who touches it, and what integrity risk exists at each step.',
+        success: 'You can identify the highest-risk points in a data lifecycle and explain why transfer steps and hybrid record creation are common failure points.',
+        notdo: 'Don\'t focus only on the system — the people, procedures, and physical controls around the system are part of the data lifecycle.',
+        output: 'Data lifecycle map for QC release workflow: data flow diagram with risk callouts at each node.',
+      },
+      {
+        day: 6,
+        title: 'Periodic review — what it must cover',
+        task: 'Read "GxP Computerized Systems: Post-Go-Live Operations." Design a periodic review agenda for a validated LIMS: what must be reviewed, what evidence is needed, what would trigger a re-qualification recommendation?',
+        success: 'You understand that periodic review is not just a documentation exercise — it is the mechanism that confirms validated status over time.',
+        notdo: 'Don\'t let periodic review become a check-the-box activity. If every review concludes "validated status maintained" with no findings, it\'s probably not rigorous enough.',
+        output: 'Periodic review agenda template for a validated LIMS, including evidence checklist and re-qualification trigger criteria.',
+      },
+      {
+        day: 7,
+        title: 'Self-audit — find your own gaps',
+        task: 'Use the DI Self-Audit Checklist and CSV/CSA Program Self-Audit articles. Apply them to a system you work with (or a fictional one if needed). Identify the three highest-risk gaps you find and write a brief risk-ranked gap summary.',
+        success: 'You can conduct a structured self-assessment and write findings in the same language an FDA investigator would use.',
+        notdo: 'Don\'t write gaps in a way that minimizes them. If the gap is real, describe it accurately. You\'re preparing to find them before an inspector does.',
+        output: 'Gap summary: 3 findings, severity rating, root cause hypothesis, and proposed corrective action for each.',
+      },
+    ],
+  },
+  {
+    id: 'advanced',
+    label: 'Advanced',
+    color: '#a78bfa',
+    title: '7-Day Program Design',
+    desc: 'For senior practitioners designing DI programs, preparing for FDA/EMA inspections, or building CSV governance frameworks. Assumes deep operational experience and familiarity with regulatory requirements.',
+    days: [
+      {
+        day: 1,
+        title: 'DI program architecture — what a complete program covers',
+        task: 'Read "DI Program Architecture" and "Data Governance Framework." Map a complete enterprise DI program covering eight domains: policy, inventory, risk assessment, technical controls, procedures, training, audit/monitoring, and governance. For each domain, define the minimum evidence an FDA investigator would need to see.',
+        success: 'You can describe the full scope of a defensible DI program, not just the technical controls. You understand that DI is a quality system element, not an IT function.',
+        notdo: 'Don\'t design a DI program that only covers electronic systems. Paper records, hybrid systems, and backup procedures are equally in scope.',
+        output: 'DI program map: 8 domains × minimum evidence standard × typical finding if the domain is absent.',
+      },
+      {
+        day: 2,
+        title: 'DI gap assessment — how to find what\'s actually broken',
+        task: 'Read "DI Gap Assessment Methodology" in full. Design a gap assessment protocol for a 10-system portfolio (mix of LIMS, CDS, ELN, MES, QMS). Define scope, sampling approach, evidence to review, and how findings are tiered (critical/major/minor).',
+        success: 'You can design and execute a gap assessment that surfaces the same findings FDA would, before they do. You can write findings in a format that supports an actionable CAPA.',
+        notdo: 'Don\'t limit gap assessment to document review. Interview the users, observe the workflows, and compare what procedures say happens with what the audit trails show happened.',
+        output: 'Gap assessment protocol for a 10-system portfolio, including system sampling strategy and finding tier definitions.',
+      },
+      {
+        day: 3,
+        title: 'Inspection readiness — storyboards and evidence packages',
+        task: 'Read "FDA Inspection Readiness" and "FDA vs EMA Inspection Dynamics." Design an inspection readiness storyboard for data integrity: what three questions does the inspector ask first, what evidence is shown for each, and what are the three most likely follow-up questions?',
+        success: 'You can construct and deliver a coherent data integrity inspection narrative — not just a binder of documents, but a story that demonstrates program completeness.',
+        notdo: 'Don\'t prepare for the questions you want to answer. Prepare for the questions you are afraid of answering.',
+        output: 'Inspection storyboard: 3 opening DI questions × evidence for each × anticipated follow-ups.',
+      },
+      {
+        day: 4,
+        title: '483 response strategy — what works and what escalates',
+        task: 'Read "FDA 483 Response Strategy" and "Warning Letter Patterns." Take two fictional 483 observations (one data integrity, one CSV-related) and write a complete response for each. Apply the framework: acknowledge, root cause, immediate action, systemic CAPA, timeline, evidence.',
+        success: 'You can write a 483 response that closes an observation rather than creating follow-up questions. You understand the difference between a response that satisfies FDA and one that generates a Warning Letter.',
+        notdo: 'Don\'t have legal write the 483 response without quality input. Legal minimizes exposure; FDA wants to see quality understanding and systemic correction. These goals conflict.',
+        output: 'Two complete fictional 483 responses: one DI observation, one CSV observation. Each including root cause and CAPA with specific timelines.',
+      },
+      {
+        day: 5,
+        title: 'Remediation program design — fixing what\'s broken at scale',
+        task: 'Read "DI Remediation Program." Design a 90-day remediation program for a fictional company that received a data integrity Warning Letter covering audit trail gaps across five systems. Include phases, prioritization logic, evidence generation plan, and effectiveness verification approach.',
+        success: 'You can design a remediation program that addresses the finding, builds sustainable controls, and generates evidence of effectiveness — not just documentation of activity.',
+        notdo: 'Don\'t design a remediation program around fixing symptoms. Warning Letter responses that address observation wording without addressing root cause get responded to by FDA with more questions.',
+        output: '90-day remediation roadmap: phases, milestones, evidence deliverables, effectiveness metrics.',
+      },
+      {
+        day: 6,
+        title: 'BLA readiness — data package architecture',
+        task: 'Read "BLA Readiness: Data Package Architecture." Identify the five GxP data categories that must be represented in a BLA regulatory submission data package. For each, what are the validation and data integrity requirements that support regulatory submission acceptability?',
+        success: 'You understand how GxP data integrity and validation requirements connect to regulatory submission readiness. You can identify which gaps would delay or jeopardize a BLA.',
+        notdo: 'Don\'t wait for a regulatory submission deadline to audit DI program readiness. Submissions amplify existing gaps — they don\'t create new ones.',
+        output: 'BLA data readiness matrix: 5 data categories × validation requirement × DI requirement × common gap.',
+      },
+      {
+        day: 7,
+        title: 'Design your program — the one-year plan',
+        task: 'Synthesize all six days. Design a one-year program plan for a fictional pre-commercial biotech with 15 validated systems preparing for a pre-approval inspection. Include gap assessment, remediation priorities, inspection readiness milestones, and governance structure.',
+        success: 'You can design a DI/CSV program that a regulator would consider complete and a business leader could execute. You can explain the trade-offs between risk, resource, and timeline.',
+        notdo: 'Don\'t design a program that requires perfect resources. Design one that is risk-prioritized and executable with a realistic team.',
+        output: 'One-year program plan: phased milestones, resource requirements, risk-prioritized focus areas, and inspection readiness date.',
+      },
+    ],
+  },
+];
+---
+<Layout
+  title="7-Day Learning Paths"
+  description="Structured 7-day learning plans for GxP quality and data integrity — beginner, intermediate, and advanced. Day-by-day tasks with specific success criteria and practical outputs."
+  wide={true}
+>
+  <div class="page-header">
+    <div class="page-label">Structured Learning</div>
+    <h1>7-Day Learning Paths</h1>
+    <p>
+      Three structured 7-day plans — one for each level. Each day has a specific task that takes about 45 minutes,
+      clear success criteria, what NOT to do that day, and a practical output you keep.
+    </p>
+    <p class="subp">
+      These are not video courses or quizzes. They are reading + thinking + output plans designed to
+      build knowledge that holds up in a real work context, not just a test.
+    </p>
+  </div>
+
+  <!-- Path selector tabs -->
+  <div class="path-tabs">
+    {paths.map((p, i) => (
+      <button
+        class={`path-tab ${i === 0 ? 'active' : ''}`}
+        style={`--tab-color: ${p.color}`}
+        onclick={`showPath('${p.id}')`}
+        id={`tab-${p.id}`}
+      >
+        <span class="tab-level">{p.label}</span>
+        <span class="tab-title">{p.title}</span>
+      </button>
+    ))}
+  </div>
+
+  <!-- Path content -->
+  {paths.map((path, pi) => (
+    <div class="path-content" id={`path-${path.id}`} style={pi !== 0 ? 'display:none' : ''}>
+      <div class="path-intro">
+        <p>{path.desc}</p>
+      </div>
+
+      <div class="days-list">
+        {path.days.map(day => (
+          <div class="day-card">
+            <div class="day-header">
+              <div class="day-num" style={`color: ${path.color}; border-color: ${path.color}33`}>
+                Day {day.day}
+              </div>
+              <h3 class="day-title">{day.title}</h3>
+            </div>
+
+            <div class="day-body">
+              <div class="day-section">
+                <div class="day-label task-label">Task (45 min)</div>
+                <p class="day-text">{day.task}</p>
+              </div>
+
+              <div class="day-cols">
+                <div class="day-section">
+                  <div class="day-label success-label">Success criteria</div>
+                  <p class="day-text">{day.success}</p>
+                </div>
+                <div class="day-section">
+                  <div class="day-label notdo-label">What NOT to do today</div>
+                  <p class="day-text">{day.notdo}</p>
+                </div>
+              </div>
+
+              <div class="day-section output-section">
+                <div class="day-label output-label">Practical output</div>
+                <p class="day-text">{day.output}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+
+  <div class="lp-footer">
+    <h3>How to use these paths</h3>
+    <p>Do each day in sequence. Don't skip days. The outputs build on each other. If 45 minutes isn't enough, stop at 45 minutes and continue the next day — the schedule matters more than completing each task perfectly.</p>
+    <p>The practical outputs are for you, not for any assessment. Keep them. Return to them in six months and see what you'd change. That delta is your actual learning.</p>
+    <p>If you're not sure which path to start with, take the beginner path regardless of experience level. You'll either confirm what you know (fast) or find gaps you didn't know were there (valuable).</p>
+  </div>
+</Layout>
+
+<script>
+  function showPath(id) {
+    document.querySelectorAll('.path-content').forEach(el => (el as HTMLElement).style.display = 'none');
+    document.querySelectorAll('.path-tab').forEach(el => el.classList.remove('active'));
+    const el = document.getElementById(`path-${id}`);
+    if (el) el.style.display = 'block';
+    const tab = document.getElementById(`tab-${id}`);
+    if (tab) tab.classList.add('active');
+  }
+</script>
+
+<style>
+  .page-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-label {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  .page-header > p { color: var(--muted-light); font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .subp { color: var(--muted) !important; font-size: 0.875rem !important; }
+
+  /* Tabs */
+  .path-tabs {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .path-tab {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.85rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+    min-width: 180px;
+    border-top: 3px solid var(--border);
+  }
+
+  .path-tab.active {
+    border-color: var(--tab-color, var(--accent));
+    border-top-color: var(--tab-color, var(--accent));
+    background: var(--surface2);
+  }
+
+  .path-tab:hover { border-color: var(--tab-color, var(--accent)); }
+
+  .tab-level {
+    font-size: 0.68rem;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tab-color, var(--accent));
+  }
+
+  .tab-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  /* Path content */
+  .path-intro {
+    margin-bottom: 2rem;
+  }
+
+  .path-intro p {
+    font-size: 0.95rem;
+    color: var(--muted-light);
+    line-height: 1.7;
+    max-width: 680px;
+    margin: 0;
+  }
+
+  /* Day cards */
+  .days-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-dim);
+    background: var(--surface2);
+  }
+
+  .day-num {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  .day-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .day-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .day-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .day-section { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .day-label {
+    font-size: 0.68rem;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .task-label { color: var(--accent); }
+  .success-label { color: #34d399; }
+  .notdo-label { color: #f87171; }
+  .output-label { color: #fbbf24; }
+
+  .day-text {
+    font-size: 0.875rem;
+    color: var(--muted-light);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .output-section {
+    background: var(--surface2);
+    border: 1px solid var(--border-dim);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+  }
+
+  /* Footer */
+  .lp-footer {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    max-width: 680px;
+  }
+
+  .lp-footer h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+
+  .lp-footer p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (max-width: 700px) {
+    .day-cols { grid-template-columns: 1fr; }
+    .path-tabs { flex-direction: column; }
+    .path-tab { min-width: unset; }
+  }
+</style>

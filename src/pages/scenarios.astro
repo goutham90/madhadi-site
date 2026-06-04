@@ -1,0 +1,721 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Error Simulator — GxP Scenarios"
+  description="Interactive GxP decision scenarios. Real situations where practitioners make mistakes. Work through what to do — and why common responses go wrong."
+>
+  <div class="page-header">
+    <div class="page-label">Interactive Learning</div>
+    <h1>Error Simulator</h1>
+    <p>
+      Each scenario presents a real GxP situation. Read the setup, make a decision, and see what happens.
+      Wrong answers are shown — because understanding why something is wrong is more valuable than just knowing the right answer.
+    </p>
+    <div class="disclaimer-box">
+      <span class="disclaimer-label">Fictional scenarios</span>
+      All scenarios are fictional. They are constructed from patterns observed in public FDA warning letters, 483 observations, and published regulatory guidance. No real company, site, person, or product is referenced.
+    </div>
+  </div>
+
+  <div class="scenarios-list">
+
+    <!-- Scenario 1 -->
+    <div class="scenario-card" id="s1">
+      <div class="scenario-header">
+        <div class="scenario-num">01</div>
+        <div class="scenario-meta">
+          <div class="scenario-domain">Audit Trail Review · Data Integrity</div>
+          <div class="scenario-difficulty intermediate-badge">Intermediate</div>
+        </div>
+      </div>
+      <h2 class="scenario-title">The analyst who only reviewed passing results</h2>
+      <div class="scenario-setup">
+        <div class="setup-label">Situation</div>
+        <p>During a QA walkthrough of a CDS (chromatography data system), you find that the lead analyst's audit trail review procedure only covers samples that passed — the review log shows 100% pass rate across six months. When you ask why failing injections aren't in the review log, the analyst says: "We only have to review and document results that made it into the final report. Failures are obvious — the system rejects them." The analyst has a signed SOP for this. The QA manager says this has been the practice for three years and has never been challenged.</p>
+      </div>
+
+      <div class="scenario-question">What is the most important first action?</div>
+
+      <div class="scenario-options" id="s1-options">
+        <button class="option-btn" onclick="answer('s1','A')">
+          <span class="opt-letter">A</span>
+          <span class="opt-text">Accept the existing practice. The SOP covers it and QA approved it three years ago. No immediate action needed.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s1','B')">
+          <span class="opt-letter">B</span>
+          <span class="opt-text">Flag this as a deviation immediately. The SOP itself is wrong — audit trail review must include all entries, not just passing results. Initiate a CAPA and retrospective review.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s1','C')">
+          <span class="opt-letter">C</span>
+          <span class="opt-text">Retrain the analyst. The problem is that the analyst doesn't understand the requirement. Once they understand it, they can apply the new approach going forward.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s1','D')">
+          <span class="opt-letter">D</span>
+          <span class="opt-text">Update the SOP to require review of all entries, notify QA, and continue current practice until the SOP is approved.</span>
+        </button>
+      </div>
+
+      <div class="scenario-result hidden" id="s1-result-A">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Wrong — and here's what this reasoning misses</div>
+          <p>The QA approval of a three-year-old SOP doesn't make the underlying practice compliant. FDA and MHRA guidance is unambiguous: audit trail review must cover all GxP entries, including deleted runs, invalidated results, and test injections. Selective review of passing results only is one of the most common DI findings in analytical labs — it appeared in multiple FDA Warning Letters between 2015 and 2023. The fact that it "hasn't been challenged" means it hasn't been inspected properly, not that it's acceptable. This reasoning is the same reasoning companies use when they receive a Warning Letter for something they've done for a decade.</p>
+        </div>
+        <a class="try-again" onclick="reset('s1')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s1-result-B">
+        <div class="result-correct">
+          <div class="result-label correct-label">Correct — here's why, and what comes next</div>
+          <p>Selective audit trail review is a systemic data integrity failure, not a procedural gap. The SOP encodes the wrong behavior — it doesn't protect this practice, it makes it worse because it shows the organization designed a non-compliant review process and approved it. The correct sequence is: (1) issue a deviation documenting the non-compliant practice, (2) immediately halt the current review practice, (3) perform a retrospective review covering a risk-stratified sample of the missed audit trail entries, (4) assess whether any quality decisions made on reviewed data are still defensible, (5) implement CAPA to fix the SOP, retrain, and verify effectiveness. Three years of non-reviewed audit trails also means the regulatory risk extends back across all products tested in that lab during that period — that impact assessment is part of the CAPA.</p>
+          <div class="key-principle">
+            <div class="key-label">Key principle</div>
+            <p>QA approval of a wrong SOP makes the situation worse, not better. It demonstrates organizational awareness and acceptance of a non-compliant control. FDA uses this as evidence of systemic failure.</p>
+          </div>
+        </div>
+        <div class="ref-note">Reference: FDA DI Q&A Guidance Dec 2018 Q11; MHRA GxP DI Guidance 2018 §6.14</div>
+      </div>
+
+      <div class="scenario-result hidden" id="s1-result-C">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Partially right reasoning, completely wrong action</div>
+          <p>Retraining is part of the CAPA — but retraining without stopping the wrong practice, correcting the SOP, and performing a retrospective review misses the point. More importantly, this is not an analyst knowledge gap. The analyst followed an approved SOP. The system failure is organizational: QA approved the wrong procedure. Retraining the analyst without fixing the SOP and addressing three years of incomplete audit trail review leaves the organization exposed. An inspector who sees "retraining completed" as the only CAPA response to a selective audit trail review finding will not accept it.</p>
+        </div>
+        <a class="try-again" onclick="reset('s1')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s1-result-D">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">This delays a required immediate action</div>
+          <p>Continuing a non-compliant practice during SOP revision is not acceptable when the practice is a data integrity violation. You cannot document that you know a control is wrong and then continue using it while paperwork processes. The SOP update and immediate cessation of the wrong practice must happen at the same time. "Continue current practice until the SOP is approved" would itself become an inspection finding — you identified a DI gap and kept operating with it. The deviation must be opened now, and the practice must change now.</p>
+        </div>
+        <a class="try-again" onclick="reset('s1')">Try again →</a>
+      </div>
+    </div>
+
+    <!-- Scenario 2 -->
+    <div class="scenario-card" id="s2">
+      <div class="scenario-header">
+        <div class="scenario-num">02</div>
+        <div class="scenario-meta">
+          <div class="scenario-domain">Backup and Restore · CSV</div>
+          <div class="scenario-difficulty intermediate-badge">Intermediate</div>
+        </div>
+      </div>
+      <h2 class="scenario-title">The backup that no one ever tested</h2>
+      <div class="scenario-setup">
+        <div class="setup-label">Situation</div>
+        <p>You're preparing for an FDA pre-approval inspection. During your internal readiness review, you ask for backup restore test records for the LIMS and ELN. The IT manager provides backup logs showing daily successful backups for 18 months. When you ask for restore test records, you're told: "The backups run automatically and the system logs show success. We've never had to restore, so we haven't tested it. If we needed to restore, we'd call the vendor." The validation plan for the LIMS, approved two years ago, says "backup and restore verification will be completed prior to going live." There is no record that this was ever done.</p>
+      </div>
+
+      <div class="scenario-question">What is the inspection risk and what needs to happen before the FDA arrives?</div>
+
+      <div class="scenario-options" id="s2-options">
+        <button class="option-btn" onclick="answer('s2','A')">
+          <span class="opt-letter">A</span>
+          <span class="opt-text">The backup logs are sufficient. FDA is concerned about whether backups exist, not whether they've been tested. Prepare the logs for inspection.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s2','B')">
+          <span class="opt-letter">B</span>
+          <span class="opt-text">This is a significant validation gap. The restore test must be performed before the inspection, the gap must be documented as a deviation, and a CAPA must cover how periodic restore testing will be maintained going forward.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s2','C')">
+          <span class="opt-letter">C</span>
+          <span class="opt-text">Note it as a future improvement item and don't bring it up during the inspection unless directly asked.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s2','D')">
+          <span class="opt-letter">D</span>
+          <span class="opt-text">Contact the LIMS vendor and have them certify that the backup system works. Vendor certification replaces the need for internal testing.</span>
+        </button>
+      </div>
+
+      <div class="scenario-result hidden" id="s2-result-A">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Wrong — backup logs prove the backup ran, not that data can be recovered</div>
+          <p>Backup logs confirm that the backup process completed. They do not confirm that the backup contains complete and usable data, that the restore procedure works, that the restored system functions correctly, or that all data is recoverable within an acceptable timeframe. FDA and EMA guidance both require periodic restore testing — not just backup monitoring. An inspector will ask: "Show me your backup restore test records." Logs showing backups ran will not satisfy this. This is a predictable inspection finding for any site that has only monitored backups without testing restores.</p>
+        </div>
+        <a class="try-again" onclick="reset('s2')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s2-result-B">
+        <div class="result-correct">
+          <div class="result-label correct-label">Correct — this is the only defensible path</div>
+          <p>The validation plan committed to backup and restore verification. That commitment was never met. Before the inspection: (1) perform the restore test — restore to a test environment, verify data completeness and integrity, verify system functionality, and document the entire procedure and results; (2) open a deviation for the gap between what the validation plan committed to and what was actually done; (3) assess the impact — 18 months of production data on a system where restore was never verified; (4) establish a periodic restore test schedule and add it to the periodic review program. If the restore test fails, the situation is more serious — data recoverability may be compromised and the impact assessment must be broader. Coming to an FDA inspection with this gap unaddressed and undocumented is a far worse position than coming with a documented gap and an active CAPA.</p>
+          <div class="key-principle">
+            <div class="key-label">Key principle</div>
+            <p>Backup logs prove the backup ran. Restore tests prove data can be recovered. They are not equivalent. Both are required for a defensible GxP backup control.</p>
+          </div>
+        </div>
+        <div class="ref-note">Reference: EU Annex 11 §9 (Backup); FDA DI Q&A 2018; GAMP 5 Second Edition (2022) §12.4</div>
+      </div>
+
+      <div class="scenario-result hidden" id="s2-result-C">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">This is concealment — which makes the situation significantly worse</div>
+          <p>Knowing about a validation gap and not documenting it, not correcting it, and hoping an inspector doesn't find it is a strategy that fails in two ways. First, experienced FDA investigators systematically check backup and restore records — this is a standard inspection element for GxP computerized systems. Second, if the gap is found and you have no deviation, no CAPA, and no evidence that you identified it yourself, the finding escalates from a validation gap to a data integrity finding because it suggests inadequate internal quality oversight. The rule: find it yourself, document it, fix it, verify the fix. That is always the better position than an inspector finding it first.</p>
+        </div>
+        <a class="try-again" onclick="reset('s2')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s2-result-D">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Vendor certification does not satisfy the restore test requirement</div>
+          <p>A vendor certificate confirms the vendor's product is designed to support backup and restore. It does not confirm that your specific implementation, configuration, and data are recoverable. GxP requirements put the restore verification obligation on the system owner — the regulated company — not the vendor. You need to test restore in your environment, with your data, under your procedures, with documented results. Vendor support documentation is useful as supplementary evidence but cannot replace site-level testing.</p>
+        </div>
+        <a class="try-again" onclick="reset('s2')">Try again →</a>
+      </div>
+    </div>
+
+    <!-- Scenario 3 -->
+    <div class="scenario-card" id="s3">
+      <div class="scenario-header">
+        <div class="scenario-num">03</div>
+        <div class="scenario-meta">
+          <div class="scenario-domain">Software Change Control · CSV</div>
+          <div class="scenario-difficulty advanced-badge">Advanced</div>
+        </div>
+      </div>
+      <h2 class="scenario-title">The vendor pushed a cloud update without warning</h2>
+      <div class="scenario-setup">
+        <div class="setup-label">Situation</div>
+        <p>Your validated cloud-based ELN vendor pushed an automatic software update over the weekend. Monday morning, users report the interface looks different and two workflow configurations have changed. Your validation documentation covers version 4.2. The current version is now 4.3.1. When you call the vendor, they say this was a routine security update and the validation is still valid because "only the UI changed and the core functionality is the same." The ELN stores GxP laboratory records for ongoing clinical studies. Your validation plan has a change control procedure but the vendor update bypassed your internal process. Your QA director asks you: is the ELN still validated?</p>
+      </div>
+
+      <div class="scenario-question">How do you answer the QA director and what needs to happen next?</div>
+
+      <div class="scenario-options" id="s3-options">
+        <button class="option-btn" onclick="answer('s3','A')">
+          <span class="opt-letter">A</span>
+          <span class="opt-text">Yes, it's still validated. The vendor says only UI changed and they wouldn't push an update that breaks validation. Accept their statement and document it.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s3','B')">
+          <span class="opt-letter">B</span>
+          <span class="opt-text">No — until a change impact assessment is completed, validated status is uncertain. Freeze new data entry if possible, perform the impact assessment, determine if re-testing is required, and then restore validated status with documented evidence.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s3','C')">
+          <span class="opt-letter">C</span>
+          <span class="opt-text">Yes, it's still validated. Security updates don't affect validated functionality. Document the vendor's update notification and move on.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s3','D')">
+          <span class="opt-letter">D</span>
+          <span class="opt-text">No — the validation is void. Stop using the ELN immediately until a full revalidation is complete.</span>
+        </button>
+      </div>
+
+      <div class="scenario-result hidden" id="s3-result-A">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">You cannot accept a vendor's statement as your change control</div>
+          <p>A vendor saying "your validation is still valid" is not a regulated activity. The vendor does not own your validation. You own your validation. What the vendor says about their product doesn't satisfy your regulatory obligation to assess changes under change control and maintain validation documentation current with the system state. The two workflow configuration changes you already observed indicate that something beyond UI did change. Accepting the vendor's assurance without investigation, when you can already see functional differences, is not a defensible position.</p>
+        </div>
+        <a class="try-again" onclick="reset('s3')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s3-result-B">
+        <div class="result-correct">
+          <div class="result-label correct-label">Correct — this is how cloud change control works in practice</div>
+          <p>Validated status requires your change control process to be applied. A vendor update that bypassed your change control is a deviation, regardless of what the vendor says about impact. Here's the sequence: (1) Raise a deviation documenting that the vendor update was applied without going through your change control process. This is a process failure between you and the vendor — your supply agreement should require change notification. (2) Perform a change impact assessment: review the vendor's release notes, compare versions, assess which validated functions may have been affected, and specifically investigate the two workflow changes users reported. (3) Based on the impact assessment, determine whether re-testing is required (likely yes for the workflow areas that changed) or whether the change can be documented as low risk with justification. (4) Execute testing, document results, and formally restore validated status. (5) CAPA: update your cloud vendor agreement to require advance change notification, establish a testing window, and define escalation when advance notice isn't given. Stopping data entry depends on risk — if the workflow changes affected data entry or calculations, new data entered in that window may need to be reviewed more carefully.</p>
+          <div class="key-principle">
+            <div class="key-label">Key principle</div>
+            <p>Cloud systems don't exempt you from change control. They require a different implementation of change control — one that relies on supplier agreements, change notification, and rapid impact assessment processes rather than preventing changes.</p>
+          </div>
+        </div>
+        <div class="ref-note">Reference: GAMP 5 Second Edition (2022) §10 Cloud; Annex 11 §10; FDA Part 11 Scope Guidance 2003</div>
+      </div>
+
+      <div class="scenario-result hidden" id="s3-result-C">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Security updates can and do affect validated functionality</div>
+          <p>"Security updates don't affect validation" is a common misunderstanding. Security patches can change system behavior, database structures, API responses, access control mechanisms, and configurations. The fact that two workflow configurations already changed is direct evidence that this update was not limited to security patches. More broadly, the category of update (security vs. feature) doesn't determine validation impact — the actual changes do. You must assess impact by reviewing what changed, not by accepting the update category label.</p>
+        </div>
+        <a class="try-again" onclick="reset('s3')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s3-result-D">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Full revalidation is excessive without an impact assessment first</div>
+          <p>Stopping use entirely and requiring full revalidation before resuming is a risk management decision that should be proportionate to the actual impact. An impact assessment determines the scope of re-testing needed. Depending on what changed, you might need targeted re-testing of affected functions — not a complete rebuild of the validation package. Proportionality is a core GAMP 5 principle. "Void and restart" is not the default response to every change — it is the response when the impact assessment determines that the change affects foundational system behavior or that the extent of change is too large to scope with targeted testing.</p>
+        </div>
+        <a class="try-again" onclick="reset('s3')">Try again →</a>
+      </div>
+    </div>
+
+    <!-- Scenario 4 -->
+    <div class="scenario-card" id="s4">
+      <div class="scenario-header">
+        <div class="scenario-num">04</div>
+        <div class="scenario-meta">
+          <div class="scenario-domain">Shared Accounts · Access Control · Data Integrity</div>
+          <div class="scenario-difficulty beginner-badge">Beginner</div>
+        </div>
+      </div>
+      <h2 class="scenario-title">The HPLC workstation everyone logs into the same way</h2>
+      <div class="scenario-setup">
+        <div class="setup-label">Situation</div>
+        <p>During a tour of the QC lab, you notice that the HPLC workstation running a commercial CDS has a single login visible on a sticky note taped to the monitor: username "qcanalyst" and password "lab2024". When you ask the lab manager, she explains: "All four analysts use the same login. The system is old — it doesn't support individual user accounts. We know who ran each sample because analysts write their initials in the lab notebook." The CDS stores raw chromatographic data for product release testing. The product is in a Phase 3 clinical trial.</p>
+      </div>
+
+      <div class="scenario-question">What is the data integrity risk and what must be done?</div>
+
+      <div class="scenario-options" id="s4-options">
+        <button class="option-btn" onclick="answer('s4','A')">
+          <span class="opt-letter">A</span>
+          <span class="opt-text">The paper notebook provides attributability. As long as the initials match the records, the data integrity requirement is met via a hybrid approach.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s4','B')">
+          <span class="opt-letter">B</span>
+          <span class="opt-text">This is a critical data integrity finding. Shared accounts eliminate attributability of electronic records. The CDS data is not attributable as required. A risk assessment, deviation, and remediation plan are needed — which may include system replacement or upgrade if individual accounts truly cannot be configured.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s4','C')">
+          <span class="opt-letter">C</span>
+          <span class="opt-text">This is an observation but not critical. Write it up as a minor finding in the lab tour notes and flag for improvement during the next budget cycle.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s4','D')">
+          <span class="opt-letter">D</span>
+          <span class="opt-text">Contact the CDS vendor and request a system upgrade to support individual accounts before any regulatory submission.</span>
+        </button>
+      </div>
+
+      <div class="scenario-result hidden" id="s4-result-A">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Paper initials cannot fix a broken electronic attributability control</div>
+          <p>The audit trail in the CDS shows every action taken under "qcanalyst" — with no way to know which of four analysts made each entry. Manual initials in a separate notebook don't link to the electronic audit trail entries. They can be added after the fact. They can't be verified against the system log. And they rely on people being honest in a system with no technical enforcement. The ALCOA principle "Attributable" applies to the electronic record itself. FDA and MHRA guidance are explicit: shared accounts are not acceptable for GxP computerized systems because they eliminate the ability to reconstruct who did what. Phase 3 clinical testing data with unattributable electronic records is a serious finding with potential implications for the regulatory submission.</p>
+        </div>
+        <a class="try-again" onclick="reset('s4')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s4-result-B">
+        <div class="result-correct">
+          <div class="result-label correct-label">Correct — this is a critical finding, not a minor observation</div>
+          <p>Shared accounts are one of the most clearly defined data integrity violations in both FDA and MHRA guidance. MHRA DI Guidance 2018 states: "Shared or generic log-ins should not be used for GxP activities." FDA DI Q&A 2018 requires that audit trails attribute actions to the individual who performed them. The remediation path: (1) open a deviation — this is a critical DI finding because it affects Phase 3 release data; (2) perform a risk assessment on data generated under the shared account — assess which decisions were made on this data and whether they remain defensible; (3) investigate whether individual accounts can be enabled (many "old" CDS systems can be configured for individual accounts — the lab manager's statement should be verified against the system documentation or vendor); (4) if the system genuinely cannot support individual accounts, a compensating control must be designed and risk-justified — and this may mean the system is not fit for purpose for GxP release testing; (5) the sticky note with credentials is a separate finding — passwords must be protected. This situation also needs to be reported to QA management because Phase 3 data integrity affects the regulatory submission.</p>
+          <div class="key-principle">
+            <div class="key-label">Key principle</div>
+            <p>Shared accounts are a critical finding in any GxP system. "The system doesn't support individual accounts" is worth verifying — it's often not true. If it is true, the system may not be fit for GxP use.</p>
+          </div>
+        </div>
+        <div class="ref-note">Reference: FDA DI Q&A 2018 Q4; MHRA GxP DI Guidance 2018 §6.7; PIC/S PI 041-1</div>
+      </div>
+
+      <div class="scenario-result hidden" id="s4-result-C">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Shared accounts on a GxP release testing system is never a minor finding</div>
+          <p>Minor findings are things like a single signature missing from a form, a training record filed in the wrong folder, or a label print slightly misaligned. Shared accounts on a CDS used for Phase 3 clinical release testing is a systemic data integrity failure affecting all data generated in that lab under that account. If FDA finds this first, it will not be written as a minor observation. Flagging for "next budget cycle" with Phase 3 data at risk is not acceptable quality oversight. This needs escalation today.</p>
+        </div>
+        <a class="try-again" onclick="reset('s4')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s4-result-D">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Contacting the vendor doesn't close the existing data integrity gap</div>
+          <p>Contacting the vendor to request an upgrade is part of the long-term fix — but it does nothing about the data already generated under a shared account, and it does nothing about ongoing risk. The deviation, risk assessment, and impact evaluation on existing data must happen regardless of whether an upgrade is coming. Additionally, waiting for a vendor upgrade timeline (potentially months) while continuing to generate GxP data with shared accounts extends the problem. Interim compensating controls may be needed immediately.</p>
+        </div>
+        <a class="try-again" onclick="reset('s4')">Try again →</a>
+      </div>
+    </div>
+
+    <!-- Scenario 5 -->
+    <div class="scenario-card" id="s5">
+      <div class="scenario-header">
+        <div class="scenario-num">05</div>
+        <div class="scenario-meta">
+          <div class="scenario-domain">Inspection Response · Audit Management</div>
+          <div class="scenario-difficulty advanced-badge">Advanced</div>
+        </div>
+      </div>
+      <h2 class="scenario-title">The 483 observation you weren't expecting</h2>
+      <div class="scenario-setup">
+        <div class="setup-label">Situation</div>
+        <p>At the close of a 5-day FDA cGMP inspection, the investigator issues a 483 with three observations. Observation 2 reads: "The firm's procedures for periodic review of computerized systems do not include a requirement to verify that audit trails are enabled and have not been disabled since the last review." You review your validated system inventory — eight systems have periodic review procedures, but none of them include a check to confirm audit trail enable/disable status between review cycles. The 483 response is due in 15 business days. During the exit discussion, the investigator mentioned she may follow up on the response. Your legal team wants you to commit to the minimum possible in writing.</p>
+      </div>
+
+      <div class="scenario-question">How should you structure the response to Observation 2?</div>
+
+      <div class="scenario-options" id="s5-options">
+        <button class="option-btn" onclick="answer('s5','A')">
+          <span class="opt-letter">A</span>
+          <span class="opt-text">Respond narrowly: acknowledge the gap, commit to updating procedures, provide a timeline 12 months out to satisfy legal's concern about minimizing commitments. Do not address the eight systems beyond what was directly cited.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s5','B')">
+          <span class="opt-letter">B</span>
+          <span class="opt-text">Acknowledge the observation, identify root cause, commit to immediate checks of audit trail status across all affected systems, update all eight periodic review SOPs, provide evidence with the response where possible, and give a specific realistic timeline for all actions.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s5','C')">
+          <span class="opt-letter">C</span>
+          <span class="opt-text">Disagree with the observation. Periodic review has always included manual review of recent audit trail entries, which is equivalent to confirming the audit trail is enabled.</span>
+        </button>
+        <button class="option-btn" onclick="answer('s5','D')">
+          <span class="opt-letter">D</span>
+          <span class="opt-text">Agree with the observation, immediately verify audit trail status on all eight systems, and if all audit trails are currently enabled, note this in the response as evidence of low risk with a short timeline for procedure updates.</span>
+        </button>
+      </div>
+
+      <div class="scenario-result hidden" id="s5-result-A">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Narrow responses to systemic observations tend to generate follow-up</div>
+          <p>Legal teams often want to minimize commitments to preserve flexibility — a reasonable instinct in litigation, but counterproductive in FDA 483 responses. FDA reads narrow responses as insufficient understanding of the finding or unwillingness to address systemic issues. An investigator who cited eight systems affected by the same gap will notice if your response only addresses "the system reviewed during the inspection." A 12-month timeline for a procedure update that takes one to two weeks to write and approve signals either organizational dysfunction or deliberate delay. Both are bad. Narrow, legally hedged responses increase the probability of escalation to Warning Letter.</p>
+        </div>
+        <a class="try-again" onclick="reset('s5')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s5-result-B">
+        <div class="result-correct">
+          <div class="result-label correct-label">Correct — complete, systemic, with evidence</div>
+          <p>A strong 483 response to a systemic observation: (1) acknowledges the specific finding without minimizing it; (2) identifies the root cause — in this case, the periodic review SOP template didn't include audit trail status verification as a required check; (3) describes immediate action — conduct out-of-cycle audit trail status verification on all eight systems now, before the response is submitted, and include the results; (4) describes the systemic fix — update all eight periodic review SOPs to include the audit trail enable/disable check; (5) provides specific, realistic timelines — procedure updates in 30-45 days is credible; (6) includes evidence where possible — completed SOP revisions, signed approvals, verification records. On timeline: commit to what you can actually do. FDA does not expect perfection, but they do expect you to demonstrate that your organization can fix problems it identifies. Short timelines with completed actions in the response are far stronger than long timelines with "planned" activities.</p>
+          <div class="key-principle">
+            <div class="key-label">Key principle</div>
+            <p>A strong 483 response treats the observation as finding a gap the company should have found itself. It shows FDA that the quality system works — it received the finding, understood it, assessed scope, and fixed it. That is the message that reduces the risk of escalation.</p>
+          </div>
+        </div>
+        <div class="ref-note">Reference: FDA Regulatory Procedures Manual §4; FDA Warning Letter Policy; FDA CDER Inspection Program</div>
+      </div>
+
+      <div class="scenario-result hidden" id="s5-result-C">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Disagreeing with this observation creates more risk, not less</div>
+          <p>Manual audit trail entry review and verification that the audit trail is still enabled are different things. Reviewing entries tells you what was recorded; it doesn't tell you whether the audit trail was disabled and re-enabled between review periods, hiding a gap. FDA's observation is technically accurate: periodic review procedures did not include an explicit check that audit trail configuration had not changed. You can choose to disagree with a 483 observation if you have a well-supported technical basis — but this observation doesn't have a strong disagreement case, and disagreement without a substantive technical argument escalates the relationship with FDA rather than resolving it.</p>
+        </div>
+        <a class="try-again" onclick="reset('s5')">Try again →</a>
+      </div>
+
+      <div class="scenario-result hidden" id="s5-result-D">
+        <div class="result-wrong">
+          <div class="result-label wrong-label">Close — but the framing undersells the response</div>
+          <p>This option gets the verification right and including current audit trail status in the response is good evidence. The gap is that framing currently-enabled audit trails as "evidence of low risk" to justify a shorter-than-necessary fix timeline is incomplete. The finding is about the absence of a control — the periodic review procedure doesn't require the check. The fact that audit trails are currently enabled is good news, but it doesn't resolve the finding: the procedural gap still exists and will exist again until the SOP is updated. Include the verification results as evidence of current status, but the response must also commit to the SOP updates with specific timelines — regardless of current status.</p>
+        </div>
+        <a class="try-again" onclick="reset('s5')">Try again →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="scenarios-footer">
+    <p>These scenarios are drawn from patterns in publicly available FDA enforcement actions and regulatory guidance. They are designed to surface the reasoning behind compliance decisions, not to prescribe specific actions for any real situation. Always apply professional judgment to your specific regulatory context.</p>
+    <p>More scenarios will be added covering: deviation investigation decisions, method validation gaps, clinical system vendor oversight, and CAPA effectiveness failures.</p>
+  </div>
+</Layout>
+
+<script>
+  function answer(scenarioId, choice) {
+    // Hide all options
+    const options = document.getElementById(`${scenarioId}-options`);
+    options.style.display = 'none';
+
+    // Show selected result
+    const result = document.getElementById(`${scenarioId}-result-${choice}`);
+    if (result) result.classList.remove('hidden');
+  }
+
+  function reset(scenarioId) {
+    // Show options again
+    const options = document.getElementById(`${scenarioId}-options`);
+    options.style.display = 'flex';
+
+    // Reset all button states
+    const btns = options.querySelectorAll('.option-btn');
+    btns.forEach(btn => {
+      btn.classList.remove('selected', 'correct', 'wrong');
+    });
+
+    // Hide all results
+    ['A','B','C','D'].forEach(c => {
+      const r = document.getElementById(`${scenarioId}-result-${c}`);
+      if (r) r.classList.add('hidden');
+    });
+  }
+</script>
+
+<style>
+  .page-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-label {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  .page-header > p { color: var(--muted-light); font-size: 0.95rem; margin-bottom: 1rem; }
+
+  .disclaimer-box {
+    font-size: 0.8rem;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    padding: 0.75rem 1rem;
+    border-radius: 7px;
+    line-height: 1.55;
+  }
+
+  .disclaimer-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Scenario cards */
+  .scenarios-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .scenario-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .scenario-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .scenario-num {
+    font-size: 1.5rem;
+    font-family: var(--mono);
+    font-weight: 800;
+    color: var(--border);
+    letter-spacing: -0.05em;
+    flex-shrink: 0;
+  }
+
+  .scenario-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .scenario-domain {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .beginner-badge, .intermediate-badge, .advanced-badge {
+    font-size: 0.65rem;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+  }
+
+  .beginner-badge { background: rgba(248,113,113,0.1); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
+  .intermediate-badge { background: rgba(79,142,247,0.1); color: #4f8ef7; border: 1px solid rgba(79,142,247,0.2); }
+  .advanced-badge { background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.2); }
+
+  .scenario-title {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .scenario-setup {
+    background: var(--surface2);
+    border: 1px solid var(--border-dim);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .setup-label {
+    font-size: 0.68rem;
+    font-family: var(--mono);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .scenario-setup p {
+    font-size: 0.9rem;
+    color: var(--muted-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .scenario-question {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  /* Options */
+  .scenario-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+  }
+
+  .option-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .opt-letter {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    font-weight: 800;
+    color: var(--muted);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .opt-text {
+    font-size: 0.875rem;
+    color: var(--muted-light);
+    line-height: 1.6;
+  }
+
+  /* Results */
+  .scenario-result {
+    margin-top: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .hidden { display: none !important; }
+
+  .result-wrong, .result-correct {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .result-wrong {
+    background: rgba(248, 113, 113, 0.05);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+    border-radius: 10px;
+  }
+
+  .result-correct {
+    background: rgba(52, 211, 153, 0.05);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: 10px;
+  }
+
+  .result-label {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.75rem;
+  }
+
+  .wrong-label { color: #f87171; }
+  .correct-label { color: #34d399; }
+
+  .result-wrong p, .result-correct p {
+    font-size: 0.875rem;
+    color: var(--muted-light);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .result-wrong p:last-child, .result-correct p:last-child { margin-bottom: 0; }
+
+  .key-principle {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    margin-top: 1rem;
+  }
+
+  .key-label {
+    font-size: 0.65rem;
+    font-family: var(--mono);
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .key-principle p {
+    font-size: 0.82rem !important;
+    color: var(--muted-light) !important;
+    margin: 0 !important;
+  }
+
+  .ref-note {
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--muted);
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-dim);
+  }
+
+  .try-again {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-family: var(--mono);
+    color: var(--muted);
+    margin-top: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.12s, border-color 0.12s;
+  }
+
+  .try-again:hover { color: var(--accent); border-color: var(--accent); }
+
+  .scenarios-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .scenarios-footer p {
+    font-size: 0.825rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    .scenario-card { padding: 1.25rem; }
+  }
+</style>
