@@ -285,13 +285,13 @@ const paths = [
  </div>
 </Layout>
 
-<script>
+<script is:inline>
  function showPath(id) {
- document.querySelectorAll('.path-content').forEach(el => (el as HTMLElement).style.display = 'none');
- document.querySelectorAll('.path-tab').forEach(el => el.classList.remove('active'));
- const el = document.getElementById(`path-${id}`);
+ document.querySelectorAll('.path-content').forEach(function (el) { el.style.display = 'none'; });
+ document.querySelectorAll('.path-tab').forEach(function (el) { el.classList.remove('active'); });
+ var el = document.getElementById('path-' + id);
  if (el) el.style.display = 'block';
- const tab = document.getElementById(`tab-${id}`);
+ var tab = document.getElementById('tab-' + id);
  if (tab) tab.classList.add('active');
  }
 </script>

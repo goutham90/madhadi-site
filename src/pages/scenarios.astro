@@ -393,31 +393,21 @@ import Layout from '../layouts/Layout.astro';
  </div>
 </Layout>
 
-<script>
+<script is:inline>
  function answer(scenarioId, choice) {
- // Hide all options
- const options = document.getElementById(`${scenarioId}-options`);
+ var options = document.getElementById(scenarioId + '-options');
  options.style.display = 'none';
-
- // Show selected result
- const result = document.getElementById(`${scenarioId}-result-${choice}`);
+ var result = document.getElementById(scenarioId + '-result-' + choice);
  if (result) result.classList.remove('hidden');
  }
 
  function reset(scenarioId) {
- // Show options again
- const options = document.getElementById(`${scenarioId}-options`);
+ var options = document.getElementById(scenarioId + '-options');
  options.style.display = 'flex';
-
- // Reset all button states
- const btns = options.querySelectorAll('.option-btn');
- btns.forEach(btn => {
- btn.classList.remove('selected', 'correct', 'wrong');
- });
-
- // Hide all results
- ['A','B','C','D'].forEach(c => {
- const r = document.getElementById(`${scenarioId}-result-${c}`);
+ var btns = options.querySelectorAll('.option-btn');
+ btns.forEach(function (btn) { btn.classList.remove('selected', 'correct', 'wrong'); });
+ ['A','B','C','D'].forEach(function (c) {
+ var r = document.getElementById(scenarioId + '-result-' + c);
  if (r) r.classList.add('hidden');
  });
  }
