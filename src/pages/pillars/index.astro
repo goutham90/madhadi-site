@@ -7,7 +7,7 @@ const pillars = [
 		number: '01',
 		title: 'Data Integrity',
 		desc: 'ALCOA+, audit trails, data lifecycle, regulatory basis, and how to build a program that holds up under inspection.',
-		color: '#1C4E80',
+		color: '#B26B1E',
 		articleCount: 6,
 		tags: ['ALCOA+', 'FDA', '21 CFR 211', 'Audit Trail'],
 	},
@@ -16,7 +16,7 @@ const pillars = [
 		number: '02',
 		title: 'CSV & Computer Software Assurance',
 		desc: 'GAMP 5, the validation lifecycle, FDA\'s CSA shift, 21 CFR Part 11, EU Annex 11, and cloud/SaaS in GxP.',
-		color: '#2F6E4F',
+		color: '#3C6B4A',
 		articleCount: 5,
 		tags: ['GAMP 5', 'CSA', '21 CFR Part 11', 'Annex 11'],
 	},
@@ -25,7 +25,7 @@ const pillars = [
 		number: '03',
 		title: 'Equipment & Instrument Qualification',
 		desc: 'DQ/IQ/OQ/PQ, USP &lt;1058&gt; AIQ, calibration vs. qualification, and instrument-class-specific guidance.',
-		color: '#8A5A1E',
+		color: '#B26B1E',
 		articleCount: 2,
 		tags: ['IQ/OQ/PQ', 'USP 1058', 'Calibration', 'Annex 15'],
 	},
@@ -34,7 +34,7 @@ const pillars = [
 		number: '04',
 		title: 'Quality Assurance & QMS',
 		desc: 'ICH Q10 pharmaceutical quality system, ICH Q9(R1) risk management, CAPA, deviations, and QMS design.',
-		color: '#6B4E8A',
+		color: '#7A2E23',
 		articleCount: 2,
 		tags: ['ICH Q10', 'ICH Q9', 'CAPA', 'Risk Management'],
 	},
@@ -43,7 +43,7 @@ const pillars = [
 		number: '05',
 		title: 'Audits & Inspection Management',
 		desc: 'FDA PAI/GMP inspection readiness, handling 483 observations, Warning Letter response, and mock inspections.',
-		color: '#9A3B3B',
+		color: '#7A2E23',
 		articleCount: 2,
 		tags: ['FDA 483', 'Warning Letters', 'Inspection Readiness', 'CAPA'],
 	},
@@ -52,7 +52,7 @@ const pillars = [
 		number: '06',
 		title: 'Cell & Gene Therapy',
 		desc: 'Why CGT data integrity is structurally harder, novel assays, autologous chain of custody, BLA scrutiny, and real-time release.',
-		color: '#2B6E73',
+		color: '#3C6B4A',
 		articleCount: 3,
 		tags: ['CGT', 'BLA', 'Potency', '21 CFR Part 1271'],
 	},
@@ -61,7 +61,7 @@ const pillars = [
 		number: '07',
 		title: 'Manufacturing & Automation Systems',
 		desc: 'MES, EBR, SCADA, historians, LIMS, ELN, and where Part 11 compliance breaks down on the shop floor.',
-		color: '#46566E',
+		color: '#574F42',
 		articleCount: 1,
 		tags: ['MES', 'SCADA', 'LIMS', 'ELN'],
 	},
@@ -70,201 +70,206 @@ const pillars = [
 		number: 'X',
 		title: 'AI & Automation in Compliance',
 		desc: 'Building Part 11-compliant AI tooling, validating AI-enabled GxP systems, and where AI genuinely helps vs. where it doesn\'t.',
-		color: '#7A3B57',
+		color: '#7A2E23',
 		articleCount: 1,
 		tags: ['AI', 'Validation', 'Part 11', 'Audit Trail'],
 	},
 ];
+
+const totalArticles = pillars.reduce((n, p) => n + p.articleCount, 0);
 ---
 <Layout title="Pillars" description="Eight discipline pillars covering the full scope of GxP quality, data integrity, validation, and compliance, from foundations to program-level depth." wide={true}>
-	<section class="page-header">
-		<div class="page-label">Knowledge Pillars</div>
-		<h1>Eight pillars. End-to-end coverage.</h1>
-		<p class="lead">
-			The full depth of GxP quality and validation, organized by discipline.
-			Every pillar covers foundations through program-level strategy, with articles tagged
-			by tier so you can find the depth you need.
-		</p>
-		<div class="hero-cta">
-			<a href="/tracks" class="btn-ghost">Not sure where to start? Try a Learning Track →</a>
-		</div>
-	</section>
-
-	<section class="section">
-		<div class="pillars-grid">
-			{pillars.map(p => (
-				<a href={`/pillars/${p.slug}`} class="pillar-card card" style={`--pillar-color: ${p.color}`}>
-					<div class="pillar-head">
-						<span class="pillar-dot" aria-hidden="true"></span>
-						<span class="pillar-number">{p.number}</span>
-					</div>
-					<h2 class="pillar-title">{p.title}</h2>
-					<p class="pillar-desc" set:html={p.desc} />
-					<div class="pillar-tags">
-						{p.tags.map(t => <span class="tag">{t}</span>)}
-					</div>
-					<div class="pillar-foot">
-						<span class="article-count">{p.articleCount} article{p.articleCount !== 1 ? 's' : ''}</span>
-						<span class="pillar-arrow">→</span>
-					</div>
-				</a>
-			))}
-		</div>
-	</section>
-
-	<section class="section career-section">
-		<div class="callout career-callout">
-			<div class="career-callout-inner">
-				<div class="career-callout-copy">
-					<div class="callout-title">Getting Started</div>
-					<h2 class="career-callout-title">New to GxP and validation?</h2>
-					<p>Start with the Career &amp; Learning Paths guide, it maps the field, explains the vocabulary, and gives you a concrete roadmap for building expertise.</p>
+	<!-- ═══════════ HEADER BAND (asymmetric, image-led) ═══════════ -->
+	<section class="hub-head">
+		<div class="wrap hub-head-grid">
+			<div class="hub-head-text">
+				<div class="hub-kick">
+					<span class="kicker">Knowledge Pillars</span>
+					<span class="hub-kick-line"></span>
+					<span class="marginalia">Eight disciplines · End-to-end</span>
 				</div>
-				<a href="/articles/career-guide-gxp-validation" class="btn-primary">Read the career guide →</a>
+				<h1 class="hub-h1">Eight pillars.<br/><em>End-to-end</em> coverage.</h1>
+				<p class="lead hub-lead">
+					The full depth of GxP quality and validation, organized by discipline.
+					Every pillar covers foundations through program-level strategy, with articles tagged
+					by tier so you can find the depth you need.
+				</p>
+				<div class="hub-actions">
+					<a href="/tracks" class="btn-ghost">Not sure where to start? Try a Learning Track →</a>
+				</div>
+				<div class="hub-stats">
+					<div class="hstat"><span class="hstat-n">08</span><span class="hstat-l">Disciplines</span></div>
+					<div class="hstat"><span class="hstat-n">{totalArticles}</span><span class="hstat-l">Records</span></div>
+					<div class="hstat"><span class="hstat-n">PD</span><span class="hstat-l">Public sources</span></div>
+				</div>
 			</div>
+			<figure class="hub-fig">
+				<div class="hub-img duotone"><img src="/images/records-review.jpg" alt="A reviewer working through controlled records" loading="eager" /></div>
+				<img class="hub-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+				<figcaption class="marginalia">Fig. — The controlled record, eight ways.</figcaption>
+			</figure>
+		</div>
+		<img class="hub-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+	</section>
+
+	<!-- ═══════════ THE ROSTER (editorial 2-col, emblem + serif) ═══════════ -->
+	<section class="section-tight roster">
+		<div class="wrap">
+			<div class="roster-head">
+				<div>
+					<span class="kicker">The roster</span>
+					<h2 class="display-2">The eight disciplines.</h2>
+				</div>
+				<p class="marginalia roster-note">Numbered for the record. Each pillar runs from first principles to program-level depth — pick the discipline, then choose your tier inside.</p>
+			</div>
+			<div class="roster-grid">
+				{pillars.map(p => (
+					<a href={`/pillars/${p.slug}`} class="pillar-entry">
+						<div class="pe-top">
+							<span class="emblem pe-emblem" style={`--src:url('/brand/emblems/pillar-${p.slug}.svg')`}></span>
+							<span class="pe-num">{p.number}</span>
+						</div>
+						<h3 class="pe-title">{p.title}</h3>
+						<p class="pe-desc" set:html={p.desc} />
+						<div class="pe-tags">
+							{p.tags.map(t => <span class="tag">{t}</span>)}
+						</div>
+						<div class="pe-foot">
+							<span class="pe-count">{p.articleCount} article{p.articleCount !== 1 ? 's' : ''}</span>
+							<span class="pe-arrow">Open the pillar →</span>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════ CAREER (full-bleed dark plate) ═══════════ -->
+	<section class="section section-dark career">
+		<div class="wrap career-grid">
+			<div class="career-copy">
+				<span class="kicker">Getting started</span>
+				<h2 class="career-h2">New to GxP<br/>and validation?</h2>
+				<p>Start with the Career &amp; Learning Paths guide — it maps the field, explains the vocabulary, and gives you a concrete roadmap for building expertise.</p>
+				<div class="career-actions">
+					<a href="/articles/career-guide-gxp-validation" class="btn-accent">Read the career guide →</a>
+				</div>
+			</div>
+			<img class="career-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
 		</div>
 	</section>
 </Layout>
 
 <style>
-	/* ── Page header spacing tuned for the wide pillars hub ── */
-	.page-header { margin-bottom: 3.5rem; }
-	.page-header .lead { margin-bottom: 1.75rem; }
-	.hero-cta { display: flex; }
+	/* ════════════ HEADER BAND ════════════ */
+	.hub-head { background:
+		linear-gradient(180deg, rgba(235,229,215,0) 60%, var(--bone)),
+		url('/brand/texture-grid.svg');
+		padding-top: 3.5rem; }
+	.hub-head-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+	.hub-kick { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.5rem; }
+	.hub-kick-line { flex: 1; max-width: 70px; height: 1px; background: var(--line); }
+	.hub-h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.5rem, 5.2vw, 4.3rem); line-height: 0.98; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.5rem; }
+	.hub-h1 em { font-style: italic; color: var(--vermilion); }
+	.hub-lead { max-width: 38rem; margin-bottom: 1.75rem; }
+	.hub-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2rem; }
+	.hub-stats { display: flex; gap: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+	.hstat { display: flex; flex-direction: column; gap: 0.15rem; }
+	.hstat-n { font-family: var(--display); font-size: 1.9rem; font-weight: 500; color: var(--ink); line-height: 1; }
+	.hstat-l { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 
-	/* ── Pillar grid ── */
-	.pillars-grid {
+	.hub-fig { position: relative; margin: 0; }
+	.hub-img { aspect-ratio: 4/5; border-radius: var(--radius); box-shadow: var(--shadow); }
+	.hub-seal { position: absolute; left: -36px; bottom: 34px; width: 92px; color: var(--vermilion); background: var(--bone); border-radius: 50%; padding: 6px; }
+	.hub-fig figcaption { margin-top: 0.7rem; text-align: right; }
+	.hub-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-top: 3.5rem; }
+
+	/* ════════════ THE ROSTER ════════════ */
+	.roster-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 2.5rem; }
+	.roster-note { max-width: 24rem; text-align: right; }
+
+	.roster-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-		gap: 1.25rem;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0;
+		border-top: 2px solid var(--ink);
 	}
-
-	.pillar-card {
-		padding: 1.75rem;
+	.pillar-entry {
 		display: flex;
 		flex-direction: column;
-		gap: 0.85rem;
-		text-decoration: none;
+		gap: 0.7rem;
+		padding: 2rem 2.25rem 2rem 0;
+		border-bottom: 1px solid var(--line);
+		border-right: 1px solid var(--line);
 		color: inherit;
 		position: relative;
-		overflow: hidden;
+		transition: padding-left 0.18s, background 0.18s;
 	}
+	.pillar-entry:nth-child(2n) { border-right: none; padding-right: 0; padding-left: 2.25rem; }
+	.pillar-entry:hover { background: rgba(226,219,201,0.32); }
 
-	/* Top hairline rule in the pillar accent */
-	.pillar-card::before {
-		content: '';
-		position: absolute;
-		top: 0; left: 0; right: 0;
-		height: 2px;
-		background: var(--pillar-color);
-	}
+	.pe-top { display: flex; align-items: center; justify-content: space-between; }
+	.pe-emblem { color: var(--ink); width: 40px; height: 40px; transition: color 0.18s; }
+	.pillar-entry:hover .pe-emblem { color: var(--vermilion); }
+	.pe-num { font-family: var(--mono); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; color: var(--vermilion); }
 
-	.pillar-card:hover { border-color: var(--pillar-color); }
-
-	.pillar-head {
-		display: flex;
-		align-items: center;
-		gap: 0.55rem;
-	}
-
-	.pillar-dot {
-		width: 9px;
-		height: 9px;
-		border-radius: 50%;
-		background: var(--pillar-color);
-		flex-shrink: 0;
-	}
-
-	.pillar-number {
-		font-family: var(--mono);
-		font-size: 0.72rem;
+	.pe-title {
+		font-family: var(--display);
 		font-weight: 500;
-		color: var(--pillar-color);
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-	}
-
-	.pillar-title {
-		font-family: var(--serif);
-		font-weight: 500;
-		font-size: 1.3rem;
-		line-height: 1.25;
-		letter-spacing: -0.01em;
+		font-size: 1.55rem;
+		line-height: 1.12;
+		letter-spacing: -0.015em;
 		color: var(--ink);
-		margin: 0;
+		margin: 0.2rem 0 0;
 	}
+	.pillar-entry:hover .pe-title { color: var(--vermilion-2); }
 
-	.pillar-desc {
-		font-size: 0.9375rem;
-		color: var(--body);
+	.pe-desc {
+		font-size: 0.95rem;
+		color: var(--graphite);
 		line-height: 1.6;
 		flex: 1;
 		margin: 0;
+		max-width: 34rem;
 	}
 
-	.pillar-tags {
-		display: flex;
-		gap: 0.4rem;
-		flex-wrap: wrap;
-	}
+	.pe-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 
-	.pillar-foot {
+	.pe-foot {
 		display: flex;
+		align-items: baseline;
 		justify-content: space-between;
-		align-items: center;
-		margin-top: 0.35rem;
-		padding-top: 0.85rem;
+		gap: 1rem;
+		margin-top: 0.4rem;
+		padding-top: 0.9rem;
 		border-top: 1px solid var(--line);
 	}
+	.pe-count { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--muted); }
+	.pe-arrow { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink); white-space: nowrap; transition: color 0.15s; }
+	.pillar-entry:hover .pe-arrow { color: var(--vermilion-2); }
 
-	.article-count {
-		font-family: var(--mono);
-		font-size: 0.72rem;
-		letter-spacing: 0.04em;
-		color: var(--muted);
+	/* ════════════ CAREER (dark) ════════════ */
+	.career { position: relative; overflow: hidden; }
+	.career-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 3rem; align-items: center; position: relative; z-index: 2; }
+	.career-h2 { font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.02; letter-spacing: -0.02em; color: var(--on-ink); margin: 1rem 0 1rem; }
+	.career-copy p { font-size: 1.05rem; line-height: 1.65; color: var(--on-ink-dim); max-width: 40rem; margin-bottom: 1.75rem; }
+	.career-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+	.career-seal { width: 150px; color: var(--vermilion); justify-self: end; opacity: 0.92; }
+
+	/* ════════════ RESPONSIVE ════════════ */
+	@media (max-width: 900px) {
+		.hub-head-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+		.hub-fig { order: -1; max-width: 420px; }
+		.hub-seal { width: 70px; left: -18px; }
+		.roster-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+		.roster-note { text-align: left; }
+		.career-grid { grid-template-columns: 1fr; gap: 2rem; }
+		.career-seal { display: none; }
 	}
-
-	.pillar-arrow {
-		color: var(--pillar-color);
-		font-size: 1rem;
-		transition: transform 0.15s;
-	}
-
-	.pillar-card:hover .pillar-arrow { transform: translateX(4px); }
-
-	/* ── Career callout ── */
-	.career-section { margin-bottom: 2rem; }
-
-	.career-callout { padding: 2rem 2.25rem; margin: 0; }
-
-	.career-callout-inner {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 2rem;
-	}
-
-	.career-callout-title {
-		font-family: var(--serif);
-		font-weight: 500;
-		font-size: 1.45rem;
-		letter-spacing: -0.01em;
-		color: var(--ink);
-		margin: 0 0 0.5rem;
-	}
-
-	.career-callout p {
-		font-size: 0.95rem;
-		color: var(--body);
-		max-width: 540px;
-		margin: 0;
-		line-height: 1.6;
-	}
-
-	.btn-primary { white-space: nowrap; flex-shrink: 0; }
-
 	@media (max-width: 700px) {
-		.pillars-grid { grid-template-columns: 1fr; }
-		.career-callout-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+		.roster-grid { grid-template-columns: 1fr; }
+		.pillar-entry,
+		.pillar-entry:nth-child(2n) { border-right: none; padding-right: 0; padding-left: 0; }
+		.hub-stats { flex-wrap: wrap; gap: 1.5rem; }
 	}
 </style>

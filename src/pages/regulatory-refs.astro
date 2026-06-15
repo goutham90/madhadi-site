@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 const sources = [
  {
  jurisdiction: 'United States, FDA',
- color: '#1C4E80',
+ color: 'var(--vermilion)',
  items: [
  {
  title: '21 CFR Part 11, Electronic Records; Electronic Signatures',
@@ -82,7 +82,7 @@ const sources = [
  },
  {
  jurisdiction: 'European Union, EMA / EudraLex',
- color: '#2F6E4F',
+ color: 'var(--vermilion)',
  items: [
  {
  title: 'EudraLex Volume 4, EU Guidelines for Good Manufacturing Practice, Annex 11: Computerised Systems',
@@ -120,7 +120,7 @@ const sources = [
  },
  {
  jurisdiction: 'MHRA (UK)',
- color: '#6B4E8A',
+ color: 'var(--vermilion)',
  items: [
  {
  title: 'MHRA GxP Data Integrity Guidance and Definitions',
@@ -134,7 +134,7 @@ const sources = [
  },
  {
  jurisdiction: 'ICH, International Council for Harmonisation',
- color: '#8A5A1E',
+ color: 'var(--vermilion)',
  items: [
  {
  title: 'ICH Q10, Pharmaceutical Quality System',
@@ -172,7 +172,7 @@ const sources = [
  },
  {
  jurisdiction: 'PIC/S, Pharmaceutical Inspection Co-operation Scheme',
- color: '#9A3B3B',
+ color: 'var(--vermilion)',
  items: [
  {
  title: 'PIC/S PI 041-1, Good Practices for Data Management and Integrity in Regulated GMP/GDP Environments',
@@ -186,7 +186,7 @@ const sources = [
  },
  {
  jurisdiction: 'WHO, World Health Organization',
- color: '#46566E',
+ color: 'var(--vermilion)',
  items: [
  {
  title: 'WHO TRS 996 Annex 5, Guidance on Good Data and Record Management Practices',
@@ -200,7 +200,7 @@ const sources = [
  },
  {
  jurisdiction: 'ISPE / GAMP',
- color: '#2B6E73',
+ color: 'var(--vermilion)',
  items: [
  {
  title: 'GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition',
@@ -222,7 +222,7 @@ const sources = [
  },
  {
  jurisdiction: 'USP, US Pharmacopeia',
- color: '#7A3B57',
+ color: 'var(--vermilion)',
  items: [
  {
  title: 'USP <1058>, Analytical Instrument Qualification',
@@ -235,50 +235,90 @@ const sources = [
  ],
  },
 ];
+
+const totalRefs = sources.reduce((n, s) => n + s.items.length, 0);
 ---
 <Layout
  title="Regulatory References"
  description="Curated index of FDA, EMA, MHRA, ICH, PIC/S, WHO, and ISPE guidance for GxP quality, data integrity, CSV, and inspection readiness professionals."
  wide={true}
 >
- <div class="page-header">
- <div class="page-label">Reference Index</div>
- <h1>Regulatory References</h1>
- <p class="lead">
+ <!-- ═══════════ MASTHEAD (dark, image-led) ═══════════ -->
+ <section class="reg-masthead section-dark duotone">
+ <img class="reg-masthead-img" src="/images/records-review.jpg" alt="" loading="eager" />
+ <div class="reg-masthead-grad"></div>
+ <div class="wrap reg-masthead-inner">
+ <div class="reg-mast-grid">
+ <div>
+ <div class="reg-kick">
+ <span class="kicker">Reference Index</span>
+ <span class="reg-kick-line"></span>
+ <span class="marginalia reg-kick-note">The source register</span>
+ </div>
+ <h1 class="reg-title">Regulatory References</h1>
+ <p class="lead reg-lead">
  Curated index of primary regulatory sources for GxP quality, data integrity, computer system validation,
  equipment qualification, and inspection readiness. Organized by jurisdiction.
  Links go to official sources where available.
  </p>
- <div class="callout disclaimer-box">
+ <div class="reg-stats">
+ <div class="reg-stat"><span class="reg-stat-n">{totalRefs}</span><span class="reg-stat-l">Sources</span></div>
+ <div class="reg-stat"><span class="reg-stat-n">{String(sources.length).padStart(2, '0')}</span><span class="reg-stat-l">Bodies</span></div>
+ <div class="reg-stat"><span class="reg-stat-n">PD</span><span class="reg-stat-l">Public sources</span></div>
+ </div>
+ </div>
+ <img class="reg-mast-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ </div>
+ </div>
+ </section>
+
+ <!-- ═══════════ DISCLAIMER + REGISTER NAV ═══════════ -->
+ <section class="section-tight reg-orient">
+ <div class="wrap reg-orient-grid">
+ <div class="callout reg-disclaimer">
  <div class="callout-title">Use primary sources</div>
  <p>This index is a navigation aid, not a substitute for reading the actual documents. Regulatory guidance is updated, always check the current version at the official source. Links are provided for reference; verify currency before citing in quality documentation.</p>
  </div>
- </div>
-
- <!-- Jump nav -->
- <nav class="jump-nav" aria-label="Jump to jurisdiction">
- {sources.map(s => (
- <a href={`#${s.jurisdiction.replace(/[^a-zA-Z]/g, '-').toLowerCase()}`} class="jump-link" style={`--accent-color: ${s.color}`}>
- <span class="jump-dot" style={`background: ${s.color}`}></span>
- {s.jurisdiction.split(', ')[0]}
+ <nav class="reg-register" aria-label="Jump to jurisdiction">
+ <div class="reg-register-label marginalia">The register · jump to a body</div>
+ {sources.map((s, i) => (
+ <a
+ href={`#${s.jurisdiction.replace(/[^a-zA-Z]/g, '-').toLowerCase()}`}
+ class="reg-register-row"
+ style={`--accent-color: ${s.color}`}
+ >
+ <span class="reg-register-num">{String(i + 1).padStart(2, '0')}</span>
+ <span class="reg-register-name">{s.jurisdiction.split(', ')[0]}</span>
+ <span class="reg-register-count">{s.items.length}</span>
  </a>
  ))}
  </nav>
+ </div>
+ </section>
 
- <!-- Sources by jurisdiction -->
+ <img class="reg-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+
+ <!-- ═══════════ SOURCES BY JURISDICTION (editorial register) ═══════════ -->
+ <section class="section-tight reg-sources">
+ <div class="wrap">
  <div class="sources-list">
- {sources.map(s => (
- <section class="jurisdiction-section" id={s.jurisdiction.replace(/[^a-zA-Z]/g, '-').toLowerCase()}>
- <div class="jurisdiction-header" style={`border-left-color: ${s.color}`}>
- <div class="jurisdiction-eyebrow" style={`color: ${s.color}`}>Source</div>
+ {sources.map((s, si) => (
+ <section class="jurisdiction-section" id={s.jurisdiction.replace(/[^a-zA-Z]/g, '-').toLowerCase()} style={`--accent-color: ${s.color}`}>
+ <div class="jurisdiction-header">
+ <span class="jurisdiction-num">{String(si + 1).padStart(2, '0')}</span>
+ <div class="jurisdiction-headtext">
+ <div class="jurisdiction-eyebrow">Source · {s.items.length} {s.items.length === 1 ? 'document' : 'documents'}</div>
  <h2 class="jurisdiction-name">{s.jurisdiction}</h2>
  </div>
- <div class="refs-grid">
- {s.items.map(item => (
- <article class="ref-card" style={`--accent-color: ${s.color}`}>
- <div class="ref-header">
- <div class="ref-type-badge">{item.type}</div>
- <div class="ref-year">{item.year}</div>
+ </div>
+ <ol class="refs-register">
+ {s.items.map((item, ii) => (
+ <li class="ref-row">
+ <span class="ref-num">{String(si + 1).padStart(2, '0')}.{String(ii + 1).padStart(2, '0')}</span>
+ <div class="ref-main">
+ <div class="ref-meta-top">
+ <span class="ref-type-badge">{item.type}</span>
+ <span class="ref-year">{item.year}</span>
  </div>
  <h3 class="ref-title">{item.title}</h3>
  <p class="ref-what">{item.what}</p>
@@ -292,232 +332,186 @@ const sources = [
  </a>
  )}
  </div>
- </article>
- ))}
  </div>
+ </li>
+ ))}
+ </ol>
  </section>
  ))}
  </div>
-
- <div class="refs-footer">
- <div class="page-label">Orientation</div>
- <h3>How to use this index</h3>
- <p>These sources are the primary regulatory basis for the content on this site. When an article makes a regulatory claim, it references one of these documents. Reading the primary sources, even selectively, is the most effective way to build regulatory knowledge that holds up under scrutiny in an inspection room.</p>
- <p>For most GxP professionals, five documents cover 80% of the regulatory landscape: FDA DI Q&A (2018), MHRA DI Guidance (2018), 21 CFR Part 11, Annex 11, and GAMP 5 Second Edition. Start there.</p>
  </div>
+ </section>
+
+ <!-- ═══════════ CLOSING — HOW TO USE (featured editorial) ═══════════ -->
+ <section class="section reg-closing section-dark">
+ <div class="wrap reg-closing-grid">
+ <div class="reg-closing-aside">
+ <span class="kicker">Orientation</span>
+ <img class="reg-closing-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ </div>
+ <div class="reg-closing-body">
+ <h3 class="reg-closing-h">How to use this index</h3>
+ <p>These sources are the primary regulatory basis for the content on this site. When an article makes a regulatory claim, it references one of these documents. Reading the primary sources, even selectively, is the most effective way to build regulatory knowledge that holds up under scrutiny in an inspection room.</p>
+ <p>For most GxP professionals, five documents cover 80% of the regulatory landscape: <strong>FDA DI Q&amp;A (2018)</strong>, <strong>MHRA DI Guidance (2018)</strong>, <strong>21 CFR Part 11</strong>, <strong>Annex 11</strong>, and <strong>GAMP 5 Second Edition</strong>. Start there.</p>
+ </div>
+ </div>
+ </section>
 </Layout>
 
 <style>
- /* ── Page header ── */
- .page-header > .lead {
- margin-bottom: 1.75rem;
+ /* ════════════ MASTHEAD (dark, image-led) ════════════ */
+ .reg-masthead {
+ position: relative;
+ border-bottom: 3px solid var(--vermilion);
+ overflow: hidden;
  }
+ .reg-masthead-img {
+ position: absolute; inset: 0;
+ width: 100%; height: 100%; object-fit: cover;
+ }
+ .reg-masthead-grad {
+ position: absolute; inset: 0; z-index: 2;
+ background: linear-gradient(150deg, rgba(22,19,13,0.78) 0%, rgba(22,19,13,0.7) 45%, rgba(122,46,35,0.62) 100%);
+ }
+ .reg-masthead-inner { position: relative; z-index: 3; padding: 5.5rem 0 4rem; }
+ .reg-mast-grid { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
 
- .disclaimer-box {
- margin: 0;
- }
+ .reg-kick { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.5rem; }
+ .reg-kick-line { flex: 0 0 auto; width: 80px; height: 1px; background: var(--line-ink); }
+ .reg-kick-note { color: var(--on-ink-dim); }
 
- /* ── Jump nav ── */
- .jump-nav {
- display: flex;
- flex-wrap: wrap;
- gap: 0.5rem;
- margin-bottom: 4rem;
+ .reg-title {
+ font-family: var(--display); font-weight: 500; color: var(--on-ink);
+ font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 0.98; letter-spacing: -0.03em;
+ margin-bottom: 1.4rem;
  }
+ .reg-lead { color: var(--on-ink-dim); max-width: 44rem; margin-bottom: 2rem; }
 
- .jump-link {
- display: inline-flex;
- align-items: center;
- gap: 0.5rem;
- font-family: var(--mono);
- font-size: 0.75rem;
- letter-spacing: 0.02em;
- color: var(--body);
- padding: 0.35rem 0.8rem;
- background: var(--surface);
- border: 1px solid var(--line);
- border-radius: var(--radius);
- transition: border-color 0.15s, color 0.15s;
- }
+ .reg-stats { display: flex; gap: 2.5rem; border-top: 1px solid var(--line-ink); padding-top: 1.5rem; }
+ .reg-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+ .reg-stat-n { font-family: var(--display); font-size: 2rem; font-weight: 500; color: var(--on-ink); line-height: 1; }
+ .reg-stat-l { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--vermilion); }
 
- .jump-link:hover {
- border-color: var(--accent-color, var(--navy));
- color: var(--ink);
- }
+ .reg-mast-seal { width: 150px; color: var(--vermilion); opacity: 0.92; flex-shrink: 0; }
 
- .jump-dot {
- width: 7px;
- height: 7px;
- border-radius: 2px;
- flex-shrink: 0;
+ /* ════════════ ORIENT: disclaimer + register ════════════ */
+ .reg-orient-grid {
+ display: grid; grid-template-columns: 1fr 0.85fr; gap: 3.5rem; align-items: start;
  }
+ .reg-disclaimer { margin: 0; }
 
- /* ── Jurisdiction sections ── */
- .sources-list {
- display: flex;
- flex-direction: column;
- gap: 4.5rem;
+ .reg-register { border-top: 2px solid var(--ink); }
+ .reg-register-label { padding: 0.9rem 0 1rem; border-bottom: 1px solid var(--line); }
+ .reg-register-row {
+ display: grid; grid-template-columns: 2.5rem 1fr auto; gap: 1rem; align-items: baseline;
+ padding: 0.85rem 0; border-bottom: 1px solid var(--line); color: var(--graphite);
+ transition: padding-left 0.15s, color 0.15s;
  }
+ .reg-register-row:hover { padding-left: 0.5rem; color: var(--ink); }
+ .reg-register-num { font-family: var(--mono); font-size: 0.74rem; color: var(--accent-color, var(--vermilion)); }
+ .reg-register-name { font-family: var(--display); font-size: 1.15rem; font-weight: 500; color: var(--ink); line-height: 1.1; }
+ .reg-register-row:hover .reg-register-name { color: var(--vermilion-2); }
+ .reg-register-count { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+
+ .reg-rule { display: block; width: 100%; height: 14px; color: var(--line); margin: 0.5rem 0 1rem; }
+
+ /* ════════════ SOURCES BY JURISDICTION ════════════ */
+ .sources-list { display: flex; flex-direction: column; gap: 4.5rem; }
 
  .jurisdiction-header {
- border-left: 3px solid var(--navy);
- padding-left: 1.1rem;
- margin-bottom: 1.75rem;
+ display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: baseline;
+ padding-bottom: 1.4rem; margin-bottom: 1.75rem; border-bottom: 2px solid var(--ink);
  }
-
+ .jurisdiction-num {
+ font-family: var(--display); font-weight: 500; font-size: clamp(2.4rem, 4vw, 3.4rem);
+ line-height: 0.9; color: var(--accent-color, var(--vermilion)); letter-spacing: -0.02em;
+ }
  .jurisdiction-eyebrow {
- font-family: var(--mono);
- font-size: 0.7rem;
- font-weight: 500;
- text-transform: uppercase;
- letter-spacing: 0.16em;
- margin-bottom: 0.45rem;
+ font-family: var(--mono); font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+ letter-spacing: 0.16em; color: var(--vermilion); margin-bottom: 0.55rem;
  }
-
  .jurisdiction-name {
- font-family: var(--serif);
- font-weight: 500;
- font-size: clamp(1.4rem, 2.4vw, 1.85rem);
- letter-spacing: -0.015em;
- color: var(--ink);
- line-height: 1.15;
+ font-family: var(--display); font-weight: 500; color: var(--ink);
+ font-size: clamp(1.5rem, 2.8vw, 2.2rem); letter-spacing: -0.02em; line-height: 1.08;
  }
 
- .refs-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
- gap: 1.25rem;
+ /* ── Reference register rows (NOT cards) ── */
+ .refs-register { list-style: none; padding: 0; margin: 0; }
+ .ref-row {
+ display: grid; grid-template-columns: 5rem 1fr; gap: 1.75rem; align-items: start;
+ padding: 1.85rem 0; border-bottom: 1px solid var(--line);
+ transition: padding-left 0.15s;
+ }
+ .ref-row:first-child { border-top: 1px solid var(--line); }
+ .ref-row:hover { padding-left: 0.6rem; }
+
+ .ref-num {
+ font-family: var(--mono); font-size: 0.82rem; color: var(--accent-color, var(--vermilion));
+ padding-top: 0.3rem; letter-spacing: 0.02em;
  }
 
- /* ── Ref cards ── */
- .ref-card {
- background: var(--surface);
- border: 1px solid var(--line);
- border-top: 2px solid var(--accent-color, var(--navy));
- border-radius: var(--radius);
- box-shadow: var(--shadow-sm);
- padding: 1.5rem 1.6rem;
- display: flex;
- flex-direction: column;
- gap: 0.85rem;
- transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
- }
-
- .ref-card:hover {
- border-color: var(--line-2);
- border-top-color: var(--accent-color, var(--navy));
- transform: translateY(-2px);
- box-shadow: var(--shadow);
- }
-
- .ref-header {
- display: flex;
- align-items: center;
- gap: 0.6rem;
- }
-
+ .ref-main { min-width: 0; }
+ .ref-meta-top { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.7rem; }
  .ref-type-badge {
- font-family: var(--mono);
- font-size: 0.64rem;
- font-weight: 500;
- text-transform: uppercase;
- letter-spacing: 0.08em;
- padding: 0.16rem 0.5rem;
- border-radius: var(--radius-sm);
- background: var(--paper-2);
- border: 1px solid var(--line);
- color: var(--muted);
+ font-family: var(--mono); font-size: 0.64rem; font-weight: 700; text-transform: uppercase;
+ letter-spacing: 0.08em; padding: 0.18rem 0.5rem; border-radius: var(--radius);
+ background: var(--bone-2); border: 1px solid var(--line); color: var(--graphite);
  }
-
- .ref-year {
- font-family: var(--mono);
- font-size: 0.7rem;
- color: var(--muted);
- letter-spacing: 0.02em;
- }
+ .ref-year { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.02em; }
 
  .ref-title {
- font-family: var(--serif);
- font-weight: 600;
- font-size: 1.08rem;
- color: var(--ink);
- line-height: 1.32;
- letter-spacing: -0.01em;
+ font-family: var(--display); font-weight: 500; font-size: clamp(1.2rem, 2vw, 1.5rem);
+ color: var(--ink); line-height: 1.2; letter-spacing: -0.015em; margin-bottom: 0.6rem;
+ max-width: 52ch;
  }
+ .ref-row:hover .ref-title { color: var(--vermilion-2); }
 
  .ref-what {
- font-family: var(--sans);
- font-size: 0.9rem;
- color: var(--body);
- line-height: 1.65;
- flex: 1;
- margin: 0;
+ font-family: var(--sans); font-size: 0.95rem; color: var(--graphite);
+ line-height: 1.65; margin-bottom: 1rem; max-width: 68ch;
  }
 
  .ref-footer {
- display: flex;
- align-items: flex-end;
- justify-content: space-between;
- gap: 0.85rem;
+ display: flex; align-items: center; justify-content: space-between; gap: 1rem;
  flex-wrap: wrap;
- margin-top: 0.35rem;
- padding-top: 0.95rem;
- border-top: 1px solid var(--line);
  }
-
- .ref-applies {
- display: flex;
- flex-wrap: wrap;
- gap: 0.35rem;
- flex: 1;
- }
-
- .applies-tag {
- font-size: 0.62rem;
- padding: 0.12rem 0.42rem;
- }
+ .ref-applies { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+ .applies-tag { font-size: 0.62rem; padding: 0.14rem 0.45rem; }
 
  .ref-link {
- font-family: var(--mono);
- font-size: 0.74rem;
- color: var(--link);
- white-space: nowrap;
- flex-shrink: 0;
+ font-family: var(--mono); font-size: 0.74rem; font-weight: 700; text-transform: uppercase;
+ letter-spacing: 0.04em; color: var(--vermilion-2); white-space: nowrap; flex-shrink: 0;
  transition: color 0.15s;
  }
+ .ref-link:hover { color: var(--ink); }
 
- .ref-link:hover { color: var(--link-h); }
-
- /* ── Footer ── */
- .refs-footer {
- margin-top: 5rem;
- padding-top: 2.5rem;
- border-top: 1px solid var(--line);
- max-width: var(--measure);
+ /* ════════════ CLOSING (dark featured) ════════════ */
+ .reg-closing { border-top: 3px solid var(--vermilion); }
+ .reg-closing-grid { display: grid; grid-template-columns: 0.4fr 1fr; gap: 3.5rem; align-items: start; }
+ .reg-closing-aside { display: flex; flex-direction: column; gap: 1.5rem; }
+ .reg-closing-seal { width: 110px; color: var(--vermilion); }
+ .reg-closing-h {
+ font-family: var(--display); font-weight: 500; color: var(--on-ink);
+ font-size: clamp(1.8rem, 3.4vw, 2.7rem); line-height: 1.05; letter-spacing: -0.02em;
+ margin-bottom: 1.4rem; max-width: 18ch;
  }
+ .reg-closing-body p { font-size: 1.05rem; color: var(--on-ink-dim); line-height: 1.7; margin-bottom: 1.1rem; max-width: 60ch; }
+ .reg-closing-body p:last-child { margin-bottom: 0; }
 
- .refs-footer .page-label {
- margin-bottom: 0.75rem;
+ /* ════════════ RESPONSIVE ════════════ */
+ @media (max-width: 900px) {
+ .reg-mast-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+ .reg-mast-seal { display: none; }
+ .reg-orient-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+ .reg-closing-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+ .reg-closing-aside { flex-direction: row; align-items: center; gap: 1.25rem; }
+ .reg-closing-seal { width: 72px; }
  }
-
- .refs-footer h3 {
- font-family: var(--serif);
- font-weight: 500;
- font-size: 1.4rem;
- letter-spacing: -0.01em;
- margin-bottom: 0.9rem;
- color: var(--ink);
- }
-
- .refs-footer p {
- font-family: var(--sans);
- font-size: 0.95rem;
- color: var(--body);
- line-height: 1.7;
- margin-bottom: 0.85rem;
- }
-
- @media (max-width: 600px) {
- .refs-grid { grid-template-columns: 1fr; }
+ @media (max-width: 560px) {
+ .reg-masthead-inner { padding: 3.5rem 0 2.75rem; }
+ .reg-stats { flex-wrap: wrap; gap: 1.5rem; }
+ .ref-row { grid-template-columns: 1fr; gap: 0.6rem; }
+ .ref-num { padding-top: 0; }
+ .jurisdiction-header { grid-template-columns: 1fr; gap: 0.5rem; }
  }
 </style>

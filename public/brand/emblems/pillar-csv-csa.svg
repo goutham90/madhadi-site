@@ -1,0 +1,24 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Computer system validation">
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- monitor / system box -->
+    <rect x="8" y="12" width="40" height="28" rx="2" />
+    <!-- screen header line -->
+    <line x1="8" y1="19" x2="48" y2="19" />
+    <!-- validation checkmark on screen -->
+    <polyline points="17,29 23,35 35,23" />
+    <!-- stand -->
+    <line x1="28" y1="40" x2="28" y2="48" />
+    <line x1="20" y1="48" x2="36" y2="48" />
+    <!-- validation gear -->
+    <circle cx="48" cy="46" r="7" />
+    <circle cx="48" cy="46" r="2.4" />
+    <line x1="48" y1="36.5" x2="48" y2="39" />
+    <line x1="48" y1="53" x2="48" y2="55.5" />
+    <line x1="38.5" y1="46" x2="41" y2="46" />
+    <line x1="55" y1="46" x2="57.5" y2="46" />
+    <line x1="41.3" y1="39.3" x2="43" y2="41" />
+    <line x1="53" y1="51" x2="54.7" y2="52.7" />
+    <line x1="54.7" y1="39.3" x2="53" y2="41" />
+    <line x1="43" y1="51" x2="41.3" y2="52.7" />
+  </g>
+</svg>

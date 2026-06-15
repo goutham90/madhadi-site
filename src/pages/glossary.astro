@@ -106,41 +106,78 @@ const pillarNames: Record<string, string> = {
 };
 
 const pillarColors: Record<string, string> = {
- 'data-integrity': '#1C4E80',
- 'csv-csa': '#2F6E4F',
- 'equipment-qualification': '#8A5A1E',
- 'quality-assurance': '#6B4E8A',
- 'audits-inspection': '#9A3B3B',
- 'cell-gene-therapy': '#2B6E73',
- 'manufacturing-automation': '#46566E',
- 'ai-automation': '#7A3B57',
+ 'data-integrity': 'var(--vermilion)',
+ 'csv-csa': 'var(--oxblood)',
+ 'equipment-qualification': '#B26B1E',
+ 'quality-assurance': '#3C6B4A',
+ 'audits-inspection': 'var(--vermilion-2)',
+ 'cell-gene-therapy': '#7A2E23',
+ 'manufacturing-automation': 'var(--graphite)',
+ 'ai-automation': 'var(--ink)',
 };
 
 // Group alphabetically
 const alphabet = [...new Set(terms.map(t => t.term[0].toUpperCase()))].sort();
+const termCount = terms.length;
+const sourceCount = [...new Set(terms.flatMap(t => t.refs))].length;
 ---
 <Layout
  title="Glossary"
  description="Plain-language definitions for 70+ GxP, data integrity, CSV, quality assurance, and regulatory terms. For practitioners at all levels."
+ wide={true}
 >
- <div class="page-header">
- <div class="page-label">Reference</div>
- <h1>Glossary</h1>
- <p class="lead">Plain-language definitions for common GxP, data integrity, CSV, and regulatory terms. Each definition distinguishes between what the term means and where it comes from in regulation or guidance.</p>
+ <!-- ═══════════ HEADER BAND (image-led, asymmetric) ═══════════ -->
+ <section class="gh">
+ <div class="wrap gh-grid">
+ <div class="gh-text">
+ <div class="gh-kick"><span class="kicker">Reference Register</span><span class="gh-kick-line"></span><span class="marginalia">A–{alphabet[alphabet.length - 1]} · {termCount} entries</span></div>
+ <h1 class="gh-h1">The Glossary</h1>
+ <p class="lead gh-lead">Plain-language definitions for common GxP, data integrity, CSV, and regulatory terms. Each definition distinguishes between what the term means and where it comes from in regulation or guidance.</p>
  <div class="callout disclaimer-banner">
  <div class="callout-title">Educational use only</div>
  <p>These definitions are for learning purposes. Always verify current definitions against primary regulatory sources before using in quality documentation.</p>
  </div>
  </div>
+ <figure class="gh-fig">
+ <div class="gh-img duotone"><img src="/images/records-review.jpg" alt="Quality records under review at the desk" loading="eager" /></div>
+ <img class="gh-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ <figcaption class="marginalia">Fig. — The controlled vocabulary of the record.</figcaption>
+ </figure>
+ </div>
+ <img class="gh-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+ </section>
 
- <!-- Alphabet jump nav -->
- <nav class="alpha-nav" aria-label="Jump to letter">
+ <!-- ═══════════ REGISTER STATS (dark plate) ═══════════ -->
+ <section class="section-tight section-dark register">
+ <div class="wrap register-inner">
+ <div class="register-lede">
+ <span class="kicker">How to read an entry</span>
+ <p class="register-intro">Every entry pairs a <em>definition</em> with its <em>source</em> — the regulation or guidance the term actually comes from. Where a definition here and a primary source disagree, the source wins.</p>
+ </div>
+ <dl class="register-stats">
+ <div class="rstat"><dt class="rstat-l">Entries</dt><dd class="rstat-n">{termCount}</dd></div>
+ <div class="rstat"><dt class="rstat-l">Letters</dt><dd class="rstat-n">{alphabet.length}</dd></div>
+ <div class="rstat"><dt class="rstat-l">Sources cited</dt><dd class="rstat-n">{sourceCount}</dd></div>
+ <div class="rstat"><dt class="rstat-l">Disciplines</dt><dd class="rstat-n">08</dd></div>
+ </dl>
+ </div>
+ </section>
+
+ <!-- ═══════════ ALPHABET JUMP NAV (sticky, mono) ═══════════ -->
+ <nav class="alpha-nav-wrap" aria-label="Jump to letter">
+ <div class="wrap alpha-nav">
+ <span class="alpha-nav-label">Index</span>
+ <div class="alpha-links">
  {alphabet.map(letter => (
  <a href={`#letter-${letter}`} class="alpha-link">{letter}</a>
  ))}
+ </div>
+ </div>
  </nav>
 
- <!-- Terms -->
+ <!-- ═══════════ TERMS (editorial register) ═══════════ -->
+ <section class="section-tight">
+ <div class="wrap">
  <div class="terms-list">
  {alphabet.map(letter => {
  const group = terms.filter(t => t.term[0].toUpperCase() === letter);
@@ -149,17 +186,19 @@ const alphabet = [...new Set(terms.map(t => t.term[0].toUpperCase()))].sort();
  <div class="alpha-header">
  <span class="alpha-letter">{letter}</span>
  <span class="alpha-rule"></span>
+ <span class="alpha-count">{String(group.length).padStart(2, '0')} {group.length === 1 ? 'entry' : 'entries'}</span>
  </div>
  <dl class="term-grid">
  {group.map(t => (
  <div class="term-entry">
  <dt class="term-word">
  {t.term}
- <span class="term-pillar" style={`color:${pillarColors[t.pillar] ?? '#756B5B'}`}>{pillarNames[t.pillar] ?? t.pillar}</span>
+ <span class="term-pillar" style={`color:${pillarColors[t.pillar] ?? 'var(--muted)'}`}>{pillarNames[t.pillar] ?? t.pillar}</span>
  </dt>
  <dd class="term-def">{t.def}</dd>
  {t.refs.length > 0 && (
  <dd class="term-refs">
+ <span class="term-refs-label">Source</span>
  {t.refs.map(r => <span class="term-ref">{r}</span>)}
  </dd>
  )}
@@ -170,150 +209,126 @@ const alphabet = [...new Set(terms.map(t => t.term[0].toUpperCase()))].sort();
  );
  })}
  </div>
+ </div>
+ </section>
 
+ <!-- ═══════════ FOOTER NOTE ═══════════ -->
+ <section class="section-tight">
+ <div class="wrap">
  <div class="glossary-footer">
+ <span class="emblem gf-emblem" style="--src:url('/brand/emblems/pillar-data-integrity.svg')"></span>
  <p>Missing a term? The <a href="/regulatory-refs">Regulatory References</a> page links to primary sources where authoritative definitions can be found. All regulatory definitions take precedence over any summary provided here.</p>
  </div>
+ </div>
+ </section>
 </Layout>
 
 <style>
- /* Disclaimer reuses .callout; nudge its accent to brass for an advisory note */
- .disclaimer-banner {
- border-left-color: var(--brass);
- margin-top: 1.5rem;
- margin-bottom: 0;
- }
- .disclaimer-banner .callout-title { color: var(--brass); }
+ /* ── HEADER BAND ── */
+ .gh { background:
+ linear-gradient(180deg, rgba(235,229,215,0) 55%, var(--bone)),
+ url('/brand/texture-grid.svg');
+ padding-top: 2.5rem; }
+ .gh-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+ .gh-kick { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.4rem; }
+ .gh-kick-line { flex: 1; max-width: 70px; height: 1px; background: var(--line); }
+ .gh-h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.6rem, 5.6vw, 4.6rem); line-height: 0.98; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.4rem; }
+ .gh-lead { max-width: 38rem; margin-bottom: 1.75rem; }
+ .disclaimer-banner { margin-top: 0; margin-bottom: 0; max-width: 40rem; }
 
- /* ── Alphabet jump nav ── */
- .alpha-nav {
- display: flex;
- flex-wrap: wrap;
- gap: 0.3rem;
- margin-bottom: 4rem;
- padding: 0.85rem 1rem;
- background: var(--surface);
- border: 1px solid var(--line);
- border-radius: var(--radius);
- box-shadow: var(--shadow-sm);
- position: sticky;
- top: 72px;
- z-index: 5;
- }
+ .gh-fig { position: relative; margin: 0; }
+ .gh-img { aspect-ratio: 4/5; border-radius: var(--radius); box-shadow: var(--shadow); }
+ .gh-seal { position: absolute; left: -34px; bottom: 32px; width: 88px; color: var(--vermilion); background: var(--bone); border-radius: 50%; padding: 6px; }
+ .gh-fig figcaption { margin-top: 0.7rem; text-align: right; }
+ .gh-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-top: 3rem; }
 
- .alpha-link {
- font-family: var(--mono);
- font-size: 0.78rem;
- font-weight: 500;
- color: var(--muted);
- padding: 0.3rem 0.6rem;
- border-radius: var(--radius-sm);
- transition: background 0.12s, color 0.12s;
- }
- .alpha-link:hover {
- background: var(--paper-2);
- color: var(--navy);
- }
+ /* ── REGISTER (dark plate) ── */
+ .register-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3.5rem; align-items: center; }
+ .register-intro { font-size: 1.1rem; line-height: 1.6; color: var(--on-ink-dim); margin-top: 1rem; max-width: 34rem; }
+ .register-intro em { font-style: italic; color: var(--on-ink); }
+ .register-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem 2.5rem; margin: 0; }
+ .rstat { display: flex; flex-direction: column; gap: 0.2rem; border-top: 1px solid var(--line-ink); padding-top: 0.85rem; }
+ .rstat-l { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); order: 2; }
+ .rstat-n { font-family: var(--display); font-size: 2.4rem; font-weight: 500; color: var(--on-ink); line-height: 1; order: 1; }
 
- /* ── Term groups ── */
- .alpha-group { margin-bottom: 4rem; }
- .alpha-group:last-child { margin-bottom: 0; }
-
- .alpha-header {
- display: flex;
- align-items: center;
- gap: 1rem;
- margin-bottom: 1.75rem;
- }
- .alpha-letter {
- font-family: var(--serif);
- font-size: 2rem;
- font-weight: 600;
- line-height: 1;
- color: var(--ink);
- letter-spacing: -0.01em;
- }
- .alpha-rule {
- flex: 1;
- height: 1px;
- background: var(--line-2);
- }
-
- .term-grid {
- display: flex;
- flex-direction: column;
- }
-
- .term-entry {
- padding: 1.4rem 0;
+ /* ── ALPHABET JUMP NAV ── */
+ .alpha-nav-wrap {
+ position: sticky; top: 70px; z-index: 5;
+ background: rgba(235, 229, 215, 0.92);
+ backdrop-filter: saturate(160%) blur(10px);
+ -webkit-backdrop-filter: saturate(160%) blur(10px);
  border-bottom: 1px solid var(--line);
  }
- .term-entry:first-child { padding-top: 0; }
- .term-entry:last-child { border-bottom: none; }
+ .alpha-nav { display: flex; align-items: center; gap: 1.25rem; padding-top: 0.7rem; padding-bottom: 0.7rem; }
+ .alpha-nav-label { font-family: var(--mono); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--vermilion); white-space: nowrap; }
+ .alpha-links { display: flex; flex-wrap: wrap; gap: 0.2rem; }
+ .alpha-link {
+ font-family: var(--mono); font-size: 0.82rem; font-weight: 700; color: var(--muted);
+ padding: 0.25rem 0.55rem; border-radius: var(--radius);
+ transition: background 0.12s, color 0.12s;
+ }
+ .alpha-link:hover { background: var(--bone-2); color: var(--vermilion-2); }
+
+ /* ── TERM GROUPS ── */
+ .alpha-group { margin-bottom: 4rem; scroll-margin-top: 8.5rem; }
+ .alpha-group:last-child { margin-bottom: 0; }
+
+ .alpha-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1.5rem; }
+ .alpha-letter {
+ font-family: var(--display); font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 500;
+ line-height: 1; color: var(--ink); letter-spacing: -0.02em; min-width: 2.5rem;
+ }
+ .alpha-rule { flex: 1; height: 2px; background: var(--vermilion); align-self: center; }
+ .alpha-count { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); white-space: nowrap; align-self: center; }
+
+ .term-grid { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+
+ .term-entry {
+ display: grid; grid-template-columns: 1fr; gap: 0.45rem;
+ padding: 1.5rem 0; border-bottom: 1px solid var(--line);
+ transition: padding-left 0.15s;
+ }
+ .term-entry:hover { padding-left: 0.5rem; }
 
  .term-word {
- display: flex;
- align-items: baseline;
- flex-wrap: wrap;
- gap: 0.5rem 0.9rem;
- font-family: var(--serif);
- font-size: 1.2rem;
- font-weight: 600;
- color: var(--ink);
- margin-bottom: 0.5rem;
- letter-spacing: -0.01em;
+ display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.4rem 0.9rem;
+ font-family: var(--display); font-size: 1.4rem; font-weight: 600; color: var(--ink);
+ letter-spacing: -0.015em; line-height: 1.15;
  }
+ .term-pillar { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
 
- .term-pillar {
- font-family: var(--mono);
- font-size: 0.62rem;
- font-weight: 500;
- text-transform: uppercase;
- letter-spacing: 0.1em;
- }
+ .term-def { margin: 0; font-family: var(--sans); font-size: 1rem; color: var(--graphite); line-height: 1.7; max-width: var(--measure); }
 
- .term-def {
- margin: 0 0 0.7rem;
- font-family: var(--sans);
- font-size: 1rem;
- color: var(--body);
- line-height: 1.7;
- max-width: var(--measure);
- }
-
- .term-refs {
- display: flex;
- flex-wrap: wrap;
- gap: 0.4rem;
- margin: 0;
- }
-
+ .term-refs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0.35rem 0 0; }
+ .term-refs-label { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-right: 0.2rem; }
  .term-ref {
- font-family: var(--mono);
- font-size: 0.66rem;
- color: var(--brass);
- background: var(--brass-soft);
- border: 1px solid var(--line-2);
- padding: 0.16rem 0.5rem;
- border-radius: var(--radius-sm);
- letter-spacing: 0.02em;
+ font-family: var(--mono); font-size: 0.66rem; color: var(--oxblood);
+ border: 1px solid var(--line); padding: 0.16rem 0.5rem; border-radius: var(--radius);
+ letter-spacing: 0.02em; background: var(--paper); transition: border-color 0.15s, color 0.15s;
  }
+ .term-ref:hover { border-color: var(--vermilion); color: var(--vermilion-2); }
 
- /* ── Footer note ── */
+ /* ── FOOTER NOTE ── */
  .glossary-footer {
- margin-top: 4rem;
- padding-top: 2rem;
- border-top: 1px solid var(--line);
+ display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: start;
+ padding-top: 2rem; border-top: 2px solid var(--ink);
  }
- .glossary-footer p {
- font-size: 0.9rem;
- color: var(--muted);
- line-height: 1.7;
- }
+ .gf-emblem { color: var(--vermilion); width: 40px; height: 40px; }
+ .glossary-footer p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: var(--measure); }
 
+ @media (max-width: 900px) {
+ .gh-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+ .gh-fig { order: -1; max-width: 380px; }
+ .gh-seal { width: 68px; left: -18px; }
+ .register-inner { grid-template-columns: 1fr; gap: 2rem; }
+ }
  @media (max-width: 560px) {
- .alpha-nav { position: static; margin-bottom: 3rem; }
- .alpha-group { margin-bottom: 3rem; }
- .term-word { font-size: 1.1rem; }
+ .alpha-nav-wrap { position: static; }
+ .alpha-nav { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+ .alpha-group { margin-bottom: 3rem; scroll-margin-top: 7rem; }
+ .alpha-header { gap: 1rem; }
+ .term-word { font-size: 1.2rem; }
+ .register-stats { gap: 1.25rem 1.5rem; }
+ .glossary-footer { grid-template-columns: 1fr; gap: 0.85rem; }
  }
 </style>

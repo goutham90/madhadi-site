@@ -4,775 +4,427 @@ import { getCollection } from 'astro:content';
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const recent = allArticles
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-  .slice(0, 4);
+ .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+ .slice(0, 5);
 
-const tracks = [
-  {
-    icon: '◎',
-    label: 'Foundations',
-    href: '/tracks/foundations',
-    title: 'Start with the essentials',
-    desc: 'Regulatory framework, ALCOA+ principles, GAMP 5, and what FDA/EMA actually inspect. For anyone entering the field or building a program from scratch.',
-    tags: ['ALCOA+', '21 CFR Part 11', 'GAMP 5'],
-    color: '#2F6E4F',
-  },
-  {
-    icon: '◈',
-    label: 'Implementation',
-    href: '/tracks/implementation',
-    title: 'Build and validate systems',
-    desc: 'Audit trail design, validation deliverables, CSV/CSA, manufacturing automation, and inspection readiness. For practitioners building or inheriting GxP systems.',
-    tags: ['Validation', 'Audit Trail', 'MES/SCADA'],
-    color: '#1C4E80',
-  },
-  {
-    icon: '◇',
-    label: 'Advanced',
-    href: '/tracks/advanced',
-    title: 'Program design and leadership',
-    desc: 'Enterprise DI program architecture, 483 responses, CSA, cloud validation, CGT-specific challenges, and AI tooling in regulated environments.',
-    tags: ['DI Architecture', '483 Response', 'CGT'],
-    color: '#7A3B57',
-  },
+const pillarImg = {
+ 'data-integrity': '/images/records-review.jpg',
+ 'csv-csa': '/images/records-server.jpg',
+ 'equipment-qualification': '/images/instrument-bench.jpg',
+ 'quality-assurance': '/images/audit-signing.jpg',
+ 'audits-inspection': '/images/audit-paperwork.jpg',
+ 'cell-gene-therapy': '/images/microscopy-blue.jpg',
+ 'manufacturing-automation': '/images/manufacturing-cleanroom.jpg',
+ 'ai-automation': '/images/instrument-machine.jpg',
+};
+const featured = recent[0];
+const featuredImg = (featured?.data.pillar && pillarImg[featured.data.pillar]) || '/images/lab-glassware.jpg';
+const featRead = Math.max(1, Math.ceil((featured?.body?.split(/\s+/).length ?? 0) / 220));
+const rest = recent.slice(1);
+
+const entries = [
+ {
+ n: '01', tier: 'Beginner', color: '#3C6B4A', href: '/tracks/foundations', title: 'Foundations',
+ blurb: 'Regulatory framework, ALCOA+ principles, GAMP 5, and what FDA and EMA actually inspect. For anyone entering the field or building a program from scratch.',
+ samples: [
+ { t: 'What Is GMP?', s: 'what-is-gmp' },
+ { t: 'Data Integrity Foundations', s: 'data-integrity-foundations' },
+ { t: 'GxP Roles Explained', s: 'gxp-roles-responsibilities' },
+ ],
+ },
+ {
+ n: '02', tier: 'Intermediate', color: '#B26B1E', href: '/tracks/implementation', title: 'Implementation',
+ blurb: 'Audit trail design, validation deliverables, CSV/CSA, manufacturing automation, and inspection readiness. For practitioners building or inheriting GxP systems.',
+ samples: [
+ { t: 'Audit Trail Design and Review', s: 'audit-trail-design-and-review' },
+ { t: 'GAMP 5, Second Edition', s: 'gamp5-csv-framework' },
+ { t: 'CSV Risk Assessment', s: 'csv-risk-assessment-methodology' },
+ ],
+ },
+ {
+ n: '03', tier: 'Advanced', color: '#7A2E23', href: '/tracks/advanced', title: 'Program & Leadership',
+ blurb: 'Enterprise DI program architecture, 483 responses, CSA, cloud validation, CGT-specific challenges, and AI tooling in regulated environments.',
+ samples: [
+ { t: 'DI Program Architecture', s: 'di-program-architecture' },
+ { t: 'DI Gap Assessment', s: 'di-gap-assessment-methodology' },
+ { t: 'BLA Readiness', s: 'bla-readiness-data-package' },
+ ],
+ },
+];
+
+const pillars = [
+ { slug: 'data-integrity', name: 'Data Integrity', desc: 'ALCOA+, DI program architecture, audit trail design, warning-letter patterns.' },
+ { slug: 'csv-csa', name: 'CSV / CSA', desc: 'GAMP 5, validation lifecycle, the CSA risk-based approach, cloud and SaaS.' },
+ { slug: 'equipment-qualification', name: 'Equipment Qualification', desc: 'IQ/OQ/PQ, USP <1058>, AIQ lifecycle, analytical instruments.' },
+ { slug: 'quality-assurance', name: 'Quality Assurance', desc: 'PQS, ICH Q10, change control, CAPA, document management.' },
+ { slug: 'audits-inspection', name: 'Audits & Inspection', desc: 'FDA inspection readiness, 483 responses, front- and back-room operations.' },
+ { slug: 'cell-gene-therapy', name: 'Cell & Gene Therapy', desc: 'CGT data integrity, potency assays, BLA-level scrutiny, viral vectors.' },
+ { slug: 'manufacturing-automation', name: 'Manufacturing Automation', desc: 'MES, EBR, SCADA, DCS, PLC audit trails, review-by-exception.' },
+ { slug: 'ai-automation', name: 'AI & Automation', desc: '21 CFR-compliant AI tools, NLP for audit-trail review, data pipelines.' },
+];
+
+const roles = [
+ { role: 'CSV Consultant', desc: 'Scoping validations, writing protocols, risk assessments, change control, retroactive validation, vendor qualification.', articles: [
+ { title: 'GAMP 5 Second Edition', slug: 'gamp5-csv-framework' },
+ { title: 'CSV Risk Assessment Methodology', slug: 'csv-risk-assessment-methodology' },
+ { title: 'Validation Deliverables Guide', slug: 'validation-deliverables-guide' },
+ { title: 'Change Control for Validated Systems', slug: 'change-control-validated-systems' },
+ { title: 'Retroactive Validation: Legacy Systems', slug: 'retroactive-validation-legacy-systems' },
+ ]},
+ { role: 'Data Integrity Expert', desc: 'DI gap assessments, audit trail review, forensic data analysis, remediation programs, DI training design.', articles: [
+ { title: 'Audit Trail Design and Review', slug: 'audit-trail-design-and-review' },
+ { title: 'DI Gap Assessment Methodology', slug: 'di-gap-assessment-methodology' },
+ { title: 'DI Remediation Program', slug: 'di-remediation-program' },
+ { title: 'Quality Culture and DI Failures', slug: 'quality-culture-di-failures' },
+ { title: 'Data Governance Framework', slug: 'data-governance-framework' },
+ ]},
+ { role: 'QMS Specialist', desc: 'CAPA management, document control, deviation handling, internal audits, supplier qualification, training programs.', articles: [
+ { title: 'CAPA: Corrective and Preventive Action', slug: 'what-is-a-capa' },
+ { title: 'Deviation Management', slug: 'deviation-management' },
+ { title: 'Document Control Fundamentals', slug: 'document-control-fundamentals' },
+ { title: 'Internal Audit Program', slug: 'internal-audit-program' },
+ { title: 'Supplier and Vendor Qualification', slug: 'supplier-vendor-qualification' },
+ ]},
+ { role: 'Quality Assurance', desc: 'OOS investigations, batch record review, process validation, stability programs, inspection readiness.', articles: [
+ { title: 'OOS Investigation Process', slug: 'oos-investigation-process' },
+ { title: 'Process Validation Lifecycle', slug: 'process-validation-lifecycle' },
+ { title: 'Stability Programs: ICH Q1A-Q1F', slug: 'stability-programs-ich' },
+ { title: 'Cleaning Validation Fundamentals', slug: 'cleaning-validation-fundamentals' },
+ { title: 'FDA Inspection Readiness', slug: 'fda-inspection-readiness' },
+ ]},
+ { role: 'Instrument & Equipment Qualification', desc: 'IQ/OQ/PQ lifecycle, analytical instrument qualification, method validation, method transfer, calibration programs.', articles: [
+ { title: 'Equipment Qualification Lifecycle', slug: 'equipment-qualification-lifecycle' },
+ { title: 'Analytical Instrument Qualification', slug: 'analytical-instrument-qualification' },
+ { title: 'Method Validation: ICH Q2(R2)', slug: 'method-validation-essentials' },
+ { title: 'Analytical Method Transfer', slug: 'analytical-method-transfer' },
+ ]},
+ { role: 'Clinical Quality Assurance', desc: 'GCP data integrity, EDC validation, TMF management, clinical audit programs, BLA data packages.', articles: [
+ { title: 'Clinical QA: GCP Data Integrity', slug: 'clinical-qa-gcp-data-integrity' },
+ { title: 'BLA Readiness: Data Package Architecture', slug: 'bla-readiness-data-package' },
+ { title: 'FDA vs EMA Inspection Dynamics', slug: 'fda-vs-ema-inspection-dynamics' },
+ ]},
+ { role: 'Inspection Readiness Consultant', desc: 'Pre-inspection preparation, 483 response strategy, FDA vs EMA dynamics, front/back room operations, DI inspection focus.', articles: [
+ { title: 'FDA Inspection Readiness', slug: 'fda-inspection-readiness' },
+ { title: 'FDA 483 Response Strategy', slug: 'fda-483-response-strategy' },
+ { title: 'FDA vs EMA Inspection Dynamics', slug: 'fda-vs-ema-inspection-dynamics' },
+ { title: 'FDA Warning Letter Patterns', slug: 'fda-warning-letters-patterns' },
+ { title: 'Internal Audit Program', slug: 'internal-audit-program' },
+ ]},
+ { role: 'New to GxP / Career Switcher', desc: 'Start with the foundations. What GMP is, who does what, the systems involved, and how to build your knowledge from scratch.', articles: [
+ { title: 'What Is GMP?', slug: 'what-is-gmp' },
+ { title: 'GxP Roles Explained', slug: 'gxp-roles-responsibilities' },
+ { title: 'GxP Computerized Systems Overview', slug: 'gxp-systems-overview' },
+ { title: 'Data Integrity Foundations', slug: 'data-integrity-foundations' },
+ { title: 'Breaking Into GxP Quality', slug: 'breaking-into-gxp-quality' },
+ ]},
 ];
 
 const topics = [
-  { name: 'Data Integrity', count: 14 },
-  { name: 'GxP', count: 22 },
-  { name: 'Validation', count: 14 },
-  { name: 'FDA', count: 12 },
-  { name: 'QMS', count: 9 },
-  { name: 'ALCOA+', count: 5 },
-  { name: 'GAMP 5', count: 5 },
-  { name: 'Laboratory', count: 7 },
-  { name: 'GMP', count: 6 },
-  { name: '21 CFR Part 11', count: 5 },
-  { name: 'Audit Trail', count: 5 },
-  { name: 'Cell & Gene Therapy', count: 5 },
-  { name: 'Inspection', count: 6 },
-  { name: 'CAPA', count: 4 },
-  { name: 'Warning Letters', count: 3 },
-  { name: 'Process Validation', count: 3 },
-  { name: 'Clinical QA', count: 2 },
-  { name: 'BLA', count: 3 },
-  { name: 'Method Validation', count: 3 },
-  { name: 'Stability', count: 2 },
-  { name: 'Cleaning Validation', count: 2 },
-  { name: 'MES/SCADA', count: 2 },
-  { name: 'AI Tools', count: 2 },
-  { name: 'Career', count: 4 },
+ { name: 'Data Integrity', count: 14 }, { name: 'GxP', count: 22 }, { name: 'Validation', count: 14 },
+ { name: 'FDA', count: 12 }, { name: 'QMS', count: 9 }, { name: 'ALCOA+', count: 5 },
+ { name: 'GAMP 5', count: 5 }, { name: 'Laboratory', count: 7 }, { name: 'GMP', count: 6 },
+ { name: '21 CFR Part 11', count: 5 }, { name: 'Audit Trail', count: 5 }, { name: 'Cell & Gene Therapy', count: 5 },
+ { name: 'Inspection', count: 6 }, { name: 'CAPA', count: 4 }, { name: 'Warning Letters', count: 3 },
+ { name: 'Process Validation', count: 3 }, { name: 'Clinical QA', count: 2 }, { name: 'BLA', count: 3 },
+ { name: 'Method Validation', count: 3 }, { name: 'Stability', count: 2 }, { name: 'Cleaning Validation', count: 2 },
+ { name: 'MES/SCADA', count: 2 }, { name: 'AI Tools', count: 2 }, { name: 'Career', count: 4 },
 ];
 
-const tierColors: Record<string, string> = {
-  Beginner: '#2F6E4F',
-  Intermediate: '#1C4E80',
-  Advanced: '#7A3B57',
-};
-
-const pillarAccents: Record<string, string> = {
-  'Data Integrity': '#1C4E80',
-  'CSV / CSA': '#2F6E4F',
-  'Equipment Qualification': '#8A5A1E',
-  'Quality Assurance': '#6B4E8A',
-  'Audits & Inspection': '#9A3B3B',
-  'Cell & Gene Therapy': '#2B6E73',
-  'Manufacturing Automation': '#46566E',
-  'AI & Automation': '#7A3B57',
-};
+const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 ---
 <Layout title="Home" wide={true}>
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-cols">
-      <!-- Left: intro -->
-      <div class="hero-left">
-        <div class="eyebrow">GxP Quality · Validation · Data Integrity</div>
-        <h1 class="hero-title">The practitioner's knowledge hub for GxP quality and validation.</h1>
-        <p class="lead hero-sub">
-          Operational depth on data integrity, validation, QMS, process validation,
-          inspection readiness, and CGT. Written for practitioners who need to do the job,
-          not pass a quiz.
-        </p>
-        <p class="hero-aside">
-          What I get from this: nothing, except knowing it helped someone avoid learning things the hard way.
-          If it's not useful, close the tab — no popup, no guilt.
-          Wrong or missing something? <a href="mailto:goutham@madhadi.com" class="aside-link">Let me know.</a>
-        </p>
-        <div class="hero-actions">
-          <a href="/start" class="btn-primary">Start here →</a>
-          <a href="/articles" class="btn-ghost">All articles</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-n">{allArticles.length}</span>
-            <span class="stat-l">Articles</span>
-          </div>
-          <div class="stat-div"></div>
-          <div class="stat">
-            <span class="stat-n">8</span>
-            <span class="stat-l">Pillars</span>
-          </div>
-          <div class="stat-div"></div>
-          <div class="stat">
-            <span class="stat-n">3</span>
-            <span class="stat-l">Tracks</span>
-          </div>
-        </div>
-      </div>
+ <!-- ═══════════ HERO ═══════════ -->
+ <section class="hero">
+ <div class="wrap hero-grid">
+ <div class="hero-text">
+ <div class="hero-kick"><span class="kicker">Field Manual № 01</span><span class="hero-kick-line"></span><span class="marginalia">Data Integrity · CSV · GxP Quality</span></div>
+ <h1 class="hero-h1">The working record of how quality<em> actually</em> holds up.</h1>
+ <p class="lead hero-lead">Operational depth on data integrity, validation, QMS, process validation, inspection readiness, and cell &amp; gene therapy. Written for practitioners who need to do the job, not pass a quiz.</p>
+ <div class="hero-actions">
+ <a href="/start" class="btn-accent">Start the field manual →</a>
+ <a href="/articles" class="btn-ghost">Browse all {allArticles.length} articles</a>
+ </div>
+ <p class="hero-aside marginalia">What I get from this: nothing, except knowing it helped someone avoid learning things the hard way. If it isn't useful, close the tab. No popup, no guilt. Wrong or missing something? <a href="mailto:goutham@madhadi.com">Let me know.</a></p>
+ <div class="hero-stats">
+ <div class="hstat"><span class="hstat-n">{allArticles.length}</span><span class="hstat-l">Records</span></div>
+ <div class="hstat"><span class="hstat-n">08</span><span class="hstat-l">Disciplines</span></div>
+ <div class="hstat"><span class="hstat-n">03</span><span class="hstat-l">Tracks</span></div>
+ <div class="hstat"><span class="hstat-n">PD</span><span class="hstat-l">Public sources</span></div>
+ </div>
+ </div>
+ <figure class="hero-fig">
+ <div class="hero-img duotone"><img src="/images/scientist-pipette.jpg" alt="Analyst working at the laboratory bench" loading="eager" /></div>
+ <img class="hero-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ <figcaption class="marginalia">Fig. 01 — The bench. Where the record begins.</figcaption>
+ </figure>
+ </div>
+ <img class="hero-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+ </section>
 
-      <!-- Right: where to start -->
-      <div class="hero-right">
-        <div class="eyebrow">Where are you right now?</div>
-        <div class="entry-cards">
-          <a href="/tracks/foundations" class="card entry-card">
-            <span class="tier-badge" style={`background:${tierColors.Beginner}1A;color:${tierColors.Beginner};border-color:${tierColors.Beginner}40`}>Beginner</span>
-            <div class="entry-title">New to GxP or quality</div>
-            <div class="entry-desc">Regulations, ALCOA+, GAMP 5, what FDA inspects. Start here if you're new or building foundations.</div>
-            <div class="entry-links">
-              <span>What Is GMP?</span>
-              <span>Data Integrity Foundations</span>
-              <span>GxP Roles Explained</span>
-            </div>
-            <div class="entry-cta">Foundations track →</div>
-          </a>
-          <a href="/tracks/implementation" class="card entry-card">
-            <span class="tier-badge" style={`background:${tierColors.Intermediate}1A;color:${tierColors.Intermediate};border-color:${tierColors.Intermediate}40`}>Intermediate</span>
-            <div class="entry-title">Practitioner building systems</div>
-            <div class="entry-desc">Audit trail design, CSV/CSA, validation deliverables, manufacturing systems, inspection readiness.</div>
-            <div class="entry-links">
-              <span>Audit Trail Design</span>
-              <span>GAMP 5 Second Edition</span>
-              <span>CSV Risk Assessment</span>
-            </div>
-            <div class="entry-cta">Implementation track →</div>
-          </a>
-          <a href="/tracks/advanced" class="card entry-card">
-            <span class="tier-badge" style={`background:${tierColors.Advanced}1A;color:${tierColors.Advanced};border-color:${tierColors.Advanced}40`}>Advanced</span>
-            <div class="entry-title">Senior practitioner or program lead</div>
-            <div class="entry-desc">DI program architecture, 483 responses, BLA readiness, remediation programs, CGT.</div>
-            <div class="entry-links">
-              <span>DI Program Architecture</span>
-              <span>DI Gap Assessment</span>
-              <span>BLA Readiness</span>
-            </div>
-            <div class="entry-cta">Advanced track →</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+ <!-- ═══════════ TRACKS (editorial index) ═══════════ -->
+ <section class="section-tight tracks">
+ <div class="wrap">
+ <div class="tracks-head">
+ <div>
+ <span class="kicker">Where to begin</span>
+ <h2 class="display-2">Three ways in, by depth.</h2>
+ </div>
+ <p class="marginalia tracks-note">Same topics, explained differently depending on where you are. Pick the track that matches today, not the one you aspire to.</p>
+ </div>
+ <ul class="index-list tracks-list">
+ {entries.map(e => (
+ <li>
+ <a href={e.href} class="track-row">
+ <span class="track-n" style={`color:${e.color}`}>{e.n}</span>
+ <div class="track-main">
+ <div class="track-title-row">
+ <span class="tier-badge" style={`background:${e.color}; color:#F7F3EA; border-color:${e.color}`}>{e.tier}</span>
+ <h3 class="track-title">{e.title} Track</h3>
+ </div>
+ <p class="track-blurb">{e.blurb}</p>
+ <div class="track-samples">
+ {e.samples.map(s => <a href={`/articles/${s.s}`} class="track-sample">{s.t}</a>)}
+ </div>
+ </div>
+ <span class="track-go">Start →</span>
+ </a>
+ </li>
+ ))}
+ </ul>
+ </div>
+ </section>
 
-  <!-- Learning Tracks -->
-  <section class="section tracks" id="tracks">
-    <div class="section-label">Learning Tracks</div>
-    <h2 class="section-title">Three ways in</h2>
-    <div class="tracks-grid">
-      {tracks.map(t => (
-        <div class="card track-card" style={`--track-color: ${t.color}`}>
-          <div class="track-icon">{t.icon}</div>
-          <div class="track-label">{t.label}</div>
-          <h3 class="track-title">{t.title}</h3>
-          <p class="track-desc">{t.desc}</p>
-          <div class="track-tags">
-            {t.tags.map(tag => <span class="tag">{tag}</span>)}
-          </div>
-          <a href={t.href} class="track-link">Start track →</a>
-        </div>
-      ))}
-    </div>
-  </section>
+ <!-- ═══════════ DISCIPLINES (dark plate) ═══════════ -->
+ <section class="section section-dark disciplines">
+ <div class="wrap">
+ <div class="disc-head">
+ <div>
+ <span class="kicker">The coverage</span>
+ <h2 class="display-2">Eight disciplines of regulated quality.</h2>
+ </div>
+ <p class="disc-intro">Not a glossary, not a checklist. Every record goes into the mechanics: why things fail, how regulators think, and what an inspector is actually looking for when they open a system's audit trail.</p>
+ </div>
+ <div class="disc-grid">
+ {pillars.map((p, i) => (
+ <a href={`/pillars/${p.slug}`} class="disc-item">
+ <span class="disc-num">{String(i + 1).padStart(2, '0')}</span>
+ <span class="emblem disc-emblem" style={`--src:url('/brand/emblems/pillar-${p.slug}.svg')`}></span>
+ <h3 class="disc-name">{p.name}</h3>
+ <p class="disc-desc">{p.desc}</p>
+ </a>
+ ))}
+ </div>
+ <a href="/pillars" class="btn-ghost disc-cta">All pillars →</a>
+ </div>
+ </section>
 
-  <!-- What You'll Find -->
-  <section class="section coverage">
-    <div class="coverage-inner">
-      <div class="coverage-text">
-        <div class="section-label">Coverage</div>
-        <h2 class="section-title">Eight discipline pillars</h2>
-        <p>This isn't a glossary site or a compliance checklist. Every article goes into the mechanics, why things fail, how regulators think, and what an inspector is actually looking for when they open a system audit trail.</p>
-        <a href="/pillars" class="btn-outline">Browse all pillars →</a>
-      </div>
-      <div class="coverage-list">
-        {[
-          ['Data Integrity', 'ALCOA+, DI program architecture, audit trail design, warning letter patterns'],
-          ['CSV / CSA', 'GAMP 5, validation lifecycle, CSA risk-based approach, cloud/SaaS'],
-          ['Equipment Qualification', 'IQ/OQ/PQ, USP <1058>, AIQ lifecycle, analytical instruments'],
-          ['Quality Assurance', 'PQS, ICH Q10, change control, CAPA, document management'],
-          ['Audits & Inspection', 'FDA inspection readiness, 483 responses, front/back room operations'],
-          ['Cell & Gene Therapy', 'CGT data integrity, potency assays, BLA-level scrutiny, viral vectors'],
-          ['Manufacturing Automation', 'MES, EBR, SCADA, DCS, PLC audit trails, review-by-exception'],
-          ['AI & Automation', '21 CFR-compliant AI tools, NLP for audit trail review, data pipelines'],
-        ].map(([title, desc]) => (
-          <div class="cov-item">
-            <div class="cov-title">
-              <span class="cov-dot" style={`background:${pillarAccents[title] ?? '#756B5B'}`}></span>
-              {title}
-            </div>
-            <div class="cov-desc">{desc}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+ <!-- ═══════════ FEATURED + RECENT ═══════════ -->
+ {featured && (
+ <section class="section latest">
+ <div class="wrap">
+ <div class="latest-head">
+ <span class="kicker">Latest from the field</span>
+ <a href="/articles" class="latest-all">The full index →</a>
+ </div>
+ <div class="latest-grid">
+ <a href={`/articles/${featured.slug}`} class="feature">
+ <div class="feature-img duotone duotone-soft"><img src={featuredImg} alt="" loading="lazy" /></div>
+ <div class="feature-body">
+ <div class="feature-tags">{featured.data.tags.slice(0,3).map(t => <span class="tag">{t}</span>)}</div>
+ <h3 class="feature-title">{featured.data.title}</h3>
+ <p class="feature-desc">{featured.data.description}</p>
+ <div class="feature-meta marginalia">{fmtShort(featured.data.pubDate)} · {featRead} min read</div>
+ </div>
+ </a>
+ <ol class="recent-list">
+ {rest.map((post, i) => {
+ const rt = Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 220));
+ return (
+ <li><a href={`/articles/${post.slug}`} class="recent-row">
+ <span class="recent-n">{String(i + 2).padStart(2, '0')}</span>
+ <div class="recent-main">
+ <h4 class="recent-title">{post.data.title}</h4>
+ <span class="recent-meta marginalia">{fmtShort(post.data.pubDate)} · {rt} min</span>
+ </div>
+ </a></li>
+ );
+ })}
+ </ol>
+ </div>
+ </div>
+ </section>
+ )}
 
-  <!-- Recent Articles -->
-  {recent.length > 0 && (
-    <section class="section recent">
-      <div class="section-header">
-        <div>
-          <div class="section-label">Latest</div>
-          <h2 class="section-title">Recent Articles</h2>
-        </div>
-        <a href="/articles" class="see-all">View all →</a>
-      </div>
-      <div class="articles-grid">
-        {recent.map((post, i) => {
-          const wordCount = post.body?.split(/\s+/).length ?? 0;
-          const readTime = Math.max(1, Math.ceil(wordCount / 220));
-          return (
-            <a href={`/articles/${post.slug}`} class={`card article-card ${i === 0 ? 'featured' : ''}`}>
-              <div class="article-card-inner">
-                <div class="article-card-tags">
-                  {post.data.tags.slice(0, 2).map(t => <span class="tag">{t}</span>)}
-                </div>
-                <h3 class="article-card-title">{post.data.title}</h3>
-                <p class="article-card-desc">{post.data.description}</p>
-                <div class="article-card-foot">
-                  <time>{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
-                  <span>{readTime} min read</span>
-                </div>
-              </div>
-            </a>
-          );
-        })}
-      </div>
-    </section>
-  )}
+ <!-- ═══════════ BY ROLE (directory) ═══════════ -->
+ <section class="section-tight roles">
+ <div class="wrap">
+ <div class="roles-head">
+ <span class="kicker">The directory</span>
+ <h2 class="display-2">Find your path by role.</h2>
+ </div>
+ <div class="roles-grid">
+ {roles.map((r, i) => (
+ <div class="role-entry">
+ <div class="role-top"><span class="role-n">{String(i + 1).padStart(2, '0')}</span><h3 class="role-name">{r.role}</h3></div>
+ <p class="role-desc">{r.desc}</p>
+ <ul class="role-links">
+ {r.articles.map(a => <li><a href={`/articles/${a.slug}`}>{a.title}</a></li>)}
+ </ul>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
 
-  <!-- By Role -->
-  <section class="section roles-section">
-    <div class="section-label">Find Your Path</div>
-    <h2 class="section-title">Articles organized by role</h2>
-    <div class="roles-grid">
-      {[
-        {
-          role: 'CSV Consultant',
-          desc: 'Scoping validations, writing protocols, risk assessments, change control, retroactive validation, vendor qualification.',
-          articles: [
-            { title: 'GAMP 5 Second Edition', slug: 'gamp5-csv-framework' },
-            { title: 'CSV Risk Assessment Methodology', slug: 'csv-risk-assessment-methodology' },
-            { title: 'Validation Deliverables Guide', slug: 'validation-deliverables-guide' },
-            { title: 'Change Control for Validated Systems', slug: 'change-control-validated-systems' },
-            { title: 'Retroactive Validation: Legacy Systems', slug: 'retroactive-validation-legacy-systems' },
-          ],
-        },
-        {
-          role: 'Data Integrity Expert',
-          desc: 'DI gap assessments, audit trail review, forensic data analysis, remediation programs, DI training design.',
-          articles: [
-            { title: 'Audit Trail Design and Review', slug: 'audit-trail-design-and-review' },
-            { title: 'DI Gap Assessment Methodology', slug: 'di-gap-assessment-methodology' },
-            { title: 'DI Remediation Program', slug: 'di-remediation-program' },
-            { title: 'Quality Culture and DI Failures', slug: 'quality-culture-di-failures' },
-            { title: 'Data Governance Framework', slug: 'data-governance-framework' },
-          ],
-        },
-        {
-          role: 'QMS Specialist',
-          desc: 'CAPA management, document control, deviation handling, internal audits, supplier qualification, training programs.',
-          articles: [
-            { title: 'CAPA: Corrective and Preventive Action', slug: 'what-is-a-capa' },
-            { title: 'Deviation Management', slug: 'deviation-management' },
-            { title: 'Document Control Fundamentals', slug: 'document-control-fundamentals' },
-            { title: 'Internal Audit Program', slug: 'internal-audit-program' },
-            { title: 'Supplier and Vendor Qualification', slug: 'supplier-vendor-qualification' },
-          ],
-        },
-        {
-          role: 'Quality Assurance',
-          desc: 'OOS investigations, batch record review, process validation, stability programs, inspection readiness.',
-          articles: [
-            { title: 'OOS Investigation Process', slug: 'oos-investigation-process' },
-            { title: 'Process Validation Lifecycle', slug: 'process-validation-lifecycle' },
-            { title: 'Stability Programs: ICH Q1A-Q1F', slug: 'stability-programs-ich' },
-            { title: 'Cleaning Validation Fundamentals', slug: 'cleaning-validation-fundamentals' },
-            { title: 'FDA Inspection Readiness', slug: 'fda-inspection-readiness' },
-          ],
-        },
-        {
-          role: 'Instrument & Equipment Qualification',
-          desc: 'IQ/OQ/PQ lifecycle, analytical instrument qualification, method validation, method transfer, calibration programs.',
-          articles: [
-            { title: 'Equipment Qualification Lifecycle', slug: 'equipment-qualification-lifecycle' },
-            { title: 'Analytical Instrument Qualification', slug: 'analytical-instrument-qualification' },
-            { title: 'Method Validation: ICH Q2(R2)', slug: 'method-validation-essentials' },
-            { title: 'Analytical Method Transfer', slug: 'analytical-method-transfer' },
-          ],
-        },
-        {
-          role: 'Clinical Quality Assurance',
-          desc: 'GCP data integrity, EDC validation, TMF management, clinical audit programs, BLA data packages.',
-          articles: [
-            { title: 'Clinical QA: GCP Data Integrity', slug: 'clinical-qa-gcp-data-integrity' },
-            { title: 'BLA Readiness: Data Package Architecture', slug: 'bla-readiness-data-package' },
-            { title: 'FDA vs EMA Inspection Dynamics', slug: 'fda-vs-ema-inspection-dynamics' },
-          ],
-        },
-        {
-          role: 'Inspection Readiness Consultant',
-          desc: 'Pre-inspection preparation, 483 response strategy, FDA vs EMA dynamics, front/back room operations, DI inspection focus.',
-          articles: [
-            { title: 'FDA Inspection Readiness', slug: 'fda-inspection-readiness' },
-            { title: 'FDA 483 Response Strategy', slug: 'fda-483-response-strategy' },
-            { title: 'FDA vs EMA Inspection Dynamics', slug: 'fda-vs-ema-inspection-dynamics' },
-            { title: 'FDA Warning Letter Patterns', slug: 'fda-warning-letters-patterns' },
-            { title: 'Internal Audit Program', slug: 'internal-audit-program' },
-          ],
-        },
-        {
-          role: 'New to GxP / Career Switcher',
-          desc: 'Start with the foundations. What GMP is, who does what, the systems involved, and how to build your knowledge from scratch.',
-          articles: [
-            { title: 'What Is GMP?', slug: 'what-is-gmp' },
-            { title: 'GxP Roles Explained', slug: 'gxp-roles-responsibilities' },
-            { title: 'GxP Computerized Systems Overview', slug: 'gxp-systems-overview' },
-            { title: 'Data Integrity Foundations', slug: 'data-integrity-foundations' },
-            { title: 'Breaking Into GxP Quality', slug: 'breaking-into-gxp-quality' },
-          ],
-        },
-      ].map(r => (
-        <div class="card role-card">
-          <div class="role-title">{r.role}</div>
-          <p class="role-desc">{r.desc}</p>
-          <ul class="role-articles">
-            {r.articles.map(a => (
-              <li><a href={`/articles/${a.slug}`}>{a.title} →</a></li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  </section>
+ <!-- ═══════════ TOPICS (index) ═══════════ -->
+ <section class="section-tight topics">
+ <div class="wrap">
+ <img class="topics-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+ <div class="topics-head"><span class="kicker">The index</span><h2 class="display-2">Browse every subject.</h2></div>
+ <div class="topics-cloud">
+ {topics.map(t => (
+ <a href={`/topics#${t.name.toLowerCase().replace(/\s+/g, '-')}`} class="topic-pill">{t.name}<span class="topic-count">{t.count}</span></a>
+ ))}
+ </div>
+ </div>
+ </section>
 
-  <!-- Topics -->
-  <section class="section topics-section">
-    <div class="section-label">Browse</div>
-    <h2 class="section-title">All Topics</h2>
-    <div class="topics-cloud">
-      {topics.map(t => (
-        <a href={`/topics#${t.name.toLowerCase().replace(/\s+/g, '-')}`} class="topic-pill">
-          {t.name}
-          <span class="topic-count">{t.count}</span>
-        </a>
-      ))}
-    </div>
-  </section>
+ <!-- ═══════════ CLOSING ═══════════ -->
+ <section class="section closing">
+ <div class="wrap closing-inner">
+ <img class="closing-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ <h2 class="closing-h2">Start where you are.<br/>The record is open.</h2>
+ <div class="closing-actions">
+ <a href="/start" class="btn-accent">Start here →</a>
+ <a href="/tracks" class="btn-ghost">See the tracks</a>
+ </div>
+ </div>
+ </section>
 </Layout>
 
 <style>
-  /* ── Hero ── */
-  .hero {
-    padding: 1rem 0 4rem;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 4.5rem;
-  }
+ /* ── HERO ── */
+ .hero { background:
+ linear-gradient(180deg, rgba(235,229,215,0) 60%, var(--bone)),
+ url('/brand/texture-grid.svg');
+ padding-top: 4rem; }
+ .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: center; }
+ .hero-kick { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.6rem; }
+ .hero-kick-line { flex: 1; max-width: 80px; height: 1px; background: var(--line); }
+ .hero-h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 0.98; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.5rem; }
+ .hero-h1 em { font-style: italic; color: var(--vermilion); }
+ .hero-lead { margin-bottom: 1.75rem; max-width: 36rem; }
+ .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+ .hero-aside { max-width: 34rem; margin-bottom: 2rem; font-style: normal; }
+ .hero-aside a { color: var(--vermilion-2); text-decoration: underline; text-underline-offset: 2px; }
+ .hero-stats { display: flex; gap: 2.25rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+ .hstat { display: flex; flex-direction: column; gap: 0.15rem; }
+ .hstat-n { font-family: var(--display); font-size: 1.9rem; font-weight: 500; color: var(--ink); line-height: 1; }
+ .hstat-l { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 
-  .hero-cols {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 4rem;
-    align-items: start;
-  }
+ .hero-fig { position: relative; margin: 0; }
+ .hero-img { aspect-ratio: 4/5; border-radius: var(--radius); box-shadow: var(--shadow); }
+ .hero-seal { position: absolute; left: -38px; bottom: 36px; width: 96px; color: var(--vermilion); background: var(--bone); border-radius: 50%; padding: 6px; }
+ .hero-fig figcaption { margin-top: 0.7rem; text-align: right; }
+ .hero-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-top: 3.5rem; }
 
-  .hero-title {
-    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 1.5rem;
-  }
+ /* ── TRACKS ── */
+ .tracks-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 2.5rem; }
+ .tracks-note { max-width: 22rem; text-align: right; }
+ .track-row { display: grid; grid-template-columns: 3.5rem 1fr auto; gap: 1.5rem; align-items: start; padding: 1.75rem 0; border-bottom: 1px solid var(--line); color: inherit; transition: padding-left 0.18s; }
+ .tracks-list { border-top: 2px solid var(--ink); }
+ .track-row:hover { padding-left: 0.6rem; }
+ .track-n { font-family: var(--display); font-size: 2rem; font-weight: 500; line-height: 1; padding-top: 0.1rem; }
+ .track-title-row { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.6rem; }
+ .track-title { font-family: var(--display); font-size: 1.55rem; font-weight: 500; color: var(--ink); }
+ .track-row:hover .track-title { color: var(--vermilion-2); }
+ .track-blurb { font-size: 0.95rem; color: var(--graphite); line-height: 1.6; max-width: 46rem; margin-bottom: 0.85rem; }
+ .track-samples { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; }
+ .track-sample { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+ .track-sample:hover { color: var(--vermilion-2); border-color: var(--vermilion); }
+ .track-go { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--ink); white-space: nowrap; padding-top: 0.3rem; }
+ .track-row:hover .track-go { color: var(--vermilion-2); }
 
-  .hero-sub {
-    margin-bottom: 1.25rem;
-  }
+ /* ── DISCIPLINES (dark) ── */
+ .disc-head { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; margin-bottom: 3rem; }
+ .disc-intro { font-size: 1.05rem; line-height: 1.65; color: var(--on-ink-dim); }
+ .disc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line-ink); }
+ .disc-item { padding: 1.75rem 1.5rem 1.75rem 0; border-bottom: 1px solid var(--line-ink); border-right: 1px solid var(--line-ink); color: var(--on-ink); position: relative; transition: background 0.18s; }
+ .disc-item:nth-child(4n) { border-right: none; padding-right: 0; }
+ .disc-item:hover { background: rgba(236,230,216,0.04); }
+ .disc-num { position: absolute; top: 1.75rem; right: 1rem; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
+ .disc-item:nth-child(4n) .disc-num { right: 0; }
+ .disc-emblem { color: var(--on-ink); width: 38px; height: 38px; margin-bottom: 1rem; transition: color 0.18s; }
+ .disc-item:hover .disc-emblem { color: var(--vermilion); }
+ .disc-name { font-family: var(--display); font-size: 1.3rem; font-weight: 500; color: var(--on-ink); margin-bottom: 0.5rem; }
+ .disc-desc { font-size: 0.85rem; line-height: 1.55; color: var(--on-ink-dim); }
+ .disc-cta { margin-top: 2.5rem; color: var(--on-ink); border-color: var(--on-ink); }
+ .disc-cta:hover { background: var(--on-ink); color: var(--ink); }
 
-  .hero-aside {
-    font-family: var(--serif);
-    font-size: 0.98rem;
-    color: var(--muted);
-    line-height: 1.65;
-    font-style: italic;
-    max-width: 40rem;
-    margin-bottom: 2rem;
-  }
+ /* ── LATEST ── */
+ .latest-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 1rem; }
+ .latest-all { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--ink); }
+ .latest-all:hover { color: var(--vermilion-2); }
+ .latest-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+ .feature { display: block; color: inherit; }
+ .feature-img { aspect-ratio: 16/10; border-radius: var(--radius); margin-bottom: 1.25rem; }
+ .feature-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.85rem; }
+ .feature-title { font-family: var(--display); font-size: clamp(1.6rem, 2.6vw, 2.3rem); font-weight: 500; line-height: 1.08; color: var(--ink); margin-bottom: 0.75rem; }
+ .feature:hover .feature-title { color: var(--vermilion-2); }
+ .feature-desc { font-size: 1rem; color: var(--graphite); line-height: 1.6; margin-bottom: 0.9rem; max-width: 42rem; }
+ .recent-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+ .recent-row { display: grid; grid-template-columns: 2.25rem 1fr; gap: 1rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); color: inherit; transition: padding-left 0.15s; }
+ .recent-row:hover { padding-left: 0.5rem; }
+ .recent-n { font-family: var(--mono); font-size: 0.78rem; color: var(--vermilion); padding-top: 0.2rem; }
+ .recent-title { font-family: var(--display); font-size: 1.15rem; font-weight: 500; color: var(--ink); line-height: 1.18; margin-bottom: 0.3rem; }
+ .recent-row:hover .recent-title { color: var(--vermilion-2); }
 
-  .aside-link {
-    color: var(--link);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-color: var(--line-2);
-  }
-  .aside-link:hover { text-decoration-color: var(--link); }
+ /* ── ROLES ── */
+ .roles-head { margin-bottom: 2.5rem; }
+ .roles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 4rem; }
+ .role-entry { border-top: 1px solid var(--ink); padding-top: 1.25rem; }
+ .role-top { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 0.6rem; }
+ .role-n { font-family: var(--mono); font-size: 0.78rem; color: var(--vermilion); }
+ .role-name { font-family: var(--display); font-size: 1.35rem; font-weight: 500; color: var(--ink); }
+ .role-desc { font-size: 0.9rem; color: var(--graphite); line-height: 1.55; margin-bottom: 0.9rem; }
+ .role-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+ .role-links a { font-family: var(--sans); font-size: 0.88rem; color: var(--graphite); }
+ .role-links a::before { content: '→ '; color: var(--vermilion); }
+ .role-links a:hover { color: var(--vermilion-2); }
 
-  .hero-actions {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-bottom: 2.5rem;
-  }
+ /* ── TOPICS ── */
+ .topics-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-bottom: 2.5rem; }
+ .topics-head { margin-bottom: 1.75rem; }
+ .topics-cloud { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 
-  .hero-stats {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--line);
-  }
+ /* ── CLOSING ── */
+ .closing { background: var(--ink); text-align: center; }
+ .closing-inner { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
+ .closing-seal { width: 120px; color: var(--vermilion); }
+ .closing-h2 { font-family: var(--display); font-weight: 500; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.05; color: var(--on-ink); }
+ .closing-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+ .closing .btn-ghost { color: var(--on-ink); border-color: var(--on-ink); }
+ .closing .btn-ghost:hover { background: var(--on-ink); color: var(--ink); }
 
-  .stat { display: flex; flex-direction: column; gap: 0.15rem; }
-  .stat-n {
-    font-family: var(--serif);
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-  .stat-l {
-    font-size: 0.72rem;
-    color: var(--muted);
-    font-family: var(--mono);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 0.35rem;
-  }
-  .stat-div { width: 1px; height: 38px; background: var(--line); }
-
-  /* ── Hero right: entry cards ── */
-  .hero-right { display: flex; flex-direction: column; gap: 1rem; }
-
-  .entry-cards { display: flex; flex-direction: column; gap: 0.9rem; }
-
-  .entry-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-    padding: 1.2rem 1.35rem;
-    color: inherit;
-    text-decoration: none;
-  }
-  .entry-card:hover { color: inherit; }
-
-  .entry-card .tier-badge { align-self: flex-start; margin-bottom: 0.15rem; }
-
-  .entry-title {
-    font-family: var(--serif);
-    font-size: 1.12rem;
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-  }
-
-  .entry-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
-
-  .entry-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-top: 0.2rem;
-  }
-
-  .entry-links span {
-    font-size: 0.68rem;
-    font-family: var(--mono);
-    color: var(--muted);
-    background: var(--paper-2);
-    border: 1px solid var(--line);
-    padding: 0.12rem 0.5rem;
-    border-radius: var(--radius-sm);
-  }
-
-  .entry-cta {
-    font-size: 0.74rem;
-    font-family: var(--mono);
-    color: var(--link);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-top: 0.3rem;
-    font-weight: 500;
-  }
-
-  /* ── Tracks ── */
-  .tracks-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  .track-card {
-    padding: 1.85rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .track-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--track-color);
-  }
-
-  .track-card:hover { border-color: var(--track-color, var(--line-2)); }
-
-  .track-icon {
-    font-size: 1.5rem;
-    color: var(--track-color);
-    margin-bottom: 0.25rem;
-  }
-
-  .track-label {
-    font-size: 0.7rem;
-    font-family: var(--mono);
-    color: var(--track-color);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 500;
-  }
-
-  .track-title {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-  }
-
-  .track-desc {
-    font-size: 0.9rem;
-    color: var(--body);
-    line-height: 1.65;
-    flex: 1;
-  }
-
-  .track-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.5rem 0; }
-
-  .track-link {
-    font-family: var(--mono);
-    font-size: 0.76rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--track-color);
-    margin-top: 0.5rem;
-    font-weight: 500;
-  }
-
-  .track-link:hover { color: var(--ink); }
-
-  /* ── Coverage ── */
-  .coverage-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .coverage-text p {
-    font-size: 1rem;
-    color: var(--body);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .coverage-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-  }
-
-  .cov-item {
-    padding: 1.1rem 1.3rem;
-    border-bottom: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-  }
-
-  .cov-title {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.3rem;
-  }
-
-  .cov-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .cov-desc {
-    font-size: 0.78rem;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-
-  /* ── Recent articles ── */
-  .section-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 1.75rem;
-  }
-
-  .section-header .section-title { margin-bottom: 0; }
-
-  .see-all {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    padding-bottom: 0.15rem;
-  }
-
-  .see-all:hover { color: var(--link); }
-
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-
-  .article-card {
-    color: inherit;
-  }
-
-  .article-card.featured {
-    grid-column: 1 / -1;
-    background: var(--paper-2);
-  }
-
-  .article-card-inner { padding: 1.6rem; }
-
-  .article-card-tags {
-    display: flex;
-    gap: 0.4rem;
-    margin-bottom: 0.95rem;
-    flex-wrap: wrap;
-  }
-
-  .article-card-title {
-    font-family: var(--serif);
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 0.6rem;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    transition: color 0.15s;
-  }
-
-  .article-card:hover .article-card-title { color: var(--navy); }
-
-  .article-card.featured .article-card-title { font-size: 1.5rem; }
-
-  .article-card-desc {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .article-card-foot {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.74rem;
-    color: var(--muted);
-    font-family: var(--mono);
-    border-top: 1px solid var(--line);
-    padding-top: 0.9rem;
-  }
-
-  /* ── Roles ── */
-  .roles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.25rem;
-    margin-top: 0.5rem;
-  }
-
-  .role-card {
-    padding: 1.6rem;
-  }
-
-  .role-title {
-    font-size: 0.78rem;
-    font-family: var(--mono);
-    color: var(--navy);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    margin-bottom: 0.7rem;
-  }
-
-  .role-desc {
-    font-size: 0.86rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 1.1rem;
-  }
-
-  .role-articles {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-  }
-
-  .role-articles li { margin: 0; }
-
-  .role-articles li a {
-    font-size: 0.85rem;
-    color: var(--body);
-    transition: color 0.12s;
-    line-height: 1.4;
-  }
-
-  .role-articles li a:hover { color: var(--link); }
-
-  /* ── Topics ── */
-  .topics-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  @media (max-width: 900px) {
-    .hero-cols { grid-template-columns: 1fr; gap: 3rem; }
-    .tracks-grid { grid-template-columns: 1fr; }
-    .coverage-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .articles-grid { grid-template-columns: 1fr; }
-    .article-card.featured { grid-column: 1; }
-  }
-
-  @media (max-width: 600px) {
-    .hero { padding: 0.5rem 0 3rem; }
-    .hero-stats { gap: 1.25rem; }
-    .coverage-list { grid-template-columns: 1fr; }
-    .cov-item { border-right: none; }
-  }
+ @media (max-width: 900px) {
+ .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+ .hero-fig { order: -1; max-width: 420px; }
+ .hero-seal { width: 72px; left: -20px; }
+ .disc-head { grid-template-columns: 1fr; gap: 1.25rem; }
+ .disc-grid { grid-template-columns: repeat(2, 1fr); }
+ .disc-item:nth-child(4n) { border-right: 1px solid var(--line-ink); padding-right: 1.5rem; }
+ .disc-item:nth-child(2n) { border-right: none; padding-right: 0; }
+ .disc-item:nth-child(2n) .disc-num { right: 0; }
+ .latest-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+ .roles-grid { grid-template-columns: 1fr; gap: 2rem; }
+ .tracks-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+ .tracks-note { text-align: left; }
+ }
+ @media (max-width: 560px) {
+ .track-row { grid-template-columns: 2.5rem 1fr; }
+ .track-go { display: none; }
+ .disc-grid { grid-template-columns: 1fr; }
+ .disc-item, .disc-item:nth-child(4n) { border-right: none; padding-right: 0; }
+ .hero-stats { flex-wrap: wrap; gap: 1.25rem; }
+ }
 </style>

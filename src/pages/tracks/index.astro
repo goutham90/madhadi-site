@@ -4,252 +4,279 @@ import Layout from '../../layouts/Layout.astro';
 const tracks = [
  {
  slug: 'foundations',
- icon: '◎',
  label: 'Foundations',
+ tier: 'Beginner',
+ color: '#3C6B4A',
  title: 'Breaking In: From Zero to Competent',
  desc: 'For anyone starting in GxP quality, validation, or data integrity. Covers the regulatory map, core vocabulary, why each discipline exists, and a concrete learning roadmap for building your career.',
- color: '#2F6E4F',
  articles: 8,
  time: '~4 hours',
  for: 'Students, career changers, new hires in their first GxP role',
  },
  {
  slug: 'implementation',
- icon: '◈',
  label: 'Implementation',
+ tier: 'Intermediate',
+ color: '#B26B1E',
  title: 'Owning Systems: How to Execute',
  desc: 'For mid-career practitioners who own GxP systems, lead validation efforts, or run DI programs. Covers the procedures, decision frameworks, failure modes, and judgment calls that experienced practitioners develop over years.',
- color: '#1C4E80',
  articles: 10,
  time: '~6 hours',
  for: 'Validation engineers, QA specialists, system owners, lab managers',
  },
  {
  slug: 'advanced',
- icon: '◇',
  label: 'Advanced',
+ tier: 'Advanced',
+ color: '#7A2E23',
  title: 'Building Programs: Strategy & Defense',
  desc: 'For senior practitioners and program leaders responsible for building DI programs, leading inspection responses, managing remediation, and setting quality strategy. Covers architecture, governance, and what "good" looks like at inspection.',
- color: '#7A3B57',
  articles: 7,
  time: '~5 hours',
  for: 'Directors of quality/validation/DI, heads of regulatory affairs, quality VPs',
  },
 ];
+
+const faq = [
+ {
+ q: "I'm starting my first QA/validation role.",
+ track: 'Foundations',
+ href: '/tracks/foundations',
+ a: 'It explains the regulatory landscape and why each discipline exists before asking you to learn any procedures.',
+ },
+ {
+ q: "I've been in quality for a few years and want to go deeper.",
+ track: 'Implementation',
+ href: '/tracks/implementation',
+ a: 'It assumes you know the basics and focuses on execution: how to run a validation, how to design an audit trail, how to structure a CAPA.',
+ },
+ {
+ q: "I'm building or rebuilding a DI program and facing inspection pressure.",
+ track: 'Advanced',
+ href: '/tracks/advanced',
+ a: 'It covers program architecture, inspection defense, 483 response, and what mature programs look like under scrutiny.',
+ },
+];
 ---
 <Layout title="Learning Tracks" description="Three sequenced learning paths through GxP quality and data integrity, Foundations for beginners, Implementation for practitioners, Advanced for program leaders." wide={true}>
- <header class="page-header">
- <div class="page-label">Learning Tracks</div>
- <h1>Find your starting point.</h1>
- <p class="lead">
+
+ <!-- ═══════════ HEADER (asymmetric, image-led) ═══════════ -->
+ <section class="trk-hero">
+ <div class="wrap trk-hero-grid">
+ <div class="trk-hero-text">
+ <div class="trk-kick">
+ <span class="kicker">The Reading Routes</span>
+ <span class="trk-kick-line"></span>
+ <span class="marginalia">03 sequenced paths</span>
+ </div>
+ <h1 class="trk-h1">Find your <em>starting point</em>.</h1>
+ <p class="lead trk-lead">
  Three curated reading paths through the knowledge hub, designed for three different stages of a GxP career.
  Each track sequences the material so you build from fundamentals to application.
  </p>
- </header>
+ <div class="trk-hero-stats">
+ <div class="hstat"><span class="hstat-n">03</span><span class="hstat-l">Tracks</span></div>
+ <div class="hstat"><span class="hstat-n">25</span><span class="hstat-l">Sequenced reads</span></div>
+ <div class="hstat"><span class="hstat-n">~15h</span><span class="hstat-l">Total reading</span></div>
+ </div>
+ </div>
+ <figure class="trk-hero-fig">
+ <div class="trk-hero-img duotone duotone-soft"><img src="/images/records-review.jpg" alt="A practitioner reviewing the controlled record" loading="eager" /></div>
+ <img class="trk-hero-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ <figcaption class="marginalia">Fig. — Three depths, one record.</figcaption>
+ </figure>
+ </div>
+ <img class="trk-hero-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+ </section>
 
- <section class="section">
- <div class="tracks-grid">
- {tracks.map(t => (
- <a href={`/tracks/${t.slug}`} class="track-card" style={`--tc: ${t.color}`}>
- <div class="track-card-top">
- <span class="track-icon" aria-hidden="true">{t.icon}</span>
- <span class="tier-badge track-level" style={`background:${t.color}1A;color:${t.color};border-color:${t.color}40`}>{t.label}</span>
+ <!-- ═══════════ TRACKS (editorial index) ═══════════ -->
+ <section class="section-tight trk-routes">
+ <div class="wrap">
+ <div class="trk-routes-head">
+ <div>
+ <span class="kicker">Pick by depth</span>
+ <h2 class="display-2">Three ways in.</h2>
  </div>
- <h2 class="track-title">{t.title}</h2>
- <p class="track-desc">{t.desc}</p>
- <div class="track-for">
- <span class="for-label">For</span>
- <span class="for-text">{t.for}</span>
+ <p class="marginalia trk-routes-note">Same field, explained for where you are now. Choose the track that matches today, not the title you are working toward.</p>
  </div>
- <div class="track-meta">
- <span>{t.articles} articles</span>
- <span class="sep">·</span>
- <span>{t.time} reading time</span>
- <span class="start-link">Start reading →</span>
+ <ul class="index-list trk-list">
+ {tracks.map((t, i) => (
+ <li>
+ <a href={`/tracks/${t.slug}`} class="trk-row" style={`--tc:${t.color}`}>
+ <span class="trk-n">{String(i + 1).padStart(2, '0')}</span>
+ <div class="trk-main">
+ <div class="trk-title-row">
+ <span class="tier-badge" style={`background:${t.color}; color:#F7F3EA; border-color:${t.color}`}>{t.label}</span>
+ <h3 class="trk-title">{t.title}</h3>
+ </div>
+ <p class="trk-blurb">{t.desc}</p>
+ <div class="trk-for">
+ <span class="trk-for-label">For</span>
+ <span class="trk-for-text">{t.for}</span>
+ </div>
+ </div>
+ <div class="trk-side">
+ <div class="trk-stat"><span class="trk-stat-n">{t.articles}</span><span class="trk-stat-l">articles</span></div>
+ <div class="trk-stat"><span class="trk-stat-n">{t.time}</span><span class="trk-stat-l">reading</span></div>
+ <span class="trk-go">Start reading →</span>
  </div>
  </a>
+ </li>
  ))}
+ </ul>
  </div>
  </section>
 
- <section class="section faq">
- <div class="section-label">Not Sure Where to Start</div>
- <h2 class="section-title">Not sure which track?</h2>
- <div class="faq-grid">
- <div class="faq-item">
- <div class="faq-q">I'm starting my first QA/validation role.</div>
- <div class="faq-a">Start with <a href="/tracks/foundations">Foundations</a>. It explains the regulatory landscape and why each discipline exists before asking you to learn any procedures.</div>
+ <!-- ═══════════ DECISION GUIDE (dark plate) ═══════════ -->
+ <section class="section section-dark trk-decide">
+ <div class="wrap">
+ <div class="trk-decide-head">
+ <div>
+ <span class="kicker">Not Sure Where to Start</span>
+ <h2 class="display-2">Not sure which track?</h2>
  </div>
- <div class="faq-item">
- <div class="faq-q">I've been in quality for a few years and want to go deeper.</div>
- <div class="faq-a">Start with <a href="/tracks/implementation">Implementation</a>. It assumes you know the basics and focuses on execution: how to run a validation, how to design an audit trail, how to structure a CAPA.</div>
+ <p class="trk-decide-intro">Match the sentence that sounds most like your week. If none of them fit, you probably do not want a track at all — you want a single answer, and there is a faster route to that below.</p>
  </div>
- <div class="faq-item">
- <div class="faq-q">I'm building or rebuilding a DI program and facing inspection pressure.</div>
- <div class="faq-a">Start with <a href="/tracks/advanced">Advanced</a>. It covers program architecture, inspection defense, 483 response, and what mature programs look like under scrutiny.</div>
+
+ <ol class="trk-decide-list">
+ {faq.map((f, i) => (
+ <li class="trk-decide-row">
+ <span class="trk-decide-n">{String(i + 1).padStart(2, '0')}</span>
+ <div class="trk-decide-body">
+ <p class="trk-decide-q">{f.q}</p>
+ <p class="trk-decide-a">Start with <a href={f.href}>{f.track}</a>. {f.a}</p>
  </div>
- <div class="faq-item">
- <div class="faq-q">I need to understand a specific topic, not follow a path.</div>
- <div class="faq-a">Browse by <a href="/pillars">Pillar</a> or <a href="/topics">Topic</a> to go directly to what you need.</div>
+ </li>
+ ))}
+ </ol>
+
+ <div class="trk-direct">
+ <span class="seal trk-direct-seal"><img src="/brand/seal.svg" alt="" aria-hidden="true" /></span>
+ <div class="trk-direct-text">
+ <p class="trk-direct-q">I need to understand a specific topic, not follow a path.</p>
+ <p class="trk-direct-a">Skip the tracks. Browse by <a href="/pillars">Pillar</a> or <a href="/topics">Topic</a> to go directly to what you need.</p>
+ </div>
+ <div class="trk-direct-actions">
+ <a href="/pillars" class="btn-ghost">Pillars →</a>
+ <a href="/topics" class="btn-ghost">Topics →</a>
+ </div>
  </div>
  </div>
  </section>
 </Layout>
 
 <style>
- /* ── Track cards ── */
- .tracks-grid {
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 1.5rem;
+ /* ════════════ HEADER ════════════ */
+ .trk-hero {
+ background:
+ linear-gradient(180deg, rgba(235,229,215,0) 55%, var(--bone)),
+ url('/brand/texture-grid.svg');
+ padding-top: 3.5rem;
  }
+ .trk-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: center; }
+ .trk-kick { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.5rem; }
+ .trk-kick-line { flex: 1; max-width: 70px; height: 1px; background: var(--line); }
+ .trk-h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 0.98; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.4rem; }
+ .trk-h1 em { font-style: italic; color: var(--vermilion); }
+ .trk-lead { max-width: 38rem; margin-bottom: 2rem; }
+ .trk-hero-stats { display: flex; gap: 2.25rem; border-top: 1px solid var(--line); padding-top: 1.4rem; }
+ .hstat { display: flex; flex-direction: column; gap: 0.15rem; }
+ .hstat-n { font-family: var(--display); font-size: 1.9rem; font-weight: 500; color: var(--ink); line-height: 1; }
+ .hstat-l { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 
- .track-card {
- background: var(--surface);
- border: 1px solid var(--line);
- border-top: 3px solid var(--tc);
- border-radius: var(--radius);
- box-shadow: var(--shadow-sm);
- padding: 2rem;
- display: flex;
- flex-direction: column;
- gap: 0.9rem;
- text-decoration: none;
- color: inherit;
- transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+ .trk-hero-fig { position: relative; margin: 0; }
+ .trk-hero-img { aspect-ratio: 4/5; border-radius: var(--radius); box-shadow: var(--shadow); }
+ .trk-hero-seal { position: absolute; left: -34px; bottom: 34px; width: 88px; color: var(--vermilion); background: var(--bone); border-radius: 50%; padding: 6px; }
+ .trk-hero-fig figcaption { margin-top: 0.7rem; text-align: right; }
+ .trk-hero-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-top: 3.25rem; }
+
+ /* ════════════ TRACKS — editorial index ════════════ */
+ .trk-routes-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 2.5rem; }
+ .trk-routes-note { max-width: 23rem; text-align: right; }
+
+ .trk-list { border-top: 2px solid var(--ink); }
+ .trk-row {
+ display: grid; grid-template-columns: 3.5rem 1fr 13rem; gap: 1.75rem; align-items: start;
+ padding: 2.1rem 0; border-bottom: 1px solid var(--line); color: inherit;
+ transition: padding-left 0.18s, background 0.18s;
  }
+ .trk-row:hover { padding-left: 0.6rem; background: rgba(226,219,201,0.35); }
+ .trk-n { font-family: var(--display); font-size: 2.1rem; font-weight: 500; line-height: 1; color: var(--tc); padding-top: 0.05rem; }
 
- .track-card:hover {
- border-color: var(--line-2);
- border-top-color: var(--tc);
- transform: translateY(-2px);
- box-shadow: var(--shadow);
+ .trk-main { min-width: 0; }
+ .trk-title-row { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 0.65rem; }
+ .trk-title { font-family: var(--display); font-size: clamp(1.4rem, 2.4vw, 1.85rem); font-weight: 500; color: var(--ink); line-height: 1.12; letter-spacing: -0.015em; }
+ .trk-row:hover .trk-title { color: var(--vermilion-2); }
+ .trk-blurb { font-size: 0.97rem; color: var(--graphite); line-height: 1.62; max-width: 48rem; margin-bottom: 1rem; }
+
+ .trk-for {
+ display: inline-flex; align-items: baseline; gap: 0.55rem; flex-wrap: wrap;
+ padding: 0.55rem 0.85rem; border: 1px solid var(--line); border-left: 2px solid var(--tc);
+ border-radius: var(--radius); background: var(--paper);
  }
+ .trk-for-label { font-family: var(--mono); font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--vermilion); }
+ .trk-for-text { font-size: 0.85rem; color: var(--graphite); line-height: 1.4; }
 
- .track-card-top {
- display: flex;
- align-items: center;
- justify-content: space-between;
- gap: 0.75rem;
+ .trk-side { display: flex; flex-direction: column; align-items: flex-start; gap: 0.65rem; padding-top: 0.2rem; }
+ .trk-stat { display: flex; align-items: baseline; gap: 0.4rem; }
+ .trk-stat-n { font-family: var(--display); font-size: 1.25rem; font-weight: 500; color: var(--ink); line-height: 1; }
+ .trk-stat-l { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+ .trk-go { margin-top: 0.35rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--tc); white-space: nowrap; }
+ .trk-row:hover .trk-go { color: var(--vermilion-2); }
+
+ /* ════════════ DECISION GUIDE — dark plate ════════════ */
+ .trk-decide-head { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; margin-bottom: 2.75rem; }
+ .trk-decide-intro { font-size: 1.05rem; line-height: 1.65; color: var(--on-ink-dim); }
+
+ .trk-decide-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line-ink); }
+ .trk-decide-row {
+ display: grid; grid-template-columns: 3rem 1fr; gap: 1.5rem; align-items: baseline;
+ padding: 1.6rem 0; border-bottom: 1px solid var(--line-ink);
  }
+ .trk-decide-n { font-family: var(--mono); font-size: 0.78rem; color: var(--vermilion); padding-top: 0.35rem; }
+ .trk-decide-q { font-family: var(--display); font-size: clamp(1.25rem, 2.2vw, 1.6rem); font-weight: 500; color: var(--on-ink); line-height: 1.18; letter-spacing: -0.015em; margin-bottom: 0.5rem; }
+ .trk-decide-a { font-size: 0.95rem; color: var(--on-ink-dim); line-height: 1.62; max-width: 52rem; }
+ .trk-decide-a a { color: var(--vermilion); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-ink); }
+ .trk-decide-a a:hover { color: var(--on-ink); text-decoration-color: var(--vermilion); }
 
- .track-icon {
- font-family: var(--serif);
- font-size: 1.6rem;
- line-height: 1;
- color: var(--tc);
+ .trk-direct {
+ display: grid; grid-template-columns: auto 1fr auto; gap: 1.75rem; align-items: center;
+ margin-top: 2.5rem; padding: 1.75rem 1.75rem 1.75rem 0;
+ border-top: 1px solid var(--vermilion);
  }
+ .trk-direct-seal { display: inline-flex; }
+ .trk-direct-seal img { width: 64px; height: 64px; color: var(--vermilion); }
+ .trk-direct-q { font-family: var(--display); font-style: italic; font-size: 1.2rem; color: var(--on-ink); line-height: 1.3; margin-bottom: 0.4rem; }
+ .trk-direct-a { font-size: 0.92rem; color: var(--on-ink-dim); line-height: 1.6; }
+ .trk-direct-a a { color: var(--vermilion); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-ink); }
+ .trk-direct-a a:hover { color: var(--on-ink); text-decoration-color: var(--vermilion); }
+ .trk-direct-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+ .trk-direct .btn-ghost { color: var(--on-ink); border-color: var(--on-ink); }
+ .trk-direct .btn-ghost:hover { background: var(--on-ink); color: var(--ink); }
 
- .track-level { flex-shrink: 0; }
+ /* ════════════ RESPONSIVE ════════════ */
+ @media (max-width: 900px) {
+ .trk-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+ .trk-hero-fig { order: -1; max-width: 400px; }
+ .trk-hero-seal { width: 68px; left: -18px; }
 
- .track-title {
- font-family: var(--serif);
- font-weight: 500;
- font-size: 1.3rem;
- line-height: 1.25;
- letter-spacing: -0.01em;
- color: var(--ink);
- margin: 0;
+ .trk-routes-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+ .trk-routes-note { text-align: left; }
+
+ .trk-row { grid-template-columns: 3rem 1fr; }
+ .trk-side {
+ grid-column: 1 / -1; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 1.25rem;
+ margin-top: 0.4rem; padding-top: 1rem; border-top: 1px solid var(--line);
  }
+ .trk-go { margin-top: 0; margin-left: auto; }
 
- .track-desc {
- font-family: var(--sans);
- font-size: 0.9375rem;
- color: var(--body);
- line-height: 1.65;
- flex: 1;
- margin: 0;
+ .trk-decide-head { grid-template-columns: 1fr; gap: 1.25rem; }
+ .trk-direct { grid-template-columns: 1fr; gap: 1.25rem; text-align: left; }
+ .trk-direct-seal img { width: 56px; height: 56px; }
  }
-
- .track-for {
- font-size: 0.85rem;
- color: var(--muted);
- line-height: 1.55;
- padding: 0.7rem 0.9rem;
- background: var(--paper-2);
- border: 1px solid var(--line);
- border-radius: var(--radius);
- }
-
- .for-label {
- display: inline-block;
- font-family: var(--mono);
- font-size: 0.66rem;
- font-weight: 500;
- text-transform: uppercase;
- letter-spacing: 0.12em;
- color: var(--brass);
- margin-right: 0.45rem;
- }
-
- .for-text { color: var(--body); }
-
- .track-meta {
- display: flex;
- align-items: center;
- flex-wrap: wrap;
- gap: 0.45rem;
- font-family: var(--mono);
- font-size: 0.74rem;
- color: var(--muted);
- padding-top: 0.9rem;
- margin-top: auto;
- border-top: 1px solid var(--line);
- }
-
- .track-meta .sep { color: var(--line-2); }
-
- .start-link {
- margin-left: auto;
- color: var(--tc);
- font-weight: 500;
- transition: opacity 0.15s;
- }
-
- .track-card:hover .start-link { opacity: 0.8; }
-
- /* ── FAQ ── */
- .faq-grid {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 1.25rem;
- }
-
- .faq-item {
- padding: 1.25rem 1.4rem;
- background: var(--surface);
- border: 1px solid var(--line);
- border-radius: var(--radius);
- box-shadow: var(--shadow-sm);
- }
-
- .faq-q {
- font-family: var(--serif);
- font-size: 1.05rem;
- font-weight: 500;
- color: var(--ink);
- line-height: 1.3;
- margin-bottom: 0.5rem;
- }
-
- .faq-a {
- font-family: var(--sans);
- font-size: 0.9rem;
- color: var(--body);
- line-height: 1.65;
- }
-
- .faq-a a {
- color: var(--link);
- text-decoration: underline;
- text-underline-offset: 3px;
- text-decoration-color: var(--line-2);
- transition: text-decoration-color 0.15s, color 0.15s;
- }
- .faq-a a:hover { color: var(--link-h); text-decoration-color: var(--link); }
-
- @media (max-width: 860px) {
- .tracks-grid { grid-template-columns: 1fr; }
- .faq-grid { grid-template-columns: 1fr; }
+ @media (max-width: 560px) {
+ .trk-hero-stats { flex-wrap: wrap; gap: 1.25rem; }
+ .trk-row { grid-template-columns: 2.5rem 1fr; gap: 1.1rem; }
+ .trk-decide-row { grid-template-columns: 2.25rem 1fr; gap: 1rem; }
  }
 </style>

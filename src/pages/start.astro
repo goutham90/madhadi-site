@@ -2,541 +2,406 @@
 import Layout from '../layouts/Layout.astro';
 
 const tierColors: Record<string, string> = {
-  Beginner: '#2F6E4F',
-  Intermediate: '#1C4E80',
-  Advanced: '#7A3B57',
+  Beginner: '#3C6B4A',
+  Intermediate: '#B26B1E',
+  Advanced: '#7A2E23',
 };
+
+const entries = [
+  {
+    n: '01', tier: 'Beginner', color: tierColors.Beginner, id: 'card-new',
+    title: 'New to GxP or quality',
+    blurb: "You've heard terms like GMP, FDA, data integrity, or validation and want to understand what they mean and why they matter.",
+    samples: [
+      { t: 'What Is GMP? A Plain-Language Introduction', s: 'what-is-gmp' },
+      { t: 'Data Integrity: What It Is and Why It Keeps Failing', s: 'data-integrity-foundations' },
+      { t: 'GxP Roles Explained: Who Does What', s: 'gxp-roles-responsibilities' },
+    ],
+    track: { label: 'Follow the 9-step Foundations track', href: '/tracks/foundations' },
+  },
+  {
+    n: '02', tier: 'Intermediate', color: tierColors.Intermediate, id: 'card-mid',
+    title: 'Practitioner building or inheriting systems',
+    blurb: "You're validating systems, writing SOPs, running audits, or implementing quality programs and need operational depth.",
+    samples: [
+      { t: 'Audit Trail Design and Review', s: 'audit-trail-design-and-review' },
+      { t: 'GAMP 5 Second Edition: What Changed', s: 'gamp5-csv-framework' },
+      { t: 'CSV Risk Assessment Methodology', s: 'csv-risk-assessment-methodology' },
+    ],
+    track: { label: 'Follow the 14-step Implementation track', href: '/tracks/implementation' },
+  },
+  {
+    n: '03', tier: 'Advanced', color: tierColors.Advanced, id: 'card-adv',
+    title: 'Senior practitioner or program leader',
+    blurb: "You're designing DI programs, preparing for FDA/EMA inspections, handling 483 responses, or building CSV governance from scratch.",
+    samples: [
+      { t: 'DI Program Architecture', s: 'di-program-architecture' },
+      { t: 'DI Gap Assessment Methodology', s: 'di-gap-assessment-methodology' },
+      { t: 'BLA Readiness: Data Package Architecture', s: 'bla-readiness-data-package' },
+    ],
+    track: { label: 'Follow the 14-step Advanced track', href: '/tracks/advanced' },
+  },
+];
+
+const roles = [
+  { role: 'CSV / Validation Specialist', articles: [
+    { title: 'GAMP 5 Second Edition Framework', slug: 'gamp5-csv-framework' },
+    { title: 'Risk Assessment Methodology', slug: 'csv-risk-assessment-methodology' },
+    { title: 'Validation Deliverables Guide', slug: 'validation-deliverables-guide' },
+    { title: 'FDA Computer Software Assurance', slug: 'computer-software-assurance-fda' },
+    { title: 'Cloud and SaaS Validation', slug: 'cloud-saas-validation' },
+    { title: 'Change Control for Validated Systems', slug: 'change-control-validated-systems' },
+  ]},
+  { role: 'Data Integrity Specialist', articles: [
+    { title: 'ALCOA+ Deep Dive', slug: 'alcoa-plus-deep-dive' },
+    { title: 'Audit Trail Design and Review', slug: 'audit-trail-design-and-review' },
+    { title: 'Data Lifecycle and Metadata', slug: 'data-lifecycle-and-metadata' },
+    { title: 'DI Gap Assessment Methodology', slug: 'di-gap-assessment-methodology' },
+    { title: 'DI Program Architecture', slug: 'di-program-architecture' },
+    { title: 'DI Self-Audit Checklist', slug: 'di-self-audit-checklist' },
+  ]},
+  { role: 'QMS / Quality Systems', articles: [
+    { title: 'Pharmaceutical Quality System (ICH Q10)', slug: 'pharmaceutical-quality-system' },
+    { title: 'Deviation Management', slug: 'deviation-management' },
+    { title: 'What Is a CAPA?', slug: 'what-is-a-capa' },
+    { title: 'Document Control Fundamentals', slug: 'document-control-fundamentals' },
+    { title: 'Internal Audit Program', slug: 'internal-audit-program' },
+    { title: 'Supplier and Vendor Qualification', slug: 'supplier-vendor-qualification' },
+  ]},
+  { role: 'Inspection Readiness', articles: [
+    { title: 'FDA Inspection Readiness', slug: 'fda-inspection-readiness' },
+    { title: '483 Response Strategy', slug: 'fda-483-response-strategy' },
+    { title: 'FDA vs EMA Inspection Dynamics', slug: 'fda-vs-ema-inspection-dynamics' },
+    { title: 'Warning Letter Patterns', slug: 'fda-warning-letters-patterns' },
+    { title: 'Inspection Readiness Deep Dive', slug: 'inspection-readiness' },
+  ]},
+  { role: 'Equipment / Instrument Qualification', articles: [
+    { title: 'Analytical Instrument Qualification', slug: 'analytical-instrument-qualification' },
+    { title: 'Equipment Qualification Lifecycle', slug: 'equipment-qualification-lifecycle' },
+    { title: 'Method Validation: ICH Q2(R2)', slug: 'method-validation-essentials' },
+    { title: 'Analytical Method Transfer', slug: 'analytical-method-transfer' },
+    { title: 'Equipment Qualification Audit', slug: 'equipment-qualification-audit-checklist' },
+  ]},
+  { role: 'Clinical Quality Assurance', articles: [
+    { title: 'Clinical QA: GCP Data Integrity', slug: 'clinical-qa-gcp-data-integrity' },
+    { title: 'BLA Readiness Data Package', slug: 'bla-readiness-data-package' },
+    { title: '21 CFR Part 11 and EU Annex 11', slug: '21-cfr-part-11-eu-annex-11' },
+  ]},
+  { role: 'Manufacturing / Automation', articles: [
+    { title: 'MES, EBR, SCADA Data Integrity', slug: 'mes-ebr-scada-data-integrity' },
+    { title: 'GxP Manufacturing Systems', slug: 'gxp-manufacturing-systems' },
+    { title: 'Computerized Systems: Post-Go-Live Operations', slug: 'gxp-computerized-systems-operations' },
+  ]},
+  { role: 'New to the Field / Career Switcher', articles: [
+    { title: 'What Is GMP?', slug: 'what-is-gmp' },
+    { title: 'GxP Roles Explained', slug: 'gxp-roles-responsibilities' },
+    { title: 'GxP Computerized Systems Overview', slug: 'gxp-systems-overview' },
+    { title: 'Breaking Into GxP Quality', slug: 'breaking-into-gxp-quality' },
+    { title: 'Career Guide: GxP and Validation', slug: 'career-guide-gxp-validation' },
+  ]},
+];
+
+const whatIs = [
+  'Free, public educational content on GxP quality and data integrity',
+  'Based on publicly available regulatory guidance, laws, and standards',
+  'Written at three levels: beginner, intermediate, and advanced',
+  'Structured learning paths with specific recommended reading sequences',
+  'Interactive tools, checklists, decision aids, error simulators',
+  'Practical framing: what to do, why, what can go wrong, what regulators care about',
+  'Content distinguishes between legal requirements, regulatory expectations, and best practices',
+];
+
+const whatIsNot = [
+  'Not legal or regulatory advice, do not rely on it as a substitute for qualified consultation',
+  'Not a guarantee that following any content will satisfy regulatory requirements',
+  'Not company-specific, all content uses generic, public examples',
+  'Not always current, regulatory guidance evolves; always verify against primary sources',
+  'Not a template repository, content here requires adaptation to your context',
+  'Not affiliated with any regulatory agency, pharmaceutical company, or trade association',
+];
+
+const quickRef = [
+  { href: '/tracks', emblem: 'data-integrity', title: 'Learning Tracks', desc: 'Structured 9-14 step sequences for Foundations, Implementation, and Advanced levels' },
+  { href: '/learning-paths', emblem: 'csv-csa', title: '7-Day Learning Paths', desc: 'Day-by-day plans with specific tasks, success criteria, and practical outputs' },
+  { href: '/scenarios', emblem: 'audits-inspection', title: 'Error Simulator', desc: 'Real GxP scenarios where you make decisions. Wrong answers are shown, learn from them.' },
+  { href: '/glossary', emblem: 'quality-assurance', title: 'Glossary', desc: 'Plain-language definitions for 70+ GxP, DI, CSV, and quality terms' },
+  { href: '/tools', emblem: 'equipment-qualification', title: 'Tools and Checklists', desc: 'Interactive ALCOA+ assessment, GAMP category decision aid, 483 completeness check' },
+  { href: '/regulatory-refs', emblem: 'manufacturing-automation', title: 'Regulatory References', desc: 'Curated index of FDA, EMA, MHRA, ICH, PIC/S, and WHO guidance relevant to GxP quality' },
+];
 ---
 <Layout
   title="Start Here"
   description="New to GxP quality, data integrity, or computer system validation? Start here. This page maps the knowledge on madhadi.com to where you are and where you want to go."
   wide={true}
 >
-  <!-- Hero -->
-  <section class="start-hero">
-    <div class="start-hero-inner">
-      <span class="start-badge">Free · No login · No paywall</span>
-      <h1>Start here.</h1>
-      <p class="lead start-sub">
+  <!-- ═══════════ HERO — full-bleed duotone band ═══════════ -->
+  <header class="start-hero duotone">
+    <img src="/images/scientist-test-tubes.jpg" alt="" loading="eager" />
+    <div class="start-hero-grad"></div>
+    <div class="wrap start-hero-inner">
+      <div class="start-hero-eyebrow">
+        <span class="kicker">Orientation · The Field Manual</span>
+        <span class="start-badge">Free · No login · No paywall</span>
+      </div>
+      <h1 class="start-title">Start here.</h1>
+      <p class="start-standfirst">
         madhadi.com is a free, public knowledge platform for data integrity, computer system validation,
         equipment qualification, automation systems, QMS, clinical systems, and GxP quality.
         Written for practitioners, from people new to the field through senior program leaders.
       </p>
-      <p class="zero-agenda">
-        What I get from this: nothing, except knowing it helped someone avoid learning things the hard way.
-        That's genuinely enough. If it's not useful to you, the tab close button is right there and there is no 6-step cancellation flow, no passive-aggressive popup, and no email sequence asking why you left.
-        And if something is wrong, outdated, or missing, <a href="mailto:goutham@madhadi.com" class="feedback-link">I actually want to know</a>.
-      </p>
-      <div class="disclaimer-box">
-        <div class="disclaimer-label">Educational disclaimer</div>
-        <p>
-          This site provides public educational information based on publicly available regulatory
-          guidance, laws, and standards. It is not legal advice, regulatory consulting, or
-          inspection strategy. Nothing here replaces the need to read primary sources, apply
-          professional judgment, and consult qualified experts for your specific situation.
-          Regulatory requirements change, always verify against current FDA, EMA, and ICH documents.
+    </div>
+  </header>
+
+  <!-- ═══════════ ZERO-AGENDA + DISCLAIMER ═══════════ -->
+  <section class="section-tight intro">
+    <div class="wrap intro-grid">
+      <div class="intro-main">
+        <p class="zero-agenda">
+          What I get from this: nothing, except knowing it helped someone avoid learning things the hard way.
+          That's genuinely enough. If it's not useful to you, the tab close button is right there and there is no 6-step cancellation flow, no passive-aggressive popup, and no email sequence asking why you left.
+          And if something is wrong, outdated, or missing, <a href="mailto:goutham@madhadi.com" class="feedback-link">I actually want to know</a>.
         </p>
       </div>
+      <aside class="intro-aside">
+        <div class="callout disclaimer-box">
+          <div class="callout-title">Educational disclaimer</div>
+          <p>
+            This site provides public educational information based on publicly available regulatory
+            guidance, laws, and standards. It is not legal advice, regulatory consulting, or
+            inspection strategy. Nothing here replaces the need to read primary sources, apply
+            professional judgment, and consult qualified experts for your specific situation.
+            Regulatory requirements change, always verify against current FDA, EMA, and ICH documents.
+          </p>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <!-- Where are you? -->
-  <section class="section where-section">
-    <div class="section-label">Find Your Entry Point</div>
-    <h2 class="section-title">Where are you right now?</h2>
-    <div class="where-grid">
-
-      <div class="card where-card" id="card-new">
-        <span class="tier-badge" style={`background:${tierColors.Beginner}1A;color:${tierColors.Beginner};border-color:${tierColors.Beginner}40`}>Beginner</span>
-        <h3>New to GxP or quality</h3>
-        <p>You've heard terms like GMP, FDA, data integrity, or validation and want to understand what they mean and why they matter.</p>
-        <div class="where-start">Start with these three:</div>
-        <ol class="where-list">
-          <li><a href="/articles/what-is-gmp">What Is GMP? A Plain-Language Introduction</a></li>
-          <li><a href="/articles/data-integrity-foundations">Data Integrity: What It Is and Why It Keeps Failing</a></li>
-          <li><a href="/articles/gxp-roles-responsibilities">GxP Roles Explained: Who Does What</a></li>
-        </ol>
-        <a href="/tracks/foundations" class="where-btn" style={`color:${tierColors.Beginner};border-color:${tierColors.Beginner}40`}>Follow the 9-step Foundations track →</a>
+  <!-- ═══════════ WHERE ARE YOU — editorial index, tier-coded ═══════════ -->
+  <section class="section-tight where-section">
+    <div class="wrap">
+      <div class="where-head">
+        <div>
+          <span class="kicker">Find your entry point</span>
+          <h2 class="display-2">Where are you right now?</h2>
+        </div>
+        <p class="marginalia where-note">Three entry levels, by depth. Pick the one that matches today, not the one you aspire to. Each opens onto a guided track.</p>
       </div>
-
-      <div class="card where-card" id="card-mid">
-        <span class="tier-badge" style={`background:${tierColors.Intermediate}1A;color:${tierColors.Intermediate};border-color:${tierColors.Intermediate}40`}>Intermediate</span>
-        <h3>Practitioner building or inheriting systems</h3>
-        <p>You're validating systems, writing SOPs, running audits, or implementing quality programs and need operational depth.</p>
-        <div class="where-start">Start with these three:</div>
-        <ol class="where-list">
-          <li><a href="/articles/audit-trail-design-and-review">Audit Trail Design and Review</a></li>
-          <li><a href="/articles/gamp5-csv-framework">GAMP 5 Second Edition: What Changed</a></li>
-          <li><a href="/articles/csv-risk-assessment-methodology">CSV Risk Assessment Methodology</a></li>
-        </ol>
-        <a href="/tracks/implementation" class="where-btn" style={`color:${tierColors.Intermediate};border-color:${tierColors.Intermediate}40`}>Follow the 14-step Implementation track →</a>
-      </div>
-
-      <div class="card where-card" id="card-adv">
-        <span class="tier-badge" style={`background:${tierColors.Advanced}1A;color:${tierColors.Advanced};border-color:${tierColors.Advanced}40`}>Advanced</span>
-        <h3>Senior practitioner or program leader</h3>
-        <p>You're designing DI programs, preparing for FDA/EMA inspections, handling 483 responses, or building CSV governance from scratch.</p>
-        <div class="where-start">Start with these three:</div>
-        <ol class="where-list">
-          <li><a href="/articles/di-program-architecture">DI Program Architecture</a></li>
-          <li><a href="/articles/di-gap-assessment-methodology">DI Gap Assessment Methodology</a></li>
-          <li><a href="/articles/bla-readiness-data-package">BLA Readiness: Data Package Architecture</a></li>
-        </ol>
-        <a href="/tracks/advanced" class="where-btn" style={`color:${tierColors.Advanced};border-color:${tierColors.Advanced}40`}>Follow the 14-step Advanced track →</a>
-      </div>
-
+      <ul class="index-list where-list">
+        {entries.map(e => (
+          <li>
+            <div class="where-row" id={e.id}>
+              <span class="where-n" style={`color:${e.color}`}>{e.n}</span>
+              <div class="where-main">
+                <div class="where-title-row">
+                  <span class="tier-badge" style={`background:${e.color}; color:#F7F3EA; border-color:${e.color}`}>{e.tier}</span>
+                  <h3 class="where-title">{e.title}</h3>
+                </div>
+                <p class="where-blurb">{e.blurb}</p>
+                <div class="where-start">Start with these three</div>
+                <ol class="where-samples">
+                  {e.samples.map(s => <li><a href={`/articles/${s.s}`}>{s.t}</a></li>)}
+                </ol>
+              </div>
+              <a href={e.track.href} class="where-track" style={`color:${e.color}; border-color:${e.color}`}>{e.track.label} →</a>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
-  <!-- By Role -->
-  <section class="section role-section">
-    <div class="section-label">By Role</div>
-    <h2 class="section-title">What's your job?</h2>
-    <p class="lead role-intro">The same regulation looks completely different depending on what you do every day. Start with your role.</p>
-    <div class="role-grid">
-
-      <div class="card role-block">
-        <div class="role-name">CSV / Validation Specialist</div>
-        <ul>
-          <li><a href="/articles/gamp5-csv-framework">GAMP 5 Second Edition Framework</a></li>
-          <li><a href="/articles/csv-risk-assessment-methodology">Risk Assessment Methodology</a></li>
-          <li><a href="/articles/validation-deliverables-guide">Validation Deliverables Guide</a></li>
-          <li><a href="/articles/computer-software-assurance-fda">FDA Computer Software Assurance</a></li>
-          <li><a href="/articles/cloud-saas-validation">Cloud and SaaS Validation</a></li>
-          <li><a href="/articles/change-control-validated-systems">Change Control for Validated Systems</a></li>
-        </ul>
+  <!-- ═══════════ BY ROLE — directory ═══════════ -->
+  <section class="section-tight role-section">
+    <div class="wrap">
+      <img class="role-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+      <div class="role-head">
+        <span class="kicker">By role</span>
+        <h2 class="display-2">What's your job?</h2>
+        <p class="lead role-intro">The same regulation looks completely different depending on what you do every day. Start with your role.</p>
       </div>
-
-      <div class="card role-block">
-        <div class="role-name">Data Integrity Specialist</div>
-        <ul>
-          <li><a href="/articles/alcoa-plus-deep-dive">ALCOA+ Deep Dive</a></li>
-          <li><a href="/articles/audit-trail-design-and-review">Audit Trail Design and Review</a></li>
-          <li><a href="/articles/data-lifecycle-and-metadata">Data Lifecycle and Metadata</a></li>
-          <li><a href="/articles/di-gap-assessment-methodology">DI Gap Assessment Methodology</a></li>
-          <li><a href="/articles/di-program-architecture">DI Program Architecture</a></li>
-          <li><a href="/articles/di-self-audit-checklist">DI Self-Audit Checklist</a></li>
-        </ul>
-      </div>
-
-      <div class="card role-block">
-        <div class="role-name">QMS / Quality Systems</div>
-        <ul>
-          <li><a href="/articles/pharmaceutical-quality-system">Pharmaceutical Quality System (ICH Q10)</a></li>
-          <li><a href="/articles/deviation-management">Deviation Management</a></li>
-          <li><a href="/articles/what-is-a-capa">What Is a CAPA?</a></li>
-          <li><a href="/articles/document-control-fundamentals">Document Control Fundamentals</a></li>
-          <li><a href="/articles/internal-audit-program">Internal Audit Program</a></li>
-          <li><a href="/articles/supplier-vendor-qualification">Supplier and Vendor Qualification</a></li>
-        </ul>
-      </div>
-
-      <div class="card role-block">
-        <div class="role-name">Inspection Readiness</div>
-        <ul>
-          <li><a href="/articles/fda-inspection-readiness">FDA Inspection Readiness</a></li>
-          <li><a href="/articles/fda-483-response-strategy">483 Response Strategy</a></li>
-          <li><a href="/articles/fda-vs-ema-inspection-dynamics">FDA vs EMA Inspection Dynamics</a></li>
-          <li><a href="/articles/fda-warning-letters-patterns">Warning Letter Patterns</a></li>
-          <li><a href="/articles/inspection-readiness">Inspection Readiness Deep Dive</a></li>
-        </ul>
-      </div>
-
-      <div class="card role-block">
-        <div class="role-name">Equipment / Instrument Qualification</div>
-        <ul>
-          <li><a href="/articles/analytical-instrument-qualification">Analytical Instrument Qualification</a></li>
-          <li><a href="/articles/equipment-qualification-lifecycle">Equipment Qualification Lifecycle</a></li>
-          <li><a href="/articles/method-validation-essentials">Method Validation: ICH Q2(R2)</a></li>
-          <li><a href="/articles/analytical-method-transfer">Analytical Method Transfer</a></li>
-          <li><a href="/articles/equipment-qualification-audit-checklist">Equipment Qualification Audit</a></li>
-        </ul>
-      </div>
-
-      <div class="card role-block">
-        <div class="role-name">Clinical Quality Assurance</div>
-        <ul>
-          <li><a href="/articles/clinical-qa-gcp-data-integrity">Clinical QA: GCP Data Integrity</a></li>
-          <li><a href="/articles/bla-readiness-data-package">BLA Readiness Data Package</a></li>
-          <li><a href="/articles/21-cfr-part-11-eu-annex-11">21 CFR Part 11 and EU Annex 11</a></li>
-        </ul>
-      </div>
-
-      <div class="card role-block">
-        <div class="role-name">Manufacturing / Automation</div>
-        <ul>
-          <li><a href="/articles/mes-ebr-scada-data-integrity">MES, EBR, SCADA Data Integrity</a></li>
-          <li><a href="/articles/gxp-manufacturing-systems">GxP Manufacturing Systems</a></li>
-          <li><a href="/articles/gxp-computerized-systems-operations">Computerized Systems: Post-Go-Live Operations</a></li>
-        </ul>
-      </div>
-
-      <div class="card role-block">
-        <div class="role-name">New to the Field / Career Switcher</div>
-        <ul>
-          <li><a href="/articles/what-is-gmp">What Is GMP?</a></li>
-          <li><a href="/articles/gxp-roles-responsibilities">GxP Roles Explained</a></li>
-          <li><a href="/articles/gxp-systems-overview">GxP Computerized Systems Overview</a></li>
-          <li><a href="/articles/breaking-into-gxp-quality">Breaking Into GxP Quality</a></li>
-          <li><a href="/articles/career-guide-gxp-validation">Career Guide: GxP and Validation</a></li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- What This Site Is -->
-  <section class="section what-section">
-    <div class="section-label">About This Platform</div>
-    <h2 class="section-title">What this site is, and is not</h2>
-    <div class="what-grid">
-      <div class="card what-col">
-        <div class="what-heading is-heading">What it is</div>
-        <ul class="what-list">
-          <li>Free, public educational content on GxP quality and data integrity</li>
-          <li>Based on publicly available regulatory guidance, laws, and standards</li>
-          <li>Written at three levels: beginner, intermediate, and advanced</li>
-          <li>Structured learning paths with specific recommended reading sequences</li>
-          <li>Interactive tools, checklists, decision aids, error simulators</li>
-          <li>Practical framing: what to do, why, what can go wrong, what regulators care about</li>
-          <li>Content distinguishes between legal requirements, regulatory expectations, and best practices</li>
-        </ul>
-      </div>
-      <div class="card what-col">
-        <div class="what-heading not-heading">What it is not</div>
-        <ul class="what-list not-list">
-          <li>Not legal or regulatory advice, do not rely on it as a substitute for qualified consultation</li>
-          <li>Not a guarantee that following any content will satisfy regulatory requirements</li>
-          <li>Not company-specific, all content uses generic, public examples</li>
-          <li>Not always current, regulatory guidance evolves; always verify against primary sources</li>
-          <li>Not a template repository, content here requires adaptation to your context</li>
-          <li>Not affiliated with any regulatory agency, pharmaceutical company, or trade association</li>
-        </ul>
+      <div class="role-grid">
+        {roles.map((r, i) => (
+          <div class="role-entry">
+            <div class="role-top"><span class="role-n">{String(i + 1).padStart(2, '0')}</span><h3 class="role-name">{r.role}</h3></div>
+            <ul class="role-links">
+              {r.articles.map(a => <li><a href={`/articles/${a.slug}`}>{a.title}</a></li>)}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Quick Reference -->
-  <section class="section quick-ref">
-    <div class="section-label">Quick Reference</div>
-    <h2 class="section-title">Most useful pages</h2>
-    <div class="quick-grid">
-      <a href="/tracks" class="card quick-card">
-        <div class="quick-icon">◎</div>
-        <div class="quick-body">
-          <div class="quick-title">Learning Tracks</div>
-          <div class="quick-desc">Structured 9-14 step sequences for Foundations, Implementation, and Advanced levels</div>
+  <!-- ═══════════ WHAT THIS IS / IS NOT — dark plate ═══════════ -->
+  <section class="section section-dark what-section">
+    <div class="wrap">
+      <div class="what-head">
+        <div>
+          <span class="kicker">About this platform</span>
+          <h2 class="display-2">What this site is, and is not.</h2>
         </div>
-      </a>
-      <a href="/learning-paths" class="card quick-card">
-        <div class="quick-icon">◈</div>
-        <div class="quick-body">
-          <div class="quick-title">7-Day Learning Paths</div>
-          <div class="quick-desc">Day-by-day plans with specific tasks, success criteria, and practical outputs</div>
+        <img class="what-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+      </div>
+      <div class="what-grid">
+        <div class="what-col">
+          <div class="what-heading is-heading">What it is</div>
+          <ul class="what-list">
+            {whatIs.map(item => <li>{item}</li>)}
+          </ul>
         </div>
-      </a>
-      <a href="/scenarios" class="card quick-card">
-        <div class="quick-icon">◇</div>
-        <div class="quick-body">
-          <div class="quick-title">Error Simulator</div>
-          <div class="quick-desc">Real GxP scenarios where you make decisions. Wrong answers are shown, learn from them.</div>
+        <div class="what-col">
+          <div class="what-heading not-heading">What it is not</div>
+          <ul class="what-list not-list">
+            {whatIsNot.map(item => <li>{item}</li>)}
+          </ul>
         </div>
-      </a>
-      <a href="/glossary" class="card quick-card">
-        <div class="quick-icon">■</div>
-        <div class="quick-body">
-          <div class="quick-title">Glossary</div>
-          <div class="quick-desc">Plain-language definitions for 70+ GxP, DI, CSV, and quality terms</div>
-        </div>
-      </a>
-      <a href="/tools" class="card quick-card">
-        <div class="quick-icon">▣</div>
-        <div class="quick-body">
-          <div class="quick-title">Tools and Checklists</div>
-          <div class="quick-desc">Interactive ALCOA+ assessment, GAMP category decision aid, 483 completeness check</div>
-        </div>
-      </a>
-      <a href="/regulatory-refs" class="card quick-card">
-        <div class="quick-icon">▦</div>
-        <div class="quick-body">
-          <div class="quick-title">Regulatory References</div>
-          <div class="quick-desc">Curated index of FDA, EMA, MHRA, ICH, PIC/S, and WHO guidance relevant to GxP quality</div>
-        </div>
-      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ QUICK REFERENCE — index list w/ emblems ═══════════ -->
+  <section class="section-tight quick-ref">
+    <div class="wrap">
+      <div class="quick-head"><span class="kicker">Quick reference</span><h2 class="display-2">Most useful pages.</h2></div>
+      <ul class="index-list quick-list">
+        {quickRef.map((q, i) => (
+          <li>
+            <a href={q.href} class="quick-row">
+              <span class="quick-n">{String(i + 1).padStart(2, '0')}</span>
+              <span class="emblem quick-emblem" style={`--src:url('/brand/emblems/pillar-${q.emblem}.svg')`}></span>
+              <div class="quick-main">
+                <div class="quick-title">{q.title}</div>
+                <div class="quick-desc">{q.desc}</div>
+              </div>
+              <span class="quick-go">Open →</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
 </Layout>
 
 <style>
-  /* ── Hero ── */
-  .start-hero {
-    padding: 4rem 0 3.5rem;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 4.5rem;
-  }
-
-  .start-hero-inner { max-width: 720px; }
-
+  /* ── HERO — full-bleed duotone band ── */
+  .start-hero { position: relative; min-height: 52vh; display: flex; align-items: flex-end; border-bottom: 3px solid var(--vermilion); margin-bottom: 0; }
+  .start-hero > img { position: absolute; inset: 0; }
+  .start-hero-grad { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(22,19,13,0.2) 0%, rgba(22,19,13,0.4) 45%, rgba(22,19,13,0.88) 100%); }
+  .start-hero-inner { position: relative; z-index: 3; padding-top: 5rem; padding-bottom: 3rem; }
+  .start-hero-eyebrow { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .start-hero .kicker { color: #F2C9B8; }
   .start-badge {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: var(--brass);
-    background: var(--brass-soft);
-    border: 1px solid var(--line-2);
-    padding: 0.28rem 0.65rem;
-    border-radius: var(--radius-sm);
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    display: inline-flex; align-items: center;
+    font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+    color: var(--on-ink); border: 1px solid var(--line-ink);
+    background: rgba(236,230,216,0.08); padding: 0.26rem 0.65rem;
+    border-radius: var(--radius); letter-spacing: 0.12em; text-transform: uppercase;
   }
+  .start-title { font-family: var(--display); font-weight: 500; color: var(--on-ink); font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+  .start-standfirst { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--on-ink-dim); font-size: clamp(1.1rem, 1.9vw, 1.5rem); line-height: 1.45; max-width: 46ch; }
 
-  .start-hero h1 {
-    font-size: clamp(2.5rem, 6vw, 3.6rem);
-    letter-spacing: -0.025em;
-    margin-bottom: 1.25rem;
-    line-height: 1.08;
-  }
-
-  .start-sub {
-    max-width: 620px;
-    margin-bottom: 1.25rem;
-  }
-
+  /* ── INTRO (zero-agenda + disclaimer) ── */
+  .intro-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: start; }
   .zero-agenda {
-    font-family: var(--serif);
-    font-size: 1rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 600px;
-    margin-bottom: 2.25rem;
-    font-style: italic;
+    font-family: var(--display); font-style: italic; font-size: 1.18rem;
+    color: var(--graphite); line-height: 1.6; max-width: 40ch;
   }
+  .feedback-link { color: var(--vermilion-2); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--vermilion); }
+  .feedback-link:hover { color: var(--ink); }
+  .disclaimer-box { margin: 0; }
+  .disclaimer-box p { font-size: 0.88rem; line-height: 1.65; }
 
-  .feedback-link {
-    color: var(--link);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-color: var(--brass);
+  /* ── WHERE — editorial index ── */
+  .where-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 2.5rem; }
+  .where-note { max-width: 24rem; text-align: right; }
+  .where-list { border-top: 2px solid var(--ink); }
+  .where-row { display: grid; grid-template-columns: 3.5rem 1fr auto; gap: 1.75rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--line); }
+  .where-n { font-family: var(--display); font-size: 2rem; font-weight: 500; line-height: 1; padding-top: 0.1rem; }
+  .where-title-row { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .where-title { font-family: var(--display); font-size: 1.5rem; font-weight: 500; color: var(--ink); }
+  .where-blurb { font-size: 0.95rem; color: var(--graphite); line-height: 1.6; max-width: 48rem; margin-bottom: 1rem; }
+  .where-start { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.55rem; }
+  .where-samples { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; counter-reset: ws; }
+  .where-samples li { counter-increment: ws; margin: 0; }
+  .where-samples li::marker { content: none; }
+  .where-samples li a { font-family: var(--sans); font-size: 0.92rem; color: var(--graphite); }
+  .where-samples li a::before { content: counter(ws, decimal-leading-zero) "  "; font-family: var(--mono); font-size: 0.74rem; color: var(--vermilion); }
+  .where-samples li a:hover { color: var(--vermilion-2); }
+  .where-track {
+    align-self: start; max-width: 13rem; text-align: left;
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    line-height: 1.5; padding: 0.65rem 0.9rem; border: 1px solid; border-radius: var(--radius);
+    transition: background 0.15s; background: var(--paper);
   }
+  .where-track:hover { background: var(--bone-2); }
 
-  .feedback-link:hover { color: var(--link-h); }
+  /* ── ROLE — directory ── */
+  .role-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-bottom: 2.5rem; }
+  .role-head { margin-bottom: 2.5rem; }
+  .role-head .display-2 { margin: 0.65rem 0 1rem; }
+  .role-intro { max-width: 46rem; }
+  .role-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 4rem; }
+  .role-entry { border-top: 1px solid var(--ink); padding-top: 1.25rem; }
+  .role-top { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 0.9rem; }
+  .role-n { font-family: var(--mono); font-size: 0.78rem; color: var(--vermilion); }
+  .role-name { font-family: var(--display); font-size: 1.3rem; font-weight: 500; color: var(--ink); }
+  .role-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+  .role-links li { margin: 0; }
+  .role-links li::marker { content: none; }
+  .role-links a { font-family: var(--sans); font-size: 0.88rem; color: var(--graphite); line-height: 1.45; }
+  .role-links a::before { content: '→ '; color: var(--vermilion); }
+  .role-links a:hover { color: var(--vermilion-2); }
 
-  .disclaimer-box {
-    background: var(--paper-2);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--brass);
-    border-radius: var(--radius);
-    padding: 1.15rem 1.4rem;
-    max-width: 680px;
-  }
-
-  .disclaimer-label {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--brass);
-    font-weight: 600;
-    margin-bottom: 0.45rem;
-  }
-
-  .disclaimer-box p {
-    font-size: 0.85rem;
-    color: var(--body);
-    line-height: 1.65;
-    margin: 0;
-  }
-
-  /* ── Where section ── */
-  .where-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  .where-card {
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .where-card .tier-badge { align-self: flex-start; }
-
-  .where-card h3 { font-size: 1.2rem; color: var(--ink); }
-
-  .where-card p {
-    font-size: 0.9rem;
-    color: var(--body);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .where-start {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 0.5rem;
-  }
-
-  .where-list {
-    padding-left: 1.2rem;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .where-list li { color: var(--body); }
-  .where-list li a { font-size: 0.875rem; color: var(--body); }
-  .where-list li a:hover { color: var(--link); }
-
-  .where-btn {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    font-weight: 600;
-    padding: 0.55rem 1rem;
-    border: 1px solid;
-    border-radius: var(--radius);
-    margin-top: auto;
-    transition: background 0.15s;
-    background: var(--surface);
-  }
-
-  .where-btn:hover { background: var(--paper-2); }
-
-  /* ── Role section ── */
-  .role-intro {
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
-  }
-
-  .role-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-
-  .role-block { padding: 1.35rem 1.5rem; }
-
-  .role-name {
-    font-family: var(--mono);
-    font-size: 0.74rem;
-    color: var(--brass);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    margin-bottom: 0.9rem;
-  }
-
-  .role-block ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .role-block ul li { margin: 0; }
-  .role-block ul li::marker { content: none; }
-
-  .role-block ul li a {
-    font-size: 0.85rem;
-    color: var(--body);
-    line-height: 1.45;
-  }
-
-  .role-block ul li a:hover { color: var(--link); }
-
-  /* ── What section ── */
-  .what-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .what-col { padding: 1.5rem 1.65rem; }
-
+  /* ── WHAT — dark plate ── */
+  .what-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 2.5rem; }
+  .what-head .display-2 { margin-top: 0.65rem; }
+  .what-seal { width: 88px; flex-shrink: 0; color: var(--vermilion); opacity: 0.9; }
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
   .what-heading {
-    font-family: var(--mono);
-    font-size: 0.76rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--line);
+    font-family: var(--mono); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 1.1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--line-ink);
   }
+  .is-heading { color: #6FA37C; }
+  .not-heading { color: var(--vermilion); }
+  .what-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .what-list li { font-size: 0.9rem; color: var(--on-ink-dim); line-height: 1.55; padding-left: 1.4rem; position: relative; }
+  .what-list li::before { content: '·'; position: absolute; left: 0.3rem; color: var(--vermilion); font-weight: 700; }
+  .not-list li::before { content: '×'; font-size: 0.78rem; top: 0.05rem; }
 
-  .is-heading { color: var(--green); }
-  .not-heading { color: #7A3B57; }
-
-  .what-list {
-    padding-left: 1.2rem;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-
-  .what-list li { font-size: 0.875rem; color: var(--body); line-height: 1.55; }
-  .not-list li { color: var(--muted); }
-
-  /* ── Quick ref ── */
-  .quick-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-
-  .quick-card {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1.35rem;
-    color: inherit;
-  }
-
-  .quick-card:hover { color: inherit; }
-
-  .quick-icon {
-    font-size: 1.05rem;
-    color: var(--brass);
-    flex-shrink: 0;
-    margin-top: 0.15rem;
-  }
-
-  .quick-title {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.3rem;
-  }
-
-  .quick-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.55;
-  }
+  /* ── QUICK REF — index list with emblems ── */
+  .quick-head { margin-bottom: 2rem; }
+  .quick-head .display-2 { margin-top: 0.65rem; }
+  .quick-list { border-top: 2px solid var(--ink); }
+  .quick-row { display: grid; grid-template-columns: 2.5rem 44px 1fr auto; gap: 1.25rem; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--line); color: inherit; transition: padding-left 0.15s, background 0.15s; }
+  .quick-row:hover { padding-left: 0.6rem; background: rgba(226,219,201,0.35); }
+  .quick-n { font-family: var(--mono); font-size: 0.78rem; color: var(--vermilion); }
+  .quick-emblem { color: var(--ink); width: 40px; height: 40px; transition: color 0.15s; }
+  .quick-row:hover .quick-emblem { color: var(--vermilion); }
+  .quick-title { font-family: var(--display); font-size: 1.25rem; font-weight: 500; color: var(--ink); line-height: 1.15; margin-bottom: 0.25rem; }
+  .quick-row:hover .quick-title { color: var(--vermilion-2); }
+  .quick-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.5; max-width: 52rem; }
+  .quick-go { font-family: var(--mono); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+  .quick-row:hover .quick-go { color: var(--vermilion-2); }
 
   @media (max-width: 900px) {
-    .where-grid { grid-template-columns: 1fr; }
-    .what-grid { grid-template-columns: 1fr; }
+    .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .where-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .where-note { text-align: left; }
+    .where-row { grid-template-columns: 2.75rem 1fr; }
+    .where-track { grid-column: 1 / -1; justify-self: start; margin-top: 0.5rem; }
+    .role-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .what-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .what-seal { width: 64px; }
   }
 
   @media (max-width: 600px) {
-    .role-grid { grid-template-columns: 1fr; }
-    .quick-grid { grid-template-columns: 1fr; }
-    .start-hero { padding: 2.5rem 0 3rem; }
+    .start-hero { min-height: 44vh; }
+    .start-hero-inner { padding-top: 3.5rem; }
+    .where-row { grid-template-columns: 2.25rem 1fr; gap: 1rem; }
+    .where-n { font-size: 1.5rem; }
+    .quick-row { grid-template-columns: 2rem 1fr; gap: 0.85rem; }
+    .quick-emblem, .quick-go { display: none; }
   }
 </style>

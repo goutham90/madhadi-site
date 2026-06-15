@@ -1,193 +1,286 @@
 ---
 import Layout from '../layouts/Layout.astro';
----
-<Layout title="About" description="Goutham Madhadi, data integrity practitioner and quality leader in cell and gene therapy biotech. The story behind madhadi.com.">
-	<div class="about">
-		<header class="page-header">
-			<div class="page-label">About</div>
-			<h1>Goutham Madhadi</h1>
-			<p class="tagline">Data integrity and quality systems, pharma and biotech</p>
-		</header>
 
+const work = [
+	'FDA 21 CFR Part 11 compliance and audit trail integrity programs',
+	'ALCOA+ data quality frameworks across GxP systems',
+	'Computerized system validation and change control governance',
+	'BLA data packages and regulatory submission readiness',
+	'AI tools for compliance monitoring and anomaly detection in regulated systems',
+	'Data governance: ownership models, metadata standards, system interoperability',
+	'Inspection preparation and 483 response strategy',
+];
+---
+<Layout title="About" description="Goutham Madhadi, data integrity practitioner and quality leader in cell and gene therapy biotech. The story behind madhadi.com." wide={true}>
+
+	<!-- ═══════════ FEATURE HEADER (full-bleed duotone band) ═══════════ -->
+	<header class="about-hero duotone">
+		<img src="/images/scientist-pipette.jpg" alt="" loading="eager" />
+		<div class="about-hero-grad"></div>
+		<div class="wrap about-hero-inner">
+			<div class="page-label about-eyebrow">About / The Author</div>
+			<h1 class="about-name">Goutham Madhadi</h1>
+			<p class="about-standfirst">Data integrity and quality systems, pharma and biotech</p>
+			<div class="about-hero-meta">
+				<span>15+ years in GxP quality</span>
+				<span class="sep">/</span>
+				<span>Cell &amp; gene therapy</span>
+				<span class="sep">/</span>
+				<span>Practitioner, not consultant</span>
+			</div>
+		</div>
+	</header>
+
+	<!-- ═══════════ FEATURE BODY (editorial measure) ═══════════ -->
+	<div class="wrap about-shell">
 		<div class="about-body prose">
 
-			<h2>Why this site exists</h2>
+			<section class="about-sect">
+				<div class="sect-head">
+					<span class="kicker"><span class="kicker-num">01</span>The mission</span>
+					<h2 class="sect-h2">Why this site exists</h2>
+				</div>
 
-			<p>
-				When I started in this field, I didn't know where to look for anything. I could find the
-				regulations, they're public, but regulations tell you what is required, not how it actually
-				works in practice. I could find academic papers, compliance checklists, and expensive
-				training courses that repeated the same surface-level content. What I couldn't find was
-				someone explaining it the way a colleague would after a long inspection day. The real version.
-				What actually fails, what FDA actually cares about in the room, what a "validated system"
-				looks like in a company that's three months from a pre-approval inspection with a team of six.
-			</p>
+				<p class="dropcap">
+					When I started in this field, I didn't know where to look for anything. I could find the
+					regulations, they're public, but regulations tell you what is required, not how it actually
+					works in practice. I could find academic papers, compliance checklists, and expensive
+					training courses that repeated the same surface-level content. What I couldn't find was
+					someone explaining it the way a colleague would after a long inspection day. The real version.
+					What actually fails, what FDA actually cares about in the room, what a "validated system"
+					looks like in a company that's three months from a pre-approval inspection with a team of six.
+				</p>
 
-			<p>
-				I spent years collecting that knowledge the hard way. Sitting through inspections. Building
-				programs from scratch. Inheriting broken ones. Watching what happens when an analyst doesn't
-				understand why audit trails matter, or when a QA manager treats data integrity as a
-				documentation exercise. I've been on both sides of that, the side where everything holds up
-				and the side where it doesn't.
-			</p>
+				<p>
+					I spent years collecting that knowledge the hard way. Sitting through inspections. Building
+					programs from scratch. Inheriting broken ones. Watching what happens when an analyst doesn't
+					understand why audit trails matter, or when a QA manager treats data integrity as a
+					documentation exercise. I've been on both sides of that, the side where everything holds up
+					and the side where it doesn't.
+				</p>
 
-			<p>
-				This site exists because that kind of knowledge shouldn't sit behind a paywall or live only
-				in the heads of people who've been doing this long enough. It should be free, public, and
-				written for the person who just started their first validation job and has no idea what they're
-				supposed to be learning. Or the experienced professional who's good at their specific role
-				but has never had to think about what an FDA investigator looks for in an audit trail review.
-				Or the quality director who needs to build a data integrity program from scratch at a startup
-				and has two months to get it inspection-ready.
-			</p>
+				<p>
+					This site exists because that kind of knowledge shouldn't sit behind a paywall or live only
+					in the heads of people who've been doing this long enough. It should be free, public, and
+					written for the person who just started their first validation job and has no idea what they're
+					supposed to be learning. Or the experienced professional who's good at their specific role
+					but has never had to think about what an FDA investigator looks for in an audit trail review.
+					Or the quality director who needs to build a data integrity program from scratch at a startup
+					and has two months to get it inspection-ready.
+				</p>
 
-			<p>
-				The mission is simple: take what took years to learn in practice and make it available to
-				anyone, for free, at whatever level they're starting from.
-			</p>
+				<blockquote class="about-pull">
+					The mission is simple: take what took years to learn in practice and make it available to
+					anyone, for free, at whatever level they're starting from.
+				</blockquote>
+			</section>
 
-			<h2>Background</h2>
+			<section class="about-sect">
+				<div class="sect-head">
+					<span class="kicker"><span class="kicker-num">02</span>The background</span>
+					<h2 class="sect-h2">Background</h2>
+				</div>
 
-			<p>
-				I've spent 15+ years across pharma and biotech. Started in validation doing the work, writing
-				protocols, running tests, building packages. Over time moved into designing the programs,
-				then into leading them. Currently I lead data integrity and digital quality at a cell and gene
-				therapy company, which is its own world, novel modalities, novel assays, a regulatory
-				environment that's still being defined in real time, and an expectation that your data is
-				BLA-ready even when you're still figuring out the process.
-			</p>
+				<p>
+					I've spent 15+ years across pharma and biotech. Started in validation doing the work, writing
+					protocols, running tests, building packages. Over time moved into designing the programs,
+					then into leading them. Currently I lead data integrity and digital quality at a cell and gene
+					therapy company, which is its own world, novel modalities, novel assays, a regulatory
+					environment that's still being defined in real time, and an expectation that your data is
+					BLA-ready even when you're still figuring out the process.
+				</p>
 
-			<p>
-				You learn more from watching things go wrong than from any training course. Programs that
-				looked complete on paper but didn't hold up when someone actually stress-tested them. Systems
-				that had every document in order but the people using them had no idea why any of it mattered.
-				I've been in enough of those situations to know what the difference is between a quality
-				program that works and one that just looks like it does.
-			</p>
+				<p>
+					You learn more from watching things go wrong than from any training course. Programs that
+					looked complete on paper but didn't hold up when someone actually stress-tested them. Systems
+					that had every document in order but the people using them had no idea why any of it mattered.
+					I've been in enough of those situations to know what the difference is between a quality
+					program that works and one that just looks like it does.
+				</p>
 
-			<p>
-				Some of the interactive tools on this site came out of that same frustration: the commercial
-				options for GxP data quality work tend to be expensive, not built by practitioners, and
-				hard to adapt to the questions you actually need answered.
-			</p>
+				<p>
+					Some of the interactive tools on this site came out of that same frustration: the commercial
+					options for GxP data quality work tend to be expensive, not built by practitioners, and
+					hard to adapt to the questions you actually need answered.
+				</p>
+			</section>
+		</div>
 
-			<h2>What I work on day to day</h2>
-			<ul>
-				<li>FDA 21 CFR Part 11 compliance and audit trail integrity programs</li>
-				<li>ALCOA+ data quality frameworks across GxP systems</li>
-				<li>Computerized system validation and change control governance</li>
-				<li>BLA data packages and regulatory submission readiness</li>
-				<li>AI tools for compliance monitoring and anomaly detection in regulated systems</li>
-				<li>Data governance: ownership models, metadata standards, system interoperability</li>
-				<li>Inspection preparation and 483 response strategy</li>
-			</ul>
+		<!-- aside rail: the work directory -->
+		<aside class="about-rail">
+			<div class="rail-card">
+				<span class="emblem rail-emblem" style="--src:url('/brand/emblems/pillar-data-integrity.svg')"></span>
+				<div class="sect-head rail-head">
+					<span class="kicker"><span class="kicker-num">03</span>The work</span>
+					<h2 class="sect-h2 rail-h2">What I work on day to day</h2>
+				</div>
+				<ol class="rail-list">
+					{work.map((item, i) => (
+						<li class="rail-row">
+							<span class="rail-n">{String(i + 1).padStart(2, '0')}</span>
+							<span class="rail-text">{item}</span>
+						</li>
+					))}
+				</ol>
+			</div>
+		</aside>
+	</div>
 
-			<h2>On the content here</h2>
+	<!-- ═══════════ DARK PLATE: ON THE CONTENT ═══════════ -->
+	<section class="section section-dark about-content">
+		<div class="wrap">
+			<img class="content-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+			<div class="content-grid">
+				<div class="content-aside">
+					<span class="kicker"><span class="kicker-num">04</span>Editorial standard</span>
+					<h2 class="display-2 content-h2">On the content here</h2>
+					<img class="content-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+				</div>
+				<div class="content-prose">
+					<p>
+						Everything on this site is based on public regulatory sources: FDA guidance, EU GMP,
+						ICH guidelines, PIC/S, MHRA. No proprietary internal information, no company-specific
+						details, no confidential processes. All examples use fictional or generic contexts.
+						The principles are real; the specifics are constructed to illustrate them.
+					</p>
 
-			<p>
-				Everything on this site is based on public regulatory sources: FDA guidance, EU GMP,
-				ICH guidelines, PIC/S, MHRA. No proprietary internal information, no company-specific
-				details, no confidential processes. All examples use fictional or generic contexts.
-				The principles are real; the specifics are constructed to illustrate them.
-			</p>
+					<p>
+						I write at three levels, beginner, intermediate, and advanced, because the same topic
+						needs to be explained differently depending on where you are. A first-year quality associate
+						needs to understand what an audit trail is and why it matters. A validation specialist needs
+						to know how to assess one. A program director needs to know how to build a review program
+						that holds up under regulatory scrutiny and doesn't collapse when a key person leaves.
+						Those are three different articles.
+					</p>
 
-			<p>
-				I write at three levels, beginner, intermediate, and advanced, because the same topic
-				needs to be explained differently depending on where you are. A first-year quality associate
-				needs to understand what an audit trail is and why it matters. A validation specialist needs
-				to know how to assess one. A program director needs to know how to build a review program
-				that holds up under regulatory scrutiny and doesn't collapse when a key person leaves.
-				Those are three different articles.
-			</p>
+					<p>
+						Nothing here is legal advice or regulatory consulting. It's practitioner knowledge, made public.
+						Read it, apply professional judgment, check primary sources, and adapt it to your situation.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-			<p>
-				Nothing here is legal advice or regulatory consulting. It's practitioner knowledge, made public.
-				Read it, apply professional judgment, check primary sources, and adapt it to your situation.
-			</p>
-
-			<h2>Get in touch</h2>
-			<p>
+	<!-- ═══════════ GET IN TOUCH + DISCLAIMER ═══════════ -->
+	<section class="section-tight about-contact">
+		<div class="wrap about-shell-narrow">
+			<div class="sect-head">
+				<span class="kicker"><span class="kicker-num">05</span>Contact</span>
+				<h2 class="sect-h2">Get in touch</h2>
+			</div>
+			<p class="contact-line">
 				Email: <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a><br>
 				If you found something useful here, if something is wrong, or if there's a topic
 				you think should be covered, I want to know.
 			</p>
 
-			<div class="disclaimer">
-				All opinions on this site are my own and do not represent any employer, past or present.
-				Nothing here constitutes legal or regulatory advice. For specific compliance questions,
-				work with a qualified regulatory professional who knows your situation.
+			<div class="callout disclaimer">
+				<div class="callout-title">Disclaimer</div>
+				<p>
+					All opinions on this site are my own and do not represent any employer, past or present.
+					Nothing here constitutes legal or regulatory advice. For specific compliance questions,
+					work with a qualified regulatory professional who knows your situation.
+				</p>
 			</div>
 		</div>
-	</div>
+	</section>
 </Layout>
 
 <style>
-	.about { max-width: var(--measure); margin: 0 auto; }
+	/* ── Full-bleed feature header ── */
+	.about-hero { position: relative; min-height: 52vh; display: flex; align-items: flex-end; border-bottom: 3px solid var(--vermilion); }
+	.about-hero > img { position: absolute; inset: 0; }
+	.about-hero-grad { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,19,13,0.2) 0%, rgba(22,19,13,0.4) 45%, rgba(22,19,13,0.88) 100%); z-index: 2; }
+	.about-hero-inner { position: relative; z-index: 3; padding-top: 5rem; padding-bottom: 3rem; }
+	.about-eyebrow { color: #F2C9B8; margin-bottom: 1.1rem; }
+	.about-name { font-family: var(--display); font-weight: 500; color: var(--on-ink); font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 0.98; letter-spacing: -0.03em; margin-bottom: 1rem; }
+	.about-standfirst { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--on-ink-dim); font-size: clamp(1.2rem, 2.1vw, 1.6rem); line-height: 1.4; margin-bottom: 1.5rem; }
+	.about-hero-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.02em; color: var(--on-ink-dim); }
+	.about-hero-meta .sep { color: var(--vermilion); }
 
-	.tagline {
-		font-family: var(--mono);
-		font-size: 0.85rem;
-		color: var(--muted);
-		letter-spacing: 0.02em;
-		margin: 0;
+	/* ── Two-column shell: body + work rail ── */
+	.about-shell { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 4rem; align-items: start; padding-top: 4rem; padding-bottom: 4.5rem; }
+
+	.about-body { font-size: 1.16rem; line-height: 1.78; color: var(--graphite); }
+	.about-body p { margin-bottom: 1.45rem; color: var(--graphite); }
+
+	.about-sect { margin-bottom: 3rem; }
+	.about-sect:last-child { margin-bottom: 0; }
+
+	.sect-head { margin-bottom: 1.4rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+	.sect-head .kicker { display: block; margin-bottom: 0.7rem; }
+	.sect-h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.3rem); letter-spacing: -0.015em; line-height: 1.08; color: var(--ink); margin: 0; }
+
+	/* Vermilion drop cap on the first paragraph */
+	.dropcap::first-letter {
+		font-family: var(--display); font-weight: 500; color: var(--vermilion);
+		float: left; font-size: 3.8rem; line-height: 0.72; padding: 0.06em 0.12em 0 0;
 	}
 
-	/* ── Editorial long-form prose (mirrors ArticleLayout) ── */
-	.about-body {
-		font-size: 1.125rem;
-		line-height: 1.78;
-		color: var(--body);
-	}
-
-	.about-body p {
-		margin-bottom: 1.4rem;
-		color: var(--body);
-	}
-
-	.about-body h2 {
-		font-family: var(--serif);
-		font-weight: 500;
-		font-size: 1.7rem;
-		letter-spacing: -0.01em;
-		margin: 3.25rem 0 1.1rem;
-		padding-top: 1.5rem;
-		border-top: 1px solid var(--line);
+	/* Pulled blockquote */
+	.about-pull {
+		border-left: 2px solid var(--vermilion);
+		padding: 0.4rem 0 0.4rem 1.6rem;
+		margin: 2.25rem 0 0;
 		color: var(--ink);
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 400;
+		font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+		line-height: 1.34;
+		letter-spacing: -0.01em;
 	}
-
-	.about-body ul {
-		margin-bottom: 1.4rem;
-		padding-left: 1.5rem;
-		color: var(--body);
-	}
-
-	.about-body li { margin-bottom: 0.5rem; }
 
 	.about-body a {
-		color: var(--link);
-		text-decoration: underline;
-		text-underline-offset: 3px;
-		text-decoration-color: var(--line-2);
-		transition: text-decoration-color 0.15s, color 0.15s;
+		color: var(--vermilion-2); text-decoration: underline; text-underline-offset: 3px;
+		text-decoration-color: var(--line); transition: color 0.15s, text-decoration-color 0.15s;
 	}
-	.about-body a:hover { color: var(--link-h); text-decoration-color: var(--link); }
+	.about-body a:hover { color: var(--ink); text-decoration-color: var(--vermilion); }
 
-	/* Disclaimer as paper-2 callout */
-	.disclaimer {
-		margin-top: 3rem;
-		padding: 1.25rem 1.5rem;
-		background: var(--paper-2);
-		border: 1px solid var(--line);
-		border-left: 3px solid var(--navy);
-		border-radius: var(--radius);
-		font-family: var(--sans);
-		font-size: 0.9rem;
-		color: var(--muted);
-		line-height: 1.65;
+	/* ── The work rail (directory, not a card grid) ── */
+	.about-rail { position: sticky; top: 6rem; }
+	.rail-card { background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--vermilion); border-radius: var(--radius); padding: 1.75rem 1.6rem 1.9rem; }
+	.rail-emblem { color: var(--vermilion); width: 34px; height: 34px; margin-bottom: 1rem; }
+	.rail-head { margin-bottom: 1.25rem; padding-top: 0; border-top: none; }
+	.rail-head .kicker { margin-bottom: 0.5rem; }
+	.rail-h2 { font-size: clamp(1.4rem, 2.2vw, 1.7rem); }
+	.rail-list { list-style: none; padding: 0; margin: 0; }
+	.rail-row { display: grid; grid-template-columns: 2rem 1fr; gap: 0.85rem; align-items: baseline; padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+	.rail-row:last-child { border-bottom: none; padding-bottom: 0; }
+	.rail-n { font-family: var(--mono); font-size: 0.74rem; font-weight: 700; color: var(--vermilion); }
+	.rail-text { font-family: var(--sans); font-size: 0.92rem; line-height: 1.5; color: var(--graphite); }
+
+	/* ── Dark plate: on the content ── */
+	.content-rule { display: block; width: 100%; height: 14px; color: var(--line-ink); margin-bottom: 3rem; }
+	.content-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr); gap: 4rem; align-items: start; }
+	.content-aside { position: relative; }
+	.content-aside .kicker { display: block; margin-bottom: 0.8rem; }
+	.content-h2 { margin-bottom: 1.75rem; }
+	.content-seal { width: 92px; color: var(--vermilion); display: block; }
+	.content-prose { font-size: 1.08rem; line-height: 1.75; }
+	.content-prose p { color: var(--on-ink-dim); margin-bottom: 1.4rem; }
+	.content-prose p:last-child { margin-bottom: 0; }
+
+	/* ── Contact + disclaimer ── */
+	.about-shell-narrow { max-width: var(--measure); }
+	.about-contact .sect-head { border-top: 2px solid var(--ink); }
+	.contact-line { font-size: 1.08rem; line-height: 1.7; color: var(--graphite); margin-bottom: 0; }
+	.contact-line a { color: var(--vermilion-2); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+	.contact-line a:hover { color: var(--ink); text-decoration-color: var(--vermilion); }
+	.disclaimer { margin-top: 2.5rem; }
+	.disclaimer p { line-height: 1.65; }
+
+	@media (max-width: 900px) {
+		.about-hero { min-height: 44vh; }
+		.about-hero-inner { padding-top: 3.5rem; }
+		.about-shell { grid-template-columns: 1fr; gap: 2.75rem; padding-top: 3rem; }
+		.about-rail { position: static; }
+		.content-grid { grid-template-columns: 1fr; gap: 2rem; }
+		.content-seal { position: absolute; top: 0; right: 0; width: 64px; }
 	}
-
 	@media (max-width: 560px) {
-		.about-body { font-size: 1.0625rem; }
-		.about-body h2 { font-size: 1.5rem; }
+		.about-body { font-size: 1.075rem; }
+		.dropcap::first-letter { font-size: 3rem; }
 	}
 </style>

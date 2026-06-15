@@ -4,79 +4,193 @@ import { getCollection } from 'astro:content';
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const sorted = allArticles.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const tierColors = {
+	Beginner: '#3C6B4A',
+	Intermediate: '#B26B1E',
+	Advanced: '#7A2E23',
+};
+const newest = sorted[0]?.data.pubDate?.getFullYear() ?? new Date().getFullYear();
 ---
 <Layout title="Articles" description="Data integrity articles, ALCOA+, FDA, 21 CFR Part 11, cell & gene therapy, and AI tools for GxP compliance." wide={true}>
-	<div class="articles-wrap">
-		<div class="page-header">
-			<div class="page-label">All Articles</div>
-			<h1>Articles</h1>
-			<p class="lead">In-depth writing on data integrity, regulatory compliance, and AI tools for pharma and biotech.</p>
+	<!-- ═══════════ MASTHEAD ═══════════ -->
+	<section class="ix-header">
+		<div class="wrap ix-header-grid">
+			<div class="ix-header-text">
+				<div class="page-label">All Articles</div>
+				<h1 class="ix-h1">The full index of the record.</h1>
+				<p class="lead">In-depth writing on data integrity, regulatory compliance, and AI tools for pharma and biotech.</p>
+			</div>
+			<aside class="ix-ledger">
+				<div class="ix-ledger-row"><span class="ix-ledger-n">{String(sorted.length).padStart(2, '0')}</span><span class="ix-ledger-l">Records filed</span></div>
+				<div class="ix-ledger-row"><span class="ix-ledger-n">08</span><span class="ix-ledger-l">Disciplines</span></div>
+				<div class="ix-ledger-row"><span class="ix-ledger-n">PD</span><span class="ix-ledger-l">Public sources</span></div>
+				<p class="marginalia ix-ledger-note">Sorted newest first. Every entry is open — no login, no paywall. Est. {newest}.</p>
+			</aside>
 		</div>
+		<img class="ix-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+	</section>
 
-		<ol class="article-list">
-			{sorted.map((post, i) => {
-				const wordCount = post.body?.split(/\s+/).length ?? 0;
-				const readTime = Math.max(1, Math.ceil(wordCount / 220));
-				return (
-					<li>
-						<a href={`/articles/${post.slug}`} class="article-row">
-							<div class="article-num">{String(i + 1).padStart(2, '0')}</div>
-							<div class="article-content">
-								<div class="article-tags">
-									{post.data.tags.slice(0, 3).map(t => <span class="tag">{t}</span>)}
+	<!-- ═══════════ EDITORIAL BAND (duotone strip) ═══════════ -->
+	<section class="ix-band duotone">
+		<img src="/images/records-review.jpg" alt="" loading="lazy" />
+		<div class="wrap ix-band-inner">
+			<span class="kicker">The complete catalogue</span>
+			<p class="ix-band-line">Field notes from inside regulated quality — written to be used at the bench, not filed and forgotten.</p>
+		</div>
+		<img class="ix-band-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+	</section>
+
+	<!-- ═══════════ THE INDEX (editorial list) ═══════════ -->
+	<section class="section-tight">
+		<div class="wrap">
+			<ol class="article-list">
+				{sorted.map((post, i) => {
+					const wordCount = post.body?.split(/\s+/).length ?? 0;
+					const readTime = Math.max(1, Math.ceil(wordCount / 220));
+					const tierColor = post.data.tier ? (tierColors[post.data.tier] ?? 'var(--muted)') : null;
+					return (
+						<li>
+							<a href={`/articles/${post.slug}`} class="article-row">
+								<div class="article-num">{String(i + 1).padStart(2, '0')}</div>
+								<div class="article-content">
+									<div class="article-tags">
+										{post.data.tier && (
+											<span class="tier-badge" style={`background:${tierColor}; color:#F7F3EA; border-color:${tierColor}`}>{post.data.tier}</span>
+										)}
+										{post.data.tags.slice(0, 3).map(t => <span class="tag">{t}</span>)}
+									</div>
+									<h2 class="article-title">{post.data.title}</h2>
+									<p class="article-desc">{post.data.description}</p>
+									<div class="article-meta">
+										<time>{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+										<span class="sep">·</span>
+										<span>{readTime} min read</span>
+									</div>
 								</div>
-								<h2 class="article-title">{post.data.title}</h2>
-								<p class="article-desc">{post.data.description}</p>
-								<div class="article-meta">
-									<time>{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-									<span class="sep">·</span>
-									<span>{readTime} min read</span>
-								</div>
-							</div>
-							<div class="article-arrow" aria-hidden="true">→</div>
-						</a>
-					</li>
-				);
-			})}
-		</ol>
-	</div>
+								<div class="article-arrow" aria-hidden="true">→</div>
+							</a>
+						</li>
+					);
+				})}
+			</ol>
+		</div>
+	</section>
 </Layout>
 
 <style>
-	.articles-wrap {
-		max-width: var(--container-narrow);
-		margin: 0 auto;
-		padding-top: 4rem;
+	/* ── MASTHEAD ── */
+	.ix-header { padding-top: 4rem; background:
+		linear-gradient(180deg, rgba(235,229,215,0) 55%, var(--bone)),
+		url('/brand/texture-grid.svg'); }
+	.ix-header-grid {
+		display: grid;
+		grid-template-columns: 1.5fr 0.85fr;
+		gap: 3.5rem;
+		align-items: end;
+		margin-bottom: 2.75rem;
+	}
+	.ix-h1 {
+		font-family: var(--display);
+		font-weight: 500;
+		font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+		line-height: 0.98;
+		letter-spacing: -0.03em;
+		color: var(--ink);
+		margin: 0.5rem 0 1.1rem;
+	}
+	.ix-header-text .lead { max-width: 38rem; }
+
+	.ix-ledger {
+		border-top: 2px solid var(--ink);
+		padding-top: 1.1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
+	}
+	.ix-ledger-row { display: flex; align-items: baseline; gap: 0.85rem; }
+	.ix-ledger-n {
+		font-family: var(--display);
+		font-size: 1.7rem;
+		font-weight: 500;
+		color: var(--ink);
+		line-height: 1;
+		min-width: 2.6rem;
+	}
+	.ix-ledger-l {
+		font-family: var(--mono);
+		font-size: 0.68rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--muted);
+	}
+	.ix-ledger-note { margin-top: 0.5rem; max-width: 22rem; }
+
+	.ix-rule { display: block; width: 100%; height: 14px; color: var(--line); }
+
+	/* ── EDITORIAL BAND ── */
+	.ix-band {
+		position: relative;
+		min-height: 220px;
+		display: flex;
+		align-items: center;
+		border-top: 1px solid var(--line);
+		border-bottom: 3px solid var(--vermilion);
+		overflow: hidden;
+	}
+	.ix-band > img { position: absolute; inset: 0; }
+	.ix-band-inner { position: relative; z-index: 3; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+	.ix-band-inner .kicker { color: var(--vermilion); margin-bottom: 0.9rem; }
+	.ix-band-line {
+		font-family: var(--display);
+		font-style: italic;
+		font-weight: 400;
+		color: var(--on-ink);
+		font-size: clamp(1.3rem, 2.6vw, 2rem);
+		line-height: 1.3;
+		max-width: 30ch;
+		margin: 0;
+	}
+	.ix-band-seal {
+		position: absolute;
+		z-index: 3;
+		right: 4rem;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 88px;
+		color: var(--on-ink);
+		opacity: 0.85;
 	}
 
+	/* ── THE INDEX LIST ── */
 	.article-list {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		border-top: 1px solid var(--line);
+		border-top: 2px solid var(--ink);
 	}
 
 	.article-row {
 		display: grid;
-		grid-template-columns: 3rem 1fr 1.5rem;
+		grid-template-columns: 3.5rem 1fr 1.75rem;
 		gap: 1.75rem;
 		align-items: start;
-		padding: 2rem 1rem;
+		padding: 2rem 0;
 		border-bottom: 1px solid var(--line);
 		color: inherit;
-		transition: background 0.15s ease;
+		transition: background 0.15s ease, padding-left 0.18s ease;
 	}
 
-	.article-row:hover { background: var(--paper-2); }
-	.article-row:hover .article-title { color: var(--link-h); }
-	.article-row:hover .article-arrow { color: var(--brass); transform: translateX(3px); }
+	.article-row:hover { background: rgba(226, 219, 201, 0.4); padding-left: 0.6rem; }
+	.article-row:hover .article-title { color: var(--vermilion-2); }
+	.article-row:hover .article-arrow { color: var(--vermilion-2); transform: translateX(4px); }
 
 	.article-num {
 		font-family: var(--mono);
 		font-size: 0.85rem;
-		font-weight: 500;
-		color: var(--brass);
-		padding-top: 0.35rem;
+		font-weight: 700;
+		color: var(--vermilion);
+		padding-top: 0.4rem;
 		letter-spacing: 0.04em;
 	}
 
@@ -84,14 +198,15 @@ const sorted = allArticles.sort((a, b) => b.data.pubDate.getTime() - a.data.pubD
 		display: flex;
 		gap: 0.4rem;
 		flex-wrap: wrap;
+		align-items: center;
 		margin-bottom: 0.7rem;
 	}
 
 	.article-title {
-		font-family: var(--serif);
+		font-family: var(--display);
 		font-weight: 500;
-		font-size: 1.45rem;
-		line-height: 1.25;
+		font-size: 1.5rem;
+		line-height: 1.2;
 		letter-spacing: -0.015em;
 		color: var(--ink);
 		margin-bottom: 0.55rem;
@@ -100,7 +215,7 @@ const sorted = allArticles.sort((a, b) => b.data.pubDate.getTime() - a.data.pubD
 
 	.article-desc {
 		font-size: 1rem;
-		color: var(--muted);
+		color: var(--graphite);
 		line-height: 1.6;
 		margin-bottom: 0.85rem;
 		max-width: 46rem;
@@ -115,27 +230,36 @@ const sorted = allArticles.sort((a, b) => b.data.pubDate.getTime() - a.data.pubD
 		align-items: center;
 		gap: 0.55rem;
 		font-family: var(--mono);
-		font-size: 0.76rem;
+		font-size: 0.74rem;
 		color: var(--muted);
 		letter-spacing: 0.02em;
 	}
-	.article-meta .sep { color: var(--line-2); }
+	.article-meta .sep { color: var(--line); }
 
 	.article-arrow {
-		color: var(--line-2);
+		color: var(--line);
 		font-size: 1.2rem;
-		padding-top: 0.5rem;
+		padding-top: 0.55rem;
 		transition: color 0.15s ease, transform 0.15s ease;
 	}
 
+	@media (max-width: 900px) {
+		.ix-header-grid { grid-template-columns: 1fr; gap: 1.75rem; align-items: start; }
+		.ix-ledger { flex-direction: row; flex-wrap: wrap; gap: 1.25rem 2rem; }
+		.ix-ledger-note { flex-basis: 100%; margin-top: 0; }
+		.ix-band-seal { right: 1.4rem; width: 64px; }
+	}
+
 	@media (max-width: 640px) {
-		.articles-wrap { padding-top: 0; }
+		.ix-header { padding-top: 0; }
 		.article-row {
 			grid-template-columns: 1fr 1.25rem;
 			gap: 1rem;
 			padding: 1.75rem 0;
 		}
+		.article-row:hover { padding-left: 0; }
 		.article-num { display: none; }
-		.article-title { font-size: 1.25rem; }
+		.article-title { font-size: 1.3rem; }
+		.ix-band-seal { display: none; }
 	}
 </style>

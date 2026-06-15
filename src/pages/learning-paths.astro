@@ -1,18 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Refined tier accents (design system v2) — keyed by path id.
+// Tier accents (design system v3 — "The Record") keyed by path id.
 const tierColors: Record<string, string> = {
- beginner: '#2F6E4F',
- intermediate: '#1C4E80',
- advanced: '#7A3B57',
+ beginner: '#3C6B4A',
+ intermediate: '#B26B1E',
+ advanced: '#7A2E23',
 };
 
 const paths = [
  {
  id: 'beginner',
  label: 'Beginner',
- color: '#9A3B3B',
+ color: '#3C6B4A',
  title: '7-Day GxP Foundations',
  desc: 'For people new to GxP quality, pharmaceutical manufacturing, or data integrity. By day 7 you will understand the regulatory framework, what ALCOA+ means, how validation works, and what regulators actually inspect.',
  days: [
@@ -77,7 +77,7 @@ const paths = [
  {
  id: 'intermediate',
  label: 'Intermediate',
- color: '#2F6E4F',
+ color: '#B26B1E',
  title: '7-Day CSV and DI Practitioner',
  desc: 'For practitioners already working in GxP quality or validation who want structured depth in computer system validation and data integrity. Assumes you already understand basic regulatory concepts.',
  days: [
@@ -142,7 +142,7 @@ const paths = [
  {
  id: 'advanced',
  label: 'Advanced',
- color: '#7A3B57',
+ color: '#7A2E23',
  title: '7-Day Program Design',
  desc: 'For senior practitioners designing DI programs, preparing for FDA/EMA inspections, or building CSV governance frameworks. Assumes deep operational experience and familiarity with regulatory requirements.',
  days: [
@@ -211,20 +211,38 @@ const paths = [
  description="Structured 7-day learning plans for GxP quality and data integrity, beginner, intermediate, and advanced. Day-by-day tasks with specific success criteria and practical outputs."
  wide={true}
 >
- <div class="page-header">
- <div class="page-label">Structured Learning</div>
- <h1>7-Day Learning Paths</h1>
- <p class="lead">
+ <!-- ═══════════ HERO BAND (duotone) ═══════════ -->
+ <section class="lp-hero">
+ <div class="wrap lp-hero-grid">
+ <div class="lp-hero-text">
+ <div class="lp-hero-kick">
+ <span class="kicker">Structured Learning</span>
+ <span class="lp-hero-line"></span>
+ <span class="marginalia">Three tracks · 7 days each · ~45 min/day</span>
+ </div>
+ <h1 class="lp-hero-h1">Seven days to a map<br/>you can <em>hold in your head.</em></h1>
+ <p class="lead lp-hero-lead">
  Three structured 7-day plans, one for each level. Each day has a specific task that takes about 45 minutes,
  clear success criteria, what NOT to do that day, and a practical output you keep.
  </p>
- <p class="subp">
+ <p class="marginalia lp-hero-sub">
  These are not video courses or quizzes. They are reading + thinking + output plans designed to
  build knowledge that holds up in a real work context, not just a test.
  </p>
  </div>
+ <figure class="lp-hero-fig">
+ <div class="lp-hero-img duotone"><img src="/images/lab-glassware.jpg" alt="Laboratory glassware on the bench" loading="eager" /></div>
+ <img class="lp-hero-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ <figcaption class="marginalia">The curriculum begins at the bench.</figcaption>
+ </figure>
+ </div>
+ <img class="lp-hero-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+ </section>
 
- <!-- Path selector tabs -->
+ <!-- ═══════════ TAB SELECTOR (mono underline pills) ═══════════ -->
+ <section class="section-tight lp-tabs-section">
+ <div class="wrap">
+ <span class="kicker lp-tabs-kick">Choose a depth</span>
  <div class="path-tabs" role="tablist">
  {paths.map((p, i) => (
  <button
@@ -238,31 +256,40 @@ const paths = [
  </button>
  ))}
  </div>
+ </div>
+ </section>
 
- <!-- Path content -->
+ <!-- ═══════════ PATH CONTENT ═══════════ -->
  {paths.map((path, pi) => {
  const accent = tierColors[path.id];
  return (
- <div class="path-content" id={`path-${path.id}`} style={pi !== 0 ? 'display:none' : ''}>
+ <section class="path-content" id={`path-${path.id}`} style={pi !== 0 ? 'display:none' : ''}>
+ <div class="wrap">
+ <!-- Asymmetric path intro -->
  <div class="path-intro" style={`--accent: ${accent}`}>
- <span class="tier-badge" style={`background:${accent}1A;color:${accent};border-color:${accent}40`}>{path.label}</span>
+ <div class="path-intro-aside">
+ <span class="emblem path-emblem" style={`--src:url('/brand/emblems/pillar-${path.id === 'beginner' ? 'quality-assurance' : path.id === 'intermediate' ? 'csv-csa' : 'data-integrity'}.svg')`}></span>
+ <span class="tier-badge path-tier" style={`background:${accent}; color:#F7F3EA; border-color:${accent}`}>{path.label}</span>
+ </div>
+ <div class="path-intro-main">
  <h2 class="path-heading">{path.title}</h2>
- <p>{path.desc}</p>
+ <p class="path-desc">{path.desc}</p>
+ </div>
  </div>
 
- <div class="days-list">
+ <!-- Editorial numbered day rows -->
+ <ol class="days-list" style={`--accent: ${accent}`}>
  {path.days.map(day => (
- <article class="day-card card" style={`--accent: ${accent}`}>
- <div class="day-header">
- <div class="day-num" style={`color:${accent};border-color:${accent}40;background:${accent}12`}>
- Day {day.day}
+ <li class="day-row">
+ <div class="day-rail">
+ <span class="day-num">Day {String(day.day).padStart(2, '0')}</span>
+ <span class="day-tick" aria-hidden="true"></span>
  </div>
+ <div class="day-main">
  <h3 class="day-title">{day.title}</h3>
- </div>
 
- <div class="day-body">
- <div class="day-section">
- <div class="day-label task-label">Task (45 min)</div>
+ <div class="day-section task-section">
+ <div class="day-label task-label">Task · 45 min</div>
  <p class="day-text">{day.task}</p>
  </div>
 
@@ -282,19 +309,29 @@ const paths = [
  <p class="day-text">{day.output}</p>
  </div>
  </div>
- </article>
+ </li>
  ))}
+ </ol>
  </div>
- </div>
+ </section>
  );
  })}
 
- <div class="callout lp-footer">
- <div class="callout-title">How to use these paths</div>
+ <!-- ═══════════ CLOSING (dark plate) ═══════════ -->
+ <section class="section section-dark lp-closing">
+ <div class="wrap lp-closing-grid">
+ <div class="lp-closing-head">
+ <span class="kicker">The method</span>
+ <h2 class="display-2">How to use these paths.</h2>
+ <img class="lp-closing-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ </div>
+ <div class="lp-closing-body">
  <p>Do each day in sequence. Don't skip days. The outputs build on each other. If 45 minutes isn't enough, stop at 45 minutes and continue the next day, the schedule matters more than completing each task perfectly.</p>
  <p>The practical outputs are for you, not for any assessment. Keep them. Return to them in six months and see what you'd change. That delta is your actual learning.</p>
  <p>If you're not sure which path to start with, take the beginner path regardless of experience level. You'll either confirm what you know (fast) or find gaps you didn't know were there (valuable).</p>
  </div>
+ </div>
+ </section>
 </Layout>
 
 <script is:inline>
@@ -309,192 +346,231 @@ const paths = [
 </script>
 
 <style>
- .subp {
- color: var(--muted) !important;
- font-size: 0.95rem !important;
- margin-top: 0.85rem;
- max-width: 42rem;
+ /* ════════════ HERO BAND ════════════ */
+ .lp-hero {
+ background:
+ linear-gradient(180deg, rgba(235, 229, 215, 0) 62%, var(--bone)),
+ url('/brand/texture-grid.svg');
+ padding-top: 3.5rem;
  }
+ .lp-hero-grid {
+ display: grid;
+ grid-template-columns: 1.2fr 0.8fr;
+ gap: 4rem;
+ align-items: center;
+ }
+ .lp-hero-kick { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.5rem; }
+ .lp-hero-line { flex: 0 0 auto; width: 80px; height: 1px; background: var(--line); }
+ .lp-hero-h1 {
+ font-family: var(--display);
+ font-weight: 500;
+ font-size: clamp(2.4rem, 5vw, 4.2rem);
+ line-height: 0.99;
+ letter-spacing: -0.03em;
+ color: var(--ink);
+ margin-bottom: 1.4rem;
+ }
+ .lp-hero-h1 em { font-style: italic; color: var(--vermilion); }
+ .lp-hero-lead { margin-bottom: 1.25rem; max-width: 38rem; }
+ .lp-hero-sub { max-width: 36rem; line-height: 1.6; }
 
- /* ── Tabs ── */
+ .lp-hero-fig { position: relative; margin: 0; }
+ .lp-hero-img { aspect-ratio: 4/5; border-radius: var(--radius); box-shadow: var(--shadow); }
+ .lp-hero-seal {
+ position: absolute; left: -34px; bottom: 34px; width: 86px;
+ color: var(--vermilion); background: var(--bone); border-radius: 50%; padding: 6px;
+ }
+ .lp-hero-fig figcaption { margin-top: 0.7rem; text-align: right; }
+ .lp-hero-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-top: 3.25rem; }
+
+ /* ════════════ TABS (mono underline pills) ════════════ */
+ .lp-tabs-kick { display: block; margin-bottom: 1rem; }
  .path-tabs {
  display: flex;
- gap: 0.75rem;
- margin-bottom: 3rem;
+ gap: 0;
  flex-wrap: wrap;
+ border-bottom: 2px solid var(--ink);
  }
-
  .path-tab {
  display: flex;
  flex-direction: column;
- gap: 0.3rem;
- padding: 0.9rem 1.25rem;
- background: var(--surface);
- border: 1px solid var(--line);
- border-top: 3px solid var(--line-2);
- border-radius: var(--radius);
+ gap: 0.35rem;
+ padding: 1rem 1.5rem 1.1rem;
+ background: transparent;
+ border: none;
+ border-bottom: 3px solid transparent;
+ margin-bottom: -2px;
  cursor: pointer;
  text-align: left;
- transition: border-color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.15s;
- min-width: 188px;
- box-shadow: var(--shadow-sm);
+ transition: background 0.15s, border-color 0.15s;
+ min-width: 200px;
  }
-
- .path-tab:hover {
- border-color: var(--line-2);
- border-top-color: var(--tab-color, var(--brass));
- transform: translateY(-1px);
- }
-
+ .path-tab:hover { background: rgba(226, 219, 201, 0.4); }
+ .path-tab:hover .tab-title { color: var(--vermilion-2); }
  .path-tab.active {
- border-color: var(--line-2);
- border-top-color: var(--tab-color, var(--navy));
- background: var(--surface);
- box-shadow: var(--shadow);
+ border-bottom-color: var(--tab-color, var(--vermilion));
+ background: rgba(226, 219, 201, 0.45);
  }
 
  .tab-level {
  font-family: var(--mono);
- font-size: 0.68rem;
- font-weight: 500;
+ font-size: 0.66rem;
+ font-weight: 700;
  text-transform: uppercase;
- letter-spacing: 0.12em;
- color: var(--tab-color, var(--brass));
+ letter-spacing: 0.16em;
+ color: var(--tab-color, var(--vermilion));
  }
-
  .tab-title {
- font-family: var(--serif);
- font-size: 0.98rem;
+ font-family: var(--display);
+ font-size: 1.05rem;
  font-weight: 500;
  color: var(--ink);
- line-height: 1.25;
+ line-height: 1.2;
  }
+ .path-tab.active .tab-title { color: var(--ink); }
 
- /* ── Path content ── */
+ /* ════════════ PATH CONTENT ════════════ */
+ .path-content { padding: 3.5rem 0 1rem; }
+
+ /* Asymmetric intro */
  .path-intro {
- margin-bottom: 2.5rem;
- padding-bottom: 1.75rem;
+ display: grid;
+ grid-template-columns: 9rem 1fr;
+ gap: 2.5rem;
+ align-items: start;
+ margin-bottom: 3rem;
+ padding-bottom: 2rem;
  border-bottom: 1px solid var(--line);
  }
-
- .path-intro .tier-badge { margin-bottom: 0.85rem; }
-
+ .path-intro-aside { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+ .path-emblem { color: var(--accent, var(--vermilion)); width: 56px; height: 56px; }
+ .path-tier { align-self: flex-start; }
  .path-heading {
- font-size: clamp(1.45rem, 2.4vw, 1.9rem);
- letter-spacing: -0.015em;
- margin-bottom: 0.75rem;
+ font-family: var(--display);
+ font-weight: 500;
+ font-size: clamp(1.7rem, 3vw, 2.5rem);
+ line-height: 1.05;
+ letter-spacing: -0.02em;
+ color: var(--ink);
+ margin-bottom: 0.9rem;
  }
-
- .path-intro p {
- font-size: 1.0625rem;
- color: var(--body);
- line-height: 1.7;
+ .path-desc {
+ font-size: 1.08rem;
+ color: var(--graphite);
+ line-height: 1.65;
  max-width: var(--measure);
  margin: 0;
  }
 
- /* ── Day cards ── */
- .days-list {
- display: flex;
- flex-direction: column;
- gap: 1.25rem;
- }
-
- .day-card {
- overflow: hidden;
- border-left: 3px solid var(--accent, var(--navy));
- }
-
- .day-header {
- display: flex;
- align-items: center;
- gap: 1.1rem;
- padding: 1.15rem 1.5rem;
+ /* ════════════ DAY ROWS (editorial) ════════════ */
+ .days-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+ .day-row {
+ display: grid;
+ grid-template-columns: 9rem 1fr;
+ gap: 2.5rem;
+ padding: 2.25rem 0;
  border-bottom: 1px solid var(--line);
- background: var(--paper-2);
  }
 
+ .day-rail { display: flex; flex-direction: column; gap: 0.75rem; }
  .day-num {
  font-family: var(--mono);
- font-size: 0.68rem;
- font-weight: 500;
+ font-size: 0.82rem;
+ font-weight: 700;
  text-transform: uppercase;
- letter-spacing: 0.08em;
- padding: 0.26rem 0.6rem;
- border: 1px solid;
- border-radius: var(--radius-sm);
- flex-shrink: 0;
+ letter-spacing: 0.06em;
+ color: var(--accent, var(--vermilion));
  white-space: nowrap;
  }
+ .day-tick { width: 38px; height: 2px; background: var(--accent, var(--vermilion)); opacity: 0.55; }
 
+ .day-main { min-width: 0; }
  .day-title {
- font-size: 1.15rem;
+ font-family: var(--display);
+ font-size: clamp(1.3rem, 2vw, 1.6rem);
  font-weight: 500;
  color: var(--ink);
- line-height: 1.3;
+ line-height: 1.18;
+ letter-spacing: -0.015em;
+ margin-bottom: 1.4rem;
  }
 
- .day-body {
- padding: 1.5rem;
- display: flex;
- flex-direction: column;
- gap: 1.4rem;
+ .day-section { display: flex; flex-direction: column; gap: 0.4rem; }
+ .task-section { margin-bottom: 1.4rem; }
+
+ .day-label {
+ font-family: var(--mono);
+ font-size: 0.68rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ }
+ .task-label { color: var(--vermilion); }
+ .success-label { color: var(--green); }
+ .notdo-label { color: var(--muted); }
+ .output-label { color: var(--ink); }
+
+ .day-text {
+ font-family: var(--sans);
+ font-size: 0.95rem;
+ color: var(--graphite);
+ line-height: 1.65;
+ margin: 0;
+ max-width: 44rem;
  }
 
  .day-cols {
  display: grid;
  grid-template-columns: 1fr 1fr;
- gap: 1.4rem;
- }
-
- .day-section { display: flex; flex-direction: column; gap: 0.45rem; }
-
- .day-label {
- font-family: var(--mono);
- font-size: 0.68rem;
- font-weight: 500;
- text-transform: uppercase;
- letter-spacing: 0.1em;
- }
-
- .task-label { color: var(--brass); }
- .success-label { color: var(--green); }
- .notdo-label { color: var(--muted); }
- .output-label { color: var(--navy); }
-
- .day-text {
- font-family: var(--sans);
- font-size: 0.9375rem;
- color: var(--body);
- line-height: 1.7;
- margin: 0;
+ gap: 1.5rem 2.5rem;
+ margin-bottom: 1.4rem;
  }
 
  .output-section {
- background: var(--paper-2);
+ background: var(--paper);
  border: 1px solid var(--line);
- border-left: 3px solid var(--navy);
+ border-left: 2px solid var(--vermilion);
  border-radius: var(--radius);
- padding: 1.1rem 1.25rem;
+ padding: 1rem 1.25rem;
  }
+ .output-section .day-text { color: var(--ink); }
 
- /* ── Footer note ── */
- .lp-footer {
- margin-top: 4rem;
- max-width: var(--measure);
+ /* ════════════ CLOSING (dark plate) ════════════ */
+ .lp-closing-grid {
+ display: grid;
+ grid-template-columns: 0.85fr 1.15fr;
+ gap: 3.5rem;
+ align-items: start;
  }
-
- .lp-footer p {
- font-size: 0.9375rem;
- color: var(--body);
+ .lp-closing-head { position: relative; }
+ .lp-closing-head .kicker { display: block; margin-bottom: 0.85rem; }
+ .lp-closing-seal { width: 96px; color: var(--vermilion); margin-top: 1.75rem; opacity: 0.9; }
+ .lp-closing-body p {
+ font-size: 1.02rem;
+ color: var(--on-ink-dim);
  line-height: 1.7;
- margin-bottom: 0.75rem;
+ margin-bottom: 1.1rem;
+ max-width: 46rem;
  }
- .lp-footer p:last-child { margin-bottom: 0; }
+ .lp-closing-body p:last-child { margin-bottom: 0; }
 
+ /* ════════════ RESPONSIVE ════════════ */
+ @media (max-width: 900px) {
+ .lp-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+ .lp-hero-fig { order: -1; max-width: 380px; }
+ .lp-hero-seal { width: 66px; left: -18px; }
+ .lp-closing-grid { grid-template-columns: 1fr; gap: 2rem; }
+ .lp-closing-seal { display: none; }
+ }
  @media (max-width: 700px) {
  .day-cols { grid-template-columns: 1fr; }
- .path-tabs { flex-direction: column; }
- .path-tab { min-width: unset; }
+ .path-intro { grid-template-columns: 1fr; gap: 1.25rem; }
+ .path-intro-aside { flex-direction: row; align-items: center; }
+ .path-emblem { width: 44px; height: 44px; }
+ .day-row { grid-template-columns: 1fr; gap: 1rem; }
+ .day-rail { flex-direction: row; align-items: center; gap: 0.85rem; }
+ .day-tick { flex: 1; max-width: 60px; }
+ .path-tab { min-width: unset; flex: 1; padding: 0.85rem 1rem 0.95rem; }
+ .path-tabs { gap: 0; }
  }
 </style>

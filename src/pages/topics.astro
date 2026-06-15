@@ -13,141 +13,198 @@ for (const article of allArticles) {
 }
 
 const sortedTags = Object.entries(tagMap).sort((a, b) => b[1].length - a[1].length);
+const totalRefs = sortedTags.reduce((sum, [, arts]) => sum + arts.length, 0);
 ---
 <Layout title="Topics" description="Browse data integrity articles by topic, ALCOA+, 21 CFR Part 11, FDA, Cell & Gene Therapy, and more." wide={true}>
-	<div class="page-header">
-		<div class="page-label">Browse</div>
-		<h1>Topics</h1>
-		<p class="lead">All articles organized by subject area.</p>
-	</div>
+	<!-- ═══════════ HEADER BAND (dark + duotone) ═══════════ -->
+	<section class="section-dark topics-banner">
+		<div class="banner-bg duotone"><img src="/images/records-review.jpg" alt="" loading="eager" /></div>
+		<div class="wrap banner-inner">
+			<div class="banner-text">
+				<div class="banner-kick"><span class="kicker">The subject index</span><span class="banner-kick-line"></span><span class="marginalia">Cross-reference · By topic</span></div>
+				<h1 class="banner-h1">Topics</h1>
+				<p class="lead banner-lead">Every record, cross-filed by subject. Pick a topic to drop straight into its run of articles — the same field manual, sorted the way an auditor cross-references a finding.</p>
+			</div>
+			<div class="banner-stats">
+				<div class="bstat"><span class="bstat-n">{sortedTags.length}</span><span class="bstat-l">Topics</span></div>
+				<div class="bstat"><span class="bstat-n">{allArticles.length}</span><span class="bstat-l">Articles</span></div>
+				<div class="bstat"><span class="bstat-n">{totalRefs}</span><span class="bstat-l">Cross-refs</span></div>
+			</div>
+		</div>
+	</section>
 
-	<nav class="topic-cloud" aria-label="Jump to topic">
-		{sortedTags.map(([tag, articles]) => (
-			<a href={`#${tag.toLowerCase().replace(/\s+/g, '-')}`} class="topic-pill">
-				{tag}
-				<span class="topic-count">{articles.length}</span>
-			</a>
-		))}
-	</nav>
+	<!-- ═══════════ JUMP DIRECTORY (pill cloud) ═══════════ -->
+	<section class="section-tight directory">
+		<div class="wrap">
+			<div class="directory-head">
+				<span class="kicker">Jump to</span>
+				<p class="marginalia directory-note">Topics ranked by depth of coverage. The denser the topic, the higher it sits.</p>
+			</div>
+			<nav class="topic-cloud" aria-label="Jump to topic">
+				{sortedTags.map(([tag, articles]) => (
+					<a href={`#${tag.toLowerCase().replace(/\s+/g, '-')}`} class="topic-pill">
+						{tag}
+						<span class="topic-count">{articles.length}</span>
+					</a>
+				))}
+			</nav>
+			<img class="directory-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+		</div>
+	</section>
 
-	<div class="topics-list">
-		{sortedTags.map(([tag, articles]) => (
-			<section class="topic-section" id={tag.toLowerCase().replace(/\s+/g, '-')}>
-				<div class="topic-header">
-					<h2>{tag}</h2>
-					<span class="topic-meta">{articles.length} article{articles.length !== 1 ? 's' : ''}</span>
-				</div>
-				<ul class="article-list">
-					{articles
-						.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-						.map(post => (
-							<li>
-								<a href={`/articles/${post.slug}`} class="article-row">
-									<span class="article-title">{post.data.title}</span>
-									<span class="article-date">
-										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-									</span>
-								</a>
-							</li>
-						))}
-				</ul>
-			</section>
-		))}
-	</div>
+	<!-- ═══════════ TOPIC SECTIONS (editorial numbered index) ═══════════ -->
+	<section class="section-tight topics-feed">
+		<div class="wrap">
+			<div class="topics-list">
+				{sortedTags.map(([tag, articles], ti) => (
+					<section class="topic-section" id={tag.toLowerCase().replace(/\s+/g, '-')}>
+						<div class="topic-aside">
+							<span class="topic-index">{String(ti + 1).padStart(2, '0')}</span>
+							<div class="topic-header">
+								<h2>{tag}</h2>
+								<span class="topic-meta">{articles.length} article{articles.length !== 1 ? 's' : ''}</span>
+							</div>
+							<a href={`#${tag.toLowerCase().replace(/\s+/g, '-')}`} class="topic-permalink marginalia">#{tag.toLowerCase().replace(/\s+/g, '-')}</a>
+						</div>
+						<ul class="article-list index-list">
+							{articles
+								.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+								.map((post, ai) => (
+									<li>
+										<a href={`/articles/${post.slug}`} class="article-row index-row">
+											<span class="ix-num">{String(ai + 1).padStart(2, '0')}</span>
+											<span class="article-title ix-title">{post.data.title}</span>
+											<span class="article-date ix-meta">
+												{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+											</span>
+										</a>
+									</li>
+								))}
+						</ul>
+					</section>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════ CLOSING ═══════════ -->
+	<section class="section closing">
+		<div class="wrap closing-inner">
+			<img class="closing-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+			<h2 class="closing-h2">Can't place a topic?<br/>Start from the index.</h2>
+			<div class="closing-actions">
+				<a href="/articles" class="btn-accent">Browse all {allArticles.length} articles →</a>
+				<a href="/pillars" class="btn-ghost">By discipline</a>
+			</div>
+		</div>
+	</section>
 </Layout>
 
 <style>
-	.page-header p { color: var(--muted); }
-
-	/* Topic cloud — anchor jump links (the one allowed rounded element) */
-	.topic-cloud {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.55rem;
-		margin-bottom: 4rem;
-		padding-bottom: 2.5rem;
-		border-bottom: 1px solid var(--line);
+	/* ════════ HEADER BAND ════════ */
+	.topics-banner { position: relative; overflow: hidden; padding: 0; }
+	.banner-bg { position: absolute; inset: 0; }
+	.banner-bg img { width: 100%; height: 100%; object-fit: cover; }
+	.banner-bg::after { background: linear-gradient(110deg, rgba(22,19,13,0.94) 30%, rgba(22,19,13,0.6) 70%, rgba(122,46,35,0.45)); }
+	.banner-inner {
+		position: relative; z-index: 2;
+		display: grid; grid-template-columns: 1.5fr 0.85fr; gap: 3.5rem; align-items: end;
+		padding-top: 5rem; padding-bottom: 4rem; min-height: 46vh;
 	}
-
-	/* Topic sections */
-	.topics-list {
-		display: flex;
-		flex-direction: column;
-		gap: 0;
+	.banner-kick { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.4rem; }
+	.banner-kick-line { flex: 1; max-width: 90px; height: 1px; background: var(--line-ink); }
+	.banner-kick .marginalia { color: var(--on-ink-dim); }
+	.banner-h1 {
+		font-family: var(--display); font-weight: 500; color: var(--on-ink);
+		font-size: clamp(2.8rem, 6vw, 5rem); line-height: 0.98; letter-spacing: -0.03em;
+		margin-bottom: 1.25rem;
 	}
+	.banner-lead { color: var(--on-ink-dim); max-width: 40rem; }
+	.banner-stats { display: flex; gap: 2.25rem; border-top: 1px solid var(--line-ink); padding-top: 1.4rem; }
+	.bstat { display: flex; flex-direction: column; gap: 0.2rem; }
+	.bstat-n { font-family: var(--display); font-size: 2.2rem; font-weight: 500; color: var(--on-ink); line-height: 1; }
+	.bstat-l { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--vermilion); }
+
+	/* ════════ JUMP DIRECTORY ════════ */
+	.directory-head { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; margin-bottom: 1.5rem; }
+	.directory-note { max-width: 24rem; text-align: right; }
+	.topic-cloud { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+	.directory-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-top: 2.75rem; }
+
+	/* ════════ TOPIC FEED ════════ */
+	.topics-feed { padding-top: 1.5rem; }
+	.topics-list { display: flex; flex-direction: column; gap: 0; }
 
 	.topic-section {
-		padding: 2.5rem 0;
+		display: grid; grid-template-columns: 16rem 1fr; gap: 3.5rem;
+		padding: 2.75rem 0;
 		border-bottom: 1px solid var(--line);
 	}
 	.topic-section:first-child { padding-top: 0; }
 	.topic-section:last-child { border-bottom: none; }
 
-	.topic-header {
-		display: flex;
-		align-items: baseline;
-		gap: 0.85rem;
-		margin-bottom: 1.25rem;
+	/* Left aside: numbered, sticky-feeling label column */
+	.topic-aside { position: relative; padding-top: 0.1rem; }
+	.topic-index {
+		font-family: var(--mono); font-size: 0.78rem; font-weight: 700;
+		color: var(--vermilion); letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;
 	}
-
+	.topic-header { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.85rem; }
 	.topic-header h2 {
-		font-family: var(--serif);
-		font-weight: 500;
-		font-size: clamp(1.35rem, 2.2vw, 1.65rem);
-		letter-spacing: -0.015em;
-		color: var(--ink);
+		font-family: var(--display); font-weight: 500;
+		font-size: clamp(1.55rem, 2.6vw, 2.1rem); letter-spacing: -0.02em;
+		color: var(--ink); line-height: 1.05;
 	}
-
 	.topic-meta {
-		font-family: var(--mono);
-		font-size: 0.72rem;
-		font-weight: 500;
-		color: var(--muted);
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		font-family: var(--mono); font-size: 0.7rem; font-weight: 400; color: var(--muted);
+		text-transform: uppercase; letter-spacing: 0.1em;
 	}
+	.topic-permalink { display: inline-block; color: var(--muted); transition: color 0.15s; }
+	.topic-permalink:hover { color: var(--vermilion-2); }
 
-	.article-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
+	/* Right: editorial article index */
+	.article-list { border-top: 1px solid var(--line); }
 	.article-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		padding: 0.7rem 0;
-		color: var(--body);
-		font-size: 1rem;
+		display: grid; grid-template-columns: 2.5rem 1fr auto; gap: 1.25rem; align-items: baseline;
+		padding: 0.9rem 0;
 		border-bottom: 1px solid var(--line);
-		gap: 1.25rem;
-		transition: color 0.15s, border-color 0.15s;
+		color: inherit;
+		transition: background 0.15s, padding-left 0.15s;
 	}
-
 	.article-row:last-child { border-bottom: none; }
-	.article-row:hover { border-color: var(--line-2); }
-	.article-row:hover .article-title { color: var(--link); }
-
+	.article-row:hover { background: rgba(226, 219, 201, 0.35); padding-left: 0.6rem; }
+	.ix-num { font-family: var(--mono); font-size: 0.74rem; color: var(--vermilion); padding-top: 0.15rem; }
 	.article-title {
-		font-family: var(--serif);
-		font-weight: 500;
-		color: var(--ink);
-		transition: color 0.15s;
-		line-height: 1.4;
+		font-family: var(--display); font-weight: 500; font-size: 1.15rem;
+		color: var(--ink); line-height: 1.25; transition: color 0.15s;
 	}
-
+	.article-row:hover .article-title { color: var(--vermilion-2); }
 	.article-date {
-		font-family: var(--mono);
-		font-size: 0.74rem;
-		color: var(--muted);
-		flex-shrink: 0;
-		letter-spacing: 0.02em;
+		font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+		flex-shrink: 0; letter-spacing: 0.02em; white-space: nowrap; padding-top: 0.2rem;
 	}
 
+	/* ════════ CLOSING ════════ */
+	.closing { background: var(--ink); text-align: center; }
+	.closing-inner { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
+	.closing-seal { width: 110px; color: var(--vermilion); }
+	.closing-h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.9rem, 3.8vw, 3rem); line-height: 1.05; color: var(--on-ink); }
+	.closing-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+	.closing .btn-ghost { color: var(--on-ink); border-color: var(--on-ink); }
+	.closing .btn-ghost:hover { background: var(--on-ink); color: var(--ink); }
+
+	/* ════════ RESPONSIVE ════════ */
+	@media (max-width: 900px) {
+		.banner-inner { grid-template-columns: 1fr; gap: 2.25rem; align-items: start; min-height: 0; }
+		.banner-stats { width: 100%; }
+		.topic-section { grid-template-columns: 1fr; gap: 1.25rem; padding: 2.25rem 0; }
+		.directory-head { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+		.directory-note { text-align: left; }
+	}
 	@media (max-width: 560px) {
-		.topic-cloud { margin-bottom: 3rem; padding-bottom: 2rem; }
-		.topic-section { padding: 2rem 0; }
-		.article-row { gap: 0.85rem; font-size: 0.95rem; }
+		.banner-stats { gap: 1.5rem; flex-wrap: wrap; }
+		.topic-cloud { margin-bottom: 0; }
+		.article-row { grid-template-columns: 2rem 1fr auto; gap: 0.85rem; }
+		.article-title { font-size: 1.02rem; }
 	}
 </style>

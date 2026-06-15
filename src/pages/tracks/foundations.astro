@@ -12,7 +12,7 @@ const steps = [
  ],
  pillar: 'Quality Assurance',
  pillarSlug: 'quality-assurance',
- color: '#9A3B3B',
+ color: '#7A2E23',
  },
  {
  num: '02',
@@ -23,7 +23,7 @@ const steps = [
  ],
  pillar: 'Quality Assurance',
  pillarSlug: 'quality-assurance',
- color: '#9A3B3B',
+ color: '#7A2E23',
  },
  {
  num: '03',
@@ -34,7 +34,7 @@ const steps = [
  ],
  pillar: 'Data Integrity',
  pillarSlug: 'data-integrity',
- color: '#1C4E80',
+ color: '#B26B1E',
  },
  {
  num: '04',
@@ -48,7 +48,7 @@ const steps = [
  ],
  pillar: 'Quality Assurance',
  pillarSlug: 'quality-assurance',
- color: '#9A3B3B',
+ color: '#7A2E23',
  },
  {
  num: '05',
@@ -59,7 +59,7 @@ const steps = [
  ],
  pillar: 'CSV & CSA',
  pillarSlug: 'csv-csa',
- color: '#2F6E4F',
+ color: '#3C6B4A',
  },
  {
  num: '06',
@@ -71,7 +71,7 @@ const steps = [
  ],
  pillar: 'CSV & CSA',
  pillarSlug: 'csv-csa',
- color: '#2F6E4F',
+ color: '#3C6B4A',
  },
  {
  num: '07',
@@ -82,7 +82,7 @@ const steps = [
  ],
  pillar: 'Equipment Qualification',
  pillarSlug: 'equipment-qualification',
- color: '#8A5A1E',
+ color: '#B26B1E',
  },
  {
  num: '08',
@@ -93,7 +93,7 @@ const steps = [
  ],
  pillar: 'Audits & Inspection',
  pillarSlug: 'audits-inspection',
- color: '#8A5A1E',
+ color: '#B26B1E',
  },
  {
  num: '09',
@@ -110,39 +110,63 @@ const steps = [
 ];
 
 // New design-system accent for this track (Foundations → forest / Beginner tier)
-const trackAccent = '#2F6E4F';
+const trackAccent = '#3C6B4A';
 
 // Harmonized pillar accents (DESIGN_SPEC v2). Fall back to muted for the Career step (no pillarSlug).
 const pillarAccents: Record<string, string> = {
- 'data-integrity': '#1C4E80',
- 'csv-csa': '#2F6E4F',
- 'equipment-qualification': '#8A5A1E',
- 'quality-assurance': '#6B4E8A',
- 'audits-inspection': '#9A3B3B',
- 'cell-gene-therapy': '#2B6E73',
- 'manufacturing-automation': '#46566E',
- 'ai-automation': '#7A3B57',
+ 'data-integrity': '#B26B1E',
+ 'csv-csa': '#3C6B4A',
+ 'equipment-qualification': '#B26B1E',
+ 'quality-assurance': '#7A2E23',
+ 'audits-inspection': '#7A2E23',
+ 'cell-gene-therapy': '#3C6B4A',
+ 'manufacturing-automation': '#574F42',
+ 'ai-automation': '#7A2E23',
 };
 const accentFor = (slug: string | null) => (slug && pillarAccents[slug]) || '#756B5B';
+
+// v3 ("The Record") tier color for the Beginner track.
+const TIER_BEGINNER = '#3C6B4A';
 ---
 <Layout title="Foundations Track" description="A sequenced reading path for GxP beginners, the regulatory map, ALCOA+, quality systems, CSV basics, and a career roadmap. Start here if you're new to pharma quality and validation." wide={true}>
- <div class="track-shell">
- <header class="track-header">
- <a href="/tracks" class="back-link">← Learning Tracks</a>
- <div class="eyebrow">Learning Track 01 · Foundations</div>
- <h1>Breaking In: From Zero to Competent</h1>
- <p class="lead">
+ <!-- ═══════════ HEADER BAND (duotone) ═══════════ -->
+ <header class="trk-hero duotone">
+ <img src="/images/lab-beakers.jpg" alt="" loading="eager" />
+ <div class="trk-hero-grad"></div>
+ <div class="wrap trk-hero-inner">
+ <a href="/tracks" class="trk-back">← Learning Tracks</a>
+ <div class="trk-kick">
+ <span class="kicker">Learning Track № 01</span>
+ <span class="trk-kick-line" aria-hidden="true"></span>
+ <span class="trk-kick-tier">
+ <span class="tier-badge" style={`background:${TIER_BEGINNER}; color:#F7F3EA; border-color:${TIER_BEGINNER}`}>Beginner</span>
+ </span>
+ </div>
+ <h1 class="trk-title">Breaking In: From Zero to Competent</h1>
+ <p class="trk-standfirst">
  This track is for anyone starting a career in GxP quality, validation, or data integrity, or anyone who wants to understand the field before diving into the technical details. It covers the regulatory landscape, core frameworks, and gives you a concrete roadmap for building expertise.
  </p>
- <div class="track-meta">
- <span class="tier-badge" style={`background:${trackAccent}1A;color:${trackAccent};border-color:${trackAccent}40`}>Beginner</span>
- <span class="track-for">
- <span class="track-for-label">For</span>
- Students, career changers, new hires entering their first GxP quality or validation role.
- </span>
+ <div class="trk-hero-meta">
+ <span class="trk-meta-pair"><span class="trk-meta-k">Steps</span><span class="trk-meta-v">{steps.length}</span></span>
+ <span class="trk-meta-pair"><span class="trk-meta-k">Tier</span><span class="trk-meta-v">Beginner</span></span>
+ <span class="trk-meta-pair"><span class="trk-meta-k">For</span><span class="trk-meta-v">Students · Career changers · New hires</span></span>
+ </div>
  </div>
  </header>
 
+ <div class="wrap trk-shell">
+ <!-- ═══════════ SYLLABUS LEAD ═══════════ -->
+ <div class="trk-lead-row">
+ <div class="trk-lead-copy">
+ <span class="kicker">The reading path</span>
+ <h2 class="display-2">Nine steps, in order.</h2>
+ </div>
+ <p class="marginalia trk-lead-note">Each step is a checkpoint, not a chapter. Read it, understand it, then move on. The sequence is deliberate, every step assumes the one before it.</p>
+ </div>
+
+ <img class="trk-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+
+ <!-- ═══════════ NUMBERED STEP SEQUENCE (editorial) ═══════════ -->
  <ol class="steps">
  {steps.map(step => {
  const accent = accentFor(step.pillarSlug);
@@ -153,243 +177,168 @@ const accentFor = (slug: string | null) => (slug && pillarAccents[slug]) || '#75
  <div class="step-connector" aria-hidden="true"></div>
  </div>
  <div class="step-content">
- <div class="step-pillar" style={`color: ${accent}`}>
- <span class="step-dot" style={`background: ${accent}`}></span>
- {step.pillar}
+ <div class="step-pillar">
+ {step.pillarSlug && (
+ <span class="step-emblem emblem" style={`--src:url('/brand/emblems/pillar-${step.pillarSlug}.svg')`}></span>
+ )}
+ <span class="step-pillar-label">{step.pillar}</span>
  </div>
- <h2 class="step-title">{step.title}</h2>
+ <h3 class="step-title">{step.title}</h3>
  <p class="step-desc">{step.desc}</p>
- <div class="step-articles">
+ <ul class="step-articles">
  {step.articles.map(a => (
+ <li>
  <a href={`/articles/${a.slug}`} class="step-article-link">
  <span class="article-icon" aria-hidden="true">→</span>
- <span>{a.title}</span>
+ <span class="article-title">{a.title}</span>
  </a>
+ </li>
  ))}
- </div>
+ </ul>
  </div>
  </li>
  );
  })}
  </ol>
+ </div>
 
- <section class="next-track">
- <div class="next-inner">
+ <!-- ═══════════ CONTINUE → NEXT TRACK (dark plate) ═══════════ -->
+ <section class="section section-dark next-track">
+ <img class="next-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ <div class="wrap next-inner">
  <div class="next-copy">
- <div class="section-label">When you're ready</div>
- <h2>Continue to the Implementation Track</h2>
+ <span class="kicker">When you're ready</span>
+ <h2 class="next-h2">Continue to the Implementation Track</h2>
  <p>Once you have the foundations, the Implementation track takes you into execution: how to actually run validations, design audit trails, and manage GxP systems in practice.</p>
  </div>
- <a href="/tracks/implementation" class="btn-primary">Implementation Track →</a>
+ <a href="/tracks/implementation" class="btn-accent next-cta">Implementation Track →</a>
  </div>
  </section>
- </div>
 </Layout>
 
 <style>
- .track-shell { max-width: var(--container-narrow); margin: 0 auto; padding-top: 4rem; }
+ /* ════════════ HEADER BAND ════════════ */
+ .trk-hero { position: relative; min-height: 56vh; display: flex; align-items: flex-end; border-bottom: 3px solid var(--vermilion); }
+ .trk-hero > img { position: absolute; inset: 0; }
+ .trk-hero-grad { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(22,19,13,0.18) 0%, rgba(22,19,13,0.4) 48%, rgba(22,19,13,0.88) 100%); }
+ .trk-hero-inner { position: relative; z-index: 3; padding-top: 4.5rem; padding-bottom: 3rem; }
 
- .back-link {
- font-size: 0.8rem;
- color: var(--muted);
- font-family: var(--mono);
- display: inline-block;
- margin-bottom: 1.5rem;
+ .trk-back {
+ font-family: var(--mono); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em;
+ text-transform: uppercase; color: var(--on-ink-dim); display: inline-block; margin-bottom: 1.5rem;
  transition: color 0.15s;
  }
- .back-link:hover { color: var(--navy); }
+ .trk-back:hover { color: var(--on-ink); }
 
- .track-header {
- margin-bottom: 4rem;
- padding-bottom: 2.25rem;
- border-bottom: 1px solid var(--line);
+ .trk-kick { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.25rem; }
+ .trk-kick .kicker { color: var(--vermilion); }
+ .trk-kick-line { flex: 0 1 70px; height: 1px; background: var(--line-ink); }
+
+ .trk-title {
+ font-family: var(--display); font-weight: 500; color: var(--on-ink);
+ font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.0; letter-spacing: -0.025em;
+ max-width: 18ch; margin-bottom: 1.25rem;
+ }
+ .trk-standfirst {
+ font-family: var(--display); font-style: italic; font-weight: 400; color: var(--on-ink-dim);
+ font-size: clamp(1.1rem, 1.9vw, 1.45rem); line-height: 1.45; max-width: 52ch; margin-bottom: 1.75rem;
  }
 
- .track-header h1 {
- font-size: clamp(2rem, 4vw, 2.9rem);
- letter-spacing: -0.02em;
- line-height: 1.1;
- margin-bottom: 1rem;
- }
+ .trk-hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; border-top: 1px solid var(--line-ink); padding-top: 1.4rem; }
+ .trk-meta-pair { display: flex; flex-direction: column; gap: 0.25rem; }
+ .trk-meta-k { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--vermilion); }
+ .trk-meta-v { font-family: var(--mono); font-size: 0.8rem; color: var(--on-ink); letter-spacing: 0.02em; }
 
- .track-header .lead { margin-bottom: 1.75rem; }
+ /* ════════════ SHELL / LEAD ════════════ */
+ .trk-shell { padding-top: 3.5rem; padding-bottom: 1rem; }
 
- .track-meta {
- display: flex;
- align-items: flex-start;
- flex-wrap: wrap;
- gap: 1rem 1.25rem;
- }
+ .trk-lead-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 2.5rem; margin-bottom: 2rem; }
+ .trk-lead-copy .kicker { margin-bottom: 0.6rem; }
+ .trk-lead-note { max-width: 24rem; text-align: right; }
 
- .track-for {
- font-size: 0.9rem;
- color: var(--body);
- line-height: 1.6;
- max-width: 36rem;
- }
- .track-for-label {
- font-family: var(--mono);
- font-size: 0.68rem;
- font-weight: 500;
- text-transform: uppercase;
- letter-spacing: 0.1em;
- color: var(--brass);
- margin-right: 0.5rem;
- }
+ .trk-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-bottom: 2.75rem; }
 
- /* ── Numbered step list ── */
- .steps {
- list-style: none;
- padding: 0;
- margin: 0 0 5rem;
- display: flex;
- flex-direction: column;
- }
+ /* ════════════ NUMBERED STEP SEQUENCE ════════════ */
+ .steps { list-style: none; padding: 0; margin: 0 0 5rem; display: flex; flex-direction: column; }
 
  .step {
  display: grid;
- grid-template-columns: 56px 1fr;
- gap: 1.75rem;
+ grid-template-columns: 64px 1fr;
+ gap: 2rem;
  padding: 0 0 2.75rem;
  margin: 0;
  }
  .step:last-child { padding-bottom: 0; }
 
- .step-rail {
- display: flex;
- flex-direction: column;
- align-items: center;
- }
+ .step-rail { display: flex; flex-direction: column; align-items: stretch; }
 
  .step-num {
  font-family: var(--mono);
  font-size: 1.05rem;
- font-weight: 500;
- color: var(--navy);
+ font-weight: 700;
+ color: var(--vermilion);
  line-height: 1;
- padding: 0.55rem 0;
+ padding: 0.6rem 0;
  width: 100%;
- text-align: center;
- border-top: 2px solid var(--brass);
+ text-align: left;
+ border-top: 2px solid var(--vermilion);
  letter-spacing: 0.04em;
  }
 
- .step-connector {
- flex: 1;
- width: 1px;
- background: var(--line-2);
- margin-top: 0.35rem;
- min-height: 1rem;
- }
+ .step-connector { flex: 1; width: 1px; background: var(--line); margin: 0.35rem 0 0 0; min-height: 1rem; }
  .step:last-child .step-connector { display: none; }
 
- .step-content { padding-top: 0.1rem; }
+ .step-content { padding-top: 0.4rem; border-top: 1px solid var(--line); padding-bottom: 0.25rem; }
 
- .step-pillar {
- display: inline-flex;
- align-items: center;
- gap: 0.45rem;
- font-family: var(--mono);
- font-size: 0.7rem;
- font-weight: 500;
- text-transform: uppercase;
- letter-spacing: 0.12em;
- margin-bottom: 0.55rem;
- }
- .step-dot {
- width: 7px;
- height: 7px;
- border-radius: var(--radius-sm);
- flex-shrink: 0;
+ .step-pillar { display: inline-flex; align-items: center; gap: 0.55rem; margin-bottom: 0.7rem; }
+ .step-emblem { width: 20px; height: 20px; color: var(--vermilion); }
+ .step-pillar-label {
+ font-family: var(--mono); font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+ letter-spacing: 0.14em; color: var(--muted);
  }
 
  .step-title {
- font-family: var(--serif);
- font-weight: 500;
- font-size: 1.4rem;
- color: var(--ink);
- line-height: 1.25;
- letter-spacing: -0.01em;
- margin-bottom: 0.65rem;
+ font-family: var(--display); font-weight: 500; font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+ color: var(--ink); line-height: 1.12; letter-spacing: -0.015em; margin-bottom: 0.7rem; max-width: 22ch;
  }
 
- .step-desc {
- font-size: 0.95rem;
- color: var(--body);
- line-height: 1.7;
- margin-bottom: 1.1rem;
- max-width: 42rem;
- }
+ .step-desc { font-size: 0.98rem; color: var(--graphite); line-height: 1.7; margin-bottom: 1.25rem; max-width: 44rem; }
 
- .step-articles { display: flex; flex-direction: column; gap: 0.4rem; }
+ .step-articles { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
 
  .step-article-link {
- display: flex;
- align-items: center;
- gap: 0.6rem;
- font-family: var(--sans);
- font-size: 0.9rem;
- font-weight: 500;
- color: var(--link);
- padding: 0.6rem 0.85rem;
- background: var(--surface);
- border: 1px solid var(--line);
- border-radius: var(--radius);
- box-shadow: var(--shadow-sm);
- transition: border-color 0.15s, color 0.15s, transform 0.15s;
- text-decoration: none;
+ display: flex; align-items: baseline; gap: 0.7rem;
+ font-family: var(--sans); font-size: 0.95rem; font-weight: 500; color: var(--graphite);
+ padding: 0.7rem 0; border-bottom: 1px solid var(--line);
+ transition: color 0.15s, padding-left 0.15s;
  }
- .step-article-link:hover {
- border-color: var(--line-2);
- color: var(--link-h);
- transform: translateY(-1px);
- }
- .article-icon {
- font-family: var(--mono);
- font-size: 0.8rem;
- color: var(--brass);
- flex-shrink: 0;
- }
+ .step-article-link:hover { color: var(--vermilion-2); padding-left: 0.5rem; }
+ .article-icon { font-family: var(--mono); font-size: 0.85rem; color: var(--vermilion); flex-shrink: 0; }
+ .article-title { line-height: 1.35; }
 
- /* ── Next track CTA ── */
- .next-track {
- background: var(--paper-2);
- border: 1px solid var(--line);
- border-left: 3px solid var(--navy);
- border-radius: var(--radius);
- padding: 2.25rem 2rem;
- }
+ /* ════════════ NEXT TRACK (dark plate) ════════════ */
+ .next-track { position: relative; overflow: hidden; border-top: 3px solid var(--vermilion); }
+ .next-seal { position: absolute; right: -56px; top: 50%; transform: translateY(-50%); width: 260px; color: rgba(236,230,216,0.05); pointer-events: none; }
+ .next-inner { display: flex; justify-content: space-between; align-items: center; gap: 2.5rem; position: relative; z-index: 2; }
+ .next-copy .kicker { margin-bottom: 0.85rem; }
+ .next-h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--on-ink); line-height: 1.06; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+ .next-copy p { font-size: 1rem; color: var(--on-ink-dim); line-height: 1.65; max-width: 38rem; }
+ .next-cta { white-space: nowrap; flex-shrink: 0; }
 
- .next-inner {
- display: flex;
- justify-content: space-between;
- align-items: center;
- gap: 2rem;
+ /* ════════════ RESPONSIVE ════════════ */
+ @media (max-width: 900px) {
+ .trk-hero { min-height: 48vh; }
+ .trk-lead-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+ .trk-lead-note { text-align: left; }
+ .next-inner { flex-direction: column; align-items: flex-start; gap: 1.75rem; }
  }
-
- .next-copy h2 {
- font-family: var(--serif);
- font-weight: 500;
- font-size: 1.4rem;
- color: var(--ink);
- margin-bottom: 0.5rem;
- letter-spacing: -0.01em;
- }
- .next-copy p {
- font-size: 0.92rem;
- color: var(--body);
- line-height: 1.65;
- max-width: 34rem;
- }
-
- .btn-primary { white-space: nowrap; flex-shrink: 0; }
-
  @media (max-width: 600px) {
- .track-shell { padding-top: 2.75rem; }
- .step { grid-template-columns: 1fr; gap: 0.75rem; }
- .step-rail { flex-direction: row; align-items: center; gap: 0.75rem; }
- .step-num { width: auto; padding: 0.35rem 0; border-top: none; border-bottom: 2px solid var(--brass); }
+ .trk-shell { padding-top: 2.5rem; }
+ .step { grid-template-columns: 1fr; gap: 0.85rem; }
+ .step-rail { flex-direction: row; align-items: center; gap: 0.85rem; }
+ .step-num { width: auto; padding: 0.4rem 0; border-top: none; border-bottom: 2px solid var(--vermilion); }
  .step-connector { display: none; }
- .next-inner { flex-direction: column; align-items: flex-start; }
+ .step-content { border-top: none; padding-top: 0; }
+ .trk-hero-meta { gap: 1rem 1.75rem; }
  }
 </style>

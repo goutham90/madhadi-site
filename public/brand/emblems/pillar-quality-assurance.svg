@@ -1,0 +1,15 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quality assurance">
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- controlled document with folded corner -->
+    <path d="M14 8 H38 L48 18 V56 H14 Z" />
+    <polyline points="38,8 38,18 48,18" />
+    <!-- document text lines -->
+    <line x1="20" y1="24" x2="42" y2="24" />
+    <line x1="20" y1="30" x2="42" y2="30" />
+    <line x1="20" y1="36" x2="34" y2="36" />
+    <!-- approval seal / stamp with checkmark -->
+    <circle cx="40" cy="46" r="9" />
+    <circle cx="40" cy="46" r="6" />
+    <polyline points="37,46 39.2,48.2 43.3,43.5" />
+  </g>
+</svg>

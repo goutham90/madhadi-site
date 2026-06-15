@@ -4,19 +4,40 @@ import Layout from '../layouts/Layout.astro';
 <Layout
  title="Error Simulator, GxP Scenarios"
  description="Interactive GxP decision scenarios. Real situations where practitioners make mistakes. Work through what to do, and why common responses go wrong."
+ wide={true}
 >
- <div class="page-header">
- <div class="page-label">Interactive Learning</div>
- <h1>Error Simulator</h1>
- <p class="lead">
+ <!-- ═══════════ HEADER BAND (duotone) ═══════════ -->
+ <header class="sim-hero duotone">
+ <img src="/images/audit-paperwork.jpg" alt="" loading="eager" />
+ <div class="sim-hero-grad"></div>
+ <div class="wrap sim-hero-inner">
+ <span class="kicker">Interactive Learning · The Casebook</span>
+ <h1 class="sim-h1">Error Simulator</h1>
+ <p class="lead sim-lead">
  Each scenario presents a real GxP situation. Read the setup, make a decision, and see what happens.
  Wrong answers are shown, because understanding why something is wrong is more valuable than just knowing the right answer.
  </p>
+ </div>
+ </header>
+
+ <!-- ═══════════ ORIENTATION + DISCLAIMER ═══════════ -->
+ <section class="section-tight">
+ <div class="wrap sim-intro">
+ <div class="sim-intro-rail">
+ <span class="marginalia">How the casebook works</span>
+ <ol class="sim-steps">
+ <li><span class="sim-step-n">A</span>Read the situation as written, with the same incomplete facts you'd have on the floor.</li>
+ <li><span class="sim-step-n">B</span>Commit to one action before reading further.</li>
+ <li><span class="sim-step-n">C</span>See the regulator's reasoning, right or wrong, then try again.</li>
+ </ol>
+ </div>
  <div class="disclaimer-box callout">
  <span class="disclaimer-label">Fictional scenarios</span>
  All scenarios are fictional. They are constructed from patterns observed in public FDA warning letters, 483 observations, and published regulatory guidance. No real company, site, person, or product is referenced.
  </div>
  </div>
+ <div class="wrap"><img class="sim-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" /></div>
+ </section>
 
  <div class="scenarios-list">
 
@@ -26,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
  <div class="scenario-num">01</div>
  <div class="scenario-meta">
  <div class="scenario-domain">Audit Trail Review · Data Integrity</div>
- <span class="tier-badge" style="background:#1C4E801A;color:#1C4E80;border-color:#1C4E8040;">Intermediate</span>
+ <span class="tier-badge" style="background:#B26B1E1A;color:#B26B1E;border-color:#B26B1E40;">Intermediate</span>
  </div>
  </div>
  <h2 class="scenario-title">The analyst who only reviewed passing results</h2>
@@ -99,7 +120,7 @@ import Layout from '../layouts/Layout.astro';
  <div class="scenario-num">02</div>
  <div class="scenario-meta">
  <div class="scenario-domain">Backup and Restore · CSV</div>
- <span class="tier-badge" style="background:#1C4E801A;color:#1C4E80;border-color:#1C4E8040;">Intermediate</span>
+ <span class="tier-badge" style="background:#B26B1E1A;color:#B26B1E;border-color:#B26B1E40;">Intermediate</span>
  </div>
  </div>
  <h2 class="scenario-title">The backup that no one ever tested</h2>
@@ -172,7 +193,7 @@ import Layout from '../layouts/Layout.astro';
  <div class="scenario-num">03</div>
  <div class="scenario-meta">
  <div class="scenario-domain">Software Change Control · CSV</div>
- <span class="tier-badge" style="background:#7A3B571A;color:#7A3B57;border-color:#7A3B5740;">Advanced</span>
+ <span class="tier-badge" style="background:#7A2E231A;color:#7A2E23;border-color:#7A2E2340;">Advanced</span>
  </div>
  </div>
  <h2 class="scenario-title">The vendor pushed a cloud update without warning</h2>
@@ -245,7 +266,7 @@ import Layout from '../layouts/Layout.astro';
  <div class="scenario-num">04</div>
  <div class="scenario-meta">
  <div class="scenario-domain">Shared Accounts · Access Control · Data Integrity</div>
- <span class="tier-badge" style="background:#2F6E4F1A;color:#2F6E4F;border-color:#2F6E4F40;">Beginner</span>
+ <span class="tier-badge" style="background:#3C6B4A1A;color:#3C6B4A;border-color:#3C6B4A40;">Beginner</span>
  </div>
  </div>
  <h2 class="scenario-title">The HPLC workstation everyone logs into the same way</h2>
@@ -318,7 +339,7 @@ import Layout from '../layouts/Layout.astro';
  <div class="scenario-num">05</div>
  <div class="scenario-meta">
  <div class="scenario-domain">Inspection Response · Audit Management</div>
- <span class="tier-badge" style="background:#7A3B571A;color:#7A3B57;border-color:#7A3B5740;">Advanced</span>
+ <span class="tier-badge" style="background:#7A2E231A;color:#7A2E23;border-color:#7A2E2340;">Advanced</span>
  </div>
  </div>
  <h2 class="scenario-title">The 483 observation you weren't expecting</h2>
@@ -387,10 +408,15 @@ import Layout from '../layouts/Layout.astro';
 
  </div>
 
- <div class="scenarios-footer">
+ <!-- ═══════════ CLOSING NOTE (dark plate) ═══════════ -->
+ <section class="section section-dark sim-closing">
+ <img class="sim-closing-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+ <div class="wrap scenarios-footer">
+ <span class="kicker">On the record</span>
  <p>These scenarios are drawn from patterns in publicly available FDA enforcement actions and regulatory guidance. They are designed to surface the reasoning behind compliance decisions, not to prescribe specific actions for any real situation. Always apply professional judgment to your specific regulatory context.</p>
  <p>More scenarios will be added covering: deviation investigation decisions, method validation gaps, clinical system vendor oversight, and CAPA effectiveness failures.</p>
  </div>
+ </section>
 </Layout>
 
 <script is:inline>
@@ -414,237 +440,256 @@ import Layout from '../layouts/Layout.astro';
 </script>
 
 <style>
- /* ─────────── Disclaimer (uses .callout base; amber-keyed for "fictional") ─────────── */
+ /* ─────────── Header band (duotone) ─────────── */
+ .sim-hero { position: relative; min-height: 46vh; display: flex; align-items: flex-end; margin-bottom: 0; }
+ .sim-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+ .sim-hero-grad { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(22,19,13,0.18) 0%, rgba(22,19,13,0.4) 45%, rgba(22,19,13,0.88) 100%); }
+ .sim-hero-inner { position: relative; z-index: 3; padding-top: 5rem; padding-bottom: 3rem; }
+ .sim-hero .kicker { color: #F2C9B8; margin-bottom: 1.1rem; }
+ .sim-h1 { font-family: var(--display); font-weight: 500; color: var(--on-ink); font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 0.98; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+ .sim-lead { color: var(--on-ink-dim); max-width: 44rem; }
+
+ /* ─────────── Orientation rail + disclaimer ─────────── */
+ .sim-intro { display: grid; grid-template-columns: 1fr 0.9fr; gap: 3rem; align-items: start; }
+ .sim-intro-rail .marginalia { display: block; margin-bottom: 1rem; }
+ .sim-steps { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+ .sim-steps li { display: flex; align-items: baseline; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; color: var(--graphite); line-height: 1.55; margin: 0; }
+ .sim-step-n { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; color: var(--vermilion); flex-shrink: 0; }
+
  .disclaimer-box {
- margin-top: 1.6rem;
- margin-bottom: 0;
- border-left: 3px solid var(--brass);
+ margin: 0;
+ border-left: 3px solid var(--vermilion);
  font-size: 0.85rem;
- color: var(--body);
+ color: var(--graphite);
  line-height: 1.6;
  }
-
  .disclaimer-label {
  font-family: var(--mono);
  font-size: 0.68rem;
- font-weight: 600;
- color: var(--brass);
+ font-weight: 700;
+ color: var(--vermilion);
  text-transform: uppercase;
  letter-spacing: 0.1em;
  display: block;
  margin-bottom: 0.3rem;
  }
 
- /* ─────────── Scenario list ─────────── */
+ .sim-rule { display: block; width: 100%; height: 14px; color: var(--line); margin-top: 3rem; }
+
+ /* ─────────── Scenario list (editorial cases, not uniform cards) ─────────── */
  .scenarios-list {
+ max-width: var(--container);
+ margin: 0 auto;
+ padding: 1rem 2.5rem 0;
+ width: 100%;
  display: flex;
  flex-direction: column;
- gap: 3rem;
  }
 
+ /* Each case = full editorial spread with a left rail (number/emblem/tier) */
  .scenario-card {
- background: var(--surface);
- border: 1px solid var(--line);
- border-radius: var(--radius);
- box-shadow: var(--shadow-sm);
- padding: 2.25rem;
+ display: grid;
+ grid-template-columns: 9rem 1fr;
+ gap: 2.5rem;
+ padding: 3.5rem 0;
+ border-top: 1px solid var(--line);
  }
+ .scenario-card:first-child { border-top: 2px solid var(--ink); }
 
+ /* Left rail — sticky marginalia column */
  .scenario-header {
+ grid-column: 1;
+ grid-row: 1 / span 2;
+ position: sticky;
+ top: 6rem;
+ align-self: start;
  display: flex;
- align-items: baseline;
- gap: 1.1rem;
- margin-bottom: 1.1rem;
+ flex-direction: column;
+ gap: 1rem;
  }
-
  .scenario-num {
- font-size: 1.55rem;
- font-family: var(--mono);
+ font-family: var(--display);
  font-weight: 500;
- color: var(--line-2);
+ font-size: 3.4rem;
+ line-height: 0.9;
+ color: var(--vermilion);
  letter-spacing: -0.04em;
- flex-shrink: 0;
- line-height: 1;
  }
-
  .scenario-meta {
  display: flex;
- flex-wrap: wrap;
- gap: 0.6rem 0.8rem;
- align-items: center;
+ flex-direction: column;
+ gap: 0.7rem;
+ align-items: flex-start;
  }
-
  .scenario-domain {
  font-size: 0.72rem;
  font-family: var(--mono);
  color: var(--muted);
  text-transform: uppercase;
  letter-spacing: 0.1em;
+ line-height: 1.5;
  }
 
+ /* Title spans the content column */
  .scenario-title {
- font-family: var(--serif);
- font-size: 1.35rem;
+ grid-column: 2;
+ font-family: var(--display);
+ font-size: clamp(1.6rem, 2.8vw, 2.2rem);
  font-weight: 500;
  color: var(--ink);
- margin-bottom: 1.4rem;
- line-height: 1.25;
- letter-spacing: -0.01em;
+ margin-bottom: 1.6rem;
+ line-height: 1.12;
+ letter-spacing: -0.02em;
  }
+ .scenario-card > .scenario-title + * { grid-column: 2; }
+
+ /* Force remaining content into column 2 */
+ .scenario-setup,
+ .scenario-question,
+ .scenario-options,
+ .scenario-result { grid-column: 2; }
 
  /* ─────────── Setup block ─────────── */
  .scenario-setup {
- background: var(--paper-2);
+ background: var(--paper);
  border: 1px solid var(--line);
- border-left: 3px solid var(--navy);
+ border-left: 3px solid var(--ink);
  border-radius: var(--radius);
- padding: 1.3rem 1.5rem;
- margin-bottom: 1.6rem;
+ padding: 1.4rem 1.6rem;
+ margin-bottom: 1.8rem;
+ max-width: 52rem;
  }
-
  .setup-label {
  font-size: 0.7rem;
  font-family: var(--mono);
- color: var(--navy);
+ color: var(--ink);
  text-transform: uppercase;
  letter-spacing: 0.1em;
- font-weight: 600;
- margin-bottom: 0.55rem;
+ font-weight: 700;
+ margin-bottom: 0.6rem;
  }
-
  .scenario-setup p {
- font-size: 0.95rem;
- color: var(--body);
+ font-size: 0.96rem;
+ color: var(--graphite);
  line-height: 1.7;
  margin: 0;
  }
 
  .scenario-question {
- font-family: var(--sans);
- font-size: 1rem;
- font-weight: 600;
+ font-family: var(--display);
+ font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+ font-weight: 500;
  color: var(--ink);
- margin-bottom: 1.1rem;
+ line-height: 1.25;
+ letter-spacing: -0.01em;
+ margin-bottom: 1.3rem;
+ max-width: 44rem;
  }
 
- /* ─────────── Options ─────────── */
+ /* ─────────── Options (bordered selectable rows) ─────────── */
  .scenario-options {
  display: flex;
  flex-direction: column;
- gap: 0.65rem;
+ gap: 0.7rem;
+ max-width: 52rem;
  }
-
  .option-btn {
  display: flex;
  align-items: flex-start;
- gap: 0.9rem;
- padding: 0.95rem 1.1rem;
- background: var(--surface);
- border: 1px solid var(--line-2);
+ gap: 1rem;
+ padding: 1rem 1.15rem;
+ background: var(--paper);
+ border: 1px solid var(--line);
  border-radius: var(--radius);
  cursor: pointer;
  text-align: left;
- transition: border-color 0.15s, background 0.15s;
+ transition: border-color 0.15s, background 0.15s, transform 0.12s;
  width: 100%;
  font-family: var(--sans);
  }
-
  .option-btn:hover {
- border-color: var(--navy);
- background: var(--paper-2);
+ border-color: var(--vermilion);
+ background: var(--bone-2);
+ transform: translateX(2px);
  }
-
  .opt-letter {
  font-size: 0.72rem;
  font-family: var(--mono);
- font-weight: 600;
- color: var(--navy);
- background: var(--paper-2);
- border: 1px solid var(--line-2);
- border-radius: var(--radius-sm);
- padding: 0.22rem 0.52rem;
+ font-weight: 700;
+ color: var(--on-ink);
+ background: var(--ink);
+ border-radius: var(--radius);
+ padding: 0.24rem 0.55rem;
  flex-shrink: 0;
  margin-top: 0.05rem;
+ transition: background 0.15s;
  }
-
+ .option-btn:hover .opt-letter { background: var(--vermilion); }
  .opt-text {
- font-size: 0.9rem;
- color: var(--body);
+ font-size: 0.92rem;
+ color: var(--graphite);
  line-height: 1.6;
  }
 
  /* ─────────── Results ─────────── */
- .scenario-result {
- margin-top: 1.5rem;
- border-radius: var(--radius);
- overflow: hidden;
- }
-
+ .scenario-result { margin-top: 1.6rem; border-radius: var(--radius); overflow: hidden; max-width: 52rem; }
  .hidden { display: none !important; }
 
- .result-wrong, .result-correct {
- padding: 1.3rem 1.5rem;
- border-radius: var(--radius);
- }
+ .result-wrong, .result-correct { padding: 1.4rem 1.6rem; border-radius: var(--radius); }
 
  /* Wrong → oxblood-keyed, restrained tint */
  .result-wrong {
- background: rgba(122, 59, 87, 0.06);
- border: 1px solid rgba(122, 59, 87, 0.28);
- border-left: 3px solid #7A3B57;
+ background: rgba(122, 46, 35, 0.06);
+ border: 1px solid rgba(122, 46, 35, 0.28);
+ border-left: 3px solid var(--oxblood);
  }
-
  /* Correct → forest-green-keyed, restrained tint */
  .result-correct {
- background: rgba(47, 110, 79, 0.06);
- border: 1px solid rgba(47, 110, 79, 0.28);
+ background: rgba(60, 107, 74, 0.07);
+ border: 1px solid rgba(60, 107, 74, 0.3);
  border-left: 3px solid var(--green);
  }
 
  .result-label {
  font-size: 0.72rem;
  font-family: var(--mono);
- font-weight: 600;
+ font-weight: 700;
  text-transform: uppercase;
  letter-spacing: 0.1em;
- margin-bottom: 0.8rem;
+ margin-bottom: 0.85rem;
  }
-
- .wrong-label { color: #7A3B57; }
+ .wrong-label { color: var(--oxblood); }
  .correct-label { color: var(--green); }
 
  .result-wrong p, .result-correct p {
- font-size: 0.92rem;
- color: var(--body);
+ font-size: 0.93rem;
+ color: var(--graphite);
  line-height: 1.72;
  margin-bottom: 0.8rem;
  }
-
  .result-wrong p:last-child, .result-correct p:last-child { margin-bottom: 0; }
 
- /* Key principle — paper card with brass marker */
+ /* Key principle — paper card with vermilion marker */
  .key-principle {
- background: var(--surface);
+ background: var(--paper);
  border: 1px solid var(--line);
- border-left: 3px solid var(--brass);
+ border-left: 3px solid var(--vermilion);
  border-radius: var(--radius);
- padding: 0.95rem 1.1rem;
- margin-top: 1.1rem;
+ padding: 1rem 1.15rem;
+ margin-top: 1.15rem;
  }
-
  .key-label {
  font-size: 0.68rem;
  font-family: var(--mono);
- font-weight: 600;
- color: var(--brass);
+ font-weight: 700;
+ color: var(--vermilion);
  text-transform: uppercase;
  letter-spacing: 0.1em;
  margin-bottom: 0.45rem;
  }
-
  .key-principle p {
- font-size: 0.86rem !important;
- color: var(--body) !important;
+ font-size: 0.87rem !important;
+ color: var(--graphite) !important;
  margin: 0 !important;
  }
 
@@ -652,8 +697,8 @@ import Layout from '../layouts/Layout.astro';
  font-size: 0.72rem;
  font-family: var(--mono);
  color: var(--muted);
- margin-top: 0.9rem;
- padding-top: 0.8rem;
+ margin-top: 0.95rem;
+ padding-top: 0.85rem;
  border-top: 1px solid var(--line);
  }
 
@@ -663,31 +708,38 @@ import Layout from '../layouts/Layout.astro';
  font-size: 0.76rem;
  font-family: var(--mono);
  color: var(--muted);
- margin-top: 0.9rem;
- padding: 0.4rem 0.8rem;
- border: 1px solid var(--line-2);
- border-radius: var(--radius-sm);
+ margin-top: 0.95rem;
+ padding: 0.42rem 0.85rem;
+ border: 1px solid var(--line);
+ border-radius: var(--radius);
  cursor: pointer;
  transition: color 0.12s, border-color 0.12s;
  }
+ .try-again:hover { color: var(--vermilion-2); border-color: var(--vermilion); }
 
- .try-again:hover { color: var(--navy); border-color: var(--navy); }
-
- /* ─────────── Footer note ─────────── */
- .scenarios-footer {
- margin-top: 4rem;
- padding-top: 2rem;
- border-top: 1px solid var(--line);
- }
-
+ /* ─────────── Closing note (dark plate) ─────────── */
+ .sim-closing { position: relative; overflow: hidden; margin-top: 1rem; }
+ .sim-closing-seal { position: absolute; right: -50px; top: -40px; width: 240px; color: rgba(236,230,216,0.06); pointer-events: none; }
+ .scenarios-footer { position: relative; }
+ .scenarios-footer .kicker { margin-bottom: 1.1rem; }
  .scenarios-footer p {
- font-size: 0.85rem;
- color: var(--muted);
+ font-size: 0.95rem;
+ color: var(--on-ink-dim);
  line-height: 1.7;
- margin-bottom: 0.75rem;
+ margin-bottom: 0.85rem;
+ max-width: 50rem;
  }
 
+ /* ─────────── Responsive ─────────── */
+ @media (max-width: 900px) {
+ .sim-intro { grid-template-columns: 1fr; gap: 2rem; }
+ .scenario-card { grid-template-columns: 1fr; gap: 0; padding: 2.5rem 0; }
+ .scenario-header { position: static; grid-row: auto; flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 0.6rem 1.1rem; margin-bottom: 1.4rem; }
+ .scenario-num { font-size: 2.2rem; }
+ .scenario-meta { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; }
+ .scenario-title, .scenario-setup, .scenario-question, .scenario-options, .scenario-result { grid-column: 1; }
+ }
  @media (max-width: 600px) {
- .scenario-card { padding: 1.4rem; }
+ .scenarios-list { padding: 1rem 1.4rem 0; }
  }
 </style>

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data integrity">
+  <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- ledger / record sheet -->
+    <rect x="12" y="10" width="32" height="44" rx="2" />
+    <!-- record rows -->
+    <line x1="18" y1="19" x2="38" y2="19" />
+    <line x1="18" y1="27" x2="38" y2="27" />
+    <line x1="18" y1="35" x2="30" y2="35" />
+    <!-- row tick markers (chain-of-custody) -->
+    <circle cx="15.5" cy="19" r="0.9" />
+    <circle cx="15.5" cy="27" r="0.9" />
+    <circle cx="15.5" cy="35" r="0.9" />
+    <!-- verification badge -->
+    <circle cx="44" cy="44" r="9" />
+    <polyline points="40,44 43,47 49,40" />
+  </g>
+</svg>

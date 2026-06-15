@@ -7,258 +7,278 @@ const sorted = all.sort((a, b) => {
 	const tierOrder = { Beginner: 0, Intermediate: 1, Advanced: 2 };
 	return (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1);
 });
-const tierColors: Record<string, string> = { Beginner: '#2F6E4F', Intermediate: '#1C4E80', Advanced: '#7A3B57' };
-const accent = '#9A3B3B';
+const tierColors: Record<string, string> = { Beginner: '#3C6B4A', Intermediate: '#B26B1E', Advanced: '#7A2E23' };
 ---
 <Layout title="Audits & Inspection Management" description="FDA inspection readiness, handling 483 observations, Warning Letter remediation, data integrity inspection tactics, and mock inspections." wide={true}>
-	<div class="pillar-header">
-		<a href="/pillars" class="back-link">← All Pillars</a>
-		<div class="pillar-label" style={`color:${accent}`}>
-			<span class="pillar-rule" style={`background:${accent}`}></span>Pillar 05
-		</div>
-		<h1>Audits &amp; Inspection Management</h1>
-		<p class="pillar-intro lead">
-			An inspection is not primarily a test of your documentation, it is a test of whether your systems are actually controlled. Investigators who have reviewed thousands of audit trails can recognize manipulated data in minutes. The goal of inspection readiness is not to pass an inspection; it is to run programs that would pass even an unannounced, deep-dive inspection, because the underlying controls are real.
-		</p>
-		<div class="reg-basis">
-			<div class="reg-label">Regulatory basis</div>
-			<div class="reg-links">
-				<a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/compliance-actions-and-activities/warning-letters" target="_blank" rel="noopener" class="tag">FDA Warning Letters Database</a>
-				<a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/inspection-references/investigations-operations-manual" target="_blank" rel="noopener" class="tag">FDA Investigations Operations Manual</a>
-				<a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-211" target="_blank" rel="noopener" class="tag">21 CFR Part 211</a>
+	<!-- ═══════════ HEADER BAND (full-bleed duotone) ═══════════ -->
+	<header class="pillar-band duotone">
+		<img src="/images/audit-paperwork.jpg" alt="" loading="eager" />
+		<div class="pillar-band-grad"></div>
+		<div class="wrap pillar-band-inner">
+			<a href="/pillars" class="back-link">← All Pillars</a>
+			<div class="pillar-band-top">
+				<span class="emblem pillar-emblem" style="--src:url('/brand/emblems/pillar-audits-inspection.svg')"></span>
+				<span class="kicker pillar-kick">Pillar 05 · Audits &amp; Inspection</span>
 			</div>
-		</div>
-	</div>
-
-	<div class="pillar-body">
-		<div class="articles-section">
-			<h2 class="articles-title">Articles in this pillar</h2>
-			{sorted.length === 0 ? (
-				<p class="empty">Articles coming soon.</p>
-			) : (
-				<div class="article-list">
-					{sorted.map(post => {
-						const readTime = Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 220));
-						const tier = post.data.tier ?? 'Intermediate';
-						const color = tierColors[tier] ?? '#756B5B';
-						return (
-							<a href={`/articles/${post.slug}`} class="article-row">
-								<div class="article-row-main">
-									<div class="article-row-top">
-										<span class="tier-badge" style={`background:${color}1A;color:${color};border-color:${color}40`}>{tier}</span>
-										<h3>{post.data.title}</h3>
-									</div>
-									<p>{post.data.description}</p>
-								</div>
-								<div class="article-row-meta"><span>{readTime} min</span><span class="arrow">→</span></div>
-							</a>
-						);
-					})}
+			<h1 class="pillar-h1">Audits &amp; Inspection Management</h1>
+			<p class="pillar-intro">
+				An inspection is not primarily a test of your documentation, it is a test of whether your systems are actually controlled. Investigators who have reviewed thousands of audit trails can recognize manipulated data in minutes. The goal of inspection readiness is not to pass an inspection; it is to run programs that would pass even an unannounced, deep-dive inspection, because the underlying controls are real.
+			</p>
+			<div class="reg-basis">
+				<span class="reg-label">Regulatory basis</span>
+				<div class="reg-links">
+					<a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/compliance-actions-and-activities/warning-letters" target="_blank" rel="noopener" class="reg-chip">FDA Warning Letters Database</a>
+					<a href="https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/inspection-references/investigations-operations-manual" target="_blank" rel="noopener" class="reg-chip">FDA Investigations Operations Manual</a>
+					<a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-211" target="_blank" rel="noopener" class="reg-chip">21 CFR Part 211</a>
 				</div>
-			)}
+			</div>
 		</div>
-		<aside class="pillar-sidebar">
-			<div class="sidebar-block">
-				<div class="sidebar-label" style={`color:${accent}`}>What this pillar covers</div>
-				<ul>
-					<li>Audit types: self-inspection, supplier, for-cause, regulatory</li>
-					<li>FDA PAI and GMP inspection structure and logistics</li>
-					<li>Front room / back room operations during an inspection</li>
-					<li>SME preparation, document control during inspections</li>
-					<li>FDA Form 483, observations, responses, and timelines</li>
-					<li>Warning Letter remediation, structure and commitments</li>
-					<li>Mock inspections and simulation programs</li>
-					<li>DI-specific tactics: what inspectors do at a workstation</li>
-					<li>Demonstrating state of control under regulatory scrutiny</li>
-				</ul>
+	</header>
+
+	<!-- ═══════════ BODY (asymmetric: index list + editorial sidebar) ═══════════ -->
+	<section class="section pillar-body-section">
+		<div class="wrap pillar-body">
+			<div class="articles-section">
+				<div class="articles-head">
+					<span class="kicker">The records</span>
+					<h2 class="display-2">Articles in this pillar</h2>
+				</div>
+				{sorted.length === 0 ? (
+					<p class="empty marginalia">Articles coming soon.</p>
+				) : (
+					<ol class="index-list article-list">
+						{sorted.map((post, i) => {
+							const readTime = Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 220));
+							const tier = post.data.tier ?? 'Intermediate';
+							const color = tierColors[tier] ?? '#837B69';
+							return (
+								<li>
+									<a href={`/articles/${post.slug}`} class="index-row article-row">
+										<span class="ix-num">{String(i + 1).padStart(2, '0')}</span>
+										<div class="ix-title-wrap">
+											<div class="ix-title-row">
+												<span class="tier-badge" style={`background:${color}1A;color:${color};border-color:${color}40`}>{tier}</span>
+												<h3 class="ix-title">{post.data.title}</h3>
+											</div>
+											<p class="ix-desc">{post.data.description}</p>
+										</div>
+										<span class="ix-meta">{readTime} min<span class="ix-arrow"> →</span></span>
+									</a>
+								</li>
+							);
+						})}
+					</ol>
+				)}
 			</div>
-			<div class="sidebar-block">
-				<div class="sidebar-label" style={`color:${accent}`}>Related pillars</div>
-				<a href="/pillars/data-integrity" class="related-pill">Data Integrity →</a>
-				<a href="/pillars/quality-assurance" class="related-pill">Quality Assurance →</a>
-				<a href="/pillars/cell-gene-therapy" class="related-pill">Cell &amp; Gene Therapy →</a>
-			</div>
-			<div class="sidebar-block">
-				<div class="sidebar-label" style={`color:${accent}`}>Learning tracks</div>
-				<a href="/tracks/implementation" class="track-link">Implementation Track</a>
-				<a href="/tracks/advanced" class="track-link">Advanced Track</a>
-			</div>
-		</aside>
-	</div>
+
+			<aside class="pillar-sidebar">
+				<img class="sidebar-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
+				<div class="sidebar-block">
+					<div class="sidebar-label">What this pillar covers</div>
+					<ul class="sidebar-list">
+						<li>Audit types: self-inspection, supplier, for-cause, regulatory</li>
+						<li>FDA PAI and GMP inspection structure and logistics</li>
+						<li>Front room / back room operations during an inspection</li>
+						<li>SME preparation, document control during inspections</li>
+						<li>FDA Form 483, observations, responses, and timelines</li>
+						<li>Warning Letter remediation, structure and commitments</li>
+						<li>Mock inspections and simulation programs</li>
+						<li>DI-specific tactics: what inspectors do at a workstation</li>
+						<li>Demonstrating state of control under regulatory scrutiny</li>
+					</ul>
+				</div>
+				<div class="sidebar-block">
+					<div class="sidebar-label">Related pillars</div>
+					<a href="/pillars/data-integrity" class="related-pill">Data Integrity →</a>
+					<a href="/pillars/quality-assurance" class="related-pill">Quality Assurance →</a>
+					<a href="/pillars/cell-gene-therapy" class="related-pill">Cell &amp; Gene Therapy →</a>
+				</div>
+				<div class="sidebar-block">
+					<div class="sidebar-label">Learning tracks</div>
+					<a href="/tracks/implementation" class="track-link">Implementation Track</a>
+					<a href="/tracks/advanced" class="track-link">Advanced Track</a>
+				</div>
+				<img class="sidebar-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
+			</aside>
+		</div>
+	</section>
 </Layout>
 
 <style>
-	.pillar-header {
-		max-width: 52rem;
-		margin-bottom: 4rem;
-		padding-bottom: 2.5rem;
-		border-bottom: 1px solid var(--line);
+	/* ── HEADER BAND ── */
+	.pillar-band {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		min-height: 56vh;
+		border-bottom: 3px solid var(--vermilion);
 	}
+	.pillar-band > img { position: absolute; inset: 0; }
+	.pillar-band-grad {
+		position: absolute; inset: 0; z-index: 2;
+		background: linear-gradient(180deg, rgba(22,19,13,0.20) 0%, rgba(22,19,13,0.40) 45%, rgba(22,19,13,0.88) 100%);
+	}
+	.pillar-band-inner {
+		position: relative; z-index: 3;
+		padding-top: 4.5rem; padding-bottom: 3rem;
+		max-width: 60rem;
+	}
+
 	.back-link {
 		font-family: var(--mono);
 		font-size: 0.72rem;
-		letter-spacing: 0.04em;
-		color: var(--muted);
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--on-ink-dim);
 		display: inline-block;
-		margin-bottom: 1.75rem;
+		margin-bottom: 1.6rem;
 		transition: color 0.15s;
 	}
-	.back-link:hover { color: var(--navy); }
+	.back-link:hover { color: var(--on-ink); }
 
-	.pillar-label {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.6rem;
-		font-family: var(--mono);
-		font-size: 0.72rem;
+	.pillar-band-top { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem; }
+	.pillar-emblem { color: var(--on-ink); width: 40px; height: 40px; flex-shrink: 0; }
+	.pillar-kick { color: #F2C9B8; }
+
+	.pillar-h1 {
+		font-family: var(--display);
 		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.16em;
-		margin-bottom: 0.9rem;
-	}
-	.pillar-rule { display: inline-block; width: 22px; height: 1px; }
-
-	.pillar-header h1 {
-		font-size: clamp(2rem, 4vw, 2.9rem);
-		letter-spacing: -0.02em;
-		line-height: 1.1;
+		color: var(--on-ink);
+		font-size: clamp(2.2rem, 5vw, 4rem);
+		line-height: 1.0;
+		letter-spacing: -0.025em;
 		margin-bottom: 1.25rem;
+		max-width: 20ch;
 	}
 
-	.pillar-intro { margin-bottom: 1.75rem; }
+	.pillar-intro {
+		font-family: var(--sans);
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--on-ink-dim);
+		max-width: 52ch;
+		margin-bottom: 1.75rem;
+	}
 
 	.reg-basis {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: 0.75rem 1rem;
-		padding: 1rem 1.25rem;
-		background: var(--paper-2);
-		border: 1px solid var(--line);
-		border-radius: var(--radius);
+		gap: 0.65rem 1.1rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--line-ink);
 	}
 	.reg-label {
 		font-family: var(--mono);
-		font-size: 0.7rem;
-		font-weight: 500;
-		color: var(--muted);
+		font-size: 0.68rem;
+		font-weight: 700;
+		color: var(--vermilion);
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.14em;
 		flex-shrink: 0;
 	}
 	.reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+	.reg-chip {
+		display: inline-flex; align-items: center;
+		font-family: var(--mono);
+		font-size: 0.68rem;
+		letter-spacing: 0.03em;
+		color: var(--on-ink-dim);
+		padding: 0.22rem 0.55rem;
+		border: 1px solid var(--line-ink);
+		border-radius: var(--radius);
+		background: rgba(236,230,216,0.04);
+		transition: color 0.15s, border-color 0.15s, background 0.15s;
+	}
+	.reg-chip:hover { color: var(--on-ink); border-color: var(--vermilion); background: rgba(203,75,42,0.16); }
 
+	/* ── BODY GRID ── */
 	.pillar-body {
 		display: grid;
-		grid-template-columns: 1fr 280px;
-		gap: 3.5rem;
+		grid-template-columns: 1fr 290px;
+		gap: 4rem;
 		align-items: start;
 	}
 
-	.articles-title {
-		font-family: var(--serif);
-		font-weight: 500;
-		font-size: 1.4rem;
-		color: var(--ink);
-		margin-bottom: 1.5rem;
-		padding-bottom: 0.85rem;
-		border-bottom: 1px solid var(--line);
-	}
-	.empty { color: var(--muted); font-size: 0.9rem; }
+	.articles-head { margin-bottom: 1.75rem; }
+	.articles-head .kicker { margin-bottom: 0.6rem; }
+	.empty { color: var(--muted); }
 
-	.article-list { display: flex; flex-direction: column; }
+	/* article index — reuse .index-list / .index-row, extended for description + tier */
+	.article-list { border-top: 2px solid var(--ink); list-style: none; }
 	.article-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-		gap: 1.25rem;
-		padding: 1.4rem 0;
-		border-bottom: 1px solid var(--line);
-		text-decoration: none;
-		color: inherit;
-		transition: padding 0.15s, background 0.15s;
-		border-radius: var(--radius);
+		display: grid;
+		grid-template-columns: 3rem 1fr auto;
+		gap: 1.5rem;
+		align-items: baseline;
 	}
-	.article-row:last-child { border-bottom: none; }
-	.article-row:hover {
-		background: var(--surface);
-		padding-left: 1rem;
-		padding-right: 1rem;
-		box-shadow: var(--shadow-sm);
-	}
-	.article-row-main { flex: 1; }
-	.article-row-top { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.45rem; }
-	.article-row-main h3 {
-		font-family: var(--serif);
-		font-weight: 500;
-		font-size: 1.18rem;
-		color: var(--ink);
-		line-height: 1.3;
-		transition: color 0.15s;
-	}
-	.article-row:hover .article-row-main h3 { color: var(--navy); }
-	.article-row-main p {
+	.ix-title-wrap { min-width: 0; }
+	.ix-title-row { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+	.ix-desc {
 		font-size: 0.9rem;
 		color: var(--muted);
 		line-height: 1.6;
 		margin: 0;
+		max-width: 52ch;
 	}
-	.article-row-meta {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		gap: 0.5rem;
-		flex-shrink: 0;
-	}
-	.article-row-meta span {
-		font-family: var(--mono);
-		font-size: 0.72rem;
-		color: var(--muted);
-	}
-	.arrow { transition: transform 0.15s, color 0.15s; }
-	.article-row:hover .arrow { color: var(--navy); transform: translateX(3px); }
+	.ix-meta { display: inline-flex; align-items: baseline; }
+	.ix-arrow { transition: transform 0.15s, color 0.15s; display: inline-block; }
+	.article-row:hover .ix-arrow { color: var(--vermilion-2); transform: translateX(3px); }
+	.article-row:hover .ix-meta { color: var(--vermilion-2); }
 
-	.pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
-	.sidebar-block {
-		background: var(--surface);
-		border: 1px solid var(--line);
-		border-radius: var(--radius);
-		box-shadow: var(--shadow-sm);
-		padding: 1.35rem;
-	}
+	/* ── SIDEBAR (mono/editorial, not heavy cards) ── */
+	.pillar-sidebar { display: flex; flex-direction: column; gap: 2rem; }
+	.sidebar-rule { display: block; width: 100%; height: 12px; color: var(--line); margin-bottom: 0.25rem; }
+	.sidebar-block { border-top: 1px solid var(--line); padding-top: 1.1rem; }
+	.sidebar-seal { width: 88px; color: var(--line); align-self: flex-end; margin-top: 0.5rem; opacity: 0.7; }
 	.sidebar-label {
 		font-family: var(--mono);
-		font-size: 0.7rem;
-		font-weight: 500;
+		font-size: 0.68rem;
+		font-weight: 700;
+		color: var(--vermilion);
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.12em;
 		margin-bottom: 0.9rem;
 	}
-	.sidebar-block ul {
-		padding-left: 1.1rem;
-		list-style: disc;
-		color: var(--body);
-		font-size: 0.84rem;
-		line-height: 1.6;
+	.sidebar-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		color: var(--graphite);
+		font-size: 0.85rem;
+		line-height: 1.55;
 	}
-	.sidebar-block li { margin-bottom: 0.4rem; }
-	.sidebar-block li::marker { color: var(--brass); }
+	.sidebar-list li {
+		position: relative;
+		padding-left: 1.1rem;
+		margin-bottom: 0.55rem;
+	}
+	.sidebar-list li::before {
+		content: '—';
+		position: absolute;
+		left: 0;
+		color: var(--vermilion);
+		font-family: var(--mono);
+	}
 
 	.related-pill, .track-link {
 		display: block;
 		font-family: var(--sans);
-		font-size: 0.85rem;
+		font-size: 0.88rem;
 		font-weight: 500;
-		color: var(--body);
-		padding: 0.5rem 0;
+		color: var(--graphite);
+		padding: 0.55rem 0;
 		border-bottom: 1px solid var(--line);
-		transition: color 0.15s;
+		transition: color 0.15s, padding-left 0.15s;
 	}
 	.related-pill:last-child, .track-link:last-child { border-bottom: none; }
-	.related-pill:hover, .track-link:hover { color: var(--navy); }
+	.related-pill:hover, .track-link:hover { color: var(--vermilion-2); padding-left: 0.35rem; }
 
 	@media (max-width: 860px) {
-		.pillar-body { grid-template-columns: 1fr; gap: 2.5rem; }
-		.pillar-sidebar { order: -1; }
+		.pillar-band { min-height: 48vh; }
+		.pillar-body { grid-template-columns: 1fr; gap: 2.75rem; }
+		.pillar-sidebar { order: 2; }
+		.article-row { grid-template-columns: 2.5rem 1fr; }
+		.ix-meta { display: none; }
 	}
 </style>
