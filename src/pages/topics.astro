@@ -6,127 +6,148 @@ const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 
 const tagMap: Record<string, typeof allArticles> = {};
 for (const article of allArticles) {
- for (const tag of article.data.tags) {
- if (!tagMap[tag]) tagMap[tag] = [];
- tagMap[tag].push(article);
- }
+	for (const tag of article.data.tags) {
+		if (!tagMap[tag]) tagMap[tag] = [];
+		tagMap[tag].push(article);
+	}
 }
 
 const sortedTags = Object.entries(tagMap).sort((a, b) => b[1].length - a[1].length);
 ---
-<Layout title="Topics" description="Browse data integrity articles by topic, ALCOA+, 21 CFR Part 11, FDA, Cell & Gene Therapy, and more.">
- <div class="page-header">
- <div class="page-label">Browse</div>
- <h1>Topics</h1>
- <p>All articles organized by subject area.</p>
- </div>
+<Layout title="Topics" description="Browse data integrity articles by topic, ALCOA+, 21 CFR Part 11, FDA, Cell & Gene Therapy, and more." wide={true}>
+	<div class="page-header">
+		<div class="page-label">Browse</div>
+		<h1>Topics</h1>
+		<p class="lead">All articles organized by subject area.</p>
+	</div>
 
- <div class="topics-list">
- {sortedTags.map(([tag, articles]) => (
- <section class="topic-section" id={tag.toLowerCase().replace(/\s+/g, '-')}>
- <div class="topic-header">
- <h2>{tag}</h2>
- <span class="topic-count">{articles.length} article{articles.length !== 1 ? 's' : ''}</span>
- </div>
- <ul class="article-list">
- {articles
- .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
- .map(post => (
- <li>
- <a href={`/articles/${post.slug}`} class="article-row">
- <span class="article-title">{post.data.title}</span>
- <span class="article-date">
- {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
- </span>
- </a>
- </li>
- ))}
- </ul>
- </section>
- ))}
- </div>
+	<nav class="topic-cloud" aria-label="Jump to topic">
+		{sortedTags.map(([tag, articles]) => (
+			<a href={`#${tag.toLowerCase().replace(/\s+/g, '-')}`} class="topic-pill">
+				{tag}
+				<span class="topic-count">{articles.length}</span>
+			</a>
+		))}
+	</nav>
+
+	<div class="topics-list">
+		{sortedTags.map(([tag, articles]) => (
+			<section class="topic-section" id={tag.toLowerCase().replace(/\s+/g, '-')}>
+				<div class="topic-header">
+					<h2>{tag}</h2>
+					<span class="topic-meta">{articles.length} article{articles.length !== 1 ? 's' : ''}</span>
+				</div>
+				<ul class="article-list">
+					{articles
+						.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+						.map(post => (
+							<li>
+								<a href={`/articles/${post.slug}`} class="article-row">
+									<span class="article-title">{post.data.title}</span>
+									<span class="article-date">
+										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+									</span>
+								</a>
+							</li>
+						))}
+				</ul>
+			</section>
+		))}
+	</div>
 </Layout>
 
 <style>
- .page-header {
- margin-bottom: 3rem;
- padding-bottom: 2rem;
- border-bottom: 1px solid var(--border);
- }
+	.page-header p { color: var(--muted); }
 
- .page-label {
- font-size: 0.72rem;
- font-family: var(--mono);
- color: var(--accent);
- text-transform: uppercase;
- letter-spacing: 0.1em;
- font-weight: 700;
- margin-bottom: 0.6rem;
- }
+	/* Topic cloud — anchor jump links (the one allowed rounded element) */
+	.topic-cloud {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+		margin-bottom: 4rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--line);
+	}
 
- .page-header h1 {
- font-size: 2.25rem;
- letter-spacing: -0.03em;
- margin-bottom: 0.5rem;
- }
+	/* Topic sections */
+	.topics-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
 
- .page-header p { color: var(--muted); }
+	.topic-section {
+		padding: 2.5rem 0;
+		border-bottom: 1px solid var(--line);
+	}
+	.topic-section:first-child { padding-top: 0; }
+	.topic-section:last-child { border-bottom: none; }
 
- .topics-list {
- display: flex;
- flex-direction: column;
- gap: 0;
- }
+	.topic-header {
+		display: flex;
+		align-items: baseline;
+		gap: 0.85rem;
+		margin-bottom: 1.25rem;
+	}
 
- .topic-section {
- padding: 2rem 0;
- border-bottom: 1px solid var(--border-dim);
- }
+	.topic-header h2 {
+		font-family: var(--serif);
+		font-weight: 500;
+		font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+		letter-spacing: -0.015em;
+		color: var(--ink);
+	}
 
- .topic-section:last-child { border-bottom: none; }
+	.topic-meta {
+		font-family: var(--mono);
+		font-size: 0.72rem;
+		font-weight: 500;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
 
- .topic-header {
- display: flex;
- align-items: baseline;
- gap: 0.75rem;
- margin-bottom: 1rem;
- }
+	.article-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 
- .topic-header h2 {
- font-size: 1.05rem;
- font-weight: 600;
- }
+	.article-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		padding: 0.7rem 0;
+		color: var(--body);
+		font-size: 1rem;
+		border-bottom: 1px solid var(--line);
+		gap: 1.25rem;
+		transition: color 0.15s, border-color 0.15s;
+	}
 
- .topic-count {
- font-size: 0.75rem;
- color: var(--muted);
- font-family: var(--mono);
- }
+	.article-row:last-child { border-bottom: none; }
+	.article-row:hover { border-color: var(--line-2); }
+	.article-row:hover .article-title { color: var(--link); }
 
- .article-list { list-style: none; padding: 0; }
+	.article-title {
+		font-family: var(--serif);
+		font-weight: 500;
+		color: var(--ink);
+		transition: color 0.15s;
+		line-height: 1.4;
+	}
 
- .article-row {
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding: 0.6rem 0;
- color: var(--muted-light);
- font-size: 0.9rem;
- border-bottom: 1px solid var(--border-dim);
- gap: 1rem;
- transition: color 0.15s;
- }
+	.article-date {
+		font-family: var(--mono);
+		font-size: 0.74rem;
+		color: var(--muted);
+		flex-shrink: 0;
+		letter-spacing: 0.02em;
+	}
 
- .article-row:last-child { border-bottom: none; }
- .article-row:hover { color: var(--text); }
- .article-row:hover .article-title { color: var(--accent); }
-
- .article-title { transition: color 0.15s; }
-
- .article-date {
- font-size: 0.75rem;
- color: var(--muted);
- font-family: var(--mono);
- flex-shrink: 0;
- }
+	@media (max-width: 560px) {
+		.topic-cloud { margin-bottom: 3rem; padding-bottom: 2rem; }
+		.topic-section { padding: 2rem 0; }
+		.article-row { gap: 0.85rem; font-size: 0.95rem; }
+	}
 </style>

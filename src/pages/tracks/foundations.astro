@@ -12,7 +12,7 @@ const steps = [
  ],
  pillar: 'Quality Assurance',
  pillarSlug: 'quality-assurance',
- color: '#f87171',
+ color: '#9A3B3B',
  },
  {
  num: '02',
@@ -23,7 +23,7 @@ const steps = [
  ],
  pillar: 'Quality Assurance',
  pillarSlug: 'quality-assurance',
- color: '#f87171',
+ color: '#9A3B3B',
  },
  {
  num: '03',
@@ -34,7 +34,7 @@ const steps = [
  ],
  pillar: 'Data Integrity',
  pillarSlug: 'data-integrity',
- color: '#4f8ef7',
+ color: '#1C4E80',
  },
  {
  num: '04',
@@ -48,7 +48,7 @@ const steps = [
  ],
  pillar: 'Quality Assurance',
  pillarSlug: 'quality-assurance',
- color: '#f87171',
+ color: '#9A3B3B',
  },
  {
  num: '05',
@@ -59,7 +59,7 @@ const steps = [
  ],
  pillar: 'CSV & CSA',
  pillarSlug: 'csv-csa',
- color: '#34d399',
+ color: '#2F6E4F',
  },
  {
  num: '06',
@@ -71,7 +71,7 @@ const steps = [
  ],
  pillar: 'CSV & CSA',
  pillarSlug: 'csv-csa',
- color: '#34d399',
+ color: '#2F6E4F',
  },
  {
  num: '07',
@@ -82,7 +82,7 @@ const steps = [
  ],
  pillar: 'Equipment Qualification',
  pillarSlug: 'equipment-qualification',
- color: '#fbbf24',
+ color: '#8A5A1E',
  },
  {
  num: '08',
@@ -93,7 +93,7 @@ const steps = [
  ],
  pillar: 'Audits & Inspection',
  pillarSlug: 'audits-inspection',
- color: '#fb923c',
+ color: '#8A5A1E',
  },
  {
  num: '09',
@@ -105,166 +105,259 @@ const steps = [
  ],
  pillar: 'Career',
  pillarSlug: null,
- color: '#64748b',
+ color: '#756B5B',
  },
 ];
+
+// New design-system accent for this track (Foundations → forest / Beginner tier)
+const trackAccent = '#2F6E4F';
+
+// Harmonized pillar accents (DESIGN_SPEC v2). Fall back to muted for the Career step (no pillarSlug).
+const pillarAccents: Record<string, string> = {
+ 'data-integrity': '#1C4E80',
+ 'csv-csa': '#2F6E4F',
+ 'equipment-qualification': '#8A5A1E',
+ 'quality-assurance': '#6B4E8A',
+ 'audits-inspection': '#9A3B3B',
+ 'cell-gene-therapy': '#2B6E73',
+ 'manufacturing-automation': '#46566E',
+ 'ai-automation': '#7A3B57',
+};
+const accentFor = (slug: string | null) => (slug && pillarAccents[slug]) || '#756B5B';
 ---
-<Layout title="Foundations Track" description="A sequenced reading path for GxP beginners, the regulatory map, ALCOA+, quality systems, CSV basics, and a career roadmap. Start here if you're new to pharma quality and validation.">
- <div class="track-header">
+<Layout title="Foundations Track" description="A sequenced reading path for GxP beginners, the regulatory map, ALCOA+, quality systems, CSV basics, and a career roadmap. Start here if you're new to pharma quality and validation." wide={true}>
+ <div class="track-shell">
+ <header class="track-header">
  <a href="/tracks" class="back-link">← Learning Tracks</a>
- <div class="track-badge" style="--tc: #34d399">Foundations</div>
+ <div class="eyebrow">Learning Track 01 · Foundations</div>
  <h1>Breaking In: From Zero to Competent</h1>
- <p class="track-intro">
+ <p class="lead">
  This track is for anyone starting a career in GxP quality, validation, or data integrity, or anyone who wants to understand the field before diving into the technical details. It covers the regulatory landscape, core frameworks, and gives you a concrete roadmap for building expertise.
  </p>
- <div class="track-for-box">
- <strong>For:</strong> Students, career changers, new hires entering their first GxP quality or validation role.
+ <div class="track-meta">
+ <span class="tier-badge" style={`background:${trackAccent}1A;color:${trackAccent};border-color:${trackAccent}40`}>Beginner</span>
+ <span class="track-for">
+ <span class="track-for-label">For</span>
+ Students, career changers, new hires entering their first GxP quality or validation role.
+ </span>
  </div>
- </div>
+ </header>
 
- <div class="steps">
- {steps.map(step => (
- <div class="step">
+ <ol class="steps">
+ {steps.map(step => {
+ const accent = accentFor(step.pillarSlug);
+ return (
+ <li class="step">
+ <div class="step-rail">
  <div class="step-num">{step.num}</div>
+ <div class="step-connector" aria-hidden="true"></div>
+ </div>
  <div class="step-content">
- <div class="step-pillar" style={`color: ${step.color}`}>{step.pillar}</div>
+ <div class="step-pillar" style={`color: ${accent}`}>
+ <span class="step-dot" style={`background: ${accent}`}></span>
+ {step.pillar}
+ </div>
  <h2 class="step-title">{step.title}</h2>
  <p class="step-desc">{step.desc}</p>
  <div class="step-articles">
  {step.articles.map(a => (
  <a href={`/articles/${a.slug}`} class="step-article-link">
- <span class="article-icon">→</span>
- {a.title}
+ <span class="article-icon" aria-hidden="true">→</span>
+ <span>{a.title}</span>
  </a>
  ))}
  </div>
  </div>
- </div>
- ))}
- </div>
+ </li>
+ );
+ })}
+ </ol>
 
- <div class="next-track">
+ <section class="next-track">
  <div class="next-inner">
- <div>
- <div class="next-label">When you're ready</div>
+ <div class="next-copy">
+ <div class="section-label">When you're ready</div>
  <h2>Continue to the Implementation Track</h2>
  <p>Once you have the foundations, the Implementation track takes you into execution: how to actually run validations, design audit trails, and manage GxP systems in practice.</p>
  </div>
  <a href="/tracks/implementation" class="btn-primary">Implementation Track →</a>
  </div>
+ </section>
  </div>
 </Layout>
 
 <style>
- .back-link { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
- .back-link:hover { color: var(--accent); }
+ .track-shell { max-width: var(--container-narrow); margin: 0 auto; padding-top: 4rem; }
 
- .track-badge {
- display: inline-block;
- font-size: 0.7rem;
+ .back-link {
+ font-size: 0.8rem;
+ color: var(--muted);
  font-family: var(--mono);
- font-weight: 700;
- text-transform: uppercase;
- letter-spacing: 0.08em;
- padding: 0.2rem 0.65rem;
- border-radius: 999px;
- background: rgba(52,211,153,0.1);
- color: var(--tc, #34d399);
- border: 1px solid rgba(52,211,153,0.3);
+ display: inline-block;
+ margin-bottom: 1.5rem;
+ transition: color 0.15s;
+ }
+ .back-link:hover { color: var(--navy); }
+
+ .track-header {
+ margin-bottom: 4rem;
+ padding-bottom: 2.25rem;
+ border-bottom: 1px solid var(--line);
+ }
+
+ .track-header h1 {
+ font-size: clamp(2rem, 4vw, 2.9rem);
+ letter-spacing: -0.02em;
+ line-height: 1.1;
  margin-bottom: 1rem;
  }
 
- h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
+ .track-header .lead { margin-bottom: 1.75rem; }
 
- .track-intro {
- font-size: 1.05rem;
- color: var(--muted-light);
- line-height: 1.75;
- max-width: 640px;
- margin-bottom: 1.25rem;
+ .track-meta {
+ display: flex;
+ align-items: flex-start;
+ flex-wrap: wrap;
+ gap: 1rem 1.25rem;
  }
 
- .track-for-box {
- display: inline-block;
- font-size: 0.85rem;
- color: var(--muted-light);
- padding: 0.6rem 1rem;
- background: var(--surface2);
- border: 1px solid var(--border);
- border-radius: 8px;
- margin-bottom: 3rem;
+ .track-for {
+ font-size: 0.9rem;
+ color: var(--body);
+ line-height: 1.6;
+ max-width: 36rem;
+ }
+ .track-for-label {
+ font-family: var(--mono);
+ font-size: 0.68rem;
+ font-weight: 500;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ color: var(--brass);
+ margin-right: 0.5rem;
  }
 
- .track-for-box strong { color: var(--text); }
-
- .steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 4rem; }
+ /* ── Numbered step list ── */
+ .steps {
+ list-style: none;
+ padding: 0;
+ margin: 0 0 5rem;
+ display: flex;
+ flex-direction: column;
+ }
 
  .step {
  display: grid;
- grid-template-columns: 48px 1fr;
- gap: 1.5rem;
- padding: 2rem 0;
- border-bottom: 1px solid var(--border-dim);
+ grid-template-columns: 56px 1fr;
+ gap: 1.75rem;
+ padding: 0 0 2.75rem;
+ margin: 0;
  }
+ .step:last-child { padding-bottom: 0; }
 
- .step:last-child { border-bottom: none; }
+ .step-rail {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
 
  .step-num {
- font-size: 1.4rem;
  font-family: var(--mono);
- font-weight: 800;
- color: var(--border);
- padding-top: 0.2rem;
+ font-size: 1.05rem;
+ font-weight: 500;
+ color: var(--navy);
  line-height: 1;
+ padding: 0.55rem 0;
+ width: 100%;
+ text-align: center;
+ border-top: 2px solid var(--brass);
+ letter-spacing: 0.04em;
  }
 
+ .step-connector {
+ flex: 1;
+ width: 1px;
+ background: var(--line-2);
+ margin-top: 0.35rem;
+ min-height: 1rem;
+ }
+ .step:last-child .step-connector { display: none; }
+
+ .step-content { padding-top: 0.1rem; }
+
  .step-pillar {
- font-size: 0.7rem;
+ display: inline-flex;
+ align-items: center;
+ gap: 0.45rem;
  font-family: var(--mono);
- font-weight: 700;
+ font-size: 0.7rem;
+ font-weight: 500;
  text-transform: uppercase;
- letter-spacing: 0.08em;
- margin-bottom: 0.4rem;
+ letter-spacing: 0.12em;
+ margin-bottom: 0.55rem;
+ }
+ .step-dot {
+ width: 7px;
+ height: 7px;
+ border-radius: var(--radius-sm);
+ flex-shrink: 0;
  }
 
  .step-title {
- font-size: 1.15rem;
- color: var(--text);
- margin-bottom: 0.6rem;
- line-height: 1.35;
+ font-family: var(--serif);
+ font-weight: 500;
+ font-size: 1.4rem;
+ color: var(--ink);
+ line-height: 1.25;
+ letter-spacing: -0.01em;
+ margin-bottom: 0.65rem;
  }
 
  .step-desc {
- font-size: 0.9rem;
- color: var(--muted-light);
+ font-size: 0.95rem;
+ color: var(--body);
  line-height: 1.7;
- margin-bottom: 1rem;
+ margin-bottom: 1.1rem;
+ max-width: 42rem;
  }
 
- .step-articles { display: flex; flex-direction: column; gap: 0.35rem; }
+ .step-articles { display: flex; flex-direction: column; gap: 0.4rem; }
 
  .step-article-link {
  display: flex;
  align-items: center;
- gap: 0.5rem;
- font-size: 0.875rem;
- color: var(--accent);
- padding: 0.5rem 0.75rem;
+ gap: 0.6rem;
+ font-family: var(--sans);
+ font-size: 0.9rem;
+ font-weight: 500;
+ color: var(--link);
+ padding: 0.6rem 0.85rem;
  background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 8px;
- transition: background 0.15s, border-color 0.15s;
+ border: 1px solid var(--line);
+ border-radius: var(--radius);
+ box-shadow: var(--shadow-sm);
+ transition: border-color 0.15s, color 0.15s, transform 0.15s;
  text-decoration: none;
  }
+ .step-article-link:hover {
+ border-color: var(--line-2);
+ color: var(--link-h);
+ transform: translateY(-1px);
+ }
+ .article-icon {
+ font-family: var(--mono);
+ font-size: 0.8rem;
+ color: var(--brass);
+ flex-shrink: 0;
+ }
 
- .step-article-link:hover { background: var(--surface2); border-color: var(--accent); }
- .article-icon { font-size: 0.75rem; color: var(--accent); flex-shrink: 0; }
-
+ /* ── Next track CTA ── */
  .next-track {
- background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 14px;
- padding: 2rem;
+ background: var(--paper-2);
+ border: 1px solid var(--line);
+ border-left: 3px solid var(--navy);
+ border-radius: var(--radius);
+ padding: 2.25rem 2rem;
  }
 
  .next-inner {
@@ -274,38 +367,29 @@ const steps = [
  gap: 2rem;
  }
 
- .next-label {
- font-size: 0.72rem;
- font-family: var(--mono);
- color: var(--accent);
- text-transform: uppercase;
- letter-spacing: 0.08em;
- font-weight: 700;
+ .next-copy h2 {
+ font-family: var(--serif);
+ font-weight: 500;
+ font-size: 1.4rem;
+ color: var(--ink);
  margin-bottom: 0.5rem;
+ letter-spacing: -0.01em;
+ }
+ .next-copy p {
+ font-size: 0.92rem;
+ color: var(--body);
+ line-height: 1.65;
+ max-width: 34rem;
  }
 
- .next-inner h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
- .next-inner p { font-size: 0.875rem; color: var(--muted-light); max-width: 520px; }
-
- .btn-primary {
- display: inline-flex;
- align-items: center;
- white-space: nowrap;
- background: var(--accent);
- color: #080910;
- font-weight: 700;
- font-size: 0.875rem;
- padding: 0.65rem 1.35rem;
- border-radius: 8px;
- flex-shrink: 0;
- transition: background 0.15s;
- }
-
- .btn-primary:hover { background: var(--accent-h); color: #080910; }
+ .btn-primary { white-space: nowrap; flex-shrink: 0; }
 
  @media (max-width: 600px) {
- .step { grid-template-columns: 1fr; }
- .step-num { display: none; }
+ .track-shell { padding-top: 2.75rem; }
+ .step { grid-template-columns: 1fr; gap: 0.75rem; }
+ .step-rail { flex-direction: row; align-items: center; gap: 0.75rem; }
+ .step-num { width: auto; padding: 0.35rem 0; border-top: none; border-bottom: 2px solid var(--brass); }
+ .step-connector { display: none; }
  .next-inner { flex-direction: column; align-items: flex-start; }
  }
 </style>

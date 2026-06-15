@@ -10,26 +10,29 @@ const sorted = all.sort((a, b) => {
  return ta - tb;
 });
 
+const PILLAR_ACCENT = '#1C4E80';
+
 const tierColors: Record<string, string> = {
- Beginner: '#34d399',
- Intermediate: '#4f8ef7',
- Advanced: '#a78bfa',
+ Beginner: '#2F6E4F',
+ Intermediate: '#1C4E80',
+ Advanced: '#7A3B57',
 };
 
 const relatedPillars = [
- { slug: 'csv-csa', title: 'CSV & CSA', color: '#34d399' },
- { slug: 'audits-inspection', title: 'Audits & Inspection', color: '#fb923c' },
- { slug: 'manufacturing-automation', title: 'Manufacturing Systems', color: '#22d3ee' },
+ { slug: 'csv-csa', title: 'CSV & CSA', color: '#2F6E4F' },
+ { slug: 'audits-inspection', title: 'Audits & Inspection', color: '#9A3B3B' },
+ { slug: 'manufacturing-automation', title: 'Manufacturing Systems', color: '#46566E' },
 ];
 ---
-<Layout title="Data Integrity" description="Complete coverage of pharmaceutical data integrity, ALCOA+, audit trails, data lifecycle, regulatory basis, and program architecture for FDA/EMA compliance.">
- <div class="pillar-header">
+<Layout wide={true} title="Data Integrity" description="Complete coverage of pharmaceutical data integrity, ALCOA+, audit trails, data lifecycle, regulatory basis, and program architecture for FDA/EMA compliance.">
+ <header class="page-header pillar-header">
  <a href="/pillars" class="back-link">← All Pillars</a>
- <div class="pillar-label">Pillar 01</div>
+ <div class="page-label pillar-label" style={`--pc:${PILLAR_ACCENT}`}>Pillar 01 · Data Integrity</div>
  <h1>Data Integrity</h1>
- <p class="pillar-intro">
+ <p class="lead">
  Data integrity is not a compliance checkbox, it is a fundamental property of every quality decision a pharmaceutical company makes. When an inspector opens a LIMS audit trail, they are not looking for evidence of fraud. They are looking for evidence that the data cannot be trusted, for any reason. Understanding this distinction is the starting point for building programs that hold.
  </p>
+
  <div class="reg-basis">
  <div class="reg-label">Regulatory basis</div>
  <div class="reg-links">
@@ -39,11 +42,11 @@ const relatedPillars = [
  <a href="https://www.picscheme.org/en/publication?id=14" target="_blank" rel="noopener">PIC/S PI 041</a>
  </div>
  </div>
- </div>
+ </header>
 
  <div class="pillar-body">
- <div class="articles-section">
- <h2>Articles in this pillar</h2>
+ <section class="articles-section">
+ <div class="section-label" style={`--pc:${PILLAR_ACCENT}`}>Articles in this pillar</div>
  {sorted.length === 0 ? (
  <p class="empty">Articles coming soon.</p>
  ) : (
@@ -52,12 +55,12 @@ const relatedPillars = [
  const wordCount = post.body?.split(/\s+/).length ?? 0;
  const readTime = Math.max(1, Math.ceil(wordCount / 220));
  const tier = post.data.tier ?? 'Intermediate';
- const color = tierColors[tier] ?? '#64748b';
+ const color = tierColors[tier] ?? '#756B5B';
  return (
  <a href={`/articles/${post.slug}`} class="article-row">
  <div class="article-row-main">
  <div class="article-row-top">
- <span class="tier-badge" style={`background:${color}22;color:${color};border-color:${color}44`}>{tier}</span>
+ <span class="tier-badge" style={`background:${color}1A;color:${color};border-color:${color}40`}>{tier}</span>
  <h3>{post.data.title}</h3>
  </div>
  <p>{post.data.description}</p>
@@ -71,10 +74,10 @@ const relatedPillars = [
  })}
  </div>
  )}
- </div>
+ </section>
 
  <aside class="pillar-sidebar">
- <div class="sidebar-block">
+ <div class="card sidebar-block">
  <div class="sidebar-label">What this pillar covers</div>
  <ul>
  <li>ALCOA+, each principle, its failure modes, and how to assess it</li>
@@ -88,7 +91,7 @@ const relatedPillars = [
  </ul>
  </div>
 
- <div class="sidebar-block">
+ <div class="card sidebar-block">
  <div class="sidebar-label">Related pillars</div>
  {relatedPillars.map(p => (
  <a href={`/pillars/${p.slug}`} class="related-pill" style={`--rc: ${p.color}`}>
@@ -97,7 +100,7 @@ const relatedPillars = [
  ))}
  </div>
 
- <div class="sidebar-block">
+ <div class="card sidebar-block">
  <div class="sidebar-label">Learning tracks</div>
  <a href="/tracks/foundations" class="track-link">Foundations Track, start here</a>
  <a href="/tracks/implementation" class="track-link">Implementation Track</a>
@@ -108,59 +111,42 @@ const relatedPillars = [
 </Layout>
 
 <style>
+ .pillar-header { max-width: var(--container); }
+
  .back-link {
- font-size: 0.8rem;
- color: var(--muted);
  font-family: var(--mono);
+ font-size: 0.78rem;
+ color: var(--muted);
  display: inline-block;
  margin-bottom: 1.5rem;
  transition: color 0.15s;
  }
- .back-link:hover { color: var(--accent); }
+ .back-link:hover { color: var(--navy); }
 
- .pillar-label {
- font-size: 0.72rem;
- font-family: var(--mono);
- color: #4f8ef7;
- text-transform: uppercase;
- letter-spacing: 0.1em;
- font-weight: 700;
- margin-bottom: 0.6rem;
- }
+ /* Pillar kicker reuses .page-label, recolored to the pillar accent */
+ .pillar-label { color: var(--pc); }
+ .pillar-label::before { background: var(--pc); }
 
- h1 {
- font-size: clamp(2rem, 4vw, 3rem);
- letter-spacing: -0.03em;
- margin-bottom: 1rem;
- }
-
- .pillar-intro {
- font-size: 1.05rem;
- color: var(--muted-light);
- line-height: 1.75;
- max-width: 680px;
- margin-bottom: 1.5rem;
- }
-
+ /* Regulatory basis — clean bordered panel on paper-2 */
  .reg-basis {
  display: flex;
  flex-wrap: wrap;
  align-items: center;
  gap: 0.75rem;
  padding: 1rem 1.25rem;
- background: var(--surface2);
- border: 1px solid var(--border);
- border-radius: 10px;
- margin-bottom: 3rem;
+ background: var(--paper-2);
+ border: 1px solid var(--line);
+ border-radius: var(--radius);
+ margin-top: 1.75rem;
  }
 
  .reg-label {
- font-size: 0.72rem;
  font-family: var(--mono);
+ font-size: 0.72rem;
  color: var(--muted);
  text-transform: uppercase;
- letter-spacing: 0.08em;
- font-weight: 700;
+ letter-spacing: 0.1em;
+ font-weight: 500;
  flex-shrink: 0;
  margin-right: 0.5rem;
  }
@@ -168,30 +154,27 @@ const relatedPillars = [
  .reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
  .reg-links a {
- font-size: 0.78rem;
- color: var(--accent);
+ font-family: var(--mono);
+ font-size: 0.76rem;
+ color: var(--link);
  padding: 0.2rem 0.6rem;
- border: 1px solid rgba(79, 142, 247, 0.25);
- border-radius: 999px;
- transition: background 0.15s;
+ background: var(--surface);
+ border: 1px solid var(--line-2);
+ border-radius: var(--radius-sm);
+ transition: border-color 0.15s, color 0.15s;
  }
+ .reg-links a:hover { border-color: var(--navy); color: var(--navy); }
 
- .reg-links a:hover { background: var(--accent-glow); }
-
+ /* Two-column body — single column on mobile */
  .pillar-body {
  display: grid;
- grid-template-columns: 1fr 280px;
- gap: 3rem;
+ grid-template-columns: 1fr 300px;
+ gap: 3.5rem;
  align-items: start;
+ max-width: var(--container);
  }
 
- h2 {
- font-size: 1.1rem;
- color: var(--text);
- margin-bottom: 1.25rem;
- padding-bottom: 0.75rem;
- border-bottom: 1px solid var(--border-dim);
- }
+ .section-label { margin-bottom: 1.75rem; }
 
  .empty { color: var(--muted); font-size: 0.9rem; }
 
@@ -201,52 +184,42 @@ const relatedPillars = [
  display: flex;
  justify-content: space-between;
  align-items: flex-start;
- gap: 1rem;
- padding: 1.25rem 0;
- border-bottom: 1px solid var(--border-dim);
+ gap: 1.25rem;
+ padding: 1.35rem 0.75rem;
+ border-bottom: 1px solid var(--line);
  text-decoration: none;
  color: inherit;
- transition: background 0.15s;
- border-radius: 8px;
+ border-radius: var(--radius);
+ transition: background 0.15s, border-color 0.15s;
  }
 
- .article-row:last-child { border-bottom: none; }
- .article-row:hover { background: var(--surface); padding-left: 0.75rem; padding-right: 0.75rem; }
+ .article-row:first-child { border-top: 1px solid var(--line); }
+ .article-row:hover { background: var(--surface); }
 
  .article-row-main { flex: 1; }
 
  .article-row-top {
  display: flex;
  align-items: center;
- gap: 0.6rem;
- margin-bottom: 0.4rem;
- }
-
- .tier-badge {
- font-size: 0.65rem;
- font-family: var(--mono);
- font-weight: 700;
- text-transform: uppercase;
- letter-spacing: 0.05em;
- padding: 0.15rem 0.45rem;
- border-radius: 999px;
- border: 1px solid;
- flex-shrink: 0;
+ gap: 0.65rem;
+ margin-bottom: 0.45rem;
  }
 
  .article-row-main h3 {
- font-size: 1rem;
- color: var(--text);
- line-height: 1.35;
+ font-family: var(--serif);
+ font-weight: 500;
+ font-size: 1.2rem;
+ line-height: 1.3;
+ color: var(--ink);
  transition: color 0.15s;
  }
 
- .article-row:hover .article-row-main h3 { color: var(--accent); }
+ .article-row:hover .article-row-main h3 { color: var(--link); }
 
  .article-row-main p {
- font-size: 0.85rem;
+ font-size: 0.9rem;
  color: var(--muted);
- line-height: 1.55;
+ line-height: 1.6;
  margin: 0;
  }
 
@@ -259,70 +232,57 @@ const relatedPillars = [
  }
 
  .article-row-meta span {
- font-size: 0.75rem;
- color: var(--muted);
  font-family: var(--mono);
+ font-size: 0.74rem;
+ color: var(--muted);
  }
 
- .arrow { color: var(--muted); transition: color 0.15s; }
- .article-row:hover .arrow { color: var(--accent); }
+ .arrow { transition: transform 0.15s, color 0.15s; }
+ .article-row:hover .arrow { color: var(--link); transform: translateX(2px); }
 
- /* Sidebar */
+ /* Sidebar — cards on paper */
  .pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
 
- .sidebar-block {
- background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 12px;
- padding: 1.25rem;
- }
+ .sidebar-block { padding: 1.4rem 1.5rem; }
 
  .sidebar-label {
- font-size: 0.7rem;
  font-family: var(--mono);
- color: var(--accent);
+ font-size: 0.7rem;
+ color: var(--brass);
  text-transform: uppercase;
- letter-spacing: 0.08em;
- font-weight: 700;
- margin-bottom: 0.85rem;
+ letter-spacing: 0.12em;
+ font-weight: 500;
+ margin-bottom: 0.9rem;
  }
 
  .sidebar-block ul {
- padding-left: 1rem;
+ padding-left: 1.1rem;
  list-style: disc;
- color: var(--muted-light);
- font-size: 0.825rem;
+ color: var(--body);
+ font-size: 0.85rem;
  line-height: 1.6;
  }
 
- .sidebar-block li { margin-bottom: 0.35rem; }
+ .sidebar-block li { margin-bottom: 0.4rem; }
 
- .related-pill {
- display: block;
- font-size: 0.825rem;
- color: var(--muted-light);
- padding: 0.4rem 0;
- border-bottom: 1px solid var(--border-dim);
- transition: color 0.15s;
- }
-
- .related-pill:last-child { border-bottom: none; }
- .related-pill:hover { color: var(--rc, var(--accent)); }
-
+ .related-pill,
  .track-link {
  display: block;
- font-size: 0.825rem;
- color: var(--muted-light);
- padding: 0.4rem 0;
- border-bottom: 1px solid var(--border-dim);
+ font-family: var(--sans);
+ font-size: 0.875rem;
+ color: var(--body);
+ padding: 0.45rem 0;
+ border-bottom: 1px solid var(--line);
  transition: color 0.15s;
  }
 
+ .related-pill:last-child,
  .track-link:last-child { border-bottom: none; }
- .track-link:hover { color: var(--accent); }
+ .related-pill:hover { color: var(--rc, var(--link)); }
+ .track-link:hover { color: var(--link); }
 
  @media (max-width: 860px) {
- .pillar-body { grid-template-columns: 1fr; }
+ .pillar-body { grid-template-columns: 1fr; gap: 2.5rem; }
  .pillar-sidebar { order: -1; }
  }
 </style>

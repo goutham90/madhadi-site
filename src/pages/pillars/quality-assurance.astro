@@ -4,124 +4,286 @@ import { getCollection } from 'astro:content';
 
 const all = await getCollection('articles', ({ data }) => !data.draft && data.pillar === 'quality-assurance');
 const sorted = all.sort((a, b) => {
- const tierOrder = { Beginner: 0, Intermediate: 1, Advanced: 2 };
- return (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1);
+	const tierOrder = { Beginner: 0, Intermediate: 1, Advanced: 2 };
+	return (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1);
 });
-const tierColors: Record<string, string> = { Beginner: '#34d399', Intermediate: '#4f8ef7', Advanced: '#a78bfa' };
----
-<Layout title="Quality Assurance & QMS" description="ICH Q10 pharmaceutical quality system, ICH Q9(R1) risk management, CAPA, deviations, and how QA, QC, validation, and data integrity actually fit together.">
- <div class="pillar-header">
- <a href="/pillars" class="back-link">← All Pillars</a>
- <div class="pillar-label">Pillar 04</div>
- <h1>Quality Assurance &amp; QMS</h1>
- <p class="pillar-intro">
- A quality management system is the organizational framework inside which data integrity, validation, and all other GxP disciplines operate. ICH Q10 describes the pharmaceutical quality system; ICH Q9(R1) provides the risk framework that lets you allocate effort proportionally. Without these foundations, DI and validation programs become disconnected compliance exercises rather than integrated quality functions.
- </p>
- <div class="reg-basis">
- <div class="reg-label">Regulatory basis</div>
- <div class="reg-links">
- <a href="https://www.ich.org/page/quality-guidelines" target="_blank" rel="noopener">ICH Q10 (Pharmaceutical Quality System)</a>
- <a href="https://www.ich.org/page/quality-guidelines" target="_blank" rel="noopener">ICH Q9(R1) (Quality Risk Management, 2023)</a>
- <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-211" target="_blank" rel="noopener">21 CFR Part 211</a>
- <a href="https://www.ema.europa.eu/en/documents/other/eudralex-volume-4-eu-guidelines-good-manufacturing-practice-medicinal-products-human-veterinary-use_en.pdf" target="_blank" rel="noopener">EU GMP Part I</a>
- </div>
- </div>
- </div>
 
- <div class="pillar-body">
- <div class="articles-section">
- <h2>Articles in this pillar</h2>
- {sorted.length === 0 ? (
- <p class="empty">Articles coming soon.</p>
- ) : (
- <div class="article-list">
- {sorted.map(post => {
- const readTime = Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 220));
- const tier = post.data.tier ?? 'Intermediate';
- const color = tierColors[tier] ?? '#64748b';
- return (
- <a href={`/articles/${post.slug}`} class="article-row">
- <div class="article-row-main">
- <div class="article-row-top">
- <span class="tier-badge" style={`background:${color}22;color:${color};border-color:${color}44`}>{tier}</span>
- <h3>{post.data.title}</h3>
- </div>
- <p>{post.data.description}</p>
- </div>
- <div class="article-row-meta"><span>{readTime} min</span><span class="arrow">→</span></div>
- </a>
- );
- })}
- </div>
- )}
- </div>
- <aside class="pillar-sidebar">
- <div class="sidebar-block">
- <div class="sidebar-label">What this pillar covers</div>
- <ul>
- <li>ICH Q10 pharmaceutical quality system framework</li>
- <li>ICH Q9(R1) quality risk management (2023 revision)</li>
- <li>Document control, change control, deviation management</li>
- <li>CAPA: structure, investigation depth, effectiveness verification</li>
- <li>OOS/OOT: investigation protocol and documentation</li>
- <li>Supplier quality and vendor management</li>
- <li>Training systems and competency management</li>
- <li>Internal audit and management review</li>
- <li>Risk tools: FMEA/FMECA, HACCP, risk ranking</li>
- <li>How QA, QC, validation, and DI fit together</li>
- </ul>
- </div>
- <div class="sidebar-block">
- <div class="sidebar-label">Related pillars</div>
- <a href="/pillars/data-integrity" class="related-pill">Data Integrity →</a>
- <a href="/pillars/audits-inspection" class="related-pill">Audits &amp; Inspection →</a>
- <a href="/pillars/csv-csa" class="related-pill">CSV &amp; CSA →</a>
- </div>
- <div class="sidebar-block">
- <div class="sidebar-label">Learning tracks</div>
- <a href="/tracks/foundations" class="track-link">Foundations Track</a>
- <a href="/tracks/implementation" class="track-link">Implementation Track</a>
- <a href="/tracks/advanced" class="track-link">Advanced Track</a>
- </div>
- </aside>
- </div>
+const PILLAR_ACCENT = '#6B4E8A';
+
+const tierColors: Record<string, string> = {
+	Beginner: '#2F6E4F',
+	Intermediate: '#1C4E80',
+	Advanced: '#7A3B57',
+};
+
+const relatedPillars = [
+	{ slug: 'data-integrity', title: 'Data Integrity', color: '#1C4E80' },
+	{ slug: 'audits-inspection', title: 'Audits & Inspection', color: '#9A3B3B' },
+	{ slug: 'csv-csa', title: 'CSV & CSA', color: '#2F6E4F' },
+];
+---
+<Layout wide={true} title="Quality Assurance & QMS" description="ICH Q10 pharmaceutical quality system, ICH Q9(R1) risk management, CAPA, deviations, and how QA, QC, validation, and data integrity actually fit together.">
+	<header class="page-header pillar-header">
+		<a href="/pillars" class="back-link">← All Pillars</a>
+		<div class="page-label pillar-label" style={`--pc:${PILLAR_ACCENT}`}>Pillar 04 · Quality Assurance</div>
+		<h1>Quality Assurance &amp; QMS</h1>
+		<p class="lead">
+			A quality management system is the organizational framework inside which data integrity, validation, and all other GxP disciplines operate. ICH Q10 describes the pharmaceutical quality system; ICH Q9(R1) provides the risk framework that lets you allocate effort proportionally. Without these foundations, DI and validation programs become disconnected compliance exercises rather than integrated quality functions.
+		</p>
+
+		<div class="reg-basis">
+			<div class="reg-label">Regulatory basis</div>
+			<div class="reg-links">
+				<a href="https://www.ich.org/page/quality-guidelines" target="_blank" rel="noopener">ICH Q10 (Pharmaceutical Quality System)</a>
+				<a href="https://www.ich.org/page/quality-guidelines" target="_blank" rel="noopener">ICH Q9(R1) (Quality Risk Management, 2023)</a>
+				<a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-211" target="_blank" rel="noopener">21 CFR Part 211</a>
+				<a href="https://www.ema.europa.eu/en/documents/other/eudralex-volume-4-eu-guidelines-good-manufacturing-practice-medicinal-products-human-veterinary-use_en.pdf" target="_blank" rel="noopener">EU GMP Part I</a>
+			</div>
+		</div>
+	</header>
+
+	<div class="pillar-body">
+		<section class="articles-section">
+			<div class="section-label" style={`--pc:${PILLAR_ACCENT}`}>Articles in this pillar</div>
+			{sorted.length === 0 ? (
+				<p class="empty">Articles coming soon.</p>
+			) : (
+				<div class="article-list">
+					{sorted.map(post => {
+						const wordCount = post.body?.split(/\s+/).length ?? 0;
+						const readTime = Math.max(1, Math.ceil(wordCount / 220));
+						const tier = post.data.tier ?? 'Intermediate';
+						const color = tierColors[tier] ?? '#756B5B';
+						return (
+							<a href={`/articles/${post.slug}`} class="article-row">
+								<div class="article-row-main">
+									<div class="article-row-top">
+										<span class="tier-badge" style={`background:${color}1A;color:${color};border-color:${color}40`}>{tier}</span>
+										<h3>{post.data.title}</h3>
+									</div>
+									<p>{post.data.description}</p>
+								</div>
+								<div class="article-row-meta">
+									<span>{readTime} min</span>
+									<span class="arrow">→</span>
+								</div>
+							</a>
+						);
+					})}
+				</div>
+			)}
+		</section>
+
+		<aside class="pillar-sidebar">
+			<div class="card sidebar-block">
+				<div class="sidebar-label" style={`--pc:${PILLAR_ACCENT}`}>What this pillar covers</div>
+				<ul>
+					<li>ICH Q10 pharmaceutical quality system framework</li>
+					<li>ICH Q9(R1) quality risk management (2023 revision)</li>
+					<li>Document control, change control, deviation management</li>
+					<li>CAPA: structure, investigation depth, effectiveness verification</li>
+					<li>OOS/OOT: investigation protocol and documentation</li>
+					<li>Supplier quality and vendor management</li>
+					<li>Training systems and competency management</li>
+					<li>Internal audit and management review</li>
+					<li>Risk tools: FMEA/FMECA, HACCP, risk ranking</li>
+					<li>How QA, QC, validation, and DI fit together</li>
+				</ul>
+			</div>
+
+			<div class="card sidebar-block">
+				<div class="sidebar-label" style={`--pc:${PILLAR_ACCENT}`}>Related pillars</div>
+				{relatedPillars.map(p => (
+					<a href={`/pillars/${p.slug}`} class="related-pill" style={`--rc: ${p.color}`}>
+						{p.title} →
+					</a>
+				))}
+			</div>
+
+			<div class="card sidebar-block">
+				<div class="sidebar-label" style={`--pc:${PILLAR_ACCENT}`}>Learning tracks</div>
+				<a href="/tracks/foundations" class="track-link">Foundations Track</a>
+				<a href="/tracks/implementation" class="track-link">Implementation Track</a>
+				<a href="/tracks/advanced" class="track-link">Advanced Track</a>
+			</div>
+		</aside>
+	</div>
 </Layout>
 
 <style>
- .back-link { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
- .back-link:hover { color: var(--accent); }
- .pillar-label { font-size: 0.72rem; font-family: var(--mono); color: #f87171; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 0.6rem; }
- h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
- .pillar-intro { font-size: 1.05rem; color: var(--muted-light); line-height: 1.75; max-width: 680px; margin-bottom: 1.5rem; }
- .reg-basis { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 3rem; }
- .reg-label { font-size: 0.72rem; font-family: var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; flex-shrink: 0; }
- .reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
- .reg-links a { font-size: 0.78rem; color: var(--accent); padding: 0.2rem 0.6rem; border: 1px solid rgba(79,142,247,0.25); border-radius: 999px; transition: background 0.15s; }
- .reg-links a:hover { background: var(--accent-glow); }
- .pillar-body { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
- h2 { font-size: 1.1rem; color: var(--text); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-dim); }
- .empty { color: var(--muted); font-size: 0.9rem; }
- .article-list { display: flex; flex-direction: column; }
- .article-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border-dim); text-decoration: none; color: inherit; transition: background 0.15s; border-radius: 8px; }
- .article-row:last-child { border-bottom: none; }
- .article-row:hover { background: var(--surface); padding-left: 0.75rem; padding-right: 0.75rem; }
- .article-row-main { flex: 1; }
- .article-row-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
- .tier-badge { font-size: 0.65rem; font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border-radius: 999px; border: 1px solid; flex-shrink: 0; }
- .article-row-main h3 { font-size: 1rem; color: var(--text); line-height: 1.35; transition: color 0.15s; }
- .article-row:hover .article-row-main h3 { color: var(--accent); }
- .article-row-main p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; margin: 0; }
- .article-row-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; flex-shrink: 0; }
- .article-row-meta span { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
- .arrow { color: var(--muted); transition: color 0.15s; }
- .article-row:hover .arrow { color: var(--accent); }
- .pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
- .sidebar-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
- .sidebar-label { font-size: 0.7rem; font-family: var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.85rem; }
- .sidebar-block ul { padding-left: 1rem; list-style: disc; color: var(--muted-light); font-size: 0.825rem; line-height: 1.6; }
- .sidebar-block li { margin-bottom: 0.35rem; }
- .related-pill, .track-link { display: block; font-size: 0.825rem; color: var(--muted-light); padding: 0.4rem 0; border-bottom: 1px solid var(--border-dim); transition: color 0.15s; }
- .related-pill:last-child, .track-link:last-child { border-bottom: none; }
- .related-pill:hover, .track-link:hover { color: var(--accent); }
- @media (max-width: 860px) { .pillar-body { grid-template-columns: 1fr; } .pillar-sidebar { order: -1; } }
+	.pillar-header { max-width: var(--container); }
+
+	.back-link {
+		font-family: var(--mono);
+		font-size: 0.78rem;
+		color: var(--muted);
+		display: inline-block;
+		margin-bottom: 1.5rem;
+		transition: color 0.15s;
+	}
+	.back-link:hover { color: var(--navy); }
+
+	/* Pillar kicker reuses .page-label, recolored to the pillar accent */
+	.pillar-label { color: var(--pc); }
+	.pillar-label::before { background: var(--pc); }
+
+	/* Regulatory basis — clean bordered panel on paper-2 */
+	.reg-basis {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem 1.25rem;
+		background: var(--paper-2);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		margin-top: 1.75rem;
+	}
+
+	.reg-label {
+		font-family: var(--mono);
+		font-size: 0.72rem;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-weight: 500;
+		flex-shrink: 0;
+		margin-right: 0.5rem;
+	}
+
+	.reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+	.reg-links a {
+		font-family: var(--mono);
+		font-size: 0.76rem;
+		color: var(--link);
+		padding: 0.2rem 0.6rem;
+		background: var(--surface);
+		border: 1px solid var(--line-2);
+		border-radius: var(--radius-sm);
+		transition: border-color 0.15s, color 0.15s;
+	}
+	.reg-links a:hover { border-color: var(--navy); color: var(--navy); }
+
+	/* Two-column body — single column on mobile */
+	.pillar-body {
+		display: grid;
+		grid-template-columns: 1fr 300px;
+		gap: 3.5rem;
+		align-items: start;
+		max-width: var(--container);
+	}
+
+	.section-label { margin-bottom: 1.75rem; color: var(--pc); }
+	.section-label::before { background: var(--pc); }
+
+	.empty { color: var(--muted); font-size: 0.9rem; }
+
+	.article-list { display: flex; flex-direction: column; gap: 0; }
+
+	.article-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1.25rem;
+		padding: 1.35rem 0.75rem;
+		border-bottom: 1px solid var(--line);
+		text-decoration: none;
+		color: inherit;
+		border-radius: var(--radius);
+		transition: background 0.15s, border-color 0.15s;
+	}
+
+	.article-row:first-child { border-top: 1px solid var(--line); }
+	.article-row:hover { background: var(--surface); }
+
+	.article-row-main { flex: 1; }
+
+	.article-row-top {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		margin-bottom: 0.45rem;
+	}
+
+	.article-row-main h3 {
+		font-family: var(--serif);
+		font-weight: 500;
+		font-size: 1.2rem;
+		line-height: 1.3;
+		color: var(--ink);
+		transition: color 0.15s;
+	}
+
+	.article-row:hover .article-row-main h3 { color: var(--link); }
+
+	.article-row-main p {
+		font-size: 0.9rem;
+		color: var(--muted);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.article-row-meta {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 0.5rem;
+		flex-shrink: 0;
+	}
+
+	.article-row-meta span {
+		font-family: var(--mono);
+		font-size: 0.74rem;
+		color: var(--muted);
+	}
+
+	.arrow { transition: transform 0.15s, color 0.15s; }
+	.article-row:hover .arrow { color: var(--link); transform: translateX(2px); }
+
+	/* Sidebar — cards on paper */
+	.pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+
+	.sidebar-block { padding: 1.4rem 1.5rem; }
+
+	.sidebar-label {
+		font-family: var(--mono);
+		font-size: 0.7rem;
+		color: var(--pc);
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-weight: 500;
+		margin-bottom: 0.9rem;
+	}
+
+	.sidebar-block ul {
+		padding-left: 1.1rem;
+		list-style: disc;
+		color: var(--body);
+		font-size: 0.85rem;
+		line-height: 1.6;
+	}
+
+	.sidebar-block li { margin-bottom: 0.4rem; }
+
+	.related-pill,
+	.track-link {
+		display: block;
+		font-family: var(--sans);
+		font-size: 0.875rem;
+		color: var(--body);
+		padding: 0.45rem 0;
+		border-bottom: 1px solid var(--line);
+		transition: color 0.15s;
+	}
+
+	.related-pill:last-child,
+	.track-link:last-child { border-bottom: none; }
+	.related-pill:hover { color: var(--rc, var(--link)); }
+	.track-link:hover { color: var(--link); }
+
+	@media (max-width: 860px) {
+		.pillar-body { grid-template-columns: 1fr; gap: 2.5rem; }
+		.pillar-sidebar { order: -1; }
+	}
 </style>

@@ -94,6 +94,28 @@ const terms = [
  { term: 'Warning Letter', def: 'A formal FDA communication notifying a company of significant violations of regulations. More serious than a 483. Warning letters are public record and typically require a response and corrective action plan. Repeated DI violations frequently result in Warning Letters.', refs: ['FDA Warning Letter Policy'], pillar: 'audits-inspection' },
 ];
 
+const pillarNames: Record<string, string> = {
+ 'data-integrity': 'Data Integrity',
+ 'csv-csa': 'CSV / CSA',
+ 'equipment-qualification': 'Equipment Qualification',
+ 'quality-assurance': 'Quality Assurance',
+ 'audits-inspection': 'Audits & Inspection',
+ 'cell-gene-therapy': 'Cell & Gene Therapy',
+ 'manufacturing-automation': 'Manufacturing Automation',
+ 'ai-automation': 'AI & Automation',
+};
+
+const pillarColors: Record<string, string> = {
+ 'data-integrity': '#1C4E80',
+ 'csv-csa': '#2F6E4F',
+ 'equipment-qualification': '#8A5A1E',
+ 'quality-assurance': '#6B4E8A',
+ 'audits-inspection': '#9A3B3B',
+ 'cell-gene-therapy': '#2B6E73',
+ 'manufacturing-automation': '#46566E',
+ 'ai-automation': '#7A3B57',
+};
+
 // Group alphabetically
 const alphabet = [...new Set(terms.map(t => t.term[0].toUpperCase()))].sort();
 ---
@@ -104,39 +126,47 @@ const alphabet = [...new Set(terms.map(t => t.term[0].toUpperCase()))].sort();
  <div class="page-header">
  <div class="page-label">Reference</div>
  <h1>Glossary</h1>
- <p>Plain-language definitions for common GxP, data integrity, CSV, and regulatory terms. Each definition distinguishes between what the term means and where it comes from in regulation or guidance.</p>
- <div class="disclaimer-banner">
- <span class="disclaimer-label">Educational use only</span>
- These definitions are for learning purposes. Always verify current definitions against primary regulatory sources before using in quality documentation.
+ <p class="lead">Plain-language definitions for common GxP, data integrity, CSV, and regulatory terms. Each definition distinguishes between what the term means and where it comes from in regulation or guidance.</p>
+ <div class="callout disclaimer-banner">
+ <div class="callout-title">Educational use only</div>
+ <p>These definitions are for learning purposes. Always verify current definitions against primary regulatory sources before using in quality documentation.</p>
  </div>
  </div>
 
  <!-- Alphabet jump nav -->
- <div class="alpha-nav">
+ <nav class="alpha-nav" aria-label="Jump to letter">
  {alphabet.map(letter => (
  <a href={`#letter-${letter}`} class="alpha-link">{letter}</a>
  ))}
- </div>
+ </nav>
 
  <!-- Terms -->
  <div class="terms-list">
  {alphabet.map(letter => {
  const group = terms.filter(t => t.term[0].toUpperCase() === letter);
  return (
- <div class="alpha-group" id={`letter-${letter}`}>
- <div class="alpha-header">{letter}</div>
+ <section class="alpha-group" id={`letter-${letter}`}>
+ <div class="alpha-header">
+ <span class="alpha-letter">{letter}</span>
+ <span class="alpha-rule"></span>
+ </div>
+ <dl class="term-grid">
  {group.map(t => (
  <div class="term-entry">
- <div class="term-word">{t.term}</div>
- <div class="term-def">{t.def}</div>
+ <dt class="term-word">
+ {t.term}
+ <span class="term-pillar" style={`color:${pillarColors[t.pillar] ?? '#756B5B'}`}>{pillarNames[t.pillar] ?? t.pillar}</span>
+ </dt>
+ <dd class="term-def">{t.def}</dd>
  {t.refs.length > 0 && (
- <div class="term-refs">
+ <dd class="term-refs">
  {t.refs.map(r => <span class="term-ref">{r}</span>)}
- </div>
+ </dd>
  )}
  </div>
  ))}
- </div>
+ </dl>
+ </section>
  );
  })}
  </div>
@@ -147,136 +177,143 @@ const alphabet = [...new Set(terms.map(t => t.term[0].toUpperCase()))].sort();
 </Layout>
 
 <style>
- .page-header {
- margin-bottom: 2.5rem;
- padding-bottom: 2rem;
- border-bottom: 1px solid var(--border);
- }
-
- .page-label {
- font-size: 0.72rem;
- font-family: var(--mono);
- color: var(--accent);
- text-transform: uppercase;
- letter-spacing: 0.1em;
- font-weight: 700;
- margin-bottom: 0.6rem;
- }
-
- .page-header h1 { font-size: 2.25rem; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
- .page-header > p { color: var(--muted-light); margin-bottom: 1rem; font-size: 0.95rem; }
-
+ /* Disclaimer reuses .callout; nudge its accent to brass for an advisory note */
  .disclaimer-banner {
- font-size: 0.8rem;
- color: var(--muted);
- background: var(--surface);
- border: 1px solid var(--border);
- border-left: 3px solid var(--amber);
- padding: 0.75rem 1rem;
- border-radius: 7px;
- line-height: 1.55;
+ border-left-color: var(--brass);
+ margin-top: 1.5rem;
+ margin-bottom: 0;
  }
+ .disclaimer-banner .callout-title { color: var(--brass); }
 
- .disclaimer-label {
- font-family: var(--mono);
- font-size: 0.68rem;
- font-weight: 700;
- color: var(--amber);
- text-transform: uppercase;
- letter-spacing: 0.07em;
- display: block;
- margin-bottom: 0.2rem;
- }
-
- /* Alphabet nav */
+ /* ── Alphabet jump nav ── */
  .alpha-nav {
  display: flex;
  flex-wrap: wrap;
  gap: 0.3rem;
- margin-bottom: 3rem;
- padding: 1rem;
+ margin-bottom: 4rem;
+ padding: 0.85rem 1rem;
  background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 10px;
+ border: 1px solid var(--line);
+ border-radius: var(--radius);
+ box-shadow: var(--shadow-sm);
+ position: sticky;
+ top: 72px;
+ z-index: 5;
  }
 
  .alpha-link {
- font-size: 0.78rem;
  font-family: var(--mono);
- font-weight: 700;
- color: var(--muted-light);
- padding: 0.3rem 0.55rem;
- border-radius: 5px;
+ font-size: 0.78rem;
+ font-weight: 500;
+ color: var(--muted);
+ padding: 0.3rem 0.6rem;
+ border-radius: var(--radius-sm);
  transition: background 0.12s, color 0.12s;
  }
-
  .alpha-link:hover {
- background: var(--accent-glow);
- color: var(--accent);
+ background: var(--paper-2);
+ color: var(--navy);
  }
 
- /* Terms */
- .alpha-group { margin-bottom: 2.5rem; }
+ /* ── Term groups ── */
+ .alpha-group { margin-bottom: 4rem; }
+ .alpha-group:last-child { margin-bottom: 0; }
 
  .alpha-header {
- font-size: 1.25rem;
- font-weight: 700;
- color: var(--accent);
- font-family: var(--mono);
- letter-spacing: -0.02em;
- padding-bottom: 0.5rem;
- border-bottom: 1px solid var(--border-dim);
- margin-bottom: 1rem;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+ margin-bottom: 1.75rem;
+ }
+ .alpha-letter {
+ font-family: var(--serif);
+ font-size: 2rem;
+ font-weight: 600;
+ line-height: 1;
+ color: var(--ink);
+ letter-spacing: -0.01em;
+ }
+ .alpha-rule {
+ flex: 1;
+ height: 1px;
+ background: var(--line-2);
+ }
+
+ .term-grid {
+ display: flex;
+ flex-direction: column;
  }
 
  .term-entry {
- padding: 1rem 0;
- border-bottom: 1px solid var(--border-dim);
+ padding: 1.4rem 0;
+ border-bottom: 1px solid var(--line);
  }
-
+ .term-entry:first-child { padding-top: 0; }
  .term-entry:last-child { border-bottom: none; }
 
  .term-word {
- font-size: 0.95rem;
- font-weight: 700;
- color: var(--text);
- margin-bottom: 0.35rem;
+ display: flex;
+ align-items: baseline;
+ flex-wrap: wrap;
+ gap: 0.5rem 0.9rem;
+ font-family: var(--serif);
+ font-size: 1.2rem;
+ font-weight: 600;
+ color: var(--ink);
+ margin-bottom: 0.5rem;
  letter-spacing: -0.01em;
  }
 
+ .term-pillar {
+ font-family: var(--mono);
+ font-size: 0.62rem;
+ font-weight: 500;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ }
+
  .term-def {
- font-size: 0.875rem;
- color: var(--muted-light);
- line-height: 1.65;
- margin-bottom: 0.5rem;
+ margin: 0 0 0.7rem;
+ font-family: var(--sans);
+ font-size: 1rem;
+ color: var(--body);
+ line-height: 1.7;
+ max-width: var(--measure);
  }
 
  .term-refs {
  display: flex;
  flex-wrap: wrap;
- gap: 0.35rem;
+ gap: 0.4rem;
+ margin: 0;
  }
 
  .term-ref {
- font-size: 0.65rem;
  font-family: var(--mono);
- color: var(--muted);
- background: var(--surface2);
- border: 1px solid var(--border);
- padding: 0.15rem 0.5rem;
- border-radius: 5px;
+ font-size: 0.66rem;
+ color: var(--brass);
+ background: var(--brass-soft);
+ border: 1px solid var(--line-2);
+ padding: 0.16rem 0.5rem;
+ border-radius: var(--radius-sm);
  letter-spacing: 0.02em;
  }
 
+ /* ── Footer note ── */
  .glossary-footer {
- margin-top: 3rem;
+ margin-top: 4rem;
  padding-top: 2rem;
- border-top: 1px solid var(--border);
+ border-top: 1px solid var(--line);
+ }
+ .glossary-footer p {
+ font-size: 0.9rem;
+ color: var(--muted);
+ line-height: 1.7;
  }
 
- .glossary-footer p {
- font-size: 0.85rem;
- color: var(--muted);
- line-height: 1.6;
+ @media (max-width: 560px) {
+ .alpha-nav { position: static; margin-bottom: 3rem; }
+ .alpha-group { margin-bottom: 3rem; }
+ .term-word { font-size: 1.1rem; }
  }
 </style>

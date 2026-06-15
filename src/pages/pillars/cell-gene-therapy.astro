@@ -4,122 +4,262 @@ import { getCollection } from 'astro:content';
 
 const all = await getCollection('articles', ({ data }) => !data.draft && data.pillar === 'cell-gene-therapy');
 const sorted = all.sort((a, b) => {
- const tierOrder = { Beginner: 0, Intermediate: 1, Advanced: 2 };
- return (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1);
+	const tierOrder = { Beginner: 0, Intermediate: 1, Advanced: 2 };
+	return (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1);
 });
-const tierColors: Record<string, string> = { Beginner: '#34d399', Intermediate: '#4f8ef7', Advanced: '#a78bfa' };
+const tierColors: Record<string, string> = { Beginner: '#2F6E4F', Intermediate: '#1C4E80', Advanced: '#7A3B57' };
+const accent = '#2B6E73';
 ---
-<Layout title="Cell & Gene Therapy Data Integrity" description="Why CGT data integrity is structurally harder, novel assays, autologous chain of custody, BLA-level scrutiny, real-time release, and program design for CGT manufacturers.">
- <div class="pillar-header">
- <a href="/pillars" class="back-link">← All Pillars</a>
- <div class="pillar-label">Pillar 06</div>
- <h1>Cell &amp; Gene Therapy</h1>
- <p class="pillar-intro">
- ALCOA+ applies equally to a small molecule tablet and an autologous CAR-T product. But the complexity of applying it is not equal. CGT manufacturers deal with novel and variable assays, patient-specific chain-of-custody data, manufacturing platforms with no established validation playbooks, and the expectation of BLA-quality data from early in clinical development. This pillar covers what makes CGT data integrity structurally different and what mature programs actually look like.
- </p>
- <div class="reg-basis">
- <div class="reg-label">Regulatory basis</div>
- <div class="reg-links">
- <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-L/part-1271" target="_blank" rel="noopener">21 CFR Part 1271 (HCT/Ps)</a>
- <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-600" target="_blank" rel="noopener">21 CFR Parts 600-610 (Biologics)</a>
- <a href="https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products" target="_blank" rel="noopener">FDA CGT Guidance Documents</a>
- <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/data-integrity-and-compliance-drug-cgmp-guidance-industry" target="_blank" rel="noopener">FDA DI Guidance (Dec 2018)</a>
- </div>
- </div>
- </div>
+<Layout title="Cell & Gene Therapy Data Integrity" description="Why CGT data integrity is structurally harder, novel assays, autologous chain of custody, BLA-level scrutiny, real-time release, and program design for CGT manufacturers." wide={true}>
+	<div class="pillar-header">
+		<a href="/pillars" class="back-link">← All Pillars</a>
+		<div class="pillar-label" style={`color:${accent}`}>
+			<span class="pillar-rule" style={`background:${accent}`}></span>Pillar 06
+		</div>
+		<h1>Cell &amp; Gene Therapy</h1>
+		<p class="pillar-intro lead">
+			ALCOA+ applies equally to a small molecule tablet and an autologous CAR-T product. But the complexity of applying it is not equal. CGT manufacturers deal with novel and variable assays, patient-specific chain-of-custody data, manufacturing platforms with no established validation playbooks, and the expectation of BLA-quality data from early in clinical development. This pillar covers what makes CGT data integrity structurally different and what mature programs actually look like.
+		</p>
+		<div class="reg-basis">
+			<div class="reg-label">Regulatory basis</div>
+			<div class="reg-links">
+				<a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-L/part-1271" target="_blank" rel="noopener" class="tag">21 CFR Part 1271 (HCT/Ps)</a>
+				<a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-600" target="_blank" rel="noopener" class="tag">21 CFR Parts 600-610 (Biologics)</a>
+				<a href="https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products" target="_blank" rel="noopener" class="tag">FDA CGT Guidance Documents</a>
+				<a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/data-integrity-and-compliance-drug-cgmp-guidance-industry" target="_blank" rel="noopener" class="tag">FDA DI Guidance (Dec 2018)</a>
+			</div>
+		</div>
+	</div>
 
- <div class="pillar-body">
- <div class="articles-section">
- <h2>Articles in this pillar</h2>
- {sorted.length === 0 ? (
- <p class="empty">Articles coming soon.</p>
- ) : (
- <div class="article-list">
- {sorted.map(post => {
- const readTime = Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 220));
- const tier = post.data.tier ?? 'Intermediate';
- const color = tierColors[tier] ?? '#64748b';
- return (
- <a href={`/articles/${post.slug}`} class="article-row">
- <div class="article-row-main">
- <div class="article-row-top">
- <span class="tier-badge" style={`background:${color}22;color:${color};border-color:${color}44`}>{tier}</span>
- <h3>{post.data.title}</h3>
- </div>
- <p>{post.data.description}</p>
- </div>
- <div class="article-row-meta"><span>{readTime} min</span><span class="arrow">→</span></div>
- </a>
- );
- })}
- </div>
- )}
- </div>
- <aside class="pillar-sidebar">
- <div class="sidebar-block">
- <div class="sidebar-label">What this pillar covers</div>
- <ul>
- <li>Why CGT DI is harder: novel assays, small batches, autologous logistics</li>
- <li>Potency assay data challenges and variability</li>
- <li>Vector/viral manufacturing data management</li>
- <li>Single-use systems and manual operations as DI risk</li>
- <li>Chain of identity and chain of custody: patient material</li>
- <li>BLA data-package integrity and retrospective audits</li>
- <li>Real-time release in compressed timelines</li>
- <li>Novel technology qualification pathways</li>
- <li>FDA CGT inspection expectations and enforcement trends</li>
- </ul>
- </div>
- <div class="sidebar-block">
- <div class="sidebar-label">Related pillars</div>
- <a href="/pillars/data-integrity" class="related-pill">Data Integrity →</a>
- <a href="/pillars/audits-inspection" class="related-pill">Audits &amp; Inspection →</a>
- <a href="/pillars/manufacturing-automation" class="related-pill">Manufacturing Systems →</a>
- </div>
- <div class="sidebar-block">
- <div class="sidebar-label">Learning tracks</div>
- <a href="/tracks/implementation" class="track-link">Implementation Track</a>
- <a href="/tracks/advanced" class="track-link">Advanced Track</a>
- </div>
- </aside>
- </div>
+	<div class="pillar-body">
+		<div class="articles-section">
+			<h2 class="articles-title">Articles in this pillar</h2>
+			{sorted.length === 0 ? (
+				<p class="empty">Articles coming soon.</p>
+			) : (
+				<div class="article-list">
+					{sorted.map(post => {
+						const readTime = Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 220));
+						const tier = post.data.tier ?? 'Intermediate';
+						const color = tierColors[tier] ?? '#756B5B';
+						return (
+							<a href={`/articles/${post.slug}`} class="article-row">
+								<div class="article-row-main">
+									<div class="article-row-top">
+										<span class="tier-badge" style={`background:${color}1A;color:${color};border-color:${color}40`}>{tier}</span>
+										<h3>{post.data.title}</h3>
+									</div>
+									<p>{post.data.description}</p>
+								</div>
+								<div class="article-row-meta"><span>{readTime} min</span><span class="arrow">→</span></div>
+							</a>
+						);
+					})}
+				</div>
+			)}
+		</div>
+		<aside class="pillar-sidebar">
+			<div class="sidebar-block">
+				<div class="sidebar-label" style={`color:${accent}`}>What this pillar covers</div>
+				<ul>
+					<li>Why CGT DI is harder: novel assays, small batches, autologous logistics</li>
+					<li>Potency assay data challenges and variability</li>
+					<li>Vector/viral manufacturing data management</li>
+					<li>Single-use systems and manual operations as DI risk</li>
+					<li>Chain of identity and chain of custody: patient material</li>
+					<li>BLA data-package integrity and retrospective audits</li>
+					<li>Real-time release in compressed timelines</li>
+					<li>Novel technology qualification pathways</li>
+					<li>FDA CGT inspection expectations and enforcement trends</li>
+				</ul>
+			</div>
+			<div class="sidebar-block">
+				<div class="sidebar-label" style={`color:${accent}`}>Related pillars</div>
+				<a href="/pillars/data-integrity" class="related-pill">Data Integrity →</a>
+				<a href="/pillars/audits-inspection" class="related-pill">Audits &amp; Inspection →</a>
+				<a href="/pillars/manufacturing-automation" class="related-pill">Manufacturing Systems →</a>
+			</div>
+			<div class="sidebar-block">
+				<div class="sidebar-label" style={`color:${accent}`}>Learning tracks</div>
+				<a href="/tracks/implementation" class="track-link">Implementation Track</a>
+				<a href="/tracks/advanced" class="track-link">Advanced Track</a>
+			</div>
+		</aside>
+	</div>
 </Layout>
 
 <style>
- .back-link { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); display: inline-block; margin-bottom: 1.5rem; transition: color 0.15s; }
- .back-link:hover { color: var(--accent); }
- .pillar-label { font-size: 0.72rem; font-family: var(--mono); color: #a78bfa; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 0.6rem; }
- h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em; margin-bottom: 1rem; }
- .pillar-intro { font-size: 1.05rem; color: var(--muted-light); line-height: 1.75; max-width: 680px; margin-bottom: 1.5rem; }
- .reg-basis { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 3rem; }
- .reg-label { font-size: 0.72rem; font-family: var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; flex-shrink: 0; }
- .reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
- .reg-links a { font-size: 0.78rem; color: var(--accent); padding: 0.2rem 0.6rem; border: 1px solid rgba(79,142,247,0.25); border-radius: 999px; transition: background 0.15s; }
- .reg-links a:hover { background: var(--accent-glow); }
- .pillar-body { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
- h2 { font-size: 1.1rem; color: var(--text); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-dim); }
- .empty { color: var(--muted); font-size: 0.9rem; }
- .article-list { display: flex; flex-direction: column; }
- .article-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border-dim); text-decoration: none; color: inherit; transition: background 0.15s; border-radius: 8px; }
- .article-row:last-child { border-bottom: none; }
- .article-row:hover { background: var(--surface); padding-left: 0.75rem; padding-right: 0.75rem; }
- .article-row-main { flex: 1; }
- .article-row-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
- .tier-badge { font-size: 0.65rem; font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border-radius: 999px; border: 1px solid; flex-shrink: 0; }
- .article-row-main h3 { font-size: 1rem; color: var(--text); line-height: 1.35; transition: color 0.15s; }
- .article-row:hover .article-row-main h3 { color: var(--accent); }
- .article-row-main p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; margin: 0; }
- .article-row-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; flex-shrink: 0; }
- .article-row-meta span { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
- .arrow { color: var(--muted); transition: color 0.15s; }
- .article-row:hover .arrow { color: var(--accent); }
- .pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
- .sidebar-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
- .sidebar-label { font-size: 0.7rem; font-family: var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.85rem; }
- .sidebar-block ul { padding-left: 1rem; list-style: disc; color: var(--muted-light); font-size: 0.825rem; line-height: 1.6; }
- .sidebar-block li { margin-bottom: 0.35rem; }
- .related-pill, .track-link { display: block; font-size: 0.825rem; color: var(--muted-light); padding: 0.4rem 0; border-bottom: 1px solid var(--border-dim); transition: color 0.15s; }
- .related-pill:last-child, .track-link:last-child { border-bottom: none; }
- .related-pill:hover, .track-link:hover { color: var(--accent); }
- @media (max-width: 860px) { .pillar-body { grid-template-columns: 1fr; } .pillar-sidebar { order: -1; } }
+	.pillar-header {
+		max-width: 52rem;
+		margin-bottom: 4rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--line);
+	}
+	.back-link {
+		font-family: var(--mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.04em;
+		color: var(--muted);
+		display: inline-block;
+		margin-bottom: 1.75rem;
+		transition: color 0.15s;
+	}
+	.back-link:hover { color: var(--navy); }
+
+	.pillar-label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		font-family: var(--mono);
+		font-size: 0.72rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.16em;
+		margin-bottom: 0.9rem;
+	}
+	.pillar-rule { display: inline-block; width: 22px; height: 1px; }
+
+	.pillar-header h1 {
+		font-size: clamp(2rem, 4vw, 2.9rem);
+		letter-spacing: -0.02em;
+		line-height: 1.1;
+		margin-bottom: 1.25rem;
+	}
+
+	.pillar-intro { margin-bottom: 1.75rem; }
+
+	.reg-basis {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem 1rem;
+		padding: 1rem 1.25rem;
+		background: var(--paper-2);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+	}
+	.reg-label {
+		font-family: var(--mono);
+		font-size: 0.7rem;
+		font-weight: 500;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		flex-shrink: 0;
+	}
+	.reg-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+	.pillar-body {
+		display: grid;
+		grid-template-columns: 1fr 280px;
+		gap: 3.5rem;
+		align-items: start;
+	}
+
+	.articles-title {
+		font-family: var(--serif);
+		font-weight: 500;
+		font-size: 1.4rem;
+		color: var(--ink);
+		margin-bottom: 1.5rem;
+		padding-bottom: 0.85rem;
+		border-bottom: 1px solid var(--line);
+	}
+	.empty { color: var(--muted); font-size: 0.9rem; }
+
+	.article-list { display: flex; flex-direction: column; }
+	.article-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1.25rem;
+		padding: 1.4rem 0;
+		border-bottom: 1px solid var(--line);
+		text-decoration: none;
+		color: inherit;
+		transition: padding 0.15s, background 0.15s;
+		border-radius: var(--radius);
+	}
+	.article-row:last-child { border-bottom: none; }
+	.article-row:hover {
+		background: var(--surface);
+		padding-left: 1rem;
+		padding-right: 1rem;
+		box-shadow: var(--shadow-sm);
+	}
+	.article-row-main { flex: 1; }
+	.article-row-top { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.45rem; }
+	.article-row-main h3 {
+		font-family: var(--serif);
+		font-weight: 500;
+		font-size: 1.18rem;
+		color: var(--ink);
+		line-height: 1.3;
+		transition: color 0.15s;
+	}
+	.article-row:hover .article-row-main h3 { color: var(--navy); }
+	.article-row-main p {
+		font-size: 0.9rem;
+		color: var(--muted);
+		line-height: 1.6;
+		margin: 0;
+	}
+	.article-row-meta {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 0.5rem;
+		flex-shrink: 0;
+	}
+	.article-row-meta span {
+		font-family: var(--mono);
+		font-size: 0.72rem;
+		color: var(--muted);
+	}
+	.arrow { transition: transform 0.15s, color 0.15s; }
+	.article-row:hover .arrow { color: var(--navy); transform: translateX(3px); }
+
+	.pillar-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+	.sidebar-block {
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		box-shadow: var(--shadow-sm);
+		padding: 1.35rem;
+	}
+	.sidebar-label {
+		font-family: var(--mono);
+		font-size: 0.7rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin-bottom: 0.9rem;
+	}
+	.sidebar-block ul {
+		padding-left: 1.1rem;
+		list-style: disc;
+		color: var(--body);
+		font-size: 0.84rem;
+		line-height: 1.6;
+	}
+	.sidebar-block li { margin-bottom: 0.4rem; }
+	.sidebar-block li::marker { color: var(--brass); }
+
+	.related-pill, .track-link {
+		display: block;
+		font-family: var(--sans);
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: var(--body);
+		padding: 0.5rem 0;
+		border-bottom: 1px solid var(--line);
+		transition: color 0.15s;
+	}
+	.related-pill:last-child, .track-link:last-child { border-bottom: none; }
+	.related-pill:hover, .track-link:hover { color: var(--navy); }
+
+	@media (max-width: 860px) {
+		.pillar-body { grid-template-columns: 1fr; gap: 2.5rem; }
+		.pillar-sidebar { order: -1; }
+	}
 </style>

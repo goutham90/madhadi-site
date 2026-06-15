@@ -1,585 +1,542 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const tierColors: Record<string, string> = {
+  Beginner: '#2F6E4F',
+  Intermediate: '#1C4E80',
+  Advanced: '#7A3B57',
+};
 ---
 <Layout
- title="Start Here"
- description="New to GxP quality, data integrity, or computer system validation? Start here. This page maps the knowledge on madhadi.com to where you are and where you want to go."
- wide={true}
+  title="Start Here"
+  description="New to GxP quality, data integrity, or computer system validation? Start here. This page maps the knowledge on madhadi.com to where you are and where you want to go."
+  wide={true}
 >
- <!-- Hero -->
- <section class="start-hero">
- <div class="start-hero-inner">
- <div class="start-badge">Free · No login · No paywall</div>
- <h1>Start here.</h1>
- <p class="start-sub">
- madhadi.com is a free, public knowledge platform for data integrity, computer system validation,
- equipment qualification, automation systems, QMS, clinical systems, and GxP quality.
- Written for practitioners, from people new to the field through senior program leaders.
- </p>
- <p class="zero-agenda">
- What I get from this: nothing, except knowing it helped someone avoid learning things the hard way.
- That's genuinely enough. If it's not useful to you, the tab close button is right there and there is no 6-step cancellation flow, no passive-aggressive popup, and no email sequence asking why you left.
- And if something is wrong, outdated, or missing, <a href="mailto:goutham@madhadi.com" class="feedback-link">I actually want to know</a>.
- </p>
- <div class="disclaimer-box">
- <div class="disclaimer-label">Educational disclaimer</div>
- <p>
- This site provides public educational information based on publicly available regulatory
- guidance, laws, and standards. It is not legal advice, regulatory consulting, or
- inspection strategy. Nothing here replaces the need to read primary sources, apply
- professional judgment, and consult qualified experts for your specific situation.
- Regulatory requirements change, always verify against current FDA, EMA, and ICH documents.
- </p>
- </div>
- </div>
- </section>
+  <!-- Hero -->
+  <section class="start-hero">
+    <div class="start-hero-inner">
+      <span class="start-badge">Free · No login · No paywall</span>
+      <h1>Start here.</h1>
+      <p class="lead start-sub">
+        madhadi.com is a free, public knowledge platform for data integrity, computer system validation,
+        equipment qualification, automation systems, QMS, clinical systems, and GxP quality.
+        Written for practitioners, from people new to the field through senior program leaders.
+      </p>
+      <p class="zero-agenda">
+        What I get from this: nothing, except knowing it helped someone avoid learning things the hard way.
+        That's genuinely enough. If it's not useful to you, the tab close button is right there and there is no 6-step cancellation flow, no passive-aggressive popup, and no email sequence asking why you left.
+        And if something is wrong, outdated, or missing, <a href="mailto:goutham@madhadi.com" class="feedback-link">I actually want to know</a>.
+      </p>
+      <div class="disclaimer-box">
+        <div class="disclaimer-label">Educational disclaimer</div>
+        <p>
+          This site provides public educational information based on publicly available regulatory
+          guidance, laws, and standards. It is not legal advice, regulatory consulting, or
+          inspection strategy. Nothing here replaces the need to read primary sources, apply
+          professional judgment, and consult qualified experts for your specific situation.
+          Regulatory requirements change, always verify against current FDA, EMA, and ICH documents.
+        </p>
+      </div>
+    </div>
+  </section>
 
- <!-- Where are you? -->
- <section class="where-section">
- <div class="section-label">Find Your Entry Point</div>
- <h2 class="section-title">Where are you right now?</h2>
- <div class="where-grid">
+  <!-- Where are you? -->
+  <section class="section where-section">
+    <div class="section-label">Find Your Entry Point</div>
+    <h2 class="section-title">Where are you right now?</h2>
+    <div class="where-grid">
 
- <div class="where-card" id="card-new">
- <div class="where-level beginner-color">Beginner</div>
- <h3>New to GxP or quality</h3>
- <p>You've heard terms like GMP, FDA, data integrity, or validation and want to understand what they mean and why they matter.</p>
- <div class="where-start">Start with these three:</div>
- <ol class="where-list">
- <li><a href="/articles/what-is-gmp">What Is GMP? A Plain-Language Introduction</a></li>
- <li><a href="/articles/data-integrity-foundations">Data Integrity: What It Is and Why It Keeps Failing</a></li>
- <li><a href="/articles/gxp-roles-responsibilities">GxP Roles Explained: Who Does What</a></li>
- </ol>
- <a href="/tracks/foundations" class="where-btn beginner-btn">Follow the 9-step Foundations track →</a>
- </div>
+      <div class="card where-card" id="card-new">
+        <span class="tier-badge" style={`background:${tierColors.Beginner}1A;color:${tierColors.Beginner};border-color:${tierColors.Beginner}40`}>Beginner</span>
+        <h3>New to GxP or quality</h3>
+        <p>You've heard terms like GMP, FDA, data integrity, or validation and want to understand what they mean and why they matter.</p>
+        <div class="where-start">Start with these three:</div>
+        <ol class="where-list">
+          <li><a href="/articles/what-is-gmp">What Is GMP? A Plain-Language Introduction</a></li>
+          <li><a href="/articles/data-integrity-foundations">Data Integrity: What It Is and Why It Keeps Failing</a></li>
+          <li><a href="/articles/gxp-roles-responsibilities">GxP Roles Explained: Who Does What</a></li>
+        </ol>
+        <a href="/tracks/foundations" class="where-btn" style={`color:${tierColors.Beginner};border-color:${tierColors.Beginner}40`}>Follow the 9-step Foundations track →</a>
+      </div>
 
- <div class="where-card" id="card-mid">
- <div class="where-level intermediate-color">Intermediate</div>
- <h3>Practitioner building or inheriting systems</h3>
- <p>You're validating systems, writing SOPs, running audits, or implementing quality programs and need operational depth.</p>
- <div class="where-start">Start with these three:</div>
- <ol class="where-list">
- <li><a href="/articles/audit-trail-design-and-review">Audit Trail Design and Review</a></li>
- <li><a href="/articles/gamp5-csv-framework">GAMP 5 Second Edition: What Changed</a></li>
- <li><a href="/articles/csv-risk-assessment-methodology">CSV Risk Assessment Methodology</a></li>
- </ol>
- <a href="/tracks/implementation" class="where-btn intermediate-btn">Follow the 14-step Implementation track →</a>
- </div>
+      <div class="card where-card" id="card-mid">
+        <span class="tier-badge" style={`background:${tierColors.Intermediate}1A;color:${tierColors.Intermediate};border-color:${tierColors.Intermediate}40`}>Intermediate</span>
+        <h3>Practitioner building or inheriting systems</h3>
+        <p>You're validating systems, writing SOPs, running audits, or implementing quality programs and need operational depth.</p>
+        <div class="where-start">Start with these three:</div>
+        <ol class="where-list">
+          <li><a href="/articles/audit-trail-design-and-review">Audit Trail Design and Review</a></li>
+          <li><a href="/articles/gamp5-csv-framework">GAMP 5 Second Edition: What Changed</a></li>
+          <li><a href="/articles/csv-risk-assessment-methodology">CSV Risk Assessment Methodology</a></li>
+        </ol>
+        <a href="/tracks/implementation" class="where-btn" style={`color:${tierColors.Intermediate};border-color:${tierColors.Intermediate}40`}>Follow the 14-step Implementation track →</a>
+      </div>
 
- <div class="where-card" id="card-adv">
- <div class="where-level advanced-color">Advanced</div>
- <h3>Senior practitioner or program leader</h3>
- <p>You're designing DI programs, preparing for FDA/EMA inspections, handling 483 responses, or building CSV governance from scratch.</p>
- <div class="where-start">Start with these three:</div>
- <ol class="where-list">
- <li><a href="/articles/di-program-architecture">DI Program Architecture</a></li>
- <li><a href="/articles/di-gap-assessment-methodology">DI Gap Assessment Methodology</a></li>
- <li><a href="/articles/bla-readiness-data-package">BLA Readiness: Data Package Architecture</a></li>
- </ol>
- <a href="/tracks/advanced" class="where-btn advanced-btn">Follow the 14-step Advanced track →</a>
- </div>
+      <div class="card where-card" id="card-adv">
+        <span class="tier-badge" style={`background:${tierColors.Advanced}1A;color:${tierColors.Advanced};border-color:${tierColors.Advanced}40`}>Advanced</span>
+        <h3>Senior practitioner or program leader</h3>
+        <p>You're designing DI programs, preparing for FDA/EMA inspections, handling 483 responses, or building CSV governance from scratch.</p>
+        <div class="where-start">Start with these three:</div>
+        <ol class="where-list">
+          <li><a href="/articles/di-program-architecture">DI Program Architecture</a></li>
+          <li><a href="/articles/di-gap-assessment-methodology">DI Gap Assessment Methodology</a></li>
+          <li><a href="/articles/bla-readiness-data-package">BLA Readiness: Data Package Architecture</a></li>
+        </ol>
+        <a href="/tracks/advanced" class="where-btn" style={`color:${tierColors.Advanced};border-color:${tierColors.Advanced}40`}>Follow the 14-step Advanced track →</a>
+      </div>
 
- </div>
- </section>
+    </div>
+  </section>
 
- <!-- By Role -->
- <section class="role-section">
- <div class="section-label">By Role</div>
- <h2 class="section-title">What's your job?</h2>
- <p class="role-intro">The same regulation looks completely different depending on what you do every day. Start with your role.</p>
- <div class="role-grid">
+  <!-- By Role -->
+  <section class="section role-section">
+    <div class="section-label">By Role</div>
+    <h2 class="section-title">What's your job?</h2>
+    <p class="lead role-intro">The same regulation looks completely different depending on what you do every day. Start with your role.</p>
+    <div class="role-grid">
 
- <div class="role-block">
- <div class="role-name">CSV / Validation Specialist</div>
- <ul>
- <li><a href="/articles/gamp5-csv-framework">GAMP 5 Second Edition Framework</a></li>
- <li><a href="/articles/csv-risk-assessment-methodology">Risk Assessment Methodology</a></li>
- <li><a href="/articles/validation-deliverables-guide">Validation Deliverables Guide</a></li>
- <li><a href="/articles/computer-software-assurance-fda">FDA Computer Software Assurance</a></li>
- <li><a href="/articles/cloud-saas-validation">Cloud and SaaS Validation</a></li>
- <li><a href="/articles/change-control-validated-systems">Change Control for Validated Systems</a></li>
- </ul>
- </div>
+      <div class="card role-block">
+        <div class="role-name">CSV / Validation Specialist</div>
+        <ul>
+          <li><a href="/articles/gamp5-csv-framework">GAMP 5 Second Edition Framework</a></li>
+          <li><a href="/articles/csv-risk-assessment-methodology">Risk Assessment Methodology</a></li>
+          <li><a href="/articles/validation-deliverables-guide">Validation Deliverables Guide</a></li>
+          <li><a href="/articles/computer-software-assurance-fda">FDA Computer Software Assurance</a></li>
+          <li><a href="/articles/cloud-saas-validation">Cloud and SaaS Validation</a></li>
+          <li><a href="/articles/change-control-validated-systems">Change Control for Validated Systems</a></li>
+        </ul>
+      </div>
 
- <div class="role-block">
- <div class="role-name">Data Integrity Specialist</div>
- <ul>
- <li><a href="/articles/alcoa-plus-deep-dive">ALCOA+ Deep Dive</a></li>
- <li><a href="/articles/audit-trail-design-and-review">Audit Trail Design and Review</a></li>
- <li><a href="/articles/data-lifecycle-and-metadata">Data Lifecycle and Metadata</a></li>
- <li><a href="/articles/di-gap-assessment-methodology">DI Gap Assessment Methodology</a></li>
- <li><a href="/articles/di-program-architecture">DI Program Architecture</a></li>
- <li><a href="/articles/di-self-audit-checklist">DI Self-Audit Checklist</a></li>
- </ul>
- </div>
+      <div class="card role-block">
+        <div class="role-name">Data Integrity Specialist</div>
+        <ul>
+          <li><a href="/articles/alcoa-plus-deep-dive">ALCOA+ Deep Dive</a></li>
+          <li><a href="/articles/audit-trail-design-and-review">Audit Trail Design and Review</a></li>
+          <li><a href="/articles/data-lifecycle-and-metadata">Data Lifecycle and Metadata</a></li>
+          <li><a href="/articles/di-gap-assessment-methodology">DI Gap Assessment Methodology</a></li>
+          <li><a href="/articles/di-program-architecture">DI Program Architecture</a></li>
+          <li><a href="/articles/di-self-audit-checklist">DI Self-Audit Checklist</a></li>
+        </ul>
+      </div>
 
- <div class="role-block">
- <div class="role-name">QMS / Quality Systems</div>
- <ul>
- <li><a href="/articles/pharmaceutical-quality-system">Pharmaceutical Quality System (ICH Q10)</a></li>
- <li><a href="/articles/deviation-management">Deviation Management</a></li>
- <li><a href="/articles/what-is-a-capa">What Is a CAPA?</a></li>
- <li><a href="/articles/document-control-fundamentals">Document Control Fundamentals</a></li>
- <li><a href="/articles/internal-audit-program">Internal Audit Program</a></li>
- <li><a href="/articles/supplier-vendor-qualification">Supplier and Vendor Qualification</a></li>
- </ul>
- </div>
+      <div class="card role-block">
+        <div class="role-name">QMS / Quality Systems</div>
+        <ul>
+          <li><a href="/articles/pharmaceutical-quality-system">Pharmaceutical Quality System (ICH Q10)</a></li>
+          <li><a href="/articles/deviation-management">Deviation Management</a></li>
+          <li><a href="/articles/what-is-a-capa">What Is a CAPA?</a></li>
+          <li><a href="/articles/document-control-fundamentals">Document Control Fundamentals</a></li>
+          <li><a href="/articles/internal-audit-program">Internal Audit Program</a></li>
+          <li><a href="/articles/supplier-vendor-qualification">Supplier and Vendor Qualification</a></li>
+        </ul>
+      </div>
 
- <div class="role-block">
- <div class="role-name">Inspection Readiness</div>
- <ul>
- <li><a href="/articles/fda-inspection-readiness">FDA Inspection Readiness</a></li>
- <li><a href="/articles/fda-483-response-strategy">483 Response Strategy</a></li>
- <li><a href="/articles/fda-vs-ema-inspection-dynamics">FDA vs EMA Inspection Dynamics</a></li>
- <li><a href="/articles/fda-warning-letters-patterns">Warning Letter Patterns</a></li>
- <li><a href="/articles/inspection-readiness">Inspection Readiness Deep Dive</a></li>
- </ul>
- </div>
+      <div class="card role-block">
+        <div class="role-name">Inspection Readiness</div>
+        <ul>
+          <li><a href="/articles/fda-inspection-readiness">FDA Inspection Readiness</a></li>
+          <li><a href="/articles/fda-483-response-strategy">483 Response Strategy</a></li>
+          <li><a href="/articles/fda-vs-ema-inspection-dynamics">FDA vs EMA Inspection Dynamics</a></li>
+          <li><a href="/articles/fda-warning-letters-patterns">Warning Letter Patterns</a></li>
+          <li><a href="/articles/inspection-readiness">Inspection Readiness Deep Dive</a></li>
+        </ul>
+      </div>
 
- <div class="role-block">
- <div class="role-name">Equipment / Instrument Qualification</div>
- <ul>
- <li><a href="/articles/analytical-instrument-qualification">Analytical Instrument Qualification</a></li>
- <li><a href="/articles/equipment-qualification-lifecycle">Equipment Qualification Lifecycle</a></li>
- <li><a href="/articles/method-validation-essentials">Method Validation: ICH Q2(R2)</a></li>
- <li><a href="/articles/analytical-method-transfer">Analytical Method Transfer</a></li>
- <li><a href="/articles/equipment-qualification-audit-checklist">Equipment Qualification Audit</a></li>
- </ul>
- </div>
+      <div class="card role-block">
+        <div class="role-name">Equipment / Instrument Qualification</div>
+        <ul>
+          <li><a href="/articles/analytical-instrument-qualification">Analytical Instrument Qualification</a></li>
+          <li><a href="/articles/equipment-qualification-lifecycle">Equipment Qualification Lifecycle</a></li>
+          <li><a href="/articles/method-validation-essentials">Method Validation: ICH Q2(R2)</a></li>
+          <li><a href="/articles/analytical-method-transfer">Analytical Method Transfer</a></li>
+          <li><a href="/articles/equipment-qualification-audit-checklist">Equipment Qualification Audit</a></li>
+        </ul>
+      </div>
 
- <div class="role-block">
- <div class="role-name">Clinical Quality Assurance</div>
- <ul>
- <li><a href="/articles/clinical-qa-gcp-data-integrity">Clinical QA: GCP Data Integrity</a></li>
- <li><a href="/articles/bla-readiness-data-package">BLA Readiness Data Package</a></li>
- <li><a href="/articles/21-cfr-part-11-eu-annex-11">21 CFR Part 11 and EU Annex 11</a></li>
- </ul>
- </div>
+      <div class="card role-block">
+        <div class="role-name">Clinical Quality Assurance</div>
+        <ul>
+          <li><a href="/articles/clinical-qa-gcp-data-integrity">Clinical QA: GCP Data Integrity</a></li>
+          <li><a href="/articles/bla-readiness-data-package">BLA Readiness Data Package</a></li>
+          <li><a href="/articles/21-cfr-part-11-eu-annex-11">21 CFR Part 11 and EU Annex 11</a></li>
+        </ul>
+      </div>
 
- <div class="role-block">
- <div class="role-name">Manufacturing / Automation</div>
- <ul>
- <li><a href="/articles/mes-ebr-scada-data-integrity">MES, EBR, SCADA Data Integrity</a></li>
- <li><a href="/articles/gxp-manufacturing-systems">GxP Manufacturing Systems</a></li>
- <li><a href="/articles/gxp-computerized-systems-operations">Computerized Systems: Post-Go-Live Operations</a></li>
- </ul>
- </div>
+      <div class="card role-block">
+        <div class="role-name">Manufacturing / Automation</div>
+        <ul>
+          <li><a href="/articles/mes-ebr-scada-data-integrity">MES, EBR, SCADA Data Integrity</a></li>
+          <li><a href="/articles/gxp-manufacturing-systems">GxP Manufacturing Systems</a></li>
+          <li><a href="/articles/gxp-computerized-systems-operations">Computerized Systems: Post-Go-Live Operations</a></li>
+        </ul>
+      </div>
 
- <div class="role-block">
- <div class="role-name">New to the Field / Career Switcher</div>
- <ul>
- <li><a href="/articles/what-is-gmp">What Is GMP?</a></li>
- <li><a href="/articles/gxp-roles-responsibilities">GxP Roles Explained</a></li>
- <li><a href="/articles/gxp-systems-overview">GxP Computerized Systems Overview</a></li>
- <li><a href="/articles/breaking-into-gxp-quality">Breaking Into GxP Quality</a></li>
- <li><a href="/articles/career-guide-gxp-validation">Career Guide: GxP and Validation</a></li>
- </ul>
- </div>
+      <div class="card role-block">
+        <div class="role-name">New to the Field / Career Switcher</div>
+        <ul>
+          <li><a href="/articles/what-is-gmp">What Is GMP?</a></li>
+          <li><a href="/articles/gxp-roles-responsibilities">GxP Roles Explained</a></li>
+          <li><a href="/articles/gxp-systems-overview">GxP Computerized Systems Overview</a></li>
+          <li><a href="/articles/breaking-into-gxp-quality">Breaking Into GxP Quality</a></li>
+          <li><a href="/articles/career-guide-gxp-validation">Career Guide: GxP and Validation</a></li>
+        </ul>
+      </div>
 
- </div>
- </section>
+    </div>
+  </section>
 
- <!-- What This Site Is -->
- <section class="what-section">
- <div class="section-label">About This Platform</div>
- <h2 class="section-title">What this site is, and is not</h2>
- <div class="what-grid">
- <div class="what-col">
- <div class="what-heading is-heading">What it is</div>
- <ul class="what-list">
- <li>Free, public educational content on GxP quality and data integrity</li>
- <li>Based on publicly available regulatory guidance, laws, and standards</li>
- <li>Written at three levels: beginner, intermediate, and advanced</li>
- <li>Structured learning paths with specific recommended reading sequences</li>
- <li>Interactive tools, checklists, decision aids, error simulators</li>
- <li>Practical framing: what to do, why, what can go wrong, what regulators care about</li>
- <li>Content distinguishes between legal requirements, regulatory expectations, and best practices</li>
- </ul>
- </div>
- <div class="what-col">
- <div class="what-heading not-heading">What it is not</div>
- <ul class="what-list not-list">
- <li>Not legal or regulatory advice, do not rely on it as a substitute for qualified consultation</li>
- <li>Not a guarantee that following any content will satisfy regulatory requirements</li>
- <li>Not company-specific, all content uses generic, public examples</li>
- <li>Not always current, regulatory guidance evolves; always verify against primary sources</li>
- <li>Not a template repository, content here requires adaptation to your context</li>
- <li>Not affiliated with any regulatory agency, pharmaceutical company, or trade association</li>
- </ul>
- </div>
- </div>
- </section>
+  <!-- What This Site Is -->
+  <section class="section what-section">
+    <div class="section-label">About This Platform</div>
+    <h2 class="section-title">What this site is, and is not</h2>
+    <div class="what-grid">
+      <div class="card what-col">
+        <div class="what-heading is-heading">What it is</div>
+        <ul class="what-list">
+          <li>Free, public educational content on GxP quality and data integrity</li>
+          <li>Based on publicly available regulatory guidance, laws, and standards</li>
+          <li>Written at three levels: beginner, intermediate, and advanced</li>
+          <li>Structured learning paths with specific recommended reading sequences</li>
+          <li>Interactive tools, checklists, decision aids, error simulators</li>
+          <li>Practical framing: what to do, why, what can go wrong, what regulators care about</li>
+          <li>Content distinguishes between legal requirements, regulatory expectations, and best practices</li>
+        </ul>
+      </div>
+      <div class="card what-col">
+        <div class="what-heading not-heading">What it is not</div>
+        <ul class="what-list not-list">
+          <li>Not legal or regulatory advice, do not rely on it as a substitute for qualified consultation</li>
+          <li>Not a guarantee that following any content will satisfy regulatory requirements</li>
+          <li>Not company-specific, all content uses generic, public examples</li>
+          <li>Not always current, regulatory guidance evolves; always verify against primary sources</li>
+          <li>Not a template repository, content here requires adaptation to your context</li>
+          <li>Not affiliated with any regulatory agency, pharmaceutical company, or trade association</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
- <!-- Quick Reference -->
- <section class="quick-ref">
- <div class="section-label">Quick Reference</div>
- <h2 class="section-title">Most useful pages</h2>
- <div class="quick-grid">
- <a href="/tracks" class="quick-card">
- <div class="quick-icon">◎</div>
- <div class="quick-body">
- <div class="quick-title">Learning Tracks</div>
- <div class="quick-desc">Structured 9-14 step sequences for Foundations, Implementation, and Advanced levels</div>
- </div>
- </a>
- <a href="/learning-paths" class="quick-card">
- <div class="quick-icon">◈</div>
- <div class="quick-body">
- <div class="quick-title">7-Day Learning Paths</div>
- <div class="quick-desc">Day-by-day plans with specific tasks, success criteria, and practical outputs</div>
- </div>
- </a>
- <a href="/scenarios" class="quick-card">
- <div class="quick-icon">◇</div>
- <div class="quick-body">
- <div class="quick-title">Error Simulator</div>
- <div class="quick-desc">Real GxP scenarios where you make decisions. Wrong answers are shown, learn from them.</div>
- </div>
- </a>
- <a href="/glossary" class="quick-card">
- <div class="quick-icon">■</div>
- <div class="quick-body">
- <div class="quick-title">Glossary</div>
- <div class="quick-desc">Plain-language definitions for 70+ GxP, DI, CSV, and quality terms</div>
- </div>
- </a>
- <a href="/tools" class="quick-card">
- <div class="quick-icon">▣</div>
- <div class="quick-body">
- <div class="quick-title">Tools and Checklists</div>
- <div class="quick-desc">Interactive ALCOA+ assessment, GAMP category decision aid, 483 completeness check</div>
- </div>
- </a>
- <a href="/regulatory-refs" class="quick-card">
- <div class="quick-icon">▦</div>
- <div class="quick-body">
- <div class="quick-title">Regulatory References</div>
- <div class="quick-desc">Curated index of FDA, EMA, MHRA, ICH, PIC/S, and WHO guidance relevant to GxP quality</div>
- </div>
- </a>
- </div>
- </section>
+  <!-- Quick Reference -->
+  <section class="section quick-ref">
+    <div class="section-label">Quick Reference</div>
+    <h2 class="section-title">Most useful pages</h2>
+    <div class="quick-grid">
+      <a href="/tracks" class="card quick-card">
+        <div class="quick-icon">◎</div>
+        <div class="quick-body">
+          <div class="quick-title">Learning Tracks</div>
+          <div class="quick-desc">Structured 9-14 step sequences for Foundations, Implementation, and Advanced levels</div>
+        </div>
+      </a>
+      <a href="/learning-paths" class="card quick-card">
+        <div class="quick-icon">◈</div>
+        <div class="quick-body">
+          <div class="quick-title">7-Day Learning Paths</div>
+          <div class="quick-desc">Day-by-day plans with specific tasks, success criteria, and practical outputs</div>
+        </div>
+      </a>
+      <a href="/scenarios" class="card quick-card">
+        <div class="quick-icon">◇</div>
+        <div class="quick-body">
+          <div class="quick-title">Error Simulator</div>
+          <div class="quick-desc">Real GxP scenarios where you make decisions. Wrong answers are shown, learn from them.</div>
+        </div>
+      </a>
+      <a href="/glossary" class="card quick-card">
+        <div class="quick-icon">■</div>
+        <div class="quick-body">
+          <div class="quick-title">Glossary</div>
+          <div class="quick-desc">Plain-language definitions for 70+ GxP, DI, CSV, and quality terms</div>
+        </div>
+      </a>
+      <a href="/tools" class="card quick-card">
+        <div class="quick-icon">▣</div>
+        <div class="quick-body">
+          <div class="quick-title">Tools and Checklists</div>
+          <div class="quick-desc">Interactive ALCOA+ assessment, GAMP category decision aid, 483 completeness check</div>
+        </div>
+      </a>
+      <a href="/regulatory-refs" class="card quick-card">
+        <div class="quick-icon">▦</div>
+        <div class="quick-body">
+          <div class="quick-title">Regulatory References</div>
+          <div class="quick-desc">Curated index of FDA, EMA, MHRA, ICH, PIC/S, and WHO guidance relevant to GxP quality</div>
+        </div>
+      </a>
+    </div>
+  </section>
 
 </Layout>
 
 <style>
- .start-hero {
- padding: 4rem 0 3.5rem;
- border-bottom: 1px solid var(--border-dim);
- margin-bottom: 4rem;
- }
+  /* ── Hero ── */
+  .start-hero {
+    padding: 4rem 0 3.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 4.5rem;
+  }
 
- .start-hero-inner { max-width: 720px; }
+  .start-hero-inner { max-width: 720px; }
 
- .start-badge {
- display: inline-block;
- font-size: 0.72rem;
- font-family: var(--mono);
- color: var(--green);
- background: rgba(52, 211, 153, 0.1);
- border: 1px solid rgba(52, 211, 153, 0.2);
- padding: 0.3rem 0.8rem;
- border-radius: 999px;
- margin-bottom: 1.5rem;
- letter-spacing: 0.06em;
- text-transform: uppercase;
- font-weight: 600;
- }
+  .start-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--brass);
+    background: var(--brass-soft);
+    border: 1px solid var(--line-2);
+    padding: 0.28rem 0.65rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
 
- .start-hero h1 {
- font-size: clamp(2.5rem, 6vw, 4rem);
- letter-spacing: -0.04em;
- margin-bottom: 1.25rem;
- }
+  .start-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.6rem);
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+    line-height: 1.08;
+  }
 
- .start-sub {
- font-size: 1.05rem;
- color: var(--muted-light);
- line-height: 1.7;
- max-width: 620px;
- margin-bottom: 1rem;
- }
+  .start-sub {
+    max-width: 620px;
+    margin-bottom: 1.25rem;
+  }
 
- .zero-agenda {
- font-size: 0.825rem;
- color: var(--muted);
- line-height: 1.65;
- max-width: 600px;
- margin-bottom: 2rem;
- font-style: italic;
- }
+  .zero-agenda {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 2.25rem;
+    font-style: italic;
+  }
 
- .feedback-link {
- color: var(--accent);
- text-decoration: underline;
- text-underline-offset: 2px;
- }
+  .feedback-link {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: var(--brass);
+  }
 
- .feedback-link:hover { color: var(--accent-h); }
+  .feedback-link:hover { color: var(--link-h); }
 
- .disclaimer-box {
- background: var(--surface);
- border: 1px solid var(--border);
- border-left: 3px solid var(--amber);
- border-radius: var(--radius);
- padding: 1rem 1.25rem;
- max-width: 680px;
- }
+  .disclaimer-box {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--brass);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.4rem;
+    max-width: 680px;
+  }
 
- .disclaimer-label {
- font-size: 0.68rem;
- font-family: var(--mono);
- text-transform: uppercase;
- letter-spacing: 0.08em;
- color: var(--amber);
- font-weight: 700;
- margin-bottom: 0.4rem;
- }
+  .disclaimer-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brass);
+    font-weight: 600;
+    margin-bottom: 0.45rem;
+  }
 
- .disclaimer-box p {
- font-size: 0.8rem;
- color: var(--muted);
- line-height: 1.6;
- margin: 0;
- }
+  .disclaimer-box p {
+    font-size: 0.85rem;
+    color: var(--body);
+    line-height: 1.65;
+    margin: 0;
+  }
 
- /* Section common */
- section { margin-bottom: 5rem; }
+  /* ── Where section ── */
+  .where-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
 
- .section-label {
- font-size: 0.72rem;
- font-family: var(--mono);
- color: var(--accent);
- text-transform: uppercase;
- letter-spacing: 0.1em;
- font-weight: 700;
- margin-bottom: 0.6rem;
- }
+  .where-card {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
- .section-title {
- font-size: 1.75rem;
- letter-spacing: -0.03em;
- margin-bottom: 1.5rem;
- }
+  .where-card .tier-badge { align-self: flex-start; }
 
- /* Where section */
- .where-grid {
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 1.25rem;
- }
+  .where-card h3 { font-size: 1.2rem; color: var(--ink); }
 
- .where-card {
- background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 14px;
- padding: 1.75rem;
- display: flex;
- flex-direction: column;
- gap: 0.75rem;
- }
+  .where-card p {
+    font-size: 0.9rem;
+    color: var(--body);
+    line-height: 1.6;
+    margin: 0;
+  }
 
- .where-level {
- font-size: 0.68rem;
- font-family: var(--mono);
- font-weight: 700;
- text-transform: uppercase;
- letter-spacing: 0.08em;
- padding: 0.2rem 0.6rem;
- border-radius: 999px;
- align-self: flex-start;
- }
+  .where-start {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.5rem;
+  }
 
- .beginner-color { background: rgba(248, 113, 113, 0.1); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
- .intermediate-color { background: rgba(52, 211, 153, 0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
- .advanced-color { background: rgba(167, 139, 250, 0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.2); }
+  .where-list {
+    padding-left: 1.2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
 
- .where-card h3 { font-size: 1rem; color: var(--text); }
+  .where-list li { color: var(--body); }
+  .where-list li a { font-size: 0.875rem; color: var(--body); }
+  .where-list li a:hover { color: var(--link); }
 
- .where-card p {
- font-size: 0.85rem;
- color: var(--muted);
- line-height: 1.6;
- margin: 0;
- }
+  .where-btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.55rem 1rem;
+    border: 1px solid;
+    border-radius: var(--radius);
+    margin-top: auto;
+    transition: background 0.15s;
+    background: var(--surface);
+  }
 
- .where-start {
- font-size: 0.72rem;
- font-family: var(--mono);
- color: var(--muted);
- text-transform: uppercase;
- letter-spacing: 0.06em;
- margin-top: 0.25rem;
- }
+  .where-btn:hover { background: var(--paper-2); }
 
- .where-list {
- padding-left: 1.2rem;
- margin: 0;
- display: flex;
- flex-direction: column;
- gap: 0.35rem;
- }
+  /* ── Role section ── */
+  .role-intro {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
 
- .where-list li { color: var(--muted-light); }
- .where-list li a { font-size: 0.85rem; color: var(--muted-light); }
- .where-list li a:hover { color: var(--accent); }
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
 
- .where-btn {
- display: inline-flex;
- align-items: center;
- font-size: 0.8rem;
- font-weight: 600;
- padding: 0.5rem 1rem;
- border-radius: 7px;
- margin-top: 0.5rem;
- transition: opacity 0.15s;
- }
+  .role-block { padding: 1.35rem 1.5rem; }
 
- .beginner-btn { background: rgba(248,113,113,0.12); color: #f87171; }
- .intermediate-btn { background: rgba(52,211,153,0.12); color: #34d399; }
- .advanced-btn { background: rgba(167,139,250,0.12); color: #a78bfa; }
- .where-btn:hover { opacity: 0.8; color: inherit; }
+  .role-name {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--brass);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+  }
 
- /* Role section */
- .role-intro {
- color: var(--muted-light);
- margin-bottom: 2rem;
- font-size: 0.95rem;
- }
+  .role-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
 
- .role-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
- gap: 1rem;
- }
+  .role-block ul li { margin: 0; }
+  .role-block ul li::marker { content: none; }
 
- .role-block {
- background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 12px;
- padding: 1.25rem 1.5rem;
- transition: border-color 0.15s;
- }
+  .role-block ul li a {
+    font-size: 0.85rem;
+    color: var(--body);
+    line-height: 1.45;
+  }
 
- .role-block:hover { border-color: var(--accent); }
+  .role-block ul li a:hover { color: var(--link); }
 
- .role-name {
- font-size: 0.78rem;
- font-family: var(--mono);
- color: var(--accent);
- text-transform: uppercase;
- letter-spacing: 0.07em;
- font-weight: 700;
- margin-bottom: 0.75rem;
- }
+  /* ── What section ── */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
 
- .role-block ul {
- list-style: none;
- padding: 0;
- margin: 0;
- display: flex;
- flex-direction: column;
- gap: 0.3rem;
- }
+  .what-col { padding: 1.5rem 1.65rem; }
 
- .role-block ul li a {
- font-size: 0.82rem;
- color: var(--muted-light);
- line-height: 1.4;
- }
+  .what-heading {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
 
- .role-block ul li a:hover { color: var(--accent); }
+  .is-heading { color: var(--green); }
+  .not-heading { color: #7A3B57; }
 
- /* What section */
- .what-grid {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 1.5rem;
- }
+  .what-list {
+    padding-left: 1.2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
 
- .what-col {
- background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 12px;
- padding: 1.5rem;
- }
+  .what-list li { font-size: 0.875rem; color: var(--body); line-height: 1.55; }
+  .not-list li { color: var(--muted); }
 
- .what-heading {
- font-size: 0.75rem;
- font-family: var(--mono);
- font-weight: 700;
- text-transform: uppercase;
- letter-spacing: 0.08em;
- margin-bottom: 1rem;
- }
+  /* ── Quick ref ── */
+  .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
 
- .is-heading { color: var(--green); }
- .not-heading { color: #f87171; }
+  .quick-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.35rem;
+    color: inherit;
+  }
 
- .what-list {
- padding-left: 1.2rem;
- margin: 0;
- display: flex;
- flex-direction: column;
- gap: 0.5rem;
- }
+  .quick-card:hover { color: inherit; }
 
- .what-list li { font-size: 0.85rem; color: var(--muted-light); line-height: 1.55; }
- .not-list li { color: var(--muted); }
+  .quick-icon {
+    font-size: 1.05rem;
+    color: var(--brass);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
 
- /* Quick ref */
- .quick-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
- gap: 1rem;
- }
+  .quick-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
 
- .quick-card {
- display: flex;
- gap: 1rem;
- align-items: flex-start;
- background: var(--surface);
- border: 1px solid var(--border);
- border-radius: 12px;
- padding: 1.25rem;
- transition: border-color 0.2s, transform 0.15s;
- color: inherit;
- }
+  .quick-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
 
- .quick-card:hover {
- border-color: var(--accent);
- transform: translateY(-2px);
- color: inherit;
- }
+  @media (max-width: 900px) {
+    .where-grid { grid-template-columns: 1fr; }
+    .what-grid { grid-template-columns: 1fr; }
+  }
 
- .quick-icon {
- font-size: 1rem;
- color: var(--accent);
- flex-shrink: 0;
- margin-top: 0.1rem;
- font-weight: 700;
- }
-
- .quick-title {
- font-size: 0.9rem;
- font-weight: 600;
- color: var(--text);
- margin-bottom: 0.3rem;
- }
-
- .quick-desc {
- font-size: 0.8rem;
- color: var(--muted);
- line-height: 1.55;
- }
-
- @media (max-width: 900px) {
- .where-grid { grid-template-columns: 1fr; }
- .what-grid { grid-template-columns: 1fr; }
- }
-
- @media (max-width: 600px) {
- .role-grid { grid-template-columns: 1fr; }
- .quick-grid { grid-template-columns: 1fr; }
- }
+  @media (max-width: 600px) {
+    .role-grid { grid-template-columns: 1fr; }
+    .quick-grid { grid-template-columns: 1fr; }
+    .start-hero { padding: 2.5rem 0 3rem; }
+  }
 </style>
