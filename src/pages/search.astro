@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const total = (await getCollection('articles', ({ data }) => !data.draft)).length;
+---
+<Layout title="Search" description={`Search ${total} articles on data integrity, computerized system validation, GxP quality, sterility, devices, clinical, and supply chain.`} wide={true}>
+  <header class="srch-hero">
+    <div class="wrap srch-inner">
+      <nav class="crumb"><a href="/">Home</a> <span>›</span> Search</nav>
+      <span class="overline" style="color:#ffd98a">{total} articles, free to read</span>
+      <h1 class="srch-h1">Search the reference</h1>
+      <div class="srch-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input id="q" type="search" placeholder="Search by topic, regulation, deliverable, or keyword" autocomplete="off" autofocus aria-label="Search articles" />
+      </div>
+      <p id="srch-status" class="srch-status">Type to search across titles, summaries, tags, and section headings.</p>
+    </div>
+  </header>
+  <div class="wrap srch-results-wrap">
+    <div id="results" class="srch-results"></div>
+  </div>
+</Layout>
+
+<style>
+  .srch-hero { background: var(--navy); color: #fff; }
+  .srch-inner { padding: 3.2rem 0 2.6rem; }
+  .crumb { font-size: 0.82rem; color: var(--on-navy-dim); margin-bottom: 1.1rem; } .crumb a { color: var(--on-navy-dim); } .crumb a:hover { color:#fff; } .crumb span { opacity:.6; margin:0 3px; }
+  .srch-h1 { color:#fff; font-size: clamp(2rem, 4vw, 3rem); margin: 8px 0 22px; letter-spacing:-0.025em; }
+  .srch-box { display:flex; align-items:center; gap:12px; background:#fff; border-radius:6px; padding: 4px 16px; max-width: 720px; box-shadow: 0 10px 30px -16px rgba(0,0,0,0.5); }
+  .srch-box svg { color: var(--blue); flex:none; }
+  .srch-box input { border:none; outline:none; width:100%; font-family:var(--sans); font-size:1.1rem; padding: 14px 0; color: var(--ink); background:transparent; }
+  .srch-status { color: var(--on-navy-dim); font-size:0.9rem; margin-top:14px; }
+  .srch-results-wrap { padding: 40px 28px 20px; }
+  .srch-results { display:flex; flex-direction:column; max-width: 860px; }
+  .sr-item { display:block; padding: 20px 0; border-top: 1px solid var(--line); }
+  .sr-item:first-child { border-top: 2px solid var(--navy); }
+  .sr-item:hover { text-decoration:none; padding-left: 6px; transition: padding-left .12s; }
+  .sr-top { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .sr-pill { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#fff; background:var(--blue); padding:3px 9px; border-radius:3px; }
+  .sr-tier { font-size:0.72rem; color: var(--faint); font-weight:600; }
+  .sr-title { font-size:1.25rem; color: var(--navy); margin:0; }
+  .sr-item:hover .sr-title { color: var(--blue); }
+  .sr-desc { font-size:0.96rem; color: var(--muted); margin-top:4px; max-width: 70ch; }
+  .sr-empty { color: var(--muted); font-size:1.05rem; padding: 10px 0; }
+</style>
+
+<script is:inline src="/search-core.js"></script>
+<script is:inline>
+  (function () {
+    var input = document.getElementById('q');
+    var results = document.getElementById('results');
+    var status = document.getElementById('srch-status');
+    function esc(s){ return (s||'').replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function render(items, q) {
+      if (!q) { results.innerHTML = ''; status.textContent = 'Type to search across titles, summaries, tags, and section headings.'; return; }
+      if (!items.length) { results.innerHTML = '<p class="sr-empty">No matches for "' + esc(q) + '". Try a broader term, an acronym, or a regulation number.</p>'; status.textContent = '0 results'; return; }
+      status.textContent = items.length + (items.length === 1 ? ' result' : ' results');
+      results.innerHTML = items.map(function (it) {
+        return '<a class="sr-item" href="' + it.u + '">' +
+          '<div class="sr-top"><span class="sr-pill">' + esc(it.pn || it.p) + '</span>' + (it.tier ? '<span class="sr-tier">' + esc(it.tier) + '</span>' : '') + '</div>' +
+          '<h2 class="sr-title">' + esc(it.t) + '</h2>' +
+          '<p class="sr-desc">' + esc(it.d) + '</p></a>';
+      }).join('');
+    }
+    var t;
+    function run() {
+      var q = input.value.trim();
+      window.MSearch.query(q, 40).then(function (items) { render(items, q); });
+    }
+    input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(run, 90); });
+    // deep link ?q=
+    var params = new URLSearchParams(location.search);
+    var q0 = params.get('q');
+    if (q0) { input.value = q0; run(); }
+    window.MSearch.load();
+  })();
+</script>
