@@ -2,150 +2,160 @@
 import Layout from './Layout.astro';
 
 interface Props {
- title: string;
- description: string;
- pubDate: Date;
- tags: string[];
- tier?: string;
- pillar?: string;
- body?: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags: string[];
+  tier?: string;
+  pillar?: string;
+  body?: string;
 }
 
 const { title, description, pubDate, tags, tier, pillar, body = '' } = Astro.props;
 
 const tierColors: Record<string, string> = {
- Beginner: '#3C6B4A',
- Intermediate: '#B26B1E',
- Advanced: '#7A2E23',
+  Beginner: '#0f7a52',
+  Intermediate: '#005ea2',
+  Advanced: '#0b2e4f',
 };
 
 const pillarNames: Record<string, string> = {
- 'data-integrity': 'Data Integrity',
- 'csv-csa': 'CSV / CSA',
- 'equipment-qualification': 'Equipment Qualification',
- 'quality-assurance': 'Quality Assurance',
- 'audits-inspection': 'Audits & Inspection',
- 'cell-gene-therapy': 'Cell & Gene Therapy',
- 'manufacturing-automation': 'Manufacturing Automation',
- 'ai-automation': 'AI & Automation',
+  'data-integrity': 'Data Integrity',
+  'csv-csa': 'CSV / CSA',
+  'equipment-qualification': 'Equipment Qualification',
+  'quality-assurance': 'Quality Assurance',
+  'audits-inspection': 'Audits & Inspection',
+  'cell-gene-therapy': 'Cell & Gene Therapy',
+  'manufacturing-automation': 'Manufacturing Automation',
+  'ai-automation': 'AI & Automation',
+  'sterility-microbiology': 'Sterility & Microbiology',
+  'regulatory-affairs': 'Regulatory Affairs',
+  'medical-devices': 'Medical Devices & SaMD',
+  'clinical-gcp': 'Clinical & GCP',
+  'supply-chain-gdp': 'Supply Chain & GDP',
 };
 
 const pillarImg: Record<string, string> = {
- 'data-integrity': '/images/records-review.jpg',
- 'csv-csa': '/images/records-server.jpg',
- 'equipment-qualification': '/images/instrument-bench.jpg',
- 'quality-assurance': '/images/audit-signing.jpg',
- 'audits-inspection': '/images/audit-paperwork.jpg',
- 'cell-gene-therapy': '/images/microscopy-blue.jpg',
- 'manufacturing-automation': '/images/manufacturing-cleanroom.jpg',
- 'ai-automation': '/images/instrument-machine.jpg',
+  'data-integrity': '/images/records-review.jpg',
+  'csv-csa': '/images/records-server.jpg',
+  'equipment-qualification': '/images/instrument-bench.jpg',
+  'quality-assurance': '/images/audit-signing.jpg',
+  'audits-inspection': '/images/audit-paperwork.jpg',
+  'cell-gene-therapy': '/images/microscopy-blue.jpg',
+  'manufacturing-automation': '/images/manufacturing-cleanroom.jpg',
+  'ai-automation': '/images/instrument-machine.jpg',
+  'sterility-microbiology': '/images/microscopy-blue.jpg',
+  'regulatory-affairs': '/images/audit-paperwork.jpg',
+  'medical-devices': '/images/instrument-machine.jpg',
+  'clinical-gcp': '/images/records-review.jpg',
+  'supply-chain-gdp': '/images/manufacturing-cleanroom.jpg',
 };
 const heroImg = (pillar && pillarImg[pillar]) || '/images/lab-beakers.jpg';
 
 const formatted = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 const wordCount = body.split(/\s+/).length;
 const readTime = Math.max(1, Math.ceil(wordCount / 220));
-const tierColor = tier ? (tierColors[tier] ?? '#837B69') : '#837B69';
+const tierColor = tier ? (tierColors[tier] ?? '#565c65') : '#565c65';
 ---
 <Layout title={title} description={description} wide={true}>
- <div class="reading-bar" id="reading-bar"></div>
+  <div class="reading-bar" id="reading-bar"></div>
 
- <header class="art-hero duotone">
- <img src={heroImg} alt="" loading="eager" />
- <div class="art-hero-grad"></div>
- <div class="wrap art-hero-inner">
- <div class="art-hero-eyebrow">
- {pillar && <a href={`/pillars/${pillar}`} class="art-pillar">{pillarNames[pillar] ?? pillar}</a>}
- {tier && <span class="tier-badge" style={`background:${tierColor}; color:#F7F3EA; border-color:${tierColor}`}>{tier}</span>}
- </div>
- <h1 class="art-title">{title}</h1>
- <p class="art-standfirst">{description}</p>
- <div class="art-meta">
- <span>{formatted}</span><span class="sep">/</span><span>{readTime} min read</span>
- {tags.length > 0 && <span class="sep">/</span>}
- {tags.slice(0,4).map((t, i) => (<a href={`/topics#${t}`} class="art-tag">{t}{i < Math.min(tags.length,4)-1 ? ',' : ''}</a>))}
- </div>
- </div>
- </header>
+  <header class="art-hero">
+    <img src={heroImg} alt="" loading="eager" />
+    <div class="art-hero-grad"></div>
+    <div class="wrap art-hero-inner">
+      <nav class="crumb"><a href="/">Home</a> <span>›</span> <a href="/articles">Articles</a>{pillar && <> <span>›</span> <a href={`/pillars/${pillar}`}>{pillarNames[pillar] ?? pillar}</a></>}</nav>
+      <div class="art-hero-eyebrow">
+        {tier && <span class="tier-badge" style={`background:${tierColor}`}>{tier}</span>}
+        {pillar && <a href={`/pillars/${pillar}`} class="art-pillar">{pillarNames[pillar] ?? pillar}</a>}
+      </div>
+      <h1 class="art-title">{title}</h1>
+      <p class="art-standfirst">{description}</p>
+      <div class="art-meta">
+        <span>{formatted}</span><span class="sep">·</span><span>{readTime} min read</span>
+        {tags.length > 0 && <span class="sep">·</span>}
+        {tags.slice(0,4).map((t) => (<a href={`/topics#${t}`} class="art-tag">#{t}</a>))}
+      </div>
+    </div>
+  </header>
 
- <div class="wrap art-shell">
- <article class="art-body prose">
- <slot />
- </article>
-
- <footer class="art-footer">
- <a href="/articles" class="af-link">← All articles</a>
- {pillar && <a href={`/pillars/${pillar}`} class="af-link af-mid">More in {pillarNames[pillar] ?? pillar}</a>}
- <a href="mailto:goutham@madhadi.com" class="af-link">Send feedback →</a>
- </footer>
- </div>
+  <div class="wrap art-shell">
+    <article class="art-body prose"><slot /></article>
+    <footer class="art-footer">
+      <a href="/articles" class="af-link">← All articles</a>
+      {pillar && <a href={`/pillars/${pillar}`} class="af-link af-mid">More in {pillarNames[pillar] ?? pillar} →</a>}
+      <a href="mailto:goutham@madhadi.com" class="af-link">Send feedback</a>
+    </footer>
+  </div>
 </Layout>
 
 <style>
- .reading-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--vermilion); z-index: 200; transition: width 0.08s linear; }
+  .reading-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--blue); z-index: 200; transition: width 0.08s linear; }
 
- /* ── Full-bleed duotone hero ── */
- .art-hero { position: relative; min-height: 60vh; display: flex; align-items: flex-end; border-bottom: 3px solid var(--vermilion); }
- .art-hero > img { position: absolute; inset: 0; }
- .art-hero-grad { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,19,13,0.15) 0%, rgba(22,19,13,0.35) 45%, rgba(22,19,13,0.86) 100%); z-index: 2; }
- .art-hero-inner { position: relative; z-index: 3; padding-top: 5rem; padding-bottom: 3rem; }
+  /* ── Image header with navy overlay ── */
+  .art-hero { position: relative; min-height: 46vh; display: flex; align-items: flex-end; border-bottom: 4px solid var(--gold); background: var(--navy); }
+  .art-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+  .art-hero-grad { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,46,79,0.55) 0%, rgba(11,46,79,0.78) 60%, rgba(11,46,79,0.95) 100%); z-index: 2; }
+  .art-hero-inner { position: relative; z-index: 3; padding-top: 4rem; padding-bottom: 2.6rem; }
 
- .art-hero-eyebrow { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.25rem; }
- .art-pillar { font-family: var(--mono); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: #F2C9B8; }
- .art-pillar:hover { color: #fff; }
+  .crumb { font-size: 0.82rem; color: var(--on-navy-dim); margin-bottom: 1.4rem; }
+  .crumb a { color: var(--on-navy-dim); } .crumb a:hover { color: #fff; } .crumb span { opacity: 0.6; margin: 0 2px; }
+  .art-hero-eyebrow { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.1rem; }
+  .tier-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; padding: 4px 11px; border-radius: 3px; }
+  .art-pillar { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #ffd98a; }
+  .art-pillar:hover { color: #fff; }
 
- .art-title { font-family: var(--display); font-weight: 500; color: var(--on-ink); font-size: clamp(2.2rem, 5.2vw, 4.2rem); line-height: 1.0; letter-spacing: -0.025em; max-width: 18ch; margin-bottom: 1.25rem; }
- .art-standfirst { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--on-ink-dim); font-size: clamp(1.15rem, 2vw, 1.55rem); line-height: 1.4; max-width: 40ch; margin-bottom: 1.5rem; }
- .art-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-family: var(--mono); font-size: 0.74rem; color: var(--on-ink-dim); }
- .art-meta .sep { color: var(--vermilion); }
- .art-tag { color: var(--on-ink-dim); }
- .art-tag:hover { color: #fff; }
+  .art-title { font-family: var(--display); font-weight: 700; color: #fff; font-size: clamp(2rem, 4.4vw, 3.3rem); line-height: 1.08; letter-spacing: -0.025em; max-width: 22ch; margin-bottom: 1.1rem; }
+  .art-standfirst { font-family: var(--serif); font-weight: 400; color: var(--on-navy); font-size: clamp(1.1rem, 1.7vw, 1.4rem); line-height: 1.45; max-width: 46ch; margin-bottom: 1.4rem; }
+  .art-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.55rem; font-size: 0.84rem; color: var(--on-navy-dim); font-weight: 500; }
+  .art-meta .sep { color: var(--gold); }
+  .art-tag { color: var(--on-navy-dim); } .art-tag:hover { color: #fff; }
 
- /* ── Body ── */
- .art-shell { padding-top: 3.5rem; padding-bottom: 5rem; }
- .art-body { max-width: var(--measure); margin: 0 auto; font-size: 1.16rem; line-height: 1.72; color: var(--graphite); }
+  /* ── Body: Newsreader serif for comfortable long-form reading ── */
+  .art-shell { padding-top: 3.2rem; padding-bottom: 4.5rem; }
+  .art-body { max-width: var(--measure); margin: 0 auto; font-family: var(--serif); font-size: 1.2rem; line-height: 1.72; color: #24292e; }
+  .art-body :global(p) { margin-bottom: 1.4rem; }
+  .art-body :global(> p:first-of-type) { font-size: 1.3rem; line-height: 1.6; color: var(--ink); }
+  .art-body :global(h2) { font-family: var(--display); font-weight: 700; font-size: 1.7rem; letter-spacing: -0.02em; line-height: 1.15; margin: 2.8rem 0 1rem; padding-top: 1.6rem; border-top: 1px solid var(--line); color: var(--navy); }
+  .art-body :global(h3) { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin: 2.2rem 0 0.7rem; color: var(--navy); }
+  .art-body :global(h4) { font-family: var(--display); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue); margin: 1.8rem 0 0.5rem; }
+  .art-body :global(ul), .art-body :global(ol) { margin-bottom: 1.4rem; padding-left: 1.4rem; }
+  .art-body :global(li) { margin-bottom: 0.5rem; }
+  .art-body :global(strong) { color: var(--navy); font-weight: 600; }
+  .art-body :global(a) { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+  .art-body :global(a:hover) { color: var(--blue-d); text-decoration-color: var(--blue); }
+  .art-body :global(blockquote) { border-left: 4px solid var(--gold); background: var(--panel); margin: 1.8rem 0; padding: 1rem 1.4rem; font-style: italic; color: var(--ink-2); }
+  .art-body :global(blockquote p:last-child) { margin-bottom: 0; }
+  .art-body :global(table) { width: 100%; border-collapse: collapse; margin: 1.8rem 0; font-family: var(--sans); font-size: 0.96rem; }
+  .art-body :global(th), .art-body :global(td) { border: 1px solid var(--line); padding: 10px 14px; text-align: left; }
+  .art-body :global(th) { background: var(--panel); color: var(--navy); font-weight: 700; }
+  .art-body :global(code) { font-family: var(--mono); font-size: 0.88em; background: var(--panel); padding: 2px 6px; border-radius: 3px; }
+  .art-body :global(hr) { border: none; border-top: 1px solid var(--line); margin: 2.4rem 0; }
 
- .art-body :global(p) { margin-bottom: 1.45rem; }
- .art-body :global(> p:first-of-type)::first-letter {
- font-family: var(--display); font-weight: 500; color: var(--vermilion);
- float: left; font-size: 3.6rem; line-height: 0.72; padding: 0.08em 0.1em 0 0;
- }
- .art-body :global(h2) { font-family: var(--display); font-weight: 500; font-size: 1.85rem; letter-spacing: -0.015em; line-height: 1.1; margin: 3rem 0 1.1rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--ink); }
- .art-body :global(h3) { font-family: var(--display); font-weight: 600; font-size: 1.35rem; margin: 2.4rem 0 0.8rem; color: var(--ink); }
- .art-body :global(h4) { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--vermilion-2); margin: 2rem 0 0.6rem; }
- .art-body :global(ul), .art-body :global(ol) { margin-bottom: 1.45rem; padding-left: 1.4rem; }
- .art-body :global(li) { margin-bottom: 0.5rem; }
- .art-body :global(strong) { color: var(--ink); font-weight: 600; }
- .art-body :global(a) { color: var(--vermilion-2); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
- .art-body :global(a:hover) { color: var(--ink); text-decoration-color: var(--vermilion); }
- .art-body :global(blockquote) { max-width: 100%; }
- .art-body :global(table) { margin: 2rem 0; }
+  .art-footer { max-width: var(--measure); margin: 3.5rem auto 0; padding-top: 1.6rem; border-top: 2px solid var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .af-link { font-size: 0.92rem; font-weight: 700; color: var(--blue); }
+  .af-link:hover { color: var(--blue-d); }
+  .af-mid { color: var(--navy); }
 
- .art-footer { max-width: var(--measure); margin: 4rem auto 0; padding-top: 1.75rem; border-top: 2px solid var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
- .af-link { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--graphite); }
- .af-link:hover { color: var(--vermilion-2); }
- .af-mid { color: var(--vermilion-2); }
-
- @media (max-width: 700px) {
- .art-hero { min-height: 52vh; }
- .art-hero-inner { padding-top: 3rem; }
- .art-body :global(> p:first-of-type)::first-letter { font-size: 2.8rem; }
- .art-footer { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
- }
+  @media (max-width: 700px) {
+    .art-hero { min-height: 40vh; } .art-hero-inner { padding-top: 2.6rem; }
+    .art-body { font-size: 1.12rem; } .art-body :global(> p:first-of-type) { font-size: 1.2rem; }
+    .art-footer { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  }
 </style>
 
 <script is:inline>
- (function () {
- var bar = document.getElementById('reading-bar');
- if (!bar) return;
- function update() {
- var h = document.documentElement;
- var max = h.scrollHeight - h.clientHeight;
- var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
- bar.style.width = Math.min(100, Math.max(0, pct * 100)) + '%';
- }
- window.addEventListener('scroll', update, { passive: true });
- window.addEventListener('resize', update);
- update();
- })();
+  (function () {
+    var bar = document.getElementById('reading-bar');
+    if (!bar) return;
+    function update() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
+      bar.style.width = Math.min(100, Math.max(0, pct * 100)) + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
 </script>
