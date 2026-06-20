@@ -72,14 +72,14 @@ ICH Q1A specifies acceptable time point windows for stability testing. Testing c
 
 | Scheduled time point | Acceptable testing window |
 |---|---|
-| 1 month | 28 days – 35 days |
-| 2 months | 56 days – 63 days |
-| 3 months | 83 days – 97 days |
-| 6 months | 167 days – 195 days |
-| 9 months | 251 days – 289 days |
-| 12 months | 335 days – 385 days |
-| 18 months | 503 days – 567 days |
-| 24 months | 670 days – 730 days |
+| 1 month | 28 days, 35 days |
+| 2 months | 56 days, 63 days |
+| 3 months | 83 days, 97 days |
+| 6 months | 167 days, 195 days |
+| 9 months | 251 days, 289 days |
+| 12 months | 335 days, 385 days |
+| 18 months | 503 days, 567 days |
+| 24 months | 670 days, 730 days |
 
 **Data integrity note:** Samples tested significantly outside the time point window without a deviation, or where the test date has been recorded as the scheduled time point rather than the actual test date, are a stability data integrity problem. Inspectors routinely request the actual test dates from the LIMS and compare them to the stability protocol schedule.
 

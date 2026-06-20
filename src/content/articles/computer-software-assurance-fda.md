@@ -89,7 +89,7 @@ The CSA guidance is now final FDA guidance, which means inspectors are expected 
 
 **Unscripted testing documentation remains judgment-dependent.** The guidance endorses unscripted and exploratory testing for lower-risk functions but doesn't mandate a specific record format. In practice, a written test summary, what functions were explored, what the tester was looking for, what was found, and a statement that the system met expectations, is the minimum defensible record. Some organizations use screen recordings for specific functions. Others use structured exploratory test templates. All of these are defensible if they demonstrate purposeful, documented testing rather than ad hoc activity with no record.
 
-**The transition for legacy validation programs.** If your organization has established procedures that require comprehensive scripted testing for all functions regardless of risk, those procedures need updating to reflect CSA expectations. An SOP that requires 100% scripted OQ coverage for all Category 4 systems is now out of step with FDA expectations, and more importantly, it creates compliance overhead that doesn't add assurance value. Update validation master plans, validation SOPs, and qualification approach templates to incorporate risk-based scope decisions with documented rationale.
+**The transition for legacy validation programs.** If your organization has established procedures that require complete scripted testing for all functions regardless of risk, those procedures need updating to reflect CSA expectations. An SOP that requires 100% scripted OQ coverage for all Category 4 systems is now out of step with FDA expectations, and more importantly, it creates compliance overhead that doesn't add assurance value. Update validation master plans, validation SOPs, and qualification approach templates to incorporate risk-based scope decisions with documented rationale.
 
 My view: apply CSA principles fully for new validations and system upgrades. For existing validated systems, a retrospective risk assessment determining which functions actually warranted scripted testing is reasonable documentation of CSA alignment, you don't need to re-execute testing that was already done, but documenting the risk logic ties your historical validation to the current guidance framework.
 
@@ -99,7 +99,7 @@ My view: apply CSA principles fully for new validations and system upgrades. For
 
 | Dimension | Traditional CSV | CSA-Informed Approach |
 |---|---|---|
-| Testing scope | All functions, comprehensive scripts | Risk-stratified; scripted for critical, exploratory/vendor evidence for lower-risk |
+| Testing scope | All functions, complete scripts | Risk-stratified; scripted for critical, exploratory/vendor evidence for lower-risk |
 | Documentation volume | High (binder per system) | Lower, focused on critical functions |
 | Supplier evidence | Supplementary | Can reduce site testing scope |
 | Regulatory basis | FDA Part 11, GAMP 5 first ed | FDA Part 11, GAMP 5 second ed, CSA final (Feb 2026) |

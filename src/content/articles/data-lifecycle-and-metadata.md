@@ -95,7 +95,7 @@ Verification methods include:
 
 Retention is where a lot of programs have quiet failures that don't surface until an inspection, or until someone tries to retrieve a record years later.
 
-**Retention periods:** 21 CFR 211.180 requires that records be retained "for at least 1 year after the expiration date of the batch." For stability records, the retention period extends further. For records related to a New Drug Application or Biologics License Application, retention requirements are defined in the respective regulations. Many companies standardize on longer periods (15–25 years for commercial products) to avoid having to track product-specific expiry dates.
+**Retention periods:** 21 CFR 211.180 requires that records be retained "for at least 1 year after the expiration date of the batch." For stability records, the retention period extends further. For records related to a New Drug Application or Biologics License Application, retention requirements are defined in the respective regulations. Many companies standardize on longer periods (15-25 years for commercial products) to avoid having to track product-specific expiry dates.
 
 **Retention media and format:** Records must remain legible and retrievable throughout the retention period. This creates specific obligations:
 

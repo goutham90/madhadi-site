@@ -182,7 +182,7 @@ Returning a batch record for correction before review prevents the review from b
 
 ## Review by exception in automated manufacturing
 
-In manufacturing operations with comprehensive automated data capture, reviewing every data point manually is not always practical or value-adding. Review by exception focuses reviewer attention on:
+In manufacturing operations with complete automated data capture, reviewing every data point manually is not always practical or value-adding. Review by exception focuses reviewer attention on:
 
 - Parameters that approached or exceeded limits
 - Steps that took longer or shorter than expected

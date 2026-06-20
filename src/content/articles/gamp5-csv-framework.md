@@ -127,7 +127,7 @@ Supplier assessment typically includes:
 - Review of the system's regulatory compliance documentation (Part 11 assessment, EU Annex 11 considerations)
 - Audit of the vendor's facilities (for high-risk, custom systems)
 
-The outcome of the supplier assessment affects the validation plan: a mature supplier with strong documentation can justify reducing redundant testing at the site level. A supplier with limited quality management documentation requires more comprehensive site-level testing to compensate.
+The outcome of the supplier assessment affects the validation plan: a mature supplier with strong documentation can justify reducing redundant testing at the site level. A supplier with limited quality management documentation requires more complete site-level testing to compensate.
 
 ---
 

@@ -55,7 +55,7 @@ The output is a flagged set of entries for QA investigation. The flagging is not
 
 ## What Doesn't Work (Yet)
 
-**Automated narrative generation for batch records**: LLMs generate plausible-sounding text, but in a batch record, every sentence has to be traceable to actual data. The hallucination risk is too high for this use case without a robust retrieval and verification layer. Not there yet.
+**Automated narrative generation for batch records**: LLMs generate plausible-sounding text, but in a batch record, every sentence has to be traceable to actual data. The hallucination risk is too high for this use case without a solid retrieval and verification layer. Not there yet.
 
 **Predictive CAPA effectiveness**: the idea of predicting whether a CAPA will be effective before it's closed is interesting but requires more structured historical data than most organizations have in a clean, queryable form.
 

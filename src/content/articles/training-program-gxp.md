@@ -39,7 +39,7 @@ Role-based training assigns a core curriculum to every person in a given role. E
 
 Task-based training assigns specific documents only to people who perform specific tasks. Not every QC analyst runs every test method. The HPLC analyst is trained on the HPLC methods; the microbiologist is trained on the micro methods.
 
-Most systems use a combination: a core curriculum by role, supplemented by task-specific training requirements. The training matrix must be comprehensive enough that a supervisor can tell, at any point, whether a given employee is qualified to perform a given task.
+Most systems use a combination: a core curriculum by role, supplemented by task-specific training requirements. The training matrix must be complete enough that a supervisor can tell, at any point, whether a given employee is qualified to perform a given task.
 
 ---
 

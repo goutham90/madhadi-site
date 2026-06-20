@@ -93,7 +93,7 @@ Data integrity is not a separate compliance obligation sitting outside the quali
 - **Change management** only works if the current validated state of systems is documented and maintained.
 - **Management review** only works if the quality data reviewed is trustworthy.
 
-A quality system that has comprehensive SOPs, active CAPA processes, and thorough management reviews, but runs on unreliable data from unvalidated systems with inadequate audit trails, is a system that looks good on paper but isn't actually managing quality. This is why FDA inspectors routinely pursue data integrity findings even at companies with otherwise functional QMS programs.
+A quality system that has complete SOPs, active CAPA processes, and thorough management reviews, but runs on unreliable data from unvalidated systems with inadequate audit trails, is a system that looks good on paper but isn't actually managing quality. This is why FDA inspectors routinely pursue data integrity findings even at companies with otherwise functional QMS programs.
 
 ---
 

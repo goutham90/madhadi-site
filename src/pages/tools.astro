@@ -271,7 +271,7 @@ const tierColors: Record<string, string> = {
  if (labelEl) {
  if (checked === 0) labelEl.textContent = 'Not assessed';
  else if (checked === total) labelEl.textContent = 'All principles satisfied';
- else labelEl.textContent = pct + '% — ' + (total - checked) + ' gap(s) remain';
+ else labelEl.textContent = pct + '%, ' + (total - checked) + ' gap(s) remain';
  }
  fill.style.background = checked === total ? '#3C6B4A' : checked >= total * 0.7 ? '#CB4B2A' : '#B26B1E';
  }

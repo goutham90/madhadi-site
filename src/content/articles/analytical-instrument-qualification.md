@@ -130,7 +130,7 @@ Both are required. Calibration alone is not qualification. Qualification that do
 
 ## Practical Qualification Program Management
 
-For a laboratory with 30–50 analytical instruments spanning Groups A, B, and C, qualification program management requires:
+For a laboratory with 30-50 analytical instruments spanning Groups A, B, and C, qualification program management requires:
 
 1. **An instrument inventory**, every instrument with its group classification, current qualification status, and scheduled requalification dates
 2. **Qualification protocols and reports** organized by instrument, with current versions easily locatable

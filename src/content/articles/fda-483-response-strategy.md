@@ -39,7 +39,7 @@ A well-structured 483 response follows a consistent format for each observation:
 State that the observation has been reviewed and is understood. Do not argue with the inspector's characterization of the finding at this stage. If you disagree with an observation, this can be addressed later in the response process, but opening with a challenge typically damages the relationship without improving the outcome.
 
 **2. Root cause analysis**
-The most important section. Describe the investigation that was conducted, who was involved, what information was reviewed, and the root cause identified. A robust root cause investigation:
+The most important section. Describe the investigation that was conducted, who was involved, what information was reviewed, and the root cause identified. A solid root cause investigation:
 - Uses a structured methodology (5 Whys, fishbone/Ishikawa, or another defined approach)
 - Produces a root cause that is specific, actionable, and directly connected to the observation
 - Distinguishes between the immediate cause (what failed), the contributing causes (why the immediate cause occurred), and the root cause (why the contributing causes existed)
@@ -90,11 +90,11 @@ A CAPA that addresses only the specific system, "we have reconfigured the audit 
 One of the most common mistakes in 483 responses is committing to aggressive timelines that can't be met. FDA tracks commitments. When a commitment is missed, the response to the missed commitment requires explanation, and the failure to execute on commitments is itself an observation in subsequent inspections.
 
 Realistic timelines:
-- **Immediate actions (0–30 days):** Addressing any ongoing patient safety risk, implementing temporary controls while permanent fixes are developed, completing assessments of scope.
-- **Short-term actions (30–90 days):** Remediation of the immediate finding (configuration fix, SOP update, retraining on current version), documentation of the corrective actions.
+- **Immediate actions (0-30 days):** Addressing any ongoing patient safety risk, implementing temporary controls while permanent fixes are developed, completing assessments of scope.
+- **Short-term actions (30-90 days):** Remediation of the immediate finding (configuration fix, SOP update, retraining on current version), documentation of the corrective actions.
 - **Long-term actions (90 days to 1 year):** Systemic changes, new validation SOPs, system upgrades, program-level governance changes. These need realistic development timelines, including time for QA review, approval, implementation, and training.
 
-If a finding requires a significant system upgrade, replacing a LIMS with inadequate audit trail capabilities, for example, the timeline will be 12–18 months at minimum. State that honestly, explain the interim controls, and commit to the interim controls as firmly as the long-term actions.
+If a finding requires a significant system upgrade, replacing a LIMS with inadequate audit trail capabilities, for example, the timeline will be 12-18 months at minimum. State that honestly, explain the interim controls, and commit to the interim controls as firmly as the long-term actions.
 
 ---
 

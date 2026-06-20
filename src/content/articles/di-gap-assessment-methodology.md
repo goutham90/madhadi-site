@@ -31,7 +31,7 @@ Standalone spreadsheets deserve special attention. Many organizations have dozen
 
 ## Assessment Framework: The Five Layers
 
-A comprehensive DI gap assessment evaluates five layers. Most organizations have gaps at multiple layers; the distribution of gaps tells you about the maturity of the DI program.
+A complete DI gap assessment evaluates five layers. Most organizations have gaps at multiple layers; the distribution of gaps tells you about the maturity of the DI program.
 
 **Layer 1: Physical and Infrastructure Controls**
 Does the infrastructure support data integrity? This covers:

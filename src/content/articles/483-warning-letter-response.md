@@ -89,7 +89,7 @@ A Warning Letter is a public document. It is posted on FDA's website, is searcha
 
 A Warning Letter response follows the same structure as a 483 response, but with higher stakes and typically more complex findings. Key differences:
 
-**The response package must be more comprehensive.** FDA reviewers who evaluate Warning Letter responses are looking for evidence that the systemic problem has been genuinely remediated, not just acknowledged. The level of evidence required is higher. You should be providing audit trail configurations, validation records, training completion logs, and whatever other evidence shows that the stated correction has been completed.
+**The response package must be more complete.** FDA reviewers who evaluate Warning Letter responses are looking for evidence that the systemic problem has been genuinely remediated, not just acknowledged. The level of evidence required is higher. You should be providing audit trail configurations, validation records, training completion logs, and whatever other evidence shows that the stated correction has been completed.
 
 **External experts may be warranted.** For Warning Letters with significant data integrity findings, many companies retain outside consultants, former FDA investigators, regulatory consultants with inspection experience, to review draft responses before submission. An experienced external reviewer will identify gaps in your response before FDA does.
 

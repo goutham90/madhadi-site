@@ -151,4 +151,4 @@ Not all systems need the same validation treatment. GAMP 5 Second Edition's risk
 
 The combination of these factors drives your validation strategy. A standard LIMS from a reputable vendor used with default configuration for a well-understood function gets a different validation treatment than a custom-built MES managing a novel CGT manufacturing process with no prior regulatory precedent.
 
-Understanding the system landscape is the first step. Knowing what each system does, what it generates, and what its failure modes are gives you the foundation to build a coherent, defensible validation program across all of them.
+Understanding the system environment is the first step. Knowing what each system does, what it generates, and what its failure modes are gives you the foundation to build a coherent, defensible validation program across all of them.

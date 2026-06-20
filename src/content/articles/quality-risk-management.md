@@ -39,11 +39,11 @@ FMEA is the most widely used risk assessment tool in pharmaceutical quality. It'
 | Process Step | Potential Failure Mode | Potential Effect | Severity (S) | Potential Cause | Likelihood (L) | Detectability (D) | Risk Priority Number (RPN) | Recommended Action |
 |---|---|---|---|---|---|---|---|---|
 
-**Severity (S):** How serious are the consequences if this failure occurs? Scored 1–10 (or 1–5), where 10 = catastrophic patient impact, 1 = negligible.
+**Severity (S):** How serious are the consequences if this failure occurs? Scored 1-10 (or 1-5), where 10 = catastrophic patient impact, 1 = negligible.
 
-**Likelihood (L):** How likely is this failure to occur? Scored 1–10, where 10 = very likely, 1 = highly unlikely.
+**Likelihood (L):** How likely is this failure to occur? Scored 1-10, where 10 = very likely, 1 = highly unlikely.
 
-**Detectability (D):** How likely is it that the failure would be detected before it causes harm? Scored 1–10, where 10 = undetectable, 1 = certain to be detected.
+**Detectability (D):** How likely is it that the failure would be detected before it causes harm? Scored 1-10, where 10 = undetectable, 1 = certain to be detected.
 
 **RPN = S × L × D:** The product of the three scores. Higher RPN = higher priority for risk reduction.
 

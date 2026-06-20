@@ -128,9 +128,9 @@ Technical knowledge is table stakes. The things that distinguish excellent pract
 
 There's no fixed timeline, but a reasonable range:
 
-- **Entry level → mid-level:** 3–5 years. By year 5 in a GxP role, you should be able to independently lead a validation project, manage a CAPA investigation, or conduct a supplier audit.
-- **Mid-level → senior/lead:** 5–10 years total experience. Senior roles typically involve leading a team, owning a program (a site's data integrity program, a validation function), and engaging directly with inspectors or regulatory agencies.
-- **Director/VP:** 12–20+ years for most paths, though fast-growing biotechs promote faster. These roles require both technical depth and organizational leadership.
+- **Entry level → mid-level:** 3-5 years. By year 5 in a GxP role, you should be able to independently lead a validation project, manage a CAPA investigation, or conduct a supplier audit.
+- **Mid-level → senior/lead:** 5-10 years total experience. Senior roles typically involve leading a team, owning a program (a site's data integrity program, a validation function), and engaging directly with inspectors or regulatory agencies.
+- **Director/VP:** 12-20+ years for most paths, though fast-growing biotechs promote faster. These roles require both technical depth and organizational leadership.
 
 The field rewards continuity and accumulated judgment. The practitioners who are most effective at inspection, most confident in remediation, and most trusted by senior leadership are almost always people who have seen a wide variety of systems, findings, and outcomes across multiple organizations. Breadth of experience matters.
 

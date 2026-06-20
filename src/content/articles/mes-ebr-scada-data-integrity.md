@@ -13,7 +13,7 @@ It is also, in most organizations, the area with the weakest data integrity prog
 
 ---
 
-## The System Landscape
+## The System Environment
 
 Understanding data integrity in manufacturing automation starts with understanding what systems are involved and what role each plays.
 

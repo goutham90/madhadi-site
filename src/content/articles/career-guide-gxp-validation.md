@@ -31,7 +31,7 @@ The work is important in a real sense. The systems and controls you build and ma
 
 ---
 
-## The Regulatory Landscape You Need to Understand
+## The Regulatory Environment You Need to Understand
 
 Before you can contribute to GxP quality work, you need to understand the regulatory framework that drives all of it. You don't need to memorize specific regulation numbers on day one, but you need to understand who the key regulators are and what they require.
 

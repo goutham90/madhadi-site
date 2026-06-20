@@ -46,7 +46,7 @@ DI remediation is too broad and complex to be managed as a single CAPA. It requi
 
 *Workstream 3: Procedural remediation.* Creating or revising the procedures governing data management: DI policy, audit trail review SOP, raw data management SOP, access control management, error correction procedures. New procedures must address the specific gaps identified.
 
-*Workstream 4: Training.* Comprehensive DI training program for all personnel. Not a quick slideshow, role-specific training that addresses the specific behaviors that led to the violations, with effectiveness checks.
+*Workstream 4: Training.* Complete DI training program for all personnel. Not a quick slideshow, role-specific training that addresses the specific behaviors that led to the violations, with effectiveness checks.
 
 *Workstream 5: Culture and leadership.* Addressing the organizational factors that allowed violations to occur or go undetected. This workstream is the hardest to execute and the most important for long-term sustainability.
 

@@ -47,7 +47,7 @@ The [EMA Annex 11](https://health.ec.europa.eu/system/files/2016-11/annex11_01-2
 
 ## The Regulatory Framework in Brief
 
-For someone entering this field, the regulatory landscape can be confusing. Here's the map:
+For someone entering this field, the regulatory environment can be confusing. Here's the map:
 
 **United States:**
 - FDA 21 CFR Part 211, GMP for finished pharmaceuticals

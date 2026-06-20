@@ -7,13 +7,13 @@ const all = await getCollection('articles', ({ data }) => !data.draft);
 const count = (slug: string) => all.filter(a => a.data.pillar === slug).length;
 const total = all.length;
 ---
-<Layout title="Topics" description="Twelve topic areas covering the full scope of GxP quality, data integrity, validation, and compliance across biotech, pharma, and life sciences — from foundations to program-level depth." wide={true}>
+<Layout title="Topics" description="Twelve topic areas covering the full scope of GxP quality, data integrity, validation, and compliance across biotech, pharma, and life sciences, from foundations to program-level depth." wide={true}>
   <header class="hub-hero">
     <div class="wrap hub-inner">
       <nav class="crumb"><a href="/">Home</a> <span>›</span> Topics</nav>
       <span class="overline" style="color:#ffd98a">The reference, by area</span>
       <h1 class="hub-h1">Twelve topic areas. End-to-end coverage.</h1>
-      <p class="hub-lead">{total} articles across the full scope of regulated quality — data integrity, validation, the quality system, sterility, devices, clinical, supply chain, and more. Pitched for beginners through advanced practitioners.</p>
+      <p class="hub-lead">{total} articles across the full scope of regulated quality, data integrity, validation, the quality system, sterility, devices, clinical, supply chain, and more. Pitched for beginners through advanced practitioners.</p>
     </div>
   </header>
 

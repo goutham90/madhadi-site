@@ -32,7 +32,7 @@ Every one of these characteristics creates data integrity risk. High variability
 
 ---
 
-## The Electronic Data Landscape Is More Complex
+## The Electronic Data Environment Is More Complex
 
 A conventional drug product batch might involve data from:
 - HPLC for assay and impurity testing

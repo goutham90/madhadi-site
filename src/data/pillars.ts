@@ -1,4 +1,4 @@
-// Single source of truth for topic pillars — used by the dynamic pillar page,
+// Single source of truth for topic pillars, used by the dynamic pillar page,
 // the pillars index, and the homepage. Add a pillar here and it appears everywhere.
 export interface Pillar {
   slug: string;

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const accent = 'var(--oxblood)'; // Advanced tier — oxblood #7A2E23
+const accent = 'var(--oxblood)'; // Advanced tier, oxblood #7A2E23
 
 // Pillar name → slug, for emblem line-art lookup
 const pillarSlug = {
@@ -159,7 +159,7 @@ const steps = [
 ---
 <Layout title="Advanced Track" description="Program-level depth for senior GxP practitioners, DI program architecture, CSA, cloud validation, CGT, 483 response, and inspection defense." wide={true}>
 
- <!-- ═══════════ HEADER — duotone band ═══════════ -->
+ <!-- ═══════════ HEADER, duotone band ═══════════ -->
  <header class="track-hero duotone" style={`--accent: ${accent}`}>
  <img src="/images/records-server.jpg" alt="" loading="eager" />
  <div class="track-hero-grad"></div>
@@ -176,7 +176,7 @@ const steps = [
  </div>
  </header>
 
- <!-- ═══════════ ORIENTATION — asymmetric notes ═══════════ -->
+ <!-- ═══════════ ORIENTATION, asymmetric notes ═══════════ -->
  <section class="section-tight orient" style={`--accent: ${accent}`}>
  <div class="wrap orient-grid">
  <div class="orient-lead">
@@ -197,7 +197,7 @@ const steps = [
  </div>
  </section>
 
- <!-- ═══════════ THE SEQUENCE — editorial step index ═══════════ -->
+ <!-- ═══════════ THE SEQUENCE, editorial step index ═══════════ -->
  <section class="section-tight sequence" style={`--accent: ${accent}`}>
  <div class="wrap">
  <div class="sequence-head">
@@ -230,7 +230,7 @@ const steps = [
  </div>
  </section>
 
- <!-- ═══════════ CLOSING — dark plate, browse by discipline ═══════════ -->
+ <!-- ═══════════ CLOSING, dark plate, browse by discipline ═══════════ -->
  <section class="section section-dark all-pillars">
  <img class="all-seal seal" src="/brand/seal.svg" alt="" aria-hidden="true" />
  <div class="wrap all-inner">
@@ -245,7 +245,7 @@ const steps = [
 </Layout>
 
 <style>
- /* ── Header — duotone band ── */
+ /* ── Header, duotone band ── */
  .track-hero { position: relative; min-height: 52vh; display: flex; align-items: flex-end; border-bottom: 3px solid var(--accent); }
  .track-hero > img { position: absolute; inset: 0; }
  .track-hero-grad { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(22,19,13,0.2) 0%, rgba(22,19,13,0.4) 45%, rgba(22,19,13,0.88) 100%); }

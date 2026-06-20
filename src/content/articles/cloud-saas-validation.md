@@ -62,7 +62,7 @@ The quality agreement between the pharmaceutical company and the SaaS vendor is 
 - Notification requirements for any data loss, corruption, or access breach
 
 **Change management:**
-- Advance notification period for planned software updates (typically 30–90 days for major changes)
+- Advance notification period for planned software updates (typically 30-90 days for major changes)
 - Customer's right to test-cycle access before production deployment of major updates
 - Maintenance of a validated state through updates (or notification when a major release requires customer revalidation)
 
@@ -150,4 +150,4 @@ The decommissioning of a cloud or SaaS system, including data migration validati
 
 ## The Bottom Line
 
-Cloud and SaaS deployment doesn't reduce your compliance obligations. It redistributes them: some responsibilities shift to the vendor, but your accountability for the data and the system's fitness for GxP use remains yours. A robust supplier assessment, a detailed quality agreement, and a validation approach that explicitly accounts for the shared responsibility model will keep you defensible at inspection. A validation that treats a SaaS system as equivalent to on-premises and doesn't address vendor controls will have gaps that an experienced inspector will find.
+Cloud and SaaS deployment doesn't reduce your compliance obligations. It redistributes them: some responsibilities shift to the vendor, but your accountability for the data and the system's fitness for GxP use remains yours. A solid supplier assessment, a detailed quality agreement, and a validation approach that explicitly accounts for the shared responsibility model will keep you defensible at inspection. A validation that treats a SaaS system as equivalent to on-premises and doesn't address vendor controls will have gaps that an experienced inspector will find.

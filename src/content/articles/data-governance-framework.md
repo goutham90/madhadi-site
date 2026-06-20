@@ -30,7 +30,7 @@ Without answers to these questions, data integrity is a reactive discipline, you
 
 The starting point for any data governance program is knowing what you have. This sounds trivial. It isn't.
 
-In a mid-size pharmaceutical operation, there may be 40–80 computerized systems that touch GxP data in some way, instruments with embedded software, standalone laboratory informatics systems, manufacturing execution systems, quality management systems, document management platforms, enterprise resource planning modules, and clinical data systems. Some of these are formally validated; others have been running for years in a semi-validated state; others are informal tools that analysts use without IT visibility.
+In a mid-size pharmaceutical operation, there may be 40-80 computerized systems that touch GxP data in some way, instruments with embedded software, standalone laboratory informatics systems, manufacturing execution systems, quality management systems, document management platforms, enterprise resource planning modules, and clinical data systems. Some of these are formally validated; others have been running for years in a semi-validated state; others are informal tools that analysts use without IT visibility.
 
 A system inventory should capture for each system:
 - System name and version
@@ -115,7 +115,7 @@ A practical approach using a simplified version of the ICH Q9(R1) risk framework
 | Interface controls | How is data transferred to and from this system? Are transfers verified? |
 | Retention adequacy | Will data be readable and retrievable for the required period? |
 
-Score each factor (e.g., 1–3) and combine into an overall risk rating. The rating determines the priority for remediation and the level of oversight the system requires.
+Score each factor (e.g., 1-3) and combine into an overall risk rating. The rating determines the priority for remediation and the level of oversight the system requires.
 
 The risk assessment should be reviewed at least annually and updated after any significant system change, significant process change, or significant finding at the site or at comparable sites in the industry.
 
@@ -159,9 +159,9 @@ Assigning data governance to QA as an add-on responsibility without dedicated ti
 Most organizations that build a data governance program from scratch will identify gaps. Some will be significant. The remediation planning process needs to be realistic about timeline and resource, and needs to prioritize based on the risk assessment.
 
 Prioritization framework:
-1. **Immediate (30–90 days):** Critical control gaps on Tier 1 systems, shared user accounts, disabled audit trails, missing prior value capture on release systems.
-2. **Short-term (3–6 months):** Control gaps on Tier 1 systems that require system configuration changes or procedural updates.
-3. **Medium-term (6–18 months):** Control gaps on Tier 2 systems, legacy system upgrades or replacements, data migration from unsupported formats.
+1. **Immediate (30-90 days):** Critical control gaps on Tier 1 systems, shared user accounts, disabled audit trails, missing prior value capture on release systems.
+2. **Short-term (3-6 months):** Control gaps on Tier 1 systems that require system configuration changes or procedural updates.
+3. **Medium-term (6-18 months):** Control gaps on Tier 2 systems, legacy system upgrades or replacements, data migration from unsupported formats.
 4. **Long-term (18+ months):** Enterprise architecture changes, system consolidations, validated interfaces replacing manual transfers, enhanced reporting infrastructure.
 
 The remediation plan should be documented, approved by QA and site leadership, and maintained as a living document with status tracking. If an inspection occurs during a remediation in progress, a documented plan with clear milestones and accountability is a meaningful mitigating factor. An undocumented remediation effort is not.

@@ -106,9 +106,9 @@ Clinical site audits are conducted by the sponsor's CQA team to verify that the 
 
 **When to audit:**
 - Pre-study: before a site is activated, to confirm it has the infrastructure, qualified personnel, and procedures to conduct the trial
-- During the study: typically for sites with high enrollment, significant protocol deviations, data quality concerns, or sites contributing to a pivotal dataset
+- During the study: typically for sites with high enrollment, significant protocol deviations, data quality concerns, or sites contributing to a central dataset
 - For cause: when a specific concern is identified (adverse event pattern, data anomalies, personnel complaint)
-- Pre-submission: before a BLA, NDA, or MAA submission, audit the sites contributing the pivotal efficacy data
+- Pre-submission: before a BLA, NDA, or MAA submission, audit the sites contributing the central efficacy data
 
 **What a site audit covers:**
 - Investigator and staff qualifications and training
@@ -136,7 +136,7 @@ Clinical site audits are conducted by the sponsor's CQA team to verify that the 
 
 ## Connecting Clinical Data to Regulatory Submissions
 
-The clinical data package is Module 5 of the Common Technical Document (CTD). It includes the clinical study reports for all pivotal and supportive studies. FDA and EMA reviewers look at the data quality indicators in the submission:
+The clinical data package is Module 5 of the Common Technical Document (CTD). It includes the clinical study reports for all central and supportive studies. FDA and EMA reviewers look at the data quality indicators in the submission:
 
 - Protocol deviation rates and their classification
 - Data query rates and patterns

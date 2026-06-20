@@ -144,7 +144,7 @@ If acceptance criteria are not met, the transfer is not declared successful. Opt
 
 **Conduct additional optimization at the RU.** For some methods, slight modifications may be needed at the RU (column length, gradient adjustment) to achieve equivalent performance with different instrumentation. These modifications require evaluation against the method's validation scope and may require partial revalidation or a documented method suitability assessment.
 
-**Escalate to SU method review.** Occasionally, a transfer failure reveals a weakness in the original method, the method is not robust across different equipment or column lots. This requires the SU to review the method and potentially improve it before transfer proceeds.
+**Escalate to SU method review.** Occasionally, a transfer failure reveals a weakness in the original method, the method is not solid across different equipment or column lots. This requires the SU to review the method and potentially improve it before transfer proceeds.
 
 What's not acceptable: adjusting acceptance criteria after seeing the data to make the transfer "pass." If the predefined criteria weren't met, the transfer didn't pass. Setting acceptance criteria wide enough to guarantee success regardless of data quality is equally unacceptable.
 
