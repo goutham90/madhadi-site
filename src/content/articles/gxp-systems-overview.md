@@ -7,148 +7,192 @@ tier: "Beginner"
 pillar: "csv-csa"
 ---
 
-Pharmaceutical and biotech companies run on software. The number and variety of systems in a typical regulated facility is large, and each one generates GxP data that must be managed, validated, and protected. Understanding what each system does, what data it generates, and what validation it requires is foundational knowledge for anyone working in pharmaceutical quality, compliance, or validation.
+Pharmaceutical and biotech companies run on software. A single regulated facility can operate dozens of distinct computerized systems, and almost every one of them generates GxP data that has to be managed, validated, and protected for the life of the product. If you are new to quality or validation, the sheer number of acronyms is the first thing that hits you: LIMS, CDS, ELN, MES, SCADA, eQMS, EDC, CTMS. They start to blur together.
 
-This guide covers the major system categories. The actual product environment in each category has dozens of vendors, and system names are often used loosely in the industry. The important thing is understanding what a system category does and what its data integrity requirements are.
+This article maps the major system categories so they stop blurring. For each one, you get a plain description of what it does, the records it produces, who uses it, and the validation and data integrity questions that follow. The goal is to give you a mental model of the whole system environment, not a vendor shopping list. Product names are included only as neutral examples, because the same category often goes by three or four different commercial names and the names get used loosely on the floor.
+
+Two ideas hold the whole map together. First, a computerized system is regulated based on what it does, not what it is called. A spreadsheet that calculates a release result carries more regulatory weight than an expensive platform that only schedules meetings. Second, the controlling question for every system is always the same: can you trust the data it produces, and can you prove it? That is the data integrity question, and it shows up in slightly different clothing in every category below. If you want the underlying principles before reading the system tour, start with [data integrity foundations](/articles/data-integrity-foundations) and [ALCOA+](/articles/alcoa-plus-deep-dive).
+
+---
+
+## How to read a system: the five questions
+
+Before the category-by-category tour, here is a frame you can apply to any system, including ones not listed here. When a system lands on your desk for assessment, ask:
+
+1. **What GxP decision does its output drive?** Batch release, sample disposition, patient safety reporting, stability conclusions. If the answer is "none," the validation burden drops sharply.
+2. **Where is the original record, and what format is it in?** The raw data file, the database row, the time-series stream. The original record, including its metadata, is what you have to protect.
+3. **Who can change the data, and is every change captured?** This is the audit trail question. Default settings rarely answer it well.
+4. **How does someone sign or approve in the system?** Electronic signatures bring 21 CFR Part 11 and EU Annex 11 into scope.
+5. **What happens when it fails or is decommissioned?** Backup, restore, business continuity, and long-term readable retention.
+
+Hold these five questions in mind as you read. Every "validation scope" and "DI risk" note below is really just one of these five questions applied to a specific system.
 
 ---
 
 ## Laboratory Information Management System (LIMS)
 
-**What it does:** The LIMS is the central system for managing laboratory samples, tests, and results. When a raw material arrives at a facility, a LIMS entry is created, samples are assigned, tests are scheduled, results are entered, specifications are checked automatically, and a disposition recommendation is generated. The LIMS tracks where every sample is, what tests have been run, and whether results are pending, passing, or failing.
+**What it does:** The LIMS is the central system for managing laboratory samples, tests, and results. When a raw material arrives at a facility, a LIMS entry is created, samples are assigned, tests are scheduled, results are entered, specifications are checked automatically, and a disposition recommendation is generated. The LIMS knows where every sample is, what tests have run, and whether results are pending, passing, or failing.
 
-**Key data generated:** Sample records, test results, disposition decisions, CoAs (Certificates of Analysis), environmental monitoring results, stability testing records.
+**Key data generated:** Sample records, test results, disposition decisions, certificates of analysis, environmental monitoring results, stability testing schedules and results, out-of-specification flags.
 
 **Primary users:** QC analysts, QA, manufacturing (for in-process results), supply chain (for raw material status).
 
-**Validation scope:** LIMS is typically a Category 4 (configured) or Category 5 (custom) system under GAMP 5, requiring full IQ/OQ/PQ validation. Critical validated functions include: sample tracking and traceability, result capture and specification comparison, audit trail completeness, and access control enforcement.
+**Validation scope:** A LIMS is typically a Category 4 (configured) or Category 5 (custom) system under GAMP 5, requiring a full lifecycle approach with installation, operational, and performance qualification. Critical validated functions include sample tracking and traceability, result capture and specification comparison, automatic limit checks, audit trail completeness, and access control enforcement. The specification limits themselves are configured data that must be verified and change-controlled, because a transcription error in a limit table silently passes failing product.
 
-**Common systems:** LabVantage, LabWare, STARLIMS, Sapien (formerly SampleManager), OpenLab CDS.
+**Common systems:** LabVantage, LabWare, STARLIMS, Thermo SampleManager.
+
+**Worked example:** A QC analyst tests an incoming excipient. The result is 99.2 percent assay against a 98.0 to 102.0 percent specification. The LIMS compares the entered value to the configured limits, marks it passing, and rolls it into a disposition recommendation. The validation question is not whether the chemistry is right, that is the method's job. It is whether the LIMS reliably enforced the right limits, attributed the entry to the right analyst with the right timestamp, and prevented anyone from quietly editing 99.2 to 99.8 without leaving a trace. That is why audit trail review on result changes is part of [batch record review](/articles/batch-record-review-gmp).
 
 ---
 
 ## Chromatography Data System (CDS)
 
-**What it does:** The CDS controls chromatography instruments (HPLC, GC, UHPLC, LC-MS) and captures the raw data they generate. An analyst runs a sample, the instrument produces a chromatogram (a graph of detector response over time), and the CDS software applies a mathematical integration method to calculate peak areas and, ultimately, concentrations. The CDS is where raw chromatographic data lives.
+**What it does:** The CDS controls chromatography instruments such as HPLC, GC, UHPLC, and LC-MS, and captures the raw data they generate. An analyst runs a sample, the instrument produces a chromatogram (detector response over time), and the CDS applies an integration method to calculate peak areas and, from those, concentrations or purity values. The CDS is where raw chromatographic data lives.
 
-**Key data generated:** Raw instrument data files, chromatograms, integration results, sequence files, method files, injection logs. The raw data file is the original record. Processed results derived from it are secondary.
+**Key data generated:** Raw instrument data files, chromatograms, integration results, sequence files, method files, injection logs. The raw data file is the original record. Processed results derived from it are secondary and must always be traceable back to the raw file.
 
-**Primary users:** QC analysts, method development scientists, stability group.
+**Primary users:** QC analysts, method development scientists, the stability group.
 
-**Validation scope:** CDS is one of the most inspection-scrutinized system categories because it's where many DI failures occur. Audit trail configuration is particularly important: the system must capture integration parameter changes with prior values, and the ability to delete or reprocess data must be controlled. Integration event logs must be reviewable.
+**Validation scope:** The CDS is one of the most inspection-scrutinized categories because it is where many data integrity failures happen. Audit trail configuration matters most here. The system must capture integration parameter changes with prior values, and the ability to reprocess, reintegrate, or delete data must be restricted by role. Integration event logs must be reviewable, and the review of those logs needs to be a defined step, not an afterthought. The qualification of the connected instrument is a separate, parallel activity covered in [analytical instrument qualification](/articles/analytical-instrument-qualification).
 
-**Common systems:** Waters Help, Agilent OpenLab CDS, Thermo Chromeleon, Shimadzu LabSolutions.
+**Common systems:** Waters Empower, Agilent OpenLab CDS, Thermo Chromeleon, Shimadzu LabSolutions.
 
-**DI risk note:** CDS is the single most common source of audit trail findings in FDA warning letters. Default configurations in many platforms are not compliant. Audit trail must be configured to capture: events, user ID, timestamp, field name, old value, new value. Out-of-box settings often don't do this without deliberate configuration.
+**DI risk note:** CDS is consistently among the most common sources of audit trail and data integrity citations in FDA warning letters. The recurring patterns are well documented in agency guidance: testing into compliance, using "trial" or unofficial injections that are not reviewed, sharing logins so changes cannot be attributed, and audit trails that were never switched on. The default configuration of many platforms does not capture old value and new value for integration changes until someone deliberately configures it. The audit trail must capture, at minimum, the event, user ID, timestamp, field name, prior value, and new value. The FDA guidance "Data Integrity and Compliance With Drug CGMP" (final, December 2018) and the MHRA "GXP Data Integrity Guidance and Definitions" (March 2018) both treat this as baseline expectation. For how to design and review these trails, see [audit trail design and review](/articles/audit-trail-design-and-review).
 
 ---
 
 ## Electronic Laboratory Notebook (ELN)
 
-**What it does:** The ELN replaces the paper lab notebook. Scientists record experiments, method development data, observations, and calculations in a structured electronic format. In a GxP context, the ELN is a primary data source for research and development activities.
+**What it does:** The ELN replaces the paper lab notebook. Scientists record experiments, method development data, observations, and calculations in a structured electronic format. In a GxP context, the ELN can be a primary data source for research, development, and some quality activities.
 
-**Key data generated:** Experimental records, calculations, observations, raw data from attached instruments, scientist signatures and dates.
+**Key data generated:** Experimental records, calculations, observations, raw data from attached instruments, scientist signatures and dates, witness signatures where used.
 
 **Primary users:** R&D scientists, analytical development, formulation scientists.
 
-**Validation scope:** For GxP use, the ELN requires validation focused on: record integrity, audit trail, electronic signature compliance, and data export in a human-readable format. Many ELN systems are designed for scientific workflow; the GxP compliance configuration requires specific attention to access controls and audit settings.
+**Validation scope:** For GxP use, ELN validation focuses on record integrity, audit trail, electronic signature compliance, and the ability to export records in a human-readable format. Many ELN platforms are built first for scientific workflow and collaboration, so the GxP-compliant configuration takes deliberate attention to access controls, locking of signed records, and audit settings. A common gap is calculation integrity: if the ELN runs embedded calculations or pulls in spreadsheet logic, that logic is a configured object that needs verification, the same way a standalone spreadsheet would under [infrastructure qualification and spreadsheet validation](/articles/infrastructure-qualification-and-spreadsheet-validation).
 
-**Common systems:** Benchling, Dotmatics, IDBS E-WorkBook, LabArchives, Revvity (formerly PerkinElmer) Signals Notebook.
+**Common systems:** Benchling, Dotmatics, IDBS E-WorkBook, LabArchives, Revvity Signals Notebook.
 
 ---
 
 ## Manufacturing Execution System (MES)
 
-**What it does:** The MES manages and records the manufacturing process in real time. An electronic batch record (EBR) in the MES guides operators through each step of the manufacturing procedure, captures electronic signatures at critical steps, records process parameters, and flags deviations when parameters go out of range. The completed EBR replaces or supplements the paper batch manufacturing record.
+**What it does:** The MES manages and records the manufacturing process in real time. An electronic batch record in the MES guides operators through each step of the procedure, captures electronic signatures at critical steps, records process parameters, and flags deviations when parameters fall out of range. The completed electronic batch record replaces or supplements the paper batch manufacturing record.
 
-**Key data generated:** Electronic batch records, process parameter logs, in-process test results, operator electronic signatures, deviation flags, batch genealogy records.
+**Key data generated:** Electronic batch records, process parameter logs, in-process test results, operator electronic signatures, deviation flags, material consumption and batch genealogy records.
 
 **Primary users:** Manufacturing operators, manufacturing management, QA for batch release review.
 
-**Validation scope:** MES is typically a highly complex Category 4 or 5 system. Electronic signature compliance under 21 CFR Part 11 is non-negotiable. The EBR workflow must enforce the intended sequence of operations. Process parameter alarm handling must be captured with prior values in the audit trail.
+**Validation scope:** An MES is typically a highly configured Category 4 or custom Category 5 system, and one of the most complex in the facility. Electronic signature compliance under 21 CFR Part 11 is non-negotiable, and the signature manifestation must show the printed name, date, time, and meaning of each signature. The electronic batch record workflow must enforce the intended sequence of operations so an operator cannot skip or backfill a step. Process parameter alarms and any limit overrides must be captured with prior values in the audit trail. Because the MES sits between control systems below and the quality system above, its interfaces are a major part of validation effort. The detailed integrity expectations are covered in [MES, EBR, and SCADA data integrity](/articles/mes-ebr-scada-data-integrity) and [GxP manufacturing systems](/articles/gxp-manufacturing-systems).
 
-**Common systems:** Rockwell FTPC, Werum PAS-X, Körber (formerly mobe), Apprentice (for CGT), Tulip, Sparta Trackwise (for deviation integration).
+**Common systems:** Rockwell PharmaSuite, Werum PAS-X, Körber Werum, Apprentice, Tulip; deviation handoff often goes to a separate quality system such as TrackWise.
 
 ---
 
-## Process Analytical Technology (PAT) / Data Historians
+## Process Analytical Technology (PAT) and Data Historians
 
-**What it does:** Process historians (or data historians) capture time-series process data from manufacturing equipment: temperature, pressure, pH, dissolved oxygen, agitation speed. In bioreactor-based manufacturing, the historian captures thousands of data points per batch, creating the continuous process record that shows the batch was manufactured within validated parameters.
+**What it does:** Process historians capture time-series data from manufacturing equipment: temperature, pressure, pH, dissolved oxygen, agitation speed, flow rates. In bioreactor-based manufacturing, a historian can record thousands of data points per batch, building the continuous process record that demonstrates the batch ran within validated parameters. PAT extends this idea toward real-time measurement and control of quality attributes during the process itself, an approach the FDA encouraged in its 2004 guidance "PAT, A Framework for Innovative Pharmaceutical Development, Manufacturing, and Quality Assurance."
 
-**Key data generated:** Continuous time-series records of critical and non-critical process parameters for every batch.
+**Key data generated:** Continuous time-series records of critical and non-critical process parameters for every batch, plus the configuration that defines tags, sampling rates, and data compression.
 
 **Primary users:** Process development, manufacturing, QA for batch review.
 
-**Validation scope:** Historian systems are often connected to SCADA or DCS systems. The combination creates a complex validated environment where the data integrity requirements apply at multiple layers: the PLC/sensor level, the SCADA historian level, and the reporting layer. Audit trails for configuration changes are often weak in process control systems and require deliberate remediation.
+**Validation scope:** Historians are usually fed by SCADA or distributed control systems, so the integrity requirements apply at several layers: the sensor and PLC level, the control and historian level, and the reporting layer. Two issues recur. First, many historians compress data to save storage, and aggressive compression can discard meaningful detail, so the compression settings are a validated configuration, not an IT convenience. Second, audit trails for tag and configuration changes are often weak in process systems and need deliberate remediation. Time synchronization across these layers also matters, because a contemporaneous record with the wrong clock is not really contemporaneous.
 
-**Common systems:** OSIsoft PI (now AVEVA PI), AspenTech InfoPlus.21, GE Proficy Historian.
+**Common systems:** AVEVA PI (formerly OSIsoft PI), AspenTech InfoPlus.21, GE Proficy Historian.
 
 ---
 
 ## SCADA and Distributed Control Systems (DCS)
 
-**What it does:** SCADA (Supervisory Control and Data Acquisition) and DCS systems control automated manufacturing processes. They receive data from field instruments (sensors, transmitters), compare them to setpoints, and send control signals to actuators (valves, pumps, agitators). In pharmaceutical manufacturing, SCADA and DCS control fermentation, purification, environmental systems, utilities, and fill/finish operations.
+**What it does:** SCADA (Supervisory Control and Data Acquisition) and DCS systems control automated manufacturing processes. They read data from field instruments, compare it to setpoints, and send control signals to actuators such as valves, pumps, and agitators. In pharmaceutical manufacturing they run fermentation, purification, environmental systems, utilities, and fill and finish operations.
 
-**Key data generated:** Real-time and historical process control data, alarm records, operator change records.
+**Key data generated:** Real-time and historical process control data, alarm and event records, operator change and setpoint records.
 
-**GxP consideration:** SCADA and DCS are often configured for process efficiency rather than GxP compliance. Their audit trails frequently don't capture prior values, don't maintain individual user attribution for setpoint changes, and can be difficult to export in a human-readable format. FDA has cited SCADA-related DI deficiencies in manufacturing contexts. Configuration changes to PLC programs and SCADA setpoint tables must go through validated change control.
+**GxP consideration:** These systems are often engineered for process reliability and efficiency rather than GxP record-keeping, and it shows. Their audit trails frequently do not capture prior values, do not maintain individual user attribution for setpoint changes (shared operator consoles are common), and can be hard to export in a readable form. The agency has cited control-system data integrity gaps in drug manufacturing contexts. Changes to PLC programs and SCADA setpoint tables are configuration changes that must go through validated [change control](/articles/change-control-validated-systems), and the validation approach for the whole layer is laid out in [automation validation for PLC, SCADA, and DCS](/articles/automation-validation-plc-scada-dcs).
 
 ---
 
-## Enterprise Resource Planning (ERP), GxP Intersections
+## Enterprise Resource Planning (ERP) and its GxP intersections
 
-**What it does:** ERP systems (SAP, Oracle, Microsoft Dynamics) manage business processes including purchasing, inventory, order management, and finance. In pharmaceutical operations, ERP intersects with GxP through inventory management (lot tracking, expiry management, quarantine status) and batch genealogy.
+**What it does:** ERP systems manage business processes including purchasing, inventory, order management, and finance. Common platforms are SAP, Oracle, and Microsoft Dynamics. In pharmaceutical operations, ERP touches GxP mainly through inventory management: lot tracking, expiry management, quarantine and release status, and batch genealogy. Serialization and track-and-trace functions under the U.S. Drug Supply Chain Security Act (DSCSA, 2013) often live here too.
 
-**GxP consideration:** The portions of an ERP that drive GxP decisions (material status, batch disposition data, serialization records) may require validation. The ERP itself doesn't typically require full CSV treatment, but the interfaces between ERP and validated systems (LIMS, MES) that transfer disposition data are validated interface points.
+**GxP consideration:** You almost never validate the entire ERP. You validate the slices of it that drive GxP decisions, such as material status flags, batch disposition data, and expiry logic, plus the interfaces that move that data to and from validated systems like the LIMS and MES. A status field that wrongly flips a quarantined lot to "available" is a patient-safety event, so the controls around that field, and the interface that populates it, are where the validation effort concentrates. Scoping this well is an exercise in risk assessment; see [CSV risk assessment methodology](/articles/csv-risk-assessment-methodology).
 
 ---
 
 ## Clinical Trial Management System (CTMS)
 
-**What it does:** The CTMS manages the operational aspects of running clinical trials: site selection and activation, patient enrollment tracking, visit scheduling, protocol deviation tracking, and study team communications. In GCP environments, the CTMS is the operational backbone for managing the study from a logistics perspective.
+**What it does:** The CTMS manages the operational side of running clinical trials: site selection and activation, enrollment tracking, visit scheduling, monitoring visit reports, protocol deviation logging, and study team coordination. In clinical operations it is the logistics backbone of a study.
 
-**GxP regulation:** CTMS is regulated under GCP (ICH E6(R2)) rather than GMP. The data integrity principles are the same, but the regulatory framework is different.
+**GxP regulation:** A CTMS sits under Good Clinical Practice, principally ICH E6(R2) "Good Clinical Practice" (2016), rather than GMP. The data integrity principles are the same, but the regulatory framework and inspection focus differ. The revised ICH E6(R3) GCP guideline, which the ICH adopted in early 2025, sharpens expectations around computerized systems and risk-based oversight in trials, so CTMS and related clinical platforms are getting more attention, not less.
 
-**Common systems:** Medidata Rave (CTMS module), Veeva Vault CTMS, Oracle Siebel CTMS, Salesforce Health Cloud.
+**Common systems:** Veeva Vault CTMS, Oracle Siebel CTMS, Medidata, IQVIA platforms.
+
+For the broader clinical picture, see [clinical systems and GCP digital quality](/articles/clinical-systems-gcp-digital-quality) and [clinical QA and GCP data integrity](/articles/clinical-qa-gcp-data-integrity).
 
 ---
 
-## Electronic Data Capture (EDC) / eCRF
+## Electronic Data Capture (EDC) and the eCRF
 
-**What it does:** EDC systems capture clinical trial data from study sites. Investigators enter patient data into electronic Case Report Forms (eCRFs) via the EDC, which validates data against edit checks, captures timestamps and user IDs, and maintains a complete audit trail of all data entry, corrections, and queries.
+**What it does:** EDC systems capture clinical trial data from study sites. Investigators and coordinators enter participant data into electronic case report forms through the EDC, which runs edit checks at the point of entry, records timestamps and user IDs, manages queries, and maintains a full audit trail of every entry, correction, and resolution.
 
-**GxP regulation:** GCP. EDC validation is a specific discipline within clinical quality assurance. FDA has a long history of scrutinizing EDC data integrity in BLA reviews.
+**GxP regulation:** Good Clinical Practice. EDC data integrity has long been a focus of FDA review during marketing applications, and the agency's expectations for electronic source data are described in its 2013 guidance "Electronic Source Data in Clinical Investigations." A recurring inspection theme is whether the source is the EDC entry itself or a separate paper or device record, and whether the path from true source to database is documented and controlled.
 
-**Common systems:** Medidata Rave EDC, Oracle InForm, Veeva Vault EDC, Castor, REDCap (academic, limited regulatory use).
+**Common systems:** Medidata Rave EDC, Oracle Clinical One, Veeva Vault EDC, Castor, REDCap (academic, with limited use in regulated submissions).
 
 ---
 
 ## Quality Management System (eQMS)
 
-**What it does:** The eQMS is the electronic platform managing the quality system itself: document control, deviations, CAPAs, change control, training records, audits, supplier management, and complaints. An eQMS integrates these processes so that, for example, a deviation can automatically generate a CAPA, and a CAPA action can generate a training notification when a new SOP is approved.
+**What it does:** The eQMS is the electronic platform that runs the quality system itself: document control, deviations, CAPA, change control, training records, audits, supplier management, and complaints. A well-configured eQMS links these processes, so a deviation can generate a CAPA, an approved CAPA can trigger an SOP revision, and a new SOP version can issue training assignments to affected staff automatically.
 
-**Validation scope:** The eQMS is a validated system. Because it manages QA records, its audit trail is particularly important. The eQMS must prevent unauthorized modification of closed quality records.
+**Validation scope:** The eQMS is a validated system, and because it holds the records that prove the quality system works, its audit trail and record-locking controls carry particular weight. It must prevent unauthorized modification of closed quality records, enforce approval workflows, and keep signatures bound to the records they apply to. Workflow configuration is the heart of the validation effort, since most of the risk lives in how the system routes, locks, and escalates records rather than in the underlying platform code. The processes it automates are described in [deviation management](/articles/deviation-management), [what is a CAPA](/articles/what-is-a-capa), [document control fundamentals](/articles/document-control-fundamentals), and the wider [pharmaceutical quality system](/articles/pharmaceutical-quality-system).
 
-**Common systems:** Veeva Vault QMS, MasterControl, Sparta Systems TrackWise, ETQ Reliance, AssurX.
-
----
-
-## Laboratory Automation and Robotics
-
-**What it does:** Automated liquid handling systems, high-throughput screening platforms, and robotic sample processors automate repetitive laboratory tasks. In CGT manufacturing, automated cell culture and transduction platforms are in routine use.
-
-**Validation considerations:** Automated systems are validated like other software-driven systems, but with additional considerations for mechanical qualification (IQ covers both hardware and software), method transfer (the automated method must demonstrate equivalence to the manual method), and system suitability checks before each run. The audit trail for automated runs must capture who started the run, any interruptions, and any parameter deviations detected during the run.
+**Common systems:** Veeva Vault QMS, MasterControl, TrackWise, ETQ Reliance, AssurX.
 
 ---
 
-## Building the Right Validation Strategy Across Systems
+## Laboratory automation and robotics
 
-Not all systems need the same validation treatment. GAMP 5 Second Edition's risk-based approach means you assess each system against three factors:
+**What it does:** Automated liquid handlers, high-throughput screening platforms, and robotic sample processors take over repetitive laboratory tasks. In cell and gene therapy manufacturing, automated cell culture and processing platforms are now routine.
 
-1. **Business criticality:** Does this system directly affect product quality, patient safety, or the integrity of GxP records? A LIMS does. A HR management system doesn't.
-2. **System complexity:** Is this an off-the-shelf product used as-is (lower validation burden) or a heavily configured or custom system (higher burden)?
-3. **Existing evidence:** Does the vendor have a strong quality system and published validation documentation? If so, you can use it rather than reproducing it.
+**Validation considerations:** These are software-driven systems, so they get validated like other software, but with extra dimensions. Installation qualification covers both hardware and software, because mechanical setup affects results. Method transfer matters: the automated method has to demonstrate equivalence to the manual method it replaces, which overlaps with [analytical method transfer](/articles/analytical-method-transfer). System suitability checks run before each batch of work, and the audit trail for an automated run must capture who started it, any interruptions, and any deviations the system detected mid-run. For cell and gene therapy specifics, see [cell and gene therapy data integrity](/articles/cell-gene-therapy-data-integrity).
 
-The combination of these factors drives your validation strategy. A standard LIMS from a reputable vendor used with default configuration for a well-understood function gets a different validation treatment than a custom-built MES managing a novel CGT manufacturing process with no prior regulatory precedent.
+---
 
-Understanding the system environment is the first step. Knowing what each system does, what it generates, and what its failure modes are gives you the foundation to build a coherent, defensible validation program across all of them.
+## A quick reference across the categories
+
+The table below summarizes the map. Treat the GAMP category as typical, not fixed: the same product can land in a different category depending on how heavily it is configured or customized.
+
+| System | Primary regulation | Typical GAMP category | Highest-risk data integrity area |
+|---|---|---|---|
+| LIMS | GMP | 4 or 5 | Specification limits, result edits, disposition |
+| CDS | GMP | 4 | Integration changes, reprocessing, raw-file deletion |
+| ELN | GMP / GLP | 4 | Record locking, embedded calculations |
+| MES | GMP | 4 or 5 | Signature workflow, step sequencing, overrides |
+| Historian / PAT | GMP | 3 or 4 | Compression settings, time sync, tag config |
+| SCADA / DCS | GMP | 3 or 4 | Attribution on shared consoles, setpoint audit trail |
+| ERP (GxP slices) | GMP | 3 or 4 | Material status, expiry logic, interfaces |
+| CTMS | GCP | 4 | Deviation logging, access control |
+| EDC | GCP | 4 | Source definition, edit checks, query trail |
+| eQMS | GMP | 4 | Closed-record locking, workflow integrity |
+| Lab automation | GMP / GLP | 4 or 5 | Method equivalence, run-level audit trail |
+
+The two regulations that cut across nearly every row are 21 CFR Part 11 (electronic records and electronic signatures) in the United States and EU Annex 11 (computerised systems) in Europe. Wherever a system holds an electronic record used for a GxP decision, or captures an electronic signature, these apply. A side-by-side reading of both is worth the time; see [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11) and the [Part 11 and Annex 11 practical guide](/articles/part-11-annex-11-practical-guide).
+
+---
+
+## Building the right validation strategy across systems
+
+Not every system needs the same treatment, and trying to validate them all to the same depth wastes effort that should go to the systems that actually carry risk. GAMP 5 Second Edition (ISPE, 2022) and the FDA's 2022 draft guidance "Computer Software Assurance for Production and Quality System Software" both push the same point: scale the effort to the risk. Three factors drive the call.
+
+1. **Business and patient-safety criticality.** Does the system directly affect product quality, patient safety, or the integrity of GxP records? A LIMS does. An internal HR system does not. The criticality of the function, not the price of the software, sets the floor for rigor.
+2. **System complexity and novelty.** Is this an off-the-shelf product used as configured, or a heavily configured or custom system doing something with little prior precedent? More configuration and more novelty mean more to verify and more that can go wrong.
+3. **Existing evidence and supplier maturity.** Does the vendor run a credible quality system with documented testing you can review and rely on? Relying on supplier evidence, backed by a real [supplier and vendor qualification](/articles/supplier-vendor-qualification), can replace large amounts of duplicated testing. Cloud and software-as-a-service systems lean heavily on this, which is why [cloud and SaaS validation](/articles/cloud-saas-validation) treats vendor assessment as a core deliverable.
+
+Combine these and the strategy writes itself. A standard LIMS from a mature vendor, used with default configuration for a well-understood function, earns a lighter, assurance-focused approach with critical thinking applied to the high-risk functions. A custom MES running a novel manufacturing process with no regulatory precedent earns a deeper, document-everything approach. The frameworks for doing this consistently are in [the GAMP 5 CSV framework](/articles/gamp5-csv-framework) and [computer software assurance](/articles/computer-software-assurance-fda).
+
+Two cross-cutting disciplines apply to every system regardless of category. The first is data governance: someone has to own the policies, the periodic reviews, and the audit trail review cadence that keep these systems trustworthy over years, not just at go-live. See [data governance framework](/articles/data-governance-framework) and [DI program architecture](/articles/di-program-architecture). The second is the system's whole life: how it is patched, how it stays in a validated state through change, how it is backed up and recovered, and how its records stay readable when it is finally retired. Those topics live in [change control for validated systems](/articles/change-control-validated-systems), [backup, restore, and disaster recovery validation](/articles/backup-restore-disaster-recovery-validation), and [data migration validation](/articles/data-migration-validation).
+
+Understanding the system environment is the first step, and it is a real step, not a formality. Knowing what each system does, what records it owns, and how it tends to fail gives you the foundation to build a coherent validation program across all of them, and to walk an inspector through it without surprises.

@@ -1,178 +1,192 @@
 ---
 title: "Cleaning Validation in Pharmaceutical Manufacturing: ADE, PDE, and the Full Framework"
-description: "A complete operational guide to cleaning validation, regulatory basis, ADE/PDE calculations, worst-case product selection, swab sampling design, acceptance criteria, and what FDA inspectors focus on."
+description: "An operational guide to cleaning validation: the regulatory basis, ADE/PDE calculations, worst-case product selection, swab and rinse sampling design, acceptance criteria, and what inspectors focus on."
 pubDate: 2026-02-23
 tags: ["cleaning validation", "GMP", "manufacturing", "contamination", "ADE", "PDE"]
 tier: "Intermediate"
 pillar: "quality-assurance"
 ---
 
-Cleaning validation is the documented evidence that your cleaning procedures effectively remove drug product residues (and cleaning agent residues) from manufacturing equipment to a level that does not pose a risk to the subsequent product or patient. It applies to any multi-product manufacturing equipment, any piece of equipment that is used to manufacture more than one product and is cleaned between campaigns.
+Cleaning validation is the documented evidence that your cleaning procedures remove drug product residues, and the residues of the cleaning agents themselves, from manufacturing equipment to a level that does not pose a risk to the next product or to a patient. It applies to any multi-product equipment, meaning any piece of equipment used to make more than one product and cleaned between campaigns. It also applies, in a narrower way, to dedicated equipment, where the question shifts from "what carries over to the next product" to "does residue or degradant build-up affect the same product over time."
 
-The regulatory basis is 21 CFR 211.67 (equipment cleaning and maintenance), FDA's 1993 Guide to Inspections of Validation of Cleaning Processes, and the 2014 EMA guideline on setting health-based exposure limits for use in risk identification in the manufacture of different medicinal products in shared facilities. The EMA 2014 guideline introduced ADE/PDE as the standard approach for setting acceptance criteria, replacing the older visual inspection and 10 ppm approaches that had been industry practice for decades.
+The regulatory basis rests on a small set of documents. In the US, 21 CFR 211.67 (equipment cleaning and maintenance) requires written cleaning procedures and records. The expectation that those procedures be validated comes from FDA's 1993 Guide to Inspections, Validation of Cleaning Processes. In Europe, EudraLex Volume 4, Chapter 3 and Chapter 5 require that cross-contamination be prevented by adequate cleaning, and the 2014 EMA guideline on setting health-based exposure limits for use in risk identification in the manufacture of different medicinal products in shared facilities (EMA/CHMP/CVMP/SWP/169430/2012) made health-based limits the expected approach. That guideline replaced the older visual-inspection-plus-10-ppm habits that had been industry practice for decades. ICH Q7 (Good Manufacturing Practice for Active Pharmaceutical Ingredients) sets parallel expectations for API manufacturing. If you want the broader picture of how cleaning validation sits inside the validation program, the [process validation lifecycle](/articles/process-validation-lifecycle) and the [validation master plan](/articles/validation-master-plan-and-periodic-review) articles give the surrounding structure.
 
 ---
 
 ## Why Cleaning Validation Matters
 
-Consider the scenario: Product A is an immunosuppressant with a narrow therapeutic index. Product B is a nutritional supplement with no significant toxicological concern. They share an API granulation line. The granulation equipment is cleaned between campaigns, and Product B is the next product.
+Consider a concrete scenario. Product A is an immunosuppressant with a narrow therapeutic index. Product B is a low-potency oral product with no significant toxicological concern. They share a granulation line. The equipment is cleaned between campaigns, and Product B is the next product to run.
 
-If the cleaning procedure is inadequate and Product A residue carries over into Product B, patients receiving Product B could receive unexpected doses of an immunosuppressant. This is the patient safety case for cleaning validation. It's not academic.
+If the cleaning is inadequate and Product A residue carries into Product B, patients taking Product B receive an unintended dose of an immunosuppressant. That is the patient-safety case, and it is not academic. Cross-contamination findings have driven recalls, consent decrees, and the shutdown of multi-product lines. The cost of getting this wrong is not a paperwork observation, it is product on the market that exposes patients to a drug they were never prescribed.
 
-The reverse is also a concern: cleaning agent residues (solvents, detergents) left on equipment can contaminate subsequent product batches. Cleaning validation must address both product and cleaning agent carryover.
+The reverse direction matters too. Cleaning agent residues, the solvents, detergents, and acids or bases used to clean, can themselves contaminate the next batch. A caustic cleaner left on a surface can degrade an acid-sensitive API. So cleaning validation has to address two carryover paths: previous product into next product, and cleaning agent into next product. A third concern, microbial and endotoxin carryover, becomes the dominant one in sterile and biologic operations and links directly to the [aseptic processing and media fills](/articles/aseptic-processing-and-media-fills) and [environmental monitoring](/articles/environmental-monitoring-program) programs.
 
 ---
 
 ## Acceptable Daily Exposure (ADE) and Permitted Daily Exposure (PDE)
 
-The ADE (FDA terminology) and PDE (EMA terminology) are numerically identical. Both represent the maximum amount of a drug substance that a patient can be exposed to per day without appreciable risk of adverse effects, derived from toxicological and pharmacological data.
+ADE (the term ISPE and FDA practice tend to use) and PDE (the EMA term) are numerically the same concept. Both represent the maximum amount of a substance a patient can be exposed to per day without an appreciable risk of adverse effects, derived from toxicological and pharmacological data. The two terms are interchangeable in practice, and a single value drives the limit on either side of the Atlantic.
 
-**Why this matters for cleaning:** If you know the ADE of the previous product, you can calculate the maximum residue that can be present in the cleaned equipment and still not result in a patient exposure exceeding that ADE through the subsequent product.
+Why this matters for cleaning: if you know the ADE of the previous product, you can back-calculate the maximum residue that can sit on the cleaned equipment and still keep a patient's exposure through the next product below that ADE.
 
-**The ADE calculation:**
+The ADE is derived as:
 
-ADE = NOAEL × Weight adjustment × Safety factors / Correction factors
+> ADE = NOAEL × BW / (UF₁ × UF₂ × UF₃ × UF₄ × UF₅)
 
 Where:
-- NOAEL: No-Observed-Adverse-Effect Level from the most relevant animal study
-- Weight adjustment: to a default 50 kg body weight for a human patient
-- Safety factors (applied as denominators): interspecies differences (typically 10×), intraspecies variability (typically 10×), study duration adjustment, severity of effect, reversibility
-- The result is in mg/day
 
-For genotoxic impurities and highly potent compounds with no established NOAEL, the calculation uses a Threshold of Toxicological Concern (TTC) or linear extrapolation from carcinogenicity data.
+- **NOAEL** is the No-Observed-Adverse-Effect Level from the most relevant study, expressed in mg/kg/day
+- **BW** is body weight, defaulted to 50 kg for a human (a conservative choice from the EMA guideline rather than the older 70 kg adult)
+- **UF₁ through UF₅** are uncertainty factors applied as divisors: interspecies extrapolation (commonly 2 to 12), interindividual variability (commonly 10), study-duration adjustment (subchronic to chronic, up to 10), severity and reversibility of the effect, and the quality and completeness of the database
 
-**Critical point:** ADE calculation requires toxicological expertise. The calculation must be done by a qualified toxicologist and must be documented with the data supporting each factor selection. Using a generic "10 ppm" limit without an ADE calculation is not acceptable under current regulatory standards.
+The result is in mg/day. For genotoxic or carcinogenic compounds with no identifiable threshold, you do not use a NOAEL at all. You either apply the Threshold of Toxicological Concern (commonly 1.5 µg/day for a non-cohort-of-concern genotoxicant) or extrapolate linearly from carcinogenicity data to a 1-in-100,000 risk level. ICH M7, on mutagenic impurities, is the reference here, and the same logic appears in the [nitrosamines and mutagenic impurities](/articles/nitrosamines-impurities-q3-m7) work.
+
+A worked example makes the chain concrete. Suppose the previous product has a NOAEL of 1 mg/kg/day from a 90-day rat study, and you apply factors of 5 (interspecies), 10 (interindividual), 5 (subchronic to chronic), 1 (effect not severe), and 1 (good database). The composite factor is 250.
+
+> ADE = (1 mg/kg/day × 50 kg) / 250 = 0.2 mg/day = 200 µg/day
+
+The single most important caution: ADE derivation is a toxicology task, not a quality task. It must be done by a qualified toxicologist, documented in a signed monograph, and the basis for each factor must be visible. Pulling a generic "10 ppm" limit out of the air with no toxicological reasoning is not defensible under current expectations.
 
 ---
 
 ## From ADE to Equipment Residue Limit
 
-Once you have the ADE (mg/day), calculate the Maximum Allowable Carryover (MACO) into the next product:
+Once you have the ADE in mg/day, calculate the Maximum Allowable Carryover (MACO), the total mass of previous product that may carry into a full batch of the next product:
 
-**MACO = (ADE × Minimum Batch Size of Subsequent Product × Maximum Daily Dose of Subsequent Product) / Maximum Daily Dose of Subsequent Product**
+> MACO (mg) = ADE_previous (mg/day) × Batch size of next product / Maximum daily dose of next product
 
-Simplified form often used:
+The units have to line up: batch size in the same mass unit as the dose. If the next product has a 200 kg batch and a maximum daily dose of 400 mg, and ADE_previous is 0.2 mg/day:
 
-**MACO (mg) = ADE (mg/day) × SF × Batch size of next product (g) / Maximum daily dose of next product (g/day)**
+> MACO = 0.2 mg/day × (200,000,000 mg / 400 mg/day) = 100,000 mg = 100 g
 
-Where SF is an additional safety factor applied at the company level (commonly 1/1000 is replaced by ADE-derived limits, but additional safety factors may be applied for specific concerns like carcinogenicity).
+That MACO is then spread over the shared equipment surface to give a surface limit:
 
-Then convert MACO to a surface concentration limit:
+> Limit (µg/cm²) = MACO (µg) / Total shared product-contact surface area (cm²)
 
-**Limit (μg/cm²) = MACO (μg) / Total equipment surface area (cm²)**
+If the shared train has 500,000 cm² of product contact area:
 
-This gives you the maximum surface residue of the previous product (per unit area of equipment) that is acceptable.
+> Limit = 100,000,000 µg / 500,000 cm² = 200 µg/cm²
+
+That number is the per-area target the swab result has to beat. Health-based limits sometimes come out higher than the old defaults, sometimes much lower. The point of the ADE approach is that the limit is now tied to the actual toxicity of the molecule rather than an arbitrary blanket factor. The three historical methods are worth knowing because you will still see them and may use the most conservative as a cross-check.
+
+| Method | Basis | Status |
+|---|---|---|
+| Health-based (ADE/PDE) | Toxicological NOAEL or TTC | Current expectation (EMA 2014, ICH Q7) |
+| 0.1% of therapeutic dose | 1/1000 of the previous product's lowest daily dose carried into the next | Legacy; may be used as an additional cross-check |
+| 10 ppm | 10 mg of previous product per kg of next product | Legacy; not acceptable as the sole basis |
+
+Common practice is to calculate the limit by the ADE method, optionally calculate the legacy methods, and adopt the most stringent. That defends the limit against either a regulator who wants health-based reasoning or one who remembers the old conventions.
 
 ---
 
 ## Worst-Case Product Selection
 
-In a multi-product facility, you can't validate cleaning for every possible product sequence. The worst-case approach selects the most challenging combination:
+In a multi-product facility you cannot validate every product sequence. The worst-case approach picks the single most demanding combination and argues that everything else is covered by it.
 
-**Worst-case previous product:** The product with the lowest ADE (most potent or most toxic) in the product family that runs on the equipment. This sets the most stringent residue limit.
+- **Worst-case previous product (the contaminant):** the product with the lowest ADE, hardest solubility, and highest toxicity that runs on the equipment. The lowest ADE sets the most stringent limit. Solubility and stickiness drive how hard it is to remove. These two can point at different products, so document both and justify the choice.
+- **Worst-case next product (the receiver):** the product with the smallest batch size and the highest maximum daily dose. A small batch concentrates the carryover, and a high daily dose means more of the contaminated product reaches the patient per day.
+- **Worst-case equipment:** the unit in the train that is hardest to clean. Complex geometry, the most product-contact area, the smallest internal clearances, dead legs, long transfer lines, and porous or scratched surfaces all push an item toward worst case.
 
-**Worst-case next product:** The product with the smallest batch size and highest daily dose (concentrates the carryover into the fewest doses at the highest exposure per dose).
-
-**Worst-case equipment:** The most difficult equipment to clean in the train (typically the equipment with the most complex geometry, the most product contact surfaces, the smallest internal clearances).
-
-Validation performed for the worst-case scenario is considered to represent the worst cleaning challenge. Qualification for other product sequences in the matrix is typically addressed by documenting that they represent less challenging scenarios.
+A clean way to organize this is a risk-ranked matrix that scores each product on hardest-to-clean (solubility), toxicity (ADE), and dose/batch attributes. Quality risk management methodology, covered in [quality risk management](/articles/quality-risk-management), gives the scoring discipline so the worst-case choice is reproducible rather than a matter of opinion. Validation run against the worst case is taken to represent the worst cleaning challenge, and other sequences are addressed by documenting that they are less demanding.
 
 ---
 
 ## Cleaning Validation Protocol Design
 
-**Worst-case soil preparation:** The validation must be performed at the maximum soil level the equipment is expected to encounter. This is typically the largest batch size (highest product loading) or the longest allowable process time before cleaning.
+**Worst-case soil.** Validation runs at the maximum soil load the equipment will see in routine production: the largest batch, the highest product loading, and the longest dirty-hold time allowed between end of processing and start of cleaning. Soil that has dried on a surface for the maximum permitted dirty-hold is harder to remove than fresh soil, so the protocol has to fix and challenge that hold.
 
-**Cleaning procedure to be validated:** The exact cleaning procedure must be defined before validation begins. Validation confirms that the specific procedure (agent, concentration, temperature, contact time, rinse volume) is effective. Post-validation changes to the procedure require reassessment.
+**Clean-hold and dirty-hold times.** Two time windows belong in the protocol. The dirty-hold time (DHT) is how long equipment may sit soiled before cleaning starts. The clean-hold time (CHT) is how long cleaned equipment may sit before it must be used or re-cleaned, and the CHT is usually bounded by microbial growth, established with bioburden and endotoxin testing rather than chemical residue.
 
-**Sampling strategy:** Two methods are used, typically in combination:
+**The procedure is fixed first.** Define the exact cleaning procedure before validation: agent, concentration, temperature, contact time, flow rate or action, rinse volume, and rinse quality. Validation confirms that the written procedure works. If validation needed five rinses but the SOP says three, the SOP, not the better run, is what production will follow, and the validation did not represent reality. Any change to the procedure afterward goes through [change control](/articles/change-control-validated-systems) with an assessment of whether revalidation is needed.
 
-*Swab sampling:* A swab (pre-moistened with an appropriate solvent) is wiped over a defined surface area (typically 25 cm²) on product contact surfaces. The swab is then extracted and analyzed. Swab sampling directly measures residue at defined locations.
+**Sampling strategy.** Two methods, usually together.
 
-Location selection must be worst-case: areas that are hardest to clean (gaskets, welds, baffles, dead legs, complex geometries), areas with direct product contact, and areas that are representative of the equipment surface.
+*Swab sampling* wipes a swab, pre-moistened with an appropriate solvent, over a defined area (commonly 25 cm²) on product-contact surfaces, then extracts and analyzes it. Swabs measure residue at specific, deliberately chosen locations. Location selection has to be worst case: gaskets, welds, baffles, dead legs, agitator shafts, valve seats, and any geometry that traps soil. The swab locations are mapped and the map goes in the report so an inspector can see exactly where you sampled.
 
-*Rinse sampling:* A final rinse sample is collected and analyzed. Rinse samples cover the entire equipment surface but dilute the residue. They're useful for demonstrating that the final rinse is clean but can miss localized contamination in hard-to-reach areas. Rinse sampling alone is generally insufficient; swab sampling is required.
+*Rinse sampling* collects and analyzes the final rinse. Rinse covers the whole wetted surface but dilutes the residue and can miss a localized hot spot in a hard-to-reach pocket. Rinse is good for surfaces a swab cannot reach, such as the inside of long transfer lines, but rinse alone is generally not enough. The two methods complement each other: swabs for direct, localized measurement, rinse for whole-surface coverage.
 
-**Analytical method:** The analytical method used to detect and quantify the residue must be validated for that specific analyte in the swab or rinse sample matrix. A validated HPLC method for the API in product formulation is not automatically a validated method for swab extracts from stainless steel surfaces. Swab recovery studies are required.
+**Analytical methods.** The method has to be validated for that analyte in that matrix. A validated HPLC assay for the API in finished product is not automatically valid for swab extracts off stainless steel. Specific methods (HPLC, LC-MS for trace work) quantify a named residue; non-specific methods such as total organic carbon (TOC) and conductivity measure everything and are useful for rinse and for cleaning agents. The method's limit of quantitation must sit comfortably below the residue limit you calculated. Method validation principles are covered in [method validation essentials](/articles/method-validation-essentials).
 
-**Swab recovery:** How much of the analyte present on the surface does the swabbing and extraction procedure actually recover? Spike known amounts of the analyte onto representative surface coupons (same material as the equipment, e.g., 316L stainless steel), swab, extract, and analyze. Recovery should be ≥70% and consistent. Your residue limit must account for swab recovery (if recovery is 80%, the analytical result must be multiplied by 100/80 to get the true surface concentration).
+**Swab recovery.** How much of what is actually on the surface does the swab-plus-extraction step recover? Spike known amounts onto coupons of the real equipment material (for example 316L stainless steel, but also any elastomer or plastic in contact) at several levels, then swab, extract, and analyze. Recovery should generally be at or above 70% and be consistent across the range. The limit has to be corrected for it: if recovery is 80%, multiply the reported result by 100/80 to estimate the true surface concentration. Skipping recovery makes every clean result look better than it is.
 
-**Visual inspection limit:** Clean equipment should have no visible residue after cleaning. Visual inspection is the first check but is not the primary residue limit. In practice, visible residue detection limits are around 1-4 μg/cm² for most APIs, which is often not stringent enough for potent compounds.
+**Visual inspection.** Cleaned equipment should show no visible residue under defined lighting, distance, and viewing angle. Visual is the first gate and a strong tool, but it is not the primary quantitative limit. Visible-residue detection thresholds run roughly 1 to 4 µg/cm² for many APIs, which is fine for low-potency products and not nearly stringent enough for potent ones. For a high-potency compound the calculated limit can be well below what any operator can see, so visual passes while the surface is still over the limit.
 
 ---
 
 ## Number of Validation Runs
 
-The FDA 1993 guide established three consecutive runs as the minimum for cleaning validation. Three runs with passing results demonstrates reproducibility of the cleaning procedure. Isolated passing runs don't.
+The 1993 FDA guide established three consecutive successful runs as the conventional minimum. Three passing runs show the procedure is reproducible. A single passing run shows only that it can pass once. All three must run under worst-case conditions throughout: worst-case soil, the maximum dirty-hold, and the exact procedure as written.
 
-The three runs must use the worst-case conditions throughout: worst-case soil, worst-case dwell time (maximum time product can sit on equipment before cleaning), and the specific cleaning procedure as written in the SOP.
+The same lifecycle thinking that reshaped process validation is now applied to cleaning. Rather than treating "three runs and done" as the end, mature programs frame cleaning as design, qualification, and ongoing verification, which is why continued monitoring after the three runs has become an expectation rather than a nice-to-have.
 
 ---
 
 ## Cleaning Agent Residue Limits
 
-Cleaning agent (detergent) residue must also be showed acceptable. Options:
+Cleaning agent residue has to be shown acceptable too. Three routes:
 
-- ADE/toxicological approach: calculate acceptable daily exposure for the cleaning agent based on its toxicological profile
-- Biocompatibility approach: use a cleaning agent with an established GRAS (Generally Recognized as Safe) status with documented safety data
-- Non-detect standard: show the cleaning agent is below the validated LOQ of the analytical method in rinse samples (appropriate for agents where LOQ is well below any toxicological concern)
+- **Toxicological (ADE) approach:** derive an ADE for the cleaning agent from its toxicological profile and treat it like any other residue.
+- **Component-based approach:** for a formulated detergent, assess the most toxic component and set the limit on that, since the formulation as a whole may not have a tidy toxicology dossier.
+- **Non-detect approach:** show the agent is below the validated limit of quantitation in rinse samples, appropriate when that LOQ already sits far below any plausible toxicological concern.
 
-For common detergents with established safety profiles (sodium lauryl sulfate, citric acid-based agents, many commercial alkaline cleaners), the non-detect approach is frequently sufficient. For proprietary or novel cleaning agents, a toxicological assessment is needed.
+For common agents with established safety profiles, sodium lauryl sulfate, citric-acid-based acids, and many commercial alkaline cleaners, the non-detect route is often enough, and conductivity or TOC on the rinse does the measurement cheaply. For a proprietary or novel cleaner, get the toxicological assessment and the safety data sheet, and confirm the supplier can tell you the components. Supplier documentation here ties into [supplier and vendor qualification](/articles/supplier-vendor-qualification).
 
 ---
 
 ## Bracketing and Matrixing
 
-**Bracketing:** Rather than validating every possible product sequence, demonstrate validation at the extremes. Validate the highest-ADE product on the equipment and the lowest. Intermediate products are bracketed.
+**Bracketing** validates the extremes and infers the middle. Validate the worst-case product and, where it strengthens the argument, the easiest, and treat intermediate products as bracketed by them. This works when the products form a genuine continuum on the parameters that matter.
 
-**Matrixing:** For equipment with multiple size variants or multiple equivalent units, validate one representative unit from each category. Document the rationale for equivalence.
+**Matrixing** handles equipment families. For several equivalent units, or several sizes of the same design, validate one representative of each category and document why the others are equivalent: same material, same surface finish, same geometry, same cleaning recipe scaled by area.
 
-Both approaches must be justified in the validation plan and approved by QA.
+Both have to be justified in the validation plan and approved by quality. A bracketing argument that skips a product because it is inconvenient, rather than because it is genuinely bracketed, is the kind of gap an inspector finds.
 
 ---
 
 ## Verification and Lifecycle Management
 
-**Cleaning verification:** After each batch, a confirmation that cleaning was performed per the validated procedure. Not full analytical testing, that's done during validation. Verification is the operational check: cleaning time, agent concentration, temperature, and rinse checks per the SOP.
+**Routine cleaning verification.** After each clean in production, confirm the clean was performed per the validated procedure. This is the operational check, cleaning time, agent concentration, temperature, rinse conductivity, and visual inspection, not full analytical residue testing on every batch. Analytical residue testing is the validation activity; verification is the day-to-day evidence that the validated state still holds. The records belong in the [batch record review](/articles/batch-record-review-gmp).
 
-**Periodic revalidation:** Cleaning validation must be maintained. Triggers for revalidation or reassessment include:
+**Periodic review and revalidation triggers.** Cleaning validation is a living state, not a one-time certificate. Reassess or revalidate when any of these occur:
 
-- Introduction of a new product with a lower ADE than the worst-case product the cleaning was validated against
-- Change to the cleaning procedure (agent, concentration, contact time)
-- Equipment modification affecting product contact surfaces
-- Introduction of new equipment configuration
-- Change in product formulation that affects cleanability
+- A new product is introduced with a lower ADE, lower solubility, or larger surface footprint than the current worst case
+- The cleaning procedure changes: agent, concentration, temperature, contact time, or rinse
+- Equipment is modified in a way that affects product-contact surfaces, or a new piece is added to the train
+- A product formulation changes in a way that affects how it cleans off
+- Adverse trends appear in routine monitoring
 
-**Trending:** Track swab and rinse results over time. A trend toward increasing residue levels (while still passing) may indicate the cleaning procedure is becoming less effective due to equipment wear, biofilm formation, or procedure drift. Catch it before it becomes a failure.
+**Trending.** Track swab and rinse results over time, not just pass or fail. A slow climb in residue, while still under the limit, can signal a degrading procedure: equipment wear and surface roughening, biofilm, scaling, or quiet procedure drift on the floor. Catching the trend before it crosses the limit turns a deviation into a maintenance action. The statistical tools for this, control charts and capability indices, are covered in [statistics in quality](/articles/statistics-in-quality-cpk-control-charts).
 
 ---
 
 ## Common Cleaning Validation Failures
 
-**ADE not calculated.** Using 10 ppm or visual inspection limits without a toxicological basis. Since the EMA 2014 guideline, this is no longer acceptable for regulated submissions or inspections.
+**No ADE.** Using 10 ppm or visual-only limits with no toxicological basis. Since the EMA 2014 guideline this is not acceptable for shared-facility justification.
 
-**Swab recovery not established.** Reporting surface residue without accounting for swab recovery gives a falsely reassuring result.
+**Swab recovery never established.** Reporting a surface result without correcting for recovery overstates how clean the equipment is.
 
-**Wrong worst-case.** Selecting the worst-case product based on solubility rather than ADE. Solubility drives cleanability strategy; ADE drives the acceptance limit.
+**Wrong worst case.** Picking the worst-case product on solubility when the limit should be driven by ADE, or the other way around. Solubility drives the cleaning strategy, ADE drives the acceptance limit. Confusing the two produces a limit that is either indefensible or impossibly tight.
 
-**Validation not maintained.** New products introduced onto the equipment without reassessing the cleaning validation matrix.
+**Validation not maintained.** New products added to the equipment without reassessing the matrix. The most damaging version is a high-potency compound introduced onto a shared train that was validated only against low-potency products.
 
-**Cleaning procedure not followed exactly during validation.** Validation with more cleaning steps, longer contact times, or different conditions than the SOP specifies. If the validation passed with five rinse cycles and the SOP says three, the validation wasn't performed under worst-case conditions.
+**Procedure not followed during validation.** Validating with more rinses, longer contact, or hotter water than the SOP allows. The validation then proves something production never does.
 
-**No visual inspection failure criteria.** "No visible residue" sounds objective but isn't if it's not defined. Under what lighting conditions? From what distance? With what standard to define "visible"?
+**No defined visual criteria.** "No visible residue" is not objective unless the lighting, distance, angle, and a reference standard for "visible" are written down and trained.
+
+**Ignoring degradants.** Cleaning agents can degrade an API into a different molecule, and detergents can leave their own degradation products. Validating for the parent API only can miss a residue the method does not even look for.
 
 ---
 
-## What FDA Inspectors Look For
+## What Inspectors Look For
 
-Cleaning validation is a frequent inspection focus. Inspectors request:
+Cleaning validation is a recurring inspection focus, in both FDA and EU inspections, and the requests are predictable. Inspectors ask for:
 
-- The cleaning validation protocol and report, with swab location maps
-- ADE calculations and toxicological assessments
-- Swab recovery studies for the analytical method
-- Evidence that the worst-case product was correctly identified
-- The current product matrix for the equipment and confirmation that new products were assessed
-- Cleaning verification records for recent batches
-- Evidence that the cleaning procedure being used matches the validated procedure
+- The cleaning validation protocol and report, with the swab location maps
+- The ADE or PDE monographs and the toxicological assessments behind them
+- Swab recovery studies for each analyte and surface material
+- Evidence that the worst-case product was correctly identified, with the reasoning
+- The current product matrix for the equipment, and proof that newly introduced products were assessed against it
+- Cleaning verification records for recent batches, to confirm the floor follows the validated procedure
+- Confirmation that the procedure in use matches the validated procedure exactly
 
-Finding that a facility is still using 10 ppm limits without ADE calculations, or that swab recovery was never established, or that a new high-potency compound was introduced onto shared equipment without cleaning reassessment, will generate 483 observations in every case.
+Finding 10 ppm limits with no ADE, swab recovery never established, or a potent new compound added to shared equipment without reassessment will draw an observation every time. For how those observations are written up and answered, see [fda inspection readiness](/articles/fda-inspection-readiness) and [the 483 response strategy](/articles/fda-483-response-strategy).

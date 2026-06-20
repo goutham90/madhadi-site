@@ -1,76 +1,137 @@
 ---
 title: "Data Integrity in Gene Therapy: What FDA Really Expects"
-description: "A practical breakdown of FDA's data integrity expectations for gene therapy manufacturers, beyond the checklist, into the actual inspection findings."
+description: "How FDA's data integrity expectations actually play out for gene and cell therapy manufacturers, from inspection findings to the controls that pass."
 pubDate: 2026-04-07
 tags: ["data-integrity", "FDA", "gene-therapy", "GxP"]
 tier: "Advanced"
 pillar: "cell-gene-therapy"
 ---
 
-Gene therapy is arguably the most data-intensive category of biologics the FDA regulates. A single BLA submission for a base editing therapeutic can involve hundreds of assay datasets, manufacturing batch records, stability profiles, and clinical data packages, all of which need to hold together under the scrutiny of a regulatory reviewer who has seen every kind of data manipulation, system misconfiguration, and documentation failure imaginable.
+Gene therapy is one of the most data-intensive categories of biologics the FDA regulates. A single Biologics License Application (BLA) for a viral vector or a base editing product can carry hundreds of assay datasets, manufacturing batch records, stability profiles, and clinical data packages, all of which have to hold together under a reviewer who has seen every kind of data manipulation, system misconfiguration, and documentation failure imaginable.
 
-After years of building data integrity programs in this space, here's what I've learned about what FDA actually looks for, versus what most companies prepare for.
+The gap that sinks programs is rarely a missing study. It is the integrity of the data underneath the studies: who generated it, whether it can be reconstructed, and whether the systems that produced it would let someone change a number without leaving a trace. This article walks through what FDA inspectors actually look for in this space, why gene therapy is structurally harder than small molecule manufacturing, and what a program that passes inspection looks like in practice.
 
-## The Gap Between Guidance and Reality
+## Why gene therapy raises the stakes
 
-FDA's data integrity guidance (2016, updated 2018) lays out ALCOA+: Attributable, Legible, Contemporaneous, Original, Accurate, plus Complete, Consistent, Enduring, Available. Every quality team in pharma has a slide deck on this.
+Two features of the modality make data integrity unusually load bearing.
 
-What the slide deck doesn't cover is that FDA's inspectors aren't walking in looking for ALCOA+ violations. They're looking for **systems that allow manipulation without detection**, whether or not manipulation actually occurred.
+First, the products are often administered once. A patient receiving a one-time gene addition or editing therapeutic cannot stop taking it if a problem emerges later. The data supporting safety, identity, purity, and potency is the only protection between a manufacturing or analytical error and an irreversible clinical outcome. Reviewers know this, and they treat the supporting records accordingly.
 
-This is a critical distinction. A company can have perfect data, every audit trail clean, every record complete, and still receive a data integrity 483 because their LIMS allows backdating without forcing a reason code, or because their ELN doesn't timestamp edits at the field level.
+Second, the analytical and manufacturing workflows are immature and instrument-heavy compared with a legacy small molecule line. Potency, identity, and genomic integrity are assessed with methods that are still evolving: digital PCR (ddPCR) for vector genome titer, next generation sequencing for editing outcomes and off-target assessment, flow cytometry for transduction and immunophenotyping, and cell-based potency assays whose biology is genuinely hard. Each of these runs on instrument-specific software, much of it with weaker access controls and audit trail capability than a mature chromatography data system. The result is a long chain of hand-offs, each one a place where data can be lost, overwritten, or silently altered.
 
-The violation isn't the data. The violation is the control gap.
+There is a third factor that quietly multiplies the first two. Much gene therapy work is split across contract development and manufacturing organizations and contract testing labs. A sponsor may own the BLA but hold none of the instruments that generated the data in it. That means the sponsor has to assure data integrity at sites it does not operate, through audits, quality agreements, and access to records it cannot see day to day. When a CDMO's instrument software has a partial audit trail or a shared login, the finding lands on the sponsor's submission. The oversight obligations here are spelled out in [CDMO oversight and quality agreements](/articles/cdmo-oversight-quality-agreements) and in [supplier and vendor qualification](/articles/supplier-vendor-qualification), and they are not optional in this modality, they are the normal operating model.
 
-## What Gets You a 483
+Put those together and the inspection posture is straightforward: high consequence, immature systems, many hand-offs, and shared accountability across organizations. That is exactly the profile that draws scrutiny.
 
-Based on inspection trends and warning letters, the findings cluster into a few recurring failure modes:
+## The gap between the guidance and what gets cited
 
-**1. Audit trail gaps in computerized systems**
+FDA's guidance "Data Integrity and Compliance With Drug CGMP: Questions and Answers" was finalized in December 2018 (the draft was issued in April 2016). It restates the ALCOA expectations that have anchored records and signatures requirements for decades: data must be Attributable, Legible, Contemporaneous, Original, and Accurate. The "plus" elements widely taught alongside it, Complete, Consistent, Enduring, and Available, come from MHRA and PIC/S guidance and are now common vocabulary across both agencies. For a fuller treatment of each attribute, see the [ALCOA+ breakdown](/articles/alcoa-plus-deep-dive) and the [data integrity foundations](/articles/data-integrity-foundations) article.
 
-Not "audit trails disabled", inspectors find that immediately. The problem is partial audit trails: systems where the audit trail captures record creation and deletion, but not field-level edits. You can change a value in a spreadsheet, and the audit trail shows "modified" with a timestamp, but not the previous value.
+Every quality team has a slide on ALCOA+. What the slide does not capture is the inspector's real question. They are not walking the floor hunting for an ALCOA violation in the abstract. They are looking for systems that allow data to be manipulated without detection, whether or not manipulation actually occurred.
 
-FDA expects the audit trail to be complete enough that any change to raw data can be reconstructed. If it can't, the system fails 21 CFR Part 11.
+That distinction matters more than almost anything else in this topic. A company can have clean data, complete records, and tidy audit trails and still receive a data integrity citation, because the system would have allowed backdating without forcing a reason, or because the electronic lab notebook does not capture edits at the field level. The finding is not the data. The finding is the control gap that makes the data untrustworthy.
 
-**2. Shared login credentials**
+This is why "we checked and the numbers are right" is not a defense. The agency is assessing whether you could prove the numbers are right to a skeptical third party, using the system's own records, without relying on the honesty of the analyst.
 
-Still happening in 2026. When two analysts share a login "for convenience," every record they create is unattributable. This doesn't just fail Part 11, it makes the data scientifically uninterpretable, because you can't establish who performed what step.
+## The findings that recur
 
-Gene therapy workflows are particularly susceptible because of the number of specialized assays (ddPCR, flow cytometry, potency assays) that run on instrument-specific software with legacy access controls.
+Drawing on published warning letters, FDA Form 483 observations, and inspection trends, the gene and cell therapy findings cluster into a handful of failure modes. None of them are exotic. They are the same failures that have generated data integrity warning letters across pharma for fifteen years, made worse by the instrument sprawl described above.
 
-**3. Data transfer without verification**
+### Partial audit trails
 
-Raw data exported from an instrument, moved to a network share, imported into a LIMS, at each transfer step, where is the checksum? Where is the verification that the imported values match the exported values? In most organizations, the answer is: the analyst looks at the numbers.
+The obvious failure, audit trails switched off, gets caught immediately and is increasingly rare. The harder problem is partial audit trails. A system records that a result was created and that a record was deleted, but it does not capture field-level edits, or it captures that a value was "modified" with a timestamp but not the previous value.
 
-That's not a control. That's an opportunity for error.
+The standard from 21 CFR 211.68 and 21 CFR Part 11 is that the audit trail must be complete enough to reconstruct any change to raw or critical data: the old value, the new value, who made the change, when, and why. If you cannot reconstruct the prior state of a number, the system fails. For how to design and review trails so they actually meet this bar, see [audit trail design and review](/articles/audit-trail-design-and-review).
 
-**4. Test failures deleted before batch disposition**
+Instrument software for ddPCR, flow cytometry, and plate readers is the usual offender, because many of these packages were built as scientific tools first and compliant records systems second.
 
-This one leads to warning letters. Analyst runs an out-of-specification result, concludes the instrument was "off," reruns. Deletes the first run from the instrument software. The only record that remains is the passing result.
+### Shared or generic login credentials
 
-FDA's position: all raw data, including failing runs, must be retained and investigated per OOS procedures. The decision to invalidate data must be documented with scientific justification, not deleted.
+Still happening. When two analysts share a login for convenience, or a workstation runs under a single generic account, every record produced is unattributable. This fails the Attributable principle outright, and it makes the data scientifically uninterpretable, because you cannot establish who performed which step or whether the person was trained and qualified for it.
 
-## What Good Looks Like
+Gene therapy is especially exposed here. Specialized assay instruments often ship with a single administrative account and weak user management, and small analytical teams under schedule pressure rationalize sharing. The fix is individual named accounts everywhere, enforced through identity and access management, with privileged functions separated from routine ones. The access control angle is covered in depth in [CSV cybersecurity and access control](/articles/csv-cybersecurity-access-control).
 
-In a well-built data integrity program for a gene therapy manufacturer, you'd expect:
+### Data transfer without verification
 
-- **Instrument-to-LIMS data transfer with automated verification**, hash comparison or similar, logged in both the instrument software and LIMS audit trail
-- **Individual user accounts everywhere**, no service accounts for human users, no shared passwords, enforced via IAM
-- **Audit trail review built into batch release**, not a separate audit, but a documented step in the batch record that a QA reviewer confirmed the audit trail for this batch
-- **OOS/OOT procedures that explicitly address electronic data**, what to do when a result is outside specification in a computerized system, before touching anything
-- **Periodic system validation reviews**, confirming the validated state of computerized systems as software versions and configurations change
+Raw data leaves an instrument, lands on a network share, gets imported into a LIMS or a calculation spreadsheet, and at each step the only check is that an analyst looked at the numbers and they seemed fine. That is not a control. It is an opportunity for transcription error or selective omission.
 
-None of this is novel. All of it requires organizational discipline to actually execute, especially at the pace gene therapy companies move.
+A defensible transfer either keeps the data inside a single validated system end to end, or applies an automated integrity check at each boundary: a checksum or hash comparison, a reconciliation count, or a system-to-system interface whose mapping has been verified. The transfer event should be logged on both sides. The principles here overlap heavily with [data lifecycle and metadata](/articles/data-lifecycle-and-metadata) and with the controls described in [infrastructure qualification and spreadsheet validation](/articles/infrastructure-qualification-and-spreadsheet-validation), since spreadsheets are where most uncontrolled transfers happen.
 
-## The AI Angle
+### Failing or aberrant results discarded before disposition
 
-Increasingly, I'm seeing interest in using AI to do automated audit trail review, pattern detection for anomalies like off-hours entries, back-to-back edits, sequences that statistically don't match the process. This is a genuinely useful application.
+This is the finding that turns a 483 into a warning letter. An analyst gets a result that looks wrong, decides the instrument was off or the sample was bad, reruns, and deletes the first acquisition from the instrument software. The only record that survives is the passing one.
 
-The caution: AI-generated findings need to feed a documented review process. An AI flagging a potential anomaly is not a data integrity finding. A qualified reviewer investigating that flag and documenting their conclusion, that's a finding. The AI is a screen, not a decision.
+FDA's position is unambiguous: all data, including failing and aberrant runs, must be retained and evaluated under the out-of-specification process. A decision to invalidate a result requires a documented scientific or technical justification, reviewed and approved, not a quiet deletion. The reference framework is the agency's 2006 guidance "Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production," and the mechanics are covered in [the OOS investigation process](/articles/oos-investigation-process). When a failure points at a systemic problem, it should also feed [the CAPA system](/articles/what-is-a-capa).
 
-I'll write more about this specifically in a future post.
+Gene therapy potency assays make this temptation acute. The assays are variable, batches are precious and few, and timelines are brutal. That combination is exactly when discipline matters most and is hardest to hold.
 
-## The Bottom Line
+### Testing into compliance and uncontrolled reprocessing
 
-FDA's data integrity expectations for gene therapy are high because the stakes are high. A patient receiving a one-time base editing treatment has no recourse if the data supporting the product's safety and efficacy was unreliable.
+Closely related: re-injecting, re-integrating chromatographic peaks, or re-running an analysis with different parameters until the answer passes, without documenting each attempt and its justification. In an electronic system this leaves fingerprints in the audit trail. Inspectors increasingly pull the trail and compare the number of acquisitions against the number of reported results. A mismatch is one of the fastest ways to lose credibility for an entire data set.
 
-The companies that pass data integrity inspections aren't the ones with the most documentation, they're the ones with systems that make manipulation difficult, make errors detectable, and make the full history of every data point available for review. That's the standard worth building toward.
+## A quick map of findings to expectations
+
+The table below summarizes the recurring findings, the underlying expectation, and the regulatory anchor. The citations are real and current as of writing.
+
+| Finding | Underlying expectation | Primary anchor |
+|---|---|---|
+| Partial or missing audit trail | Any change to critical data is reconstructable (old value, new value, who, when, why) | 21 CFR 211.68; 21 CFR Part 11.10(e); FDA 2018 DI Q&A |
+| Shared or generic logins | Each action attributable to a unique individual | 21 CFR Part 11.10(d), 11.10(g) |
+| Unverified data transfer | Data preserved and verified across every hand-off | FDA 2018 DI Q&A; ALCOA Original/Accurate |
+| Deleted failing results | All data retained; invalidation justified and approved | FDA 2006 OOS guidance; 21 CFR 211.192 |
+| Inadequate computerized system controls | Systems validated for intended use, access controlled | 21 CFR Part 11; 21 CFR 211.68(b) |
+
+For readers who want the regulatory mechanics in detail, the [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11) article and the [practical Part 11 / Annex 11 guide](/articles/part-11-annex-11-practical-guide) cover both the US and European requirements, which gene therapy programs almost always have to satisfy in parallel.
+
+## What good actually looks like
+
+A mature data integrity program for a gene therapy manufacturer is not defined by the volume of its documentation. It is defined by controls that make manipulation hard, make errors visible, and keep the full history of every data point available for review. In practice, that means a specific and observable set of behaviors.
+
+- Instrument-to-system data transfer with automated verification: a checksum or system interface that confirms imported values match exported values, logged in both the source software and the destination audit trail. No manual retyping of critical data into spreadsheets that then drive disposition.
+- Individual named accounts everywhere, with no human users sharing credentials and no routine work done under service or administrative accounts. Access is provisioned by role, reviewed periodically, and revoked promptly when people change roles or leave.
+- Audit trail review built into the workflow, not bolted on. The expectation from the 2018 Q&A is that audit trails be reviewed with the same frequency and rigor as the records they support. For a release-critical result, that means a documented step confirming the trail for that batch or run was reviewed before the data was used for a decision. The mechanics live in [batch record review](/articles/batch-record-review-gmp).
+- OOS and out-of-trend procedures that explicitly address electronic data: what an analyst may and may not do when a computerized result is out of specification, before touching the instrument or the file.
+- A validated state that is maintained, not just achieved once. Software versions, configurations, and integrations change constantly in this space, so periodic review confirms the system is still in its validated state and that changes went through [change control](/articles/change-control-validated-systems). The wider lifecycle approach is laid out in [GAMP 5 and the CSV framework](/articles/gamp5-csv-framework) and the newer [computer software assurance](/articles/computer-software-assurance-fda) thinking, which lets teams concentrate effort on the highest-risk records rather than spreading testing thin.
+- A governance layer above the individual systems, so that ownership, periodic review, risk assessment, and remediation are coordinated rather than left to each lab. That program-level view is the subject of [the data governance framework](/articles/data-governance-framework) and [data integrity program architecture](/articles/di-program-architecture).
+
+None of this is novel. All of it requires organizational discipline to sustain, especially at the speed gene therapy programs run.
+
+## A worked example: vector genome titer by ddPCR
+
+Consider a concrete path. A ddPCR run measures vector genome titer for a lot of viral vector that will be used for clinical or commercial supply. The instrument produces raw amplitude data, the software calls positive and negative droplets against a threshold, and a concentration is calculated and reported into the LIMS, where it is compared against the release specification.
+
+The integrity-critical decisions are not at the end, they are buried in the middle. Who set the threshold, and is the threshold setting captured in the audit trail or buried in an unversioned analysis template? If the first analysis gave a borderline result and the threshold was adjusted, is the original analysis retained with a justification, or was it overwritten? When the concentration moved from the instrument software into the LIMS, was it transcribed by hand or transferred through a verified interface? Can a reviewer, months later, open the audit trail and reconstruct every reportable result this lot ever produced, including any that were not reported?
+
+A program that passes will answer all four cleanly. The threshold and any change to it are captured and attributable. Every analysis is retained. The transfer is verified and logged. The reviewer can reconstruct the full history. A program that fails usually fails on the second and third questions: the borderline analysis quietly disappeared, and the number was retyped into a spreadsheet with no trace.
+
+The lesson generalizes to flow cytometry gating, sequencing pipeline parameters, and potency assay curve fitting. The judgment calls in the analysis are where integrity is won or lost, and they are exactly the steps that weakly controlled scientific software fails to capture.
+
+## How an inspector actually tests this
+
+Understanding the inspection mechanics changes how you prepare. Inspectors rarely take a quality system at face value. They trace.
+
+A common technique is to pick a single reported result, often a release-critical one such as a potency or titer value in the BLA, and follow it backward through every system it touched. They will ask to see the raw acquisition on the instrument, the analysis that produced the reported number, the audit trail around that analysis, the transfer record into the LIMS, and the disposition decision that used it. At any point in that chain where the story breaks, the original cannot be produced, the audit trail does not reconcile, the transfer was manual and unverified, the credibility of that result collapses, and the doubt spreads outward to every result produced the same way.
+
+A second technique is to compare the audit trail's count of acquisitions and analyses against the count of reported results. If an instrument shows twelve injections and the records report eight, the inspector wants the other four explained with documented justification. Silence here is read as testing into compliance.
+
+A third is to interview the analysts. Inspectors ask people to walk through what they do when a result looks wrong, and they listen for the gap between the written procedure and the lived practice. If the procedure says retain and investigate but the analyst describes deleting and rerunning, the procedure is decoration. This is why training is a data integrity control, not a separate exercise: a [training program](/articles/training-program-gxp) that does not change behavior at the bench leaves the real risk untouched, and clear [GxP roles and responsibilities](/articles/gxp-roles-responsibilities) determine who is even allowed to invalidate a result.
+
+The practical implication is that you should pressure-test your own program the same way. Before an inspection, pull a release-critical result and trace it end to end yourself. If you cannot reconstruct it cleanly, an inspector will not be able to either, and you would rather find that out first.
+
+## Where AI fits, and where it does not
+
+There is real and growing interest in using machine learning to review audit trails at scale, flagging patterns a human reviewer would miss across thousands of entries: off-hours edits, repeated back-to-back changes to the same field, sequences that statistically do not match the documented process, or acquisition counts that do not reconcile with reported results. For the volume of audit trail data a gene therapy program generates, this is a legitimately useful application.
+
+The caution is about role, not capability. An AI flag is not a data integrity finding. It is a screen. A finding exists only when a qualified reviewer investigates the flag and documents a conclusion. The model narrows where humans look; it does not replace the human judgment or the documented review that the regulations require. And the tool itself is a computerized system used in a GxP decision, so it has to be validated for its intended use, with its inputs, version, and limitations controlled like any other. That validation question is its own subject, covered in [validating AI in GxP systems](/articles/validating-ai-gxp-systems) and [building AI tools for GxP](/articles/building-ai-tools-for-gxp). Treating an unvalidated model's output as fact in a release decision would itself be a data integrity problem.
+
+## For readers at different depths
+
+If you are new to GxP, the single idea to carry away is that data integrity is about trustworthiness, not paperwork volume. The question behind every finding is whether an outsider could verify your data using your own systems, without trusting anyone's word. Start with [data integrity foundations](/articles/data-integrity-foundations) and [good documentation practices](/articles/good-documentation-practices).
+
+If you are a working practitioner, the highest-yield moves are usually unglamorous: kill shared logins, confirm your instrument audit trails capture field-level changes with prior values, eliminate manual retyping of release-critical data, and make audit trail review a documented part of disposition rather than an afterthought. A focused [self-audit checklist](/articles/di-self-audit-checklist) or a structured [gap assessment](/articles/di-gap-assessment-methodology) will surface the worst exposures fast.
+
+If you are a senior or program-level reader, the work is to build a governance layer that treats integrity as a property of the whole system: clear data ownership, a current inventory of computerized systems and their validated state, risk-based review depth, and a remediation pipeline that closes findings before an inspector finds them. When findings do come, the response process matters as much as the fix, which is why [483 and warning letter response](/articles/483-warning-letter-response) and broader [FDA inspection readiness](/articles/fda-inspection-readiness) belong in the same program. Recurring integrity failures are almost always a [quality culture](/articles/quality-culture-di-failures) problem wearing a technical disguise.
+
+## The bottom line
+
+FDA's data integrity expectations for gene therapy are high because the consequences of unreliable data are, for a one-time treatment, effectively permanent. The companies that pass inspection are not the ones with the thickest binders. They are the ones whose systems make manipulation difficult, make errors detectable, and keep the complete history of every data point available for review. That is a harder thing to build than a slide deck on ALCOA+, and it is the standard worth building toward.
