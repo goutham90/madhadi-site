@@ -1,0 +1,9 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="madhadi mark">
+  <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="11" fill="#0b2e4f" stroke="#0a2643" stroke-width="1"/>
+  <!-- the record line (gold) -->
+  <rect x="12" y="33.5" width="24" height="2.6" rx="1.3" fill="#d6a23e"/>
+  <!-- monogram M as an audit/uptick stroke -->
+  <path d="M12 30 V16.5 L24 26 L36 16.5 V30" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- verification tick -->
+  <path d="M30.2 11.6 l2.1 2.2 l4.2 -4.6" stroke="#d6a23e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

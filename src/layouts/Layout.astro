@@ -34,7 +34,7 @@ const resourcesActive = resources.some(r => isActive(r.href));
   <meta name="theme-color" content="#0b2e4f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
   <title>{title === 'Home' ? 'madhadi.com — A Practitioner Reference for Data Integrity & GxP Quality' : `${title} · madhadi.com`}</title>
   <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
   <style is:global>
@@ -70,9 +70,9 @@ const resourcesActive = resources.some(r => isActive(r.href));
       --shadow: 0 12px 28px -18px rgba(11,46,79,0.28); --shadow-sm: 0 1px 2px rgba(27,27,27,0.08);
       --container-narrow: 740px; --max-w: 740px; --max-w-wide: var(--container); --violet: var(--blue);
 
-      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-      --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-      --display: var(--serif);
+      --serif: "Newsreader", Georgia, serif;
+      --sans: "Libre Franklin", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      --display: "Libre Franklin", system-ui, -apple-system, sans-serif;
       --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
       --container: 1180px;
       --measure: 68ch;
@@ -87,7 +87,7 @@ const resourcesActive = resources.some(r => isActive(r.href));
     .wrap { max-width: var(--container); margin-inline: auto; padding-inline: 28px; }
     .wide { max-width: 1300px; }
 
-    h1,h2,h3,h4 { font-family: var(--serif); font-weight: 600; line-height: 1.18; letter-spacing: -0.012em; color: var(--navy); }
+    h1,h2,h3,h4 { font-family: var(--display); font-weight: 700; line-height: 1.14; letter-spacing: -0.022em; color: var(--navy); }
     a { color: var(--blue); text-decoration: none; }
     a:hover { color: var(--blue-d); text-decoration: underline; text-underline-offset: 2px; }
     p { color: var(--ink-2); }
@@ -112,11 +112,12 @@ const resourcesActive = resources.some(r => isActive(r.href));
     /* ── Masthead ── */
     .mast { background: #fff; border-bottom: 3px solid var(--navy); position: sticky; top: 0; z-index: 50; }
     .mast-in { display: flex; align-items: center; justify-content: space-between; height: 78px; }
-    .brand { display: inline-flex; align-items: center; gap: 13px; }
-    .brand-mark { width: 40px; height: 40px; border-radius: 4px; background: var(--navy); display: grid; place-items: center; color: #fff; font-family: var(--serif); font-weight: 700; font-size: 1.25rem; }
-    .brand-txt { display: flex; flex-direction: column; line-height: 1.05; }
-    .brand-name { font-family: var(--serif); font-weight: 700; font-size: 1.3rem; color: var(--navy); letter-spacing: -0.01em; }
-    .brand-sub { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; }
+    .brand-mark { width: 42px; height: 42px; display: block; }
+    .brand-txt { display: flex; flex-direction: column; line-height: 1.02; }
+    .brand-name { font-family: var(--display); font-weight: 800; font-size: 1.34rem; color: var(--navy); letter-spacing: -0.035em; }
+    .brand-name .dot { color: var(--gold); }
+    .brand-sub { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 2px; }
     .mast-nav { display: flex; align-items: center; gap: 2px; }
     .mast-nav a { padding: 10px 14px; font-size: 0.95rem; font-weight: 600; color: var(--ink); border-radius: 4px; }
     .mast-nav a:hover { color: var(--blue); background: var(--panel); text-decoration: none; }
@@ -165,8 +166,8 @@ const resourcesActive = resources.some(r => isActive(r.href));
   <header class="mast">
     <div class="wrap mast-in">
       <a href="/" class="brand" aria-label="madhadi.com home">
-        <span class="brand-mark">M</span>
-        <span class="brand-txt"><span class="brand-name">madhadi.com</span><span class="brand-sub">Data Integrity &amp; GxP Quality</span></span>
+        <img src="/brand/mark.svg" class="brand-mark" alt="" width="42" height="42" />
+        <span class="brand-txt"><span class="brand-name">madhadi<span class="dot">.</span>com</span><span class="brand-sub">Data Integrity &amp; GxP Quality</span></span>
       </a>
       <nav class="mast-nav" aria-label="Primary">
         {primary.map(l => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.label}</a>)}
@@ -186,7 +187,7 @@ const resourcesActive = resources.some(r => isActive(r.href));
   <footer class="footer">
     <div class="wrap footer-in">
       <div>
-        <a href="/" class="brand"><span class="brand-mark">M</span><span class="brand-txt"><span class="brand-name">madhadi.com</span></span></a>
+        <a href="/" class="brand"><img src="/brand/mark.svg" class="brand-mark" alt="" width="42" height="42" /><span class="brand-txt"><span class="brand-name" style="color:#fff">madhadi<span class="dot">.</span>com</span></span></a>
         <p class="footer-lead">A practitioner's reference for data integrity, computerized system validation, and GxP quality in regulated biotech. Written to be used on the job, not skimmed.</p>
       </div>
       <div><h4>Explore</h4>{primary.map(l => <a href={l.href}>{l.label}</a>)}<a href="/start">Start here</a><a href="/about">About</a></div>
