@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { PILLARS, pillarBySlug } from '../../data/pillars';
+
+export async function getStaticPaths() {
+  return PILLARS.map(p => ({ params: { pillar: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+
+const all = await getCollection('articles', ({ data }) => !data.draft && data.pillar === p.slug);
+const tierOrder: Record<string, number> = { Beginner: 0, Intermediate: 1, Advanced: 2 };
+const sorted = all.sort((a, b) => (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1));
+const tierColors: Record<string, string> = { Beginner: '#0f7a52', Intermediate: '#005ea2', Advanced: '#0b2e4f' };
+const related = PILLARS.filter(x => x.slug !== p.slug).slice(0, 4);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+---
+<Layout title={p.short} description={p.blurb} wide={true}>
+  <header class="ph-hero">
+    <img src={p.image} alt="" loading="eager" />
+    <div class="ph-grad"></div>
+    <div class="wrap ph-inner">
+      <nav class="crumb"><a href="/">Home</a> <span>›</span> <a href="/pillars">Topics</a> <span>›</span> {p.short}</nav>
+      <span class="overline" style="color:#ffd98a">Topic area</span>
+      <h1 class="ph-h1">{p.title}</h1>
+      <p class="ph-desc">{p.desc}</p>
+      <span class="ph-count">{sorted.length} article{sorted.length === 1 ? '' : 's'}</span>
+    </div>
+  </header>
+
+  <div class="wrap ph-body">
+    <div class="ph-list">
+      {sorted.length === 0 && <p class="ph-empty">Articles for this topic are being added.</p>}
+      {sorted.map(a => (
+        <a href={`/articles/${a.slug}`} class="ph-art">
+          <div class="ph-art-main">
+            {a.data.tier && <span class="tier-dot" style={`background:${tierColors[a.data.tier] ?? '#565c65'}`}>{a.data.tier}</span>}
+            <h2 class="ph-art-title">{a.data.title}</h2>
+            <p class="ph-art-desc">{a.data.description}</p>
+          </div>
+          <span class="ph-art-date">{fmt(a.data.pubDate)}</span>
+        </a>
+      ))}
+    </div>
+
+    <aside class="ph-aside">
+      {p.regLinks && p.regLinks.length > 0 && (
+        <div class="ph-box">
+          <h3>Key references</h3>
+          <ul>{p.regLinks.map(r => <li><a href={r.href} target="_blank" rel="noopener">{r.label} ↗</a></li>)}</ul>
+        </div>
+      )}
+      <div class="ph-box">
+        <h3>Related topics</h3>
+        <ul>{related.map(r => <li><a href={`/pillars/${r.slug}`}>{r.short}</a></li>)}</ul>
+      </div>
+    </aside>
+  </div>
+</Layout>
+
+<style>
+  .ph-hero { position: relative; min-height: 40vh; display: flex; align-items: flex-end; background: var(--navy); border-bottom: 4px solid var(--gold); }
+  .ph-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+  .ph-grad { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,46,79,0.6), rgba(11,46,79,0.95)); z-index: 2; }
+  .ph-inner { position: relative; z-index: 3; padding: 3.5rem 0 2.4rem; }
+  .crumb { font-size: 0.82rem; color: var(--on-navy-dim); margin-bottom: 1.2rem; } .crumb a { color: var(--on-navy-dim); } .crumb a:hover { color: #fff; } .crumb span { opacity: .6; margin: 0 3px; }
+  .ph-h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.1rem); margin: 8px 0 14px; letter-spacing: -0.025em; max-width: 20ch; }
+  .ph-desc { color: var(--on-navy); font-family: var(--serif); font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.5; max-width: 60ch; }
+  .ph-count { display: inline-block; margin-top: 18px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ffd98a; }
+
+  .ph-body { display: grid; grid-template-columns: 1fr 300px; gap: 48px; padding: 56px 28px; }
+  .ph-list { display: flex; flex-direction: column; }
+  .ph-empty { color: var(--muted); }
+  .ph-art { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; padding: 24px 0; border-top: 1px solid var(--line); transition: padding-left .15s; }
+  .ph-art:first-child { border-top: 2px solid var(--navy); }
+  .ph-art:hover { padding-left: 8px; text-decoration: none; }
+  .tier-dot { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; padding: 3px 9px; border-radius: 3px; margin-bottom: 9px; }
+  .ph-art-title { font-size: 1.32rem; color: var(--navy); margin-bottom: 5px; }
+  .ph-art:hover .ph-art-title { color: var(--blue); }
+  .ph-art-desc { font-size: 0.95rem; color: var(--muted); max-width: 60ch; }
+  .ph-art-date { font-size: 0.82rem; color: var(--faint); font-weight: 600; white-space: nowrap; padding-top: 2px; }
+
+  .ph-aside { display: flex; flex-direction: column; gap: 22px; }
+  .ph-box { border: 1px solid var(--line); border-top: 3px solid var(--navy); border-radius: var(--radius); padding: 18px 20px; background: #fff; }
+  .ph-box h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 12px; }
+  .ph-box ul { list-style: none; } .ph-box li { border-top: 1px solid var(--line); } .ph-box li:first-child { border-top: none; }
+  .ph-box a { display: block; padding: 9px 0; font-size: 0.92rem; font-weight: 600; }
+
+  @media (max-width: 900px) { .ph-body { grid-template-columns: 1fr; gap: 32px; } .ph-art { grid-template-columns: 1fr; } .ph-art-date { padding-top: 0; } }
+</style>

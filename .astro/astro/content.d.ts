@@ -176,6 +176,27 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"annex-1-contamination-control-strategy.md": {
+	id: "annex-1-contamination-control-strategy.md";
+  slug: "annex-1-contamination-control-strategy";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"annual-product-review-pqr.md": {
+	id: "annual-product-review-pqr.md";
+  slug: "annual-product-review-pqr";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"aseptic-processing-and-media-fills.md": {
+	id: "aseptic-processing-and-media-fills.md";
+  slug: "aseptic-processing-and-media-fills";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "audit-trail-design-and-review.md": {
 	id: "audit-trail-design-and-review.md";
   slug: "audit-trail-design-and-review";
@@ -186,6 +207,13 @@ declare module 'astro:content' {
 "automation-validation-plc-scada-dcs.md": {
 	id: "automation-validation-plc-scada-dcs.md";
   slug: "automation-validation-plc-scada-dcs";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"backup-restore-disaster-recovery-validation.md": {
+	id: "backup-restore-disaster-recovery-validation.md";
+  slug: "backup-restore-disaster-recovery-validation";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -221,6 +249,13 @@ declare module 'astro:content' {
 "career-guide-gxp-validation.md": {
 	id: "career-guide-gxp-validation.md";
   slug: "career-guide-gxp-validation";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"cdmo-oversight-quality-agreements.md": {
+	id: "cdmo-oversight-quality-agreements.md";
+  slug: "cdmo-oversight-quality-agreements";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -281,6 +316,13 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"csv-cybersecurity-access-control.md": {
+	id: "csv-cybersecurity-access-control.md";
+  slug: "csv-cybersecurity-access-control";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "csv-risk-assessment-methodology.md": {
 	id: "csv-risk-assessment-methodology.md";
   slug: "csv-risk-assessment-methodology";
@@ -312,6 +354,13 @@ declare module 'astro:content' {
 "data-lifecycle-and-metadata.md": {
 	id: "data-lifecycle-and-metadata.md";
   slug: "data-lifecycle-and-metadata";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"data-migration-validation.md": {
+	id: "data-migration-validation.md";
+  slug: "data-migration-validation";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -354,6 +403,13 @@ declare module 'astro:content' {
 "document-control-fundamentals.md": {
 	id: "document-control-fundamentals.md";
   slug: "document-control-fundamentals";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"environmental-monitoring-program.md": {
+	id: "environmental-monitoring-program.md";
+  slug: "environmental-monitoring-program";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -407,6 +463,27 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"glp-21-cfr-58-nonclinical.md": {
+	id: "glp-21-cfr-58-nonclinical.md";
+  slug: "glp-21-cfr-58-nonclinical";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"good-distribution-practice-cold-chain.md": {
+	id: "good-distribution-practice-cold-chain.md";
+  slug: "good-distribution-practice-cold-chain";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"good-documentation-practices.md": {
+	id: "good-documentation-practices.md";
+  slug: "good-documentation-practices";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "gxp-computerized-systems-operations.md": {
 	id: "gxp-computerized-systems-operations.md";
   slug: "gxp-computerized-systems-operations";
@@ -435,6 +512,41 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"ich-q12-lifecycle-management.md": {
+	id: "ich-q12-lifecycle-management.md";
+  slug: "ich-q12-lifecycle-management";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"ich-q14-q2r2-analytical-lifecycle.md": {
+	id: "ich-q14-q2r2-analytical-lifecycle.md";
+  slug: "ich-q14-q2r2-analytical-lifecycle";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"ich-q7-api-gmp.md": {
+	id: "ich-q7-api-gmp.md";
+  slug: "ich-q7-api-gmp";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"iec-62304-samd-software-lifecycle.md": {
+	id: "iec-62304-samd-software-lifecycle.md";
+  slug: "iec-62304-samd-software-lifecycle";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"infrastructure-qualification-and-spreadsheet-validation.md": {
+	id: "infrastructure-qualification-and-spreadsheet-validation.md";
+  slug: "infrastructure-qualification-and-spreadsheet-validation";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "inspection-readiness.md": {
 	id: "inspection-readiness.md";
   slug: "inspection-readiness";
@@ -449,6 +561,20 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"iso-14971-risk-management-devices.md": {
+	id: "iso-14971-risk-management-devices.md";
+  slug: "iso-14971-risk-management-devices";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"medical-device-quality-system-qmsr.md": {
+	id: "medical-device-quality-system-qmsr.md";
+  slug: "medical-device-quality-system-qmsr";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "mes-ebr-scada-data-integrity.md": {
 	id: "mes-ebr-scada-data-integrity.md";
   slug: "mes-ebr-scada-data-integrity";
@@ -459,6 +585,13 @@ declare module 'astro:content' {
 "method-validation-essentials.md": {
 	id: "method-validation-essentials.md";
   slug: "method-validation-essentials";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"nitrosamines-impurities-q3-m7.md": {
+	id: "nitrosamines-impurities-q3-m7.md";
+  slug: "nitrosamines-impurities-q3-m7";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -480,6 +613,13 @@ declare module 'astro:content' {
 "pharmaceutical-quality-system.md": {
 	id: "pharmaceutical-quality-system.md";
   slug: "pharmaceutical-quality-system";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"pharmacovigilance-safety-data-integrity.md": {
+	id: "pharmacovigilance-safety-data-integrity.md";
+  slug: "pharmacovigilance-safety-data-integrity";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -526,6 +666,13 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"statistics-in-quality-cpk-control-charts.md": {
+	id: "statistics-in-quality-cpk-control-charts.md";
+  slug: "statistics-in-quality-cpk-control-charts";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "supplier-vendor-qualification.md": {
 	id: "supplier-vendor-qualification.md";
   slug: "supplier-vendor-qualification";
@@ -550,6 +697,13 @@ declare module 'astro:content' {
 "validation-deliverables-guide.md": {
 	id: "validation-deliverables-guide.md";
   slug: "validation-deliverables-guide";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"validation-master-plan-and-periodic-review.md": {
+	id: "validation-master-plan-and-periodic-review.md";
+  slug: "validation-master-plan-and-periodic-review";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

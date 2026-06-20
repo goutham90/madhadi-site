@@ -34,16 +34,8 @@ const entries = [
     samples: [{ t: 'DI Program Architecture', s: 'di-program-architecture' }, { t: 'DI Gap Assessment', s: 'di-gap-assessment-methodology' }, { t: 'BLA Readiness', s: 'bla-readiness-data-package' }] },
 ];
 
-const pillars = [
-  { slug: 'data-integrity', name: 'Data Integrity', desc: 'ALCOA+, DI program architecture, audit trail design, warning-letter patterns.' },
-  { slug: 'csv-csa', name: 'CSV / CSA', desc: 'GAMP 5, validation lifecycle, the CSA risk-based approach, cloud and SaaS.' },
-  { slug: 'equipment-qualification', name: 'Equipment Qualification', desc: 'IQ/OQ/PQ, USP <1058>, AIQ lifecycle, analytical instruments.' },
-  { slug: 'quality-assurance', name: 'Quality Assurance', desc: 'PQS, ICH Q10, change control, CAPA, document management.' },
-  { slug: 'audits-inspection', name: 'Audits & Inspection', desc: 'FDA inspection readiness, 483 responses, front- and back-room operations.' },
-  { slug: 'cell-gene-therapy', name: 'Cell & Gene Therapy', desc: 'CGT data integrity, potency assays, BLA-level scrutiny, viral vectors.' },
-  { slug: 'manufacturing-automation', name: 'Manufacturing Automation', desc: 'MES, EBR, SCADA, DCS, PLC audit trails, review-by-exception.' },
-  { slug: 'ai-automation', name: 'AI & Automation', desc: '21 CFR-compliant AI tools, NLP for audit-trail review, data pipelines.' },
-];
+import { PILLARS } from '../data/pillars';
+const pillars = PILLARS;
 
 const roles = [
   { role: 'CSV Consultant', desc: 'Scoping validations, writing protocols, risk assessments, change control, retroactive validation, vendor qualification.', articles: [{ title: 'GAMP 5 Second Edition', slug: 'gamp5-csv-framework' }, { title: 'CSV Risk Assessment Methodology', slug: 'csv-risk-assessment-methodology' }, { title: 'Validation Deliverables Guide', slug: 'validation-deliverables-guide' }, { title: 'Change Control for Validated Systems', slug: 'change-control-validated-systems' }] },
@@ -85,7 +77,7 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
         <div class="hd-card-h">In this reference</div>
         <ul class="hd-card-list">
           <li><a href="/start">New here — start with the foundations</a></li>
-          <li><a href="/pillars">Browse the eight topic areas</a></li>
+          <li><a href="/pillars">Browse the topic areas</a></li>
           <li><a href="/articles">The full article index</a></li>
           <li><a href="/regulatory-refs">Regulatory references &amp; citations</a></li>
           <li><a href="/glossary">Glossary of GxP terms</a></li>
@@ -122,14 +114,14 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
   <!-- ═════ TOPIC AREAS ═════ -->
   <section class="wrap sec">
     <header class="sec-head" data-reveal>
-      <div><span class="overline">The eight topic areas</span><h2 class="sec-h">Everything quality runs on</h2></div>
+      <div><span class="overline">The topic areas</span><h2 class="sec-h">Everything quality runs on</h2></div>
       <a href="/pillars" class="sec-link">View all topics →</a>
     </header>
     <div class="pillars">
       {pillars.map((p, i) => (
         <a href={`/pillars/${p.slug}`} class="pillar" data-reveal>
           <span class="pillar-n">{String(i+1).padStart(2,'0')}</span>
-          <div><h3 class="pillar-name">{p.name}</h3><p class="pillar-desc">{p.desc}</p></div>
+          <div><h3 class="pillar-name">{p.short}</h3><p class="pillar-desc">{p.blurb}</p></div>
           <span class="pillar-arrow">→</span>
         </a>
       ))}
