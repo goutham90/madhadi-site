@@ -71,7 +71,7 @@ The LIMS is the central laboratory data management system, receiving samples, ma
 
 ## Chromatography Data Systems (CDS)
 
-The CDS is the software that controls HPLC, UPLC, GC, and other chromatographic instruments, acquiring raw data, managing instrument methods, controlling sequences, processing data through integration and calibration, and storing results. CDS platforms (Empower, Chromeleon, ChemStation, OpenLAB) are among the most frequently cited systems in FDA data integrity enforcement actions.
+The CDS is the software that controls HPLC, UPLC, GC, and other chromatographic instruments, acquiring raw data, managing instrument methods, controlling sequences, processing data through integration and calibration, and storing results. CDS platforms (Help, Chromeleon, ChemStation, OpenLAB) are among the most frequently cited systems in FDA data integrity enforcement actions.
 
 **Why CDS platforms draw so many findings:**
 1. Raw data generation and processing happen within the same system, meaning the same user who generated the data can also reprocess it

@@ -5,7 +5,7 @@ interface Props {
   wide?: boolean;
 }
 
-const { title, description = 'A practitioner-built field manual for data integrity, computerized system validation, and GxP quality in regulated biotech.', wide = false } = Astro.props;
+const { title, description = 'Working notes and guides on data integrity, computerized system validation, and GxP quality in regulated biotech.', wide = false } = Astro.props;
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => currentPath === href || currentPath.startsWith(href + '/');
 
@@ -35,7 +35,7 @@ const resourcesActive = resources.some(r => isActive(r.href));
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
-  <title>{title === 'Home' ? 'madhadi.com, A Practitioner Reference for Data Integrity & GxP Quality' : `${title} · madhadi.com`}</title>
+  <title>{title === 'Home' ? 'madhadi.com · Data Integrity & GxP Quality' : `${title} · madhadi.com`}</title>
   <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
   <style is:global>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -159,7 +159,7 @@ const resourcesActive = resources.some(r => isActive(r.href));
 </head>
 <body>
   <div class="util"><div class="wrap util-in">
-    <span class="util-note">An independent practitioner reference, not affiliated with the FDA, MHRA, ISPE, PDA, or any agency.</span>
+    <span class="util-note">Independent and not affiliated with the FDA, MHRA, ISPE, PDA, or any agency.</span>
     <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a>
   </div></div>
 
@@ -188,14 +188,14 @@ const resourcesActive = resources.some(r => isActive(r.href));
     <div class="wrap footer-in">
       <div>
         <a href="/" class="brand"><img src="/brand/mark.svg" class="brand-mark" alt="" width="42" height="42" /><span class="brand-txt"><span class="brand-name" style="color:#fff">madhadi<span class="dot">.</span>com</span></span></a>
-        <p class="footer-lead">A practitioner's reference for data integrity, computerized system validation, and GxP quality in regulated biotech. Written to be used on the job, not skimmed.</p>
+        <p class="footer-lead">Working notes and guides on data integrity, computerized system validation, and GxP quality in regulated biotech. Written to be used on the job, not skimmed.</p>
       </div>
       <div><h4>Explore</h4>{primary.map(l => <a href={l.href}>{l.label}</a>)}<a href="/start">Start here</a><a href="/about">About</a></div>
       <div><h4>Resources</h4>{resources.slice(0,4).map(l => <a href={l.href}>{l.label}</a>)}</div>
       <div><h4>More</h4>{resources.slice(4).map(l => <a href={l.href}>{l.label}</a>)}<a href="/articles">All articles</a></div>
     </div>
     <div class="footer-bottom"><div class="wrap footer-bottom-in">
-      <span>© {new Date().getFullYear()} madhadi.com · Public-domain practitioner reference.</span>
+      <span>© {new Date().getFullYear()} madhadi.com · Free, public-domain knowledge.</span>
       <span>Built and maintained by a working Director of Digital Quality.</span>
     </div></div>
   </footer>

@@ -93,7 +93,7 @@ For each GxP system generating regulated records:
 - [ ] Is there a documented procedure for audit trail review, including frequency and scope?
 - [ ] Are audit trail reviews actually being performed and documented as evidence?
 
-**The specific failure mode:** For chromatography data systems (Empower, ChemStation, Chromeleon), examine whether analysts have access to modify processing methods or integration parameters after the fact without the change appearing in the audit trail. CDS audit trail configuration is highly version- and configuration-dependent. The same system can have adequate or completely inadequate audit trail capture depending on how it's set up and which version is running.
+**The specific failure mode:** For chromatography data systems (Help, ChemStation, Chromeleon), examine whether analysts have access to modify processing methods or integration parameters after the fact without the change appearing in the audit trail. CDS audit trail configuration is highly version- and configuration-dependent. The same system can have adequate or completely inadequate audit trail capture depending on how it's set up and which version is running.
 
 ### Electronic Signature Configuration
 

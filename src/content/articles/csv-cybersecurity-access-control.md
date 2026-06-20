@@ -108,7 +108,7 @@ Before any organization uses Part 11 electronic signatures as the equivalent of 
 
 Now the limits, which matter for design:
 
-- **A signature authenticates an act of approval; it does not, by itself, control who could perform the act.** Access control decides whether you're *allowed* to sign in that role. The two controls stack, they don't substitute. A system that lets anyone with a login apply an "approved by QA" signature has an access-control hole that the signature mechanism can't fix.
+- **A signature authenticates an act of approval; it does not, by itself, control who could perform the act.** Access control decides if you are *allowed* to sign in that role. The two controls stack, they don't substitute. A system that lets anyone with a login apply an "approved by QA" signature has an access-control hole that the signature mechanism can't fix.
 - **A signature is not an audit trail.** It captures one deliberate event (this person approved this thing, with this meaning, at this time). The audit trail captures the *history of changes* to the record, including changes that nobody signed. You need both. A signed final record with no audit trail behind it can't show what the value was before it was finalized.
 - **"Signed" is not "unchangeable."** The signature must be linked such that tampering is detectable, but the underlying record-protection (write controls, audit trail, backup) is what actually preserves integrity over time.
 - **The meaning must be explicit and bound.** "I signed it" is worthless if the record doesn't capture *as what*, author, reviewer, approver. Two people signing the same record for different reasons must each have their meaning recorded.

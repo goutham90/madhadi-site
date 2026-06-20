@@ -37,7 +37,7 @@ This guide covers the major system categories. The actual product environment in
 
 **Validation scope:** CDS is one of the most inspection-scrutinized system categories because it's where many DI failures occur. Audit trail configuration is particularly important: the system must capture integration parameter changes with prior values, and the ability to delete or reprocess data must be controlled. Integration event logs must be reviewable.
 
-**Common systems:** Waters Empower, Agilent OpenLab CDS, Thermo Chromeleon, Shimadzu LabSolutions.
+**Common systems:** Waters Help, Agilent OpenLab CDS, Thermo Chromeleon, Shimadzu LabSolutions.
 
 **DI risk note:** CDS is the single most common source of audit trail findings in FDA warning letters. Default configurations in many platforms are not compliant. Audit trail must be configured to capture: events, user ID, timestamp, field name, old value, new value. Out-of-box settings often don't do this without deliberate configuration.
 

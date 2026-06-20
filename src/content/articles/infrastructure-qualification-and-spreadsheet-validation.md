@@ -134,7 +134,7 @@ Test data must include the cases that break things: zero, blank/empty cells (Exc
 
 **3. Locking and protection.** This is the control inspectors check first, because it is the easiest to verify and the most often missing. The principle: a user may enter input data and may read results, but may **never** alter a formula, a constant, or the layout.
 
-- Lock every cell containing a formula or fixed constant; unlock only the designated data-entry cells.
+- Lock every cell containing a formula or fixed constant; open up only the designated data-entry cells.
 - Apply worksheet and workbook protection so the locked cells cannot be edited, and so sheets cannot be inserted, deleted, hidden, or reordered.
 - Protect the workbook structure to prevent renaming or moving sheets.
 - Use data-validation rules on entry cells to constrain inputs to the expected type and range.

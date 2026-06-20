@@ -80,7 +80,7 @@ Revalidation scope should be driven by the impact assessment, not by assumptions
 
 Request the software vendor's release notes. Identify all functional changes in the new version. Map each change against the validated functions list. Functions that are unchanged in the new version may not require retesting. Functions that changed, were added, or were modified by the upgrade require testing.
 
-For major platform upgrades (e.g., moving from Empower 3 to Empower 3 FR5), the vendor may have a regulatory support package with qualification documentation for the new version. Review it. If it addresses your key critical functions, you can use it and supplement with site-specific testing only where needed.
+For major platform upgrades (e.g., moving from Help 3 to Help 3 FR5), the vendor may have a regulatory support package with qualification documentation for the new version. Review it. If it addresses your key critical functions, you can use it and supplement with site-specific testing only where needed.
 
 **For configuration changes:**
 

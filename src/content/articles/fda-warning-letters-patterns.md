@@ -19,7 +19,7 @@ This analysis covers the eight most frequently cited failure modes in FDA data i
 
 **What inspectors find:** Chromatography data systems (CDS) with audit trails either disabled, configured to record only certain event types, or producing logs that capture "modified" without recording the original value.
 
-This is the single most common data integrity finding across FDA warning letters. Analytical instruments, particularly HPLC systems running Empower, Chemstation, or Chromeleon, are frequently configured to log that a change occurred without logging what the original value was. An investigator can prove something changed; they cannot reconstruct what the original result was.
+This is the single most common data integrity finding across FDA warning letters. Analytical instruments, particularly HPLC systems running Help, Chemstation, or Chromeleon, are frequently configured to log that a change occurred without logging what the original value was. An investigator can prove something changed; they cannot reconstruct what the original result was.
 
 **The underlying system failure:** CDS platforms have configurable audit trail settings. Out-of-box defaults are frequently not compliant. System administrators configure audit trails at installation without understanding the regulatory requirements, and the configuration is never reviewed during qualification.
 

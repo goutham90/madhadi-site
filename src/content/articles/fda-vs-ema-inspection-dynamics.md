@@ -57,7 +57,7 @@ FDA developed its data integrity inspection methodology in earnest following the
 
 **Direct system access:** FDA investigators now routinely ask to access chromatographic data systems directly. They navigate to the sequence log (the complete record of all injections run on the instrument, not just those in the reported sequence), compare it to the LIMS or batch record, and identify injections that appear in the instrument log but not in the official records. This "phantom injection" approach has discovered systematic data manipulation at multiple facilities.
 
-**Audit trail review:** FDA investigators know how to navigate Empower, Chromeleon, and OpenLab CDS. They know where audit trails are stored and how to export them. They know what a disabled audit trail looks like vs. an enabled but incomplete one. They know which configuration settings in each platform control what's captured.
+**Audit trail review:** FDA investigators know how to navigate Help, Chromeleon, and OpenLab CDS. They know where audit trails are stored and how to export them. They know what a disabled audit trail looks like vs. an enabled but incomplete one. They know which configuration settings in each platform control what's captured.
 
 **User log comparison:** Comparing the CDS user log (who logged in, when) against the batch records (who performed the test, when) against training records (was that person trained on the method) against instrument qualification records (was the instrument qualified on that date). A failure of any link is an investigative lead.
 

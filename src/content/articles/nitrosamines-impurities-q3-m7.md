@@ -1,6 +1,6 @@
 ---
 title: "Impurities and Nitrosamines: ICH Q3, M7, and Risk-Based Control"
-description: "A practitioner reference for controlling organic, inorganic, and mutagenic impurities under ICH Q3 and M7, plus the nitrosamine risk-assessment workflow and the data-integrity demands of impurity testing."
+description: "A guide to controlling organic, inorganic, and mutagenic impurities under ICH Q3 and M7, plus the nitrosamine risk-assessment workflow and the data-integrity demands of impurity testing."
 pubDate: 2026-06-20
 tags: ["impurities", "nitrosamines", "ICH M7", "ICH Q3", "mutagenic impurities", "data integrity", "quality assurance", "regulatory"]
 pillar: "quality-assurance"
