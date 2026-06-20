@@ -11,8 +11,8 @@ const isActive = (href: string) => currentPath === href || currentPath.startsWit
 
 const primary = [
   { href: '/articles', label: 'Articles' },
-  { href: '/pillars', label: 'Pillars' },
-  { href: '/tracks', label: 'Learn' },
+  { href: '/pillars', label: 'Topics' },
+  { href: '/tracks', label: 'Learning' },
 ];
 const resources = [
   { href: '/glossary', label: 'Glossary' },
@@ -31,133 +31,148 @@ const resourcesActive = resources.some(r => isActive(r.href));
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="theme-color" content="#08090B" />
+  <meta name="theme-color" content="#0b2e4f" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <title>{title === 'Home' ? 'madhadi.com — A Field Manual for Data Integrity & GxP Quality' : `${title} · madhadi.com`}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
+  <title>{title === 'Home' ? 'madhadi.com — A Practitioner Reference for Data Integrity & GxP Quality' : `${title} · madhadi.com`}</title>
   <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
   <style is:global>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* ── Modern precision-tech system (dark-first) ── */
-      --bg:        #08090B;
-      --bg-2:      #0E1014;
-      --surface:   #121519;
-      --surface-2: #171B21;
-      --text:      #F2F4F7;
-      --muted:     #A6AEBA;
-      --faint:     #6B7480;
-      --line:      rgba(255,255,255,0.08);
-      --line-2:    rgba(255,255,255,0.14);
-      --accent:    #34E59B;      /* signal — the "verified record" */
-      --accent-2:  #21C282;
-      --accent-dim: rgba(52,229,155,0.12);
-      --violet:    #8A7DFF;
+      /* ── Institutional / standards-body system (FDA · MHRA · ISPE · PDA) ── */
+      --page:    #ffffff;        /* page bg */
+      --panel:   #f4f6f8;        /* light grey sections (gov-style) */
+      --panel-2: #eaeef2;
+      --navy:    #0b2e4f;        /* deep institutional navy — masthead, headings */
+      --navy-2:  #11385f;
+      --blue:    #005ea2;        /* USWDS primary — links, accents */
+      --blue-d:  #1a4480;        /* dark blue hover */
+      --ink:     #1b1b1b;        /* body text */
+      --ink-2:   #2e2e2e;
+      --muted:   #565c65;        /* secondary text */
+      --faint:   #71767a;        /* meta */
+      --line:    #dfe1e2;        /* hairline */
+      --line-2:  #c9ccd0;
+      --line-strong: #c6ccd2;
+      --gold:    #a8631b;        /* restrained warm accent (rules/marks), used sparingly */
+      --on-navy: #eef3f8;
+      --on-navy-dim: #b9c7d6;
 
       /* back-compat aliases so existing pages/articles never break */
-      --bone: var(--bg); --bone-2: var(--bg-2); --paper: var(--surface); --paper-2: var(--surface-2);
-      --ink: var(--text); --ink-2: var(--surface-2); --graphite: var(--muted); --muted-light: var(--muted);
-      --line-ink: var(--line); --border: var(--line); --border-dim: var(--line);
-      --vermilion: var(--accent); --vermilion-2: var(--accent-2); --oxblood: var(--accent-2);
-      --accent-h: var(--accent-2); --brass: var(--accent); --green: var(--accent);
-      --on-ink: var(--text); --on-ink-dim: var(--muted); --navy: var(--text); --navy-2: var(--text);
-      --link: var(--accent); --link-h: var(--text); --body: var(--muted); --serif: var(--display);
-      --font: var(--sans); --shadow: 0 30px 70px -40px rgba(0,0,0,0.8); --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
-      --container-narrow: 760px; --max-w: 760px; --max-w-wide: var(--container);
+      --bg: var(--page); --bone: var(--page); --bone-2: var(--panel); --paper: var(--page); --paper-2: var(--panel);
+      --surface: var(--page); --surface-2: var(--panel); --text: var(--ink); --body: var(--muted);
+      --graphite: var(--muted); --muted-light: var(--muted); --line-ink: var(--line); --border: var(--line); --border-dim: var(--line);
+      --accent: var(--blue); --accent-2: var(--blue-d); --accent-h: var(--blue-d); --vermilion: var(--blue); --vermilion-2: var(--blue-d);
+      --oxblood: var(--navy); --brass: var(--gold); --green: #0f7a52; --link: var(--blue); --link-h: var(--blue-d);
+      --on-ink: var(--on-navy); --on-ink-dim: var(--on-navy-dim); --ink-section: var(--navy);
+      --shadow: 0 12px 28px -18px rgba(11,46,79,0.28); --shadow-sm: 0 1px 2px rgba(27,27,27,0.08);
+      --container-narrow: 740px; --max-w: 740px; --max-w-wide: var(--container); --violet: var(--blue);
 
-      --display: "Space Grotesk", "SF Pro Display", system-ui, sans-serif;
-      --sans: "Manrope", system-ui, -apple-system, sans-serif;
-      --mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
-      --container: 1200px;
-      --measure: 70ch;
-      --radius: 14px; --radius-lg: 18px; --radius-sm: 10px;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      --display: var(--serif);
+      --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+      --container: 1180px;
+      --measure: 68ch;
+      --radius: 4px; --radius-lg: 6px; --radius-sm: 3px;
     }
 
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
-      background: var(--bg); color: var(--text); font-family: var(--sans);
-      font-size: 17px; line-height: 1.7; letter-spacing: -0.011em;
-      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden;
+      background: var(--page); color: var(--ink); font-family: var(--sans);
+      font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     }
-    body::before {
-      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background:
-        linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 70px 70px,
-        linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 70px 70px;
-      -webkit-mask-image: radial-gradient(120% 85% at 50% -8%, #000 28%, transparent 74%);
-      mask-image: radial-gradient(120% 85% at 50% -8%, #000 28%, transparent 74%);
-      opacity: 0.55;
-    }
-
     .wrap { max-width: var(--container); margin-inline: auto; padding-inline: 28px; }
-    .wide { max-width: 1340px; }
+    .wide { max-width: 1300px; }
 
-    h1,h2,h3,h4 { font-family: var(--display); font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; color: var(--text); }
-    a { color: inherit; text-decoration: none; }
-    p { color: var(--muted); }
+    h1,h2,h3,h4 { font-family: var(--serif); font-weight: 600; line-height: 1.18; letter-spacing: -0.012em; color: var(--navy); }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-d); text-decoration: underline; text-underline-offset: 2px; }
+    p { color: var(--ink-2); }
 
-    .kicker, .mono-label, .marginalia { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-    .marginalia { color: var(--faint); text-transform: none; letter-spacing: 0.02em; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; }
-    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--accent); }
+    .kicker, .mono-label, .overline { font-family: var(--sans); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+    .overline { display: inline-flex; align-items: center; gap: 9px; }
+    .overline::before { content: ""; width: 26px; height: 2px; background: var(--gold); }
+    .marginalia { font-family: var(--sans); font-size: 0.84rem; color: var(--faint); }
 
-    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; }
-    .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+    .btn, .btn-accent, .btn-ghost { display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; font-family: var(--sans); font-weight: 600; font-size: 0.97rem; border-radius: var(--radius); cursor: pointer; transition: background .15s, color .15s, border-color .15s; border: 1px solid transparent; line-height: 1.2; }
+    .btn-accent { background: var(--navy); color: #fff; }
+    .btn-accent:hover { background: var(--navy-2); color: #fff; text-decoration: none; }
+    .btn-ghost { background: #fff; color: var(--navy); border-color: var(--line-strong); }
+    .btn-ghost:hover { border-color: var(--navy); color: var(--navy); text-decoration: none; }
 
-    .btn, .btn-accent, .btn-ghost { display: inline-flex; align-items: center; gap: 9px; padding: 13px 22px; font-family: var(--sans); font-weight: 600; font-size: 0.95rem; border-radius: 12px; cursor: pointer; transition: transform .18s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease; border: 1px solid transparent; }
-    .btn-accent { background: var(--accent); color: #04150D; }
-    .btn-accent:hover { background: var(--accent-2); transform: translateY(-2px); box-shadow: 0 14px 34px -12px rgba(52,229,155,0.55); }
-    .btn-ghost { background: transparent; color: var(--text); border-color: var(--line-2); }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    /* ── Top utility strip ── */
+    .util { background: var(--navy); color: var(--on-navy); font-size: 0.78rem; }
+    .util-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 34px; }
+    .util a { color: var(--on-navy); }
+    .util .util-note { color: var(--on-navy-dim); letter-spacing: 0.01em; }
 
-    .nav { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(140%) blur(14px); background: color-mix(in srgb, var(--bg) 76%, transparent); border-bottom: 1px solid var(--line); }
-    .nav-in { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; font-family: var(--display); font-weight: 600; font-size: 1.06rem; letter-spacing: -0.02em; }
-    .brand-mark { width: 26px; height: 26px; border-radius: 7px; background: linear-gradient(140deg, var(--accent), var(--violet)); display: grid; place-items: center; color: #04150D; font-family: var(--mono); font-weight: 700; font-size: 0.8rem; box-shadow: 0 0 18px -4px var(--accent); }
-    .brand b { color: var(--text); font-weight: 600; } .brand .tld { color: var(--faint); }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-links a { padding: 8px 13px; font-size: 0.92rem; font-weight: 500; color: var(--muted); border-radius: 9px; transition: color .18s, background .18s; }
-    .nav-links a:hover { color: var(--text); background: var(--surface); }
-    .nav-links a.active { color: var(--text); }
-    .nav-cta { margin-left: 10px; color: #04150D !important; }
-    .menu-btn { display: none; background: none; border: 1px solid var(--line-2); color: var(--text); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.1rem; }
+    /* ── Masthead ── */
+    .mast { background: #fff; border-bottom: 3px solid var(--navy); position: sticky; top: 0; z-index: 50; }
+    .mast-in { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+    .brand { display: inline-flex; align-items: center; gap: 13px; }
+    .brand-mark { width: 40px; height: 40px; border-radius: 4px; background: var(--navy); display: grid; place-items: center; color: #fff; font-family: var(--serif); font-weight: 700; font-size: 1.25rem; }
+    .brand-txt { display: flex; flex-direction: column; line-height: 1.05; }
+    .brand-name { font-family: var(--serif); font-weight: 700; font-size: 1.3rem; color: var(--navy); letter-spacing: -0.01em; }
+    .brand-sub { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .mast-nav { display: flex; align-items: center; gap: 2px; }
+    .mast-nav a { padding: 10px 14px; font-size: 0.95rem; font-weight: 600; color: var(--ink); border-radius: 4px; }
+    .mast-nav a:hover { color: var(--blue); background: var(--panel); text-decoration: none; }
+    .mast-nav a.active { color: var(--navy); box-shadow: inset 0 -3px 0 var(--gold); }
+    .mast-nav a.mast-cta { color: #fff; margin-left: 8px; }
+    .mast-nav a.mast-cta:hover { color: #fff; background: var(--navy-2); }
+    .menu-btn { display: none; background: none; border: 1px solid var(--line-strong); color: var(--navy); width: 42px; height: 42px; border-radius: 4px; cursor: pointer; font-size: 1.2rem; }
     .drawer { display: none; }
 
-    .footer { border-top: 1px solid var(--line); margin-top: 110px; background: var(--bg-2); }
-    .footer-in { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding: 60px 0 40px; }
-    .footer h4 { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); margin-bottom: 16px; font-weight: 500; }
-    .footer a { color: var(--muted); font-size: 0.94rem; display: block; padding: 5px 0; transition: color .15s; }
-    .footer a:hover { color: var(--accent); }
-    .footer-lead { color: var(--muted); max-width: 40ch; margin: 14px 0 0; font-size: 0.95rem; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 0.74rem; color: var(--faint); letter-spacing: 0.03em; }
+    /* ── Footer (dense institutional) ── */
+    .footer { margin-top: 80px; background: var(--navy); color: var(--on-navy); }
+    .footer-in { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 36px; padding: 56px 0 40px; }
+    .footer h4 { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 14px; font-weight: 700; }
+    .footer a { color: var(--on-navy-dim); font-size: 0.93rem; display: block; padding: 5px 0; }
+    .footer a:hover { color: #fff; text-decoration: underline; }
+    .footer-lead { color: var(--on-navy-dim); max-width: 42ch; margin: 14px 0 0; font-size: 0.94rem; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.16); }
+    .footer-bottom-in { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: 0.82rem; color: var(--on-navy-dim); }
+    .footer .brand-name, .footer .brand-mark { color: #fff; }
+    .footer .brand-mark { background: rgba(255,255,255,0.12); }
 
-    ::selection { background: var(--accent-dim); color: var(--text); }
-    *:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    ::selection { background: #cfe3f3; color: var(--navy); }
+    *:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
     img { max-width: 100%; display: block; }
 
-    [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
     [data-reveal].in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { [data-reveal]{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
+    @media (prefers-reduced-motion: reduce){ [data-reveal]{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
 
-    @media (max-width: 860px) {
-      .nav-links { display: none; } .menu-btn { display: grid; place-items: center; }
-      .footer-in { grid-template-columns: 1fr; gap: 30px; } body { font-size: 16px; } .wrap { padding-inline: 20px; }
-      .drawer.open { display: block; position: fixed; inset: 64px 0 0; background: var(--bg); z-index: 49; padding: 22px; overflow:auto; }
-      .drawer.open a { display:block; padding: 14px 6px; font-size: 1.1rem; border-bottom: 1px solid var(--line); color: var(--text); }
+    @media (max-width: 900px) {
+      .mast-nav { display: none; } .menu-btn { display: grid; place-items: center; }
+      .util-in .util-note { display: none; }
+      .footer-in { grid-template-columns: 1fr 1fr; gap: 28px; } body { font-size: 16px; } .wrap { padding-inline: 20px; }
+      .drawer.open { display: block; position: fixed; inset: 112px 0 0; background: #fff; z-index: 49; padding: 20px; overflow: auto; }
+      .drawer.open a { display: block; padding: 14px 6px; font-size: 1.08rem; border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 600; }
     }
+    @media (max-width: 560px) { .footer-in { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="wrap nav-in">
-      <a href="/" class="brand" aria-label="madhadi.com home"><span class="brand-mark">M</span><b>madhadi</b><span class="tld">.com</span></a>
-      <nav class="nav-links" aria-label="Primary">
+  <div class="util"><div class="wrap util-in">
+    <span class="util-note">An independent practitioner reference — not affiliated with the FDA, MHRA, ISPE, PDA, or any agency.</span>
+    <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a>
+  </div></div>
+
+  <header class="mast">
+    <div class="wrap mast-in">
+      <a href="/" class="brand" aria-label="madhadi.com home">
+        <span class="brand-mark">M</span>
+        <span class="brand-txt"><span class="brand-name">madhadi.com</span><span class="brand-sub">Data Integrity &amp; GxP Quality</span></span>
+      </a>
+      <nav class="mast-nav" aria-label="Primary">
         {primary.map(l => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.label}</a>)}
         <a href="/glossary" class={resourcesActive ? 'active' : ''}>Resources</a>
         <a href="/about" class={isActive('/about') ? 'active' : ''}>About</a>
-        <a href="/start" class="btn-accent nav-cta">Start →</a>
+        <a href="/start" class="btn-accent mast-cta">Start here</a>
       </nav>
       <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('drawer').classList.toggle('open')">☰</button>
     </div>
@@ -171,21 +186,22 @@ const resourcesActive = resources.some(r => isActive(r.href));
   <footer class="footer">
     <div class="wrap footer-in">
       <div>
-        <a href="/" class="brand"><span class="brand-mark">M</span><b>madhadi</b><span class="tld">.com</span></a>
-        <p class="footer-lead">A practitioner's field manual for data integrity, computerized system validation, and GxP quality in regulated biotech. Written to be used, not skimmed.</p>
+        <a href="/" class="brand"><span class="brand-mark">M</span><span class="brand-txt"><span class="brand-name">madhadi.com</span></span></a>
+        <p class="footer-lead">A practitioner's reference for data integrity, computerized system validation, and GxP quality in regulated biotech. Written to be used on the job, not skimmed.</p>
       </div>
       <div><h4>Explore</h4>{primary.map(l => <a href={l.href}>{l.label}</a>)}<a href="/start">Start here</a><a href="/about">About</a></div>
-      <div><h4>Resources</h4>{resources.map(l => <a href={l.href}>{l.label}</a>)}</div>
+      <div><h4>Resources</h4>{resources.slice(0,4).map(l => <a href={l.href}>{l.label}</a>)}</div>
+      <div><h4>More</h4>{resources.slice(4).map(l => <a href={l.href}>{l.label}</a>)}<a href="/articles">All articles</a></div>
     </div>
-    <div class="wrap footer-bottom">
-      <span>© {new Date().getFullYear()} madhadi.com — public-domain practitioner reference.</span>
-      <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a>
-    </div>
+    <div class="footer-bottom"><div class="wrap footer-bottom-in">
+      <span>© {new Date().getFullYear()} madhadi.com · Public-domain practitioner reference.</span>
+      <span>Built and maintained by a working Director of Digital Quality.</span>
+    </div></div>
   </footer>
 
   <script>
-    const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.1 });
-    document.querySelectorAll('[data-reveal]').forEach((el, i) => { (el as HTMLElement).style.transitionDelay = `${Math.min(i % 6, 5) * 55}ms`; io.observe(el); });
+    const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.08 });
+    document.querySelectorAll('[data-reveal]').forEach((el, i) => { (el as HTMLElement).style.transitionDelay = `${Math.min(i % 5, 4) * 50}ms`; io.observe(el); });
   </script>
 </body>
 </html>

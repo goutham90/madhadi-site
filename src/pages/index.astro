@@ -61,101 +61,103 @@ const topics = [
 ];
 
 const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-const tierColor = { Beginner: 'var(--accent)', Intermediate: 'var(--violet)', Advanced: '#FF8A5B' };
 ---
 <Layout title="Home" wide={true}>
-  <!-- ═════ HERO ═════ -->
-  <section class="hero">
-    <div class="hero-glow"></div>
-    <div class="wrap hero-in">
-      <div class="hero-copy" data-reveal>
-        <span class="pill"><span class="dot"></span>Field manual · v3 · {allArticles.length} records</span>
-        <h1 class="hero-h1">The working record of<br>how quality <span class="hl">actually</span> holds&nbsp;up.</h1>
-        <p class="hero-lead">Operational depth on data integrity, validation, QMS, process validation, inspection readiness, and cell &amp; gene therapy — written for practitioners who need to do the job, not pass a quiz.</p>
-        <div class="hero-cta">
-          <a href="/start" class="btn-accent">Start the field manual →</a>
+  <!-- ═════ PAGE HEADER ═════ -->
+  <section class="hd">
+    <div class="wrap hd-in">
+      <div class="hd-copy">
+        <span class="overline">A practitioner reference · {allArticles.length} articles</span>
+        <h1 class="hd-h1">The working record of how quality actually holds up.</h1>
+        <p class="hd-lead">Operational depth on data integrity, computerized system validation, QMS, process validation, inspection readiness, and cell &amp; gene therapy — written for the people who have to do the work, not pass a quiz.</p>
+        <div class="hd-cta">
+          <a href="/start" class="btn-accent">Start here →</a>
           <a href="/articles" class="btn-ghost">Browse all {allArticles.length} articles</a>
         </div>
-        <div class="hero-stats">
-          <div class="stat"><span class="stat-n">{allArticles.length}</span><span class="stat-l">Records</span></div>
-          <div class="stat"><span class="stat-n">08</span><span class="stat-l">Disciplines</span></div>
-          <div class="stat"><span class="stat-n">03</span><span class="stat-l">Tracks</span></div>
-          <div class="stat"><span class="stat-n">PD</span><span class="stat-l">Public domain</span></div>
-        </div>
+        <dl class="hd-stats">
+          <div><dt>{allArticles.length}</dt><dd>Articles</dd></div>
+          <div><dt>08</dt><dd>Topic areas</dd></div>
+          <div><dt>03</dt><dd>Learning tracks</dd></div>
+          <div><dt>Public</dt><dd>No paywall</dd></div>
+        </dl>
       </div>
-      <aside class="hero-panel" data-reveal>
-        <div class="panel-top"><span class="mono-label">verified_record.log</span><span class="panel-dots"><i></i><i></i><i></i></span></div>
-        <div class="panel-body">
-          <div class="line"><span class="ok">✓</span> ALCOA+ &nbsp;<span class="dim">attributable · legible · contemporaneous</span></div>
-          <div class="line"><span class="ok">✓</span> Audit trail &nbsp;<span class="dim">complete · reviewed · secure</span></div>
-          <div class="line"><span class="ok">✓</span> GAMP 5 &nbsp;<span class="dim">risk-based · fit-for-intended-use</span></div>
-          <div class="line"><span class="ok">✓</span> 21 CFR Part 11 &nbsp;<span class="dim">e-sig · controls · validated</span></div>
-          <div class="line"><span class="ok">✓</span> Inspection-ready &nbsp;<span class="dim">front room · back room</span></div>
-          <div class="line build"><span class="run">▸</span> CGT · BLA readiness &nbsp;<span class="dim">in progress…</span></div>
-        </div>
-        <div class="panel-foot"><span class="marginalia">No marketing. No paywall. No popup. Just the record.</span></div>
+      <aside class="hd-card">
+        <div class="hd-card-h">In this reference</div>
+        <ul class="hd-card-list">
+          <li><a href="/start">New here — start with the foundations</a></li>
+          <li><a href="/pillars">Browse the eight topic areas</a></li>
+          <li><a href="/articles">The full article index</a></li>
+          <li><a href="/regulatory-refs">Regulatory references &amp; citations</a></li>
+          <li><a href="/glossary">Glossary of GxP terms</a></li>
+        </ul>
+        <figure class="hd-fig">
+          <img src="/images/scientist-pipette.jpg" alt="Analyst working at a laboratory bench" loading="eager" />
+          <figcaption>Where the record begins — the bench.</figcaption>
+        </figure>
       </aside>
     </div>
   </section>
 
-  <!-- ═════ FEATURED ═════ -->
-  {featured && (
-    <section class="wrap sec">
-      <div class="sec-head" data-reveal><span class="kicker eyebrow">Latest record</span><a href="/articles" class="sec-link">All articles →</a></div>
-      <a href={`/articles/${featured.slug}`} class="feature" data-reveal>
-        <div class="feature-img"><img src={featuredImg} alt="" loading="lazy" /></div>
-        <div class="feature-body">
-          <span class="mono-label">{featured.data.pillar?.replace(/-/g,' ') ?? 'Practice'} · {fmtShort(featured.data.pubDate)} · {featRead} min</span>
-          <h2 class="feature-h">{featured.data.title}</h2>
-          <p class="feature-desc">{featured.data.description}</p>
-          <span class="feature-go">Read the record →</span>
-        </div>
-      </a>
-    </section>
-  )}
-
-  <!-- ═════ TRACKS ═════ -->
-  <section class="wrap sec">
-    <div class="sec-head" data-reveal>
-      <div><span class="kicker eyebrow">Where to begin</span><h2 class="sec-h">Three ways in, by depth.</h2></div>
-      <p class="sec-note">Same topics, explained differently depending on where you are. Pick the track that matches today — not the one you aspire to.</p>
-    </div>
-    <div class="tracks">
-      {entries.map(e => (
-        <div class="track" data-reveal style={`--c:${tierColor[e.tier]}`}>
-          <div class="track-top"><span class="track-n">{e.n}</span><span class="track-tier">{e.tier}</span></div>
-          <h3 class="track-title">{e.title}</h3>
-          <p class="track-blurb">{e.blurb}</p>
-          <div class="track-samples">{e.samples.map(s => <a href={`/articles/${s.s}`} class="chip">{s.t}</a>)}</div>
-          <a href={e.href} class="track-go">Open track →</a>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- ═════ DISCIPLINES / PILLARS ═════ -->
+  <!-- ═════ START BY DEPTH ═════ -->
   <section class="band">
     <div class="wrap sec">
-      <div class="sec-head" data-reveal>
-        <div><span class="kicker eyebrow">The eight disciplines</span><h2 class="sec-h">Everything quality runs on.</h2></div>
-        <a href="/pillars" class="sec-link">All pillars →</a>
-      </div>
-      <div class="grid8">
-        {pillars.map((p, i) => (
-          <a href={`/pillars/${p.slug}`} class="disc" data-reveal>
-            <span class="disc-n">{String(i+1).padStart(2,'0')}</span>
-            <h3 class="disc-name">{p.name}</h3>
-            <p class="disc-desc">{p.desc}</p>
-          </a>
+      <header class="sec-head" data-reveal>
+        <div><span class="overline">Where to begin</span><h2 class="sec-h">Three ways in, by depth</h2></div>
+        <p class="sec-note">Same material, pitched differently depending on where you are. Choose the track that matches today, not the one you aspire to.</p>
+      </header>
+      <div class="tracks">
+        {entries.map(e => (
+          <div class="track" data-reveal>
+            <div class="track-top"><span class="track-n">{e.n}</span><span class="track-tier">{e.tier}</span></div>
+            <h3 class="track-title">{e.title}</h3>
+            <p class="track-blurb">{e.blurb}</p>
+            <ul class="track-list">{e.samples.map(s => <li><a href={`/articles/${s.s}`}>{s.t}</a></li>)}</ul>
+            <a href={e.href} class="track-go">Open the {e.title} track →</a>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- ═════ TOPIC AREAS ═════ -->
+  <section class="wrap sec">
+    <header class="sec-head" data-reveal>
+      <div><span class="overline">The eight topic areas</span><h2 class="sec-h">Everything quality runs on</h2></div>
+      <a href="/pillars" class="sec-link">View all topics →</a>
+    </header>
+    <div class="pillars">
+      {pillars.map((p, i) => (
+        <a href={`/pillars/${p.slug}`} class="pillar" data-reveal>
+          <span class="pillar-n">{String(i+1).padStart(2,'0')}</span>
+          <div><h3 class="pillar-name">{p.name}</h3><p class="pillar-desc">{p.desc}</p></div>
+          <span class="pillar-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═════ FEATURED ═════ -->
+  {featured && (
+    <section class="band">
+      <div class="wrap sec">
+        <header class="sec-head" data-reveal><div><span class="overline">Latest</span><h2 class="sec-h">Most recent article</h2></div><a href="/articles" class="sec-link">All articles →</a></header>
+        <a href={`/articles/${featured.slug}`} class="feature" data-reveal>
+          <div class="feature-img"><img src={featuredImg} alt="" loading="lazy" /></div>
+          <div class="feature-body">
+            <span class="feature-meta">{(featured.data.pillar ?? 'practice').replace(/-/g,' ')} · {fmtShort(featured.data.pubDate)} · {featRead} min read</span>
+            <h3 class="feature-h">{featured.data.title}</h3>
+            <p class="feature-desc">{featured.data.description}</p>
+            <span class="feature-go">Read the full article →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
   <!-- ═════ BY ROLE ═════ -->
   <section class="wrap sec">
-    <div class="sec-head" data-reveal><div><span class="kicker eyebrow">By role</span><h2 class="sec-h">Find your shelf.</h2></div>
-      <p class="sec-note">Pick the hat you wear and jump straight to the records that matter for it.</p></div>
+    <header class="sec-head" data-reveal><div><span class="overline">By role</span><h2 class="sec-h">Information for your role</h2></div>
+      <p class="sec-note">Find the hat you wear and go straight to the articles that matter for it.</p></header>
     <div class="roles">
       {roles.map(r => (
         <div class="role" data-reveal>
@@ -171,147 +173,149 @@ const tierColor = { Beginner: 'var(--accent)', Intermediate: 'var(--violet)', Ad
   {rest.length > 0 && (
     <section class="band">
       <div class="wrap sec">
-        <div class="sec-head" data-reveal><div><span class="kicker eyebrow">Recently added</span><h2 class="sec-h">Fresh off the bench.</h2></div><a href="/articles" class="sec-link">All →</a></div>
-        <div class="recent">
+        <header class="sec-head" data-reveal><div><span class="overline">Recently published</span><h2 class="sec-h">New on the reference</h2></div><a href="/articles" class="sec-link">All →</a></header>
+        <ul class="recent">
           {rest.map(a => (
-            <a href={`/articles/${a.slug}`} class="rec" data-reveal>
-              <span class="mono-label">{fmtShort(a.data.pubDate)}</span>
-              <h3 class="rec-h">{a.data.title}</h3>
-              <p class="rec-desc">{a.data.description}</p>
-            </a>
+            <li class="rec" data-reveal>
+              <span class="rec-date">{fmtShort(a.data.pubDate)}</span>
+              <div><a href={`/articles/${a.slug}`} class="rec-h">{a.data.title}</a><p class="rec-desc">{a.data.description}</p></div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   )}
 
-  <!-- ═════ TOPICS ═════ -->
+  <!-- ═════ TOPICS INDEX ═════ -->
   <section class="wrap sec">
-    <div class="sec-head" data-reveal><div><span class="kicker eyebrow">Browse by topic</span><h2 class="sec-h">The index.</h2></div><a href="/topics" class="sec-link">All topics →</a></div>
+    <header class="sec-head" data-reveal><div><span class="overline">Browse by topic</span><h2 class="sec-h">Subject index</h2></div><a href="/topics" class="sec-link">All topics →</a></header>
     <div class="topics" data-reveal>
-      {topics.map(t => <a href={`/topics/${t.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}`} class="topic">{t.name}<span>{t.count}</span></a>)}
+      {topics.map(t => <a href={`/topics/${t.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}`} class="topic">{t.name} <span>{t.count}</span></a>)}
     </div>
   </section>
 
-  <!-- ═════ CTA ═════ -->
-  <section class="wrap">
-    <div class="cta" data-reveal>
-      <div class="cta-glow"></div>
-      <span class="kicker eyebrow">Start here</span>
-      <h2 class="cta-h">Stop skimming. Start using.</h2>
-      <p class="cta-lead">A guided path through the foundations to the program-level work — in the order a real career actually needs it.</p>
-      <div class="hero-cta"><a href="/start" class="btn-accent">Begin the field manual →</a><a href="/about" class="btn-ghost">Who writes this</a></div>
+  <!-- ═════ CTA BAND ═════ -->
+  <section class="cta">
+    <div class="wrap cta-in" data-reveal>
+      <div>
+        <span class="overline overline-light">Start here</span>
+        <h2 class="cta-h">A guided path, in the order a real career needs it.</h2>
+        <p class="cta-lead">From the foundations through to program-level work — sequenced the way the job actually demands.</p>
+      </div>
+      <div class="cta-actions"><a href="/start" class="btn-light">Begin the reference →</a><a href="/about" class="cta-link">Who writes this?</a></div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .sec { padding: 78px 0 0; }
-  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 38px; }
-  .sec-h { font-size: clamp(1.9rem, 3.6vw, 3rem); margin-top: 12px; }
-  .sec-note { color: var(--faint); max-width: 34ch; font-size: 0.95rem; }
-  .sec-link { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--accent); white-space: nowrap; }
-  .sec-link:hover { color: var(--text); }
-  .band { background: var(--bg-2); border-block: 1px solid var(--line); margin-top: 78px; }
-  .band .sec { padding-block: 78px; }
+  .sec { padding: 64px 0; }
+  .band { background: var(--panel); border-block: 1px solid var(--line); }
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; margin-bottom: 34px; padding-bottom: 18px; border-bottom: 2px solid var(--navy); }
+  .sec-h { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-top: 8px; }
+  .sec-note { color: var(--muted); max-width: 36ch; font-size: 0.96rem; }
+  .sec-link { font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
+  .overline-light { color: #fff; } .overline-light::before { background: var(--gold); }
 
-  /* hero */
-  .hero { position: relative; padding: 70px 0 30px; }
-  .hero-glow { position: absolute; inset: -10% -10% auto -10%; height: 520px; background: radial-gradient(50% 60% at 30% 0%, rgba(52,229,155,0.16), transparent 70%), radial-gradient(40% 50% at 80% 10%, rgba(138,125,255,0.14), transparent 70%); filter: blur(10px); z-index: -1; }
-  .hero-in { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
-  .hero-h1 { font-size: clamp(2.5rem, 5.6vw, 4.4rem); letter-spacing: -0.04em; margin: 22px 0 0; }
-  .hero-h1 .hl { color: var(--accent); font-style: italic; }
-  .hero-lead { font-size: clamp(1.05rem, 1.4vw, 1.22rem); color: var(--muted); max-width: 46ch; margin: 22px 0 30px; line-height: 1.6; }
-  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; }
-  .hero-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--line); }
-  .stat-n { display: block; font-family: var(--display); font-size: 1.9rem; font-weight: 600; color: var(--text); letter-spacing: -0.03em; }
-  .stat-l { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+  /* header */
+  .hd { background:
+      linear-gradient(180deg, #fff, var(--page));
+      padding: 56px 0 0; }
+  .hd-in { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
+  .hd-h1 { font-size: clamp(2.2rem, 4.6vw, 3.5rem); line-height: 1.1; margin: 18px 0 0; letter-spacing: -0.02em; }
+  .hd-lead { font-size: clamp(1.08rem, 1.5vw, 1.28rem); color: var(--ink-2); max-width: 48ch; margin: 22px 0 28px; line-height: 1.55; }
+  .hd-cta { display: flex; flex-wrap: wrap; gap: 13px; }
+  .hd-stats { display: grid; grid-template-columns: repeat(4,auto); gap: 36px; margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .hd-stats dt { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .hd-stats dd { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 5px; font-weight: 600; }
 
-  .hero-panel { background: linear-gradient(180deg, var(--surface), var(--bg-2)); border: 1px solid var(--line-2); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
-  .panel-top { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.02); }
-  .panel-dots i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--line-2); margin-left: 6px; }
-  .panel-body { padding: 18px 16px; font-family: var(--mono); font-size: 0.82rem; line-height: 2.05; }
-  .panel-body .line { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .panel-body .ok { color: var(--accent); }
-  .panel-body .run { color: var(--violet); }
-  .panel-body .dim { color: var(--faint); }
-  .panel-body .build { color: var(--text); }
-  .panel-foot { padding: 13px 16px; border-top: 1px solid var(--line); }
-
-  /* feature */
-  .feature { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; transition: border-color .2s, transform .2s; }
-  .feature:hover { border-color: var(--line-2); transform: translateY(-3px); }
-  .feature-img { overflow: hidden; min-height: 280px; }
-  .feature-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.2) contrast(1.05); transition: transform .5s; }
-  .feature:hover .feature-img img { transform: scale(1.04); }
-  .feature-body { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-  .feature-h { font-size: clamp(1.5rem, 2.5vw, 2.1rem); margin: 14px 0 14px; }
-  .feature-desc { color: var(--muted); margin-bottom: 22px; }
-  .feature-go { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.06em; }
+  .hd-card { border: 1px solid var(--line-strong); border-top: 4px solid var(--navy); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); overflow: hidden; }
+  .hd-card-h { background: var(--panel); padding: 14px 20px; font-weight: 700; color: var(--navy); font-size: 0.92rem; letter-spacing: 0.02em; border-bottom: 1px solid var(--line); }
+  .hd-card-list { list-style: none; padding: 8px 20px 14px; }
+  .hd-card-list li { border-bottom: 1px solid var(--line); }
+  .hd-card-list li:last-child { border-bottom: none; }
+  .hd-card-list a { display: flex; gap: 9px; padding: 12px 0; font-weight: 600; font-size: 0.95rem; color: var(--blue); }
+  .hd-card-list a::before { content:"›"; color: var(--gold); font-weight: 700; }
+  .hd-card-list a:hover { text-decoration: underline; }
+  .hd-fig { margin: 0; }
+  .hd-fig img { width: 100%; height: 190px; object-fit: cover; }
+  .hd-fig figcaption { font-size: 0.78rem; color: var(--faint); padding: 9px 20px; background: var(--panel); border-top: 1px solid var(--line); }
 
   /* tracks */
-  .tracks { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  .track { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 14px; transition: transform .2s, border-color .2s; overflow: hidden; }
-  .track::before { content:""; position:absolute; inset:0 auto 0 0; width:3px; background: var(--c); opacity: 0.85; }
-  .track:hover { transform: translateY(-4px); border-color: var(--c); }
-  .track-go::after { content:""; position:absolute; inset:0; z-index:0; }
-  .track .chip, .track-go { position: relative; z-index: 1; }
+  .tracks { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .track { background: #fff; border: 1px solid var(--line-strong); border-top: 4px solid var(--navy); border-radius: var(--radius); padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; transition: box-shadow .15s, transform .15s; }
+  .track:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
   .track-top { display: flex; align-items: center; justify-content: space-between; }
-  .track-n { font-family: var(--mono); font-size: 1.5rem; color: var(--c); font-weight: 700; }
-  .track-tier { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c); border: 1px solid var(--c); padding: 4px 9px; border-radius: 999px; }
-  .track-title { font-size: 1.45rem; }
-  .track-blurb { font-size: 0.94rem; color: var(--muted); flex: 1; }
-  .track-samples { display: flex; flex-wrap: wrap; gap: 7px; }
-  .chip { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); border: 1px solid var(--line); padding: 5px 9px; border-radius: 7px; transition: .15s; }
-  .chip:hover { border-color: var(--c); color: var(--text); }
-  .track-go { font-family: var(--mono); font-size: 0.78rem; color: var(--text); letter-spacing: 0.05em; margin-top: 2px; }
+  .track-n { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--navy); }
+  .track-tier { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); background: #eaf2f9; padding: 4px 10px; border-radius: 3px; }
+  .track-title { font-size: 1.4rem; }
+  .track-blurb { font-size: 0.93rem; color: var(--muted); flex: 1; }
+  .track-list { list-style: none; display: grid; gap: 0; }
+  .track-list li { border-top: 1px solid var(--line); }
+  .track-list a { display: block; padding: 9px 0 9px 16px; position: relative; font-size: 0.92rem; font-weight: 600; }
+  .track-list a::before { content:"›"; position: absolute; left: 0; color: var(--gold); }
+  .track-go { font-weight: 700; font-size: 0.93rem; margin-top: 4px; }
 
-  /* disciplines */
-  .grid8 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-  .disc { background: var(--bg-2); padding: 26px 22px; transition: background .2s; position: relative; }
-  .disc:hover { background: var(--surface); }
-  .disc-n { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.1em; }
-  .disc-name { font-size: 1.18rem; margin: 12px 0 9px; }
-  .disc-desc { font-size: 0.88rem; color: var(--faint); }
+  /* pillars */
+  .pillars { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .pillar { display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; padding: 22px 24px; background: #fff; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .15s; }
+  .pillar:nth-child(2n) { border-right: none; }
+  .pillar:hover { background: var(--panel); text-decoration: none; }
+  .pillar-n { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--gold); }
+  .pillar-name { font-size: 1.22rem; margin-bottom: 4px; }
+  .pillar-desc { font-size: 0.9rem; color: var(--muted); }
+  .pillar-arrow { color: var(--blue); font-weight: 700; font-size: 1.1rem; }
+
+  /* feature */
+  .feature { display: grid; grid-template-columns: 1.1fr 1.3fr; background: #fff; border: 1px solid var(--line-strong); border-radius: var(--radius); overflow: hidden; transition: box-shadow .15s; }
+  .feature:hover { box-shadow: var(--shadow); text-decoration: none; }
+  .feature-img { min-height: 260px; } .feature-img img { width: 100%; height: 100%; object-fit: cover; }
+  .feature-body { padding: 38px; }
+  .feature-meta { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue); }
+  .feature-h { font-size: clamp(1.5rem, 2.4vw, 2rem); margin: 12px 0 12px; }
+  .feature-desc { color: var(--ink-2); margin-bottom: 20px; }
+  .feature-go { font-weight: 700; color: var(--blue); }
 
   /* roles */
-  .roles { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
-  .role { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; transition: border-color .2s, transform .2s; }
-  .role:hover { border-color: var(--line-2); transform: translateY(-3px); }
-  .role-name { font-size: 1.3rem; margin-bottom: 8px; }
-  .role-desc { font-size: 0.92rem; color: var(--muted); margin-bottom: 16px; }
-  .role-list { list-style: none; display: grid; gap: 2px; }
-  .role-list a { display: flex; gap: 10px; align-items: baseline; font-size: 0.92rem; color: var(--muted); padding: 7px 0; border-top: 1px solid var(--line); transition: color .15s, padding-left .15s; }
-  .role-list a::before { content:"→"; color: var(--accent); font-family: var(--mono); font-size: 0.8rem; }
-  .role-list a:hover { color: var(--text); padding-left: 6px; }
+  .roles { display: grid; grid-template-columns: repeat(2,1fr); gap: 26px 40px; }
+  .role { padding-top: 4px; }
+  .role-name { font-size: 1.25rem; padding-bottom: 8px; border-bottom: 2px solid var(--gold); display: inline-block; margin-bottom: 12px; }
+  .role-desc { font-size: 0.92rem; color: var(--muted); margin-bottom: 12px; }
+  .role-list { list-style: none; }
+  .role-list li { border-top: 1px solid var(--line); }
+  .role-list a { display: block; padding: 9px 0 9px 16px; position: relative; font-size: 0.93rem; font-weight: 600; }
+  .role-list a::before { content:"›"; position: absolute; left: 0; color: var(--gold); }
 
   /* recent */
-  .recent { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
-  .rec { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; transition: border-color .2s, transform .2s; }
-  .rec:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .rec-h { font-size: 1.3rem; margin: 12px 0 10px; }
-  .rec-desc { font-size: 0.92rem; color: var(--muted); }
+  .recent { list-style: none; display: grid; gap: 0; }
+  .rec { display: grid; grid-template-columns: 130px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .rec:first-child { border-top: 2px solid var(--navy); }
+  .rec-date { font-size: 0.84rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .rec-h { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy); }
+  .rec-h:hover { color: var(--blue); }
+  .rec-desc { font-size: 0.94rem; color: var(--muted); margin-top: 5px; }
 
   /* topics */
   .topics { display: flex; flex-wrap: wrap; gap: 10px; }
-  .topic { display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; font-size: 0.9rem; color: var(--muted); transition: .18s; }
-  .topic span { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); }
-  .topic:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
+  .topic { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; background: #fff; border: 1px solid var(--line-strong); border-radius: 3px; font-size: 0.92rem; font-weight: 600; color: var(--navy); }
+  .topic span { color: var(--blue); font-size: 0.8rem; }
+  .topic:hover { border-color: var(--navy); background: var(--panel); text-decoration: none; }
 
   /* cta */
-  .cta { position: relative; margin-top: 90px; text-align: center; padding: 64px 28px; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--radius-lg); overflow: hidden; }
-  .cta-glow { position: absolute; inset: -50% 0 auto 0; height: 300px; background: radial-gradient(50% 100% at 50% 0%, rgba(52,229,155,0.2), transparent 70%); z-index: 0; }
-  .cta > * { position: relative; z-index: 1; }
-  .cta .eyebrow { justify-content: center; }
-  .cta-h { font-size: clamp(2rem, 4vw, 3.2rem); margin: 14px 0; }
-  .cta-lead { color: var(--muted); max-width: 50ch; margin: 0 auto 28px; }
-  .cta .hero-cta { justify-content: center; }
+  .cta { background: var(--navy); margin-top: 0; }
+  .cta-in { display: flex; justify-content: space-between; align-items: center; gap: 40px; padding: 56px 0; }
+  .cta-h { color: #fff; font-size: clamp(1.7rem, 3vw, 2.4rem); margin: 12px 0; max-width: 22ch; }
+  .cta-lead { color: var(--on-navy-dim); max-width: 46ch; }
+  .cta-actions { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .btn-light { display: inline-flex; align-items: center; gap: 9px; padding: 13px 24px; background: #fff; color: var(--navy); font-weight: 700; border-radius: var(--radius); white-space: nowrap; }
+  .btn-light:hover { background: var(--panel); text-decoration: none; }
+  .cta-link { color: var(--on-navy); font-weight: 600; }
+  .cta-link:hover { color: #fff; }
 
   @media (max-width: 980px) {
-    .hero-in, .feature, .tracks, .grid8, .roles, .recent { grid-template-columns: 1fr; }
-    .grid8 { grid-template-columns: repeat(2,1fr); }
-    .feature-img { min-height: 220px; }
-    .sec-head { flex-direction: column; align-items: flex-start; }
+    .hd-in, .tracks, .pillars, .feature, .roles { grid-template-columns: 1fr; }
+    .pillar { border-right: none; } .feature-img { min-height: 200px; }
+    .sec-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .cta-in { flex-direction: column; align-items: flex-start; }
   }
-  @media (max-width: 560px) { .grid8, .hero-stats { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .rec { grid-template-columns: 1fr; gap: 6px; } .hd-stats { grid-template-columns: 1fr 1fr; gap: 22px; } }
 </style>
