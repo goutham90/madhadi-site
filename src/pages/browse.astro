@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { PILLARS } from '../data/pillars';
+
+const all = await getCollection('articles', ({ data }) => !data.draft);
+const tierOrder: Record<string, number> = { Beginner: 0, Intermediate: 1, Advanced: 2 };
+const groups = PILLARS.map((p) => ({
+  ...p,
+  arts: all
+    .filter((a) => a.data.pillar === p.slug)
+    .sort((a, b) =>
+      (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1) ||
+      a.data.title.localeCompare(b.data.title)),
+})).filter((g) => g.arts.length > 0);
+const total = all.length;
+const tierColors: Record<string, string> = { Beginner: '#0f7a52', Intermediate: '#005ea2', Advanced: '#0b2e4f' };
+const norm = (s: string) => (s ?? '').toLowerCase();
+---
+<Layout title="Browse" description={`Find any of ${total} articles fast. Filter by discipline, level, or keyword, no scrolling.`} wide={true}>
+  <header class="bx-hero">
+    <div class="wrap bx-hero-in">
+      <nav class="crumb"><a href="/">Home</a> <span>›</span> Browse</nav>
+      <span class="overline" style="color:#ffd98a">{total} articles, find any in seconds</span>
+      <h1 class="bx-h1">Browse the reference</h1>
+      <div class="bx-search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input id="bx-q" type="search" placeholder="Type a topic, regulation, or keyword to filter instantly" autocomplete="off" aria-label="Filter articles" />
+        <button id="bx-clear" class="bx-clear" hidden aria-label="Clear">Clear</button>
+      </div>
+      <div class="bx-facets">
+        <div class="bx-tier" role="group" aria-label="Filter by level">
+          <button class="bx-tier-btn active" data-tier="all">All levels</button>
+          <button class="bx-tier-btn" data-tier="Beginner">Beginner</button>
+          <button class="bx-tier-btn" data-tier="Intermediate">Intermediate</button>
+          <button class="bx-tier-btn" data-tier="Advanced">Advanced</button>
+        </div>
+        <div class="bx-tools">
+          <button id="bx-expand" class="bx-link-btn">Expand all</button>
+          <span class="bx-sep">·</span>
+          <button id="bx-collapse" class="bx-link-btn">Collapse all</button>
+        </div>
+      </div>
+      <p class="bx-count" id="bx-count">{groups.length} disciplines · {total} articles</p>
+    </div>
+  </header>
+
+  <!-- Discipline quick-jump chips: one click filters to a discipline -->
+  <div class="wrap bx-chips-wrap">
+    <div class="bx-chips" id="bx-chips">
+      <button class="bx-chip active" data-pillar="all">All</button>
+      {groups.map((g) => (
+        <button class="bx-chip" data-pillar={g.slug}>{g.short}<span class="bx-chip-n">{g.arts.length}</span></button>
+      ))}
+    </div>
+  </div>
+
+  <div class="wrap bx-list" id="bx-list">
+    {groups.map((g) => (
+      <details class="bx-group" data-pillar={g.slug} open={false}>
+        <summary class="bx-sum">
+          <span class="bx-sum-tw">
+            <span class="bx-sum-title">{g.short}</span>
+            <span class="bx-sum-blurb">{g.blurb}</span>
+          </span>
+          <span class="bx-sum-n" data-count>{g.arts.length}</span>
+          <svg class="bx-chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <ul class="bx-arts">
+          {g.arts.map((a) => (
+            <li class="bx-art"
+                data-title={norm(a.data.title)}
+                data-desc={norm(a.data.description ?? '')}
+                data-tags={norm((a.data.tags ?? []).join(' '))}
+                data-tier={a.data.tier ?? ''}
+                data-pillar={g.slug}>
+              <a href={`/articles/${a.slug}`}>
+                {a.data.tier && <span class="bx-tier-dot" style={`background:${tierColors[a.data.tier] ?? '#565c65'}`}>{a.data.tier.charAt(0)}</span>}
+                <span class="bx-art-title">{a.data.title}</span>
+                <span class="bx-art-arrow">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ))}
+    <p class="bx-empty" id="bx-empty" hidden>No topics match. Try a broader term, an acronym, or a regulation number.</p>
+  </div>
+</Layout>
+
+<style>
+  .bx-hero { background: var(--navy); color: #fff; }
+  .bx-hero-in { padding: 3rem 0 2.4rem; }
+  .crumb { font-size: 0.82rem; color: var(--on-navy-dim); margin-bottom: 1rem; } .crumb a { color: var(--on-navy-dim); } .crumb a:hover { color:#fff; } .crumb span { opacity:.6; margin:0 3px; }
+  .bx-h1 { color:#fff; font-size: clamp(2rem,4vw,3rem); margin: 8px 0 20px; letter-spacing:-0.025em; }
+  .bx-search { display:flex; align-items:center; gap:12px; background:#fff; border-radius:6px; padding: 4px 14px; max-width:720px; box-shadow: 0 12px 32px -18px rgba(0,0,0,0.55); }
+  .bx-search svg { color: var(--blue); flex:none; }
+  .bx-search input { border:none; outline:none; width:100%; font-family:var(--sans); font-size:1.08rem; padding: 13px 0; color: var(--ink); background:transparent; }
+  .bx-clear { background:var(--panel); border:1px solid var(--line-strong); border-radius:4px; color:var(--muted); font-size:0.78rem; padding:4px 10px; cursor:pointer; font-family:var(--sans); }
+  .bx-clear:hover { color:var(--navy); border-color:var(--navy); }
+  .bx-facets { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; margin-top:18px; }
+  .bx-tier { display:inline-flex; gap:6px; flex-wrap:wrap; }
+  .bx-tier-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.22); color:var(--on-navy); font-family:var(--sans); font-size:0.86rem; font-weight:600; padding:7px 14px; border-radius:999px; cursor:pointer; transition:background .15s,color .15s; }
+  .bx-tier-btn:hover { background:rgba(255,255,255,0.16); }
+  .bx-tier-btn.active { background:#fff; color:var(--navy); border-color:#fff; }
+  .bx-tools { color:var(--on-navy-dim); font-size:0.85rem; }
+  .bx-link-btn { background:none; border:none; color:#ffd98a; font-family:var(--sans); font-size:0.85rem; font-weight:600; cursor:pointer; padding:0; }
+  .bx-link-btn:hover { color:#fff; text-decoration:underline; }
+  .bx-sep { opacity:0.5; margin:0 4px; }
+  .bx-count { margin-top:14px; color:var(--on-navy-dim); font-size:0.86rem; }
+
+  .bx-chips-wrap { position: sticky; top: 78px; z-index: 20; background: var(--page); border-bottom:1px solid var(--line); padding: 0; }
+  .bx-chips { display:flex; gap:8px; overflow-x:auto; padding: 14px 28px; scrollbar-width:thin; }
+  .bx-chip { white-space:nowrap; display:inline-flex; align-items:center; gap:7px; background:#fff; border:1px solid var(--line-strong); color:var(--navy); font-family:var(--sans); font-size:0.88rem; font-weight:600; padding:7px 13px; border-radius:999px; cursor:pointer; transition:border-color .15s,background .15s; }
+  .bx-chip:hover { border-color:var(--navy); }
+  .bx-chip.active { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .bx-chip-n { font-size:0.72rem; opacity:0.7; font-weight:700; }
+  .bx-chip.active .bx-chip-n { opacity:0.85; }
+
+  .bx-list { padding: 22px 28px 60px; }
+  .bx-group { border-bottom:1px solid var(--line); }
+  .bx-group[hidden] { display:none; }
+  .bx-sum { display:flex; align-items:center; gap:16px; padding: 18px 4px; cursor:pointer; list-style:none; }
+  .bx-sum::-webkit-details-marker { display:none; }
+  .bx-sum:hover .bx-sum-title { color:var(--blue); }
+  .bx-sum-tw { display:flex; flex-direction:column; gap:3px; flex:1; min-width:0; }
+  .bx-sum-title { font-family:var(--display); font-weight:700; font-size:1.3rem; color:var(--navy); letter-spacing:-0.02em; }
+  .bx-sum-blurb { font-size:0.9rem; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bx-sum-n { font-family:var(--sans); font-weight:700; font-size:0.82rem; color:var(--blue); background:var(--panel); border-radius:999px; padding:3px 11px; flex:none; }
+  .bx-chev { color:var(--faint); transition: transform .2s; flex:none; }
+  .bx-group[open] .bx-chev { transform: rotate(180deg); }
+  .bx-arts { list-style:none; padding: 0 0 14px; columns: 2; column-gap: 32px; }
+  .bx-art { break-inside: avoid; }
+  .bx-art[hidden] { display:none; }
+  .bx-art a { display:flex; align-items:center; gap:10px; padding: 9px 10px; border-radius:4px; color:var(--ink); transition:background .12s; }
+  .bx-art a:hover { background:var(--panel); text-decoration:none; }
+  .bx-tier-dot { flex:none; width:18px; height:18px; border-radius:50%; color:#fff; font-size:0.62rem; font-weight:800; display:grid; place-items:center; }
+  .bx-art-title { flex:1; font-size:0.97rem; font-weight:500; }
+  .bx-art a:hover .bx-art-title { color:var(--blue); }
+  .bx-art-arrow { color:var(--line-2); font-weight:700; }
+  .bx-art a:hover .bx-art-arrow { color:var(--blue); }
+  .bx-empty { color:var(--muted); font-size:1.02rem; padding: 24px 4px; }
+
+  @media (max-width: 720px) {
+    .bx-arts { columns: 1; }
+    .bx-chips-wrap { top: 64px; }
+    .bx-sum-blurb { display:none; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var q = document.getElementById('bx-q');
+    var clearBtn = document.getElementById('bx-clear');
+    var list = document.getElementById('bx-list');
+    var countEl = document.getElementById('bx-count');
+    var emptyEl = document.getElementById('bx-empty');
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.bx-group'));
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.bx-chip'));
+    var tierBtns = Array.prototype.slice.call(document.querySelectorAll('.bx-tier-btn'));
+    var activePillar = 'all', activeTier = 'all';
+
+    function tokens(s) { return (s.toLowerCase().match(/[a-z0-9]+/g)) || []; }
+
+    function apply() {
+      var query = q.value.trim();
+      var toks = tokens(query);
+      clearBtn.hidden = !query;
+      var shown = 0, groupsShown = 0;
+      groups.forEach(function (g) {
+        var gp = g.getAttribute('data-pillar');
+        var pillarOk = (activePillar === 'all' || activePillar === gp);
+        var arts = Array.prototype.slice.call(g.querySelectorAll('.bx-art'));
+        var match = 0;
+        arts.forEach(function (a) {
+          var tierOk = (activeTier === 'all' || a.getAttribute('data-tier') === activeTier);
+          var hay = a.getAttribute('data-title') + ' ' + a.getAttribute('data-tags') + ' ' + a.getAttribute('data-desc') + ' ' + gp;
+          var textOk = toks.every(function (t) { return hay.indexOf(t) !== -1; });
+          var ok = pillarOk && tierOk && textOk;
+          a.hidden = !ok;
+          if (ok) match++;
+        });
+        var gOk = pillarOk && match > 0;
+        g.hidden = !gOk;
+        var cnt = g.querySelector('[data-count]');
+        if (cnt) cnt.textContent = match;
+        if (gOk) {
+          groupsShown++; shown += match;
+          // auto-open when actively filtering or a single discipline is selected
+          g.open = !!query || activeTier !== 'all' || activePillar !== 'all';
+        }
+      });
+      emptyEl.hidden = shown > 0;
+      countEl.textContent = (query || activeTier !== 'all' || activePillar !== 'all')
+        ? ('Showing ' + shown + ' of ' + (list.querySelectorAll('.bx-art').length) + ' articles')
+        : (groupsShown + ' disciplines · ' + shown + ' articles');
+    }
+
+    q.addEventListener('input', apply);
+    clearBtn.addEventListener('click', function () { q.value = ''; q.focus(); apply(); });
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        activePillar = c.getAttribute('data-pillar');
+        chips.forEach(function (x) { x.classList.toggle('active', x === c); });
+        apply();
+        if (activePillar !== 'all') { var t = document.querySelector('.bx-group[data-pillar="' + activePillar + '"]'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+    tierBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        activeTier = b.getAttribute('data-tier');
+        tierBtns.forEach(function (x) { x.classList.toggle('active', x === b); });
+        apply();
+      });
+    });
+    document.getElementById('bx-expand').addEventListener('click', function () { groups.forEach(function (g) { if (!g.hidden) g.open = true; }); });
+    document.getElementById('bx-collapse').addEventListener('click', function () { groups.forEach(function (g) { g.open = false; }); });
+
+    // deep link: /browse?pillar=slug & ?tier=Level & ?q=term
+    var params = new URLSearchParams(location.search);
+    var pl = params.get('pillar'), qq = params.get('q'), tr = params.get('tier');
+    if (qq) q.value = qq;
+    if (tr) { var tb = tierBtns.filter(function (b) { return b.getAttribute('data-tier') === tr; })[0]; if (tb) { activeTier = tr; tierBtns.forEach(function (x) { x.classList.toggle('active', x === tb); }); } }
+    if (pl) { var chip = chips.filter(function (c) { return c.getAttribute('data-pillar') === pl; })[0]; if (chip) { activePillar = pl; chips.forEach(function (x) { x.classList.toggle('active', x === chip); }); } }
+    apply();
+    if (pl && activePillar !== 'all') { var tg = document.querySelector('.bx-group[data-pillar="' + activePillar + '"]'); if (tg) tg.scrollIntoView({ block: 'start' }); }
+  })();
+</script>

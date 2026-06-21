@@ -1,4 +1,7 @@
 ---
+import { getCollection } from 'astro:content';
+import { PILLARS } from '../data/pillars';
+
 interface Props {
   title: string;
   description?: string;
@@ -23,6 +26,13 @@ const resources = [
   { href: '/topics', label: 'Topics' },
 ];
 const resourcesActive = resources.some(r => isActive(r.href));
+
+// Pillar nav with live counts for the Browse mega-menu and mobile drawer.
+const _navArticles = await getCollection('articles', ({ data }) => !data.draft);
+const pillarNav = PILLARS
+  .map(p => ({ slug: p.slug, short: p.short, blurb: p.blurb, count: _navArticles.filter(a => a.data.pillar === p.slug).length }))
+  .filter(p => p.count > 0);
+const totalArticles = _navArticles.length;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -154,6 +164,40 @@ const resourcesActive = resources.some(r => isActive(r.href));
     .msrch-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 11px 18px; font-size: 0.82rem; color: var(--faint); background: var(--panel); }
     .msrch-foot a { font-weight: 600; }
 
+    /* ── Browse mega-menu ── */
+    .mast-browse { display: inline-flex; align-items: center; gap: 5px; background: none; border: none; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--ink); padding: 10px 14px; border-radius: 4px; cursor: pointer; }
+    .mast-browse:hover, .mast-browse[aria-expanded="true"] { color: var(--blue); background: var(--panel); }
+    .mast-browse svg { transition: transform .2s; }
+    .mast-browse[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .megamenu { position: sticky; top: 78px; z-index: 49; background: #fff; border-bottom: 3px solid var(--navy); box-shadow: var(--shadow); }
+    .megamenu[hidden] { display: none; }
+    .mega-in { padding: 26px 28px 22px; }
+    .mega-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .mega-title { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
+    .mega-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .mega-actions a, .mega-act-btn { font-size: 0.9rem; font-weight: 600; color: var(--blue); background: none; border: none; cursor: pointer; font-family: var(--sans); padding: 0; }
+    .mega-actions a:hover, .mega-act-btn:hover { color: var(--blue-d); text-decoration: underline; }
+    .mega-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .mega-cell { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 5px; border: 1px solid transparent; }
+    .mega-cell:hover { background: var(--panel); border-color: var(--line); text-decoration: none; }
+    .mega-cell-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .mega-cell-name { font-family: var(--display); font-weight: 700; font-size: 1.02rem; color: var(--navy); }
+    .mega-cell:hover .mega-cell-name { color: var(--blue); }
+    .mega-cell-n { font-size: 0.72rem; font-weight: 700; color: var(--blue); background: var(--page); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; }
+    .mega-cell-blurb { font-size: 0.82rem; color: var(--muted); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .mega-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 0.9rem; }
+    .mega-foot-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+    .mega-foot a { color: var(--navy); font-weight: 600; }
+    .mega-foot a:hover { color: var(--blue); }
+    .mega-foot-sep { flex: 1; }
+    /* drawer discipline grid (mobile) */
+    .drawer-feature { font-weight: 700 !important; color: var(--blue) !important; }
+    .drawer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 8px 0 14px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+    .drawer-grid a { display: flex !important; justify-content: space-between; padding: 10px 6px !important; font-size: 0.95rem !important; border: none !important; color: var(--navy) !important; }
+    .drawer-grid a span { color: var(--blue); font-size: 0.8rem; font-weight: 700; }
+    @media (max-width: 1040px) { .mega-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 760px) { .mega-grid { grid-template-columns: repeat(2, 1fr); } }
+
     /* ── Footer (dense institutional) ── */
     .footer { margin-top: 80px; background: var(--navy); color: var(--on-navy); }
     .footer-in { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 36px; padding: 56px 0 40px; }
@@ -200,7 +244,9 @@ const resourcesActive = resources.some(r => isActive(r.href));
       </a>
       <div class="mast-right">
         <nav class="mast-nav" aria-label="Primary">
-          {primary.map(l => <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.label}</a>)}
+          <button class="mast-browse" id="mast-browse" aria-expanded="false" aria-controls="megamenu">Browse<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <a href="/articles" class={isActive('/articles') ? 'active' : ''}>Articles</a>
+          <a href="/tracks" class={isActive('/tracks') ? 'active' : ''}>Learning</a>
           <a href="/glossary" class={resourcesActive ? 'active' : ''}>Resources</a>
           <a href="/about" class={isActive('/about') ? 'active' : ''}>About</a>
         </nav>
@@ -214,9 +260,47 @@ const resourcesActive = resources.some(r => isActive(r.href));
       </div>
     </div>
     <div class="drawer" id="drawer">
-      {[...primary, ...resources, {href:'/about',label:'About'}, {href:'/start',label:'Start here'}].map(l => <a href={l.href}>{l.label}</a>)}
+      <a href="/browse" class="drawer-feature">Browse all topics →</a>
+      <div class="drawer-grid">
+        {pillarNav.map(p => <a href={`/browse?pillar=${p.slug}`}>{p.short} <span>{p.count}</span></a>)}
+      </div>
+      <a href="/articles">Articles</a>
+      <a href="/tracks">Learning paths</a>
+      {resources.map(l => <a href={l.href}>{l.label}</a>)}
+      <a href="/about">About</a>
+      <a href="/start">Start here</a>
     </div>
   </header>
+
+  <!-- Browse mega-menu -->
+  <div class="megamenu" id="megamenu" hidden>
+    <div class="wrap mega-in">
+      <div class="mega-head">
+        <span class="mega-title">Browse by discipline</span>
+        <div class="mega-actions">
+          <a href="/browse">Open explorer →</a>
+          <a href="/articles">All {totalArticles} articles</a>
+          <button type="button" class="mega-act-btn" onclick="window.__openSearch&&window.__openSearch()">Search (press /)</button>
+        </div>
+      </div>
+      <div class="mega-grid">
+        {pillarNav.map(p => (
+          <a href={`/browse?pillar=${p.slug}`} class="mega-cell">
+            <span class="mega-cell-top"><span class="mega-cell-name">{p.short}</span><span class="mega-cell-n">{p.count}</span></span>
+            <span class="mega-cell-blurb">{p.blurb}</span>
+          </a>
+        ))}
+      </div>
+      <div class="mega-foot">
+        <span class="mega-foot-label">By level</span>
+        <a href="/browse?tier=Beginner">Beginner</a>
+        <a href="/browse?tier=Intermediate">Intermediate</a>
+        <a href="/browse?tier=Advanced">Advanced</a>
+        <span class="mega-foot-sep"></span>
+        <a href="/start">New here? Start →</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Site search overlay -->
   <div class="msrch" id="msrch" role="dialog" aria-modal="true" aria-label="Search" hidden>
@@ -240,7 +324,7 @@ const resourcesActive = resources.some(r => isActive(r.href));
         <a href="/" class="brand"><img src="/brand/mark.svg" class="brand-mark" alt="" width="42" height="42" /><span class="brand-txt"><span class="brand-name" style="color:#fff">madhadi<span class="dot">.</span>com</span></span></a>
         <p class="footer-lead">Working notes and guides on data integrity, computerized system validation, and GxP quality across biotech, pharma, and life sciences. Written to be used on the job, not skimmed.</p>
       </div>
-      <div><h4>Explore</h4>{primary.map(l => <a href={l.href}>{l.label}</a>)}<a href="/search">Search</a><a href="/start">Start here</a><a href="/about">About</a></div>
+      <div><h4>Explore</h4><a href="/browse">Browse topics</a>{primary.map(l => <a href={l.href}>{l.label}</a>)}<a href="/search">Search</a><a href="/start">Start here</a><a href="/about">About</a></div>
       <div><h4>Resources</h4>{resources.slice(0,4).map(l => <a href={l.href}>{l.label}</a>)}</div>
       <div><h4>More</h4>{resources.slice(4).map(l => <a href={l.href}>{l.label}</a>)}<a href="/articles">All articles</a></div>
     </div>
@@ -308,6 +392,20 @@ const resourcesActive = resources.some(r => isActive(r.href));
         if (e.key === 'Escape' && !overlay.hidden) close();
         if (e.key === '/' && overlay.hidden && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') { e.preventDefault(); open(); }
       });
+    })();
+  </script>
+
+  <script is:inline>
+    (function () {
+      var btn = document.getElementById('mast-browse');
+      var menu = document.getElementById('megamenu');
+      if (!btn || !menu) return;
+      function close() { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
+      function open() { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+      btn.addEventListener('click', function (e) { e.stopPropagation(); menu.hidden ? open() : close(); });
+      document.addEventListener('click', function (e) { if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) close(); });
+      menu.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
     })();
   </script>
 </body>
