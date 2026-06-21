@@ -299,7 +299,7 @@ A **trend report** is required where a statistically significant increase in non
 
 The **Unique Device Identification** system gives every device a machine-readable identity. The UDI has two parts: the **UDI-DI** (device identifier, identifies the model/version) and the **UDI-PI** (production identifier, the lot/serial/expiry that identifies the specific unit). A higher-level **Basic UDI-DI** is the access key that links the device to its certificates, declarations, and documentation in EUDAMED. UDI is placed on labels and, for reusables and implantables, directly marked on the device. See [unique-device-identification-udi](/articles/unique-device-identification-udi).
 
-**EUDAMED** is the European database with modules for actor registration, UDI/device registration, certificates, clinical investigations/performance studies, vigilance, and market surveillance. The rollout has been phased and some modules became mandatory on a staggered timeline, so always check the current status of each module rather than assuming the whole database is live.
+**EUDAMED** is the European database with modules for actor registration, UDI/device registration, certificates, clinical investigations/performance studies, vigilance, and market surveillance. The rollout has been phased. The Commission confirmed the first modules functional in late 2025, which started a six-month transition, and use of those modules (actor registration, UDI/device registration, notified bodies and certificates, and clinical investigations/performance studies) became mandatory in late May 2026. The vigilance and market surveillance modules follow later, so always check the current status of each module rather than assuming the whole database is mandatory yet.
 
 ---
 

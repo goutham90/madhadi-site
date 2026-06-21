@@ -414,6 +414,13 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"combination-products-cgmp-part-4.md": {
+	id: "combination-products-cgmp-part-4.md";
+  slug: "combination-products-cgmp-part-4";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "commissioning-qualification-astm-e2500.md": {
 	id: "commissioning-qualification-astm-e2500.md";
   slug: "commissioning-qualification-astm-e2500";
@@ -676,6 +683,13 @@ declare module 'astro:content' {
 "eu-mdr-ivdr-overview.md": {
 	id: "eu-mdr-ivdr-overview.md";
   slug: "eu-mdr-ivdr-overview";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"extractables-and-leachables.md": {
+	id: "extractables-and-leachables.md";
+  slug: "extractables-and-leachables";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

@@ -357,6 +357,9 @@ For a cleared device, you evaluate the change against the "deciding when to subm
 **"What standards do you typically reference in a device submission?"**
 Biocompatibility (ISO 10993 series), software lifecycle (IEC 62304), usability (IEC 62366-1), risk management (ISO 14971), electrical safety and EMC (IEC 60601 family for electromedical devices), sterilization (ISO 11135 for EO, ISO 11137 for radiation), and packaging (ISO 11607). Declare the current FDA-recognized edition.
 
+**"How much human factors information goes into the submission itself?"**
+On 29 May 2026 FDA issued the final guidance "Content of Human Factors Information in Medical Device Marketing Submissions," which finalizes the December 2022 draft and tells you how much HF detail to file, not how to run the studies (that is still IEC 62366-1 and the 2016 process guidance). It sorts a device into one of three HF Submission Categories using a risk-based flowchart. Category 1, for a modified device, asks only for a conclusion and a high-level summary. Category 2 asks for a documented rationale that there are no critical tasks or no relevant changes to them. Category 3 asks for the full HF/usability engineering report including validation testing. The category is set by where the device lands on the decision points, the last of which weighs the user-interface history, complexity, and adequacy of existing risk controls to decide whether validation data must be submitted at all. The practical effect: do the usability engineering work the same way, but right-size what you put in the submission to the category rather than filing everything by reflex.
+
 ---
 
 ## Practical tips
