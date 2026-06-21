@@ -9,13 +9,15 @@ tier: "Intermediate"
 
 Most computerized system validation failures are not failures of testing. The protocols passed. The screenshots were captured. The deviations were closed. The failure shows up two years later, when an inspector asks a simple question, "show me the current list of GxP systems and tell me which ones are still in a validated state", and the answer is a shrug, three spreadsheets that disagree, and a system that was patched eleven times since its last qualification with no one re-assessing whether the validation still held.
 
-That gap is exactly what two governing documents are supposed to close: the Validation Master Plan (VMP), which defines *how the whole program runs*, and the periodic review, which is the recurring obligation to *confirm a system is still validated long after go-live*. This article covers both, what each must contain, how they connect, and what an inspector is actually probing when they pull on either thread.
+That gap is exactly what two governing documents are supposed to close: the Validation Master Plan (VMP), which defines *how the whole program runs*, and the periodic review, which is the recurring obligation to *confirm a system is still validated long after go-live*. This article covers both, what each must contain, how they connect, how to execute them step by step, and what an inspector is actually probing when they pull on either thread. The principles apply across pharmaceutical manufacturing, biologics, medical devices, in-vitro diagnostics, and laboratory operations, anywhere a computerized system touches a GxP record or decision.
 
 ## Why a program needs a plan above the protocol level
 
 Individual validation deliverables, a User Requirements Specification, an IQ/OQ/PQ, a Requirements Traceability Matrix, answer the question "is this one system fit for use?" They say nothing about consistency, prioritization, or how a hundred systems are kept current across an organization. Two project teams left to their own devices will validate to two different standards, classify risk two different ways, and disagree about what even counts as a GxP system. The VMP exists to impose one answer to those questions before any single project starts.
 
-The expectation for a documented, planned approach to validation is long-standing in GxP. EU GMP Annex 15 (Qualification and Validation) establishes that validation should be planned and that a Validation Master Plan or equivalent document should summarize the facility's validation philosophy, approach, and program. EU GMP Annex 11 (Computerised Systems) carries the same expectation into the digital domain, requiring that validation documentation and reports cover the relevant life-cycle steps and that risk management be applied throughout. ISPE's GAMP 5, *A Risk-Based Approach to Compliant GxP Computerized Systems*, Second Edition, provides the industry framework that operationalizes these expectations, and FDA's 2022 draft guidance *Computer Software Assurance for Production and Quality System Software* (the CSA guidance) reframes the effort toward critical-thinking and least-burdensome assurance rather than documentation volume. None of these mandate a single document literally titled "VMP," but every one assumes that a planned, risk-based, governed approach exists and is written down somewhere defensible.
+The expectation for a documented, planned approach to validation is long-standing in GxP. EU GMP Annex 15 (Qualification and Validation) establishes that validation should be planned and that a Validation Master Plan or equivalent document should summarize the facility's validation philosophy, approach, and program. EU GMP Annex 11 (Computerised Systems) carries the same expectation into the digital domain, requiring that validation documentation and reports cover the relevant life-cycle steps and that risk management be applied throughout. ISPE's GAMP 5, *A Risk-Based Approach to Compliant GxP Computerized Systems*, Second Edition (2022), provides the industry framework that operationalizes these expectations, and FDA's *Computer Software Assurance for Production and Quality System Software* (issued as a draft in 2022 and finalized in 2024) reframes the effort toward critical-thinking and least-burdensome assurance rather than documentation volume. None of these mandate a single document literally titled "VMP", but every one assumes that a planned, risk-based, governed approach exists and is written down somewhere defensible.
+
+For medical devices, the same discipline is embedded in 21 CFR 820 (Quality System Regulation, being aligned to ISO 13485 under the Quality Management System Regulation effective 2026) and in ISO 13485:2016 Clause 4.1.6, which requires validation of software used in the quality system and a documented, risk-based approach to it. The vocabulary differs, the obligation does not.
 
 One way to hold the relationship straight: the VMP is the constitution, the validation plans are the statutes for each project, and the periodic review is the standing audit that confirms the constitution is still being honored after the projects ship.
 
@@ -25,9 +27,21 @@ A VMP that earns its keep answers five questions concretely. Vague mission state
 
 **1. Scope and policy.** State exactly which systems, processes, sites, and product types the plan governs, and, just as important, what it excludes and why. The defensible scoping criterion is GxP impact: does the system create, modify, store, archive, retrieve, or transmit data or decisions that affect product quality, patient safety, or data integrity? A document management system holding batch records is in scope. A cafeteria menu app is not. The boundary cases, a building management system whose alarms feed a GMP cold-storage qualification, a spreadsheet doing a release calculation, are where scoping discipline shows, so the VMP should give the decision logic, not just a list.
 
-**2. Validation approach and life cycle.** Declare the life-cycle model the organization follows (the V-model remains the common reference, mapping specifications on the left arm to corresponding verification on the right) and how GAMP software categories drive the rigor applied. GAMP 5 categories, Category 1 infrastructure software, Category 3 non-configured products, Category 4 configured products, and Category 5 custom/bespoke applications, scale the expected effort: a Category 3 instrument with default firmware is verified far more lightly than a Category 5 custom LIMS workflow. The VMP states this scaling explicitly so teams do not over-test commodity software or under-test custom code. Under the CSA philosophy, it should also state where assurance effort is concentrated, on features whose failure would directly harm the patient or corrupt a quality record, and where unscripted or exploratory testing and vendor use are acceptable for lower-risk, non-product features.
+**2. Validation approach and life cycle.** Declare the life-cycle model the organization follows (the V-model remains the common reference, mapping specifications on the left arm to corresponding verification on the right) and how GAMP software categories drive the rigor applied. GAMP 5 categories, Category 1 infrastructure software, Category 3 non-configured products, Category 4 configured products, and Category 5 custom/bespoke applications, scale the expected effort: a Category 3 instrument with default firmware is verified far more lightly than a Category 5 custom LIMS workflow. The VMP states this scaling explicitly so teams do not over-test commodity software or under-test custom code. Under the CSA philosophy, it should also state where assurance effort is concentrated, on features whose failure would directly harm the patient or corrupt a quality record, and where unscripted or exploratory testing and vendor evidence are acceptable for lower-risk, non-product features.
 
-**3. Roles and responsibilities.** Name the functions, not the individuals: System Owner (accountable for the system meeting business needs and staying compliant across its life), Process Owner (accountable for the business process the system serves), Quality Assurance (independent review and approval, release decision), IT/infrastructure (the qualified platform the application runs on), and the validation lead. Annex 11 specifically expects a defined relationship between the regulated company and any supplier or service provider, with responsibilities documented, so supplier and integrator roles belong here too. The single most common ambiguity an inspector exploits is the boundary between System Owner and QA approval authority; the VMP should leave no doubt who can authorize a system for GxP use and who can release it back to service after a change.
+**3. Roles and responsibilities.** Name the functions, not the individuals: System Owner (accountable for the system meeting business needs and staying compliant across its life), Process Owner (accountable for the business process the system serves), Quality Assurance (independent review and approval, release decision), IT/infrastructure (the qualified platform the application runs on), and the validation lead. Annex 11 specifically expects a defined relationship between the regulated company and any supplier or service provider, with responsibilities documented, so supplier and integrator roles belong here too. The single most common ambiguity an inspector exploits is the boundary between System Owner and QA approval authority; the VMP should leave no doubt who can authorize a system for GxP use and who can release it back to service after a change. A short RACI table in the VMP settles most of these arguments before they start:
+
+| Activity | System Owner | Process Owner | Validation Lead | QA | IT/Infra |
+|---|---|---|---|---|---|
+| Approve URS | A | R | C | C | I |
+| Approve risk assessment | C | C | R | A | C |
+| Execute IQ/OQ/PQ | I | I | R | I | C |
+| Approve validation summary report | C | C | R | A | I |
+| Authorize GxP use / release | A | C | C | A | I |
+| Own periodic review | R | C | C | A | C |
+| Approve change impact assessment | A | C | C | A | C |
+
+(A = accountable, R = responsible, C = consulted, I = informed. Each organization tailors this, but the VMP should publish one canonical version.) See [GxP roles and responsibilities](/articles/gxp-roles-responsibilities) for how these map to job functions.
 
 **4. System inventory.** The VMP must require and point to a controlled inventory of computerized systems within scope. Annex 11 is explicit that an up-to-date list of relevant systems and their GxP functionality should be available. This inventory is the spine of the entire program, it is what periodic review schedules against, what change control checks against, and what an inspector requests first. A workable inventory carries at minimum the fields below.
 
@@ -41,18 +55,49 @@ A VMP that earns its keep answers five questions concretely. Vague mission state
 | Validation status and date of last validation | Current-state evidence |
 | Date of last and next periodic review | Closes the review loop |
 | Supplier / hosting model (on-prem, SaaS) | Defines responsibility split |
+| Electronic records / signatures (Part 11 in scope?) | Flags audit-trail and signature obligations |
+| Interfaces / upstream-downstream systems | Maps change blast radius |
 
-If the inventory is a stale spreadsheet that disagrees with reality, the rest of the program is theater. Keeping it current is itself a controlled, owned activity, not a once-a-year cleanup.
+If the inventory is a stale spreadsheet that disagrees with reality, the rest of the program is theater. Keeping it current is itself a controlled, owned activity, not a once-a-year cleanup. A practical control is to make inventory update a mandatory step in both onboarding (no go-live without an inventory entry) and decommissioning (no retirement without flagging the entry and recording the archive location for retained records).
 
-**5. Prioritization and risk-based effort.** The VMP defines how risk determines where effort goes, which systems get validated first, how deeply, and how often they are reviewed afterward. This is the bridge to ICH Q9 (Quality Risk Management), whose principles, that risk evaluation should be based on scientific knowledge and ultimately link to patient protection, and that the level of effort should be commensurate with the level of risk, apply directly to validation prioritization. A high-criticality, custom (Category 5) system handling release decisions sits at one end; a Category 3 utility system with no direct GxP data at the other. The VMP should give the matrix or scoring logic that places systems on that spectrum, because that placement is what later justifies a two-year review interval for one system and an annual one for another.
+**5. Prioritization and risk-based effort.** The VMP defines how risk determines where effort goes, which systems get validated first, how deeply, and how often they are reviewed afterward. This is the bridge to ICH Q9(R1) (Quality Risk Management), whose principles, that risk evaluation should be based on scientific knowledge and ultimately link to patient protection, and that the level of effort should be commensurate with the level of risk, apply directly to validation prioritization. A high-criticality, custom (Category 5) system handling release decisions sits at one end; a Category 3 utility system with no direct GxP data at the other. The VMP should give the matrix or scoring logic that places systems on that spectrum, because that placement is what later justifies a two-year review interval for one system and an annual one for another. The [CSV risk assessment methodology](/articles/csv-risk-assessment-methodology) article covers the scoring mechanics; the VMP simply commits the program to using one.
 
 A VMP should also state its supporting infrastructure expectations, that production sits on qualified infrastructure, that there are procedures for backup and restore, business continuity, security and access management, audit trails, periodic review, and decommissioning, even if the detailed procedures live in separate SOPs. The VMP is the map that shows those procedures exist and connect.
+
+### Acceptance criteria: what a good VMP looks like
+
+Before issuing a VMP, run it against this checklist. A reviewer or auditor will.
+
+- Scope is stated with explicit inclusion and exclusion logic, not just a list.
+- The life-cycle model and the GAMP category-to-rigor mapping are written down.
+- Roles are defined as functions with a clear authorization-and-release authority, and supplier responsibilities are addressed.
+- A controlled, owned inventory is required and referenced, with named maintenance responsibility.
+- Risk-based prioritization and review-frequency logic is defined and traceable to ICH Q9 principles.
+- The plan cross-references the SOPs it depends on (change control, periodic review, backup, security, decommissioning) rather than restating them.
+- It is approved by QA and current (under its own change control and periodic review).
+
+## Worked example: a small VMP scope and inventory extract
+
+A facility runs a quality-management software suite, a laboratory information system, a chromatography data system, a warehouse environmental-monitoring system, and a handful of validated spreadsheets. A defensible VMP scope statement and the resulting inventory extract might read like this.
+
+> Scope: This VMP governs all computerized systems that create, modify, store, archive, retrieve, or transmit data or decisions affecting product quality, patient safety, or GxP data integrity at the [site] operations. Excluded: general office productivity, facilities-comfort systems with no GxP alarm function, and corporate finance systems with no product-quality data. Boundary systems (building management alarms feeding cold-storage qualification; spreadsheets performing GxP calculations) are in scope and individually assessed.
+
+| System | GxP | GAMP cat | Criticality | Owner fn | Last val | Next review | Hosting |
+|---|---|---|---|---|---|---|---|
+| QMS (deviation/CAPA) | Y | 4 | High | Quality Systems | 2025-03 | 2026-03 | SaaS |
+| LIMS | Y | 4/5 | High | Lab Operations | 2024-11 | 2025-11 | On-prem |
+| Chromatography data system | Y | 3/4 | High | Lab Operations | 2025-06 | 2026-06 | On-prem |
+| EM/monitoring system | Y | 4 | Medium | Microbiology | 2024-08 | 2026-08 | On-prem |
+| Release-calc spreadsheet | Y | 3 (validated) | High | QC | 2025-02 | 2026-02 | File share |
+| Training LMS | Y | 4 | Medium | Training | 2025-01 | 2027-01 | SaaS |
+
+Note the high-criticality systems on a 12-month cycle, the medium ones on 24, and the validated spreadsheet treated as high because it performs a release calculation despite its low technical complexity. That last call is exactly the kind of judgment an inspector looks for evidence of. See [infrastructure qualification and spreadsheet validation](/articles/infrastructure-qualification-and-spreadsheet-validation) for how to validate that spreadsheet, and [LIMS implementation and validation](/articles/lims-implementation-and-validation) for the lab systems.
 
 ## The periodic review obligation
 
 Validation is a point-in-time conclusion: *as configured, tested, and documented on this date, the system is fit for its intended use.* The problem is that systems do not stay frozen. They get patched, upgraded, re-configured, integrated with new interfaces, moved to new servers, and operated by new people running new processes. Every one of those changes is a chance for the validated state to quietly erode. Periodic review is the control that periodically re-asks the question the original validation answered: *is this system still in a validated state today?*
 
-The requirement is explicit. EU GMP Annex 11, Section 11 states that computerised systems should be periodically evaluated to confirm that they remain in a valid state and are compliant with GMP, and that such evaluations should include, where appropriate, the current range of functionality, deviation records, incidents, problems, upgrade history, performance, reliability, security, and the validation status reports. The MHRA's *GxP Data Integrity Guidance and Definitions* reinforces the same theme from the data-integrity angle, that the ongoing suitability and control of systems generating regulated data must be maintained, not assumed. GAMP 5 treats periodic review as a core operational-phase activity within the system life cycle, alongside change management, incident management, backup/restore, and security administration.
+The requirement is explicit. EU GMP Annex 11, Section 11 states that computerised systems should be periodically evaluated to confirm that they remain in a valid state and are compliant with GMP, and that such evaluations should include, where appropriate, the current range of functionality, deviation records, incidents, problems, upgrade history, performance, reliability, security, and the validation status reports. The MHRA's *'GxP' Data Integrity Guidance and Definitions* (2018) reinforces the same theme from the data-integrity angle, that the ongoing suitability and control of systems generating regulated data must be maintained, not assumed. GAMP 5 treats periodic review as a core operational-phase activity within the system life cycle, alongside change management, incident management, backup/restore, and security administration.
 
 Periodic review is not re-validation. It is an evidence-gathering and assessment exercise that *concludes whether* the validated state still holds, and, if it does not, identifies the corrective action, which *may* be re-validation, remediation, or a return to controlled change. Confusing the two leads either to wasteful full re-qualification of stable systems or, worse, to skipping the assessment because "full re-validation seemed like too much."
 
@@ -73,8 +118,30 @@ A credible periodic review pulls evidence from the operational records accumulat
 | SOP and training currency | Procedures match the current system; users trained on the current version |
 | Supplier status | Vendor support still active; vendor audit/assessment current; SaaS change notifications reviewed |
 | Open CAPAs from prior review | Were last review's actions closed and effective? |
+| Periodic data-integrity checks | Were ALCOA+ attributes upheld; any unexplained data, orphaned records, or disabled controls? |
 
 The output is a periodic review report with a clear, signed conclusion, *system remains in a validated state*, *remains validated with actions*, or *validated state not confirmed*, plus a CAPA list with owners and due dates, and the date set for the next review. QA approval of that conclusion is the control that makes the review more than a self-attestation by the system owner.
+
+### How to run a periodic review, step by step
+
+1. **Schedule and trigger.** The inventory's "next review" date fires the review. Open it as a controlled record with an ID, an owner, and a due date. Build in lead time; a high-criticality system needs weeks, not a single afternoon.
+2. **Define the period and the scope.** State the review window (from last review date to now) and confirm the system identity, version, and validated baseline you are reviewing against. Pull the validation summary report and the last periodic review report as your reference points.
+3. **Collect the evidence.** Request the records in the table above from each owning function: change log, deviation log, patch history, current access list, backup/restore evidence, audit-trail review records, training records, supplier status. Insist on the actual records, not verbal assurance.
+4. **Assess each input against the validated state.** For each line, decide: compliant, compliant-with-action, or non-conformance. The questions in the table tell you what "non-conformance" looks like (an undocumented change, an unverified restore, a leaver still holding admin rights).
+5. **Reconcile configuration to baseline.** Compare the live configuration of GxP-relevant settings (calculations, workflows, e-signature behavior, audit-trail settings, roles) against the documented validated configuration. Any drift is a finding to explain or remediate.
+6. **Form the conclusion.** Roll the line assessments into one of the three conclusions. Be honest; a "remains validated" conclusion sitting next to open undocumented changes is a self-inflicted finding.
+7. **Raise CAPAs and set the next date.** Each action gets an owner, a due date, and a CAPA reference. Set the next review date per the risk tier (or sooner if the review surfaced instability).
+8. **QA review and approval.** QA independently reviews the evidence and conclusion and approves. Update the inventory with the completed date, the conclusion, and the next-due date.
+
+### Acceptance criteria for a periodic review
+
+- The review covers a defined period with no gap since the last one.
+- Each Annex 11 Section 11 input was actually examined with evidence cited, not asserted.
+- Configuration was reconciled to the validated baseline.
+- A restore was verified, not merely "backups are running."
+- The conclusion is consistent with the evidence (no "validated" over open undocumented changes).
+- CAPAs have owners and dates; prior-review CAPAs are confirmed closed and effective.
+- QA approved, and the inventory was updated with completion and next-due dates.
 
 ### Frequency by risk
 
@@ -90,19 +157,35 @@ Two refinements matter. First, the interval is a maximum, not a target, a high c
 
 ## What triggers re-validation (versus a periodic review)
 
-Periodic review is scheduled. Re-validation is *triggered*, by an event that plausibly invalidates the prior validation conclusion. The distinction the program must encode is that change control, not the calendar, is the primary trigger mechanism: every change is impact-assessed, and the assessment decides whether no validation action, a targeted re-test, or full re-validation is warranted. Annex 15 frames this directly, significant changes that could affect product quality or the validated/qualified state require evaluation and, where justified, re-qualification or re-validation.
+Periodic review is scheduled. Re-validation is *triggered*, by an event that plausibly invalidates the prior validation conclusion. The distinction the program must encode is that change control, not the calendar, is the primary trigger mechanism: every change is impact-assessed, and the assessment decides whether no validation action, a targeted re-test, or full re-validation is warranted. Annex 15 frames this directly, significant changes that could affect product quality or the validated/qualified state require evaluation and, where justified, re-qualification or re-validation. See [change control for validated systems](/articles/change-control-validated-systems) for how the impact assessment is structured.
 
 Common re-validation (or partial re-validation) triggers:
 
 - **Major application upgrades**, a new version that changes functionality, data structures, or the audit trail. A point patch may need only regression testing of affected functions; a major version generally needs a planned re-validation of impacted requirements.
 - **Configuration changes to GxP-relevant functionality**, altered calculations, workflows, electronic signature behavior, audit-trail settings, or user-role definitions.
-- **Infrastructure / platform migration**, moving to a new server, database engine, OS, or from on-premises to cloud/SaaS. The qualified platform changed, so the validated state must be re-confirmed on the new platform.
+- **Infrastructure / platform migration**, moving to a new server, database engine, OS, or from on-premises to cloud/SaaS. The qualified platform changed, so the validated state must be re-confirmed on the new platform. See [cloud and SaaS validation](/articles/cloud-saas-validation).
 - **New or changed interfaces / integrations**, any new data flow into or out of the system, where data-transfer accuracy must be re-verified end to end.
+- **Data migration**, when records are moved to a new system or database; migration must be validated for completeness and accuracy ([data migration validation](/articles/data-migration-validation)).
 - **Process or intended-use change**, the system is now used for a new GxP purpose the original validation never covered; the URS itself has effectively changed.
 - **A periodic review that concludes the validated state is not confirmed**, drift, undocumented changes, or repeated incidents found during review feed directly into a re-validation CAPA.
 - **Findings from data-integrity assessment, audit, or inspection**, a finding that the system's controls are inadequate is a trigger in its own right.
 
 The governing principle is risk and impact, not the size of the change ticket. A one-line configuration change to a release-decision calculation is more consequential than a cosmetic UI upgrade touching a hundred screens. The impact assessment, not the change's apparent magnitude, sets the validation response, and that assessment must be documented and QA-reviewed for GxP-critical systems.
+
+### Worked example: a change impact decision
+
+A LIMS vendor issues a minor release. The change record asks three questions: does it touch GxP functionality, does it change data structures or the audit trail, and does it affect any validated requirement? The patch notes show a fix to a result-rounding routine used in specification comparisons. That touches a GxP calculation, so "cosmetic patch, no testing" is the wrong answer. The correct response is a targeted re-validation: re-execute the requirements and test cases covering the rounding and specification-comparison logic, confirm the audit trail still captures the change, and update the traceability matrix and validation summary. The full system is not re-validated; the impacted slice is. That proportionality is the heart of CSA-aligned thinking.
+
+## Roles across both processes
+
+| Role | VMP | Periodic review | Re-validation |
+|---|---|---|---|
+| System Owner | Provides scope/inventory input; accountable for system compliance | Owns and drives the review; gathers evidence | Sponsors and approves the re-validation scope |
+| Process Owner | Defines the business process in scope | Confirms process still matches the system | Confirms intended-use changes |
+| Validation Lead | Authors/maintains the VMP | Assesses validation impact of changes/incidents | Plans and executes re-validation |
+| QA | Approves the VMP; independent oversight | Independently reviews and approves conclusion | Approves impact assessment and release |
+| IT/Infrastructure | Confirms qualified platform | Provides patch, backup, security evidence | Re-qualifies platform on migration |
+| Supplier | Responsibilities defined in VMP | Provides change notifications, support status | Supports/validates the upgrade |
 
 ## What inspectors actually look for
 
@@ -111,10 +194,46 @@ Auditors and inspectors rarely read a VMP cover to cover. They sample, and they 
 - **Inventory completeness.** The first request is usually the system list. Inspectors then probe for systems that *should* be on it but are not, the validated spreadsheet doing a calculation, the lab instrument's data station, the SaaS tool a department adopted without IT. A system performing a GxP function that is absent from the inventory is a finding, because it means the governance described in the VMP is not actually being applied to reality.
 - **Periodic reviews that are real, not retrospective box-checks.** They will pull a review report and check whether it genuinely examined change history, deviations, access, and backups, or whether it is a template with a pre-written "remains validated" conclusion and no evidence behind it. A review that concludes "validated" while open deviations and undocumented changes sit in the same period is worse than no review, because it documents that the control failed to detect a known problem.
 - **The change-control-to-validation link.** They trace a sample of changes and check whether each was impact-assessed for validation, and whether changes that should have triggered re-validation actually did. A patch applied to a GMP system with no documented impact assessment is a classic finding.
-- **Audit trail and Part 11 controls in the operational phase.** For systems holding electronic records and signatures, FDA expects compliance with 21 CFR Part 11, secure, time-stamped audit trails, controlled access, and signature controls, sustained across the system's life, not just demonstrated once at validation. Annex 11 and the MHRA data-integrity guidance reinforce that audit trails must be reviewed; a periodic review is where "are we actually reviewing audit trails per our SOP?" gets verified.
+- **Audit trail and Part 11 controls in the operational phase.** For systems holding electronic records and signatures, FDA expects compliance with 21 CFR Part 11, secure, time-stamped audit trails, controlled access, and signature controls, sustained across the system's life, not just demonstrated once at validation. Annex 11 and the MHRA data-integrity guidance reinforce that audit trails must be reviewed; a periodic review is where "are we actually reviewing audit trails per our SOP?" gets verified. See [operationalizing audit trail review](/articles/operationalizing-audit-trail-review).
 - **Overdue reviews and stale intervals.** A review past its due date, or a long interval on a high-criticality system without a documented risk rationale, is a quick finding that signals broader program drift.
 
 What ties all of this together is consistency between what the VMP *says* the program does and what the records *show* the program did. The plan can be elegant; if the inventory is incomplete, reviews are overdue, and changes bypass impact assessment, the VMP becomes evidence *against* the organization, a documented standard it failed to meet.
+
+### Common mistakes and inspection-finding patterns
+
+- **The "ghost system."** A spreadsheet, a data station, or a departmental SaaS tool performs a GxP function but never made it onto the inventory, so it was never validated and is never reviewed. The most common root of a data-integrity observation.
+- **Self-attested reviews.** Periodic reviews signed only by the system owner with no QA approval and no cited evidence, conclusions that read as fill-in-the-blank.
+- **The "remains validated" reflex.** A conclusion of validated state while open deviations, undocumented configuration changes, or unresolved CAPAs exist in the same period. Documents that the review failed.
+- **Untested restore.** "Backups run nightly" recorded as the backup control with no evidence a restore was ever performed. Backups you cannot restore are not a control.
+- **Patch drift.** Operating-system and database patches applied by IT with no validation impact assessment, the application's validated state silently undermined by platform changes nobody assessed.
+- **Stale intervals without rationale.** A 36-month interval on a release-critical system, or no documented rationale for any interval. The interval scheme exists but the per-tier justification does not.
+- **Leavers retaining access.** Periodic review skips the access reconciliation, terminated or transferred users still hold privileges, segregation of duties broken.
+- **VMP that overpromises.** A VMP describing a mature program the records do not support, turning the plan into the standard the organization is judged against and fails.
+
+## Interview questions and how to answer them
+
+These come up for CSV, validation, and quality-systems roles. Crisp, specific answers separate candidates who have run a program from those who have read about one. See [GxP quality interview preparation](/articles/gxp-quality-interview-preparation) for broader coverage.
+
+**Q: What is the difference between a VMP and a validation plan?**
+The VMP is program-level; it sets scope, life-cycle model, roles, the inventory requirement, and risk-based prioritization once, so every project validates to one standard. A validation plan (or project plan) is system-specific; it applies the VMP to one system. The VMP is the constitution, the validation plan is the statute for one project.
+
+**Q: How often must a computerized system be periodically reviewed?**
+There is no fixed regulatory number. Annex 11 Section 11 says "periodically" and leaves the interval to a justified, risk-based rationale. A defensible scheme ties the interval to criticality, for example 12 months for high-criticality release-relevant systems, 24 for medium, 36 for low, with the per-tier rationale documented and the interval treated as a maximum that incidents or high change rates can pull forward.
+
+**Q: What is the difference between periodic review and re-validation?**
+Periodic review is scheduled and assesses whether the validated state still holds, it is evidence-gathering and a conclusion, not re-testing. Re-validation is triggered by a change or finding that plausibly invalidates the prior conclusion, and it re-executes the affected validation. A periodic review can conclude that re-validation is needed, but it is not itself re-validation.
+
+**Q: What triggers re-validation?**
+Change control, not the calendar, is the primary trigger. Major upgrades, GxP-relevant configuration changes, platform or infrastructure migration, new or changed interfaces, data migration, an intended-use change, a periodic review concluding the validated state is not confirmed, and adverse audit, inspection, or data-integrity findings. The impact assessment, not the size of the change, sets the response.
+
+**Q: An inspector asks for your system inventory and finds a validated spreadsheet doing a release calculation that is not on it. What is the finding and why does it matter?**
+The finding is that a GxP system is outside the governed program: not on the inventory, so not validated, change-controlled, or periodically reviewed. It matters because it shows the VMP is not applied to reality, and because a release calculation is high-criticality, an error there flows straight to product disposition. It signals the inventory cannot be relied on, which casts doubt on the whole program.
+
+**Q: How does GAMP 5 software categorization affect the program?**
+It scales rigor. Category 1 infrastructure and Category 3 non-configured products carry lighter verification, often leaning on supplier evidence; Category 4 configured products need configuration verified against requirements; Category 5 custom code needs the most, including design and code-level assurance. The VMP states this mapping so teams neither over-test commodity software nor under-test custom code. CSA reinforces concentrating effort where failure would harm the patient or corrupt a record.
+
+**Q: How do CSA and the older CSV approach differ here?**
+CSA (FDA guidance, 2022 draft, finalized 2024) shifts the emphasis from documentation volume to critical thinking and least-burdensome assurance, more unscripted/exploratory testing and reliance on supplier evidence for low-risk features, with rigorous scripted testing reserved for high-risk, patient-impacting functions. In the VMP, that shows up as an explicit statement of where assurance effort is concentrated. See [Computer Software Assurance (FDA)](/articles/computer-software-assurance-fda).
 
 ## Bringing it together
 
@@ -122,11 +241,23 @@ The VMP and periodic review are two sides of the same discipline. The VMP define
 
 When both work, the program can keep a simple promise: at any moment, the organization can produce a current list of its GxP computerized systems, state the validation status of each, and show evidence, recent, signed, and grounded in operational records, that each remains fit for its intended use. That is what an inspector is looking for, and it matters beyond the audit, because behind many of those systems is a record that decides whether a product is safe to release.
 
+### Related reading
+
+- [CSV risk assessment methodology](/articles/csv-risk-assessment-methodology)
+- [Change control for validated systems](/articles/change-control-validated-systems)
+- [GAMP 5 CSV framework](/articles/gamp5-csv-framework)
+- [Validation deliverables guide](/articles/validation-deliverables-guide)
+- [User requirements and traceability](/articles/user-requirements-and-traceability)
+- [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11)
+- [GxP computerized systems operations](/articles/gxp-computerized-systems-operations)
+- [Retroactive validation of legacy systems](/articles/retroactive-validation-legacy-systems)
+
 ### Key references
 
 - EU GMP Annex 11, *Computerised Systems* (validation, risk management, periodic evaluation, supplier responsibilities, audit trails). [EudraLex Volume 4, Annex 11](https://health.ec.europa.eu/medicinal-products/eudralex/eudralex-volume-4_en)
 - EU GMP Annex 15, *Qualification and Validation* (Validation Master Plan, change control, re-qualification triggers).
-- ICH Q9, *Quality Risk Management* (risk-based effort, link to patient protection). [ICH Q9](https://www.ich.org/page/quality-guidelines)
-- ISPE GAMP 5, 2nd Edition, *A Risk-Based Approach to Compliant GxP Computerized Systems* (software categories, life cycle, operational-phase activities including periodic review).
-- FDA, *Computer Software Assurance for Production and Quality System Software* (draft guidance, 2022), and 21 CFR Part 11, *Electronic Records; Electronic Signatures*. [21 CFR Part 11](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11)
-- MHRA, *'GxP' Data Integrity Guidance and Definitions* (ongoing control and suitability of data-generating systems).
+- ICH Q9(R1), *Quality Risk Management* (risk-based effort, link to patient protection). [ICH Q9](https://www.ich.org/page/quality-guidelines)
+- ISPE GAMP 5, 2nd Edition (2022), *A Risk-Based Approach to Compliant GxP Computerized Systems* (software categories, life cycle, operational-phase activities including periodic review).
+- FDA, *Computer Software Assurance for Production and Quality System Software* (draft 2022, finalized 2024), and 21 CFR Part 11, *Electronic Records; Electronic Signatures*. [21 CFR Part 11](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11)
+- MHRA, *'GxP' Data Integrity Guidance and Definitions* (2018) (ongoing control and suitability of data-generating systems).
+- ISO 13485:2016 Clause 4.1.6 and 21 CFR 820 / Quality Management System Regulation (validation of computerized systems used in the quality system).

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { tagKey, tagDisplay } from '../data/tags';
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const recent = allArticles
@@ -49,14 +50,12 @@ const roles = [
 ];
 
 // Derived from the actual article tags so counts never go stale as content grows.
-// Merge near-duplicate tags (e.g. "data-integrity" vs "data integrity") by a shared
-// anchor key that matches the /topics page section ids.
-const anchorOf = (s: string) => s.toLowerCase().trim().replace(/\s+/g, '-');
+// Uses the shared tag normalizer so "data-integrity"/"data integrity" merge and
+// the chip label + anchor match the /topics page exactly.
 const tagAgg: Record<string, { name: string; count: number; anchor: string }> = {};
 for (const a of allArticles) for (const t of (a.data.tags ?? [])) {
-  const name = String(t).trim(); if (!name) continue;
-  const anchor = anchorOf(name);
-  if (!tagAgg[anchor]) tagAgg[anchor] = { name, count: 0, anchor };
+  const anchor = tagKey(t); if (!anchor) continue;
+  if (!tagAgg[anchor]) tagAgg[anchor] = { name: tagDisplay(t), count: 0, anchor };
   tagAgg[anchor].count++;
 }
 const topics = Object.values(tagAgg)

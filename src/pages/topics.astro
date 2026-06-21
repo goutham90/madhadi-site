@@ -1,19 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { tagKey, tagDisplay } from '../data/tags';
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 
-const tagMap: Record<string, typeof allArticles> = {};
+// Group by canonical tag key so case/format variants ("CSV"/"csv",
+// "data integrity"/"data-integrity") merge into one topic. Dedup articles per key.
+const tagMap: Record<string, { name: string; key: string; arts: Map<string, typeof allArticles[number]> }> = {};
 for (const article of allArticles) {
-	for (const tag of article.data.tags) {
-		if (!tagMap[tag]) tagMap[tag] = [];
-		tagMap[tag].push(article);
+	for (const tag of article.data.tags ?? []) {
+		const key = tagKey(tag);
+		if (!key) continue;
+		if (!tagMap[key]) tagMap[key] = { name: tagDisplay(tag), key, arts: new Map() };
+		tagMap[key].arts.set(article.slug, article);
 	}
 }
 
-const sortedTags = Object.entries(tagMap).sort((a, b) => b[1].length - a[1].length);
-const totalRefs = sortedTags.reduce((sum, [, arts]) => sum + arts.length, 0);
+// Only show topics with real coverage (2+ articles) so the index stays useful.
+const sortedTags = Object.values(tagMap)
+	.map((t) => ({ name: t.name, key: t.key, articles: [...t.arts.values()] }))
+	.filter((t) => t.articles.length >= 2)
+	.sort((a, b) => b.articles.length - a.articles.length || a.name.localeCompare(b.name));
+const totalRefs = sortedTags.reduce((sum, t) => sum + t.articles.length, 0);
 ---
 <Layout title="Topics" description="Browse data integrity articles by topic, ALCOA+, 21 CFR Part 11, FDA, Cell & Gene Therapy, and more." wide={true}>
 	<!-- ═══════════ HEADER BAND (dark + duotone) ═══════════ -->
@@ -41,10 +50,10 @@ const totalRefs = sortedTags.reduce((sum, [, arts]) => sum + arts.length, 0);
 				<p class="marginalia directory-note">Topics ranked by depth of coverage. The denser the topic, the higher it sits.</p>
 			</div>
 			<nav class="topic-cloud" aria-label="Jump to topic">
-				{sortedTags.map(([tag, articles]) => (
-					<a href={`#${tag.toLowerCase().replace(/\s+/g, '-')}`} class="topic-pill">
-						{tag}
-						<span class="topic-count">{articles.length}</span>
+				{sortedTags.map((t) => (
+					<a href={`#${t.key}`} class="topic-pill">
+						{t.name}
+						<span class="topic-count">{t.articles.length}</span>
 					</a>
 				))}
 			</nav>
@@ -56,18 +65,18 @@ const totalRefs = sortedTags.reduce((sum, [, arts]) => sum + arts.length, 0);
 	<section class="section-tight topics-feed">
 		<div class="wrap">
 			<div class="topics-list">
-				{sortedTags.map(([tag, articles], ti) => (
-					<section class="topic-section" id={tag.toLowerCase().replace(/\s+/g, '-')}>
+				{sortedTags.map((t, ti) => (
+					<section class="topic-section" id={t.key}>
 						<div class="topic-aside">
 							<span class="topic-index">{String(ti + 1).padStart(2, '0')}</span>
 							<div class="topic-header">
-								<h2>{tag}</h2>
-								<span class="topic-meta">{articles.length} article{articles.length !== 1 ? 's' : ''}</span>
+								<h2>{t.name}</h2>
+								<span class="topic-meta">{t.articles.length} article{t.articles.length !== 1 ? 's' : ''}</span>
 							</div>
-							<a href={`#${tag.toLowerCase().replace(/\s+/g, '-')}`} class="topic-permalink marginalia">#{tag.toLowerCase().replace(/\s+/g, '-')}</a>
+							<a href={`#${t.key}`} class="topic-permalink marginalia">#{t.key}</a>
 						</div>
 						<ul class="article-list index-list">
-							{articles
+							{t.articles
 								.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
 								.map((post, ai) => (
 									<li>

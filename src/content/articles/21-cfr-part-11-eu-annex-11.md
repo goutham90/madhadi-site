@@ -11,7 +11,7 @@ tier: "Intermediate"
 
 EU Annex 11 is the European counterpart, a GMP annex governing computerized systems, with overlapping but not identical requirements.
 
-Understanding both, and the differences between them, is foundational for anyone working on computer system validation, quality systems design, or FDA and EMA inspection preparation. This article walks through the structure of each regulation, the specific clauses that get tested in an inspection, and how to translate the legal text into design decisions you can actually make when you select or configure a system.
+Understanding both, and the differences between them, is foundational for anyone working on computer system validation, quality systems design, or FDA and EMA inspection preparation. This article walks through the structure of each regulation, the specific clauses that get tested in an inspection, and how to translate the legal text into design decisions you can actually make when you select or configure a system. The same controls apply across small-molecule pharma, biologics, vaccines, medical devices, in-vitro diagnostics, and the wider life-sciences sector. The technology differs; the rules for trusting a digital record do not.
 
 ---
 
@@ -20,6 +20,8 @@ Understanding both, and the differences between them, is foundational for anyone
 It helps to remember what these rules replaced. For most of the twentieth century, a GMP record was a paper batch record signed in ink, a lab notebook page, a chart printed from an instrument. The control mechanisms were physical: a locked archive room, a controlled-copy stamp, a signature you could compare against a specimen card. When records moved onto computers in the 1980s and 1990s, every one of those physical controls disappeared. A digital record can be edited with no visible trace, copied a thousand times, backdated, or deleted in a keystroke. A typed name at the bottom of a screen proves nothing about who actually pressed the button.
 
 Part 11 and Annex 11 exist to rebuild, in software and procedure, the assurance that ink and paper used to provide for free. Part 11 took effect on August 20, 1997. Its central promise is conditional: if you meet the controls in the regulation, FDA will treat your electronic records and signatures as the legal equivalent of paper and ink. If you do not, your electronic records may not satisfy the underlying GMP, GLP, or GCP recordkeeping requirements at all. That linkage to the underlying requirement, which FDA calls the "predicate rule," is the single most important concept for reading Part 11 correctly. Part 11 never stands alone. It always sits on top of a predicate rule that already required the record to exist.
+
+A predicate rule is just the other FDA regulation that obliges you to keep the record in the first place. For drug manufacturing it is 21 CFR 211 (cGMP for finished pharmaceuticals). For nonclinical safety studies it is 21 CFR 58 (GLP). For clinical trials it is 21 CFR 312 and the GCP regulations. For medical devices it is 21 CFR 820 (the Quality System Regulation, transitioning to the Quality Management System Regulation under 21 CFR 820 as amended). Part 11 supplies the electronic controls; the predicate rule supplies the reason the record must exist and how long it must be kept. When you assess a system, identify its predicate rule first. Everything else follows from it.
 
 ---
 
@@ -36,6 +38,17 @@ A useful test for whether Part 11 applies to a given record: ask whether you wou
 
 The key structural distinction in Part 11 is between open and closed systems, because the required controls differ depending on who controls access.
 
+### A scoping decision you can defend
+
+The first deliverable on any new system is a documented Part 11 / Annex 11 applicability assessment. It is short, it is signed, and it answers four questions in order:
+
+1. **Does the system create, modify, maintain, archive, retrieve, or transmit a GxP record?** If no, Part 11 does not apply and you document that conclusion. If yes, continue.
+2. **What is the predicate rule?** Name it. A system can have more than one (a stability LIMS touches both 211 and the stability commitments in the marketing application).
+3. **Is the electronic record the official record, or is paper the official record?** If the printout is signed in ink and archived, and the electronic file is a convenience copy only, you may be running a hybrid system (see the [hybrid paper and electronic records](/articles/hybrid-paper-electronic-records) article). If the electronic record is what you would defend to an inspector, full Part 11 applies.
+4. **Are electronic signatures used?** If approvals are captured electronically, subpart C applies on top of the record controls.
+
+Keep this assessment with the validation package. When an inspector asks "is this system Part 11 in scope," the answer is a one-page document, not a debate in the room.
+
 ---
 
 ## Open vs Closed Systems
@@ -47,6 +60,20 @@ The key structural distinction in Part 11 is between open and closed systems, be
 Open systems require additional controls beyond closed systems, because authenticity has to survive a boundary you do not own. Section 11.30 calls for measures such as document encryption and the use of appropriate digital signature standards to ensure record authenticity, integrity, and confidentiality from the point of creation to the point of receipt.
 
 Here is a point that trips up a lot of teams. Whether a system is "open" or "closed" is not decided by whether it is hosted in a data center versus the cloud. It is decided by who controls access to the content. A cloud-hosted application can be a closed system if access to the records is controlled entirely by your organization through your own identity management, your own access reviews, and a vendor contract that walls off provider personnel. What matters is the access control reality, documented and verified, not the marketing label on the deployment model. The requirements in 11.10 apply to closed systems. The additional requirements in 11.30 apply to open systems. Most GxP manufacturing systems are operated as closed systems.
+
+### Deciding the classification in practice
+
+Run the test against actual access, not architecture:
+
+| Scenario | Open or closed | Why |
+|---|---|---|
+| LIMS on the internal network, accounts managed by your IT | Closed | You control access to the content |
+| SaaS quality system, your SSO controls logins, contract bars provider staff from production data | Closed | Access to content is yours despite cloud hosting |
+| Contract lab portal where the CRO grants and removes its own users | Open | A party you do not govern controls access |
+| Public regulatory submission gateway | Open | Records cross a boundary you do not own |
+| Multi-tenant app where vendor support engineers can read production records with no contractual or technical wall | Open | Provider personnel can reach the content |
+
+When in doubt, classify as open and add the 11.30 controls (encryption in transit and at rest, appropriate signature integrity controls). The cost of treating a closed system as open is a little extra encryption. The cost of treating an open system as closed is records an inspector will not trust. For the deeper cloud and software-as-a-service questions, see [cloud and SaaS validation](/articles/cloud-saas-validation) and [software supplier assessment](/articles/software-supplier-assessment-csa).
 
 ---
 
@@ -78,6 +105,26 @@ Section 11.10 lists the controls a closed system must have. Read each one as a d
 
 A note for readers newer to this area: almost every one of these controls maps directly onto a data integrity principle. Access and authority checks support attributability. Audit trails support the original and contemporaneous attributes. The ability to discern altered records supports accuracy. If the [ALCOA+ framework](/articles/alcoa-plus-deep-dive) is familiar, Part 11 reads as the system-level implementation of those same ideas.
 
+### What each control looks like when it is working
+
+Reading the clauses is one thing; recognizing a compliant configuration is another. The table below turns each requirement into something you can verify with evidence.
+
+| Clause | Design control | Evidence that it works |
+|---|---|---|
+| 11.10(a) Validation | Risk-based validation covering the data integrity controls, not just functionality | Signed validation summary, traced requirements, test scripts that challenge the audit trail and access rules |
+| 11.10(b) Copies | Export to PDF and to an open electronic format, with metadata included | A printed record and an exported file that both show result, units, audit trail, and signatures |
+| 11.10(c) Protection | Backup, archive, and read access controls across the retention period | Restore test result, retention schedule mapped to the predicate rule |
+| 11.10(d) Access | Individual named accounts, no shared logins | User list reconciled to active employees, joiner/mover/leaver records |
+| 11.10(e) Audit trail | On by default, captures who/what/when/old value/new value/reason where required, cannot be disabled by users | Configuration screenshot, a test change showing the before value preserved |
+| 11.10(f) Sequencing | Workflow enforces logical order of steps | Negative test: system blocks recording a result before the test is started |
+| 11.10(g) Authority | Role-based access matrix; the system checks rights at each action | Role matrix document, test that an unauthorized role is denied |
+| 11.10(h) Device | Input restricted to qualified terminals or instruments where relevant | Interface qualification, IP or device allow-listing config |
+| 11.10(i) Training | Role-based training before access is granted | Training records dated before the access grant |
+| 11.10(j) Policy | Signed accountability policy and signature agreement | The policy, plus each user's signed acknowledgment |
+| 11.10(k) Documentation | Controlled SOPs and admin guides under change control | Document control records, revision history |
+
+When you build a Part 11 assessment, this table is effectively your checklist. For a ready-made structured version, see the [CSV and CSA audit checklist](/articles/csv-csa-audit-checklist).
+
 ---
 
 ## Electronic Signatures
@@ -94,9 +141,38 @@ Part 11 subpart C covers electronic signatures. The requirements are precise, an
 
 **Signature manifestation (11.50).** Signed records must show the printed name of the signer, the date and time the signature was executed, and the meaning of the signature, such as "reviewed by," "approved by," or "performed by." This information must appear on any human-readable form of the record, including printouts.
 
-**Agency certification (11.100(c)).** Before or at the time of first using electronic signatures, an organization must certify to FDA, in a paper letter signed with a traditional handwritten signature, that it intends its electronic signatures to be the legally binding equivalent of handwritten signatures. This is a one-time certification to the agency, not a per-system filing.
+**Agency certification (11.100(c)).** Before or at the time of first using electronic signatures, an organization must certify to FDA, in a paper letter signed with a traditional handwritten signature, that it intends its electronic signatures to be the legally binding equivalent of handwritten signatures. This is a one-time certification to the agency, not a per-system filing. The letter goes to the FDA Office of Regional Operations, references 21 CFR 11.100(c), and need only be submitted once for the organization. Keep a copy; inspectors sometimes ask to see it.
 
 A worked example helps tie these together. An analyst finishes a chromatography run and approves the result. A compliant flow: the analyst is already logged in under a unique account, the system prompts for the password again, the analyst selects the meaning "approved by" from a controlled list, and the system writes the printed name, the timestamp, and the meaning into the record and locks that signature to that exact record version. If the result is later reprocessed, the prior signature does not silently carry over to the new version. Each of those behaviors traces to a specific clause above, and the absence of any one of them is a common inspection finding.
+
+### A sample signature manifestation
+
+This is what a compliant signed record shows on screen and on the printout. Every field maps to a clause.
+
+```
+Result record: Assay, Lot 2024-0417, HPLC potency
+Value: 99.2% (label claim)
+
+Performed by:  J. Okafor (Analyst)      2024-04-17 14:22:06 EDT
+Reviewed by:   M. Lindqvist (Reviewer)  2024-04-17 16:05:41 EDT
+Approved by:   P. Adeyemi (QC Manager)   2024-04-18 09:11:33 EDT
+
+Each signature bound to record version 2 (post-integration).
+Audit trail attached. System clock synchronized to NTP.
+```
+
+Three things make this compliant rather than decorative: each line shows printed name, timestamp, and meaning (11.50); the names are individual accounts, not roles or shared logins (11.100(a)); and the signatures are bound to a specific record version, so a later reprocess does not inherit them (11.70). The full mechanics of building this into a system are in [electronic signatures implementation](/articles/electronic-signatures-implementation).
+
+### Roles and responsibilities for the signature program
+
+| Role | Responsibility |
+|---|---|
+| System owner (business) | Defines who needs which signing rights and the meanings used |
+| IT / system administrator | Configures two-component signing, session controls, identity binding |
+| Quality assurance | Owns the accountability policy, approves the role matrix, audits attribution |
+| HR / identity management | Verifies identity before a signature is assigned (11.100(b)) |
+| Individual user | Signs the accountability agreement, never shares credentials |
+| Regulatory affairs | Files and retains the 11.100(c) certification letter to FDA |
 
 ---
 
@@ -108,7 +184,7 @@ The guidance announced that FDA intended to interpret the scope of Part 11 narro
 
 The pivot was to refocus on the predicate rules. FDA said it would concentrate enforcement on whether the underlying records were accurate, complete, and reliable, the data integrity fundamentals, rather than treating every technical Part 11 gap as a violation in its own right. The guidance did not rescind Part 11, and it did not exempt new systems. The regulation remains in force. What changed was prosecutorial emphasis: a technical shortfall is far more serious when it lets bad data through than when it is a paperwork mismatch on a system whose records are otherwise sound.
 
-For anyone reading 483s and warning letters issued since the data integrity enforcement wave that gained momentum after 2015, the practical result is clear. FDA cites Part 11 most often when an audit trail was off, a record was overwritten, or shared logins made attribution impossible, that is, when the technical gap actually compromised data reliability. The 2003 guidance is best read alongside the broader [computer software assurance approach](/articles/computer-software-assurance-fda), which carries the same philosophy into how FDA expects validation effort to be focused on patient and product risk rather than documentation volume.
+For anyone reading 483s and warning letters issued since the data integrity enforcement wave that gained momentum after 2015, the practical result is clear. FDA cites Part 11 most often when an audit trail was off, a record was overwritten, or shared logins made attribution impossible, that is, when the technical gap actually compromised data reliability. The 2003 guidance is best read alongside the broader [computer software assurance approach](/articles/computer-software-assurance-fda), which carries the same philosophy into how FDA expects validation effort to be focused on patient and product risk rather than documentation volume. Note the timing precisely: FDA published the Computer Software Assurance document as a draft in 2022 and finalized it in 2024. The narrow-scope guidance and the CSA approach share one idea: spend your effort where a failure would hurt the product or the patient, not on documentation for its own sake.
 
 ---
 
@@ -127,6 +203,18 @@ Annex 11 is organized as principles followed by numbered clauses grouped under t
 **Annex 11 requires business continuity.** Clause 16 requires arrangements to ensure continuity of support for processes in the event of a system breakdown, with the recovery time matched to the criticality of the process. This is a documented, tested disaster recovery expectation, covered in depth in the [backup, restore, and disaster recovery validation article](/articles/backup-restore-disaster-recovery-validation).
 
 **Annex 11 names third parties directly.** Clause 3 sets expectations for any third party involved in providing, installing, configuring, integrating, validating, maintaining, or operating a system, and requires formal agreements that define each party's responsibilities. Clause 7.2 also reaches data held on behalf of the company by a third party.
+
+### The Annex 11 clauses by lifecycle phase
+
+It helps to read Annex 11 the way an EU inspector does, by where in the system's life each clause bites.
+
+| Phase | Clauses | What it asks for |
+|---|---|---|
+| Principle / general | Principle, 1 (risk management), 2 (personnel) | Risk-based effort, defined roles for owner, process owner, QP |
+| Project phase | 3 (suppliers), 4 (validation), 5 (system interfaces) | Supplier assessment, validation with traceability, interface checks |
+| Operational phase | 6 (accuracy checks), 7 (data storage/backup), 8 (printouts), 9 (audit trails), 10 (change/config), 11 (periodic evaluation), 12 (security), 13 (incident management), 14 (e-signatures), 15 (batch release), 16 (business continuity), 17 (archiving) | The day-to-day controls an inspector tests on a running system |
+
+Two clauses deserve a closer look because they have no Part 11 twin and are frequent findings. Clause 11 (periodic evaluation) requires that computerized systems be evaluated periodically to confirm they remain in a validated state and compliant; the output is a short report on a defined frequency, usually annual to triennial based on risk. Clause 15 (batch release) requires that when a system is used to release a batch, it shows clearly whether the Qualified Person has performed the release, a point that ties to [QP batch release under Annex 16](/articles/qualified-person-batch-release-annex-16).
 
 ---
 
@@ -152,6 +240,8 @@ The two regulations cover much of the same ground but allocate it differently. T
 
 For a company selling into both the US and the EU, a single system has to satisfy both frameworks at once. The good news is that they do not conflict. A system designed for full Part 11 compliance and validated using a recognized lifecycle method, such as the approach described in the [GAMP 5 framework](/articles/gamp5-csv-framework), will meet most of Annex 11 on its own. The predictable gaps are the clauses where Annex 11 is more explicit: documented and tested business continuity (clause 16), incident management (clause 13), periodic evaluation (clause 11), and written agreements with service providers (clause 3). Teams that build to Part 11 alone and then enter the EU market usually find their remediation list concentrated in exactly those four areas.
 
+There is one more difference worth carrying in your head. Part 11 is a binding regulation with the force of law; a violation can support a 483 observation or a warning letter directly. Annex 11 is a GMP annex, an expectation that EU and MRA-partner inspectors enforce through the GMP framework rather than a standalone statute. In day-to-day practice both get cited and both get remediated, but the legal mechanics differ, which is why the same gap can read slightly differently in a US 483 versus an EU inspection report.
+
 The deeper inspection-culture differences between the two agencies, beyond the regulations themselves, are covered in [FDA vs EMA inspection dynamics](/articles/fda-vs-ema-inspection-dynamics).
 
 ---
@@ -175,6 +265,20 @@ For Annex 11, EU inspectors additionally probe:
 
 A recurring theme runs through both lists. The findings cluster where a control that exists on paper was never actually working, or never actually tested, in production. An audit trail you can configure off, a backup nobody has restored, an account whose owner cannot be identified. These are the findings to hunt for in your own self-assessment before an inspector does. The [Part 11 and Annex 11 practical implementation guide](/articles/part-11-annex-11-practical-guide) and the [CSV and CSA audit checklist](/articles/csv-csa-audit-checklist) give a structured way to look.
 
+### Common mistakes, and how each one actually fails
+
+These are the patterns that turn into findings, with the underlying reason and the fix.
+
+| Mistake | Why it fails the rule | Fix |
+|---|---|---|
+| Audit trail switched on but never reviewed | A trail nobody reads is a control in name only; reviewers miss the overwrite that mattered | Build audit trail review into batch and result review, risk-based. See [operationalizing audit trail review](/articles/operationalizing-audit-trail-review) |
+| Time set manually by users | A signature timestamp you cannot trust is not evidence of when something happened | Lock the clock, sync to a network time source, restrict who can change it. See [time stamps and system clock control](/articles/time-stamps-and-system-clock-control) |
+| "System is 21 CFR Part 11 compliant" taken from the datasheet | Compliance is how you configure and operate, not a feature flag | Verify each control in your validated configuration, not the vendor brochure |
+| One generic admin account shared by the IT team | Breaks uniqueness and attribution for the most powerful actions on the system | Named admin accounts, least privilege, no operational user holds admin |
+| Spreadsheet treated as out of scope because "it is just Excel" | If it makes a GxP decision it is in scope regardless of the tool | Validate or replace it. See [infrastructure qualification and spreadsheet validation](/articles/infrastructure-qualification-and-spreadsheet-validation) |
+| Backups taken, restore never tested | Clause 7.2 wants proof you can get the data back, not proof you copied it | Schedule and document an actual restore test |
+| E-signature is a pasted image on a PDF | Removable and reusable, so it is not bound to the record (11.70) | Use a system that cryptographically or transactionally binds signature to record version |
+
 ---
 
 ## Practical Implication for System Design
@@ -193,4 +297,55 @@ A system assessment that tests Part 11 and Annex 11 readiness should answer, wit
 
 One closing distinction is worth carrying into every vendor conversation. "The system supports Part 11" is a marketing statement about capability. "The system is configured, validated, and operating to meet Part 11 and Annex 11 requirements at our site" is the statement an inspector will test. Most commercial LIMS, electronic lab notebook, chromatography data system, and MES products on the market today, including widely used platforms such as Waters Empower for chromatography, can be brought into compliance, but every one of them ships with settings that are not compliant out of the box. Default audit trail configurations, default account setups, and default permission grants frequently need to be changed during configuration and locked down during validation. The regulation is satisfied by how you set the system up and operate it, not by the feature list on the datasheet.
 
-For the broader context that these two regulations sit within, see the [data integrity foundations](/articles/data-integrity-foundations) article and the overview of [GxP computerized systems operations](/articles/gxp-computerized-systems-operations).
+### A practical configuration checklist for a new system
+
+Use this when you receive a system for configuration and validation. Each line produces a documented decision.
+
+1. Confirm the predicate rule and retention period; set the archive policy to match.
+2. Turn the audit trail on, confirm it cannot be disabled by any non-admin role, and confirm it captures old value, new value, user, timestamp, and reason where the change is to a critical field.
+3. Synchronize the system clock to a controlled network time source and restrict clock changes to named admins.
+4. Build the role matrix so the person who runs or enters data cannot approve it; remove the default "everyone is admin" template.
+5. Replace any shared or generic accounts with named individual accounts; enable account lockout and inactivity timeout.
+6. Configure two-component electronic signatures with the correct meanings, session re-prompt behavior, and binding to the record version.
+7. Confirm the system can export a complete human-readable copy with metadata and audit trail, and test it.
+8. For a cloud or contracted system, confirm the written agreement and the open-system encryption controls under 11.30.
+9. Schedule the first periodic evaluation (Annex 11 clause 11) and the first restore test (clause 7.2).
+10. Write the applicability assessment, the role matrix, and the configuration record into the validation package.
+
+For the full set of validation documents this sits inside, see the [validation deliverables guide](/articles/validation-deliverables-guide) and [user requirements and traceability](/articles/user-requirements-and-traceability).
+
+---
+
+## Interview and Inspection Questions
+
+These are the questions that come up in a Part 11 / Annex 11 interview or in the room during an inspection. Short, defensible answers below.
+
+**"What is a predicate rule and why does it matter for Part 11?"**
+It is the underlying FDA regulation that requires the record to exist (211 for cGMP, 58 for GLP, the GCP regulations for clinical, 820 for devices). Part 11 only applies to records a predicate rule already requires, and it adds electronic controls on top. The 2003 scope guidance refocused enforcement on whether those predicate-rule records are accurate, complete, and reliable.
+
+**"How do you decide if a system is open or closed?"**
+By who controls access to the content, not by where it is hosted. If your organization controls access through your own identity management and a contract that walls off provider staff, it is closed even in the cloud. If a party you do not govern controls access, or records cross a public boundary, it is open and needs the 11.30 controls. When unsure, treat it as open.
+
+**"Walk me through a compliant electronic signature."**
+Unique account per person (11.100(a)), identity verified before assignment (11.100(b)), two components for the first signing in a session and re-prompt across sessions (11.200(a)), bound to the specific record version so it cannot be copied to another record (11.70), and the printed name, timestamp, and meaning shown on screen and on the printout (11.50). One-time certification letter to FDA under 11.100(c).
+
+**"What is the difference between Part 11 and Annex 11 on audit trails?"**
+Part 11.10(e) requires a computer-generated, time-stamped audit trail for create, modify, delete actions, retained as long as the record. Annex 11 clause 9 is risk-based: you build the audit trail for GMP-relevant changes based on a risk assessment. In practice both expect old and new values, user, and timestamp on critical data, and both expect the trail to be reviewed, not just generated.
+
+**"A vendor says their product is Part 11 compliant. Is that enough?"**
+No. Capability is not compliance. Every commercial GxP system ships with non-compliant defaults. Compliance is established by how you configure, validate, and operate it at your site, evidenced in your validation package, not by the datasheet.
+
+**"What are the most common Part 11 findings?"**
+Audit trails off or able to be turned off, shared or generic logins that break attribution, analysts with admin rights, no validation of the data integrity controls, and signature manifestations missing the meaning, name, timestamp, or printout. They share a theme: a control that existed on paper was not actually working in production.
+
+**"Where does a Part 11 system usually fall short of Annex 11?"**
+Business continuity tested (clause 16), incident management (clause 13), periodic evaluation (clause 11), and written service-provider agreements (clause 3). A Part 11-built system entering the EU market typically concentrates its gaps there.
+
+**"How does CSA change how you validate a Part 11 system?"**
+The Computer Software Assurance approach, draft in 2022 and finalized in 2024, asks you to focus testing effort on the functions that affect product quality and patient safety and to use less documentation-heavy methods on low-risk functions. It does not lower the bar on the data integrity controls; it redirects effort toward where a failure would actually matter.
+
+For broader interview preparation across the quality field, see [GxP quality interview preparation](/articles/gxp-quality-interview-preparation).
+
+---
+
+For the broader context that these two regulations sit within, see the [data integrity foundations](/articles/data-integrity-foundations) article and the overview of [GxP computerized systems operations](/articles/gxp-computerized-systems-operations). For how these controls combine with risk-based validation across a system's life, the [CSV risk assessment methodology](/articles/csv-risk-assessment-methodology) and [change control for validated systems](/articles/change-control-validated-systems) articles carry the operational thread forward.

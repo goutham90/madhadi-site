@@ -1,37 +1,55 @@
 ---
 title: "Analytical Method Validation: ICH Q2(R2) in Practice"
-description: "A working guide to analytical method validation, the performance characteristics required by ICH Q2(R2), how to design studies for each, what acceptance criteria to set, and how to generate a validation report that holds up under regulatory scrutiny."
+description: "A working guide to analytical method validation: the performance characteristics required by ICH Q2(R2), how to design a study for each, what acceptance criteria to set, who does what, and how to produce a validation report that holds up under regulatory scrutiny."
 pubDate: 2026-02-07
 tags: ["method validation", "ICH Q2", "analytical", "QC", "laboratory"]
 tier: "Intermediate"
 pillar: "equipment-qualification"
 ---
 
-Analytical method validation is the formal, documented process of demonstrating that a test method produces accurate, precise, and reliable results for its intended use. Every analytical method used in pharmaceutical product release, stability testing, or clinical trial batch disposition has to be validated before it is put into GxP use. The release decision on a batch rests on the number that comes out of the laboratory. If the method generating that number was never shown to be fit for purpose, the release decision has no foundation, and an investigator will treat every batch tested by that method as suspect.
+Analytical method validation is the formal, documented process of demonstrating that a test method produces accurate, precise, and reliable results for its intended use. Every analytical method used in product release, stability testing, or clinical batch disposition has to be validated before it is put into GxP use. The release decision on a batch rests on the number that comes out of the laboratory. If the method generating that number was never shown to be fit for purpose, the release decision has no foundation, and an investigator will treat every batch tested by that method as suspect. This applies across the board: small molecule drugs, biologics, vaccines, in vitro diagnostics, and medical device test methods all live by the same logic.
 
-The governing guidance is ICH Q2(R2), Validation of Analytical Procedures, adopted in November 2023. It replaces the original ICH Q2(R1), which itself merged the 1994 text on terminology with the 1996 text on methodology. The 2023 revision is published as a companion to a new document, ICH Q14 on analytical procedure development, and the two are meant to be read together. Q14 covers how you design and develop a method; Q2(R2) covers how you prove it works. FDA adopted Q2(R2) and Q14 in 2024, and EMA adopted both as well, so the same expectations apply on both sides of the Atlantic.
+The governing guidance is ICH Q2(R2), Validation of Analytical Procedures, adopted in November 2023. It replaces ICH Q2(R1), which itself merged the 1994 text on terminology with the 1996 text on methodology. The 2023 revision is published as a companion to ICH Q14, Analytical Procedure Development, and the two are meant to be read together. Q14 covers how you design and develop a method; Q2(R2) covers how you prove it works. FDA adopted Q2(R2) and Q14 in 2024, and EMA adopted both, so the same expectations apply on both sides of the Atlantic. In the United States the broad requirement also sits in the cGMP regulation: 21 CFR 211.165(e) requires that the accuracy, sensitivity, specificity, and reproducibility of test methods be established and documented, and 21 CFR 211.194(a)(2) requires the validation record to be in the laboratory file.
 
-A few things changed in the 2023 revision that matter in day to day work. The guidance now explicitly recognizes the analytical target profile, the idea that you define what the method needs to deliver before you validate it, which mirrors the quality target product profile concept in product development. It gives more room for prior knowledge and development data to support validation, so a well characterized method does not always need every study repeated from scratch. It addresses multivariate and spectroscopic methods, not just classical chromatography, which reflects the reality that near infrared and Raman methods now sit on manufacturing floors. And it leans toward a lifecycle view, where validation is the start of a method's controlled life rather than a one time gate.
+A few things changed in the 2023 revision that matter in day to day work. The guidance now explicitly recognizes the analytical target profile (ATP), the idea that you define what the method needs to deliver before you validate it, which mirrors the quality target product profile concept in product development. It gives more room for prior knowledge and development data to support validation, so a well characterized method does not always need every study repeated from scratch. It addresses multivariate and spectroscopic methods, not just classical chromatography, which reflects the reality that near infrared and Raman methods now sit on manufacturing floors. And it leans toward a lifecycle view, where validation is the start of a method's controlled life rather than a one time gate.
 
 ---
 
 ## When Is Method Validation Required?
 
-- All methods used for release testing of drug substances and drug products
+- All methods used for release testing of drug substances, drug products, and biological active ingredients
 - All methods used for stability testing
 - All methods used in clinical batch release that will support regulatory submissions
 - Methods transferred from development to QC, validated after transfer, not just before
 - Any significant modification to an existing validated method
+- In vitro diagnostic and device test methods, under the same accuracy and precision logic, governed in the device world by the quality system rather than ICH but built on the same characteristics
 
-Compendial methods (USP, Ph. Eur., JP) come with built in validation data generated by the pharmacopeial organization. They still require verification, which means demonstrating that the method performs adequately in your laboratory with your equipment, reagents, analysts, and sample matrices. Full validation is not required unless you change the method. Verification is governed by USP General Chapter <1226>, Verification of Compendial Procedures, and it is a much lighter exercise: typically specificity against your actual matrix plus a precision or accuracy check, scaled to the risk that your conditions differ from those the pharmacopeia assumed. A common inspection finding is treating verification as a paperwork formality, running it on a clean reference standard rather than the real product matrix that the verification exists to challenge.
+Compendial methods (USP, Ph. Eur., JP) come with built in validation data generated by the pharmacopeial organization. They still require verification, which means demonstrating that the method performs adequately in your laboratory with your equipment, reagents, analysts, and sample matrices. Full validation is not required unless you change the method. Verification is governed by USP General Chapter <1226>, Verification of Compendial Procedures, and it is a much lighter exercise: typically specificity against your actual matrix plus a precision or accuracy check, scaled to the risk that your conditions differ from those the pharmacopeia assumed. A common inspection finding is treating verification as a paperwork formality, running it on a clean reference standard rather than the real product matrix that the verification exists to challenge. The mechanics are covered in [compendial method verification](/articles/compendial-method-verification).
 
-It helps to separate three related activities that are easy to confuse. Validation proves a new method works. Verification confirms a compendial method works in your hands. Transfer demonstrates a validated method moves between laboratories without loss of performance. Each has a different protocol, a different data set, and a different acceptance logic. For the transfer mechanics specifically, see [analytical method transfer](/articles/analytical-method-transfer).
+It helps to separate three related activities that are easy to confuse. Validation proves a new method works. Verification confirms a compendial method works in your hands. Transfer demonstrates a validated method moves between laboratories without loss of performance. Each has a different protocol, a different data set, and a different acceptance logic. For the transfer mechanics specifically, see [analytical method transfer](/articles/analytical-method-transfer). For the hands on execution of a validation run, see [method validation execution](/articles/method-validation-execution).
+
+---
+
+## Roles and Responsibilities
+
+Validation is not a one person job, and inspectors look for clear separation of who proposed the method, who set the acceptance criteria, who generated the data, and who approved the conclusion. A workable split:
+
+| Role | Owns |
+|---|---|
+| Method owner / analytical development | Writes the ATP, drafts the validation protocol, defines acceptance criteria from intended use, authors the report |
+| QC laboratory analyst | Executes the studies per protocol, records raw data contemporaneously, reports deviations |
+| QC laboratory supervisor | Confirms analysts are trained and qualified on the method, reviews raw data for completeness and integrity |
+| Statistician or quality engineer (as needed) | Reviews study design, performs or checks ANOVA, regression, and tolerance calculations |
+| Quality assurance | Reviews and approves the protocol before execution and the report before release, confirms criteria were pre defined, assesses deviations |
+| Regulatory affairs | Confirms the validation supports the claims in the submission and maps to CTD Module 3 |
+
+The non negotiable rule: the person who sets the acceptance criteria and the person who decides pass or fail must not be able to move the goalposts after seeing the data. Protocol approval before execution is what enforces that. See [gxp roles and responsibilities](/articles/gxp-roles-responsibilities) for the broader RACI logic.
 
 ---
 
 ## The Performance Characteristics
 
-ICH Q2(R2) identifies the validation characteristics that must be evaluated for different method types. Not all characteristics apply to all methods. The first design decision in any validation is classifying your method, because that classification drives which studies you run and saves you from validating characteristics that the guidance never asked for.
+ICH Q2(R2) identifies the validation characteristics that must be evaluated for different method types. Not all characteristics apply to all methods. The first design decision in any validation is classifying your method, because that classification drives which studies you run and saves you from validating characteristics the guidance never asked for.
 
 **Method types and required characteristics:**
 
@@ -49,11 +67,22 @@ ICH Q2(R2) identifies the validation characteristics that must be evaluated for 
 
 Read the table as a planning tool. An identity method needs only specificity, so its validation is short. A quantitative impurity method needs nearly everything, including LOQ, so it is the most expensive method type to validate and the one most often picked apart in review. Before you write a protocol, write down the method type and let the matching column drive the study list. Designing the studies before the validation, against a defined target, is exactly the discipline ICH Q14 asks for; see [ICH Q14 and Q2(R2) analytical lifecycle](/articles/ich-q14-q2r2-analytical-lifecycle).
 
+**The decision sequence for a new validation:**
+
+1. Write the analytical target profile: what does the method measure, in what matrix, over what range, with what required accuracy and precision.
+2. Classify the method (identity, assay, quantitative impurity, limit impurity, dissolution, or other).
+3. Pull the matching column of required characteristics.
+4. Draft the protocol: for each characteristic, state the study design, the number of preparations, the calculation, and the pre defined acceptance criterion.
+5. Route the protocol through QA approval before any data are generated.
+6. Confirm instrument qualification and analyst training are current. A method validated on an unqualified instrument is worthless; see [analytical instrument qualification](/articles/analytical-instrument-qualification).
+7. Execute, record contemporaneously, document deviations honestly.
+8. Compile the report, draw the conclusion, route through QA approval.
+
 ---
 
 ## Specificity
 
-**What it demonstrates:** The method can measure the analyte of interest in the presence of other components that might be in the sample: excipients, degradants, process impurities, residual solvents, counter ions, and other drug substances in combination products.
+**What it demonstrates:** The method can measure the analyte of interest in the presence of other components that might be in the sample: excipients, degradants, process impurities, residual solvents, counter ions, and other active ingredients in combination products.
 
 **How to study it:**
 
@@ -67,6 +96,8 @@ Read the table as a planning tool. An identity method needs only specificity, so
 
 **Acceptance criteria:** Typically no interference at the analyte retention time from blank, placebo, or stressed samples; peak purity within the threshold of the platform, often expressed as a purity index above 0.99; resolution of at least 1.5 to 2.0 between the analyte and the nearest peak; and mass balance within roughly plus or minus 5 percent for stressed samples.
 
+**Common mistakes:** Running forced degradation so harsh that everything degrades, which proves nothing about real pathways. Forgetting the photolysis arm required by ICH Q1B. Not running a placebo, so excipient interference is never tested. Claiming a method is stability indicating without ever showing degradants resolve from the parent. Stress conditions that are not documented, so the study cannot be reproduced.
+
 ---
 
 ## Accuracy
@@ -79,7 +110,25 @@ For drug product assay, spike a known amount of reference standard into a placeb
 
 For impurity methods, the matrix is the drug substance or product, and the impurity is spiked in at concentrations spanning the LOQ and the specification limit. This shows the method recovers the impurity accurately at the level where the release decision is actually made.
 
+**Worked example.** Drug product assay accuracy, three levels, three preps each:
+
+| Level | Amount added (mg) | Amount recovered (mg) | Recovery (%) |
+|---|---|---|---|
+| 80% | 80.0 | 79.4 | 99.3 |
+| 80% | 80.0 | 78.9 | 98.6 |
+| 80% | 80.0 | 80.1 | 100.1 |
+| 100% | 100.0 | 100.6 | 100.6 |
+| 100% | 100.0 | 99.2 | 99.2 |
+| 100% | 100.0 | 100.9 | 100.9 |
+| 120% | 120.0 | 119.1 | 99.3 |
+| 120% | 120.0 | 121.4 | 101.2 |
+| 120% | 120.0 | 118.8 | 99.0 |
+
+Mean recovery 99.8 percent, RSD of the nine recoveries about 0.9 percent. Against a criterion of 98.0 to 102.0 percent mean and RSD not more than 2.0 percent, this passes.
+
 **Acceptance criteria:** Typically 98.0 to 102.0 percent for drug substance assay and 97.0 to 103.0 percent for drug product assay. Impurity methods are commonly 90 to 110 percent near the specification level and wider near the LOQ, where signal is small and noise dominates. Set your criteria from the method's intended use and the width of the specification, not from a generic template. A recovery window of plus or minus 2 percent is meaningless if your specification is plus or minus 10 percent, and it is unachievable if your specification is plus or minus 1 percent.
+
+**Common mistakes:** Spiking into the actual product instead of placebo, so the true value is unknown. Using a single reference standard weighing for all nine preps, which collapses the independent replication into one. Setting a tight recovery window that the method cannot meet, then chasing it with repeated re preparation.
 
 ---
 
@@ -99,7 +148,19 @@ For impurity methods, the matrix is the drug substance or product, and the impur
 
 **How to express precision:** As percent RSD (relative standard deviation). Calculate intermediate precision RSD from the pooled data set across all analysts and days, not as an average of the individual day RSDs, which understates the true variability. Where the design supports it, an analysis of variance can partition the variance into within run and between run components, which is more informative than a single pooled number and is the approach ICH Q2(R2) accommodates.
 
+**Worked example.** Intermediate precision, two analysts, two days, six preps each:
+
+| Analyst / Day | Mean assay (%) | RSD (%) |
+|---|---|---|
+| Analyst A, Day 1 | 99.8 | 0.7 |
+| Analyst B, Day 2 | 100.4 | 0.9 |
+| Pooled (12 results) | 100.1 | 1.1 |
+
+The pooled RSD of 1.1 percent, not the lower per day figures, is the number reported against the criterion. If the per day RSDs had been averaged to 0.8 percent, the report would understate real variability and an inspector would flag it.
+
 **Acceptance criteria:** Typically 2.0 percent RSD or below for assay methods and 5 to 10 percent RSD for impurity methods at the specification level, looser still near the LOQ. The precision has to be fit for purpose. If the specification range is only 5 percent wide, a method with 3 percent RSD does not have the precision to tell good product from bad, because measurement noise alone can push a true in specification result outside the limit. Statistical tools for setting and monitoring these limits are covered in [statistics in quality, Cpk and control charts](/articles/statistics-in-quality-cpk-control-charts).
+
+**Common mistakes:** Reporting system precision (six injections of one solution) and calling it method precision. Running intermediate precision with one analyst on one day, which is just repeatability. Averaging daily RSDs instead of pooling. Choosing a precision limit looser than the specification can tolerate.
 
 ---
 
@@ -111,11 +172,15 @@ For impurity methods, the matrix is the drug substance or product, and the impur
 
 *The correlation coefficient caveat:* A high correlation coefficient does not prove linearity. A gently curved response can still return a value above 0.999. Always inspect the residual plot, the actual response minus the predicted response at each concentration. Random scatter around zero indicates linearity; a smile or frown shaped pattern in the residuals indicates curvature that the correlation coefficient is hiding. A second useful check is the y intercept: for a truly linear method through the origin, the intercept should be small relative to the response at 100 percent, often assessed as a percentage of the target response.
 
+**Worked example.** A five point curve from 50 to 150 percent returns r = 0.9997, slope significant, intercept 0.4 percent of the 100 percent response. Residuals scatter randomly around zero. Linear. A second curve also returns r = 0.9996 but the residuals bow upward at both ends and dip in the middle, a classic curvature signature. Despite the high r, that response is not linear over the range and either the range narrows or a non linear fit is justified and validated.
+
 **Range:** The interval from the lowest to the highest concentration for which the method has been shown to be accurate, precise, and linear together. The range is not a separate experiment so much as the conclusion drawn from the accuracy, precision, and linearity studies covering it. It should encompass at least:
 
 - For assay methods: 80 to 120 percent of label claim, or the expected specification range, whichever is wider
 - For impurity quantitation: from the LOQ to 120 percent of the specification limit
 - For dissolution: a span that brackets the expected release profile, commonly down to roughly 20 percent below the lowest expected value and up to 120 percent of the labeled amount
+
+**Common mistakes:** Serial diluting one stock and calling the points independent. Reporting only the correlation coefficient and never looking at residuals. Claiming a range the accuracy and precision studies never covered.
 
 ---
 
@@ -135,6 +200,10 @@ For impurity methods, the matrix is the drug substance or product, and the impur
 
 Whatever approach is used to estimate LOD and LOQ, confirm the estimate. Inject independently prepared samples at the stated LOD and LOQ and verify that the signal to noise and the precision actually meet expectations at those levels. An estimated LOQ that fails its own confirmation is a frequent and avoidable validation finding.
 
+**Worked example.** An impurity method estimates LOQ at 0.05 percent using 10 sigma / S. Confirmation injects six independent preps at 0.05 percent: mean recovery 96 percent, RSD 6 percent, S/N about 12. Against criteria of recovery 80 to 120 percent and RSD not more than 10 percent, the LOQ is confirmed. If the specification reporting threshold is 0.10 percent, the confirmed LOQ of 0.05 percent sits comfortably below it, which is what you need.
+
+**Common mistakes:** Reporting a calculated LOQ without confirming it. Setting LOQ above or equal to the specification reporting threshold, so you cannot report a value at the limit. Measuring noise over too short a window, which makes S/N look better than it is.
+
 ---
 
 ## Method Robustness
@@ -150,15 +219,17 @@ Robustness evaluates the method's sensitivity to deliberate small variations in 
 - Sample or standard concentration, plus or minus 5 percent
 - Column lot, a different lot from the same supplier and, where feasible, a different supplier
 
-Vary each parameter independently and evaluate the effect on retention times, resolution, peak shape, tailing, and quantitative result. A more efficient alternative for methods with many parameters is a designed experiment, such as a fractional factorial or a Plackett Burman screening design, which estimates the effect of several factors with fewer runs and exposes interactions a one factor at a time approach would miss. ICH Q14 encourages this development era thinking, and the knowledge it produces feeds directly into the method's control strategy.
+Vary each parameter independently and evaluate the effect on retention times, resolution, peak shape, tailing, and quantitative result. A more efficient alternative for methods with many parameters is a designed experiment, such as a fractional factorial or a Plackett Burman screening design, which estimates the effect of several factors with fewer runs and exposes interactions a one factor at a time approach would miss. ICH Q14 encourages this development era thinking, and the knowledge it produces feeds directly into the method's control strategy. For the design of experiments toolkit, see [quality by design and DoE](/articles/quality-by-design-and-doe).
 
 **Robustness versus optimization:** Robustness testing is often confused with method development. Robustness is done after the method is finalized, to characterize its sensitivity, not to keep tuning it. If a variation causes a meaningful change in results, the correct response is to tighten the specification on that parameter, defining the narrow acceptable range and writing it into the method, not to keep adjusting parameters until you stumble on a combination that passes. The output of robustness is a set of method controls, which is why the work belongs to the method's overall control strategy rather than to a single validation report.
+
+**Common mistakes:** Skipping robustness entirely and discovering fragility in routine use. Treating a failed robustness arm as a reason to re optimize rather than to constrain the parameter. Not feeding the established parameter ranges into the system suitability criteria.
 
 ---
 
 ## Validation Report
 
-The method validation report documents the study design, data, statistical analysis, and conclusions for every characteristic studied. It is the artifact a reviewer or inspector reads, and it stands or falls on whether it lets an independent reader reconstruct what was done and agree with the conclusion.
+The method validation report documents the study design, data, statistical analysis, and conclusions for every characteristic studied. It is the artifact a reviewer or inspector reads, and it stands or falls on whether it lets an independent reader reconstruct what was done and agree with the conclusion. For the writing mechanics, see [writing validation protocols and reports](/articles/writing-validation-protocols-and-reports).
 
 **Required content:**
 
@@ -171,9 +242,20 @@ The method validation report documents the study design, data, statistical analy
 - The overall conclusion: the method is, or is not, validated for its stated intended use
 - Quality assurance review and approval
 
-Two points draw disproportionate scrutiny. First, acceptance criteria must be set in the protocol before the data are generated, not chosen afterward to fit the results. Criteria written after seeing the numbers are a data integrity concern in their own right; for the underlying principles see [ALCOA+ in practice](/articles/alcoa-plus-deep-dive) and [data integrity foundations](/articles/data-integrity-foundations). Second, deviations have to be documented honestly with their impact assessed, not quietly dropped. A validation with one well explained deviation reads as credible; a suspiciously perfect validation with no deviations across dozens of runs invites a closer look.
+**A results summary reads like this:**
 
-The validation report is referenced in regulatory submissions, in CTD Module 3 under the analytical procedures and validation sections. Reviewers evaluate it during assessment of a marketing application, and an inadequately designed or poorly documented validation is a recognized basis for a deficiency, a request for additional information, or a complete response action. The same report is pulled during inspections, so it has to be findable and complete in the records system, which is one reason it sits inside the broader [validation deliverables](/articles/validation-deliverables-guide) set.
+| Characteristic | Acceptance criterion | Result | Pass/Fail |
+|---|---|---|---|
+| Specificity | No interference at analyte RT; peak purity > 0.99; mass balance 95-105% | No interference; purity 0.999; mass balance 98.4% | Pass |
+| Accuracy | Mean recovery 98.0-102.0%, RSD ≤ 2.0% | 99.8%, RSD 0.9% | Pass |
+| Repeatability | RSD ≤ 2.0% (n=6) | 0.7% | Pass |
+| Intermediate precision | Pooled RSD ≤ 2.0% | 1.1% | Pass |
+| Linearity | r ≥ 0.999, random residuals | r = 0.9997, residuals random | Pass |
+| Range | 80-120% accurate, precise, linear | Demonstrated | Pass |
+
+Two points draw disproportionate scrutiny. First, acceptance criteria must be set in the protocol before the data are generated, not chosen afterward to fit the results. Criteria written after seeing the numbers are a data integrity concern in their own right; for the underlying principles see [ALCOA+ in detail](/articles/alcoa-plus-deep-dive) and [data integrity foundations](/articles/data-integrity-foundations). Second, deviations have to be documented honestly with their impact assessed, not quietly dropped. A validation with one well explained deviation reads as credible; a suspiciously perfect validation with no deviations across dozens of runs invites a closer look.
+
+The validation report is referenced in regulatory submissions, in CTD Module 3 under the analytical procedures and validation sections (3.2.S.4.3 for drug substance, 3.2.P.5.3 for drug product). Reviewers evaluate it during assessment of a marketing application, and an inadequately designed or poorly documented validation is a recognized basis for a deficiency, a request for additional information, or a complete response action. The same report is pulled during inspections, so it has to be findable and complete in the records system, which is one reason it sits inside the broader [validation deliverables](/articles/validation-deliverables-guide) set.
 
 ---
 
@@ -181,12 +263,65 @@ The validation report is referenced in regulatory submissions, in CTD Module 3 u
 
 The 2023 revision frames validation as the beginning of a controlled life, not a single event. A method that passed validation can still drift, and the lifecycle controls exist to catch that drift before it produces a wrong release decision.
 
-**System suitability.** A predefined set of tests run at the start of each analytical sequence to confirm the system and sample preparation are performing well enough for that run. The criteria, commonly retention time, peak tailing, column efficiency or resolution, and injection precision on the standard, are derived from the validation data so they reflect how the method actually behaves. System suitability is the daily gate; if it fails, the sequence does not count and the data should not be used.
+**System suitability.** A predefined set of tests run at the start of each analytical sequence to confirm the system and sample preparation are performing well enough for that run. The criteria, commonly retention time, peak tailing, column efficiency or resolution, and injection precision on the standard, are derived from the validation data so they reflect how the method actually behaves. System suitability is the daily gate; if it fails, the sequence does not count and the data should not be used. The integrity of the data system that records this is itself a controlled item; see [chromatography data system integrity](/articles/chromatography-data-system-integrity).
 
-**Trending and control charts.** Tracking method performance indicators over time, including system suitability results, reference standard response factors, and reagent and column lot comparisons, detects slow drift before it tips a true in specification result into an out of specification one. A response factor that creeps lot over lot is a signal worth investigating before it becomes an investigation you are forced into.
+**Trending and control charts.** Tracking method performance indicators over time, including system suitability results, reference standard response factors, and reagent and column lot comparisons, detects slow drift before it tips a true in specification result into an out of specification one. A response factor that creeps lot over lot is a signal worth investigating before it becomes an investigation you are forced into. When a result does fall out of limits, the structured response is the [OOS investigation process](/articles/oos-investigation-process).
 
 **Method changes.** Any change to a validated method, a reagent substitution, a column change, an instrument replacement, a revised integration parameter, goes through change control and may require partial or full revalidation depending on what the change can affect. The judgment of how much to revalidate is risk based: a like for like column from the same specification touches little, while a change to mobile phase composition touches specificity and may require a near full repeat. The mechanics of assessing and documenting these changes are covered in [change control for validated systems](/articles/change-control-validated-systems).
 
 **Method transfer.** When a method moves from development to QC, or from one site to another, the transfer is formally documented and the receiving laboratory shows the method performs equivalently, usually through a comparative or co validation study. Transfer is distinct from validation and from verification, and it has its own design and acceptance logic, covered in [analytical method transfer](/articles/analytical-method-transfer).
 
-Taken together, validation, ongoing monitoring, and controlled change form the analytical analogue of the lifecycle thinking that runs through modern quality guidance, from [process validation](/articles/process-validation-lifecycle) to [ICH Q12 lifecycle management](/articles/ich-q12-lifecycle-management). The number that releases a batch is only as trustworthy as the method behind it and the controls that keep that method honest over its whole life.
+Taken together, validation, ongoing monitoring, and controlled change form the analytical analogue of the lifecycle thinking that runs through modern quality guidance, from [process validation](/articles/process-validation-lifecycle) to [ICH Q12 lifecycle management](/articles/ich-q12-lifecycle-management). The number that releases a batch is only as trustworthy as the method behind it and the controls that keep that method honest over its whole life. Stability data, in particular, depends entirely on a stability indicating method; see [stability programs under ICH](/articles/stability-programs-ich).
+
+---
+
+## Common Inspection Findings
+
+These are the patterns that recur in laboratory inspections and assessment deficiencies, stated generically:
+
+- Acceptance criteria not pre defined, or visibly adjusted after the data were seen, which reads as a data integrity problem rather than a technical one.
+- A method called stability indicating with no forced degradation data showing degradants resolve from the parent.
+- Verification of a compendial method run on clean reference standard instead of the real product matrix.
+- Intermediate precision run by one analyst on one day, so the most operationally relevant variability was never measured.
+- LOQ reported from a calculation but never confirmed with real injections, or set at or above the specification reporting threshold.
+- Linearity claimed on the correlation coefficient alone, with no residual analysis, hiding curvature.
+- Robustness skipped, then routine failures traced to a parameter that was never characterized.
+- Validation performed on an instrument that was not qualified, or with a reference standard whose traceability is not documented.
+- Deviations during the validation not documented, or dropped without impact assessment.
+- The report not retrievable, or missing the QA approval that makes the conclusion official.
+
+---
+
+## Interview Questions and How to Answer
+
+**What is the difference between validation, verification, and transfer?** Validation proves a new, non compendial method is fit for purpose by running the full set of characteristics for its method type. Verification (USP <1226>) confirms a compendial method performs in your lab with your matrix and equipment, a lighter exercise. Transfer demonstrates an already validated method moves between labs without loss of performance, usually by comparative study. Different protocols, different data, different acceptance logic.
+
+**Which characteristics does ICH Q2(R2) require for an assay method versus a limit test?** An assay (quantitative) method needs specificity, accuracy, repeatability, intermediate precision, linearity, and range. A limit test for impurities needs only specificity and LOD, because the question is just above or below the limit, not a number.
+
+**Why is a correlation coefficient of 0.999 not enough to claim linearity?** Because a gently curved response can still return r above 0.999. The correlation coefficient is insensitive to mild curvature. You confirm linearity by inspecting the residual plot for random scatter around zero and checking that the intercept is small relative to the 100 percent response.
+
+**What does stability indicating mean and how do you demonstrate it?** It means the method can quantify the analyte accurately in the presence of its degradation products. You demonstrate it with forced degradation (acid, base, oxidation, heat, light per ICH Q1B), targeting roughly 5 to 20 percent degradation, then showing the degradants resolve from the parent, peak purity is clean, and mass balance closes within about 5 percent.
+
+**How do you set an accuracy acceptance criterion?** From the intended use and the width of the specification, not a generic template. Tighter spec, tighter criterion. The recovery window has to be both meaningful (narrow enough that a real bias would fail) and achievable (within the method's demonstrated capability).
+
+**What is the difference between repeatability and intermediate precision, and which matters more for QC?** Repeatability is one analyst, one day, one instrument: six independent preparations. Intermediate precision varies analyst, day, instrument, column, and reagent lot within the same lab. Intermediate precision matters more for QC because it reflects the conditions the method actually runs under.
+
+**When do you need to revalidate?** When a change to the method could affect a characteristic. The scope is risk based: a like for like column change touches almost nothing; a mobile phase composition change touches specificity, accuracy, and precision and may require a near full repeat. The judgment is made and documented under change control.
+
+**Where does the validation report appear in a regulatory submission?** CTD Module 3, in the analytical procedures and validation sections (3.2.S.4.3 for the drug substance, 3.2.P.5.3 for the drug product). Reviewers assess it during a marketing application, and a weak validation can trigger a deficiency or a complete response action.
+
+For broader interview preparation across the quality function, see [GxP quality interview preparation](/articles/gxp-quality-interview-preparation).
+
+---
+
+## Practical Tips
+
+- Write the analytical target profile first. If you cannot state what accuracy and precision the method must deliver, you cannot set defensible acceptance criteria.
+- Confirm instrument qualification and analyst training before you start. A validation on an unqualified instrument is dead on arrival.
+- Pool, do not average, when reporting intermediate precision RSD.
+- Always look at residual plots, never trust the correlation coefficient alone.
+- Always confirm the LOQ with real injections.
+- Keep forced degradation gentle, 5 to 20 percent, so you study real pathways instead of rubble.
+- Document every deviation. A perfect validation with zero deviations across dozens of runs invites suspicion, not praise.
+- Feed the robustness study results into the system suitability limits so the daily gate reflects what the method can actually tolerate.
+- Treat the validated method as the start of a controlled life: system suitability daily, trending continuously, change control for every modification.
