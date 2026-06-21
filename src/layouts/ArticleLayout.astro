@@ -130,6 +130,9 @@ const tierColor = tier ? (tierColors[tier] ?? '#565c65') : '#565c65';
   .art-body :global(th), .art-body :global(td) { border: 1px solid var(--line); padding: 10px 14px; text-align: left; }
   .art-body :global(th) { background: var(--panel); color: var(--navy); font-weight: 700; }
   .art-body :global(code) { font-family: var(--mono); font-size: 0.88em; background: var(--panel); padding: 2px 6px; border-radius: 3px; }
+  .art-body :global(pre) { font-family: var(--mono); font-size: 0.86rem; line-height: 1.55; border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 1rem 1.2rem; overflow-x: auto; margin: 1.8rem 0; -webkit-overflow-scrolling: touch; }
+  /* reset the inline-code style for code INSIDE a pre block (was making white boxes over the diagram) */
+  .art-body :global(pre) :global(code) { background: none; padding: 0; border-radius: 0; font-size: inherit; color: inherit; white-space: pre; }
   .art-body :global(hr) { border: none; border-top: 1px solid var(--line); margin: 2.4rem 0; }
 
   .art-footer { max-width: var(--measure); margin: 3.5rem auto 0; padding-top: 1.6rem; border-top: 2px solid var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }

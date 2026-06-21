@@ -136,15 +136,87 @@ const tierColors: Record<string, string> = {
  </div>
  <p class="checklist-desc">Evaluate a GxP record or system against all nine ALCOA+ principles. Check each principle only if your current controls fully satisfy it.</p>
  <div class="checklist-items" id="alcoa-items">
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Attributable</strong>, Every entry can be traced to the person who made it. Individual accounts, no shared logins, signatures tied to individuals.</span></label>
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Legible</strong>, Records are readable and permanently recorded. No pencil, no whitespace over corrections, no degraded ink or media.</span></label>
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Contemporaneous</strong>, Recorded at the time the activity occurs. No backdating, no transcription from scratch paper, no post-hoc reconstruction.</span></label>
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Original</strong>, The first capture of data is preserved. Raw data is retained; processed results do not overwrite originals.</span></label>
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Accurate</strong>, Records reflect what actually happened. No manipulation of values, integration parameters, or reportable results.</span></label>
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Complete</strong>, All data is included, including invalidated runs and OOS results. Nothing is selectively omitted.</span></label>
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Consistent</strong>, Dates, times, and sequences are internally consistent and match across independent systems.</span></label>
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Enduring</strong>, Records are stored in a durable format with defined retention periods and tested recovery procedures.</span></label>
- <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Available</strong>, Records can be retrieved and presented in human-readable form throughout the retention period, including to regulators.</span></label>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Attributable</strong>, every entry traces to the person who made it.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> unique named accounts (no shared or generic logins); e-signatures bound to the record with name, date and meaning; the audit trail captures the user for every create, modify and delete.</p>
+ <p><strong>Common failures:</strong> shared instrument or "admin" logins; generic accounts; e-signatures not tied to an individual; an audit trail that records the change but not who made it.</p>
+ <p><strong>How to fix:</strong> enforce unique accounts (ideally SSO), disable shared logins, configure the audit trail to capture identity, and bind e-signatures per 21 CFR Part 11.</p>
+ </div>
+ </div>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Legible</strong>, records are readable and permanently recorded.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> permanent media (ink or controlled electronic); corrections made with a single-line strike-through plus initial, date and reason; electronic data not held in obsolete or proprietary formats that can no longer be rendered.</p>
+ <p><strong>Common failures:</strong> pencil entries; correction fluid or whitespace over an error; data trapped in a format the current software can no longer open.</p>
+ <p><strong>How to fix:</strong> ink or electronic capture only; apply good-documentation-practice correction rules; preserve readability through format and migration controls.</p>
+ </div>
+ </div>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Contemporaneous</strong>, recorded at the time the activity occurs.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> entries made in real time; system clocks synchronized (NTP) and not user-editable; timestamps match the true order of events; no backdating.</p>
+ <p><strong>Common failures:</strong> recording later from scratch paper; backdated entries; local clock drift or a clock a user can change.</p>
+ <p><strong>How to fix:</strong> require real-time entry, lock system clocks to NTP, and review audit-trail timestamps against the expected sequence.</p>
+ </div>
+ </div>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Original</strong>, the first capture of data is preserved.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> raw data retained; dynamic records kept dynamic (a chromatogram stays re-integratable, not flattened to a PDF); any copy certified as a true copy.</p>
+ <p><strong>Common failures:</strong> keeping only the printed report; deleting raw data after processing; storing a PDF of a record that should remain dynamic.</p>
+ <p><strong>How to fix:</strong> retain raw and dynamic data for its full lifecycle, define a true-copy procedure, and archive originals.</p>
+ </div>
+ </div>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Accurate</strong>, records reflect what actually happened.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> values are not manipulated; integration methods and parameters are controlled; a second person reviews critical data; calculations are verified.</p>
+ <p><strong>Common failures:</strong> re-integrating until a result passes; overriding a parameter without justification; transcription errors carried forward.</p>
+ <p><strong>How to fix:</strong> lock integration methods, control parameter changes, and use audit-trail review (by exception) to catch undocumented edits.</p>
+ </div>
+ </div>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Complete</strong>, all data is included, including invalidated and OOS results.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> every run is present including failed, aborted, repeated and out-of-specification results; nothing is selectively deleted; the audit trail is intact.</p>
+ <p><strong>Common failures:</strong> deleting a "bad" injection; trial or test runs not recorded; selective reporting of only the passing result.</p>
+ <p><strong>How to fix:</strong> disable record deletion, require every run to be recorded and justified, and review the audit trail for gaps.</p>
+ </div>
+ </div>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Consistent</strong>, dates, times and sequences are internally consistent.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> timestamps and sequences are in the expected chronological order within a record and reconcile across independent systems (instrument, LIMS, ERP).</p>
+ <p><strong>Common failures:</strong> timestamps out of order; the same event recorded with different times in two systems; time-zone mismatches across sites.</p>
+ <p><strong>How to fix:</strong> synchronize time across systems, define a single time-zone convention, and reconcile cross-system records.</p>
+ </div>
+ </div>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Enduring</strong>, stored on durable media for the full retention period.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> durable storage; defined retention periods; backups that are actually tested by restore; migrations that preserve both data and meaning.</p>
+ <p><strong>Common failures:</strong> data on a single un-backed-up drive; backups never test-restored; retention period undefined; a migration that drops metadata or the audit trail.</p>
+ <p><strong>How to fix:</strong> implement backup with tested restore, set a retention schedule, archive properly, and validate any data migration.</p>
+ </div>
+ </div>
+ <div class="cl-row">
+ <label class="cl-item"><input type="checkbox" data-group="alcoa" /><span class="cl-label"><strong>Available</strong>, retrievable in human-readable form throughout retention.</span></label>
+ <button type="button" class="cl-more">How to assess</button>
+ <div class="cl-detail" hidden>
+ <p><strong>Verify:</strong> records can be retrieved and presented in readable form across the whole retention period, including quickly to an inspector; access controls do not block legitimate retrieval.</p>
+ <p><strong>Common failures:</strong> data locked inside a decommissioned system; no way to read an archived format; retrieval that takes days during an inspection.</p>
+ <p><strong>How to fix:</strong> archive with a retrieval capability, migrate data off decommissioned systems, and confirm a readable export exists.</p>
+ </div>
+ </div>
  </div>
  <div class="checklist-progress">
  <div class="progress-bar"><div class="progress-fill" id="alcoa-fill" style="width:0%"></div></div>
@@ -159,7 +231,7 @@ const tierColors: Record<string, string> = {
  <h3>GAMP 5 Category Decision Aid</h3>
  <span class="checklist-result" id="gamp-result"></span>
  </div>
- <p class="checklist-desc">Answer questions to determine the GAMP 5 software category for a system under evaluation. Based on GAMP 5 Second Edition (2022).</p>
+ <p class="checklist-desc">Answer a short series of questions to determine the GAMP 5 software category. Based on GAMP 5 Second Edition (2022). Note: Category 2 was retired, so the categories are 1, 3, 4 and 5. Categorize each component; a system can contain pieces of more than one category.</p>
  <div class="gamp-questions">
  <div class="gamp-q" id="gamp-q1">
  <div class="gamp-q-text">Is this infrastructure software (OS, middleware, database engine, network services) that is not GxP-specific?</div>
@@ -184,22 +256,22 @@ const tierColors: Record<string, string> = {
  </div>
  <div class="gamp-answer hidden" id="gamp-cat1">
  <div class="gamp-cat cat1">Category 1, Infrastructure Software</div>
- <div class="gamp-cat-desc">Operating systems, DBMS, network services, and similar infrastructure. Validation activities focus on qualification of the installation environment and vendor support documentation. Supplier audits and patch management controls apply.</div>
+ <div class="gamp-cat-desc"><span class="gc-line"><strong>What it is:</strong> operating systems, database engines, network services, virtualization and IT infrastructure that is not GxP-application-specific.</span><span class="gc-line"><strong>Examples:</strong> Windows Server, the Oracle or SQL Server engine, VMware, Active Directory, the network.</span><span class="gc-line"><strong>Validation effort:</strong> lowest, focus on qualified installation of the environment and ongoing control, not functional testing of the platform itself.</span><span class="gc-line"><strong>Key activities:</strong> infrastructure qualification, supplier documentation, patch and configuration management, access control.</span><span class="gc-line"><strong>Watch-out:</strong> the GxP application running on top is categorized separately (usually 3, 4 or 5). This category does not cover the app.</span></div>
  <button class="gamp-reset" onclick="gampReset()">Start over</button>
  </div>
  <div class="gamp-answer hidden" id="gamp-cat3">
  <div class="gamp-cat cat3">Category 3, Non-Configured Software</div>
- <div class="gamp-cat-desc">COTS software used as-delivered (instrument firmware, embedded controllers). Testing focuses on operational qualification of the supplied functionality. Vendor documentation review and supplier assessment are primary activities.</div>
+ <div class="gamp-cat-desc"><span class="gc-line"><strong>What it is:</strong> commercial off-the-shelf software run as delivered, with default settings and no business-specific configuration.</span><span class="gc-line"><strong>Examples:</strong> instrument firmware, a simple balance or pH meter with fixed functionality, a non-configurable data viewer.</span><span class="gc-line"><strong>Validation effort:</strong> low to moderate, verify the intended-use functionality works in your environment.</span><span class="gc-line"><strong>Key activities:</strong> requirements for intended use, supplier assessment, a risk-based OQ/PQ of the functions you rely on, vendor documentation review.</span><span class="gc-line"><strong>Watch-out:</strong> if you set up workflows, user roles, report templates or calculations, it is configured (Category 4), not 3.</span></div>
  <button class="gamp-reset" onclick="gampReset()">Start over</button>
  </div>
  <div class="gamp-answer hidden" id="gamp-cat4">
  <div class="gamp-cat cat4">Category 4, Configured Software</div>
- <div class="gamp-cat-desc">COTS applications configured to meet requirements (LIMS, ELN, MES, QMS). IQ/OQ/PQ applies. Testing scope covers configured functionality. Configuration specifications and test scripts required. Change control governs configuration changes post-validation.</div>
+ <div class="gamp-cat-desc"><span class="gc-line"><strong>What it is:</strong> COTS applications configured to your business process without changing the underlying code.</span><span class="gc-line"><strong>Examples:</strong> LIMS, ELN, MES, QMS, EDMS, chromatography data systems, ERP modules.</span><span class="gc-line"><strong>Validation effort:</strong> moderate to high, scaled to the risk and complexity of the configuration.</span><span class="gc-line"><strong>Key deliverables:</strong> URS, functional/configuration specification, risk assessment, IQ/OQ/PQ, requirements-to-test traceability, configuration management, and change control over configuration after go-live.</span><span class="gc-line"><strong>Watch-out:</strong> custom code, macros, scripts or bespoke interfaces added on top are Category 5 components and need full-lifecycle controls even inside a Category 4 system.</span></div>
  <button class="gamp-reset" onclick="gampReset()">Start over</button>
  </div>
  <div class="gamp-answer hidden" id="gamp-cat5">
  <div class="gamp-cat cat5">Category 5, Custom Software</div>
- <div class="gamp-cat-desc">Custom-developed or heavily customized applications. Highest validation rigor, full software development lifecycle controls, code review, unit/integration/system testing, and comprehensive documentation. SDLC must be defined and controlled.</div>
+ <div class="gamp-cat-desc"><span class="gc-line"><strong>What it is:</strong> bespoke or heavily customized software developed for your specific need, including custom interfaces, scripts and macros.</span><span class="gc-line"><strong>Examples:</strong> a custom-built application, bespoke integration/middleware, a complex spreadsheet with custom macros, custom code inside an otherwise configured system.</span><span class="gc-line"><strong>Validation effort:</strong> highest, a full software development lifecycle.</span><span class="gc-line"><strong>Key deliverables:</strong> a defined and controlled SDLC, design specifications, code review, unit/integration/system testing, full traceability, and comprehensive documentation.</span><span class="gc-line"><strong>Watch-out:</strong> custom components inside an otherwise Category 4 system still demand this rigor, do not let them ride on the lower category.</span></div>
  <button class="gamp-reset" onclick="gampReset()">Start over</button>
  </div>
  </div>
@@ -282,6 +354,14 @@ const tierColors: Record<string, string> = {
  });
  document.querySelectorAll('input[data-group="fda483"]').forEach(function (cb) {
  cb.addEventListener('change', function () { updateChecklistProgress('fda483', 10); });
+ });
+ document.querySelectorAll('.cl-more').forEach(function (btn) {
+ btn.addEventListener('click', function () {
+ var d = btn.nextElementSibling;
+ if (!d) return;
+ if (d.hasAttribute('hidden')) { d.removeAttribute('hidden'); btn.textContent = 'Hide'; btn.classList.add('open'); }
+ else { d.setAttribute('hidden', ''); btn.textContent = 'How to assess'; btn.classList.remove('open'); }
+ });
  });
  renderVD('csv');
  });
@@ -488,6 +568,35 @@ const tierColors: Record<string, string> = {
 
  .cl-label strong { color: var(--ink); font-weight: 600; }
 
+ .cl-row { display: flex; flex-direction: column; }
+ .cl-row .cl-item { flex: 1; }
+ .cl-more {
+ align-self: flex-start;
+ margin: 0.1rem 0 0.2rem 2.05rem;
+ background: none;
+ border: none;
+ color: var(--vermilion);
+ font-family: var(--sans);
+ font-size: 0.72rem;
+ font-weight: 600;
+ letter-spacing: 0.02em;
+ cursor: pointer;
+ padding: 2px 0;
+ }
+ .cl-more:hover { text-decoration: underline; }
+ .cl-more::after { content: " ▾"; }
+ .cl-more.open::after { content: " ▴"; }
+ .cl-detail {
+ margin: 0.1rem 0 0.5rem 2.05rem;
+ padding: 0.7rem 0.9rem;
+ background: var(--panel);
+ border-left: 3px solid var(--vermilion);
+ border-radius: 0 var(--radius) var(--radius) 0;
+ }
+ .cl-detail p { font-size: 0.8rem; color: var(--ink-2); line-height: 1.55; margin: 0 0 0.45rem; }
+ .cl-detail p:last-child { margin-bottom: 0; }
+ .cl-detail strong { color: var(--navy); font-weight: 700; }
+
  .checklist-progress {
  display: flex;
  flex-direction: column;
@@ -559,6 +668,9 @@ const tierColors: Record<string, string> = {
  .cat5 { color: #7A2E23; border-left-color: #7A2E23; }
 
  .gamp-cat-desc { font-size: 0.8125rem; color: var(--graphite); line-height: 1.6; }
+ .gamp-cat-desc .gc-line { display: block; margin-bottom: 0.4rem; }
+ .gamp-cat-desc .gc-line:last-child { margin-bottom: 0; }
+ .gamp-cat-desc strong { color: var(--navy); font-weight: 700; }
 
  .gamp-reset {
  font-size: 0.74rem;
