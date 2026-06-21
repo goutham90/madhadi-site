@@ -30,7 +30,7 @@ const entries = [
     blurb: 'Audit trail design, validation deliverables, CSV/CSA, manufacturing automation, and inspection readiness. For practitioners building or inheriting GxP systems.',
     samples: [{ t: 'Audit Trail Design and Review', s: 'audit-trail-design-and-review' }, { t: 'GAMP 5, Second Edition', s: 'gamp5-csv-framework' }, { t: 'CSV Risk Assessment', s: 'csv-risk-assessment-methodology' }] },
   { n: '03', tier: 'Advanced', href: '/tracks/advanced', title: 'Program & Leadership',
-    blurb: 'Enterprise DI program architecture, 483 responses, CSA, cloud validation, CGT-specific challenges, and AI tooling in regulated environments.',
+    blurb: 'Enterprise DI program architecture, 483 responses, CSA, cloud validation, advanced-modality and biologics challenges, and AI tooling in regulated environments.',
     samples: [{ t: 'DI Program Architecture', s: 'di-program-architecture' }, { t: 'DI Gap Assessment', s: 'di-gap-assessment-methodology' }, { t: 'BLA Readiness', s: 'bla-readiness-data-package' }] },
 ];
 
@@ -48,9 +48,20 @@ const roles = [
   { role: 'New to GxP / Career Switcher', desc: 'Start with the foundations. What GMP is, who does what, the systems involved, and how to build your knowledge from scratch.', articles: [{ title: 'What Is GMP?', slug: 'what-is-gmp' }, { title: 'GxP Roles Explained', slug: 'gxp-roles-responsibilities' }, { title: 'GxP Computerized Systems Overview', slug: 'gxp-systems-overview' }, { title: 'Breaking Into GxP Quality', slug: 'breaking-into-gxp-quality' }] },
 ];
 
-const topics = [
-  { name: 'Data Integrity', count: 14 }, { name: 'GxP', count: 22 }, { name: 'Validation', count: 14 }, { name: 'FDA', count: 12 }, { name: 'QMS', count: 9 }, { name: 'ALCOA+', count: 5 }, { name: 'GAMP 5', count: 5 }, { name: 'Laboratory', count: 7 }, { name: 'GMP', count: 6 }, { name: '21 CFR Part 11', count: 5 }, { name: 'Audit Trail', count: 5 }, { name: 'Cell & Gene Therapy', count: 5 }, { name: 'Inspection', count: 6 }, { name: 'CAPA', count: 4 }, { name: 'Warning Letters', count: 3 }, { name: 'Process Validation', count: 3 }, { name: 'Clinical QA', count: 2 }, { name: 'BLA', count: 3 }, { name: 'Method Validation', count: 3 }, { name: 'Career', count: 4 },
-];
+// Derived from the actual article tags so counts never go stale as content grows.
+// Merge near-duplicate tags (e.g. "data-integrity" vs "data integrity") by a shared
+// anchor key that matches the /topics page section ids.
+const anchorOf = (s: string) => s.toLowerCase().trim().replace(/\s+/g, '-');
+const tagAgg: Record<string, { name: string; count: number; anchor: string }> = {};
+for (const a of allArticles) for (const t of (a.data.tags ?? [])) {
+  const name = String(t).trim(); if (!name) continue;
+  const anchor = anchorOf(name);
+  if (!tagAgg[anchor]) tagAgg[anchor] = { name, count: 0, anchor };
+  tagAgg[anchor].count++;
+}
+const topics = Object.values(tagAgg)
+  .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+  .slice(0, 24);
 
 const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 ---
@@ -61,7 +72,7 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
       <div class="hd-copy">
         <span class="overline">{allArticles.length} articles · free to read</span>
         <h1 class="hd-h1">The working record of how quality actually holds up.</h1>
-        <p class="hd-lead">Operational depth on data integrity, computerized system validation, QMS, process validation, inspection readiness, and cell &amp; gene therapy, written for the people who have to do the work, not pass a quiz.</p>
+        <p class="hd-lead">Operational depth on data integrity, computerized system validation, the quality system, process and equipment validation, sterility, devices, clinical, and supply chain, written for everyone in biotech, pharma, and life sciences who has to do the work, not pass a quiz.</p>
         <div class="hd-cta">
           <a href="/start" class="btn-accent">Start here →</a>
           <a href="/articles" class="btn-ghost">Browse all {allArticles.length} articles</a>
@@ -182,7 +193,7 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
   <section class="wrap sec">
     <header class="sec-head" data-reveal><div><span class="overline">Browse by topic</span><h2 class="sec-h">Subject index</h2></div><a href="/topics" class="sec-link">All topics →</a></header>
     <div class="topics" data-reveal>
-      {topics.map(t => <a href={`/topics/${t.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}`} class="topic">{t.name} <span>{t.count}</span></a>)}
+      {topics.map(t => <a href={`/topics#${t.anchor}`} class="topic">{t.name} <span>{t.count}</span></a>)}
     </div>
   </section>
 

@@ -5,7 +5,7 @@ interface Props {
   wide?: boolean;
 }
 
-const { title, description = 'Working notes and guides on data integrity, computerized system validation, and GxP quality in regulated biotech.', wide = false } = Astro.props;
+const { title, description = 'Working notes and guides on data integrity, computerized system validation, and GxP quality across biotech, pharma, medical devices, and life sciences.', wide = false } = Astro.props;
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) => currentPath === href || currentPath.startsWith(href + '/');
 
@@ -238,7 +238,7 @@ const resourcesActive = resources.some(r => isActive(r.href));
     <div class="wrap footer-in">
       <div>
         <a href="/" class="brand"><img src="/brand/mark.svg" class="brand-mark" alt="" width="42" height="42" /><span class="brand-txt"><span class="brand-name" style="color:#fff">madhadi<span class="dot">.</span>com</span></span></a>
-        <p class="footer-lead">Working notes and guides on data integrity, computerized system validation, and GxP quality in regulated biotech. Written to be used on the job, not skimmed.</p>
+        <p class="footer-lead">Working notes and guides on data integrity, computerized system validation, and GxP quality across biotech, pharma, and life sciences. Written to be used on the job, not skimmed.</p>
       </div>
       <div><h4>Explore</h4>{primary.map(l => <a href={l.href}>{l.label}</a>)}<a href="/search">Search</a><a href="/start">Start here</a><a href="/about">About</a></div>
       <div><h4>Resources</h4>{resources.slice(0,4).map(l => <a href={l.href}>{l.label}</a>)}</div>
