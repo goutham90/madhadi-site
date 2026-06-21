@@ -391,20 +391,78 @@ const tierColors: Record<string, string> = {
  // ── Validation Deliverables ───────────────────────────────────────────────
  var vdData = {
  csv: {
- required: ['Validation Plan / Master Validation Plan','User Requirements Specification (URS)','Functional Requirements Specification (FRS)','System Design Specification (SDS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Traceability Matrix (URS to Test Scripts)','Validation Summary Report','SOPs for system use and administration'],
- recommended: ['Supplier Assessment / Audit Report','Hardware and Software Design Review','Risk Assessment (system-level, GAMP appendix B)','Data Migration Validation (if applicable)','Periodic Review SOP and schedule','User Acceptance Testing (UAT) documentation'],
+ required: [
+ ['Validation Plan / Master Validation Plan','Defines scope, approach, roles and acceptance criteria, the contract for the whole effort.'],
+ ['User Requirements Specification (URS)','What the system must do; everything downstream traces back to it.'],
+ ['Functional Requirements Specification (FRS)','How the system delivers each requirement; the basis for OQ tests.'],
+ ['System Design Specification (SDS)','The technical/configuration design; needed for configured and custom systems and for change impact.'],
+ ['Installation Qualification (IQ)','Proves the system is installed correctly in the qualified environment.'],
+ ['Operational Qualification (OQ)','Proves each function works across its operating range, against the FRS.'],
+ ['Performance Qualification (PQ)','Proves the system performs in your real process and workflow.'],
+ ['Traceability Matrix (URS to test scripts)','Shows every requirement is tested; inspectors check this first for coverage gaps.'],
+ ['Validation Summary Report','Concludes fit for use and authorizes go-live; summarizes deviations and residual risk.'],
+ ['SOPs for system use and administration','Keep the system in a validated state in daily operation.'],
+ ],
+ recommended: [
+ ['Supplier Assessment / Audit Report','Lets you leverage vendor testing and right-size your own work under CSA.'],
+ ['Hardware and Software Design Review','Catches design gaps before testing and supports later change impact.'],
+ ['Risk Assessment (GAMP 5 risk-based)','Drives where you test deeply vs lightly, the core of a risk-based approach.'],
+ ['Data Migration Validation (if applicable)','Proves data moved completely and accurately, with metadata and audit trail intact.'],
+ ['Periodic Review SOP and schedule','Confirms the system stays validated over time.'],
+ ['User Acceptance Testing (UAT)','Confirms real users can do real tasks; supporting evidence for PQ.'],
+ ],
  },
  equipment: {
- required: ['Instrument Qualification Plan','User Requirements Specification (URS)','Installation Qualification (IQ)','Operational Qualification (OQ)','Performance Qualification (PQ)','Maintenance and calibration SOPs','Requalification trigger criteria (documented)'],
- recommended: ['Supplier / vendor documentation review','Design Qualification (DQ) for custom equipment','Preventive maintenance records integration','Risk assessment per USP 1058','Analytical Instrument Classification (AIC) decision'],
+ required: [
+ ['Instrument Qualification Plan','Scope, approach and acceptance criteria for the qualification.'],
+ ['User Requirements Specification (URS)','Defines the performance the instrument must meet for its intended use.'],
+ ['Installation Qualification (IQ)','Confirms correct installation, utilities and documentation.'],
+ ['Operational Qualification (OQ)','Confirms the instrument operates across its specified ranges.'],
+ ['Performance Qualification (PQ)','Confirms performance under real method and use conditions.'],
+ ['Maintenance and calibration SOPs','Keep the instrument in a qualified state.'],
+ ['Requalification trigger criteria','Define when requalification is required (move, repair, drift).'],
+ ],
+ recommended: [
+ ['Supplier / vendor documentation review','Leverages vendor IQ/OQ to reduce duplicate effort.'],
+ ['Design Qualification (DQ) for custom equipment','Confirms the design meets requirements before build or buy.'],
+ ['Preventive maintenance integration','Links maintenance records to qualified status.'],
+ ['Risk assessment per USP <1058>','Sets the AIQ group (A/B/C) and the depth of testing.'],
+ ['Analytical Instrument Classification decision','Classifies the instrument to right-size qualification.'],
+ ],
  },
  process: {
- required: ['Process Validation Protocol (PPQ stage 3)','Process Design summary (stage 1 data)','Process Performance Qualification (PPQ) report','Continued Process Verification (CPV) plan','Statistical process control criteria','Linkage to batch record and specifications'],
- recommended: ['Design of Experiments (DoE) data package','Process risk assessment (FMEA)','Scale-up / tech transfer summary','Site-specific contamination control strategy','Annual Product Review integration plan'],
+ required: [
+ ['Process Validation Protocol (PPQ, stage 2)','Defines the PPQ approach, sampling plan and acceptance criteria.'],
+ ['Process Design summary (stage 1)','Captures the CQAs, CPPs and control strategy the validation rests on.'],
+ ['Process Performance Qualification (PPQ) report','Demonstrates the process consistently produces conforming product.'],
+ ['Continued Process Verification (CPV) plan (stage 3)','Defines ongoing monitoring that keeps the process in control.'],
+ ['Statistical process control criteria','The statistical limits that signal a process shift.'],
+ ['Linkage to batch record and specifications','Ties validated parameters to the executed batch record.'],
+ ],
+ recommended: [
+ ['Design of Experiments (DoE) data package','Defines the design space and proves the CPP-to-CQA relationships.'],
+ ['Process risk assessment (FMEA)','Prioritizes parameters and failure modes for control.'],
+ ['Scale-up / tech transfer summary','Shows the process holds across scale and site.'],
+ ['Contamination control strategy','Required for sterile and aseptic processes.'],
+ ['Annual Product Review integration','Feeds CPV data into the annual product review.'],
+ ],
  },
  cleaning: {
- required: ['Cleaning Validation Protocol','Acceptable Residue Limits (ARL) calculations','Swab and rinse recovery validation data','Worst-case product/equipment matrix','Cleaning Validation Report','Cleaning SOP and associated training records'],
- recommended: ['Visual inspection limits justification','Analytical method validation for residue testing','Hold time studies (dirty and clean)','Product grouping / bracketing rationale','Annual revalidation trigger criteria'],
+ required: [
+ ['Cleaning Validation Protocol','Scope, sampling, limits and acceptance criteria.'],
+ ['Acceptable Residue Limits (health-based, PDE/ADE)','The residue limits that set the pass/fail basis.'],
+ ['Swab and rinse recovery data','Proves the sampling method actually recovers residue.'],
+ ['Worst-case product/equipment matrix','Justifies bracketing by the hardest-to-clean case.'],
+ ['Cleaning Validation Report','Concludes the cleaning procedure is effective and reproducible.'],
+ ['Cleaning SOP and training records','Ensure the validated procedure is actually followed.'],
+ ],
+ recommended: [
+ ['Visual inspection limits justification','Justifies visually-clean as a control.'],
+ ['Analytical method validation for residue','Proves the residue test is accurate at the limit.'],
+ ['Hold time studies (dirty and clean)','Define dirty- and clean-equipment hold times.'],
+ ['Product grouping / bracketing rationale','Reduces testing while staying defensible.'],
+ ['Revalidation trigger criteria','Define when to revalidate (new product, change, periodic).'],
+ ],
  },
  };
 
@@ -412,14 +470,17 @@ const tierColors: Record<string, string> = {
  var data = vdData[type];
  var container = document.getElementById('vd-content');
  if (!container || !data) return;
+ function row(cls, d) {
+ return '<li class="vd-item ' + cls + '"><span class="vd-text"><span class="vd-name">' + d[0] + '</span><span class="vd-why">' + d[1] + '</span></span></li>';
+ }
  container.innerHTML =
  '<div class="vd-section">' +
  '<div class="vd-section-title required-label">Required Deliverables</div>' +
- '<ul class="vd-list-items">' + data.required.map(function (d) { return '<li class="vd-item req">' + d + '</li>'; }).join('') + '</ul>' +
+ '<ul class="vd-list-items">' + data.required.map(function (d) { return row('req', d); }).join('') + '</ul>' +
  '</div>' +
  '<div class="vd-section">' +
  '<div class="vd-section-title recommended-label">Recommended / Risk-Based</div>' +
- '<ul class="vd-list-items">' + data.recommended.map(function (d) { return '<li class="vd-item rec">' + d + '</li>'; }).join('') + '</ul>' +
+ '<ul class="vd-list-items">' + data.recommended.map(function (d) { return row('rec', d); }).join('') + '</ul>' +
  '</div>';
  }
 
@@ -742,17 +803,20 @@ const tierColors: Record<string, string> = {
  .vd-item {
  font-size: 0.8125rem;
  color: var(--graphite);
- padding: 0.35rem 0.65rem;
+ padding: 0.5rem 0.7rem;
  border-radius: var(--radius);
  display: flex;
- align-items: center;
- gap: 0.55rem;
+ align-items: flex-start;
+ gap: 0.6rem;
  }
 
- .vd-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+ .vd-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
  .vd-item.req::before { background: var(--vermilion); }
- .vd-item.rec::before { background: var(--line); }
+ .vd-item.rec::before { background: var(--line-2); }
  .vd-item.req { background: var(--bone-2); }
+ .vd-text { display: flex; flex-direction: column; gap: 0.12rem; }
+ .vd-name { font-weight: 600; color: var(--ink); font-size: 0.84rem; line-height: 1.35; }
+ .vd-why { font-size: 0.76rem; color: var(--muted); line-height: 1.42; }
 
  /* ════════════ RESPONSIVE ════════════ */
  @media (max-width: 900px) {

@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import { tagKey } from '../data/tags';
 
 interface Props {
   title: string;
@@ -74,7 +75,7 @@ const tierColor = tier ? (tierColors[tier] ?? '#565c65') : '#565c65';
       <div class="art-meta">
         <span>{formatted}</span><span class="sep">·</span><span>{readTime} min read</span>
         {tags.length > 0 && <span class="sep">·</span>}
-        {tags.slice(0,4).map((t) => (<a href={`/topics#${t}`} class="art-tag">#{t}</a>))}
+        {tags.slice(0,4).map((t) => (<a href={`/topics#${tagKey(t)}`} class="art-tag">#{t}</a>))}
       </div>
     </div>
   </header>

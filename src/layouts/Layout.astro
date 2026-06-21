@@ -107,6 +107,23 @@ const totalArticles = _navArticles.length;
     .overline::before { content: ""; width: 3px; height: 14px; background: var(--gold); border-radius: 1px; }
     .marginalia { font-family: var(--sans); font-size: 0.84rem; color: var(--faint); }
 
+    /* ── Section + display utilities (referenced by pages from the v3 era; defined globally
+          so dark-plate sections actually render dark instead of light-text-on-white) ── */
+    .section { padding: 4rem 0; }
+    .section-tight { padding: 2.75rem 0; }
+    .display-2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.5rem); letter-spacing: -0.022em; line-height: 1.12; color: var(--navy); }
+    .lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.6; color: var(--muted); }
+    .duotone img { filter: saturate(0.92) contrast(1.03); }
+    .section-dark { background: var(--navy); color: var(--on-navy); }
+    .section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4, .section-dark .display-2 { color: #fff; }
+    .section-dark p, .section-dark li, .section-dark .lead, .section-dark dd, .section-dark dt { color: var(--on-navy); }
+    .section-dark .kicker, .section-dark .overline, .section-dark .mono-label { color: #ffd98a; }
+    .section-dark .marginalia, .section-dark .muted { color: var(--on-navy-dim); }
+    .section-dark a { color: #ffd98a; }
+    .section-dark a:hover { color: #fff; }
+    .section-dark .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
+    .section-dark .btn-ghost:hover { background: #fff; color: var(--navy); }
+
     .btn, .btn-accent, .btn-ghost { display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; font-family: var(--sans); font-weight: 600; font-size: 0.97rem; border-radius: var(--radius); cursor: pointer; transition: background .15s, color .15s, border-color .15s; border: 1px solid transparent; line-height: 1.2; }
     .btn-accent { background: var(--navy); color: #fff; }
     .btn-accent:hover { background: var(--navy-2); color: #fff; text-decoration: none; }
