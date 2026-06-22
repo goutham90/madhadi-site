@@ -93,26 +93,29 @@ The amount of effort is meant to match the risk. This is the modern, risk-based 
 
 Most validation follows the same path, whatever you are validating: plan it, say what it must do, build it, prove it, conclude it is fit for use, then keep it that way. Each step produces a document, and those documents are the evidence trail.
 
-```
- PLAN         SPECIFY             BUILD          QUALIFY                REPORT          MAINTAIN
- Validation   what it must do:    install or     prove it works:        conclude it     keep it valid:
- Plan         URS, then FS and    configure      IQ  installed right    is fit for use  change control,
-              Design Spec, plus   the system     OQ  operates right     Validation      monitoring,
-              a Risk Assessment   or process     PQ  performs in use    Summary Report  periodic review
-   |              |                   |              |                      |               |
-   +--------------+-------------------+--------------+----------------------+---------------+
-                           every step leaves a document behind: the proof
-```
+<div class="flow" role="img" aria-label="Validation lifecycle: plan, specify, build, qualify, report, maintain">
+  <div class="flow-step"><span class="flow-step-t">Plan</span><span class="flow-step-d">Validation Plan</span></div>
+  <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+  <div class="flow-step"><span class="flow-step-t">Specify</span><span class="flow-step-d">URS, then Functional and Design Spec, plus a Risk Assessment</span></div>
+  <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+  <div class="flow-step"><span class="flow-step-t">Build</span><span class="flow-step-d">Install or configure the system or process</span></div>
+  <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+  <div class="flow-step"><span class="flow-step-t">Qualify</span><span class="flow-step-d">IQ installed right, OQ operates right, PQ performs in use</span></div>
+  <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+  <div class="flow-step"><span class="flow-step-t">Report</span><span class="flow-step-d">Validation Summary Report, fit for use</span></div>
+  <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+  <div class="flow-step"><span class="flow-step-t">Maintain</span><span class="flow-step-d">Change control, monitoring, periodic review</span></div>
+</div>
+<p class="flow-cap">Every step leaves a document behind: the evidence trail.</p>
 
 A helpful way to see the link between "what it must do" and "how you prove it" is the V-model: each specification on the way down is matched by a test on the way up. The user requirements are proven by the PQ, the functional spec by the OQ, and the installation by the IQ.
 
-```
- URS  what the user needs ........................  PQ  proves the user's needs are met
-   FS  what it does ...........................  OQ  proves each function works
-     DS  how it is built or configured .....  IQ  proves it was installed right
-                       \                     /
-                        BUILD  /  INSTALL
-```
+<div class="flow-v" role="img" aria-label="V-model: each specification is proven by a matching test">
+  <div class="flow-v-row"><div class="flow-box">URS, what the user needs</div><span class="flow-v-link" aria-hidden="true">proven by &rarr;</span><div class="flow-box flow-box-test">PQ, proves the user's needs are met</div></div>
+  <div class="flow-v-row"><div class="flow-box">FS, what it does</div><span class="flow-v-link" aria-hidden="true">proven by &rarr;</span><div class="flow-box flow-box-test">OQ, proves each function works</div></div>
+  <div class="flow-v-row"><div class="flow-box">DS, how it is built or configured</div><span class="flow-v-link" aria-hidden="true">proven by &rarr;</span><div class="flow-box flow-box-test">IQ, proves it was installed right</div></div>
+  <div class="flow-v-base"><div class="flow-box flow-box-build">Build / Install</div></div>
+</div>
 
 ## The deliverables, and why each one is required
 
@@ -138,13 +141,13 @@ You do not have to build these from scratch. Ready-to-use, plug-and-play version
 
 Process validation is not one event either. FDA's 2011 guidance frames it as three ongoing stages, so the effort continues for as long as the process is in use.
 
-```
- STAGE 1                   STAGE 2                       STAGE 3
- Process Design     -->    Process Qualification   -->   Continued Process Verification
- understand the            confirm it works at           keep checking it stays in
- process and define        commercial scale              control during routine
- the controls             (the PPQ runs)                 production, ongoing
-```
+<div class="flow" role="img" aria-label="Process validation lifecycle, three stages">
+  <div class="flow-step"><span class="flow-step-t">Stage 1: Process Design</span><span class="flow-step-d">understand the process and define the controls</span></div>
+  <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+  <div class="flow-step"><span class="flow-step-t">Stage 2: Process Qualification</span><span class="flow-step-d">confirm it works at commercial scale (the PPQ runs)</span></div>
+  <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+  <div class="flow-step"><span class="flow-step-t">Stage 3: Continued Process Verification</span><span class="flow-step-d">keep checking it stays in control during routine production</span></div>
+</div>
 
 The reason to show the effort and the deliverables together is simple: validation costs real work up front, and that work is exactly what lets a company answer "how do you know this works?" with evidence instead of hope.
 

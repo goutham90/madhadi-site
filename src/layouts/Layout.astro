@@ -231,6 +231,29 @@ const totalArticles = _navArticles.length;
     *:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
     img { max-width: 100%; display: block; }
 
+    /* ── Flow diagrams: real bordered boxes with arrows (no mermaid, no ASCII art) ── */
+    .flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.55rem; margin: 1.9rem 0; font-family: var(--sans); }
+    .flow-step { flex: 1 1 150px; min-width: 140px; display: flex; flex-direction: column; gap: 4px; background: var(--panel); border: 1px solid var(--line-strong); border-top: 3px solid var(--gold); border-radius: var(--radius); padding: 0.7rem 0.85rem; }
+    .flow-step-t { font-weight: 700; font-size: 0.92rem; line-height: 1.2; color: var(--navy); }
+    .flow-step-d { font-size: 0.78rem; line-height: 1.4; color: var(--muted); }
+    .flow-arrow { align-self: center; flex: 0 0 auto; color: var(--blue); font-weight: 700; font-size: 1.2rem; line-height: 1; }
+    .flow-cap { font-family: var(--sans); font-size: 0.8rem; color: var(--faint); margin: 0.4rem 0 0; }
+
+    .flow-v { display: flex; flex-direction: column; gap: 0.6rem; margin: 1.9rem 0; font-family: var(--sans); }
+    .flow-v-row { display: flex; align-items: stretch; gap: 0.7rem; flex-wrap: wrap; }
+    .flow-box { flex: 1 1 200px; display: flex; align-items: center; background: #fff; border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 0.6rem 0.85rem; font-size: 0.88rem; line-height: 1.3; color: var(--navy); }
+    .flow-box-test { border-left: 3px solid var(--blue); background: var(--panel); }
+    .flow-box-build { border-left: 3px solid var(--gold); background: var(--panel); font-weight: 700; flex: 0 1 auto; }
+    .flow-v-link { align-self: center; flex: 0 0 auto; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--blue); white-space: nowrap; }
+    .flow-v-base { display: flex; justify-content: center; margin-top: 0.15rem; }
+    @media (max-width: 620px) {
+      .flow { flex-direction: column; }
+      .flow-step { flex-basis: auto; }
+      .flow-arrow { transform: rotate(90deg); align-self: flex-start; margin-left: 1rem; }
+      .flow-v-row { flex-direction: column; }
+      .flow-v-link { align-self: flex-start; }
+    }
+
     [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
     [data-reveal].in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce){ [data-reveal]{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
