@@ -18,6 +18,9 @@ const types = Object.keys(byType).sort((a, b) => {
   return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
 });
 const pillarName = (s: string) => pillarBySlug(s)?.short ?? s;
+const pillarsPresent = [...new Set(sorted.map(t => t.data.pillar))]
+  .map(s => ({ slug: s, name: pillarName(s) }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 ---
 <Layout title="Templates & Procedures" description="Plug-and-play, inspection-grade SOPs, policies, procedures, work instructions, protocols, forms, logs, checklists, and risk assessments for GxP quality across biotech, pharma, medical devices, and life sciences. Copy, fill in your specifics, and use." wide={true}>
   <section class="tl-header">
@@ -38,12 +41,31 @@ const pillarName = (s: string) => pillarBySlug(s)?.short ?? s;
       {templates.length === 0 && (
         <p class="tl-empty">The library is being built. New ready-to-use documents are added with the daily updates. Check back shortly.</p>
       )}
+
+      {templates.length > 0 && (
+        <div class="tl-filters" id="tl-filters">
+          <div class="tl-search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input id="tl-q" type="search" placeholder="Filter documents by name or keyword" autocomplete="off" aria-label="Filter documents" />
+          </div>
+          <div class="tl-chips" role="group" aria-label="Filter by document type">
+            <button class="tl-chip is-on" data-kind="type" data-val="all">All types</button>
+            {types.map((type) => (<button class="tl-chip" data-kind="type" data-val={type}>{type}<span>{byType[type].length}</span></button>))}
+          </div>
+          <div class="tl-chips" role="group" aria-label="Filter by discipline">
+            <button class="tl-chip is-on" data-kind="pillar" data-val="all">All disciplines</button>
+            {pillarsPresent.map((p) => (<button class="tl-chip" data-kind="pillar" data-val={p.slug}>{p.name}</button>))}
+          </div>
+          <p class="tl-count" id="tl-count" aria-live="polite"></p>
+        </div>
+      )}
+
       {types.map((type) => (
-        <div class="tl-group">
+        <div class="tl-group" data-group={type}>
           <h2 class="tl-group-h">{type}<span class="tl-group-n">{byType[type].length}</span></h2>
           <ul class="tl-list">
             {byType[type].map((t) => (
-              <li>
+              <li class="tl-item" data-type={type} data-pillar={t.data.pillar} data-text={`${t.data.title} ${t.data.description} ${(t.data.tags ?? []).join(' ')}`.toLowerCase()}>
                 <a href={`/templates/${t.slug}`} class="tl-row">
                   <div class="tl-row-main">
                     <span class="tl-row-title">{t.data.title}</span>
@@ -57,8 +79,48 @@ const pillarName = (s: string) => pillarBySlug(s)?.short ?? s;
           </ul>
         </div>
       ))}
+      <p class="tl-empty" id="tl-noresults" hidden>No documents match that filter. Clear it to see the full library.</p>
     </div>
   </section>
+
+  <script is:inline>
+    (function () {
+      var q = document.getElementById('tl-q');
+      var count = document.getElementById('tl-count');
+      var noRes = document.getElementById('tl-noresults');
+      var filters = document.getElementById('tl-filters');
+      if (!filters) return;
+      var state = { type: 'all', pillar: 'all', text: '' };
+      var items = Array.prototype.slice.call(document.querySelectorAll('.tl-item'));
+      var groups = Array.prototype.slice.call(document.querySelectorAll('.tl-group'));
+      function apply() {
+        var shown = 0;
+        items.forEach(function (li) {
+          var ok = (state.type === 'all' || li.getAttribute('data-type') === state.type)
+            && (state.pillar === 'all' || li.getAttribute('data-pillar') === state.pillar)
+            && (state.text === '' || li.getAttribute('data-text').indexOf(state.text) !== -1);
+          li.hidden = !ok;
+          if (ok) shown++;
+        });
+        groups.forEach(function (g) {
+          var any = g.querySelectorAll('.tl-item:not([hidden])').length;
+          g.hidden = any === 0;
+        });
+        if (noRes) noRes.hidden = shown !== 0;
+        if (count) count.textContent = shown + (shown === 1 ? ' document' : ' documents');
+      }
+      filters.addEventListener('click', function (e) {
+        var btn = e.target.closest('.tl-chip');
+        if (!btn) return;
+        var kind = btn.getAttribute('data-kind');
+        state[kind] = btn.getAttribute('data-val');
+        filters.querySelectorAll('.tl-chip[data-kind="' + kind + '"]').forEach(function (b) { b.classList.toggle('is-on', b === btn); });
+        apply();
+      });
+      if (q) q.addEventListener('input', function () { state.text = q.value.trim().toLowerCase(); apply(); });
+      apply();
+    })();
+  </script>
 </Layout>
 
 <style>
@@ -70,6 +132,20 @@ const pillarName = (s: string) => pillarBySlug(s)?.short ?? s;
   .tl-stats strong { color: var(--navy); font-size: 1.05rem; }
 
   .tl-empty { font-size: 1.1rem; color: var(--muted); padding: 2rem 0; }
+
+  /* interactive filters */
+  .tl-filters { margin-bottom: 2rem; padding-bottom: 1.4rem; border-bottom: 2px solid var(--navy); }
+  .tl-search { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 10px 14px; margin-bottom: 14px; max-width: 460px; }
+  .tl-search svg { color: var(--blue); flex: none; }
+  .tl-search input { flex: 1; border: none; outline: none; font-family: var(--sans); font-size: 0.98rem; color: var(--ink); background: transparent; }
+  .tl-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .tl-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px; background: #fff; border: 1px solid var(--line-strong); border-radius: 999px; font-family: var(--sans); font-size: 0.86rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .12s; }
+  .tl-chip span { font-size: 0.74rem; color: var(--blue); font-weight: 700; }
+  .tl-chip:hover { border-color: var(--navy); color: var(--navy); }
+  .tl-chip.is-on { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .tl-chip.is-on span { color: #ffd98a; }
+  .tl-count { font-size: 0.84rem; color: var(--faint); font-weight: 600; margin-top: 4px; }
+  .tl-item[hidden], .tl-group[hidden] { display: none; }
   .tl-group { margin-bottom: 2.6rem; }
   .tl-group-h { display: flex; align-items: center; gap: 0.7rem; font-family: var(--display); font-size: 1.4rem; color: var(--navy); padding-bottom: 0.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 0.3rem; }
   .tl-group-n { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; color: var(--blue); background: var(--page); border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; }

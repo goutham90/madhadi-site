@@ -11,9 +11,14 @@ interface Props {
   pillar?: string;
   body?: string;
   relatedTemplates?: { slug: string; title: string; docType: string }[];
+  pillarTemplates?: { slug: string; title: string; docType: string }[];
 }
 
-const { title, description, pubDate, tags, tier, pillar, body = '', relatedTemplates = [] } = Astro.props;
+const { title, description, pubDate, tags, tier, pillar, body = '', relatedTemplates = [], pillarTemplates = [] } = Astro.props;
+// Show the documents that target this article directly; otherwise fall back to documents in
+// the same pillar so the article still connects to the library.
+const deliverables = relatedTemplates.length ? relatedTemplates : pillarTemplates;
+const deliverablesAreDirect = relatedTemplates.length > 0;
 
 const tierColors: Record<string, string> = {
   Beginner: '#0f7a52',
@@ -82,14 +87,12 @@ const tierColor = tier ? (tierColors[tier] ?? '#565c65') : '#565c65';
   </header>
 
   <div class="wrap art-shell">
-    <article class="art-body prose"><slot /></article>
-
-    {relatedTemplates.length > 0 && (
+    {deliverables.length > 0 && (
       <section class="art-deliverables">
-        <h2 class="art-deliv-h">Ready-to-use documents for this topic</h2>
-        <p class="art-deliv-sub">Plug-and-play, inspection-grade. Copy, fill in your specifics, and route through your own document control.</p>
+        <h2 class="art-deliv-h">{deliverablesAreDirect ? 'Ready-to-use documents for this topic' : `Ready-to-use documents in ${pillarNames[pillar] ?? pillar}`}</h2>
+        <p class="art-deliv-sub">Plug-and-play, inspection-grade. Copy, fill in your company and system specifics, and route through your own document control.</p>
         <ul class="art-deliv-list">
-          {relatedTemplates.map((t) => (
+          {deliverables.map((t) => (
             <li>
               <a href={`/templates/${t.slug}`} class="art-deliv-row">
                 <span class="art-deliv-badge">{t.docType}</span>
@@ -99,8 +102,11 @@ const tierColor = tier ? (tierColors[tier] ?? '#565c65') : '#565c65';
             </li>
           ))}
         </ul>
+        <a class="art-deliv-all" href="/templates">Browse all ready-to-use documents →</a>
       </section>
     )}
+
+    <article class="art-body prose"><slot /></article>
 
     <footer class="art-footer">
       <a href="/articles" class="af-link">← All articles</a>
@@ -157,7 +163,9 @@ const tierColor = tier ? (tierColors[tier] ?? '#565c65') : '#565c65';
   .art-body :global(hr) { border: none; border-top: 1px solid var(--line); margin: 2.4rem 0; }
 
   /* ── Ready-to-use documents box ── */
-  .art-deliverables { max-width: var(--measure); margin: 3rem auto 0; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 1.4rem 1.6rem; }
+  .art-deliverables { max-width: var(--measure); margin: 0 auto 2.6rem; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 1.4rem 1.6rem; }
+  .art-deliv-all { display: inline-block; margin-top: 0.9rem; font-size: 0.9rem; font-weight: 700; color: var(--blue); }
+  .art-deliv-all:hover { color: var(--blue-d); }
   .art-deliv-h { font-family: var(--display); font-size: 1.25rem; color: var(--navy); margin-bottom: 0.3rem; }
   .art-deliv-sub { font-size: 0.92rem; color: var(--muted); margin-bottom: 1rem; }
   .art-deliv-list { list-style: none; padding: 0; margin: 0; }

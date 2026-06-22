@@ -8,6 +8,16 @@ const recent = allArticles
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   .slice(0, 5);
 
+// Templates library, surfaced on the home page so the ready-to-use documents are not buried.
+const allTemplates = await getCollection('templates', ({ data }) => !data.draft);
+const tmplTypeAgg: Record<string, number> = {};
+for (const t of allTemplates) tmplTypeAgg[t.data.docType] = (tmplTypeAgg[t.data.docType] ?? 0) + 1;
+const TYPE_LABEL: Record<string, string> = { SOP: 'SOPs', Policy: 'Policies', 'Work Instruction': 'Work Instructions', Protocol: 'Protocols', Plan: 'Plans', Form: 'Forms', Log: 'Logs', Checklist: 'Checklists', 'Risk Assessment': 'Risk Assessments', Matrix: 'Matrices', Report: 'Reports', Template: 'Templates', Record: 'Records', Specification: 'Specifications', Guideline: 'Guides' };
+const TYPE_ORDER = ['SOP', 'Protocol', 'Plan', 'Policy', 'Specification', 'Report', 'Form', 'Checklist', 'Risk Assessment', 'Matrix', 'Template', 'Log', 'Record', 'Work Instruction', 'Guideline'];
+const tmplTypes = Object.entries(tmplTypeAgg)
+  .map(([k, v]) => ({ key: k, label: TYPE_LABEL[k] ?? k, count: v }))
+  .sort((a, b) => ((TYPE_ORDER.indexOf(a.key) + 1) || 99) - ((TYPE_ORDER.indexOf(b.key) + 1) || 99));
+
 const pillarImg = {
   'data-integrity': '/images/records-review.jpg',
   'csv-csa': '/images/records-server.jpg',
@@ -69,7 +79,7 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
   <section class="hd">
     <div class="wrap hd-in">
       <div class="hd-copy">
-        <span class="overline">{allArticles.length} articles · free to read</span>
+        <span class="overline">{allArticles.length} articles · {allTemplates.length} ready-to-use templates · free to read</span>
         <h1 class="hd-h1">The working record of how quality actually holds up.</h1>
         <p class="hd-lead">Operational depth on data integrity, computerized system validation, the quality system, process and equipment validation, sterility, devices, clinical, and supply chain, written for everyone in biotech, pharma, and life sciences who has to do the work, not pass a quiz.</p>
         <div class="hd-cta">
@@ -78,8 +88,8 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
         </div>
         <dl class="hd-stats">
           <div><dt>{allArticles.length}</dt><dd>Articles</dd></div>
+          <div><dt>{allTemplates.length}</dt><dd>Templates</dd></div>
           <div><dt>08</dt><dd>Topic areas</dd></div>
-          <div><dt>03</dt><dd>Learning tracks</dd></div>
           <div><dt>Public</dt><dd>No paywall</dd></div>
         </dl>
       </div>
@@ -89,6 +99,7 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
           <li><a href="/start">New here, start with the foundations</a></li>
           <li><a href="/pillars">Browse the topic areas</a></li>
           <li><a href="/articles">The full article index</a></li>
+          <li><a href="/templates">Ready-to-use SOPs &amp; templates</a></li>
           <li><a href="/regulatory-refs">Regulatory references &amp; citations</a></li>
           <li><a href="/glossary">Glossary of GxP terms</a></li>
         </ul>
@@ -135,6 +146,23 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
           <span class="pillar-arrow">→</span>
         </a>
       ))}
+    </div>
+  </section>
+
+  <!-- ═════ TEMPLATES LIBRARY ═════ -->
+  <section class="band">
+    <div class="wrap sec">
+      <header class="sec-head" data-reveal>
+        <div><span class="overline">Ready-to-use documents</span><h2 class="sec-h">Plug-and-play SOPs, protocols, and templates</h2></div>
+        <a href="/templates" class="sec-link">Browse all {allTemplates.length} →</a>
+      </header>
+      <p class="tmpl-intro" data-reveal>Not just explanations. {allTemplates.length} inspection-grade documents you can copy, fill in your company and system specifics, and use: SOPs, validation protocols (IQ/OQ/PQ across QC instruments, equipment, computerized systems, and infrastructure), policies, forms, logs, checklists, risk assessments, disaster-recovery and backup plans, and test scripts, each with a worked filled example.</p>
+      <div class="tmpl-types" data-reveal>
+        {tmplTypes.map(t => (
+          <a href="/templates" class="tmpl-type"><span class="tmpl-type-n">{t.count}</span><span class="tmpl-type-l">{t.label}</span></a>
+        ))}
+      </div>
+      <a href="/templates" class="btn-accent tmpl-cta">Open the template library →</a>
     </div>
   </section>
 
@@ -295,6 +323,17 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
   .rec-h { font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--navy); }
   .rec-h:hover { color: var(--blue); }
   .rec-desc { font-size: 0.94rem; color: var(--muted); margin-top: 5px; }
+
+  /* templates showcase */
+  .tmpl-intro { color: var(--ink-2); max-width: 70ch; font-size: 1.02rem; line-height: 1.6; margin-bottom: 26px; }
+  .tmpl-types { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 26px; }
+  .tmpl-type { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 16px 18px; background: #fff; border: 1px solid var(--line-strong); border-left: 3px solid var(--gold); border-radius: var(--radius); transition: box-shadow .15s, transform .15s; }
+  .tmpl-type:hover { box-shadow: var(--shadow); transform: translateY(-2px); text-decoration: none; }
+  .tmpl-type-n { font-family: var(--display); font-size: 1.7rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .tmpl-type-l { font-size: 0.84rem; font-weight: 600; color: var(--muted); }
+  .tmpl-cta { margin-top: 4px; }
+  @media (max-width: 900px) { .tmpl-types { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .tmpl-types { grid-template-columns: repeat(2, 1fr); } }
 
   /* topics */
   .topics { display: flex; flex-wrap: wrap; gap: 10px; }
