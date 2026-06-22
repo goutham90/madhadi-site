@@ -1499,6 +1499,13 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"why-validation-matters.md": {
+	id: "why-validation-matters.md";
+  slug: "why-validation-matters";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "writing-validation-protocols-and-reports.md": {
 	id: "writing-validation-protocols-and-reports.md";
   slug: "writing-validation-protocols-and-reports";
