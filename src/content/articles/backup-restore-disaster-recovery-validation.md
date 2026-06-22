@@ -27,7 +27,7 @@ MHRA's "GxP Data Integrity Guidance and Definitions" (2018) and PIC/S PI 041 rei
 |---|---|---|
 | 21 CFR 11.10(c) | Protection of records | Accurate and ready retrieval throughout the retention period |
 | 21 CFR 211.180 | Records retention | Retention of production/control records (predicate rule) |
-| 21 CFR 820.180 / 820.181 | Device record controls | Records available, legible, retrievable for the device retention period |
+| 21 CFR 820.35 (former 820.180 / 820.181) | Device record controls | Records available, legible, retrievable for the device retention period. Under the QMSR (effective Feb 2, 2026) record control moved to 820.35; the former 820.180 / 820.181 are now reserved, with ISO 13485:2016 incorporated by reference |
 | EU GMP Annex 11, Cl. 7.2 | Data storage / back-up | Back-up of relevant data; restore ability checked during validation and periodically |
 | EU GMP Annex 11, Cl. 17 | Archiving | Archived data checked for accessibility, readability, integrity |
 | MHRA DI Guidance (2018) | Data integrity | Backups enable reconstruction; true-copy content and meaning preserved |
@@ -184,7 +184,7 @@ Trigger an additional restore verification on any significant change: a backup-s
 
 Operational backups solve "the system broke yesterday." Archival solves "we need a record from a system that no longer exists, eight years from now." These are genuinely different problems and conflating them is a common gap.
 
-Retention periods come from the predicate rules and product type: 21 CFR 211.180 sets pharmaceutical record retention obligations (commonly batch records retained one year past expiry, and longer by procedure), 21 CFR 820.180 sets device record retention tied to expected device life, and clinical records under ICH E6(R2)/E6(R3) Good Clinical Practice carry their own essential-document retention running years past marketing authorization or study discontinuation. Some records must survive for decades. No backup-rotation scheme keeps daily backups for twenty years, and the application that wrote the record may be retired long before the retention clock runs out.
+Retention periods come from the predicate rules and product type: 21 CFR 211.180 sets pharmaceutical record retention obligations (commonly batch records retained one year past expiry, and longer by procedure), device record retention tied to expected device life now sits under 21 CFR 820.35 (Control of Records) following the QMSR, effective Feb 2, 2026, which moved this from the former 820.180 and incorporated the ISO 13485:2016 record-control requirement by reference, and clinical records under ICH E6(R2)/E6(R3) Good Clinical Practice carry their own essential-document retention running years past marketing authorization or study discontinuation. Some records must survive for decades. No backup-rotation scheme keeps daily backups for twenty years, and the application that wrote the record may be retired long before the retention clock runs out.
 
 Annex 11 Clause 17 is the governing expectation: archived data should be checked for accessibility, readability, and integrity, and if the system is changed, the ability to retrieve the archived data must be ensured. Practical implications:
 

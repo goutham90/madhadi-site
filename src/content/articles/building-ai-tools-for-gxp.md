@@ -37,7 +37,7 @@ The quality rationale underneath all of this is the same one ALCOA+ encodes: a r
 
 ### Where CSA changes the math
 
-The validation posture for these tools shifted with FDA's "Computer Software Assurance for Production and Quality System Software" guidance. This began as a draft in September 2022 and was **finalized in 2024** (do not cite the 2022 version as final). Computer Software Assurance, or CSA, does not lower the bar for safety. It tells you to spend testing effort in proportion to risk, to use the least-burdensome method that gives you confidence, and to stop generating screenshots for low-risk features that nobody will ever read.
+The validation posture for these tools shifted with FDA's "Computer Software Assurance for Production and Quality System Software" guidance. This began as a draft in September 2022 and was **finalized in 2025** (do not cite the 2022 version as final). Computer Software Assurance, or CSA, does not lower the bar for safety. It tells you to spend testing effort in proportion to risk, to use the least-burdensome method that gives you confidence, and to stop generating screenshots for low-risk features that nobody will ever read.
 
 For an AI screening tool that only flags items for human review and never makes a record-affecting decision on its own, CSA is the right lens: a focused risk assessment, scripted testing of the high-risk behaviors, and unscripted or ad hoc testing for the rest. The deeper treatment is in [computer software assurance](/articles/computer-software-assurance-fda), the validation mechanics live in [the GAMP 5 CSV framework](/articles/gamp5-csv-framework), and the risk-assessment method is in [CSV risk assessment methodology](/articles/csv-risk-assessment-methodology).
 
@@ -214,7 +214,7 @@ If you build or oversee these tools, expect these questions from a hiring panel 
 Yes. If it creates, modifies, maintains, or influences a GxP record, it is a computerized system under 21 CFR Part 11 / Annex 11 and the predicate rule for the activity. Size and internal-only status do not exempt it.
 
 **"How do you decide how much to validate?"**
-Risk-based, under CSA (FDA guidance, draft 2022, finalized 2024). I place the intended use on a tier by how close it sits to a record-affecting decision. Screen-only tools with a real human checkpoint are low to medium risk and get focused scripted testing of the high-risk behaviors plus unscripted testing for the rest. A tool that influences a release decision is high risk and gets fully scripted, documented testing of that influence.
+Risk-based, under CSA (FDA guidance, draft 2022, finalized 2025). I place the intended use on a tier by how close it sits to a record-affecting decision. Screen-only tools with a real human checkpoint are low to medium risk and get focused scripted testing of the high-risk behaviors plus unscripted testing for the rest. A tool that influences a release decision is high risk and gets fully scripted, documented testing of that influence.
 
 **"What GAMP category is it?"**
 The integrated tool is typically Category 5, because the prompt, schema, rules, and orchestration are bespoke. I do not validate the model weights directly; I validate the behavior of the configured system against my requirements.

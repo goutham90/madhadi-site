@@ -69,7 +69,7 @@ Run it twice. First the author runs it as a self-check before sending the draft 
 | D1 | Every form or template the SOP references exists under document control, with a version. | | `<<FILL>>` |
 | D2 | The form fields capture exactly what the steps require (form and SOP designed together). | | `<<FILL>>` |
 | D3 | The records section states what is generated, where it is stored, and how long it is retained. | | `<<FILL>>` |
-| D4 | Records are designed to be attributable, legible, contemporaneous, original, accurate, and complete (ALCOA+). | | `<<FILL>>` |
+| D4 | Records are designed to be attributable, legible, contemporaneous, original, accurate, complete, consistent, enduring, and available (ALCOA+). | | `<<FILL>>` |
 
 ## E. Usability dry run
 

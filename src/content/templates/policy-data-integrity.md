@@ -132,7 +132,7 @@ This policy is being met when all of the following are true:
 
 > 21 CFR Part 211 (drug CGMP recordkeeping and laboratory controls: 211.68, 211.180, 211.188, 211.194).
 > 21 CFR Part 11 (electronic records and electronic signatures).
-> 21 CFR Part 820 (device quality system; QMSR amendments effective February 2026), with records at 820.180 and 820.181.
+> 21 CFR Part 820 (device quality system; QMSR amendments effective February 2026): records control is at 820.35 (Control of records), with the remaining recordkeeping requirements incorporated by reference from ISO 13485:2016.
 > EU GMP Annex 11 (computerized systems) and Annex 15 (qualification and validation).
 > FDA guidance, "Data Integrity and Compliance With Drug CGMP" (December 2018).
 > MHRA "GXP Data Integrity Guidance and Definitions" (March 2018).

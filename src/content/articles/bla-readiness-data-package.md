@@ -160,7 +160,7 @@ FDA's program guidance for these inspections rests on three objectives: readines
 
 **Data integrity controls.** Audit trail configuration, access controls, and raw data management. The PLI examines the same controls a routine inspection would, with heightened scrutiny because the data underpins an approval decision. Shared logins, analysts with administrator rights that allow them to delete data, and audit trails that were never switched on are the failures that recur in published findings. See [21 CFR Part 11 and EU Annex 11 in practice](/articles/part-11-annex-11-practical-guide) and [access control for computerized systems](/articles/csv-cybersecurity-access-control).
 
-**Validation status of manufacturing and quality systems.** The computer system validation status of the LIMS, the manufacturing execution system (MES), the CDS, and any other system used to produce the submission data. Batch records produced on an unvalidated MES are a serious concern. The expectations follow the [GAMP 5 framework](/articles/gamp5-csv-framework) and FDA's [computer software assurance](/articles/computer-software-assurance-fda) approach, which was issued as a draft in 2022 and finalized in 2024.
+**Validation status of manufacturing and quality systems.** The computer system validation status of the LIMS, the manufacturing execution system (MES), the CDS, and any other system used to produce the submission data. Batch records produced on an unvalidated MES are a serious concern. The expectations follow the [GAMP 5 framework](/articles/gamp5-csv-framework) and FDA's [computer software assurance](/articles/computer-software-assurance-fda) approach, which was issued as a draft in 2022 and finalized in 2025.
 
 ### Common PLI findings that delay approval
 

@@ -61,7 +61,7 @@ This distinction is the single most misunderstood point in clinical computer sys
 4. Audit trails are enabled and capture the right events at the right granularity.
 5. Access controls are correct, with individual accounts and timely deprovisioning.
 
-The **GAMP 5 framework**, A Risk-Based Approach to Compliant GxP Computerized Systems (Second Edition, 2022), provides the structure. A vendor-supplied SaaS EDC platform is a GAMP Category 4 (configured) product. The vendor delivers the platform qualification. The sponsor validates the study build on top of it. Both layers are required, and neither substitutes for the other. The complementary concept of risk-based testing effort comes from the FDA's Computer Software Assurance for Production and Quality System Software guidance, issued as a draft in 2022 and finalized in 2024. CSA is written for production and quality systems rather than clinical, but its core argument, that testing effort should scale with risk and that unscripted and exploratory testing can produce valid evidence, applies cleanly to study configuration testing. The riskiest items (randomization, dispensing logic, eligibility edit checks) deserve the deepest scrutiny and the cosmetic items do not.
+The **GAMP 5 framework**, A Risk-Based Approach to Compliant GxP Computerized Systems (Second Edition, 2022), provides the structure. A vendor-supplied SaaS EDC platform is a GAMP Category 4 (configured) product. The vendor delivers the platform qualification. The sponsor validates the study build on top of it. Both layers are required, and neither substitutes for the other. The complementary concept of risk-based testing effort comes from the FDA's Computer Software Assurance for Production and Quality System Software guidance, issued as a draft in 2022 and finalized in 2025. CSA is written for production and quality systems rather than clinical, but its core argument, that testing effort should scale with risk and that unscripted and exploratory testing can produce valid evidence, applies cleanly to study configuration testing. The riskiest items (randomization, dispensing logic, eligibility edit checks) deserve the deepest scrutiny and the cosmetic items do not.
 
 For the foundational treatment of these ideas, see [GAMP 5 and the CSV framework](/articles/gamp5-csv-framework) and [Computer Software Assurance](/articles/computer-software-assurance-fda).
 
@@ -360,7 +360,7 @@ Broader interview preparation is in [GxP quality interview preparation](/article
 - 21 CFR Part 312: Investigational New Drug Application (including §312.32 safety reporting)
 - 21 CFR Part 812: Investigational Device Exemptions
 - FDA Guidance: Use of Electronic Records and Electronic Signatures in Clinical Investigations Under 21 CFR Part 11, Questions and Answers (2023)
-- FDA Guidance: Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2024)
+- FDA Guidance: Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2025)
 - FDA Bioresearch Monitoring (BIMO) Compliance Program 7348.810: Sponsors, Contract Research Organizations, and Monitors
 - ICH E6(R2): Guideline for Good Clinical Practice (2016)
 - ICH E6(R3): Guideline for Good Clinical Practice (2025)

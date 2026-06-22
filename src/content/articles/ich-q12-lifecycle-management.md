@@ -272,8 +272,8 @@ Done well, this collapses a great deal of low-value variation traffic and replac
 
 ## Key references
 
-- ICH Q12, *Technical and Regulatory Considerations for Pharmaceutical Product Lifecycle Management* (Step 4, 2019), with Annex I (established conditions examples) and Annex II (PACMP example), [ich.org](https://www.ich.org)
-- ICH Q8(R2) *Pharmaceutical Development*; ICH Q9(R1) *Quality Risk Management*; ICH Q10 *Pharmaceutical Quality System*; ICH Q11 *Development and Manufacture of Drug Substances*, [ich.org](https://www.ich.org)
+- ICH Q12, *Technical and Regulatory Considerations for Pharmaceutical Product Lifecycle Management* (Step 4, 2019), with Annex I (established conditions examples) and Annex II (PACMP example), [ich.org](https://www.ich.org/page/quality-guidelines)
+- ICH Q8(R2) *Pharmaceutical Development*; ICH Q9(R1) *Quality Risk Management*; ICH Q10 *Pharmaceutical Quality System*; ICH Q11 *Development and Manufacture of Drug Substances*, [ich.org](https://www.ich.org/page/quality-guidelines)
 - US FDA, 21 CFR 314.70 (changes to an approved NDA/ANDA) and 21 CFR 601.12 (changes to an approved biologics license application)
 - US FDA GMPs, 21 CFR Parts 210 and 211
 - EU Variations Regulation (EC) No 1234/2008 and the European Commission Variations Classification Guideline

@@ -246,7 +246,7 @@ A controlled document does not disappear when it is retired. It moves to an arch
 The retention drivers worth knowing:
 
 - **21 CFR 211.180** requires batch production and control records be kept for at least one year after the batch expiration date (longer for products with no expiration date, and certain records longer). 21 CFR 211.180(c) requires records be readily available for inspection.
-- **21 CFR 820.180 and the QMSR / ISO 13485 clause 4.2.5** require device records be retained for the lifetime of the device but not less than two years from date of release.
+- For medical devices, the retention requirement now flows from **ISO 13485:2016 clause 4.2.5**, incorporated by reference under FDA's QMSR (effective February 2, 2026): records are retained for the lifetime of the device as defined by the manufacturer, but not less than two years from the date of product release. Under the QMSR the former standalone records sections, 21 CFR 820.180 (records, general requirements) and 21 CFR 820.181 (device master record), are removed; records control is handled by the new 21 CFR 820.35 together with the ISO 13485 clauses brought in by reference, rather than by the old Part 820 records subpart.
 - **EU GMP Chapter 4** sets retention for batch documentation at least one year after batch expiry or five years after certification by the Qualified Person, whichever is longer.
 - **Clinical (GCP) records** under ICH E6(R2) and applicable regional rules have their own, often longer, retention requirements; see [the trial master file](/articles/etmf-trial-master-file).
 

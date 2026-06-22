@@ -150,7 +150,7 @@ A closed change control is acceptable when all of the following are true:
 > 21 CFR 820.30(i) (design changes) and 820.70(i) (automated process / device software validation).
 > 21 CFR Part 11 (electronic records and signatures).
 > GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition (2022).
-> FDA Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2024).
+> FDA Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2025).
 > ICH Q9 (Quality Risk Management) and ICH Q10 (Pharmaceutical Quality System).
 > ICH Q8(R2), Q12 (design space and product lifecycle management, for the process-change analogue).
 > PIC/S PI 011 (Good Practices for Computerised Systems in GxP Environments).

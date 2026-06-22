@@ -127,7 +127,7 @@ The batch impact is one input into a holistic decision made under `<<FILL: SOP-I
 
 > EU GMP Annex 1, Manufacture of Sterile Medicinal Products (excursion handling, Grade A any-recovery expectation, link to CCS).
 > FDA Guidance for Industry, Sterile Drug Products Produced by Aseptic Processing, Current Good Manufacturing Practice.
-> 21 CFR 211.113 (control of microbiological contamination) and 211.192 (investigation of discrepancies).
+> 21 CFR 211.113 (control of microbiological contamination) and 211.192 (Production record review), which mandates investigation of any unexplained discrepancy or failure of a batch to meet specifications.
 > USP <1116> Microbiological Control and Monitoring of Aseptic Processing Environments.
 > ICH Q9, Quality Risk Management (impact assessment and risk-based disposition).
 

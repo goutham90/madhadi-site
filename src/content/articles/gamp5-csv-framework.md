@@ -272,7 +272,7 @@ For the operational side of keeping a system validated after go-live, including 
 
 ## GAMP 5 and the FDA's CSA Guidance
 
-The FDA finalized its Computer Software Assurance guidance for production and quality system software in 2024, following the September 2022 draft. (Be precise on this in an interview: the 2022 version was a draft, the final came in 2024.) The CSA guidance aligns closely with the GAMP 5 second edition philosophy but comes at it from the regulatory angle rather than the industry good-practice angle. The shorthand: CSA asks you to assure software is fit for its intended use using effort proportionate to risk, and to spend more on assurance and less on documentation for its own sake. That is the same instinct GAMP 5 second edition codifies.
+The FDA finalized its Computer Software Assurance guidance for production and quality system software in 2025, following the September 2022 draft. (Be precise on this in an interview: the 2022 version was a draft, the final came in 2025.) The CSA guidance aligns closely with the GAMP 5 second edition philosophy but comes at it from the regulatory angle rather than the industry good-practice angle. The shorthand: CSA asks you to assure software is fit for its intended use using effort proportionate to risk, and to spend more on assurance and less on documentation for its own sake. That is the same instinct GAMP 5 second edition codifies.
 
 CSA leans hard on two ideas worth knowing: first, separating software by whether it has **direct** versus **indirect** impact on product quality or the quality system, and second, accepting **unscripted testing** (ad hoc and exploratory) and vendor-supplied evidence for lower-risk functions instead of insisting on heavy scripted protocols everywhere. The two frameworks are complementary, not competing. A GAMP 5 validation approach, applied with genuine risk-based calibration, satisfies the intent of CSA. The full treatment is in the [Computer Software Assurance article](/articles/computer-software-assurance-fda).
 
@@ -306,7 +306,7 @@ Assess risk at the function level using severity, probability, and detectability
 Yes, if you have assessed the supplier, obtained and reviewed the evidence, and documented the reliance decision. Citing testing you have never seen is a finding.
 
 **How does CSA relate to GAMP 5?**
-They point the same way: assure fitness for intended use proportionate to risk, accept unscripted testing and vendor evidence for lower-risk functions, and reduce documentation for its own sake. The CSA guidance was a 2022 draft finalized in 2024.
+They point the same way: assure fitness for intended use proportionate to risk, accept unscripted testing and vendor evidence for lower-risk functions, and reduce documentation for its own sake. The CSA guidance was a 2022 draft finalized in 2025.
 
 **Is the V-model incompatible with agile?**
 No. The V-model is a logical specification-to-verification relationship, not a mandate to finish all specs before building. You can specify, build, and verify in increments and consolidate the evidence, as the second edition explicitly supports.

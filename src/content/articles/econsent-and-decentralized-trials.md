@@ -318,7 +318,7 @@ Not the call itself. The source is the investigator's documented assessment, rec
 Sponsor-controlled change management for any vendor update, periodic review on a risk-based schedule, ongoing access reviews, and audit-trail review procedures. A validation is a state to maintain, not a one-time event.
 
 **Q: Which guidances would you cite to justify your approach?**
-ICH E6(R2)/E6(R3) for GCP and consent; 21 CFR Parts 11, 50, and 56; the 2016 FDA/OHRP eConsent Q&A; the 2024 final FDA DCT guidance; the 2023 FDA guidance on electronic systems, records, and signatures in clinical investigations; EU Annex 11 and the 2023 EMA computerised systems guidance; GAMP 5 Second Edition and the 2022 CSA guidance for the risk-based method.
+ICH E6(R2)/E6(R3) for GCP and consent; 21 CFR Parts 11, 50, and 56; the 2016 FDA/OHRP eConsent Q&A; the 2025 final FDA DCT guidance; the 2023 FDA guidance on electronic systems, records, and signatures in clinical investigations; EU Annex 11 and the 2023 EMA computerised systems guidance; GAMP 5 Second Edition and the 2022 CSA guidance for the risk-based method.
 
 ---
 

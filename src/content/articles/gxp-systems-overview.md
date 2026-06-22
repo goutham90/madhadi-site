@@ -230,7 +230,7 @@ For the broader clinical picture, see [clinical systems and GCP digital quality]
 
 **The source question, made concrete:** If a site nurse measures blood pressure, writes it on paper, then types it into the EDC the next day, the paper is the source and the EDC is a transcription, so the paper must be retained and the transcription controlled. If the nurse types directly into the EDC at the point of measurement and there is no paper, the EDC entry is the source. A data management plan must declare which is which, field by field, before the trial opens. Getting this wrong is one of the most common GCP computerized-system findings. Related: [clinical data management and CDISC](/articles/clinical-data-management-cdisc), [econsent and decentralized trials](/articles/econsent-and-decentralized-trials), and [electronic trial master file](/articles/etmf-trial-master-file).
 
-**Acceptance criteria:** Edit checks fire correctly on out-of-range and missing values. Every change carries user, timestamp, old value, new value, and reason. The query lifecycle from raise to resolution is fully traceable. The database lock process is controlled, with no edits after lock without a documented, approved unlock.
+**Acceptance criteria:** Edit checks fire correctly on out-of-range and missing values. Every change carries user, timestamp, old value, new value, and reason. The query lifecycle from raise to resolution is fully traceable. The database lock process is controlled, with no edits after lock without a documented, approved database unlock.
 
 **Common systems (neutral examples):** Medidata Rave EDC, Oracle Clinical One, Veeva Vault EDC, Castor, REDCap (academic, with limited use in regulated submissions).
 
@@ -338,7 +338,7 @@ The pattern-spotting skill behind these is in [FDA warning letters patterns](/ar
 
 ## Building the right validation strategy across systems
 
-Not every system needs the same treatment, and trying to validate them all to the same depth wastes effort that should go to the systems that actually carry risk. GAMP 5 Second Edition (ISPE, 2022) and the FDA's "Computer Software Assurance for Production and Quality System Software," issued as a draft in 2022 and finalized in 2024, both push the same point: scale the effort to the risk. Three factors drive the call.
+Not every system needs the same treatment, and trying to validate them all to the same depth wastes effort that should go to the systems that actually carry risk. GAMP 5 Second Edition (ISPE, 2022) and the FDA's "Computer Software Assurance for Production and Quality System Software," issued as a draft in 2022 and finalized in 2025, both push the same point: scale the effort to the risk. Three factors drive the call.
 
 1. **Business and patient-safety criticality.** Does the system directly affect product quality, patient safety, or the integrity of GxP records? A LIMS does. An internal HR system does not. The criticality of the function, not the price of the software, sets the floor for rigor.
 2. **System complexity and novelty.** Is this an off-the-shelf product used as configured, or a heavily configured or custom system doing something with little prior precedent? More configuration and more novelty mean more to verify and more that can go wrong.
@@ -357,7 +357,7 @@ Two cross-cutting disciplines apply to every system regardless of category. The 
 These come up in validation, QA, and data integrity interviews. Short, concrete answers win.
 
 **"A computerized system lands on your desk. How do you decide how much to validate it?"**
-Run the five questions: what GxP decision does its output drive, where is the original record, who can change the data and is every change captured, how are signatures handled, and what happens on failure or retirement. Then risk-assess the functions and scale the effort to criticality, complexity, and supplier maturity. Cite GAMP 5 Second Edition and the CSA guidance finalized in 2024.
+Run the five questions: what GxP decision does its output drive, where is the original record, who can change the data and is every change captured, how are signatures handled, and what happens on failure or retirement. Then risk-assess the functions and scale the effort to criticality, complexity, and supplier maturity. Cite GAMP 5 Second Edition and the CSA guidance finalized in 2025.
 
 **"Why is the CDS the most scrutinized system in the lab?"**
 Because it owns the raw chromatographic data behind release decisions, and its default configuration often does not capture old and new values for integration changes, and it allows reprocessing and deletion. The classic findings are shared logins, unreviewed trial injections, testing into compliance, and audit trails switched off. The fix is unique accounts, restricted reprocess and delete rights, forced audit trail, and a defined integration-trail review step.

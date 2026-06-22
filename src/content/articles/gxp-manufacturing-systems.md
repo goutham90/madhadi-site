@@ -28,7 +28,7 @@ Before the systems, fix the rules they answer to. Every control in this article 
 | cGMP records and controls | 21 CFR 211.68 (automatic equipment), 211.180-211.194 (records and reports) | Backup, input/output checks, complete batch and laboratory records |
 | Data integrity expectations | FDA Data Integrity and Compliance with cGMP, guidance for industry (2018); MHRA GxP Data Integrity Guidance (2018); PIC/S PI 041 (2021); WHO TRS 1033 Annex 4 (2021) | ALCOA, audit trail review, true copies, system access control, the original-record concept |
 | Computerised system lifecycle | ISPE GAMP 5 Second Edition (2022) | Risk-based, scalable validation by software category; supplier reuse; data integrity by design |
-| Software assurance approach | FDA Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2024) | Risk-based, least-burdensome assurance for non-product software, scripted vs unscripted testing |
+| Software assurance approach | FDA Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2025) | Risk-based, least-burdensome assurance for non-product software, scripted vs unscripted testing |
 | Device production and process software | 21 CFR 820.70(i), now harmonized under the QMSR (21 CFR 820, effective February 2026, incorporating ISO 13485:2016) | Validation of software used in production or the quality system per its intended use |
 
 Keep that table close. When an inspector asks "what requires this control," you cite the row, not a feeling. The device columns matter because the same MES, SCADA, and LIMS platforms run in device plants under 820.70(i) and ISO 13485, not just in drug plants under Part 211.

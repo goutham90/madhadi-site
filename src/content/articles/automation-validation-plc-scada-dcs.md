@@ -23,7 +23,7 @@ Automation systems in GxP manufacturing sit inside the same regulatory framework
 - **EU GMP Annex 11**, Computerised systems. The European expectation for any computerized system used in GMP, including process control systems. It requires validation proportional to risk, an enabled and reviewable audit trail, controlled changes, managed access, and periodic evaluation. Annex 11 explicitly addresses electronic data, accuracy checks, and the relationship between a computerized system and the process it controls.
 - **EU GMP Annex 15**, Qualification and validation. The qualification life cycle (URS, DQ, IQ, OQ, PQ) that frames how you demonstrate a system is fit for use.
 - **GAMP 5 Second Edition (2022)**, A Risk-Based Approach to Compliant GxP Computerized Systems. The industry framework that drives the software category model, the life cycle, and the testing approach for PLCs, SCADA, DCS, and their integration with MES.
-- **FDA Computer Software Assurance for Production and Quality System Software**, issued as a draft in 2022 and finalized in 2024. It reframes effort around critical thinking and risk, pushing test rigor toward features whose failure would most directly harm product quality or patient safety. It is a useful lens for scoping automation testing, treated more fully in [Computer Software Assurance (CSA)](/articles/computer-software-assurance-fda).
+- **FDA Computer Software Assurance for Production and Quality System Software**, issued as a draft in 2022 and finalized in 2025. It reframes effort around critical thinking and risk, pushing test rigor toward features whose failure would most directly harm product quality or patient safety. It is a useful lens for scoping automation testing, treated more fully in [Computer Software Assurance (CSA)](/articles/computer-software-assurance-fda).
 
 A practical point: regulators do not inspect your validation binder for its own sake. They inspect to answer one question. Can you trust the data this system produced when you released the batch. Every validation activity should trace back to that question. For the broader context, see [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11) and the [GAMP 5 CSV framework](/articles/gamp5-csv-framework).
 
@@ -427,7 +427,7 @@ The jump from baseline to this state is mostly about moving controls from manual
 - EU GMP Annex 11, Computerised systems
 - EU GMP Annex 15, Qualification and validation
 - ISPE GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition (2022)
-- FDA Guidance, Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2024)
+- FDA Guidance, Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2025)
 - ANSI/ISA-95, Enterprise-Control System Integration
 - ANSI/ISA-88 (S88), Batch Control
 - ANSI/ISA-18.2, Management of Alarm Systems for the Process Industries

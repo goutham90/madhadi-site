@@ -55,7 +55,7 @@ Before you can contribute, you need to understand the framework that drives the 
 
 **ISPE and GAMP.** GAMP 5 (Good Automated Manufacturing Practice), published by ISPE, is the industry framework for computer system validation. The Second Edition was released in 2022. It is not a regulation, but it is the framework most GxP validation work follows. The [GAMP 5 CSV framework article](/articles/gamp5-csv-framework) walks through how it is applied.
 
-**FDA Computer Software Assurance (CSA).** FDA issued the guidance "Computer Software Assurance for Production and Quality System Software" as a draft in September 2022 and finalized it in 2024. It promotes a risk-based, least-burdensome approach that scales testing effort to patient and product risk. It is a shift in emphasis, not a new regulation, and it is covered in [the computer software assurance approach](/articles/computer-software-assurance-fda).
+**FDA Computer Software Assurance (CSA).** FDA issued the guidance "Computer Software Assurance for Production and Quality System Software" as a draft in September 2022 and finalized it in 2025. It promotes a risk-based, least-burdensome approach that scales testing effort to patient and product risk. It is a shift in emphasis, not a new regulation, and it is covered in [the computer software assurance approach](/articles/computer-software-assurance-fda).
 
 Here is a quick orientation to which document governs what, so you are not guessing in your first month.
 

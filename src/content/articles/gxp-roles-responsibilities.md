@@ -198,7 +198,7 @@ See [the OOS investigation process](/articles/oos-investigation-process), [out-o
 | URS-027 | Audit trail captures who, what, when for GxP record changes, and cannot be disabled by users | High (data integrity) | OQ-031 | Pass; change logged with old/new value, user, timestamp |
 | URS-040 | Result rounds to 2 decimals per rounding SOP | Medium | OQ-045 | Pass across boundary values |
 
-**A newer testing philosophy.** FDA's "Computer Software Assurance for Production and Quality System Software" was issued as a draft in 2022 and finalized in 2024. It pushes toward effort proportional to risk, with less rote scripted testing for low-risk functions and more for the features that actually affect product or data quality. Practitioners increasingly speak of CSA as the testing philosophy and CSV as the documented outcome. The two are covered in [the GAMP 5 CSV framework](/articles/gamp5-csv-framework) and [computer software assurance](/articles/computer-software-assurance-fda).
+**A newer testing philosophy.** FDA's "Computer Software Assurance for Production and Quality System Software" was issued as a draft in 2022 and finalized in 2025. It pushes toward effort proportional to risk, with less rote scripted testing for low-risk functions and more for the features that actually affect product or data quality. Practitioners increasingly speak of CSA as the testing philosophy and CSV as the documented outcome. The two are covered in [the GAMP 5 CSV framework](/articles/gamp5-csv-framework) and [computer software assurance](/articles/computer-software-assurance-fda).
 
 **Roles and responsibilities.** A validation specialist's day is mostly structured document work: writing test scripts, reviewing vendor documentation, executing protocols, capturing evidence as screenshots or printouts, writing deviation reports when a test fails, and chasing approvals. The work is bursty. It peaks at system go-live, then quiets until the next change or upgrade triggers regression testing. A validation lead is judged on whether the documented evidence would survive an inspector reading it cold, with no narration from the author. QA approves the plan, the protocols, and the summary report; without QA approval, the package is not valid.
 
@@ -208,7 +208,7 @@ See [the OOS investigation process](/articles/oos-investigation-process), [out-o
 
 - "Explain the V-model." Map requirements on the left to verification on the right: URS to PQ, functional spec to OQ, design/installation to IQ.
 - "What is the difference between IQ, OQ, and PQ?" Installed correctly, functions correctly across its range, performs correctly in the real process.
-- "What is the difference between CSV and CSA?" CSA is the risk-based assurance mindset that scales testing effort to risk; CSV is the documented validation outcome. The 2022 FDA CSA guidance was a draft, finalized in 2024.
+- "What is the difference between CSV and CSA?" CSA is the risk-based assurance mindset that scales testing effort to risk; CSV is the documented validation outcome. The 2022 FDA CSA guidance was a draft, finalized in 2025.
 - "A test fails. What do you do?" Raise a deviation, investigate, and resolve it. You never change the expected result to make it pass.
 
 For the artifacts this function produces, see [the validation deliverables guide](/articles/validation-deliverables-guide), [writing validation protocols and reports](/articles/writing-validation-protocols-and-reports), and [the validation master plan and periodic review](/articles/validation-master-plan-and-periodic-review).

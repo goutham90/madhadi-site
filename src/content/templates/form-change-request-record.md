@@ -162,7 +162,7 @@ The following shows the record completed for an example chromatography data syst
 | Audit trail affected | No (confirmatory check only) |
 | Impact conclusion | Low impact: verify CoA output on affected templates |
 
-**Section C** Category assigned: 2 Major. Basis: affects a non-critical-path GxP output (CoA rendering), not core result calculation; escalated from the requestor's "minor printing fix" label because rendering of a GxP output is in scope.
+**Section C** Category assigned: 2 Major. Basis: category follows assessed scope and risk, not the impact rating alone. The change is in scope of a GxP output (CoA rendering) rather than core result calculation, and a GxP-output change carries Major by default regardless of a Low impact rating, because a rendering error on a released CoA reaches the record a customer relies on. Escalated from the requestor's "minor printing fix" label because rendering of a GxP output is in scope. (The Low impact conclusion and the Major category are consistent: impact describes the expected severity if the change misbehaves, while category is driven by the GxP scope it touches.)
 
 **Section E** Requestor M. Sato 04 Jun; System owner A. Lindqvist 05 Jun; IT D. Cho 05 Jun; Validation P. Rao 08 Jun; QA R. Gomez 09 Jun 2026.
 

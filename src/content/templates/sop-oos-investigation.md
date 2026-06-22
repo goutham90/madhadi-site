@@ -143,11 +143,11 @@ An OOS investigation is acceptable when all of the following are true:
 > 21 CFR 211.192 (production record review and investigation of discrepancies and failures).
 > 21 CFR 211.165(f) (rejection of batches failing to meet specifications).
 > 21 CFR 211.194 (laboratory records).
-> FDA Guidance for Industry, Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production (October 2006).
-> ICH Q7, section 8.15 (deviations) and section 2.5 (quality unit review of deviations and investigations) for active pharmaceutical ingredients.
+> FDA Guidance for Industry, Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production (originally October 2006; revised Level 2, May 2022).
+> ICH Q7, section 8.15 (deviations) and section 2.2 (responsibilities of the quality unit(s), which cover review and approval of deviations and investigations) for active pharmaceutical ingredients.
 > ICH Q10 (pharmaceutical quality system) for the systemic handling of quality events.
 > EU GMP Chapter 1 and Chapter 6 (quality control); MHRA GxP Data Integrity Guidance and Definitions.
-> 21 CFR 820.90 / harmonized QMSR (control of nonconforming product) for finished-device testing.
+> 21 CFR 820.90 (control of nonconforming product) for finished-device testing; under the QMSR (effective February 2, 2026) this maps to ISO 13485:2016 clause 8.3, incorporated by reference.
 
 Confirm the current version and clause numbers of each reference before issue.
 

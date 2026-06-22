@@ -27,7 +27,7 @@ In the US, distribution of finished drug product is shaped by:
 
 - 21 CFR 211, the cGMP regulations, which still reach warehousing and distribution operations a manufacturer controls. 21 CFR 211.142 (warehousing procedures) and 211.150 (distribution procedures) require written procedures and records that let you trace and recall.
 - 21 CFR 203 (Prescription Drug Marketing Act regulations) for sample and pedigree handling.
-- The Drug Supply Chain Security Act (DSCSA, Title II of the Drug Quality and Security Act of 2013), which governs serialization, transaction information, and traceability. The interoperable, electronic, package-level tracing requirements reached full effect in 2024 after stabilization periods. See [DSCSA serialization and track and trace](/articles/dscsa-serialization-track-and-trace) for the detail.
+- The Drug Supply Chain Security Act (DSCSA, Title II of the Drug Quality and Security Act of 2013), which governs serialization, transaction information, and traceability. The interoperable, electronic, package-level tracing requirements reached full effect in 2025 after stabilization periods. See [DSCSA serialization and track and trace](/articles/dscsa-serialization-track-and-trace) for the detail.
 - USP General Chapter <1079>, Good Storage and Distribution Practices for Drug Products, and <1118>, Monitoring Devices, Time, Temperature, and Humidity, which give the technical basis for monitoring device selection and use.
 
 Cross-cutting data integrity guidance still applies to all of this:

@@ -123,7 +123,7 @@ This assessment is complete and defensible when all of the following are true:
 > EU GMP Annex 11, sections 1 (risk management), 4 (validation), and 10 (change and configuration management).
 > ICH Q9 (Quality Risk Management) for the severity / probability / detectability framework.
 > GAMP 5, Second Edition (2022), risk-based approach and supplier reliance.
-> FDA Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2024).
+> FDA Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2025).
 > ICH Q8(R2) (design space) and Q12 (lifecycle management) for the process-change analogue.
 > 21 CFR Part 11; 21 CFR 211.68; 21 CFR 820.70(i) for device software.
 

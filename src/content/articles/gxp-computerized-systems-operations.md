@@ -184,7 +184,7 @@ Every proposed change (a patch, a configuration edit, a new user role, a new rep
 4. **What testing is required?** Proportionate to risk. Not every change needs full requalification.
 5. **What documentation has to be updated?** Configuration baseline, validation records, SOPs, training.
 
-The risk-proportionate decision on test depth is where modern thinking has moved. The FDA Computer Software Assurance (CSA) guidance, issued as a draft in 2022 and finalized in September 2024 ("Computer Software Assurance for Production and Quality System Software"), pushes the same idea: spend test effort where the patient or product risk is, use unscripted and ad-hoc testing for lower-risk features, and reserve scripted testing for high-risk functions. For a change, that means a configuration edit to a low-risk display field is not tested the same way as a change to a calculation that feeds a release decision. See [Computer Software Assurance (CSA)](/articles/computer-software-assurance-fda) and [CSV Risk Assessment Methodology](/articles/csv-risk-assessment-methodology).
+The risk-proportionate decision on test depth is where modern thinking has moved. The FDA Computer Software Assurance (CSA) guidance, issued as a draft in 2022 and finalized in September 2025 ("Computer Software Assurance for Production and Quality System Software"), pushes the same idea: spend test effort where the patient or product risk is, use unscripted and ad-hoc testing for lower-risk features, and reserve scripted testing for high-risk functions. For a change, that means a configuration edit to a low-risk display field is not tested the same way as a change to a calculation that feeds a release decision. See [Computer Software Assurance (CSA)](/articles/computer-software-assurance-fda) and [CSV Risk Assessment Methodology](/articles/csv-risk-assessment-methodology).
 
 ### Change Categories in Practice
 
@@ -435,7 +435,7 @@ The operational controls described here map to the following requirements. The c
 | Periodic review | EU GMP Annex 11 clause 11; EU GMP Annex 15; ISPE GAMP 5 (2nd Edition) |
 | Security management | 21 CFR Part 11.10; EU GMP Annex 11 clause 12 |
 | User access control | 21 CFR 11.10(d); EU GMP Annex 11 clause 12.1 |
-| Risk-proportionate testing of changes | FDA CSA guidance (draft 2022, final 2024); ISPE GAMP 5 (2nd Edition) |
+| Risk-proportionate testing of changes | FDA CSA guidance (draft 2022, final 2025); ISPE GAMP 5 (2nd Edition) |
 | System retirement | ISPE GAMP 5 (2nd Edition); EU GMP Annex 11 clause 17 |
 
 A closing point worth keeping in view: nothing in this list is a one-time task. Each row is a recurring obligation with an owner, a frequency, and an evidence trail. The systems that hold up under inspection are not the ones with the thickest original validation binder. They are the ones where the operational record shows the controls actually ran, month after month, long after go-live.

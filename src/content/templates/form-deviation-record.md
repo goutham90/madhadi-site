@@ -136,7 +136,7 @@ Bound the event before investigating root cause. Ask "what else could be affecte
 
 ## References
 
-> 21 CFR 211.192 (investigation of discrepancies and batch or specification failures, distributed or not).
+> 21 CFR 211.192 (Production record review; requires thorough investigation of any unexplained discrepancy or batch/specification failure whether or not the batch was distributed, extending to other batches).
 > 21 CFR 211.22(a) (authority of the quality control unit to approve or reject).
 > EU GMP (EudraLex Volume 4), Part I, Chapter 1, Pharmaceutical Quality System.
 > ICH Q10 (CAPA and management review) and ICH Q9 (risk-based classification and scope).
