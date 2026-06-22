@@ -402,7 +402,7 @@ It goes through change control, even if it is fast. An expedited pathway applies
 Category 4, configured product. It stays Category 4 as long as it is used with configuration. The moment someone adds custom code, complex macros, or a bespoke interface, those specific components carry Category 5 development-lifecycle expectations, and the testing has to follow for those parts even though the base product is still Category 4.
 
 **"When did the FDA CSA guidance become final?"**
-It was a draft in September 2022 and was finalized in 2024. The draft is not citable as final.
+It was a draft in September 2022 and was finalized in 2025. The draft is not citable as final.
 
 **"How do you prove your validation was complete?"**
 The requirements traceability matrix. Every requirement maps to evidence, scripted, unscripted, or supplier, and every test maps back to a requirement, with documented rationale for anything covered by something other than a site test. I can trace a single GxP-critical requirement from URS to evidence to result to current validated state in a couple of minutes.
