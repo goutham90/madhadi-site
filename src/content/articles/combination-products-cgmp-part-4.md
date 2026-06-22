@@ -77,6 +77,14 @@ If your operating system is a device quality system under Part 820, 21 CFR 4.4(b
 
 The ones that surprise device teams are **stability (211.166)** and **expiration dating (211.137)**. Devices do not normally carry an expiration date driven by chemical degradation of an active ingredient. A drug constituent does, and that means a stability program with ICH-aligned conditions, a defined pull schedule, and stability-indicating methods. See [Stability Programs and ICH Q1](/articles/stability-programs-ich). Container closure integrity also becomes a sterility-over-shelf-life question for sterile combination products, covered in [Container Closure Integrity Testing](/articles/container-closure-integrity-testing).
 
+### Choosing your base: a short decision path
+
+Two decisions sit behind the quality system. They are related but not the same, and people blur them.
+
+1. **What is the PMOA?** Identify the single constituent that provides the most important therapeutic action. Drug or biologic PMOA points to a drug or biologics lead center; device PMOA points to the device center. If it is genuinely unclear, file a Pre-RFD or RFD with the Office of Combination Products before building anything.
+2. **Which base operating system do you run?** The base does not have to match the PMOA, although it usually does. Ask which full quality system your site already operates well. A Part 211 plant uses 211 as the base and adds the six device provisions; a Part 820 / QMSR site uses 820 as the base and adds the eight drug provisions. Pick the base that matches your real operation, then add the other side's named provisions in full.
+3. **Write both down.** The PMOA determination (with rationale and any RFD correspondence) and the base choice (with the mapped added provisions) are the two things an inspector asks for first.
+
 ## A regulatory note: Part 820, the QMSR, and Part 4
 
 The device base referenced throughout Part 4 is 21 CFR Part 820. As of 2 February 2026, FDA's amended Part 820, the Quality Management System Regulation (QMSR), incorporates ISO 13485:2016 by reference rather than spelling out the old quality system elements. The substance of the provisions Part 4 calls out (management responsibility, design controls, purchasing, CAPA, installation, servicing) maps onto ISO 13485 clauses, but the citations and document structure shift. When you write or audit a combination-product quality plan after that date, expect the device side to be expressed in ISO 13485 clause language with FDA additions, not the legacy 820.x subpart names. Know both, because legacy design history files and many people's habits still use the old names. See [Medical Device Quality System Regulation (QMSR)](/articles/medical-device-quality-system-qmsr).
@@ -115,6 +123,28 @@ A compact version of the quality plan mapping table for the drug-base case:
 | 820.200 Servicing | Not applicable (single-use disposable); documented N/A rationale | Quality |
 
 Writing "not applicable" is fine and expected, but write the rationale. An undocumented gap reads as an oversight. A documented N/A reads as a decision.
+
+### Worked example: releasing a co-packaged kit
+
+Take a co-packaged kit: a vial of lyophilized biologic, a prefilled diluent syringe, and a reconstitution needle, assembled into one carton and released as one product. Two constituent histories converge at the packaging step, and release has to reconcile both before the kit ships.
+
+| Release element | Drug constituent (vial) | Device constituent (syringe, needle) |
+|---|---|---|
+| Batch record complete and reviewed | Drug batch record under Part 211 | Device history record / device master record evidence |
+| Specification met | Assay, sterility, endotoxin, appearance | Dimensional, functional (delivery), package integrity |
+| Stability and dating support | Stability data supports the kit expiry | Component shelf life supports the kit expiry |
+| Traceability | Drug lot number captured on the kit record | Device lot or serial captured on the kit record |
+| Reconciliation | Quantities reconciled against components issued | Quantities reconciled against components issued |
+
+The release rule: no kit ships until both constituent histories are complete, both sets of specifications are met, the labeled expiry is supported by the shorter-lived constituent, and lot traceability lets you reconstruct which drug lot was paired with which device lot. One quality decision releases the kit, but it rests on two reconciled records. The common failure here is releasing on the drug record alone and treating the device components as bought-in stock with no constituent reconciliation.
+
+## The EU view: drug-device combinations and MDR Article 117
+
+The US framework is Part 4. The EU regulates the same physical products differently, and anyone scoping a global program needs both. In the EU there is no single combination-product regulation. A product whose principal mode of action is pharmacological, immunological, or metabolic is regulated as a medicinal product under Directive 2001/83/EC, and the device part rides along inside the marketing authorization. The hinge is **Article 117 of the EU Medical Device Regulation (MDR, Regulation (EU) 2017/745)**, which amended Annex I of that medicinal-products directive.
+
+For an integral drug-device combination (a single, integral product such as a prefilled syringe, an autoinjector, or a drug-eluting stent) where the device part is not already CE-marked for that use, Article 117 requires the marketing authorization dossier to include a **Notified Body Opinion (NBOp)** confirming that the device part conforms to the relevant General Safety and Performance Requirements (GSPRs) in Annex I of the MDR. The requirement applies to new marketing authorization applications submitted from 26 May 2021. In practice it means engaging a notified body early, building the device-part evidence to MDR GSPRs, and aligning device lifecycle changes with the medicines variation framework.
+
+The mapping to the US concepts is close but not identical. EU principal mode of action parallels US primary mode of action, and the EU integral combination parallels the US single-entity drug-led combination. The deliverables differ: the EU wants an NBOp on the device part against MDR GSPRs; the US wants the streamlined Part 4 quality plan with the added device provisions. A global program builds the device design and risk file once (design controls, ISO 14971, IEC 62366-1 human factors) and then presents it to each regulator in its own form: a design history file mapped to 21 CFR 4.4 for FDA, and an MDR GSPR conformity file for the NBOp in the EU.
 
 ## Acceptance criteria: what good looks like
 

@@ -44,7 +44,7 @@ E&L sits across pharmacopeial chapters, device standards, and industry recommend
 
 - **USP <1663>, Assessment of Extractables Associated with Pharmaceutical Packaging and Delivery Systems.** The framework chapter for designing and interpreting an extractables study. It is informational (the <1000-series numbering signals informational, not mandatory), but it is the reference reviewers expect you to have followed.
 - **USP <1664>, Assessment of Drug Product Leachables Associated with Pharmaceutical Packaging and Delivery Systems.** The companion framework for leachables studies, including how to use extractables data to design the leachables program and how to assess results.
-- **USP <661.1>, Plastic Materials of Construction**, and **USP <661.2>, Plastic Packaging Systems for Pharmaceutical Use.** These became official on 1 December 2025 and restructure how plastics are qualified. <661.1> evaluates the material (the resin and its additives) and <661.2> evaluates the assembled packaging system. The intended logic is tiered: characterize the material under <661.1>, assess the packaging system for extractables with reference to <1663>, then test the packaged product for leachables with reference to <1664>.
+- **USP <661.1>, Plastic Materials of Construction**, and **USP <661.2>, Plastic Packaging Systems for Pharmaceutical Use.** These became official on 1 December 2025 and restructure how plastics are qualified. <661.1> evaluates the material (the resin and its additives) and <661.2> evaluates the assembled packaging system. The intended logic is tiered: characterize the material under <661.1>, assess the packaging system for extractables with reference to <1663>, then test the packaged product for leachables with reference to <1664>. The parent chapter <661> was revised in parallel and became official 1 February 2026; it no longer carries the old test methods and acceptance criteria (those moved into <661.1> and <661.2>), so do not cite legacy <661> test methods after that date.
 - **USP <381> Elastomeric Closures for Injections**, **<660> Glass Containers**, and **<671> Packaging and Storage Requirements** cover specific material classes and performance testing.
 - **USP <87> Biological Reactivity Tests, In Vitro** and **<88> Biological Reactivity Tests, In Vivo** assess the biological response to plastics and elastomers, complementing the chemical characterization.
 
@@ -53,8 +53,14 @@ E&L sits across pharmacopeial chapters, device standards, and industry recommend
 For medical devices and the device constituent of a combination product, the biocompatibility framework is the ISO 10993 series:
 
 - **ISO 10993-18, Chemical characterization of medical device materials within a risk management process.** The device analogue of an extractables study: identify and quantify the chemical constituents that could be released, as the input to a toxicological risk assessment.
-- **ISO 10993-17, Toxicological risk assessment of medical device constituents.** Takes the chemical characterization output and derives whether the identified constituents are tolerable, using exposure-based limits.
+- **ISO 10993-17, Toxicological risk assessment of medical device constituents.** Takes the chemical characterization output and derives whether the identified constituents are tolerable, using exposure-based limits. The second edition, ISO 10993-17:2023, replaced the single allowable-limit method of the 2002 version with a screening-first approach built on the Toxicological Screening Limit, described below.
 - The broader ISO 10993-1 risk-based framework decides which biological endpoints and chemical work are needed for a given device based on contact type and duration.
+
+### The 2023 revision of ISO 10993-17 (a transition closing in 2026)
+
+The device side of E&L changed materially in 2023 and the transition window is nearly shut, so this is worth knowing exactly. ISO 10993-17:2023 (the second edition) introduced a screening-first method built on the **Toxicological Screening Limit (TSL)**: a cumulative-exposure dose below which an identified constituent is of negligible toxicological concern and needs no further assessment. The standard sets two TSLs by contact duration, 120 micrograms cumulative for short-term exposure (24 hours to 30 days) and 600 micrograms cumulative for long-term exposure (over 30 days). A constituent whose estimated exposure is below the applicable TSL is screened out. One above it moves to a full toxicological risk assessment, where you estimate a worst-case exposure dose using either experimental release kinetics from the leachables study or assumed (conservative) release kinetics.
+
+FDA recognized ISO 10993-17:2023 in part on 18 December 2023 and set a transition: declarations of conformity to the 2002 first edition are accepted only until **20 December 2026**, after which the 2023 edition is the recognized version. If you run device-constituent toxicology, move to the 2023 method and its TSL and release-kinetics vocabulary now; an assessment written to the withdrawn first edition will be questioned after that date.
 
 A combination product (see [Combination Products and 21 CFR Part 4](/articles/combination-products-cgmp-part-4)) often has to satisfy both the USP pharmaceutical framework for its drug-contact path and the ISO 10993 framework for the device constituent's patient-contact path. The chemical characterization work can sometimes be shared, but the assessment criteria differ.
 
@@ -73,6 +79,29 @@ The hardest conceptual part of E&L is that you cannot identify and toxicological
 The key relationships: you calculate a product-specific AET from the SCT and the dosing, you identify every compound at or above the AET, you compare each identified leachable's exposure to the SCT and QT, and you toxicologically qualify anything that warrants it. Genotoxic or carcinogenic-class compounds (for example, certain nitrosamines or PAHs) override the generic thresholds and are controlled to much lower, hazard-specific limits.
 
 Parenteral and ophthalmic products (PODP) have their own PQRI-derived threshold work with different numbers reflecting the different exposure, so do not reuse the OINDP SCT of 0.15 micrograms per day for an injectable without checking the applicable PODP recommendation and the product's actual exposure.
+
+### A worked AET calculation
+
+The AET is the number analysts actually work to, so it is worth seeing the arithmetic. Take an orally inhaled product dosed at 2 actuations twice a day, 4 actuations per day, and use the OINDP SCT of 0.15 micrograms per day.
+
+1. **Start from the SCT.** 0.15 micrograms per day is the total daily intake below which an organic leachable needs no toxicological evaluation.
+2. **Divide by the number of dose units per day** to get the allowed amount per actuation: 0.15 micrograms per day divided by 4 actuations per day = 0.0375 micrograms per actuation. This is the estimated AET expressed per dose unit.
+3. **Convert to the analytical basis.** If the method extracts and analyzes one actuation in a known solvent volume, express 0.0375 micrograms per actuation as a concentration in the test solution so it can be compared to chromatographic responses.
+4. **Apply the analytical uncertainty (response-factor) correction.** Because different compounds give different detector responses and many are semi-quantified against a single surrogate, the estimated AET is reduced by an uncertainty factor to a conservative final AET. The correction uses the variability of relative response factors across the calibration set; where response-factor data are limited, a common conservative default is to set the final AET at 50 percent of the estimated AET. Here that gives a final AET of about 0.019 micrograms per actuation.
+5. **Report and identify at or above the final AET.** Every peak at or above 0.019 micrograms per actuation is reported, identified, and its daily exposure compared to the SCT and QT.
+
+Two cautions. The AET scales inversely with daily dose: a higher-dose product drives a lower per-unit AET and a longer identification list. And the AET is an identification trigger, not a safety limit, so a compound below the AET is not "safe," it is below the level you are required to chase by default; known genotoxic classes are controlled to hazard-specific limits regardless of the AET.
+
+### Disposition: what to do with each identified leachable
+
+Once a leachable is identified at or above the AET, a short decision path tells you how far to take it:
+
+1. Is the compound a known genotoxic, carcinogenic, or otherwise hazard-classified species (for example an N-nitrosamine, a PAH, a known mutagen)? If yes, control it to its compound-specific limit (for nitrosamines, the acceptable intake under ICH M7 and the nitrosamine guidances), regardless of the generic thresholds. If no, continue.
+2. Is the estimated daily exposure below the SCT for the route? If yes, no further toxicological evaluation is needed; record the conclusion. If no, continue.
+3. Is the exposure between the SCT and the QT? If yes, identify the compound firmly and perform a structure-based safety evaluation. If the exposure is at or above the QT, perform a full toxicological qualification, which may need compound-specific data.
+4. Does any identified leachable exceed its qualified safe level? If yes, it is a result that has to be controlled: change the material, change the process, tighten the specification, or justify and qualify a higher limit with data.
+
+Document the path taken for each compound. The output is a written safety conclusion that the product is acceptable with respect to leachables for the labeled shelf life and route. See [Nitrosamine Impurities and ICH M7](/articles/nitrosamines-impurities-q3-m7) for the genotoxic-impurity branch.
 
 ## Designing a controlled extraction study
 

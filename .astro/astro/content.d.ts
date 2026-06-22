@@ -1403,6 +1403,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"assessment-extractables-leachables-risk.md": {
+	id: "assessment-extractables-leachables-risk.md";
+  slug: "assessment-extractables-leachables-risk";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "assessment-system-impact.md": {
 	id: "assessment-system-impact.md";
   slug: "assessment-system-impact";
@@ -1452,6 +1459,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"form-data-criticality-classification-assessment.md": {
+	id: "form-data-criticality-classification-assessment.md";
+  slug: "form-data-criticality-classification-assessment";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "form-deviation-record.md": {
 	id: "form-deviation-record.md";
   slug: "form-deviation-record";
@@ -1487,6 +1501,20 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"log-data-stream-inventory.md": {
+	id: "log-data-stream-inventory.md";
+  slug: "log-data-stream-inventory";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"matrix-combination-product-part4-provisions.md": {
+	id: "matrix-combination-product-part4-provisions.md";
+  slug: "matrix-combination-product-part4-provisions";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "matrix-data-governance-raci.md": {
 	id: "matrix-data-governance-raci.md";
   slug: "matrix-data-governance-raci";
@@ -1511,6 +1539,13 @@ declare module 'astro:content' {
 "plan-business-continuity.md": {
 	id: "plan-business-continuity.md";
   slug: "plan-business-continuity";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-combination-product-quality.md": {
+	id: "plan-combination-product-quality.md";
+  slug: "plan-combination-product-quality";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1683,6 +1718,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"protocol-extractables-controlled-extraction.md": {
+	id: "protocol-extractables-controlled-extraction.md";
+  slug: "protocol-extractables-controlled-extraction";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "protocol-fat-sat.md": {
 	id: "protocol-fat-sat.md";
   slug: "protocol-fat-sat";
@@ -1725,9 +1767,23 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"protocol-leachables-study.md": {
+	id: "protocol-leachables-study.md";
+  slug: "protocol-leachables-study";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "record-oos-investigation-phase1-phase2.md": {
 	id: "record-oos-investigation-phase1-phase2.md";
   slug: "record-oos-investigation-phase1-phase2";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"record-pmoa-determination.md": {
+	id: "record-pmoa-determination.md";
+  slug: "record-pmoa-determination";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1907,6 +1963,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"sop-data-criticality-classification.md": {
+	id: "sop-data-criticality-classification.md";
+  slug: "sop-data-criticality-classification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "sop-deviation-management.md": {
 	id: "sop-deviation-management.md";
   slug: "sop-deviation-management";
@@ -2008,6 +2071,13 @@ declare module 'astro:content' {
 "test-plan-csa.md": {
 	id: "test-plan-csa.md";
   slug: "test-plan-csa";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"worksheet-aet-calculation.md": {
+	id: "worksheet-aet-calculation.md";
+  slug: "worksheet-aet-calculation";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">

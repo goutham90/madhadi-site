@@ -176,6 +176,52 @@ See [chromatography-data-system-integrity](/articles/chromatography-data-system-
 
 ---
 
+## A second worked example: a hybrid balance weighment
+
+Contrast the high-criticality CDS with a hybrid stream that needs different controls, so the dial is visible.
+
+**Stream**: Dispensing weighment for a GMP batch. The balance prints a paper ticket; the operator transcribes the weight onto the batch record by hand; a second person verifies.
+
+**Criticality**: High. The weighment feeds the batch formulation and therefore release. A wrong weight is a wrong dose.
+
+**Inherent risk**: Medium to high, but for a different reason than the CDS. The balance is a simple fixed-output instrument with low manipulability, so the configurable-software risk is low. The risk lives in the **transcription**: a hand-copied number is the classic point of error and of falsification, and a paper ticket can be discarded and re-printed.
+
+**Controls and residual risk**: Controls are a calibrated balance with the printed ticket retained as raw data, independent second-person verification of the transcription against the ticket, the ticket attached to the batch record, and a controlled batch record. With the ticket retained and a real second check, residual likelihood drops to low-medium. Without ticket retention (transcription only) or without the second check, it stays high.
+
+**Priority and control depth**: High criticality with low-medium residual likelihood puts it in the **High** band. Required depth: retain the printout as raw data, enforce contemporaneous second-person verification, and treat a missing or re-printed ticket as a deviation. There is no audit trail to review because the instrument has none; the control that matters is raw-data retention and the second check, not audit-trail review.
+
+The lesson: two high-criticality streams can need completely different controls. The CDS needs audit-trail review because its risk is electronic manipulation; the balance needs raw-data retention and a second check because its risk is transcription. The classification model is what tells you which control to spend on. See [hybrid-paper-electronic-records](/articles/hybrid-paper-electronic-records) for the hybrid-record control detail.
+
+---
+
+## An optional numeric scoring rubric
+
+The three-tier qualitative scale is enough for most programs, but some quality systems prefer a number so classifications sort and trend. If you use one, anchor every level, or the number becomes the hand-wave the model is supposed to prevent.
+
+A workable scheme scores two axes and multiplies them.
+
+**Criticality (consequence), C:**
+
+| Score | Level | Anchor |
+|---|---|---|
+| 4 | Critical | Drives batch disposition, dose, sterility assurance, or a clinical-safety decision; on a CoA or submission |
+| 3 | High | Strong indirect influence on a release or quality decision |
+| 2 | Medium | Supporting or verification data |
+| 1 | Low | Informational, non-GMP |
+
+**Residual likelihood of error or manipulation after controls, L:**
+
+| Score | Level | Anchor |
+|---|---|---|
+| 4 | High | Configurable system or manual transcription with weak or unverified controls |
+| 3 | Medium | Some controls, gaps remain (for example audit trail enabled but reviewed only periodically) |
+| 2 | Low | Strong controls operating (unique logins, reviewed audit trail or retained raw data, second check) |
+| 1 | Very low | Fully automated, locked, verified transfer with no human touchpoint |
+
+**Priority = C x L.** Band the product: 12 to 16 critical, 6 to 9 high, 3 to 4 medium, 1 to 2 low. A score of 16 (critical consequence, high residual likelihood) is the case that gets attention first. The number is a sorting and communication aid only; the written rationale behind each axis score is still the substance an inspector reads. Never record a score without the narrative.
+
+---
+
 ## Roles and responsibilities
 
 Classification is a cross-functional act, and inspectors will ask who decided. Define it clearly.
