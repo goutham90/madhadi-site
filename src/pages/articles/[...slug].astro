@@ -4,13 +4,20 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 export async function getStaticPaths() {
  const articles = await getCollection('articles', ({ data }) => !data.draft);
+ const templates = await getCollection('templates', ({ data }) => !data.draft);
  return articles.map(entry => ({
  params: { slug: entry.slug },
- props: { entry },
+ props: {
+ entry,
+ relatedTemplates: templates
+ .filter(t => (t.data.relatedArticles ?? []).includes(entry.slug))
+ .sort((a, b) => a.data.docType.localeCompare(b.data.docType) || a.data.title.localeCompare(b.data.title))
+ .map(t => ({ slug: t.slug, title: t.data.title, docType: t.data.docType })),
+ },
  }));
 }
 
-const { entry } = Astro.props;
+const { entry, relatedTemplates } = Astro.props;
 const { Content } = await entry.render();
 ---
 <ArticleLayout
@@ -21,6 +28,7 @@ const { Content } = await entry.render();
  tier={entry.data.tier}
  pillar={entry.data.pillar}
  body={entry.body}
+ relatedTemplates={relatedTemplates}
 >
  <Content />
 </ArticleLayout>

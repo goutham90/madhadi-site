@@ -1,0 +1,115 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  docType: string;
+  pillar?: string;
+  tags: string[];
+  tier?: string;
+  relatedArticles?: { slug: string; title: string }[];
+}
+
+const { title, description, pubDate, docType, pillar, tags, tier, relatedArticles = [] } = Astro.props;
+
+const pillarNames: Record<string, string> = {
+  'data-integrity': 'Data Integrity', 'csv-csa': 'CSV / CSA',
+  'equipment-qualification': 'Equipment Qualification', 'quality-assurance': 'Quality Assurance',
+  'audits-inspection': 'Audits & Inspection', 'cell-gene-therapy': 'Cell & Gene Therapy',
+  'manufacturing-automation': 'Manufacturing Automation', 'ai-automation': 'AI & Automation',
+  'sterility-microbiology': 'Sterility & Microbiology', 'medical-devices': 'Medical Devices & SaMD',
+  'clinical-gcp': 'Clinical & GCP', 'supply-chain-gdp': 'Supply Chain & GDP',
+};
+const formatted = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<Layout title={title} description={description} wide={true}>
+  <header class="tpl-hero">
+    <div class="wrap tpl-hero-inner">
+      <nav class="crumb"><a href="/">Home</a> <span>›</span> <a href="/templates">Templates</a>{pillar && <> <span>›</span> <a href={`/pillars/${pillar}`}>{pillarNames[pillar] ?? pillar}</a></>}</nav>
+      <div class="tpl-eyebrow">
+        <span class="doc-badge">{docType}</span>
+        <span class="tpl-pnp">Plug-and-play, inspection-grade</span>
+        {pillar && <a href={`/pillars/${pillar}`} class="tpl-pillar">{pillarNames[pillar] ?? pillar}</a>}
+      </div>
+      <h1 class="tpl-title">{title}</h1>
+      <p class="tpl-standfirst">{description}</p>
+      <div class="tpl-meta"><span>Document type: {docType}</span><span class="sep">·</span><span>Updated {formatted}</span></div>
+    </div>
+  </header>
+
+  <div class="wrap tpl-shell">
+    <aside class="tpl-howto">
+      <strong>How to use this document.</strong> Copy the template below into your quality system.
+      Replace every <code>&lt;&lt;FILL: ...&gt;&gt;</code> placeholder with your company, system, and
+      process specifics, then route it through your own document control, review, and approval.
+      The filled specimen shows one worked example; adapt the numbers and scope to your operation
+      and verify each cited regulation or standard against the current source before you rely on it.
+    </aside>
+
+    <article class="art-body prose"><slot /></article>
+
+    {relatedArticles.length > 0 && (
+      <section class="tpl-related">
+        <h2>Background reading</h2>
+        <ul>{relatedArticles.map((a) => (<li><a href={`/articles/${a.slug}`}>{a.title}</a></li>))}</ul>
+      </section>
+    )}
+
+    <footer class="tpl-footer">
+      <a href="/templates" class="af-link">← All templates</a>
+      {pillar && <a href={`/pillars/${pillar}`} class="af-link af-mid">More in {pillarNames[pillar] ?? pillar} →</a>}
+      <a href="mailto:goutham@madhadi.com" class="af-link">Send feedback</a>
+    </footer>
+  </div>
+</Layout>
+
+<style>
+  .tpl-hero { background: var(--navy); border-bottom: 4px solid var(--gold); }
+  .tpl-hero-inner { padding-top: 3.2rem; padding-bottom: 2.4rem; }
+  .crumb { font-size: 0.82rem; color: var(--on-navy-dim); margin-bottom: 1.3rem; }
+  .crumb a { color: var(--on-navy-dim); } .crumb a:hover { color: #fff; } .crumb span { opacity: 0.6; margin: 0 2px; }
+  .tpl-eyebrow { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .doc-badge { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 4px 11px; border-radius: 3px; }
+  .tpl-pnp { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #ffd98a; }
+  .tpl-pillar { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--on-navy-dim); }
+  .tpl-pillar:hover { color: #fff; }
+  .tpl-title { font-family: var(--display); font-weight: 700; color: #fff; font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.025em; max-width: 24ch; margin-bottom: 1rem; }
+  .tpl-standfirst { font-family: var(--serif); color: var(--on-navy); font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.45; max-width: 52ch; margin-bottom: 1.1rem; }
+  .tpl-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.55rem; font-size: 0.84rem; color: var(--on-navy-dim); font-weight: 500; }
+  .tpl-meta .sep { color: var(--gold); }
+
+  .tpl-shell { padding-top: 2.4rem; padding-bottom: 4.5rem; }
+  .tpl-howto { max-width: var(--measure); margin: 0 auto 2.2rem; background: var(--panel); border-left: 4px solid var(--blue); border-radius: var(--radius); padding: 1rem 1.3rem; font-size: 0.98rem; line-height: 1.6; color: var(--ink-2); }
+  .tpl-howto code { font-family: var(--mono); font-size: 0.85em; background: #fff; border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; }
+
+  /* shared long-form prose styling (mirrors ArticleLayout so tables/code render well) */
+  .art-body { max-width: var(--measure); margin: 0 auto; font-family: var(--serif); font-size: 1.16rem; line-height: 1.7; color: #24292e; }
+  .art-body :global(p) { margin-bottom: 1.3rem; }
+  .art-body :global(h2) { font-family: var(--display); font-weight: 700; font-size: 1.6rem; letter-spacing: -0.02em; line-height: 1.15; margin: 2.6rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--navy); }
+  .art-body :global(h3) { font-family: var(--display); font-weight: 700; font-size: 1.25rem; margin: 2rem 0 0.6rem; color: var(--navy); }
+  .art-body :global(h4) { font-family: var(--display); font-size: 0.92rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue); margin: 1.6rem 0 0.5rem; }
+  .art-body :global(ul), .art-body :global(ol) { margin-bottom: 1.3rem; padding-left: 1.4rem; }
+  .art-body :global(li) { margin-bottom: 0.45rem; }
+  .art-body :global(strong) { color: var(--navy); font-weight: 600; }
+  .art-body :global(a) { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+  .art-body :global(a:hover) { color: var(--blue-d); text-decoration-color: var(--blue); }
+  .art-body :global(blockquote) { border-left: 4px solid var(--gold); background: var(--panel); margin: 1.6rem 0; padding: 0.9rem 1.3rem; font-style: italic; color: var(--ink-2); }
+  .art-body :global(table) { width: 100%; border-collapse: collapse; margin: 1.6rem 0; font-family: var(--sans); font-size: 0.92rem; }
+  .art-body :global(th), .art-body :global(td) { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; }
+  .art-body :global(th) { background: var(--panel); color: var(--navy); font-weight: 700; }
+  .art-body :global(code) { font-family: var(--mono); font-size: 0.86em; background: var(--panel); padding: 2px 6px; border-radius: 3px; }
+  .art-body :global(pre) { font-family: var(--mono); font-size: 0.84rem; line-height: 1.55; border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 1rem 1.2rem; overflow-x: auto; margin: 1.6rem 0; }
+  .art-body :global(pre) :global(code) { background: none; padding: 0; border-radius: 0; font-size: inherit; color: inherit; white-space: pre; }
+  .art-body :global(hr) { border: none; border-top: 1px solid var(--line); margin: 2.2rem 0; }
+
+  .tpl-related { max-width: var(--measure); margin: 3rem auto 0; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+  .tpl-related h2 { font-family: var(--display); font-size: 1.2rem; color: var(--navy); margin-bottom: 0.7rem; }
+  .tpl-related ul { list-style: none; padding: 0; } .tpl-related li { margin-bottom: 0.4rem; }
+  .tpl-related a { color: var(--blue); font-weight: 600; }
+
+  .tpl-footer { max-width: var(--measure); margin: 2.6rem auto 0; padding-top: 1.4rem; border-top: 2px solid var(--navy); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .af-link { font-size: 0.92rem; font-weight: 700; color: var(--blue); } .af-link:hover { color: var(--blue-d); } .af-mid { color: var(--navy); }
+  @media (max-width: 700px) { .tpl-footer { flex-direction: column; align-items: flex-start; gap: 0.6rem; } }
+</style>

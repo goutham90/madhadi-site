@@ -263,6 +263,7 @@ const totalArticles = _navArticles.length;
         <nav class="mast-nav" aria-label="Primary">
           <button class="mast-browse" id="mast-browse" aria-expanded="false" aria-controls="megamenu">Browse<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
           <a href="/articles" class={isActive('/articles') ? 'active' : ''}>Articles</a>
+          <a href="/templates" class={isActive('/templates') ? 'active' : ''}>Templates</a>
           <a href="/tracks" class={isActive('/tracks') ? 'active' : ''}>Learning</a>
           <a href="/glossary" class={resourcesActive ? 'active' : ''}>Resources</a>
           <a href="/about" class={isActive('/about') ? 'active' : ''}>About</a>
@@ -282,6 +283,7 @@ const totalArticles = _navArticles.length;
         {pillarNav.map(p => <a href={`/browse?pillar=${p.slug}`}>{p.short} <span>{p.count}</span></a>)}
       </div>
       <a href="/articles">Articles</a>
+      <a href="/templates">Templates &amp; Procedures</a>
       <a href="/tracks">Learning paths</a>
       {resources.map(l => <a href={l.href}>{l.label}</a>)}
       <a href="/about">About</a>
@@ -341,7 +343,7 @@ const totalArticles = _navArticles.length;
         <a href="/" class="brand"><img src="/brand/mark.svg" class="brand-mark" alt="" width="42" height="42" /><span class="brand-txt"><span class="brand-name" style="color:#fff">madhadi<span class="dot">.</span>com</span></span></a>
         <p class="footer-lead">Working notes and guides on data integrity, computerized system validation, and GxP quality across biotech, pharma, and life sciences. Written to be used on the job, not skimmed.</p>
       </div>
-      <div><h4>Explore</h4><a href="/browse">Browse topics</a>{primary.map(l => <a href={l.href}>{l.label}</a>)}<a href="/search">Search</a><a href="/start">Start here</a><a href="/about">About</a></div>
+      <div><h4>Explore</h4><a href="/browse">Browse topics</a>{primary.map(l => <a href={l.href}>{l.label}</a>)}<a href="/templates">Templates &amp; Procedures</a><a href="/search">Search</a><a href="/start">Start here</a><a href="/about">About</a></div>
       <div><h4>Resources</h4>{resources.slice(0,4).map(l => <a href={l.href}>{l.label}</a>)}</div>
       <div><h4>More</h4>{resources.slice(4).map(l => <a href={l.href}>{l.label}</a>)}<a href="/articles">All articles</a></div>
     </div>

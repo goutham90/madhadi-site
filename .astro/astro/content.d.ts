@@ -1395,6 +1395,218 @@ declare module 'astro:content' {
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
 };
+"templates": {
+"checklist-alcoa-plus-self-assessment.md": {
+	id: "checklist-alcoa-plus-self-assessment.md";
+  slug: "checklist-alcoa-plus-self-assessment";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"checklist-deviation-classification-decision-tree.md": {
+	id: "checklist-deviation-classification-decision-tree.md";
+  slug: "checklist-deviation-classification-decision-tree";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"checklist-sop-drafting.md": {
+	id: "checklist-sop-drafting.md";
+  slug: "checklist-sop-drafting";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-capa-record.md": {
+	id: "form-capa-record.md";
+  slug: "form-capa-record";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-change-request-record.md": {
+	id: "form-change-request-record.md";
+  slug: "form-change-request-record";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-deviation-record.md": {
+	id: "form-deviation-record.md";
+  slug: "form-deviation-record";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-em-excursion-investigation.md": {
+	id: "form-em-excursion-investigation.md";
+  slug: "form-em-excursion-investigation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-sop-review-and-approval.md": {
+	id: "form-sop-review-and-approval.md";
+  slug: "form-sop-review-and-approval";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-supplier-quality-questionnaire.md": {
+	id: "form-supplier-quality-questionnaire.md";
+  slug: "form-supplier-quality-questionnaire";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"matrix-data-governance-raci.md": {
+	id: "matrix-data-governance-raci.md";
+  slug: "matrix-data-governance-raci";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"matrix-requirements-test-traceability.md": {
+	id: "matrix-requirements-test-traceability.md";
+  slug: "matrix-requirements-test-traceability";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-swab-rinse-sampling.md": {
+	id: "plan-swab-rinse-sampling.md";
+  slug: "plan-swab-rinse-sampling";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"policy-data-integrity.md": {
+	id: "policy-data-integrity.md";
+  slug: "policy-data-integrity";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-cleaning-validation.md": {
+	id: "protocol-cleaning-validation.md";
+  slug: "protocol-cleaning-validation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"record-oos-investigation-phase1-phase2.md": {
+	id: "record-oos-investigation-phase1-phase2.md";
+  slug: "record-oos-investigation-phase1-phase2";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-em-data-trending.md": {
+	id: "report-em-data-trending.md";
+  slug: "report-em-data-trending";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"risk-assessment-csa-software.md": {
+	id: "risk-assessment-csa-software.md";
+  slug: "risk-assessment-csa-software";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-audit-trail-review.md": {
+	id: "sop-audit-trail-review.md";
+  slug: "sop-audit-trail-review";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-capa-management.md": {
+	id: "sop-capa-management.md";
+  slug: "sop-capa-management";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-change-control-validated-systems.md": {
+	id: "sop-change-control-validated-systems.md";
+  slug: "sop-change-control-validated-systems";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-deviation-management.md": {
+	id: "sop-deviation-management.md";
+  slug: "sop-deviation-management";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-environmental-monitoring-program.md": {
+	id: "sop-environmental-monitoring-program.md";
+  slug: "sop-environmental-monitoring-program";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-oos-investigation.md": {
+	id: "sop-oos-investigation.md";
+  slug: "sop-oos-investigation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-supplier-qualification.md": {
+	id: "sop-supplier-qualification.md";
+  slug: "sop-supplier-qualification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-template-generic.md": {
+	id: "sop-template-generic.md";
+  slug: "sop-template-generic";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"template-capa-effectiveness-check.md": {
+	id: "template-capa-effectiveness-check.md";
+  slug: "template-capa-effectiveness-check";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"template-change-impact-risk-assessment.md": {
+	id: "template-change-impact-risk-assessment.md";
+  slug: "template-change-impact-risk-assessment";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"template-quality-agreement.md": {
+	id: "template-quality-agreement.md";
+  slug: "template-quality-agreement";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"test-plan-csa.md": {
+	id: "test-plan-csa.md";
+  slug: "test-plan-csa";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"worksheet-maco-acceptance-limit.md": {
+	id: "worksheet-maco-acceptance-limit.md";
+  slug: "worksheet-maco-acceptance-limit";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+};
 
 	};
 

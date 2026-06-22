@@ -88,26 +88,26 @@ Real cycles are not isothermal: temperature ramps up, holds, and ramps down, and
 
 **F0** is the accumulated lethality of a cycle expressed as equivalent minutes at 121.1 °C (250 °F) using a reference z-value of 10 °C. It is the single most important number in a moist heat liquid cycle. The instantaneous lethal rate L at temperature T is:
 
-L = 10^((T − 121.1) / z)
+L = 10^((T - 121.1) / z)
 
 with z = 10 °C. F0 is the integral (in practice the sum) of L over the whole cycle, sampling temperature at short intervals (often every minute or every few seconds):
 
-F0 = Σ 10^((Tₜ − 121.1) / 10) × Δt
+F0 = Σ 10^((Tₜ - 121.1) / 10) × Δt
 
 Worked example of accumulation. Suppose a probe reads, at one-minute intervals during the ramp and hold: 112, 116, 119, 121, 122, 121, 121, 121, 118, 114 °C.
 
-| T (°C) | (T − 121.1)/10 | L = 10^(...) | contribution (Δt = 1 min) |
+| T (°C) | (T - 121.1)/10 | L = 10^(...) | contribution (Δt = 1 min) |
 |---|---|---|---|
-| 112 | −0.91 | 0.123 | 0.123 |
-| 116 | −0.51 | 0.309 | 0.309 |
-| 119 | −0.21 | 0.617 | 0.617 |
-| 121 | −0.01 | 0.977 | 0.977 |
+| 112 | -0.91 | 0.123 | 0.123 |
+| 116 | -0.51 | 0.309 | 0.309 |
+| 119 | -0.21 | 0.617 | 0.617 |
+| 121 | -0.01 | 0.977 | 0.977 |
 | 122 | 0.09 | 1.230 | 1.230 |
-| 121 | −0.01 | 0.977 | 0.977 |
-| 121 | −0.01 | 0.977 | 0.977 |
-| 121 | −0.01 | 0.977 | 0.977 |
-| 118 | −0.31 | 0.490 | 0.490 |
-| 114 | −0.71 | 0.195 | 0.195 |
+| 121 | -0.01 | 0.977 | 0.977 |
+| 121 | -0.01 | 0.977 | 0.977 |
+| 121 | -0.01 | 0.977 | 0.977 |
+| 118 | -0.31 | 0.490 | 0.490 |
+| 114 | -0.71 | 0.195 | 0.195 |
 
 Sum of contributions ≈ 6.87 minutes of F0. Notice two things every practitioner should internalize. First, lethality accrues during come-up and cool-down, not just during the hold, so the true F0 is larger than (hold time at 121 °C alone). Second, because the relationship is logarithmic, a few degrees above 121 °C contributes disproportionately: at 122 °C you accrue lethality 23 percent faster than at 121.1 °C; at 124 °C, roughly twice as fast.
 
@@ -272,7 +272,7 @@ These are the patterns regulators cite for moist heat sterilization. None name c
 A: The probability that a single sterilized unit contains a surviving viable microorganism. For product-contacting, terminally sterilized items the target is 10⁻⁶, no more than one in a million. It is a probability, not a measurable count on any single unit, which is why we validate the process rather than test sterility into the product.
 
 **Q: Explain F0 to someone who has not heard of it.**
-A: F0 is the total killing power of a moist heat cycle expressed as equivalent minutes at 121.1 °C, using a z-value of 10 °C. We sample temperature throughout the cycle, convert each point to a lethal rate with L = 10^((T − 121.1)/10), and sum it. It captures lethality during come-up and cool-down, not just the hold, and it lets us compare cycles run at different temperatures on one scale.
+A: F0 is the total killing power of a moist heat cycle expressed as equivalent minutes at 121.1 °C, using a z-value of 10 °C. We sample temperature throughout the cycle, convert each point to a lethal rate with L = 10^((T - 121.1)/10), and sum it. It captures lethality during come-up and cool-down, not just the hold, and it lets us compare cycles run at different temperatures on one scale.
 
 **Q: Difference between D-value and z-value?**
 A: D-value is the time at a fixed temperature to kill 90 percent of the population, one log reduction. z-value is the temperature change needed to change the D-value tenfold, the slope of the resistance curve. For *Geobacillus stearothermophilus* under steam, D₁₂₁ is roughly 1.5-3 minutes per the BI certificate, and the conventional z is 10 °C.

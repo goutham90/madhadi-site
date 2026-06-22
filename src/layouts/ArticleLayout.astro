@@ -10,9 +10,10 @@ interface Props {
   tier?: string;
   pillar?: string;
   body?: string;
+  relatedTemplates?: { slug: string; title: string; docType: string }[];
 }
 
-const { title, description, pubDate, tags, tier, pillar, body = '' } = Astro.props;
+const { title, description, pubDate, tags, tier, pillar, body = '', relatedTemplates = [] } = Astro.props;
 
 const tierColors: Record<string, string> = {
   Beginner: '#0f7a52',
@@ -82,6 +83,25 @@ const tierColor = tier ? (tierColors[tier] ?? '#565c65') : '#565c65';
 
   <div class="wrap art-shell">
     <article class="art-body prose"><slot /></article>
+
+    {relatedTemplates.length > 0 && (
+      <section class="art-deliverables">
+        <h2 class="art-deliv-h">Ready-to-use documents for this topic</h2>
+        <p class="art-deliv-sub">Plug-and-play, inspection-grade. Copy, fill in your specifics, and route through your own document control.</p>
+        <ul class="art-deliv-list">
+          {relatedTemplates.map((t) => (
+            <li>
+              <a href={`/templates/${t.slug}`} class="art-deliv-row">
+                <span class="art-deliv-badge">{t.docType}</span>
+                <span class="art-deliv-title">{t.title}</span>
+                <span class="art-deliv-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
     <footer class="art-footer">
       <a href="/articles" class="af-link">← All articles</a>
       {pillar && <a href={`/pillars/${pillar}`} class="af-link af-mid">More in {pillarNames[pillar] ?? pillar} →</a>}
@@ -135,6 +155,20 @@ const tierColor = tier ? (tierColors[tier] ?? '#565c65') : '#565c65';
   /* reset the inline-code style for code INSIDE a pre block (was making white boxes over the diagram) */
   .art-body :global(pre) :global(code) { background: none; padding: 0; border-radius: 0; font-size: inherit; color: inherit; white-space: pre; }
   .art-body :global(hr) { border: none; border-top: 1px solid var(--line); margin: 2.4rem 0; }
+
+  /* ── Ready-to-use documents box ── */
+  .art-deliverables { max-width: var(--measure); margin: 3rem auto 0; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 1.4rem 1.6rem; }
+  .art-deliv-h { font-family: var(--display); font-size: 1.25rem; color: var(--navy); margin-bottom: 0.3rem; }
+  .art-deliv-sub { font-size: 0.92rem; color: var(--muted); margin-bottom: 1rem; }
+  .art-deliv-list { list-style: none; padding: 0; margin: 0; }
+  .art-deliv-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0.4rem; border-top: 1px solid var(--line); color: inherit; transition: padding-left 0.15s; }
+  .art-deliv-list li:first-child .art-deliv-row { border-top: none; }
+  .art-deliv-row:hover { padding-left: 0.6rem; text-decoration: none; }
+  .art-deliv-badge { font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 3px 8px; border-radius: 3px; white-space: nowrap; flex: none; min-width: 4.5rem; text-align: center; }
+  .art-deliv-title { font-family: var(--sans); font-weight: 600; font-size: 1rem; color: var(--navy); flex: 1; }
+  .art-deliv-row:hover .art-deliv-title { color: var(--blue); }
+  .art-deliv-arrow { color: var(--line-2); font-size: 1.05rem; transition: color 0.15s, transform 0.15s; }
+  .art-deliv-row:hover .art-deliv-arrow { color: var(--blue); transform: translateX(3px); }
 
   .art-footer { max-width: var(--measure); margin: 3.5rem auto 0; padding-top: 1.6rem; border-top: 2px solid var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
   .af-link { font-size: 0.92rem; font-weight: 700; color: var(--blue); }
