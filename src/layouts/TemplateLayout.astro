@@ -22,7 +22,6 @@ const pillarNames: Record<string, string> = {
   'sterility-microbiology': 'Sterility & Microbiology', 'medical-devices': 'Medical Devices & SaMD',
   'clinical-gcp': 'Clinical & GCP', 'supply-chain-gdp': 'Supply Chain & GDP',
 };
-const formatted = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 <Layout title={title} description={description} wide={true}>
   <header class="tpl-hero">
@@ -35,7 +34,7 @@ const formatted = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 
       </div>
       <h1 class="tpl-title">{title}</h1>
       <p class="tpl-standfirst">{description}</p>
-      <div class="tpl-meta"><span>Document type: {docType}</span><span class="sep">·</span><span>Updated {formatted}</span></div>
+      <div class="tpl-meta"><span>Document type: {docType}</span></div>
     </div>
   </header>
 

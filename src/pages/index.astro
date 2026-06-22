@@ -72,7 +72,6 @@ const topics = Object.values(tagAgg)
   .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
   .slice(0, 24);
 
-const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 ---
 <Layout title="Home" wide={true}>
   <!-- ═════ PAGE HEADER ═════ -->
@@ -174,7 +173,7 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
         <a href={`/articles/${featured.slug}`} class="feature" data-reveal>
           <div class="feature-img"><img src={featuredImg} alt="" loading="lazy" /></div>
           <div class="feature-body">
-            <span class="feature-meta">{(featured.data.pillar ?? 'practice').replace(/-/g,' ')} · {fmtShort(featured.data.pubDate)} · {featRead} min read</span>
+            <span class="feature-meta">{(featured.data.pillar ?? 'practice').replace(/-/g,' ')} · {featRead} min read</span>
             <h3 class="feature-h">{featured.data.title}</h3>
             <p class="feature-desc">{featured.data.description}</p>
             <span class="feature-go">Read the full article →</span>
@@ -207,7 +206,6 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
         <ul class="recent">
           {rest.map(a => (
             <li class="rec" data-reveal>
-              <span class="rec-date">{fmtShort(a.data.pubDate)}</span>
               <div><a href={`/articles/${a.slug}`} class="rec-h">{a.data.title}</a><p class="rec-desc">{a.data.description}</p></div>
             </li>
           ))}
@@ -317,7 +315,7 @@ const fmtShort = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'nu
 
   /* recent */
   .recent { list-style: none; display: grid; gap: 0; }
-  .rec { display: grid; grid-template-columns: 130px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .rec { display: grid; grid-template-columns: 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); align-items: baseline; }
   .rec:first-child { border-top: 2px solid var(--navy); }
   .rec-date { font-size: 0.84rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
   .rec-h { font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--navy); }

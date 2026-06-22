@@ -10,7 +10,6 @@ const tierColors = {
 	Intermediate: '#B26B1E',
 	Advanced: '#7A2E23',
 };
-const newest = sorted[0]?.data.pubDate?.getFullYear() ?? new Date().getFullYear();
 ---
 <Layout title="Articles" description="Data integrity articles, ALCOA+, FDA, 21 CFR Part 11, cell & gene therapy, and AI tools for GxP compliance." wide={true}>
 	<!-- ═══════════ MASTHEAD ═══════════ -->
@@ -25,7 +24,7 @@ const newest = sorted[0]?.data.pubDate?.getFullYear() ?? new Date().getFullYear(
 				<div class="ix-ledger-row"><span class="ix-ledger-n">{String(sorted.length).padStart(2, '0')}</span><span class="ix-ledger-l">Records filed</span></div>
 				<div class="ix-ledger-row"><span class="ix-ledger-n">08</span><span class="ix-ledger-l">Disciplines</span></div>
 				<div class="ix-ledger-row"><span class="ix-ledger-n">PD</span><span class="ix-ledger-l">Public sources</span></div>
-				<p class="marginalia ix-ledger-note">Sorted newest first. Every entry is open, no login, no paywall. Est. {newest}.</p>
+				<p class="marginalia ix-ledger-note">Sorted newest first. Every entry is open, no login, no paywall.</p>
 			</aside>
 		</div>
 		<img class="ix-rule" src="/brand/ticks-rule.svg" alt="" aria-hidden="true" />
@@ -63,8 +62,6 @@ const newest = sorted[0]?.data.pubDate?.getFullYear() ?? new Date().getFullYear(
 									<h2 class="article-title">{post.data.title}</h2>
 									<p class="article-desc">{post.data.description}</p>
 									<div class="article-meta">
-										<time>{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-										<span class="sep">·</span>
 										<span>{readTime} min read</span>
 									</div>
 								</div>

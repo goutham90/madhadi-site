@@ -13,7 +13,6 @@ const tierOrder: Record<string, number> = { Beginner: 0, Intermediate: 1, Advanc
 const sorted = all.sort((a, b) => (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1));
 const tierColors: Record<string, string> = { Beginner: '#0f7a52', Intermediate: '#005ea2', Advanced: '#0b2e4f' };
 const related = PILLARS.filter(x => x.slug !== p.slug).slice(0, 4);
-const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 ---
 <Layout title={p.short} description={p.blurb} wide={true}>
   <header class="ph-hero">
@@ -38,7 +37,6 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', year: '
             <h2 class="ph-art-title">{a.data.title}</h2>
             <p class="ph-art-desc">{a.data.description}</p>
           </div>
-          <span class="ph-art-date">{fmt(a.data.pubDate)}</span>
         </a>
       ))}
     </div>
@@ -71,7 +69,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', year: '
   .ph-body { display: grid; grid-template-columns: 1fr 300px; gap: 48px; padding: 56px 28px; }
   .ph-list { display: flex; flex-direction: column; }
   .ph-empty { color: var(--muted); }
-  .ph-art { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; padding: 24px 0; border-top: 1px solid var(--line); transition: padding-left .15s; }
+  .ph-art { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; padding: 24px 0; border-top: 1px solid var(--line); transition: padding-left .15s; }
   .ph-art:first-child { border-top: 2px solid var(--navy); }
   .ph-art:hover { padding-left: 8px; text-decoration: none; }
   .tier-dot { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; padding: 3px 9px; border-radius: 3px; margin-bottom: 9px; }
