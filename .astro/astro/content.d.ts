@@ -1396,6 +1396,27 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "templates": {
+"assessment-component-criticality.md": {
+	id: "assessment-component-criticality.md";
+  slug: "assessment-component-criticality";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"assessment-system-impact.md": {
+	id: "assessment-system-impact.md";
+  slug: "assessment-system-impact";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"assessment-validation-risk-fmea.md": {
+	id: "assessment-validation-risk-fmea.md";
+  slug: "assessment-validation-risk-fmea";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "checklist-alcoa-plus-self-assessment.md": {
 	id: "checklist-alcoa-plus-self-assessment.md";
   slug: "checklist-alcoa-plus-self-assessment";
@@ -1459,6 +1480,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"guide-infrastructure-qualification.md": {
+	id: "guide-infrastructure-qualification.md";
+  slug: "guide-infrastructure-qualification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "matrix-data-governance-raci.md": {
 	id: "matrix-data-governance-raci.md";
   slug: "matrix-data-governance-raci";
@@ -1473,9 +1501,93 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"matrix-validation-traceability.md": {
+	id: "matrix-validation-traceability.md";
+  slug: "matrix-validation-traceability";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-business-continuity.md": {
+	id: "plan-business-continuity.md";
+  slug: "plan-business-continuity";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-csv-validation.md": {
+	id: "plan-csv-validation.md";
+  slug: "plan-csv-validation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-disaster-recovery.md": {
+	id: "plan-disaster-recovery.md";
+  slug: "plan-disaster-recovery";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-dr-test-strategy.md": {
+	id: "plan-dr-test-strategy.md";
+  slug: "plan-dr-test-strategy";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-equipment-qualification-cq.md": {
+	id: "plan-equipment-qualification-cq.md";
+  slug: "plan-equipment-qualification-cq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-instrument-qualification.md": {
+	id: "plan-instrument-qualification.md";
+  slug: "plan-instrument-qualification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "plan-swab-rinse-sampling.md": {
 	id: "plan-swab-rinse-sampling.md";
   slug: "plan-swab-rinse-sampling";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-system-decommissioning-retirement.md": {
+	id: "plan-system-decommissioning-retirement.md";
+  slug: "plan-system-decommissioning-retirement";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-validation-master-plan.md": {
+	id: "plan-validation-master-plan.md";
+  slug: "plan-validation-master-plan";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-validation-project.md": {
+	id: "plan-validation-project.md";
+  slug: "plan-validation-project";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-validation-test.md": {
+	id: "plan-validation-test.md";
+  slug: "plan-validation-test";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"policy-backup-and-restore.md": {
+	id: "policy-backup-and-restore.md";
+  slug: "policy-backup-and-restore";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1487,9 +1599,128 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"policy-disaster-recovery.md": {
+	id: "policy-disaster-recovery.md";
+  slug: "policy-disaster-recovery";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"policy-infrastructure-qualification.md": {
+	id: "policy-infrastructure-qualification.md";
+  slug: "policy-infrastructure-qualification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-backup-restoration-test.md": {
+	id: "protocol-backup-restoration-test.md";
+  slug: "protocol-backup-restoration-test";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "protocol-cleaning-validation.md": {
 	id: "protocol-cleaning-validation.md";
   slug: "protocol-cleaning-validation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-csv-iq.md": {
+	id: "protocol-csv-iq.md";
+  slug: "protocol-csv-iq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-csv-oq.md": {
+	id: "protocol-csv-oq.md";
+  slug: "protocol-csv-oq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-csv-pq-uat.md": {
+	id: "protocol-csv-pq-uat.md";
+  slug: "protocol-csv-pq-uat";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-data-migration-validation.md": {
+	id: "protocol-data-migration-validation.md";
+  slug: "protocol-data-migration-validation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-equipment-dq.md": {
+	id: "protocol-equipment-dq.md";
+  slug: "protocol-equipment-dq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-equipment-iq.md": {
+	id: "protocol-equipment-iq.md";
+  slug: "protocol-equipment-iq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-equipment-oq.md": {
+	id: "protocol-equipment-oq.md";
+  slug: "protocol-equipment-oq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-equipment-pq.md": {
+	id: "protocol-equipment-pq.md";
+  slug: "protocol-equipment-pq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-fat-sat.md": {
+	id: "protocol-fat-sat.md";
+  slug: "protocol-fat-sat";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-infrastructure-iq-oq.md": {
+	id: "protocol-infrastructure-iq-oq.md";
+  slug: "protocol-infrastructure-iq-oq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-instrument-dq.md": {
+	id: "protocol-instrument-dq.md";
+  slug: "protocol-instrument-dq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-instrument-iq.md": {
+	id: "protocol-instrument-iq.md";
+  slug: "protocol-instrument-iq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-instrument-oq.md": {
+	id: "protocol-instrument-oq.md";
+  slug: "protocol-instrument-oq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-instrument-pq.md": {
+	id: "protocol-instrument-pq.md";
+  slug: "protocol-instrument-pq";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1501,9 +1732,72 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"record-validation-deviation.md": {
+	id: "record-validation-deviation.md";
+  slug: "record-validation-deviation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-csv-validation-summary.md": {
+	id: "report-csv-validation-summary.md";
+  slug: "report-csv-validation-summary";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-dr-test.md": {
+	id: "report-dr-test.md";
+  slug: "report-dr-test";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "report-em-data-trending.md": {
 	id: "report-em-data-trending.md";
   slug: "report-em-data-trending";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-equipment-qualification-summary.md": {
+	id: "report-equipment-qualification-summary.md";
+  slug: "report-equipment-qualification-summary";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-infrastructure-qualification-summary.md": {
+	id: "report-infrastructure-qualification-summary.md";
+  slug: "report-infrastructure-qualification-summary";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-instrument-qualification-summary.md": {
+	id: "report-instrument-qualification-summary.md";
+  slug: "report-instrument-qualification-summary";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-periodic-review-infrastructure.md": {
+	id: "report-periodic-review-infrastructure.md";
+  slug: "report-periodic-review-infrastructure";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-periodic-review-system.md": {
+	id: "report-periodic-review-system.md";
+  slug: "report-periodic-review-system";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-validation-summary-vsr.md": {
+	id: "report-validation-summary-vsr.md";
+  slug: "report-validation-summary-vsr";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1515,9 +1809,86 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"script-audit-trail-data-integrity.md": {
+	id: "script-audit-trail-data-integrity.md";
+  slug: "script-audit-trail-data-integrity";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-boundary-negative.md": {
+	id: "script-boundary-negative.md";
+  slug: "script-boundary-negative";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-disaster-recovery-failover.md": {
+	id: "script-disaster-recovery-failover.md";
+  slug: "script-disaster-recovery-failover";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-functional-oq.md": {
+	id: "script-functional-oq.md";
+  slug: "script-functional-oq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-installation-verification-iq.md": {
+	id: "script-installation-verification-iq.md";
+  slug: "script-installation-verification-iq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-interface-integration.md": {
+	id: "script-interface-integration.md";
+  slug: "script-interface-integration";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-performance-load.md": {
+	id: "script-performance-load.md";
+  slug: "script-performance-load";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-report-calculation-verification.md": {
+	id: "script-report-calculation-verification.md";
+  slug: "script-report-calculation-verification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-requirements-uat-pq.md": {
+	id: "script-requirements-uat-pq.md";
+  slug: "script-requirements-uat-pq";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"script-security-access-control.md": {
+	id: "script-security-access-control.md";
+  slug: "script-security-access-control";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "sop-audit-trail-review.md": {
 	id: "sop-audit-trail-review.md";
   slug: "sop-audit-trail-review";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-backup-and-restore.md": {
+	id: "sop-backup-and-restore.md";
+  slug: "sop-backup-and-restore";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1571,6 +1942,34 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"spec-design-configuration-ds.md": {
+	id: "spec-design-configuration-ds.md";
+  slug: "spec-design-configuration-ds";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"spec-functional-fs.md": {
+	id: "spec-functional-fs.md";
+  slug: "spec-functional-fs";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"spec-user-requirements-urs.md": {
+	id: "spec-user-requirements-urs.md";
+  slug: "spec-user-requirements-urs";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"standard-configuration-management-baseline.md": {
+	id: "standard-configuration-management-baseline.md";
+  slug: "standard-configuration-management-baseline";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "template-capa-effectiveness-check.md": {
 	id: "template-capa-effectiveness-check.md";
   slug: "template-capa-effectiveness-check";
@@ -1585,9 +1984,23 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"template-cloud-saas-qualification.md": {
+	id: "template-cloud-saas-qualification.md";
+  slug: "template-cloud-saas-qualification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "template-quality-agreement.md": {
 	id: "template-quality-agreement.md";
   slug: "template-quality-agreement";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"template-test-script-generic.md": {
+	id: "template-test-script-generic.md";
+  slug: "template-test-script-generic";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
