@@ -25,6 +25,20 @@ The Act regulates "AI systems" and "general-purpose AI models" placed on the EU 
 
 The Act layers four things on top of each other: a list of banned uses, heavy duties for "high-risk" systems, light transparency duties for a "limited-risk" middle band, and near-nothing for everything else. Plus a separate regime for general-purpose AI models. The rest of this article works through each.
 
+The classification decision, for any one system, runs in a fixed order. Screen for a prohibited use first, because that is the highest-penalty band; then test the two high-risk routes; then check the transparency trigger; what is left is minimal-risk.
+
+<div class="flow">
+  <div class="flow-step">AI system</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Article 5 prohibited use? Yes &rarr; banned</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Annex I product or Annex III use? Yes &rarr; high-risk</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Interacts with people / generates content? Yes &rarr; limited (transparency)</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Otherwise &rarr; minimal</div>
+</div>
+
 ---
 
 ## The Risk Tiers
@@ -138,13 +152,27 @@ The Act phases in. These are the dates set in the original Regulation (EU) 2024/
 
 So a device maker reading the original text would plan for 2 August 2027 on the embedded-product route, while a company with an Annex III standalone use would plan for 2 August 2026.
 
-**The change to flag, clearly, as not yet settled law.** Through 2025 the rollout fell behind, in large part because the harmonised standards and guidance companies need to implement the high-risk rules were not ready. In November 2025 the European Commission proposed a package, widely referred to as the Digital Omnibus on AI, that would defer the high-risk deadlines. As of mid-2026 the EU institutions were reported to have reached a *provisional political agreement* on a deferral, with figures circulating that would move the Annex III high-risk deadline to around 2 December 2027 and the Annex I embedded-product deadline to around 2 August 2028, among other simplifications. Treat those specific dates as reported and illustrative, not settled: confirm them against the adopted Official Journal text before relying on either one.
+**The change to flag, clearly, as not yet settled law.** Through 2025 the rollout fell behind, in large part because the harmonised standards and guidance companies need to implement the high-risk rules were not ready. In November 2025 the European Commission proposed a package, widely referred to as the Digital Omnibus on AI, that would defer the high-risk deadlines. On 7 May 2026 the Council, Parliament, and Commission were reported to have reached a *provisional political agreement* on a deferral that would move the Annex III high-risk deadline to around 2 December 2027 and the Annex I embedded-product deadline to around 2 August 2028, among other simplifications. Formal adoption by the Council and Parliament and publication in the Official Journal were anticipated to follow (reported as expected around July 2026, ahead of the original 2 August 2026 Annex III date). Treat those specific dates as reported and illustrative, not settled: confirm them against the adopted Official Journal text before relying on either one.
 
 > Caution: as of this writing the Digital Omnibus is a provisional agreement, not yet final law. Amendments take legal effect only on formal adoption and publication in the Official Journal of the European Union. Until that happens, the legally binding dates remain those in the original Regulation. Verify the current status before you rely on a deferred date, and do not let a slipping deadline become a reason to stop building, because the substantive requirements are not changing, only when they bite.
 
 The honest planning posture: build to the original dates, treat any deferral as schedule relief rather than a reprieve from the work, and re-check the legal status before any decision that turns on the exact date.
 
 ---
+
+## Penalties and the GDPR Overlap
+
+The penalty bands track the seriousness of the breach. Article 99 sets the headline ceilings (whichever is higher of a fixed sum or a percentage of worldwide annual turnover); for SMEs and start-ups the lower of the two applies.
+
+| Breach | Ceiling (higher of) |
+|---|---|
+| Prohibited practice under Article 5 | EUR 35 million or 7 percent of global annual turnover |
+| Non-compliance with other obligations (most provider and deployer duties, including the high-risk requirements) | EUR 15 million or 3 percent of global annual turnover |
+| Supplying incorrect, incomplete, or misleading information to authorities or notified bodies | EUR 7.5 million or 1 percent of global annual turnover |
+
+Verify the current figures against the adopted text before quoting them, since the Digital Omnibus simplification package touches enforcement details as well as dates.
+
+The Act does not run alone. Most life-sciences AI also processes personal data (patient inputs, HCP data, workforce data), so the General Data Protection Regulation applies in parallel. The two regimes reinforce each other: the Act's data-governance and human-oversight duties sit beside the GDPR's lawful-basis, data-minimisation, and automated-decision rules (Article 22 GDPR on decisions producing legal or similarly significant effects). Where an AI system makes or materially influences a decision about a person, screen both regimes together, and record the GDPR lawful basis and any data protection impact assessment alongside the AI-Act classification. Treating them as one screen, owned jointly by Quality and Legal/Privacy, avoids the gap where each function assumes the other covered it.
 
 ## What Regulated Companies Should Do Now
 

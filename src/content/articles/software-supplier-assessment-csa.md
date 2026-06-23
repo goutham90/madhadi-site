@@ -90,6 +90,22 @@ A pragmatic mapping:
 
 Annex 11 Section 3.2 is the cover for not auditing every supplier: it ties the decision to audit to a risk assessment. Document the risk basis and you are aligned.
 
+The method is an escalation ladder, not a menu. Start at the rung the risk score points to, and climb only when the evidence at that rung raises a question you cannot close on paper.
+
+<div class="flow">
+  <div class="flow-step">Risk score (GxP, DI, category, maturity)</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Low: questionnaire + ASL check</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Medium: + documentation review or postal audit</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">High: remote or on-site audit</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Evidence raises a question? Escalate one rung</div>
+</div>
+
+The escalation trigger is the part inspectors look for. A postal package that contradicts itself, a questionnaire that claims full traceability with no sample to show, a remote session where the supplier cannot open the record you named: each is a reason to climb, and the decision to climb (or not) belongs in the assessment record.
+
 ---
 
 ## Step 3: What to look at in the supplier's quality system
@@ -195,11 +211,45 @@ To make a postal audit credible rather than a glorified questionnaire:
 
 Its limitation: you cannot probe inconsistencies live or watch a person move through their real systems, so a supplier can still send only their best material. Reserve postal audits for medium risk, and escalate to a remote or on-site audit if the package raises questions you cannot resolve on paper.
 
+### Cloud, SaaS, and the shared-responsibility split
+
+For a hosted or SaaS product the supplier runs the infrastructure, the platform, and often the application, so a large part of the control environment is outside your walls. Your assessment has to draw the line clearly: what the supplier is responsible for, what you are responsible for, and where the line moves with the service model.
+
+A practical split for a typical SaaS GxP application:
+
+| Control area | Infrastructure / platform (supplier) | Application configuration and use (you) |
+|---|---|---|
+| Physical and network security | Supplier | N/A |
+| Platform patching, backups, disaster recovery | Supplier (verify against their SOC 2 / ISO 27001 and SLA) | Confirm restore actually works for your data |
+| Application availability and uptime | Supplier (per SLA) | Monitor and hold the SLA |
+| User access, roles, segregation of duties | Supplier provides the capability | You configure and review it |
+| Audit trail, e-signature configuration | Supplier provides the capability | You enable, configure, and review it |
+| Data ownership, export, return on exit | Defined in the agreement | You confirm you can get your data out |
+| Validation for intended use | N/A | Yours: the supplier never saw your process |
+
+The recurring error is assuming the supplier's certifications cover the right-hand column. They do not. SOC 2 Type II tells you the platform is run with discipline; it says nothing about whether you configured roles, audit trail, and workflows correctly for your GxP use. Write the shared-responsibility split into the assessment and the quality agreement so the boundary is explicit and testable. The deeper treatment is in [cloud-saas-validation](/articles/cloud-saas-validation) and the [template-cloud-saas-qualification](/templates/template-cloud-saas-qualification) document.
+
+### Open-source, freeware, and embedded components
+
+Suppliers build on other people's code, and so might you. Open-source libraries, freeware utilities, and embedded third-party components carry no supplier you can audit in the usual way. Two questions decide how you handle them. First, does the component touch a GxP record or decision? A logging library buried in infrastructure is low concern; an open-source statistical package that computes a release result is not. Second, who controls the version and the patching? For a component inside a vendor product, push the question to the vendor: their subcontractor and component control is part of what you assess in Step 3. For a component you introduced yourself, you own its qualification, its version control, and its security patching, and you document the intended use and the testing the same way you would for any Category 3 or 4 software. "It is free, so it is not validated" is not a position that survives an inspection when the free tool produces GxP data.
+
 ---
 
 ## Step 5: Decide what to accept versus what to re-test
 
 This is the decision that turns supplier assessment into real savings, and it is where CSA thinking pays off. The principle: do not re-test what the supplier credibly tested, unless the function is high risk to you or your configuration changes its behavior.
+
+The decision runs per function, and it has a clear shape:
+
+<div class="flow">
+  <div class="flow-step">Function</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Did you configure or extend it? Yes &rarr; you test it</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">No: is it GxP/DI critical? Yes &rarr; focused confirm yourself</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">No: supplier tested it credibly? Yes &rarr; accept + verify install</div>
+</div>
 
 A practical decision logic:
 
@@ -255,6 +305,21 @@ Risk-tier the frequency: for example high-risk suppliers every 1-3 years, medium
 
 ---
 
+## Acceptance criteria: a complete, defensible supplier assessment
+
+An assessment is finished and defensible when all of the following are true. Treat this as the self-check before you sign the report.
+
+- The risk score exists, is documented, and justifies the assessment method chosen (questionnaire, documentation review, postal, remote, or on-site).
+- The specific product version you will run was the version assessed, and that version is named in the report.
+- A software-literate reviewer evaluated the SDLC evidence, not only the quality manual.
+- Objective evidence was examined, not just claims: at minimum a sample of real traceability, test, defect, and change records, listed by name in the report.
+- A written reliance statement records exactly what supplier activity and documentation you accept and what you will test yourself.
+- Findings are classified by severity, with CAPA and due dates for any major or critical finding and supplier responses where required.
+- The conclusion (approved, approved with conditions, or not approved) and a re-assessment date are recorded, and the approved supplier list is updated to match.
+- For hosted products, the shared-responsibility split is explicit and reflected in the quality or technical agreement.
+
+If any line is missing, the reliance you place on the supplier in your validation file is not yet supported. The most common gap at inspection is the reliance statement: the file leans on vendor work but nothing in writing says what was accepted and why.
+
 ## Roles and responsibilities
 
 | Role | Responsibility |
@@ -307,6 +372,9 @@ Send scope and a document request ahead, pre-read, then in the live session name
 
 **"A supplier won't let you audit on site. What do you do?"**
 Assess the risk. If risk allows, run a remote or postal audit with objective evidence and a signed attestation. Capture the audit-rights gap in the quality agreement and as a risk, add compensating controls and possibly a future on-site trigger. If the risk is high and no adequate assessment is possible, that itself is a finding that may rule the supplier out.
+
+**"How do you handle a hosted SaaS supplier differently from an installed product?"**
+I draw the shared-responsibility split explicitly. The supplier owns infrastructure, platform patching, backup, and availability, which I check against their SOC 2 Type II or ISO 27001 and the SLA. I own application configuration, user access and roles, audit trail and signature configuration, data export on exit, and validation for my intended use. Certifications cover the supplier's column, never mine. I write the split into both the assessment and the quality agreement so the boundary is testable.
 
 **"Where does the supplier assessment live in the validation lifecycle?"**
 Before selection and before reliance. Its output feeds the validation plan and test strategy through a reliance statement that records what vendor work I accept and what I will test, and it updates the approved supplier list with a re-assessment date.

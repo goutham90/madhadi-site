@@ -34,6 +34,20 @@ Here is the decision in one table.
 
 The single most useful sentence to memorize: **you verify a compendial method, you validate a non-compendial method, and you transfer either one between labs.**
 
+The decision is quick once you ask the questions in order: is the method published in an official compendium, did you keep it inside the allowed adjustments, and is it moving between labs.
+
+<div class="flow">
+  <div class="flow-step">Method to set up</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">From an official compendium? No &rarr; validate (ICH Q2(R2))</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Yes, changed beyond &lt;621&gt; limits? &rarr; validate the change</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Moving between two labs? &rarr; transfer (&lt;1224&gt;)</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Otherwise, first use here &rarr; verify (&lt;1226&gt;)</div>
+</div>
+
 ---
 
 ## What USP <1226> actually says
@@ -50,7 +64,7 @@ The chapter makes a few points that matter in practice:
 
 <1226> works alongside <1225> (Validation of Compendial Procedures) and <1224> (Transfer). Think of them as a family: <1225> validate, <1226> verify, <1224> transfer.
 
-> A 2023 update to the USP general chapters renumbered and clarified the analytical lifecycle chapters and added <1220> (Analytical Procedure Life Cycle). <1226> remains the verification chapter. When you cite it in a protocol, cite the current USP edition you are operating under, because USP is continuously revised and the chapter content can change between editions. Do not cite a year as if the chapter were static.
+> USP added <1220> (Analytical Procedure Life Cycle) as the lifecycle-framing chapter, and <1226> remains the verification chapter alongside <1225> (validation) and <1224> (transfer). USP continues to revise this family to track ICH Q2(R2) and Q14, including a proposed revision of <1225> circulated in Pharmacopeial Forum. When you cite any of them in a protocol, cite the specific USP-NF edition and supplement you are operating under, confirm whether a proposed revision in Pharmacopeial Forum has become official, and do not cite a year as if the chapter were static. The lifecycle view in <1220> reframes verification as one stage of ongoing performance monitoring rather than a one-time event, which is worth reflecting in how you trigger re-verification (see the conditions-changed cases below).
 
 ---
 
