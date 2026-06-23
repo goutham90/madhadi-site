@@ -9,10 +9,11 @@ interface Props {
   pillar?: string;
   tags: string[];
   tier?: string;
+  slug: string;
   relatedArticles?: { slug: string; title: string }[];
 }
 
-const { title, description, pubDate, docType, pillar, tags, tier, relatedArticles = [] } = Astro.props;
+const { title, description, pubDate, docType, pillar, tags, tier, slug, relatedArticles = [] } = Astro.props;
 
 const pillarNames: Record<string, string> = {
   'data-integrity': 'Data Integrity', 'csv-csa': 'CSV / CSA',
@@ -35,6 +36,10 @@ const pillarNames: Record<string, string> = {
       <h1 class="tpl-title">{title}</h1>
       <p class="tpl-standfirst">{description}</p>
       <div class="tpl-meta"><span>Document type: {docType}</span></div>
+      <a class="tpl-dl" href={`/templates/${slug}.docx`} download>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download Word (.docx)
+      </a>
     </div>
   </header>
 
@@ -78,6 +83,9 @@ const pillarNames: Record<string, string> = {
   .tpl-standfirst { font-family: var(--serif); color: var(--on-navy); font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.45; max-width: 52ch; margin-bottom: 1.1rem; }
   .tpl-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.55rem; font-size: 0.84rem; color: var(--on-navy-dim); font-weight: 500; }
   .tpl-meta .sep { color: var(--gold); }
+  .tpl-dl { display: inline-flex; align-items: center; gap: 8px; margin-top: 1.2rem; background: #ffd98a; color: var(--navy); font-family: var(--sans); font-weight: 700; font-size: 0.92rem; padding: 10px 18px; border-radius: var(--radius); transition: background .15s, transform .15s; }
+  .tpl-dl:hover { background: #ffe6ab; color: var(--navy); text-decoration: none; transform: translateY(-1px); }
+  .tpl-dl svg { flex: none; }
 
   .tpl-shell { padding-top: 2.4rem; padding-bottom: 4.5rem; }
   .tpl-howto { max-width: var(--measure); margin: 0 auto 2.2rem; background: var(--panel); border-left: 4px solid var(--blue); border-radius: var(--radius); padding: 1rem 1.3rem; font-size: 0.98rem; line-height: 1.6; color: var(--ink-2); }
