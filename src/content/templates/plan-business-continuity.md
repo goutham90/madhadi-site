@@ -50,9 +50,9 @@ This plan applies to the sites, departments, and processes listed in the header 
 
 - **Business impact analysis (BIA)**: the structured assessment that ranks each activity by the harm caused if it stops, and from that sets how fast it must recover.
 - **Critical process**: an activity whose loss would, within a defined time, threaten patient safety, product quality, regulatory compliance, or supply.
-- **RTO (recovery time objective)**: the maximum time a process or system may stay down before the impact becomes unacceptable.
-- **RPO (recovery point objective)**: the maximum data loss, measured in time, that the process can tolerate (for example, "no more than the last 24 hours of entries").
-- **MTPD (maximum tolerable period of disruption)**: the outer limit, longer than the RTO, beyond which the harm is severe or irreversible.
+- **RTO (recovery time objective)**: the target you set for how quickly a stopped process or system has to be working again, the deadline past which staying down does real damage.
+- **RPO (recovery point objective)**: how far back, in elapsed time, the process can afford to lose work if data is not recovered (for example, "no more than the last 24 hours of entries").
+- **MTPD (maximum tolerable period of disruption)**: the hard ceiling, set further out than the RTO, past which the consequences turn severe or cannot be undone.
 - **Manual workaround**: a validated or pre-approved way to keep a critical process running on paper or by other means while the normal system is unavailable.
 - **Invocation**: the formal decision to activate this plan, made by the incident commander.
 - **Disaster recovery (DR)**: the technical restoration of IT systems, infrastructure, and data, governed by the DR plan; one input to this BCP.

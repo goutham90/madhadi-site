@@ -95,7 +95,7 @@ Record the software category so the validation effort downstream is proportionat
 | Item | Entry |
 |---|---|
 | Software supplied | `<<FILL: instrument control / chromatography data system / firmware>>` |
-| GAMP category | `<<FILL: 1 infrastructure / 3 non-configured / 4 configured / 5 custom>>` |
+| GAMP category | `<<FILL: assign the software's category per the ISPE GAMP 5 classification, from underlying infrastructure software through standard non-configured products, configured products, to bespoke custom code>>` |
 | Configuration to be applied | `<<FILL: user roles, calculation methods, system policies>>` |
 | Part 11 / Annex 11 features needed | `<<FILL: audit trail, e-signatures, access control, time sync>>` |
 

@@ -91,7 +91,7 @@ This effectiveness check is acceptable when all of the following are true:
 ## 6. References
 
 > 21 CFR 820.100(a)(4) (verify or validate the corrective and preventive action to confirm it is effective and does not adversely affect the finished device; for devices now read through the Quality Management System Regulation incorporating ISO 13485:2016, effective 02 February 2026).
-> ISO 13485:2016, clause 8.5.2 (review of the effectiveness of corrective action taken).
+> ISO 13485:2016, clause 8.5.2 (the corrective action requirement, which obliges a check that the action taken actually worked).
 > 21 CFR 211.192 (the broader investigation duty under which effectiveness is expected for drug investigations).
 > ICH Q10 (CAPA effectiveness feeding continual improvement and management review).
 

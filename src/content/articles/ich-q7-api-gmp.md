@@ -23,7 +23,7 @@ What Q7 deliberately leaves out is just as important. It does not cover:
 - Vaccines, whole cells, whole blood and plasma, and gene therapy products. The **principles** of Q7 apply, but the document points to other guidances (WHO, regional biologics guidance) for those.
 - Medical gases, bulk-packaged drug products, and radiopharmaceuticals, which are addressed elsewhere.
 
-The structure of Q7 follows the familiar GMP architecture across 19 sections: quality management, personnel, buildings and facilities, process equipment, documentation and records, materials management, production and in-process controls, packaging and labeling, storage and distribution, laboratory controls, validation, change control, rejection and reuse, complaints and recalls, contract manufacturers, agents/brokers/distributors. Section 18 adds specific guidance for APIs made by cell culture or fermentation, and Section 19 covers APIs used in clinical trials.
+The structure of Q7 follows the familiar GMP architecture across its numbered sections (1 to 19, plus a glossary at Section 20): quality management, personnel, buildings and facilities, process equipment, documentation and records, materials management, production and in-process controls, packaging and labeling, storage and distribution, laboratory controls, validation, change control, rejection and reuse, complaints and recalls, contract manufacturers, agents/brokers/distributors. Section 18 adds specific guidance for APIs made by cell culture or fermentation, and Section 19 covers APIs used in clinical trials.
 
 Put plainly: Part 211 tells you how to make a finished drug; Q7 tells you how to make the active ingredient so the finished-drug maker can trust it. The two meet at the API specification, the certificate of analysis, and the supplier qualification file. For the foundational concepts behind both, see [what GMP is](/articles/what-is-gmp) and the [21 CFR 210/211 cGMP walkthrough](/articles/cfr-210-211-cgmp-walkthrough).
 
@@ -33,7 +33,7 @@ This is the single most consequential decision in API manufacturing, and inspect
 
 Q7 frames the answer around the **API starting material**: a raw material, intermediate, or API used in the production of an API that is incorporated as a significant structural fragment into the structure of the API. The starting material is the point at which GMP under Q7 formally begins. Everything from that point forward must be made under GMP; steps before it are expected to follow sound scientific principles but sit outside Q7's scope.
 
-Q7 gives a graded model. As you move downstream from the starting material toward the final API, GMP controls increase. Early steps may have looser controls; the closer you get to the final API, the tighter everything becomes. Equipment cleaning, impurity testing, environmental controls, documentation, and validation all ratchet up. Table 1 in Q7's Scope section illustrates where GMP applies across manufacturing types: for chemical synthesis, GMP begins at the introduction of the API starting material; for fermentation and cell culture, it begins at the maintenance of the working cell bank.
+Q7 gives a graded model. As you move downstream from the starting material toward the final API, GMP controls increase. Early steps may have looser controls; the closer you get to the final API, the tighter everything becomes. Equipment cleaning, impurity testing, environmental controls, documentation, and validation all ratchet up. Table 1 in Q7's Scope section illustrates where GMP applies across manufacturing types: for chemical synthesis, GMP begins at the introduction of the API starting material; for biotechnology (recombinant) cell culture and fermentation, it begins at the maintenance of the working cell bank; for classical fermentation to produce an API, it begins at the introduction of the cells into fermentation.
 
 The judgment is not purely a manufacturer's to make in isolation. The choice of starting material is reviewed by regulators as part of the marketing application. ICH Q11, *Development and Manufacture of Drug Substances* (2012), lays out the principles and supporting data expected to justify the selection of a starting material: the starting material should be a substance of defined chemical properties and structure, with adequate specifications, and enough of the synthesis should be carried out under GMP to assure impurity control of the final API. The Q11 Q&A (2017) gives worked logic for the general principles. A common inspection and review finding is a starting material chosen too late in the route, typically to shrink the GMP footprint, leaving impurity-forming chemistry uncontrolled and unjustified.
 
@@ -50,7 +50,7 @@ Picture a five-step synthesis. The starting material (SM) enters at step 1 and t
 | Environmental control | Basic | Basic to controlled | Controlled, often classified for final isolation/drying |
 | Change control | Formal | Formal | Formal, MAH-notified, regulatory-impact assessed |
 
-The principle, stated in Q7 Section 1.3, is that "appropriate GMP (as defined in this guidance) should be applied to the manufacturing steps immediately after API starting materials are entered into the process." How much more rigor you add downstream is a documented, risk-based decision, not a guess.
+The principle, set in Q7's Scope (Section 1) and Table 1, is that once a material enters the process at the defined GMP starting point, "appropriate GMP as defined in this Guide should be applied to these intermediate and/or API manufacturing steps." How much more rigor you add downstream is a documented, risk-based decision, not a guess.
 
 ### How to defend a starting-material proposal
 
@@ -97,8 +97,8 @@ For the final crystallization step of a small-molecule API, a PPQ protocol might
 |---|---|---|---|
 | Cooling rate | CPP | 0.4-0.6 C/min | Polymorph control, from DoE |
 | Final hold temperature | CPP | 0-5 C | Yield and impurity rejection |
-| Specified impurity X | CQA | NMT 0.10% | ICH Q3A qualification threshold, dose-based |
-| Residual solvent (Class 2) | CQA | Within ICH Q3C PDE limit | Q3C(R8) |
+| Specified impurity X | CQA | NMT 0.10% | ICH Q3A identification threshold, dose-based |
+| Residual solvent (Class 2) | CQA | Within ICH Q3C PDE limit | Q3C(R9) |
 | Assay (dried basis) | CQA | 98.0-102.0% | Registered specification |
 | Particle size D90 | CQA | NMT 50 µm | Bioavailability / downstream blending |
 
@@ -113,7 +113,7 @@ For an API, the impurity profile is the product as much as the assay value is. T
 The relevant standards:
 
 - **ICH Q3A(R2), Impurities in New Drug Substances**, sets reporting, identification, and qualification thresholds for organic impurities in the drug substance, tied to maximum daily dose. For a drug substance with a maximum daily dose up to 2 g/day, the thresholds are 0.05% reporting, 0.10% identification, and 0.15% qualification (or 1.0 mg/day intake, whichever is lower). Read the exact threshold against the dose band in the current guideline, because the numbers change at higher doses.
-- **ICH Q3C(R8), Residual Solvents**, classifies solvents (Class 1 to avoid, Class 2 limited, Class 3 low-toxicity) and sets permitted daily exposure (PDE) limits.
+- **ICH Q3C(R9), Residual Solvents**, classifies solvents (Class 1 to avoid, Class 2 limited, Class 3 low-toxicity) and sets permitted daily exposure (PDE) limits.
 - **ICH Q3D(R2), Elemental Impurities**, sets PDEs for elemental impurities (including catalysts and reagents such as palladium, platinum, and nickel) by route of administration, built on a risk-based control approach.
 - **ICH M7(R2), Assessment and Control of DNA Reactive (Mutagenic) Impurities**, governs mutagenic impurities. It defines structural-alert assessment, the (Q)SAR methodology using two complementary prediction systems, and the threshold of toxicological concern (TTC) of generally 1.5 µg/day for lifetime exposure.
 
@@ -130,7 +130,7 @@ What this means operationally for an API maker:
 |---|---|---|---|---|---|
 | Impurity A (des-methyl) | Side reaction at step 2 | Step 2 | Purged at step 4 crystallization | NMT 0.10% | Yes, in-process at step 4 |
 | Impurity B (SM carryover) | Present in starting material | Pre-SM | SM specification + step 3 wash | NMT 0.15% | SM release + final API |
-| Nitrosamine (potential) | Secondary amine + nitrite source | Step 3 | Avoid nitrite; purge factor argument per M7 | < 18% of AI (control limit) | Skip-test justified by purge |
+| Nitrosamine (potential) | Secondary amine + nitrite source | Step 3 | Avoid nitrite; purge factor argument per M7 | AI 18 ng/day (EMA) or 26.5 ng/day (FDA), converted to a ppm limit vs max daily dose | Skip-test justified by purge |
 | Pd (catalyst) | Coupling catalyst step 2 | Step 2 | Scavenger resin + crystallization | Within Q3D oral PDE | Periodic per Q3D risk assessment |
 | Residual THF | Reaction solvent | Multiple | Drying | Within Q3C Class 2 PDE | Yes, final API |
 
@@ -253,7 +253,7 @@ To get ahead of an inspection, see [FDA inspection readiness](/articles/fda-insp
 These are the questions an interviewer or an inspector asks on this topic. Short, specific answers beat long ones.
 
 **"Where does GMP begin for an API, and who decides?"**
-At the introduction of the API starting material for chemical synthesis, or at maintenance of the working cell bank for fermentation and cell culture (Q7 Table 1). The manufacturer proposes the starting material, but the agency reviews and accepts it as part of the marketing application under ICH Q11. The boundary must be justified with impurity-purge data, not chosen just to shrink the GMP footprint.
+At the introduction of the API starting material for chemical synthesis, at maintenance of the working cell bank for biotechnology (recombinant) cell culture and fermentation, and at the introduction of the cells into fermentation for classical fermentation (Q7 Table 1). The manufacturer proposes the starting material, but the agency reviews and accepts it as part of the marketing application under ICH Q11. The boundary must be justified with impurity-purge data, not chosen just to shrink the GMP footprint.
 
 **"How many batches do you need for API process validation?"**
 There is no required number. Q7 and the 2011 FDA process validation guidance expect a number justified by process understanding, complexity, and variability. A simple, well-characterized synthesis may need few; a high-variability fermentation needs more. The right answer is a defensible rationale, not "three."

@@ -9,7 +9,7 @@ tier: "Intermediate"
 
 A regulated company almost never builds the software it runs. The chromatography data system, the LIMS, the electronic batch record platform, the document management system: these are commercial products built by suppliers who already designed, coded, and tested them against thousands of customer requirements. The whole point of supplier assessment is to figure out how much of that supplier work you can rely on, so your own validation effort lands where it actually reduces risk rather than re-proving what the vendor already proved.
 
-This is the heart of the Computer Software Assurance (CSA) mindset. The FDA draft guidance "Computer Software Assurance for Production and Quality System Software" (September 2022) is explicit that manufacturers should consider the activities a supplier already performs and avoid duplicating them. GAMP 5 Second Edition (2022) goes further and makes "reusing supplier involvement" one of its key concepts. If you do supplier assessment well, you reduce test scripts, shorten timelines, and still hold a defensible position in front of an inspector. If you do it badly, you either re-test everything (wasteful) or accept everything blindly (a finding waiting to happen).
+This is the heart of the Computer Software Assurance (CSA) mindset. The FDA final guidance "Computer Software Assurance for Production and Quality System Software" (24 September 2025, which superseded the 2022 draft) is explicit that manufacturers should consider the activities a supplier already performs and avoid duplicating them. GAMP 5 Second Edition (2022) goes further and makes "reusing supplier involvement" one of its key concepts. If you do supplier assessment well, you reduce test scripts, shorten timelines, and still hold a defensible position in front of an inspector. If you do it badly, you either re-test everything (wasteful) or accept everything blindly (a finding waiting to happen).
 
 This article walks through the full supplier assessment lifecycle: deciding which suppliers to assess and how deeply, what to look at in their quality system and software development lifecycle (SDLC), how to run the assessment including remote and postal audit techniques, how to decide what to accept versus re-test, and how to document it so it holds up.
 
@@ -19,13 +19,13 @@ This article walks through the full supplier assessment lifecycle: deciding whic
 
 Supplier assessment is not a nice-to-have. Several regulations and guidances put the obligation squarely on the regulated company.
 
-**21 CFR Part 820.50 (Purchasing Controls)** for medical devices requires that you "establish and maintain requirements, including quality requirements, that must be met by suppliers" and "evaluate and select potential suppliers on the basis of their ability to meet specified requirements." Software is a purchased product. This regulation is the cleanest single statement of the obligation. The same expectation flows into the Quality Management System Regulation (QMSR), which aligns 21 CFR 820 with ISO 13485:2016, where Clause 7.4 covers purchasing and supplier evaluation.
-
-**EU GMP Annex 11 (Computerised Systems)** states in Section 3.1: "When third parties (e.g. suppliers, service providers) are used... to provide, install, configure, integrate, validate, maintain... or modify a computerised system... formal agreements must exist... and these agreements should include clear statements of the responsibilities of the third party. IT-departments should be considered analogous." Section 3.2 says "The competence and reliability of a supplier are key factors when selecting a product or service provider. The need for an audit should be based on a risk assessment." That sentence is the legal anchor for the risk-based decision on whether and how to audit.
+**EU GMP Annex 11 (Computerised Systems)** is the primary anchor for a pharma, biotech, or biologics operation. Section 3.1 requires that when third parties (suppliers, service providers, and IT departments treated the same way) are used to provide, install, configure, integrate, validate, maintain, or modify a computerised system, formal agreements must exist that set out the third party's responsibilities clearly. Section 3.2 states that the competence and reliability of a supplier are key factors in selecting a product or service provider, and that the decision on whether to audit should rest on a risk assessment. That risk-based principle is the anchor for the decision on whether and how to audit.
 
 **EU GMP Chapter 7 (Outsourced Activities)** and the **PIC/S PI 011 (Good Practices for Computerised Systems in Regulated GxP Environments)** reinforce that responsibility for the validated state stays with the regulated user, even when work is delegated to a supplier.
 
-**ICH Q9(R1) Quality Risk Management (2023)** provides the framework for the risk-based depth decision. You scale assessment effort to the risk the system carries to product quality, patient safety, and data integrity.
+**21 CFR Part 820.50 (Purchasing Controls)** carries the same obligation in supporting US regulation: you establish and maintain quality requirements that suppliers must meet, and you evaluate and select suppliers on their ability to meet those requirements. Software is a purchased product. The Quality Management System Regulation (QMSR) aligns 21 CFR 820 with ISO 13485:2016, where Clause 7.4 covers purchasing and supplier evaluation, and that alignment matters for combination products and software as a medical device in scope at a biologics or pharma company.
+
+**ICH Q9(R1) Quality Risk Management (2022)** provides the framework for the risk-based depth decision. You scale assessment effort to the risk the system carries to product quality, patient safety, and data integrity.
 
 **GAMP 5 Second Edition** is the industry interpretation, not a regulation, but inspectors recognize it. It introduces software categories (Category 1 infrastructure, Category 3 non-configured products, Category 4 configured products, Category 5 custom applications) and ties supplier reliance to category and risk.
 
@@ -88,7 +88,7 @@ A pragmatic mapping:
 | High | Remote or on-site audit, plus documentation review |
 | High + new/unknown supplier | On-site or thorough remote audit |
 
-Annex 11 Section 3.2 is the cover for not auditing every supplier: "The need for an audit should be based on a risk assessment." Document the risk basis and you are aligned.
+Annex 11 Section 3.2 is the cover for not auditing every supplier: it ties the decision to audit to a risk assessment. Document the risk basis and you are aligned.
 
 ---
 
@@ -294,7 +294,7 @@ The contractual layer matters too. Annex 11 Section 3.1 requires formal agreemen
 Risk-based, per Annex 11 Section 3.2. Score GxP impact, data integrity impact, GAMP category, and supplier maturity. Low risk gets a questionnaire and ASL check; medium gets documentation review or a postal audit; high gets a remote or on-site audit. The risk score is the documented justification for the method.
 
 **"What does CSA change about supplier assessment compared with traditional CSV?"**
-CSA, per the FDA September 2022 draft guidance, tells you to consider activities the supplier already performs and not duplicate them. It shifts effort toward relying on credible vendor testing and toward unscripted, focused testing for lower-risk functions, with documented rationale, instead of re-scripting everything. The supplier assessment is what earns the right to lean on vendor work.
+CSA, per the FDA final guidance dated 24 September 2025, tells you to consider activities the supplier already performs and not duplicate them. It shifts effort toward relying on credible vendor testing and toward unscripted, focused testing for lower-risk functions, with documented rationale, instead of re-scripting everything. The supplier assessment is what earns the right to lean on vendor work.
 
 **"What would let you accept vendor testing instead of re-testing a function?"**
 The supplier demonstrably tested it (I saw the records or a credible sample), their SDLC that produced the evidence is sound, the function is not high risk for my specific use, and I did not configure or extend it. If any of those fail, especially configuration or high criticality, I test it myself.

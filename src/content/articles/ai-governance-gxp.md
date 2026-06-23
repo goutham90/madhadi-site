@@ -17,7 +17,7 @@ Governance sits above validation, not inside it. If you have not built the valid
 
 ## Why Governance, Not Just Validation
 
-> "Senior management has the ultimate responsibility to ensure an effective pharmaceutical quality system is in place." ICH Q10, Pharmaceutical Quality System, on management responsibility for the quality system.
+> ICH Q10, Pharmaceutical Quality System, places ultimate accountability for an effective quality system on senior management. (Section 2, Management Responsibility.)
 
 The regulatory case for AI governance does not come from an AI-specific rule, because for pharmaceutical and biologics manufacturing there is not yet a single binding one. It comes from the existing expectation that a regulated organization controls its quality-impacting activities through a documented system with defined responsibilities, risk management, and management oversight. AI that touches a GxP decision is a quality-impacting activity. Once you have more than one or two such systems, ad hoc per-project control stops being defensible, because there is no consistent basis for the decisions and no one accountable for the whole.
 

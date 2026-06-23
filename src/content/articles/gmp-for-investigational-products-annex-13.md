@@ -19,15 +19,15 @@ That tension is what investigational medicinal product (IMP) GMP is about. This 
 
 In the EU/EEA, GMP for IMPs is a legal requirement, not just guidance. The chain runs like this:
 
-- **Regulation (EU) No 536/2014** (the Clinical Trials Regulation, CTR, applicable since 31 January 2022) governs the conduct and authorisation of clinical trials and requires that IMPs be manufactured in accordance with GMP.
+- **Regulation (EU) No 536/2014** (the Clinical Trials Regulation, CTR, applicable since 31 January 2022) governs the conduct and authorisation of clinical trials and requires that IMPs be manufactured in accordance with GMP. The CTR also sets the binding IMP label particulars itself: Articles 66 to 70 and **Annex VI** of the CTR carry the label-content requirements (including auxiliary medicinal product labelling), which were deliberately moved out of GMP and into the CTR.
 - **Commission Delegated Regulation (EU) 2017/1569** sets out the specific GMP principles and guidelines for IMPs and the arrangements for inspecting manufacturers. This is the binding GMP text for IMPs under the CTR.
 - **Commission Directive 2003/94/EC** historically laid down GMP principles for both authorised products and IMPs and still informs national transpositions.
-- The **EU GMP Guide** (EudraLex Volume 4) provides the detailed expectations. Historically the IMP detail lived in **Annex 13 (Manufacture of Investigational Medicinal Products)**. With the CTR, the Commission published **detailed Commission guidelines on GMP for IMPs (2017/C 63/01)** that effectively supersede Annex 13 for trials run under the CTR. You will still hear people say "Annex 13" as shorthand for IMP GMP, and many of the principles are unchanged, so know both names.
+- The **EU GMP Guide** (EudraLex Volume 4) provides the detailed expectations. The IMP detail lives in **Annex 13 (Manufacture of Investigational Medicinal Products)**. The old Annex 13 text was replaced: the **Detailed Commission guidelines of 8 December 2017 on GMP for investigational medicinal products (C(2017) 8179)** were published as the new Annex 13 of EudraLex Volume 4, and that guideline now constitutes the current Annex 13 for CTR trials. So "Annex 13" and "the detailed Commission guidelines on GMP for IMPs" name the same current document, not two competing ones. Many of the principles are unchanged from the prior text.
 - QP certification of IMPs follows **Annex 16 (Certification by a Qualified Person and Batch Release)** principles, adapted because there is no marketing authorisation to certify against.
 
-> The Delegated Regulation (EU) 2017/1569 states that the manufacturer shall establish and implement a pharmaceutical quality system, and that IMPs shall be manufactured in accordance with GMP appropriate to the stage of development of the product.
+In substance, Delegated Regulation (EU) 2017/1569 requires the IMP manufacturer to operate a pharmaceutical quality system and to make IMPs under GMP that fits the product's development stage.
 
-That last phrase, "appropriate to the stage of development," is the legal hook for everything called phase-appropriate.
+That idea, GMP appropriate to the stage of development, is the legal hook for everything called phase-appropriate.
 
 ### The US framework
 
@@ -121,7 +121,7 @@ The structure mirrors a commercial spec (per **ICH Q6A / Q6B** for chemical and 
 |---|---|---|
 | Phase 1 | NMT 0.5% | Level qualified in the GLP toxicology batches; method qualified not validated |
 | Phase 2 | NMT 0.3% | 6 clinical batches observed 0.05-0.18%; method validated; tox coverage confirmed |
-| Phase 3 | NMT 0.20%, reporting threshold 0.05% | Aligned with ICH Q3A/Q3B thresholds and clinical experience; registration-directed |
+| Phase 3 | NMT 0.20%, reporting threshold 0.05% | Aligned with ICH Q3A/Q3B thresholds (the 0.05% reporting threshold here assumes a high-dose product over 1 g/day; for a maximum daily dose of 1 g or less the Q3B reporting threshold is 0.10%) and clinical experience; registration-directed |
 
 Notice the limit only tightens when there is data and method maturity to support it. It never gets *looser* without a serious safety justification, because subjects have already been dosed against the earlier limit and the dossier was approved on it.
 
@@ -157,25 +157,25 @@ Each of these maps to a record an inspector can ask for. If you cannot produce t
 
 ## Labelling of IMPs: the highest-frequency clinical-supply risk
 
-Labelling is where clinical supply quality lives or dies. A label error can dose a subject incorrectly, break a blind, or invalidate a trial. The detailed Commission guidelines on GMP for IMPs (and historically Annex 13) specify what must appear on IMP labels.
+Labelling is where clinical supply quality lives or dies. A label error can dose a subject incorrectly, break a blind, or invalidate a trial. For CTR trials the legal label particulars sit in the CTR itself: Articles 66 to 70 and Annex VI of Regulation (EU) 536/2014. Label content was moved out of GMP Annex 13 into the CTR, so Annex VI, not the GMP guideline, is where you check the required content. Note Annex VI specifics such as expiry on both the primary and the secondary packaging and the separate rules for auxiliary medicinal products.
 
 ### Required label content
 
-For the immediate and outer packaging, the typical required particulars include:
+For the immediate and outer packaging, the particulars an IMP label usually has to carry break down like this (always confirm the exact wording and exemptions against Annex VI for your trial):
 
-- Name, address and telephone number of the sponsor, contract research organisation or investigator (the main contact for information).
-- Pharmaceutical dosage form, route of administration, quantity of dosage units, and (for open trials) the name/identifier and strength.
-- The batch and/or code number to identify the contents and packaging operation.
-- A trial reference code allowing identification of the trial, site, investigator and sponsor if not given elsewhere.
-- The subject identification number / treatment number, and where relevant the visit number.
-- The name of the investigator (if not included elsewhere).
-- Directions for use (a reference to a leaflet or other explanatory document is acceptable).
-- "For clinical trial use only" or similar wording.
+- A main point of contact, typically the sponsor, CRO or investigator, with enough detail (such as address and a phone number) to reach them for information.
+- Enough product description to handle the unit safely: dosage form, route, how many dosage units are inside, and, for open-label trials, the product name or identifier and its strength.
+- A batch or code number that ties the unit to its contents and to the packaging run.
+- A trial identifier that lets you trace the trial, site, investigator and sponsor, where that is not already shown.
+- The subject or treatment number, plus the visit number where that applies.
+- The investigator's name, if it is not already on the label elsewhere.
+- How to use it, with a pointer to a leaflet or other instruction document being acceptable in place of full text.
+- A statement that the material is for clinical trial use only, or equivalent wording.
 - Storage conditions.
-- Period of use (use-by, expiry or retest date) in month/year format, in a way that avoids ambiguity.
-- "Keep out of reach of children" except where the product is for use in trials where the product is not taken home by subjects.
+- A period of use (use-by, expiry or retest date), written so the month and year are unambiguous.
+- A "keep out of reach of children" caution, which can be dropped only where subjects never take the product home.
 
-The guidelines allow some particulars to be omitted and justified, and allow a separate listing of details with provisions to protect the subject and trial integrity.
+Annex VI also lets you justify omitting certain particulars and lets you move some details to a separate document, as long as subject safety and trial integrity stay protected.
 
 ### Expiry date extension on label: the special IMP allowance
 
@@ -386,7 +386,7 @@ The depth and formality of process-knowledge controls (process validation, metho
 Identity and strength, contamination and sterility/endotoxin control, container closure integrity, traceability, data integrity, accurate labelling, and batch certification/release. None of these scale down.
 
 **Q: What is the regulatory basis for IMP GMP in the EU?**
-The Clinical Trials Regulation (EU) 536/2014 requires GMP; Delegated Regulation (EU) 2017/1569 sets the binding GMP principles for IMPs; the detailed Commission guidelines on GMP for IMPs (2017/C 63/01) provide the detail and effectively supersede the old Annex 13 for CTR trials. QP certification follows Annex 16 principles adapted to IMPs.
+The Clinical Trials Regulation (EU) 536/2014 requires GMP; Delegated Regulation (EU) 2017/1569 sets the binding GMP principles for IMPs; the Detailed Commission guidelines of 8 December 2017 (C(2017) 8179), published as the current Annex 13 of EudraLex Volume 4, give the detail for CTR trials. The CTR itself (Articles 66 to 70 and Annex VI) carries the IMP label particulars. QP certification follows Annex 16 principles adapted to IMPs.
 
 **Q: How does a QP certify an IMP when there is no marketing authorisation?**
 The QP certifies against the product specification file, the approved IMPD/clinical trial authorisation, GMP appropriate to the stage of development, and the sponsor's order, rather than against an MA. They confirm specification compliance, labelling, blinding integrity, and, for imports, GMP equivalence of the third-country site.

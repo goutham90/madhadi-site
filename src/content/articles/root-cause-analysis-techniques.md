@@ -22,11 +22,10 @@ Root cause analysis is a structured method for identifying the most basic, corre
 No single regulation says "perform a 5 Whys." RCA is an expectation that sits inside the CAPA and investigation requirements across the GxP world.
 
 - **US cGMP, 21 CFR 211.192**, requires that any unexplained discrepancy or batch failure "shall be thoroughly investigated" and the investigation "shall extend to other batches" that may be associated. "Thoroughly" is the operative word inspectors lean on. An investigation that names a cause without showing how it was reached is not thorough.
-- **21 CFR 820.100** (the Quality System Regulation for devices, now being superseded by the **QMSR, 21 CFR 820 aligned to ISO 13485, with a compliance date of February 2, 2026**) requires procedures for "identifying the cause(s) of nonconforming product and other quality problems." Note the plural, *causes*. The regulation anticipates more than one.
 - **ICH Q10 (Pharmaceutical Quality System, 2008)** names a CAPA system as a core element and expects the degree of investigation effort to be commensurate with the risk. Q10 is where the proportionality principle lives.
 - **ICH Q9(R1) (Quality Risk Management, 2023 revision)** is the basis for scaling RCA rigor to risk. A minor, well understood event does not need a fault tree. A repeat sterility failure does.
-- **EU GMP Chapter 1** requires investigation of deviations and that "the root cause(s) is identified," and **EU GMP Annex 16** makes the Qualified Person accountable for ensuring deviations affecting a batch are properly investigated before release. See [qualified person batch release under Annex 16](/articles/qualified-person-batch-release-annex-16).
-- For devices specifically, **ISO 13485:2016 clause 8.5** and the FDA CAPA inspection approach both expect documented cause determination before corrective action.
+- **EU GMP Chapter 1 (Pharmaceutical Quality System)** requires that deviations be investigated and that the root cause or causes be determined, and **EU GMP Annex 16** makes the Qualified Person accountable for ensuring deviations affecting a batch are properly investigated before release. See [qualified person batch release under Annex 16](/articles/qualified-person-batch-release-annex-16).
+- The **FDA CAPA inspection approach** expects documented cause determination before corrective action, and it speaks of identifying the cause or *causes* of nonconforming product and other quality problems. Note the plural: the system anticipates more than one cause. For combination products and software as a medical device, the device-side quality system standards (the QMSR aligned to ISO 13485, with a compliance date of February 2, 2026, and ISO 13485:2016 clause 8.5) carry the same documented cause-determination expectation.
 
 The common thread: the regulation does not mandate a named tool, it mandates that you find the real cause, prove how you found it, and act on it. The tool is your means of getting there defensibly.
 
@@ -220,7 +219,7 @@ Two more points on selection. First, the tools combine. The strongest investigat
 
 ### A note on FMEA
 
-Failure Mode and Effects Analysis (FMEA) is a *proactive* risk tool, not strictly an RCA tool. It scores potential failure modes by severity, occurrence, and detection to prioritize prevention. You will see it in [quality risk management](/articles/quality-risk-management) and design controls. It is mentioned here because interviewers test for the difference: RCA is reactive (an event happened, find why), FMEA is prospective (what could happen, prioritize before it does). Confusing the two is a common stumble.
+Failure Mode and Effects Analysis (FMEA) is a *proactive* risk tool, not strictly an RCA tool. It scores potential failure modes by severity, occurrence, and detection to prioritize prevention. You will see it in [quality risk management](/articles/quality-risk-management), process and equipment risk assessments, and combination-product design risk work. It is mentioned here because interviewers test for the difference: RCA is reactive (an event happened, find why), FMEA is prospective (what could happen, prioritize before it does). Confusing the two is a common stumble.
 
 ---
 

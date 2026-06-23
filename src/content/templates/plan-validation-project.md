@@ -70,8 +70,8 @@ Classify the software per GAMP 5 (Second Edition) and set the overall validation
 
 | Field | Entry |
 |---|---|
-| GAMP 5 software category | `<<FILL: 1 infrastructure / 3 non-configured / 4 configured / 5 custom>>` |
-| Rationale for category | `<<FILL: e.g. COTS used as supplied = 3; configured workflows = 4; bespoke code = 5>>` |
+| GAMP 5 software category | `<<FILL: pick the category that matches how the software was built and deployed, per GAMP 5 Second Edition>>` |
+| Rationale for category | `<<FILL: explain the choice from how the software is built, e.g. a standard off-the-shelf product run as delivered, a standard product set up through configuration only, or software written specifically for this use>>` |
 | Overall system GxP risk (patient/product/data) | High / Medium / Low |
 | Risk basis | `<<FILL: impact of failure on patient safety, product quality, data integrity>>` |
 | Resulting validation rigor | `<<FILL: leaner for cat 3 / low risk; deeper specification and testing for cat 4-5 / high risk>>` |

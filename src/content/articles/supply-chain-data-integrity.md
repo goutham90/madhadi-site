@@ -19,7 +19,7 @@ The discipline is the same ALCOA+ thinking used on the plant floor, but the thre
 
 Distribution sits under Good Distribution Practice, not GMP, and the records expectations come from a different stack of guidance.
 
-> EU Guidelines on Good Distribution Practice of medicinal products for human use (2013/C 343/01), Chapter 4 (Documentation): "Good documentation constitutes an essential part of the quality system. Written documentation should prevent errors from spoken communication and permits the tracking of relevant operations during the distribution of medicinal products."
+The EU Guidelines on Good Distribution Practice of medicinal products for human use (2013/C 343/01), Chapter 4 (Documentation), treats documentation as a core part of the quality system: writing things down keeps spoken instructions from going wrong and lets you trace the operations a product passes through during distribution.
 
 The same 2013/C 343/01 guideline, Chapter 9 (Transportation), requires that the required storage conditions for medicinal products be maintained during transportation within defined limits, and Chapter 7 (Outsourced Activities) sets the contract giver and contract acceptor expectations that govern 3PL oversight.
 
@@ -190,7 +190,7 @@ The custody record is continuous and the logger span brackets it, so this chain 
 
 Most companies do not own their warehouses or their cold-chain logistics. You outsource the activity, but you cannot outsource the responsibility for the records. EU GDP Chapter 7 puts it plainly.
 
-> EU GDP (2013/C 343/01), Chapter 7: "Any activity covered by the GDP Guidelines that is outsourced should be correctly defined, agreed and controlled in order to avoid misunderstandings which could affect the integrity of the product. There should be a written contract between the contract giver and the contract acceptor which clearly establishes the duties of each party."
+EU GDP (2013/C 343/01), Chapter 7, is direct about it: any outsourced GDP activity has to be clearly defined, agreed, and controlled so nothing falls through the cracks and harms product integrity, and there must be a written contract between the contract giver and the contract acceptor that spells out what each side is responsible for.
 
 This is the same contract-giver discipline as [CDMO oversight and quality agreements](/articles/cdmo-oversight-quality-agreements) and [conducting a supplier audit](/articles/conducting-a-supplier-audit), pointed at distribution partners.
 

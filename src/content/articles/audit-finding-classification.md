@@ -35,13 +35,13 @@ There is no single global regulation that says "a critical finding is X." Instea
 
 ### PIC/S and the GMP inspection model
 
-The most widely used definitions come from the **PIC/S Guide to Good Manufacturing Practice** and its companion inspection documents, in particular **PI 040 (PIC/S Inspection Report Format)** and the deficiency classification approach shared across PIC/S participating authorities. The model is the one most quality professionals carry in their heads:
+The most widely used definitions come from the **PIC/S Guide to Good Manufacturing Practice** and its companion inspection documents, in particular **PI 040 (PIC/S Guidance on Classification of GMP Deficiencies)** and the deficiency classification approach shared across PIC/S participating authorities. (The inspection report format is a separate document, PI 013.) The model is the one most quality professionals carry in their heads:
 
-> A **critical deficiency** is a deficiency which has produced, or may lead to a significant risk of producing, a product which is harmful to the patient. It also includes deficiencies that involve fraud, misrepresentation, or falsification of products or data.
+> A **critical deficiency** is one that has caused, or carries a significant risk of causing, product that could harm the patient. It also covers deficiencies tied to fraud, misrepresentation, or falsified product or data.
 >
-> A **major deficiency** is a non-critical deficiency which has produced or may produce a product not complying with its marketing authorization; or indicates a major deviation from GMP; or indicates a failure to carry out satisfactory release procedures; or a combination of several "other" deficiencies, none of which on their own may be major, but which together represent a major deficiency.
+> A **major deficiency** is a non-critical deficiency that has produced, or could produce, product outside its marketing authorization; or that shows a significant departure from GMP; or that shows release procedures were not carried out properly; or a group of lesser deficiencies that, taken together, add up to a major problem even though none would be major alone.
 >
-> A **minor deficiency** is a deficiency which cannot be classified as either critical or major, but which indicates a departure from GMP.
+> A **minor deficiency** is one that fits neither critical nor major, but still represents a departure from GMP.
 
 Three things to notice in those definitions. Critical is anchored to **patient harm or data falsification.** Major is anchored to **the marketing authorization (the registered, approved way of making the product) and to systemic GMP failure.** Minor is the residual category, a real departure from GMP that does not rise to the other two. And the major definition explicitly allows **aggregation**: several minor findings of the same kind become a major one.
 
@@ -49,7 +49,7 @@ The same model underpins the **EU GMP** inspection regime. EU GMP inspectorates 
 
 ### ICH Q9 and risk based grading
 
-**ICH Q9(R1), Quality Risk Management (2023 revision)** does not define finding categories directly, but it gives you the risk vocabulary that every defensible grading rests on: severity, probability of occurrence, and detectability. When you argue a grade, you are really arguing severity (how bad is the consequence) and likelihood (is this a one off or a pattern). Q9 is the reference you cite when an auditee asks you to justify why you scored severity high.
+**ICH Q9(R1), Quality Risk Management** does not define finding categories directly, but it gives you the risk vocabulary that every defensible grading rests on: severity, probability of occurrence, and detectability. When you argue a grade, you are really arguing severity (how bad is the consequence) and likelihood (is this a one off or a pattern). Q9 is the reference you cite when an auditee asks you to justify why you scored severity high.
 
 ### GAMP 5 for computerized systems and CSV audits
 
@@ -59,7 +59,7 @@ For computerized system and data integrity audits, **ISPE GAMP 5 (Second Edition
 
 For GCP audits and sponsor inspections, **ICH E6(R2)/E6(R3) Good Clinical Practice** is the standard, and regulators apply their own grading. The EMA's GCP inspection procedures and national authorities use **critical, major and minor** with definitions tuned to subject safety and data credibility rather than product quality:
 
-> A **critical** GCP finding is a condition, practice or process that adversely affects the rights, safety or well-being of subjects, and/or the quality and integrity of data.
+> A **critical** GCP finding is a condition, practice, or process that harms the rights, safety, or well-being of trial subjects, or that compromises the quality and reliability of the data, or both.
 
 The structure is identical to GMP; only the protected interest changes from product quality to subject safety and data integrity.
 

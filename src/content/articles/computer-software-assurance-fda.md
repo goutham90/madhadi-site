@@ -1,17 +1,17 @@
 ---
 title: "FDA Computer Software Assurance: What Changed and What Didn't"
-description: "FDA's final CSA guidance (February 2026), what it actually requires, how it changes testing scope, scripted vs exploratory testing, using supplier evidence, the four-step method, and what finalization means for inspection."
+description: "FDA's final CSA guidance (September 2025), what it actually requires, how it changes testing scope, scripted vs exploratory testing, using supplier evidence, the four-step method, and what finalization means for inspection."
 pubDate: 2025-09-11
 tags: ["CSV", "CSA", "FDA", "validation", "GAMP", "GxP"]
 pillar: "csv-csa"
 tier: "Advanced"
 ---
 
-FDA finalized the Computer Software Assurance (CSA) guidance on February 3, 2026. The draft had circulated since September 2022, which means industry spent more than three years operating under the draft's principles, and now those principles carry the full weight of final FDA guidance. If you work in computer system validation, you need to understand exactly what this guidance says, because "critical thinking over documentation" is no longer an industry aspiration. It is what FDA expects.
+FDA finalized the Computer Software Assurance (CSA) guidance on September 24, 2025. The draft had circulated since September 2022, which means industry spent about three years operating under the draft's principles, and now those principles carry the full weight of final FDA guidance. If you work in computer system validation, you need to understand exactly what this guidance says, because "critical thinking over documentation" is no longer an industry aspiration. It is what FDA expects.
 
 Here is what the guidance actually requires, what it changes in practice, what questions the finalization answered, and which ones are still being worked out in inspection practice.
 
-The reference document is [FDA Computer Software Assurance for Production and Quality System Software, Final Guidance for Industry and FDA Staff (February 2026)](https://www.fda.gov/media/161521/download).
+The reference document is [FDA Computer Software Assurance for Production and Quality Management System Software, Final Guidance for Industry and FDA Staff (September 2025)](https://www.fda.gov/media/188844/download).
 
 This article applies across pharmaceuticals, biologics, medical devices, combination products, and the broader life sciences. The CSA logic is the same whether the software runs a tablet press, a bioreactor, an analyzer, a device-manufacturing line, or a quality management system. The examples below are drawn from across those settings on purpose.
 
@@ -23,7 +23,7 @@ The traditional CSV (computer system validation) approach that evolved through t
 
 FDA had been seeing this for years: expensive, time-consuming validation efforts that generated large documentation packages but did not actually reduce the risk of system failures in use. There is a well-known failure pattern behind this. When validation is measured by page count, teams optimize for page count. A login screen gets the same twelve-step scripted protocol as the audit trail engine, a screenshot is captured for every step, a second person reviews every screenshot, and at the end the binder is thick and the genuinely risky behavior of the system has been tested no more carefully than the trivial behavior. Worse, the cost of this exercise discourages teams from making system changes at all, so improvements that would reduce risk get deferred because revalidation is too expensive.
 
-The 21st Century Cures Act (Public Law 114-255, signed December 2016) included a directive to FDA to reduce burdens from unnecessary or duplicative records and to modernize how the agency thinks about software. CSA was one of the responses. The agency had also published its "General Principles of Software Validation" guidance through the Center for Devices and Radiological Health back in January 2002, and CSA extends that risk-based logic specifically into production and quality system software. For device makers, the same critical-thinking logic now also runs through 21 CFR Part 820 as revised by the Quality Management System Regulation, which harmonizes with ISO 13485. See [the medical device quality system under QMSR](/articles/medical-device-quality-system-qmsr).
+The 21st Century Cures Act (Public Law 114-255, signed December 2016) included a directive to FDA to reduce burdens from unnecessary or duplicative records and to modernize how the agency thinks about software. CSA was one of the responses. The agency had also published its "General Principles of Software Validation" guidance through the Center for Devices and Radiological Health back in January 2002, and CSA supersedes Section 6 of that guidance ("Validation of Automated Process Equipment and Quality System Software") and supplements the remainder, carrying its risk-based logic specifically into production and quality management system software. The final CSA guidance is formally a device and quality-system document, implementing 21 CFR 820.70(i), so its principles apply directly to medical device production and the quality management system; in drug and biologic computerized-system validation those same principles are adopted by analogy rather than as the governing FDA guidance. The critical-thinking logic now also runs through 21 CFR Part 820 as revised by the Quality Management System Regulation, which harmonizes with ISO 13485. See [the pharmaceutical quality system](/articles/pharmaceutical-quality-system).
 
 The CSA guidance is framed explicitly as a mechanism to reduce the level of unnecessary documentation and testing burden while maintaining an appropriate level of assurance.
 
@@ -33,9 +33,9 @@ If you are early in a GxP quality career, two definitions will keep the rest of 
 
 ### Scope: what CSA covers and what it does not
 
-The title of the guidance is precise. CSA addresses "production and quality system software," which the document defines as software used as part of production or the quality system. That includes a manufacturing execution system, a laboratory information management system, a quality management system, a deviation or CAPA tracking tool, an automation layer on production equipment, a label management system, and the data acquisition software on an analytical instrument.
+The title of the guidance is precise. CSA addresses "production and quality management system software" (the 2022 draft omitted "management"), which the document defines as software used as part of production or the quality system. That includes a manufacturing execution system, a laboratory information management system, a quality management system, a deviation or CAPA tracking tool, an automation layer on production equipment, a label management system, and the data acquisition software on an analytical instrument.
 
-CSA does not cover, and the guidance says so explicitly, software that is itself a medical device or part of a device (Software as a Medical Device and software in a device follow [IEC 62304](/articles/iec-62304-samd-software-lifecycle), [device design controls](/articles/design-controls-medical-devices), and [device software cybersecurity](/articles/device-software-cybersecurity-samd)). It also does not address the validation of the manufacturing process itself, which is [process validation](/articles/process-validation-lifecycle). Knowing the scope boundary is an interview question in its own right: CSA is about the software that supports making and assuring product, not the product, and not the process.
+CSA does not cover, and the guidance says so explicitly, software that is itself a medical device or part of a device (Software as a Medical Device and software in a device follow [IEC 62304](/articles/iec-62304-samd-software-lifecycle), device design controls, and [device software cybersecurity](/articles/device-software-cybersecurity-samd)). It also does not address the validation of the manufacturing process itself, which is [process validation](/articles/process-validation-lifecycle). Knowing the scope boundary is an interview question in its own right: CSA is about the software that supports making and assuring product, not the product, and not the process.
 
 ---
 
@@ -240,7 +240,7 @@ One practical caution. GAMP categories describe the nature of the software, not 
 | Testing scope | All functions, complete scripts | Risk-stratified; scripted for critical, exploratory or vendor evidence for lower-risk |
 | Documentation volume | High, a binder per system | Lower, focused on critical functions |
 | Supplier evidence | Supplementary | Can reduce site testing scope |
-| Regulatory basis | Part 11, GAMP 5 first edition | Part 11, GAMP 5 second edition, CSA final (Feb 2026) |
+| Regulatory basis | Part 11, GAMP 5 first edition | Part 11, GAMP 5 second edition, CSA final (Sept 2025) |
 | Risk of over-documentation | High | Lower |
 | Risk of under-documentation | Low | Exists if risk stratification is undocumented |
 | Inspection track record | Well-established | Evolving |
@@ -275,7 +275,7 @@ For an inspection-oriented checklist of these issues, see [the CSV and CSA audit
 
 These are the questions that come up in CSV/CSA interviews and in front of an inspector. The answers below are how an experienced practitioner handles them.
 
-**"What is CSA and how is it different from CSV?"** CSV is the activity of validating a computerized system. CSA is FDA's risk-based, critical-thinking framework for scaling the assurance effort within that activity, finalized February 2026 for production and quality system software. CSA does not remove validation. It says: anchor on intended use, decide direct versus indirect impact, match the testing method to the risk, and keep the record proportionate. The difference shows up as less scripted testing on trivial features and more documented reasoning everywhere.
+**"What is CSA and how is it different from CSV?"** CSV is the activity of validating a computerized system. CSA is FDA's risk-based, critical-thinking framework for scaling the assurance effort within that activity, finalized September 2025 for production and quality management system software. CSA does not remove validation. It says: anchor on intended use, decide direct versus indirect impact, match the testing method to the risk, and keep the record proportionate. The difference shows up as less scripted testing on trivial features and more documented reasoning everywhere.
 
 **"Walk me through the four steps."** Identify intended use; determine risk (direct or indirect impact, then severity and probability); determine the assurance activity by matching method to risk; establish a proportionate record. Then I would give a concrete feature and run it through all four in one sentence.
 

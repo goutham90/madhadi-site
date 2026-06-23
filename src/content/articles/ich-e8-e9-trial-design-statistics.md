@@ -24,7 +24,7 @@ The original ICH E8, "General Considerations for Clinical Trials," reached Step 
 
 E8(R1) is the umbrella document for the GCP framework. It explicitly positions itself above the more operational guidelines. ICH E6 (Good Clinical Practice) executes the conduct rules, and ICH E9 governs the statistics. E8(R1) is meant to be read first, because the design decisions it describes constrain everything downstream.
 
-> E8(R1) states that quality should be built into the scientific and operational design and conduct of a study, and that critical-to-quality factors are those that are fundamental to the protection of participants, the reliability and interpretability of study results, and ultimately the decisions made based on the trial.
+> The thrust of E8(R1): design quality into the science and the operations of a study from the outset rather than relying on later inspection, and treat critical-to-quality factors as the things that most affect whether participants are kept safe, whether the results can be trusted and read sensibly, and whether decisions taken on the strength of the trial will hold up. (ICH E8(R1), General Considerations for Clinical Studies.)
 
 ### ICH E9, Statistical Principles for Clinical Trials (1998)
 
@@ -106,11 +106,11 @@ A clinical trial estimates a treatment effect. But "treatment effect" is ambiguo
 
 An estimand is fully specified by five attributes. Memorize all five; an interviewer will ask you to list them.
 
-1. **Treatment**: the treatment condition of interest and, where relevant, the comparator (for example, drug X 50 mg once daily versus placebo, each on top of standard of care).
-2. **Population**: the patients targeted by the scientific question, defined by key inclusion/exclusion criteria.
-3. **Variable (endpoint)**: the measurement obtained on each patient that is used to address the question (for example, change from baseline in HbA1c at week 24).
-4. **Intercurrent event handling**: how each anticipated intercurrent event is reflected in the definition of the treatment effect. This is the new, decisive attribute.
-5. **Population-level summary**: the statistic that compares treatments across the population (for example, the difference in means, an odds ratio, a hazard ratio).
+1. **Treatment**: which treatment condition you are asking about and, where it matters, what you compare it against (for example, drug X 50 mg once daily versus placebo, each on top of standard of care).
+2. **Population**: the group of patients the question is about, pinned down by the key eligibility criteria.
+3. **Variable (endpoint)**: the per-patient measurement you read out to answer the question (for example, change from baseline in HbA1c at week 24).
+4. **Intercurrent event handling**: for every intercurrent event you expect, the rule you set for how it feeds into the treatment effect you are measuring. This is the new, decisive attribute.
+5. **Population-level summary**: the single number you use to put the two treatments side by side across the whole group (for example, a difference in means, an odds ratio, a hazard ratio).
 
 ### The five strategies for handling intercurrent events
 
@@ -118,11 +118,11 @@ E9(R1) defines five named strategies. For each anticipated ICE, the protocol pic
 
 | Strategy | What it does | When to use it | Example |
 |---|---|---|---|
-| **Treatment policy** | Use the value of the variable regardless of whether the ICE occurred; the ICE is part of the treatment condition. | When you care about the effect of the treatment regimen as it would be used in practice, including discontinuation and rescue. Common for the primary estimand in many regulatory settings. | Measure HbA1c at week 24 even for patients who stopped study drug or took rescue; the effect reflects the policy of starting drug X. |
-| **Hypothetical** | Envisage a scenario where the ICE would not occur, and estimate the value that would have been observed. | When the question is what the effect would be in the absence of the ICE (for example, if rescue medication were not available). | Effect on blood pressure as if no rescue antihypertensive had been taken. |
-| **Composite** | Incorporate the ICE into the variable definition itself, so the ICE becomes part of the (often unfavorable) outcome. | When the ICE is itself a meaningful clinical outcome. | Treatment failure = endpoint not met OR discontinuation due to lack of efficacy; a binary responder definition. |
-| **While on treatment** | Use the response only up to the time of the ICE. | When the value while a patient is actually receiving treatment is what matters (often symptomatic relief). | Symptom score measured only while the patient remains on therapy. |
-| **Principal stratum** | Restrict the population to the subset (stratum) where the ICE would or would not occur. | When the question is about a specific principal stratum, for example patients who would tolerate the drug. | Effect among patients who would not experience a particular adverse event. |
+| **Treatment policy** | Take the patient's measured value whether or not the event happened, so the event simply rides along as part of the treatment condition. | When you care about the effect of the treatment regimen as it would be used in practice, including discontinuation and rescue. Common for the primary estimand in many regulatory settings. | Measure HbA1c at week 24 even for patients who stopped study drug or took rescue; the effect reflects the policy of starting drug X. |
+| **Hypothetical** | Picture a world in which the event never happened and estimate the value the patient would have shown there. | When the question is what the effect would be in the absence of the ICE (for example, if rescue medication were not available). | Effect on blood pressure as if no rescue antihypertensive had been taken. |
+| **Composite** | Fold the event straight into how you define the endpoint, so experiencing it counts as part of the (usually poor) outcome. | When the ICE is itself a meaningful clinical outcome. | Treatment failure = endpoint not met OR discontinuation due to lack of efficacy; a binary responder definition. |
+| **While on treatment** | Count only the response measured before the event occurred. | When the value while a patient is actually receiving treatment is what matters (often symptomatic relief). | Symptom score measured only while the patient remains on therapy. |
+| **Principal stratum** | Narrow the analysis to the slice of patients defined by whether the event would or would not have happened for them. | When the question is about a specific principal stratum, for example patients who would tolerate the drug. | Effect among patients who would not experience a particular adverse event. |
 
 A single trial usually applies different strategies to different ICEs. Discontinuation of study drug might be handled by treatment policy, while death might be handled by composite or accounted for separately. The combination of all five attributes, with a chosen strategy for each anticipated ICE, defines the estimand.
 

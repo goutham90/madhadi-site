@@ -25,7 +25,7 @@ This is a ready-to-use worksheet to derive an Analytical Evaluation Threshold (A
 
 ## Step 1: Select the Safety Concern Threshold (SCT) for the route
 
-The SCT is the daily intake below which an individual organic leachable needs no further toxicological evaluation. Use the value from the applicable PQRI recommendation for the route, not a default carried over from a different route.
+Treat the SCT as the per-day exposure point for a single organic leachable that is low enough that the compound does not warrant additional toxicological work on its own. Use the value from the applicable PQRI recommendation for the route, not a default carried over from a different route.
 
 | Item | Entry |
 |---|---|

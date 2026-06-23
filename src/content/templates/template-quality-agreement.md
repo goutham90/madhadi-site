@@ -117,7 +117,7 @@ The Acceptor shall not subcontract any part of the contracted activity without t
 
 ## 11. Data integrity and records
 
-The Acceptor maintains ALCOA+ compliant records for the contracted activity: attributable, legible, contemporaneous, original, accurate, complete, consistent, enduring, and available. Electronic GxP systems used for the Product have audit trails, unique user access, and controls that meet 21 CFR Part 11 and EU Annex 11 where applicable. The Acceptor retains raw data, metadata, and batch or service records for not less than `<<FILL: retention period>>` and makes them available to the Giver and to regulators on request.
+The Acceptor maintains records for the contracted activity that meet ALCOA+ expectations: each entry is tied to the person who made it and is readable, recorded at the time the work is done, kept as the first capture (or a verified true copy), correct, and a full account of the activity. Records also stay self-consistent across the run, survive intact for the full retention period, and can be produced on request. Electronic GxP systems used for the Product have audit trails, unique user access, and controls that meet 21 CFR Part 11 and EU Annex 11 where applicable. The Acceptor retains raw data, metadata, and batch or service records for not less than `<<FILL: retention period>>` and makes them available to the Giver and to regulators on request.
 
 ## 12. Term, amendment, and termination
 

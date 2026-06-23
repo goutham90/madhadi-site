@@ -20,7 +20,7 @@ QbD is not one regulation. It is a coherent set of ICH guidances plus the FDA pr
 | Document | Year (current step/version) | What it gives you |
 |---|---|---|
 | ICH Q8(R2) Pharmaceutical Development | 2009 (R2) | Defines QTPP, CQA, design space, control strategy. The QbD vocabulary lives here. |
-| ICH Q9(R1) Quality Risk Management | 2023 (R1 revision) | The risk assessment toolkit (FMEA, risk ranking) used to move from CQAs to CPPs. |
+| ICH Q9(R1) Quality Risk Management | 2022 (R1 revision) | The risk assessment toolkit (FMEA, risk ranking) used to move from CQAs to CPPs. |
 | ICH Q10 Pharmaceutical Quality System | 2008 | The PQS that operates and maintains the control strategy across the lifecycle. |
 | ICH Q11 Development and Manufacture of Drug Substances | 2012 | Applies Q8 thinking to the drug substance (API/biologics), including CQA identification and CMA linkage. |
 | ICH Q12 Lifecycle Management | 2019 | Established Conditions and post-approval change tools that flow from how well you defined the design space. |
@@ -28,7 +28,7 @@ QbD is not one regulation. It is a coherent set of ICH guidances plus the FDA pr
 | FDA Guidance: Process Validation: General Principles and Practices | 2011 | The three-stage lifecycle. QbD/DoE work is Stage 1 (Process Design). |
 | EU GMP Annex 15: Qualification and Validation | 2015 | EU expectation that process validation is science and risk based. |
 
-> ICH Q8(R2) states that "Quality cannot be tested into products; i.e., quality should be built in by design." That single sentence is the thesis of the entire approach.
+> ICH Q8(R2) makes the core point that quality cannot be tested into a product after the fact; it has to be built in through design. That principle is the thesis of the entire approach.
 
 The regulatory point worth internalizing: QbD is not mandatory in the sense that you will be cited for not doing it. The minimal/traditional approach is still legal. But once you make QbD claims in a regulatory submission (a design space, real-time release testing, expanded change-management flexibility under Q12), you are held to the data that supports those claims. A design space asserted without supporting DoE is a finding waiting to happen.
 
@@ -96,7 +96,7 @@ It is patient-centric, complete for the dosage form, sourced (literature, refere
 
 ### What it is and why it is required
 
-ICH Q8(R2) defines a CQA as "a physical, chemical, biological, or microbiological property or characteristic that should be within an appropriate limit, range, or distribution to ensure the desired product quality." CQAs are the measurable outputs you commit to control. They are required because they convert the QTPP (a profile) into a set of attributes you can actually test, monitor, and tie to acceptance criteria.
+Per ICH Q8(R2), a CQA is a physical, chemical, biological, or microbiological property or characteristic that has to stay inside a suitable limit, range, or distribution for the product to meet its intended quality. CQAs are the measurable outputs you commit to control. They are required because they convert the QTPP (a profile) into a set of attributes you can actually test, monitor, and tie to acceptance criteria.
 
 The criticality of an attribute is driven by the severity of harm to the patient if the attribute is out of range. Crucially, severity does not change based on how well you control the attribute. An attribute can be highly critical (high severity) and yet well controlled and low risk. Beginners conflate "critical" with "risky"; keep them separate.
 
@@ -133,7 +133,7 @@ Before any experiments, you do a structured risk assessment that maps every proc
 
 This is where two more definitions land:
 
-- **Critical Process Parameter (CPP):** a process parameter whose variability has an impact on a CQA and therefore should be monitored or controlled to ensure the process produces the desired quality (ICH Q8(R2)).
+- **Critical Process Parameter (CPP):** a process parameter whose variation affects a CQA, so it has to be monitored or controlled for the process to turn out the intended quality (ICH Q8(R2)).
 - **Critical Material Attribute (CMA):** the analogous concept for an input material property (raw material, excipient, intermediate) that affects a CQA. The term is widely used in practice and in ICH Q11 thinking, though Q8 itself emphasizes parameters.
 
 ### How to do it: step by step
@@ -262,7 +262,7 @@ CMAs feed directly into supplier and material controls. See [supplier and vendor
 
 ### What it is and why it is required
 
-ICH Q8(R2) defines the design space as "the multidimensional combination and interaction of input variables (e.g., material attributes) and process parameters that have been demonstrated to provide assurance of quality." The defining regulatory consequence is also in Q8: **working within the design space is not considered a change** (from a regulatory filing standpoint), whereas movement out of the design space is a change and normally initiates a post-approval change process. That flexibility is the commercial reason QbD is worth the effort.
+Per ICH Q8(R2), the design space is the multidimensional combination and interaction of input variables (such as material attributes) and process parameters that have been shown to deliver assured quality. The defining regulatory consequence is also in Q8: operating inside the design space is not treated as a change (from a regulatory filing standpoint), whereas moving out of it is a change and normally initiates a post-approval change process. That flexibility is the commercial reason QbD is worth the effort.
 
 A design space is *optional*. You are not required to define one. But if you file one, it must be supported by data, and it becomes a regulatory commitment.
 
@@ -297,7 +297,7 @@ It is derived from a fitted, validated model; it is multivariate; it incorporate
 
 ### What it is and why it is required
 
-ICH Q8(R2) defines a control strategy as "a planned set of controls, derived from current product and process understanding, that assures process performance and product quality." It is the operational output of all the work above. If CQAs are *what must be right* and the design space is *the region that makes them right*, the control strategy is *how you stay in that region and prove it batch after batch*. It is required because understanding without controls is just a report; the control strategy is what actually protects the patient in routine manufacturing, and ICH Q10 operates it across the lifecycle.
+Per ICH Q8(R2), a control strategy is a planned set of controls, drawn from current product and process understanding, that assures process performance and product quality. It is the operational output of all the work above. If CQAs are *what must be right* and the design space is *the region that makes them right*, the control strategy is *how you stay in that region and prove it batch after batch*. It is required because understanding without controls is just a report; the control strategy is what actually protects the patient in routine manufacturing, and ICH Q10 operates it across the lifecycle.
 
 ### What goes in a control strategy
 

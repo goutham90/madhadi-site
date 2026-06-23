@@ -33,11 +33,11 @@ A note on the recognized storage bands you will be expected to know in any GDP r
 
 | Labeling phrase | Conventional interpretation | Typical product types |
 |---|---|---|
-| Store frozen | Below -15 °C (deep frozen often -60 to -80 °C) | Some vaccines, certain biologics, cell and gene products |
+| Store frozen | Frozen convention varies by source (USP defines a "Freezer" as -25 to -10 °C; some EU/WHO contexts use below -15 °C); deep frozen often -60 to -80 °C | Some vaccines, certain biologics, cell and gene products |
 | Store at 2-8 °C ("refrigerated") | 2 °C to 8 °C, do not freeze | Many biologics, insulins, vaccines |
 | Store below 25 °C | Up to 25 °C, with short MKT-defined tolerance | Many oral solids, some sterile products |
 | Store below 30 °C | Up to 30 °C | Products with broad ambient stability |
-| Do not freeze | Above 0 °C, no lower MKT credit | Most aqueous biologics and emulsions |
+| Do not freeze | Above 0 °C, no excursion budget below 0 °C | Most aqueous biologics and emulsions |
 | Controlled room temperature (CRT) | 20-25 °C, excursions 15-30 °C permitted | Default for many finished dose forms |
 
 The phrasing on the approved label is the governing limit, not the convention. If the label says 2-8 °C, that is the boundary your monitoring and disposition decisions are measured against.
@@ -203,7 +203,7 @@ Both regimes converge on the **GS1 DataMatrix** as the carrier and on aggregatio
 
 ### A note on medical devices
 
-Devices run a parallel scheme: **Unique Device Identification (UDI)** under 21 CFR Part 830 in the US (with the GUDID database) and the UDI system under EU MDR/IVDR. A UDI carries a device identifier (the model) and a production identifier (lot, serial, expiry, manufacturing date), so the same GS1 carrier logic applies but the regulatory home is different. If your product portfolio spans drug and device, the serialization quality system has to satisfy both. See [unique device identification (UDI)](/articles/unique-device-identification-udi).
+Devices run a parallel scheme: **Unique Device Identification (UDI)** under 21 CFR Part 830 in the US (with the GUDID database) and the UDI system under EU MDR/IVDR. A UDI carries a device identifier (the model) and a production identifier (lot, serial, expiry, manufacturing date), so the same GS1 carrier logic applies but the regulatory home is different. If your product portfolio spans drug and device, the serialization quality system has to satisfy both.
 
 ### Where serialization meets data integrity
 

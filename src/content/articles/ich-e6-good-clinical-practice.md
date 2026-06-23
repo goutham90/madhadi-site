@@ -27,23 +27,23 @@ GCP is not a standalone island. It sits inside the ICH "E" (efficacy) family. E8
 
 The principles are the load-bearing part of E6. Everything else in the guideline is an elaboration of them. In E6(R2) there are 13 principles. In E6(R3) they were rewritten and reorganised into a set grouped under themes, but the substance carried over and expanded. Memorise the principles. An inspector who asks "what are the principles of GCP" is checking whether you understand the why, not just the procedures.
 
-Here is the substance of the E6(R2) principles, in plain working language:
+The E6(R2) set runs to 13 principles. The descriptions below are a working summary in our own words, grouped by what each one asks of a team day to day, not a reproduction of the guideline text. Read the principles section of the guideline itself for the exact wording.
 
 | # | Principle | What it means in practice |
 |---|-----------|---------------------------|
-| 1 | Ethical conduct | Trials follow the ethical principles in the Declaration of Helsinki and are consistent with GCP and applicable regulatory requirements. |
-| 2 | Risk vs benefit | Before a trial starts, foreseeable risks and inconveniences are weighed against the anticipated benefit for the subject and society. A trial starts and continues only if the benefit justifies the risk. |
-| 3 | Subject rights first | The rights, safety, and well-being of subjects prevail over the interests of science and society. |
-| 4 | Adequate information | The available nonclinical and clinical information on a product supports the proposed trial. |
-| 5 | Sound science, clear protocol | Trials are scientifically sound and described in a clear, detailed protocol. |
-| 6 | Approved protocol | The trial follows a protocol that has prior IRB/IEC favourable opinion. |
-| 7 | Qualified medical care | Medical care and medical decisions are the responsibility of a qualified physician (or qualified dentist). |
-| 8 | Qualified people | Each individual involved is qualified by education, training, and experience to perform their tasks. |
-| 9 | Informed consent | Freely given informed consent is obtained from every subject before participation. |
-| 10 | Reliable records | All trial information is recorded, handled, and stored so it can be accurately reported, interpreted, and verified. The R2 addendum extends this principle to electronic records. |
-| 11 | Confidentiality | Records that could identify subjects are protected, respecting privacy and confidentiality rules. |
-| 12 | GMP for products | Investigational products are manufactured, handled, and stored under GMP and used per the approved protocol. |
-| 13 | Quality systems | Systems with procedures that assure the quality of every aspect of the trial are implemented, with effort proportionate to the risks. The "proportionate to risk" clause is an R2 addition. |
+| 1 | Ethical conduct | Run the trial against the ethics of the Declaration of Helsinki, GCP, and whatever the local regulator requires. |
+| 2 | Risk vs benefit | Size up the likely harms and burdens up front, and only proceed (and keep going) while the expected benefit is worth them. |
+| 3 | Subject rights first | When the interests of the participant collide with those of science, the participant wins. |
+| 4 | Adequate information | The nonclinical and clinical data already in hand should be enough to justify running the study. |
+| 5 | Sound science, clear protocol | The science has to hold up, and the plan has to be written down clearly and in enough detail to follow. |
+| 6 | Approved protocol | Run the version of the protocol the IRB/IEC has already blessed, not a working draft. |
+| 7 | Qualified medical care | A suitably qualified physician (or dentist) owns the clinical decisions and the participant's care. |
+| 8 | Qualified people | Anyone touching the trial is fit for their task by training, schooling, and hands-on experience. |
+| 9 | Informed consent | Get genuine, uncoerced consent from each participant before they take part. |
+| 10 | Reliable records | Capture and store information so the trial can later be reported and checked accurately. R2 stretched this expectation to electronic records. |
+| 11 | Confidentiality | Lock down anything that could identify a participant, in line with privacy law. |
+| 12 | GMP for products | Make, handle, and store the investigational product to GMP, and use it the way the protocol says. |
+| 13 | Quality systems | Stand up procedures that protect quality across the trial, with the effort scaled to the risk. The risk-proportionate wording came in with R2. |
 
 Two of these (10 and 13) were sharpened by the R2 addendum, and that sharpening is the heart of modern GCP: records must support reconstruction of the trial (data integrity), and quality effort must scale with risk (no more treating a single-site low-risk study the same as a 200-site oncology program).
 
@@ -111,7 +111,7 @@ Informed consent is where ethics becomes operational, and consent findings are a
 
 What it is: a process by which a subject voluntarily confirms willingness to participate, after being informed of all aspects of the trial relevant to that decision. Documented by a signed and dated informed consent form (ICF).
 
-What the ICF and process must include (section 4.8.10 lists the elements): the trial is research; its purpose; treatments and randomisation probability; procedures including any invasive ones; the subject's responsibilities; foreseeable risks and inconveniences; reasonably expected benefits (and a statement where there is no intended benefit); alternative treatments; compensation and treatment for trial-related injury; any payment to the subject; that participation is voluntary and the subject may withdraw at any time without penalty; that monitors, auditors, the IRB/IEC, and regulators may access records while protecting confidentiality; how records are kept confidential; that the subject will be told of new information that may affect willingness to continue; whom to contact; circumstances for termination; the duration; and the approximate number of subjects.
+Section 4.8.10 sets out the full list of items the form and discussion have to cover. In substance, a participant has to come away understanding that this is research and why it is being run, what treatments are involved and the odds of being assigned to each, what will happen to them (including anything invasive) and what is expected of them, what could go wrong and what is reasonably hoped to go right (and a frank note where they personally stand to gain nothing), what other options they have outside the trial, what they would be paid and what compensation or care they would get if the trial injures them, that taking part is their choice and they can walk away at any point without losing anything they are owed, that monitors, auditors, the ethics committee, and regulators may look at their records while keeping them confidential, that they will be told if something new comes up that might change their mind, who to call with questions, what could end their participation, how long it runs, and roughly how many people are taking part. Read 4.8.10 itself for the authoritative element-by-element list.
 
 How to do it, step by step:
 
@@ -139,13 +139,13 @@ E6(R2), finalised 9 November 2016, did not replace R1. It added text. Three addi
 
 R2 introduced an explicit quality management system requirement for sponsors, structured as a cycle:
 
-- **Critical process and data identification.** Identify the processes and data that are critical to ensuring human-subject protection and reliability of results. Not everything in a trial matters equally; a missed pulse oximetry reading in a dermatology study is not the same as a missed primary-endpoint scan.
-- **Risk identification.** At the system level (facilities, SOPs, computerised systems, vendors) and the clinical-trial level (protocol design, data collection, the informed consent process).
-- **Risk evaluation.** Against existing controls, considering likelihood of errors occurring, the extent to which they would be detectable, and their impact on subject protection and data reliability.
-- **Risk control.** Decide which risks to reduce or accept. Set quality tolerance limits (QTLs), the thresholds that flag systematic issues needing action. Predefine actions for breaches.
-- **Risk communication.** Document the quality management activities and communicate to those involved.
-- **Risk review.** Periodically review risk control measures as the trial proceeds and new knowledge appears.
-- **Risk reporting.** Describe the quality management approach and report deviations from QTLs and the actions taken in the clinical study report.
+- **Pin down what is critical.** Work out which processes and which data points actually drive participant safety and result reliability, and focus quality effort there. Not everything in a trial carries equal weight; a missed pulse oximetry reading in a dermatology study is not the same as a missed primary-endpoint scan.
+- **Find the risks.** Look both at the infrastructure (facilities, SOPs, computerised systems, vendors) and at the study itself (how the protocol is designed, how data are collected, how consent is run).
+- **Weigh them.** Judge each risk against the controls already in place: how likely the error is, how easily it would be caught, and how much it would hurt participant safety or data reliability if it slipped through.
+- **Act on them.** Decide what to mitigate and what to live with. Set quality tolerance limits (QTLs), the thresholds that signal a systematic problem, and decide ahead of time what happens when one is breached.
+- **Tell people.** Write down the quality management work and share it with everyone who needs to act on it.
+- **Revisit.** As the trial runs and you learn more, go back and check whether the controls are still right.
+- **Report it.** Summarise the quality management approach in the clinical study report, including any QTL breaches and what was done about them.
 
 This is the same logic as ICH Q9 quality risk management applied to clinical trials. If you know Q9, R2 section 5.0 will feel familiar. See [quality risk management](/articles/quality-risk-management).
 

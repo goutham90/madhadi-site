@@ -68,7 +68,7 @@ USP <1058> classifies instruments into three groups based on measurement complex
 
 ### Group A: standard equipment with no measurement capability
 
-Equipment for which qualification consists primarily of verifying that it meets its nominal specification. Examples include magnetic stirrers, vortex mixers, ultrasonic baths, nitrogen evaporators, and heating plates. Qualification typically involves:
+Equipment for which qualification consists primarily of verifying that it meets its nominal specification. The examples USP <1058> names are nitrogen evaporators, magnetic stirrers, vortex mixers, and centrifuges. Note that temperature-controlling items such as ovens, water baths, and heating plates are not Group A in the chapter; because they control a physical parameter and need calibration, USP places them in Group B. Qualification of a Group A instrument typically involves:
 
 - Confirmation that the instrument matches its specification (model, serial number)
 - A documented conformance check against the manufacturer's stated operation
@@ -78,7 +78,7 @@ No software qualification is required, because these instruments have no GxP sof
 
 ### Group B: standard instruments with measurement capability, no significant software control
 
-Instruments that measure and display results, but whose operation does not depend on complex software. Examples include analytical balances with digital readouts, calibrated thermometers, pH meters, conductivity meters, melting point apparatus, Karl Fischer titrators, refractometers, and basic UV/Vis spectrophotometers. Qualification focuses on:
+Instruments that measure and display results, but whose operation does not depend on complex software. Examples include analytical balances with digital readouts, calibrated thermometers, pH meters, conductivity meters, melting point apparatus, Karl Fischer titrators, refractometers, viscometers, and ovens and water baths that control temperature. Qualification focuses on:
 
 - IQ covering installation and environment
 - OQ verifying performance across the use range: accuracy, linearity, and precision
@@ -96,7 +96,7 @@ Instruments where software is integral to measurement, data acquisition, and res
 
 ### Why the B versus C line matters
 
-The boundary between Group B and Group C is the one teams argue about, and it has real consequences. A simple UV/Vis with a digital readout and manual transcription of the result is Group B. The same UV/Vis connected to a CDS or LIMS, where the software captures, processes, and stores the spectrum, is Group C. The software is now part of the measurement system. Software classification frameworks such as those in [GAMP 5](/articles/gamp5-csv-framework) help here: the more the result depends on configurable or custom software logic, the more the system pulls toward Group C and toward a full computer system validation effort.
+The boundary between Group B and Group C is the one teams argue about, and it has real consequences. Take a UV/Vis spectrophotometer. USP <1058> lists UV/Vis among its Group C examples, because most modern units run software that acquires, processes, and stores the spectrum. The chapter is also explicit that grouping is intended-use based and user-determined, so a stripped-down unit with a digital readout and manual transcription of a single number can be classified and qualified as Group B. That is a documented, justified deviation from the default, not the automatic answer. Connect the same UV/Vis to a CDS or LIMS that captures, processes, and stores the spectrum and it is Group C, the placement the chapter expects. The software is now part of the measurement system. Software classification frameworks such as those in [GAMP 5](/articles/gamp5-csv-framework) help here: the more the result depends on configurable or custom software logic, the more the system pulls toward Group C and toward a full computer system validation effort.
 
 A useful test: if removing the software would prevent you from producing or defending the result, the instrument belongs in Group C.
 
@@ -111,7 +111,7 @@ A small QC laboratory needs to qualify a batch of instruments. Here is how the c
 | Instrument | Group | Why | Qualification scope |
 |---|---|---|---|
 | Vortex mixer | A | No measurement, no data | Conformance check, functional verification |
-| Drying oven (no logging) | A | Provides a condition, not a result | Conformance check; temperature mapping if used for a controlled process |
+| Drying oven (no logging) | B | Controls temperature, so USP <1058> places it in Group B and it needs calibration | IQ, OQ for temperature accuracy and uniformity, traceable calibration, temperature mapping for the working range |
 | Analytical balance (standalone) | B | Measures, simple firmware, no GxP software control | IQ, OQ (accuracy, linearity, repeatability, eccentricity), traceable calibration |
 | pH meter | B | Measures, no significant software | IQ, OQ across pH range, calibration with traceable buffers |
 | FTIR with local PC software | B or C | Depends on whether software stores and processes GxP records | Focused Part 11 assessment decides; if it controls records, treat as C |

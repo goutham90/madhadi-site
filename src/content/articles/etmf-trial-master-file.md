@@ -17,9 +17,7 @@ This article covers how to structure an electronic TMF (eTMF), how the DIA TMF R
 
 The TMF is the collection of essential documents that, individually and together, permit evaluation of the conduct of a trial and the quality of the data produced. That definition comes straight from ICH E6, which is the operative standard.
 
-The regulatory basis is **ICH E6(R2) Good Clinical Practice**, Section 8 ("Essential Documents for the Conduct of a Clinical Trial"), and its successor **ICH E6(R3)** finalized in 2025, which restructures the essential-records expectations around a risk and quality-by-design philosophy. ICH E6(R2) Section 8.1 states the core obligation:
-
-> "Essential Documents are those documents which individually and collectively permit evaluation of the conduct of a trial and the quality of the data produced. These documents serve to demonstrate the compliance of the investigator, sponsor and monitor with the standards of Good Clinical Practice and with all applicable regulatory requirements."
+The regulatory basis is **ICH E6(R2) Good Clinical Practice**, Section 8 ("Essential Documents for the Conduct of a Clinical Trial"), and its successor **ICH E6(R3)** finalized in 2025, which restructures the essential-records expectations around a risk and quality-by-design philosophy. ICH E6(R2) Section 8.1 sets the core obligation: essential documents are the records that, individually and together, let someone evaluate how the trial was conducted and how good the resulting data are. Their purpose is to show that the investigator, sponsor, and monitor met Good Clinical Practice and every applicable regulatory requirement.
 
 Two layers of regulation sit underneath this. In the United States, **21 CFR Part 312** (IND regulations) and **21 CFR Part 11** (electronic records and signatures) govern, with Part 312.62 requiring the investigator to maintain records and 312.57/312.58 covering sponsor records and FDA access. In the European Union, the **Clinical Trials Regulation (EU) No 536/2014** explicitly names the TMF in Article 57 and requires it to be readily available and directly accessible to inspectors, with **Commission Implementing Regulation (EU) 2017/556** detailing inspection procedures and **Commission Delegated Regulation (EU) 2017/1569** addressing investigational medicinal product manufacture. EU 536/2014 also sets the archiving floor: the TMF must be retained for **at least 25 years** after the end of the trial, longer than most other jurisdictions.
 
@@ -52,7 +50,7 @@ A common trap: organizations run a "hybrid" TMF where some documents are electro
 
 ## The DIA TMF Reference Model: what it is and how to use it
 
-The **DIA TMF Reference Model** is an industry-developed reference taxonomy, published and maintained by the Document and Records Management community within the Drug Information Association (DIA), an industry association, not a regulator. It is voluntary. It exists because ICH E6 lists essential documents but does not prescribe a filing structure, and before the model every sponsor and CRO invented their own, which made TMF transfers and inspections painful.
+The **DIA TMF Reference Model** is an industry-developed reference taxonomy. It originated within the Document and Records Management community of the Drug Information Association (DIA), an industry association, not a regulator, and since April 2022 it has been published and maintained by CDISC (Clinical Data Interchange Standards Consortium). The name "DIA TMF Reference Model" persists in common usage, but current stewardship sits with CDISC. It is voluntary. It exists because ICH E6 lists essential documents but does not prescribe a filing structure, and before the model every sponsor and CRO invented their own, which made TMF transfers and inspections painful.
 
 The model gives you a standardized hierarchy so that anyone, including an inspector or a new CRO inheriting a study, can find a document in a predictable place.
 
@@ -62,7 +60,7 @@ The reference model organizes documents into a three-level hierarchy:
 
 | Level | Term | Example |
 |------|------|---------|
-| 1 | **Zone** | Trial Management; Central Trial Documents; Regulatory; IRB/IEC and other Approvals; Site Management; IP and Trial Supplies; Safety Reporting; Centralised Testing; Third Parties; Data Management; Statistics |
+| 1 | **Zone** | Trial Management; Central Trial Documents; Regulatory; IRB/IEC and other Approvals; Site Management; IP and Trial Supplies; Safety Reporting; Central and Local Testing; Third Parties; Data Management; Statistics |
 | 2 | **Section** | within Site Management: Site Selection; Site Set-Up; Site Initiation; Site Management |
 | 3 | **Artifact** | the actual document type, e.g. "Signed Informed Consent Form (blank)", "Monitoring Visit Report", "Delegation of Authority Log" |
 
@@ -75,7 +73,7 @@ Versions matter. The model is periodically revised (major published versions hav
 Do not adopt the reference model verbatim and call it done. Use it as the starting taxonomy, then produce a **study-specific TMF Index** (sometimes called the TMF Plan content list) by tailoring:
 
 1. **Start from the current reference model** as your master artifact list.
-2. **Remove artifacts that cannot apply** to this trial. A trial with no central lab does not need the Centralised Testing zone; document the rationale for exclusion rather than silently dropping it.
+2. **Remove artifacts that cannot apply** to this trial. A trial with no central lab does not need the Central and Local Testing zone; document the rationale for exclusion rather than silently dropping it.
 3. **Add artifacts the model does not cover.** Novel modalities and decentralized designs generate document types the model lags on, e.g. eConsent system validation evidence, wearable device data agreements, home-nursing vendor oversight. See [eConsent and decentralized trials](/articles/econsent-and-decentralized-trials).
 4. **Set the expected count and level for each artifact.** Is this expected once at trial level, once per country, or once per site? This is what later drives completeness metrics.
 5. **Map ownership.** For each artifact, name the responsible role (sponsor, CRO function, site).
@@ -116,11 +114,12 @@ ICH E6 Section 8 groups essential documents by trial phase: before the clinical 
 | Blank Informed Consent Form, each version/language | IRB/IEC and Approvals | On IRB/IEC approval | Site / country |
 | IRB/IEC approval and composition | IRB/IEC and Approvals | On receipt | Site |
 | Regulatory authority approval / IND safety acknowledgements | Regulatory | On receipt | Country |
-| Financial Disclosure Form (1572 in US, FDF) | Regulatory / Site Management | At site activation | Site |
+| Statement of Investigator (Form FDA 1572) | Regulatory / Site Management | At site set-up / activation | Site |
+| Financial disclosure (Form FDA 3454/3455, 21 CFR Part 54) | Regulatory | At site set-up, updated on change | Site |
 | Signed clinical trial agreement / budget | Site Management | At site set-up | Site |
 | Delegation of Authority Log | Site Management | At initiation, updated on change | Site |
 | CV and licenses for investigators/sub-Is | Site Management | At site set-up | Site |
-| Lab certifications, normal ranges, accreditation | Centralised Testing / Site | At set-up, on update | Site / central |
+| Lab certifications, normal ranges, accreditation | Central and Local Testing / Site | At set-up, on update | Site / central |
 | Monitoring plan and monitoring visit reports | Trial Management / Site Management | Per visit | Trial / site |
 | Site Initiation Visit confirmation and training | Site Management | At initiation | Site |
 | IP shipment, accountability, temperature records | IP and Trial Supplies | Per shipment/dispensing | Site |
@@ -192,7 +191,7 @@ A practical combined dashboard view that holds up in front of an inspector:
 | Metric | Trial-level | Site avg | Target | Status |
 |---|---|---|---|---|
 | Completeness | 96% | 93% | >=95% | watch sites |
-| Timeliness (critical) | 98% | 97% | >=98% | on target |
+| Timeliness (critical) | 98% | 97% | >=98% | watch sites |
 | QC pass rate (first pass) | 91% | 89% | >=90% | watch |
 | Misclassification rate | 1.8% | 2.4% | <2% | watch |
 | Overdue placeholders | 14 open | n/a | trend down | action |
@@ -316,7 +315,7 @@ The lesson: the reference model is the map, not the territory. New trial designs
 The collection of essential documents that, per ICH E6 Section 8, permit evaluation of trial conduct and data quality. It matters because it is the evidence the trial was run compliantly; if it is not in the TMF, regulators treat it as not done, and an untrustworthy TMF undermines the data feeding the submission.
 
 **"What is the DIA TMF Reference Model and is it a regulation?"**
-It is a voluntary, industry-developed taxonomy from the DIA, not a regulation. It standardizes the structure into zones, sections, and artifacts so documents are filed predictably and TMFs can be transferred and inspected consistently. You tailor it per study; you do not adopt it blindly.
+It is a voluntary, industry-developed taxonomy, not a regulation. It started within the DIA and has been maintained by CDISC since April 2022, though the "DIA TMF Reference Model" name has stuck. It standardizes the structure into zones, sections, and artifacts so documents are filed predictably and TMFs can be transferred and inspected consistently. You tailor it per study; you do not adopt it blindly.
 
 **"How do you measure whether a TMF is in good shape?"**
 Three dimensions: completeness (filed vs expected), timeliness (filed within target days of the trigger event, tied to the contemporaneous principle), and quality (right version, legible, correctly classified, complete signatures). You run all three as live metrics with risk-based QC and periodic reviews, not a pre-inspection scramble.

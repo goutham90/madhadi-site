@@ -45,7 +45,7 @@ This report covers the qualification lifecycle of the instrument identified abov
 | Asset / equipment ID | `<<FILL: asset ID>>` |
 | Location | `<<FILL: building / room>>` |
 | Software / firmware version | `<<FILL: CDS or control software name and version, firmware version>>` |
-| USP <1058> qualification group | `<<FILL: Group A (standard apparatus), B (standard equipment, established requirements), or C (instruments requiring full DQ/IQ/OQ/PQ)>>` |
+| USP <1058> qualification group | `<<FILL: pick the group per USP <1058>: Group A for simple non-measuring apparatus, Group B for routine instruments verified against firm specifications, or Group C for complex instruments needing the full DQ/IQ/OQ/PQ lifecycle>>` |
 | Intended use | `<<FILL: methods / operations the instrument supports, e.g. assay and related-substances by HPLC>>` |
 | GxP impact | `<<FILL: GxP / non-GxP, and data criticality>>` |
 

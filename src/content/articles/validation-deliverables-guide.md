@@ -11,7 +11,7 @@ One of the most common frustrations in computer system validation is generating 
 
 This matters because the deliverable set is not a checklist of files an inspector wants to see. It is the evidence chain that lets you defend a single claim: this system does what we need it to do, it does only that, and we can prove both. Every document in the set exists to support one link in that chain. When a document loses its connection to that purpose, it becomes paper that costs money to produce, costs more to maintain, and protects no one when the system fails.
 
-This article breaks down the core validation deliverables, what each document is for, what makes it useful rather than just complete, and the common mistakes that turn each document into overhead. The framework is GAMP 5 (Second Edition, 2022) aligned, using the IQ/OQ/PQ structure that remains the industry standard, and it maps to the regulatory expectations in 21 CFR Part 11, EU GMP Annex 11, and the data integrity guidances published by the FDA, MHRA, and PIC/S. The examples cover the full range of regulated systems: a LIMS in a QC lab, an MES on a fill line, an electronic batch record, a clinical data management system, a complaint-handling database for a device firm, and a spreadsheet that calculates a release result. The deliverable logic is the same across all of them.
+This article breaks down the core validation deliverables, what each document is for, what makes it useful rather than just complete, and the common mistakes that turn each document into overhead. The framework is GAMP 5 (Second Edition, 2022) aligned, using the IQ/OQ/PQ structure that remains the industry standard, and it maps to the regulatory expectations in 21 CFR Part 11, EU GMP Annex 11, and the data integrity guidances published by the FDA, MHRA, and PIC/S. The examples cover the full range of regulated systems: a LIMS in a QC lab, an MES on a fill line, an electronic batch record, a clinical data management system, a pharmacovigilance case-management database for a biologics firm, and a spreadsheet that calculates a release result. The deliverable logic is the same across all of them.
 
 ---
 
@@ -27,11 +27,11 @@ Before the documents, the rules they answer to. Knowing the citation behind each
 | EU GMP Annex 15 (2015) | Qualification and validation: URS as the basis, DQ/IQ/OQ/PQ structure, traceability, validation reports. Annex 15 is where the IQ/OQ/PQ vocabulary is formally anchored in EU GMP. |
 | GAMP 5 (Second Edition, 2022) | The industry framework: software categories, the V-model, scaling effort to risk, reuse of supplier evidence, critical thinking over document volume. Guidance, not law, but the expected approach. |
 | FDA Computer Software Assurance (draft 2022, finalized 2025) | A risk-based, least-burdensome approach to assuring software used in production and quality systems; emphasizes unscripted and targeted testing where risk is low. |
-| 21 CFR 820.70(i) / ISO 13485:2016 (devices) | Validation of software used in production or the quality system per its intended use, with documented results. The device-world equivalent of the same expectation. |
+| 21 CFR Part 4 / 21 CFR 820.70(i) (combination products) | For drug-device combination products, the device-constituent quality system applies, which includes validation of software used in production or the quality system per its intended use, with documented results. The same expectation reaches the device side of a combination product. |
 | ICH E6(R2) Good Clinical Practice (5.5.3) | For clinical systems: validation of computerized systems, SOPs, and the ability to maintain the records. |
 | PIC/S PI 011 and the WHO/MHRA data integrity guidances | Expectations for data integrity in computerized systems that the testing must demonstrate (attributable, legible, contemporaneous, original, accurate, plus complete, consistent, enduring, available). |
 
-> Annex 11, clause 4.4: "User Requirements Specifications should describe the required functions of the computerised system and be based on documented risk assessment and GMP impact. User requirements should be traceable throughout the life-cycle."
+Annex 11, clause 4.4, in substance: the User Requirements Specification should set out the system's required functions, be grounded in a documented risk assessment and the system's GMP impact, and stay traceable across the whole lifecycle.
 
 That single clause is why the URS and the traceability matrix exist as separate, mandatory artifacts in a GMP context, and why "we'll write the requirements later" is not a defensible position.
 
@@ -80,7 +80,7 @@ A clean rule of thumb: the same signature should not appear as both "executed by
 
 **Purpose:** Defines what will be validated, how, and why. It is the master document that governs the entire validation effort for a single system. It sits below the site Validation Master Plan, which governs the whole estate of systems and is covered separately in [Validation Master Plan and Periodic Review](/articles/validation-master-plan-and-periodic-review).
 
-**Regulatory basis:** Annex 15 expects validation to be planned, and Annex 11 clause 4.1 requires that computerised systems be validated with the extent of validation justified by a risk assessment. The plan is where that justification lives. For devices, 21 CFR 820.70(i) requires the validation approach to be established and documented.
+**Regulatory basis:** Annex 15 expects validation to be planned, and Annex 11 clause 4.1 requires that computerised systems be validated with the extent of validation justified by a risk assessment. The plan is where that justification lives. For a drug-device combination product, the device-constituent quality system under 21 CFR Part 4 carries the same expectation that the validation approach is established and documented.
 
 **What it must contain:**
 - System description and intended GxP use
@@ -116,7 +116,7 @@ State the category and the reason, then let the rest of the plan follow from it.
 
 **Purpose:** Documents what the users need the system to do. Written before system selection, from the users' perspective, without reference to how the system will accomplish each requirement.
 
-**Regulatory basis:** Annex 15 names the URS as the basis of qualification, and Annex 11 clause 4.4 (quoted above) requires user requirements to be risk-assessed and traceable through the lifecycle. The URS is the document a PQ test ultimately verifies against, so a weak URS produces a weak PQ.
+**Regulatory basis:** Annex 15 names the URS as the basis of qualification, and Annex 11 clause 4.4 (paraphrased above) requires user requirements to be risk-assessed and traceable through the lifecycle. The URS is the document a PQ test ultimately verifies against, so a weak URS produces a weak PQ.
 
 **What it must contain:**
 - Business requirements: what processes the system supports
@@ -203,7 +203,7 @@ A useful test: take any FRS line and ask whether two reasonable engineers would 
 
 **Purpose:** Maps each URS requirement to the FRS requirement(s) that address it, and to the test script(s) that verify it. It shows that testing coverage is complete and, just as importantly, that no test exists without a requirement behind it.
 
-**Regulatory basis:** Annex 11 clause 4.4 explicitly requires user requirements to be "traceable throughout the life-cycle." The RTM is how that traceability is demonstrated. An inspector who asks "show me that requirement URS-009 was tested" expects the RTM to answer in seconds.
+**Regulatory basis:** Annex 11 clause 4.4 requires user requirements to stay traceable across the whole system lifecycle. The RTM is how that traceability is demonstrated. An inspector who asks "show me that requirement URS-009 was tested" expects the RTM to answer in seconds.
 
 **Structure:**
 

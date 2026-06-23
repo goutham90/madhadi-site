@@ -27,7 +27,7 @@ The lifecycle model comes from the FDA guidance **Process Validation: General Pr
 
 The guidance describes Stage 3 as an ongoing program to collect and analyze product and process data that relate to product quality, with the explicit goal of detecting unplanned departures from the process as designed. It also ties Stage 3 to the **21 CFR 211.180(e)** requirement to review records annually to evaluate quality standards and determine the need for changes, and to **21 CFR 211.110(a)**, which requires control procedures to monitor output and validate performance of processes that may cause variability in the characteristics of in-process material and the drug product.
 
-> 21 CFR 211.180(e): "Records...shall be reviewed annually to evaluate the quality standards of each drug product to determine the need for changes in drug product specifications or manufacturing or control procedures."
+> 21 CFR 211.180(e): "Records required under this part shall be maintained so that data therein can be used for evaluating, at least annually, the quality standards of each drug product to determine the need for changes in drug product specifications or manufacturing or control procedures."
 
 For the European Union, the equivalent expectation is in **EudraLex Volume 4, Annex 15 (Qualification and Validation, 2015)**, which describes ongoing process verification during the lifecycle, and in **ICH Q8(R2), Q9, Q10, and Q11**, which frame the science and risk basis. ICH Q10 (Pharmaceutical Quality System) places ongoing monitoring inside the broader quality system and links it to continual improvement and management review. The EU's continuous/ongoing process verification language sometimes appears as "OPV" or "ongoing process verification," but the intent is the same as the FDA's Stage 3 CPV.
 
@@ -185,7 +185,7 @@ Now the next ten batches come in:
 | 26 | 50.1 | Yes | |
 | 27 | 50.4 | Yes | |
 | 28 | 50.6 | Yes | |
-| 29 | 50.8 | Yes | Now above centerline |
+| 29 | 50.8 | Yes | Above centerline since batch 27 |
 | 30 | 51.0 | Yes | |
 | 31 | 51.1 | Yes | |
 | 32 | 51.3 | Yes | |
@@ -193,7 +193,7 @@ Now the next ten batches come in:
 | 34 | 51.6 | Yes | |
 | 35 | 51.5 | Yes | |
 
-Every single batch is inside specification, and every batch is inside the control limits. Batch disposition sees nothing wrong. But CPV sees a problem: from batch 28 onward there are eight consecutive points above the centerline and a clear upward march (a rule-3 / rule-2 pattern). This is an **out-of-trend signal**. The process mean has shifted up by roughly 1.3 mg/mL.
+Every single batch is inside specification, and every batch is inside the control limits. Batch disposition sees nothing wrong. But CPV sees a problem: batches 27 through 35 are nine consecutive points above the centerline (so Rule 2's nine-point threshold is reached at batch 35), and there is a clear upward march of six steadily increasing points that satisfies Rule 3 well before that (a rule-3 / rule-2 pattern). This is an **out-of-trend signal**. The latest result sits about 1.3 mg/mL above the centerline, and the mean of the drifted batches has shifted up by roughly 0.9 mg/mL.
 
 The CPV response: raise an OOT, open an investigation, look for the assignable cause (a new raw material lot, a chromatography resin reaching end of life, an analytical method shift, a calibration change). You caught a drift while concentration was still near 51.5 mg/mL with the spec ceiling at 55.0. Without CPV, this same drift continues unseen until a batch crosses 55.0, becomes an OOS, and possibly a recall. That contrast is the entire value proposition of Stage 3, and it is the answer you give when an interviewer asks "why bother with control limits if the product is passing spec?"
 

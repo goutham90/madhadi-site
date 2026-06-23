@@ -25,9 +25,11 @@ The core US requirements sit in 21 CFR Part 211 (Current Good Manufacturing Prac
 
 > 21 CFR 211.84(a): "Each lot of components, drug product containers, and closures shall be withheld from use until the lot has been sampled, tested, or examined, as appropriate, and released for use by the quality control unit."
 
-> 21 CFR 211.84(d)(2): a manufacturer may accept a supplier's report of analysis "in lieu of" its own testing for components, drug product containers, and closures, provided at least one specific identity test is conducted by the receiving site and the reliability of the supplier's analyses is established through appropriate validation of the supplier's test results at appropriate intervals.
+> 21 CFR 211.84(d)(2): for components, a manufacturer may accept a supplier's report of analysis "in lieu of" its own testing, provided that at least one specific identity test is conducted on the component and the reliability of the supplier's analyses is established through appropriate validation of the supplier's test results at appropriate intervals.
 
-So the regulation expressly permits CoA reliance, but with two non-negotiable conditions: you still run your own identity test on each lot, and you periodically verify that the supplier's CoA results are real by testing against them.
+> 21 CFR 211.84(d)(3): for drug product containers and closures, a manufacturer may accept a supplier's certificate of testing in lieu of its own testing, provided that at least a visual identification is conducted on the containers and closures and the reliability of the supplier's results is established through appropriate validation at appropriate intervals.
+
+So the regulation expressly permits CoA reliance, but with conditions that differ by material type. For components you still run your own specific identity test on each lot; for containers and closures you perform a visual identification of each lot. In both cases you periodically verify that the supplier's results are real by testing against them.
 
 For active pharmaceutical ingredients, ICH Q7 (Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients, 2000) addresses the CoA directly in Section 11.4. It requires that authentic CoAs be issued for each batch of intermediate or API on request, that the CoA reflect actual results obtained, and that it reference the test methods used.
 
@@ -109,7 +111,7 @@ Worked example. Suppose your spec for a purified excipient reads:
 | Assay | Titration | 98.0 - 102.0 % |
 | Loss on drying | USP <731> | NMT 0.5 % |
 | Residue on ignition | USP <281> | NMT 0.1 % |
-| Heavy metals | ICP per USP <232>/<233> | NMT 10 ppm |
+| Elemental impurities | ICP per USP <232>/<233> | NMT 10 ppm |
 | Microbial limits (TAMC) | USP <61> | NMT 1000 CFU/g |
 
 And the supplier CoA reports:
@@ -120,14 +122,14 @@ And the supplier CoA reports:
 | Assay | 99.4 % | Pass (within 98.0-102.0) |
 | Loss on drying | 0.7 % | FAIL against your NMT 0.5 %, even though it may pass a looser supplier limit |
 | Residue on ignition | 0.05 % | Pass |
-| Heavy metals | 4 ppm | Pass |
+| Elemental impurities | 4 ppm | Pass |
 | Microbial limits (TAMC) | < 10 CFU/g | Pass |
 
 The loss-on-drying result is the teaching point. The supplier's certificate may declare the lot "conforms" because the supplier's own internal limit is NMT 1.0 %. Against your tighter NMT 0.5 %, the same 0.7 % result is a failure. If you release on the supplier's "conforms" stamp instead of comparing to your own spec, you have just accepted out-of-specification material. Reject the lot or open a [deviation-management](/articles/deviation-management) record and escalate, do not silently accept.
 
 ### Step 5: Run required incoming testing
 
-Even under full CoA reliance, 21 CFR 211.84(d)(2) requires at least one identity test per lot performed by you. Confirm that identity test was executed, sampled per a [sampling plan](/articles/conducting-a-supplier-audit) appropriate to the lot, and that the in-house result matches the CoA identity claim. For materials not under reduced testing, run the full incoming test panel and judge those results the same way.
+Even under full CoA reliance, the regulation requires a per-lot in-house check by you: for components, 21 CFR 211.84(d)(2) requires at least one specific identity test; for drug product containers and closures, 211.84(d)(3) requires at least a visual identification. Confirm that the required check was executed, sampled per a [sampling plan](/articles/conducting-a-supplier-audit) appropriate to the lot, and that the in-house result matches the CoA identity claim. For materials not under reduced testing, run the full incoming test panel and judge those results the same way.
 
 ### Step 6: Check dates and lifecycle attributes
 
@@ -224,10 +226,10 @@ Testing every attribute of every incoming lot in-house is slow and expensive. GM
 
 ### The conditions for reliance
 
-Under 21 CFR 211.84(d)(2), to accept a supplier's report of analysis in lieu of full testing for components, containers, and closures you must:
+To accept a supplier's report of analysis in lieu of full testing you must, under 21 CFR 211.84(d)(2) for components and 211.84(d)(3) for drug product containers and closures:
 
 1. Establish the reliability of the supplier's analyses through appropriate validation at appropriate intervals. In practice you test a defined number of lots fully in-house and confirm your results agree with the supplier's CoAs.
-2. Still conduct at least one specific identity test on every lot you receive, regardless of how qualified the supplier is. The identity test never goes away.
+2. Still perform a per-lot in-house check on every lot you receive, regardless of how qualified the supplier is. For components that means at least one specific identity test (211.84(d)(2)); for containers and closures it means at least a visual identification (211.84(d)(3)). That per-lot check never goes away.
 
 This reliance is built on top of supplier qualification: an approved supplier, a quality agreement defining CoA content and notification of changes, and an audit history. See [supplier-vendor-qualification](/articles/supplier-vendor-qualification), [conducting-a-supplier-audit](/articles/conducting-a-supplier-audit), and [cdmo-oversight-quality-agreements](/articles/cdmo-oversight-quality-agreements).
 
@@ -257,7 +259,7 @@ A defensible reliance/skip-lot program has: documented supplier qualification, a
 These are the recurring issues, the kind that surface in 483 observations and warning letters around component testing, supplier reliance, and laboratory records.
 
 - Releasing against the supplier's spec instead of your own. The CoA says "conforms" to the supplier's looser limit; the result fails your tighter limit; the material is accepted anyway.
-- No in-house identity test. Relying fully on the supplier CoA without performing the per-lot identity test required by 211.84(d)(2). This is a direct regulatory violation, not a judgment call.
+- No in-house per-lot check. Relying fully on the supplier CoA without performing the per-lot in-house check the regulation requires: a specific identity test for components (211.84(d)(2)) or a visual identification for containers and closures (211.84(d)(3)). This is a direct regulatory violation, not a judgment call.
 - Reliance without established reliability. Accepting supplier CoAs in lieu of testing with no documented validation that the supplier's results are trustworthy.
 - Lot mismatch. CoA lot number does not match the container; or one CoA used to release multiple lots; or a CoA copied forward from a previous lot.
 - Missing tests. CoA covers fewer attributes than the current spec, and the gap is not noticed because the reviewer only checks that present rows pass.
@@ -278,7 +280,7 @@ These come up for QA, QC, supplier quality, and incoming inspection roles, and i
 A CoA lists actual test results against acceptance criteria for a specific lot, so you can make your own conformance call. A CoC is a conformance statement, usually without numeric results. You can release an analytical attribute on a CoA; you cannot release a numeric attribute on a CoC alone because there is no data to judge.
 
 **Can you release incoming material purely on the supplier's CoA?**
-Not entirely. 21 CFR 211.84(d)(2) lets you accept the supplier's report of analysis in lieu of your own testing only if you have established the reliability of the supplier's analyses through validation at appropriate intervals, AND you still perform at least one specific identity test on every lot yourself. The identity test is mandatory regardless of how trusted the supplier is.
+Not entirely. The regulation lets you accept the supplier's report of analysis in lieu of your own testing only if you have established the reliability of the supplier's analyses through validation at appropriate intervals, AND you still perform a per-lot in-house check yourself. For components, 21 CFR 211.84(d)(2) requires at least one specific identity test; for drug product containers and closures, 211.84(d)(3) requires at least a visual identification. That per-lot check is mandatory regardless of how trusted the supplier is.
 
 **A supplier CoA says the lot conforms, but the assay result is 97.5 % and your spec is 98.0 to 102.0 %. What do you do?**
 Reject or quarantine. I judge results against my own approved specification, not the supplier's. The supplier may have a looser internal limit, so "conforms" on their certificate does not mean it meets my spec. I would quarantine the lot, open a deviation, and notify supplier quality, because either the material is genuinely out of my spec or there is a spec-alignment problem with the supplier to resolve.
@@ -290,7 +292,7 @@ Generate it directly from the source system where possible to eliminate transcri
 A reduced testing regime where I fully test on a defined frequency rather than every lot, relying on the supplier CoA plus per-lot identity in between. It is justified only after supplier qualification and documented validation of CoA reliability, is risk-based on material criticality and supplier history, has defined exit conditions (any OOS or discrepancy reverts to full testing), and is periodically re-verified.
 
 **Which regulation governs supplier CoA reliance in the US, and what does ICH Q7 say about CoAs?**
-21 CFR 211.84(d)(2) governs reliance for components, containers, and closures. ICH Q7 Section 11.4 requires authentic CoAs for each batch of intermediate or API, that the CoA reflect the actual results obtained, and that it reference the methods used.
+21 CFR 211.84(d)(2) governs reliance for components, where you accept the supplier's report of analysis but still run at least one specific identity test per lot; 211.84(d)(3) governs reliance for drug product containers and closures, where you accept the supplier's certificate of testing but still perform at least a visual identification per lot. ICH Q7 Section 11.4 requires authentic CoAs for each batch of intermediate or API, that the CoA reflect the actual results obtained, and that it reference the methods used.
 
 **What fields must a CoA contain?**
 At minimum: issuer, material name and grade, lot number, manufacture and retest/expiry dates, spec reference and version, and for every test the method, the acceptance criterion, the result with units, an overall conform/non-conform conclusion, the date of analysis, and an authorized signature.

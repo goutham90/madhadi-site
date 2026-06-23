@@ -3,7 +3,7 @@ title: "Plan: Combination Product cGMP Quality Plan (21 CFR Part 4)"
 description: "A plug-and-play combination product quality plan: the PMOA and base operating system, the streamlined approach under 21 CFR 4.4, each added provision mapped to a procedure with applicability rationale, postmarket reporting, and the EU Article 117 angle, with a filled specimen and the regulations it satisfies."
 pubDate: 2026-06-22
 docType: "Plan"
-pillar: "medical-devices"
+pillar: "quality-assurance"
 relatedArticles: ["combination-products-cgmp-part-4"]
 tags: ["combination products", "21 CFR Part 4", "quality plan", "cGMP", "QMSR", "PMOA", "streamlined approach"]
 tier: "Intermediate"
@@ -89,7 +89,7 @@ State how adverse events and malfunctions are classified and routed. A drug-led 
 
 ## 8. EU note (if marketed in the EU)
 
-For an integral drug-device combination regulated as a medicinal product, EU MDR Article 117 requires a Notified Body Opinion (NBOp) on the device part's conformity with the relevant MDR General Safety and Performance Requirements where the device is not already CE-marked. Reference the device GSPR conformity file `<<FILL>>`.
+For an integral drug-device combination handled as a medicinal product, EU MDR Article 117 adds a step to the marketing authorisation: when the device part has no existing CE certificate, the dossier must include a written opinion from a notified body confirming that the device part meets the applicable safety and performance requirements set out in the MDR. Plan for that notified body assessment and reference the device conformity file `<<FILL>>`.
 
 ## 9. Roles and responsibilities
 

@@ -52,20 +52,20 @@ It does not by itself define system-level configuration; that is governed by the
 - **ALCOA+**: attributable, legible, contemporaneous, original (or true copy), accurate, plus complete, consistent, enduring, and available. The full set is one standard, not a base set and an optional extension.
 - **Metadata**: the contextual data that gives a result meaning and allows the activity to be reconstructed (for example method, instrument ID, integration parameters, operator, timestamp, audit trail).
 - **Static record**: a fixed record, such as a paper printout or a PDF.
-- **Dynamic record**: a record that allows interaction, such as a chromatography file that can be reprocessed or a spectrum that can be re-baselined; the complete electronic record, including audit trail and the ability to reprocess, must be retained.
-- **True copy**: a verified copy of an original record that preserves the content and meaning of the original, including dynamic functionality where applicable.
-- **Data lifecycle**: all phases of data from initial generation and recording, through processing, review, reporting, and use, to retention, retrieval, and authorized destruction.
+- **Dynamic record**: a record a user can still work with after it is saved, such as a chromatography file that can be re-integrated or a spectrum that can be re-baselined. The whole electronic file has to be kept, audit trail included, so that the reprocessing capability survives.
+- **True copy**: a checked duplicate of a source record that carries over everything the original held, both the information and its meaning, and keeps the interactive behavior when the original was dynamic.
+- **Data lifecycle**: the full span a record passes through, from the moment it is first created and captured, on through processing, review, reporting, and ongoing use, and finally into storage, retrieval, and disposal that has been authorized.
 
 ## 5. Principles every record must meet
 
 | Principle | The rule at `<<FILL: COMPANY NAME>>` |
 |---|---|
-| Attributable | Every entry is traceable to the person who made it, using a unique identity. Shared or generic accounts for GxP activity are prohibited. |
-| Legible | Records are readable and understandable for their full retention period. Corrections leave the original entry visible (single line through, initial, date, reason). |
-| Contemporaneous | Records are made at the time the activity occurs. Recording on scrap paper for later transcription is prohibited. |
-| Original | The source record (or a verified true copy) is retained. For dynamic systems, the full electronic record and audit trail are retained, not only a printout. |
-| Accurate | Records correctly reflect what occurred. Edits are justified and, where required, independently checked. |
-| Complete | All data is retained, including repeats, failures, aborted runs, and metadata. Selective recording or reporting is prohibited. |
+| Attributable | You can tell from each entry who made it, tied to one unique identity. Shared or generic logins for GxP work are not allowed. |
+| Legible | Anyone can read and make sense of the record for as long as it is kept. A correction does not erase what was there before (one line through it, plus initials, date, and a reason). |
+| Contemporaneous | The record is written as the work happens, not afterward. Jotting figures on scrap paper to copy over later is not allowed. |
+| Original | The first-captured record, or a verified true copy of it, is kept. On dynamic systems that means holding the whole electronic file and its audit trail, not just a printed page. |
+| Accurate | What the record says matches what actually happened. Any change carries a reason and, when called for, a second person checks it. |
+| Complete | Nothing is left out, including reruns, failed and aborted runs, and the metadata. Choosing which results to write down or report is not allowed. |
 | Consistent | Sequence and timestamps are coherent, with synchronized clocks and no unexplained gaps. |
 | Enduring | Records are kept on durable media, backed up, and migrated before formats become unreadable. |
 | Available | Records are retrievable and readable within a reasonable time when a reviewer, auditor, or inspector asks. |

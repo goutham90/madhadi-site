@@ -36,13 +36,13 @@ The governing quality bar for pure steam condensate is the Water for Injection m
 
 ### Steam quality: the three physical attributes (the part people forget)
 
-Chemistry is only half of steam qualification. The other half is the EN 285 steam quality triad, which is what actually determines if your autoclave or SIP cycle sterilizes. EN 285 (Sterilization, Steam sterilizers, Large sterilizers) defines three measurements, performed with a steam quality test rig at the point of use:
+Chemistry is only half of steam qualification. The other half is the steam quality triad, which is what actually determines if your autoclave or SIP cycle sterilizes. The standard that practitioners build from is EN 285 (Sterilization, Steam sterilizers, Large sterilizers); refer to the current edition for its exact limits. It describes three measurements, performed with a steam quality test rig at the point of use. The values below are the limits commonly applied in practice; confirm them against your own edition of the standard:
 
-| Attribute | What it measures | Acceptance criterion (EN 285) | Failure mode if out |
+| Attribute | What it measures | Limit commonly applied | Failure mode if out |
 |---|---|---|---|
-| Non-condensable gases (NCG) | Volume fraction of air and other gases that will not condense | ≤ 3.5% v/v | Air pockets shield items from steam; cold spots; sterilization failure |
-| Dryness value (dryness fraction) | Fraction of the steam that is dry saturated vapor vs entrained water | ≥ 0.90 (≥ 0.95 for metal loads) | Wet steam, superheating risk, poor heat transfer, wet packs |
-| Superheat | Temperature rise above saturation when steam expands to atmosphere | ≤ 25 °C | Steam behaves like hot air, drastically reduced lethality |
+| Non-condensable gases (NCG) | The proportion of air and other gases carried in the steam that stay gaseous instead of condensing | No more than about 3.5% by volume | Air pockets shield items from steam; cold spots; sterilization failure |
+| Dryness value (dryness fraction) | How much of the steam is dry saturated vapor rather than entrained liquid water | At least roughly 0.90, and tighter (around 0.95) for dense metal loads | Wet steam, superheating risk, poor heat transfer, wet packs |
+| Superheat | How far the steam temperature climbs above saturation when it expands to atmospheric pressure | No more than about 25 C | Steam behaves like hot air, drastically reduced lethality |
 
 If you only test condensate chemistry and skip the EN 285 triad, you have tested whether the steam is clean but not whether it sterilizes. That is a real and common gap.
 
@@ -99,13 +99,13 @@ Compressed air, nitrogen, oxygen, carbon dioxide, and argon are clean utilities 
 
 Two different quality regimes apply and you must know which is which.
 
-**ISO 8573-1 (Compressed air, Part 1: Contaminants and purity classes)** is the engineering standard that classifies compressed air (and by extension other compressed gases) by three contaminants, each on a numbered purity-class scale:
+**ISO 8573-1 (Compressed air, Part 1: Contaminants and purity classes)** is the engineering standard that classifies compressed air (and by extension other compressed gases) by three contaminants, each on a numbered purity-class scale. The class definitions and their exact thresholds live in the standard's tables; refer to ISO 8573-1:2010 for the numbers. The notes below describe how the classes are used in practice:
 
 | Contaminant | What it controls | Typical pharma target classes |
 |---|---|---|
-| Particles | Number and size of solid particles per m³ | Class 1 or 2 (Class 2 allows ≤ 100,000 particles 0.1 to 0.5 µm per m³, etc.) |
-| Water (dew point) | Pressure dew point, i.e. how dry the air is | Class 2 (-40 °C PDP) to Class 4 (+3 °C) depending on use; product-contact usually requires a low PDP to prevent condensation and microbial growth |
-| Oil (total) | Liquid oil, aerosol, and oil vapor (mg/m³) | Class 1 (≤ 0.01 mg/m³) for product contact |
+| Particles | Number and size of solid particles per m³ | Class 1 or 2, with the tighter class used for the most sensitive product contact; a stricter class allows fewer and smaller particles per m³ than a looser one (see the ISO 8573-1 table for the per-size-band counts) |
+| Water (dew point) | Pressure dew point, i.e. how dry the air is | A class with a low pressure dew point (well below freezing) for product contact, easing to a milder dew point for less demanding uses; product-contact air needs a dew point low enough to prevent condensation and microbial growth in the line |
+| Oil (total) | Liquid oil, aerosol, and oil vapor | The tightest oil class (the lowest residual oil tier in the standard) for any product-contact gas |
 
 The companion parts give the test methods: ISO 8573-2 and 8573-4 for oil aerosol and particles, ISO 8573-5 for oil vapor, ISO 8573-7 for viable microbial contaminant. You cite the standard as, for example, "ISO 8573-1:2010 Class 1.2.1" meaning oil Class 1, water Class 2, particles Class 1. Learn to read that triplet; interviewers use it.
 

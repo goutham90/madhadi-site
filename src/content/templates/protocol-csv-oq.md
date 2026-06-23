@@ -171,7 +171,7 @@ Where the system sends or receives data, confirm the data crosses correctly, com
 
 ### 13.2 Data integrity (ALCOA+)
 
-Confirm records stay Attributable, Legible, Contemporaneous, Original, Accurate, and also Complete, Consistent, Enduring, and Available.
+Confirm records hold up against the full ALCOA+ attribute set: that each record can be tied to the person who made it, stays readable, is captured at the time the work happens, keeps the source values rather than a reworked copy, is correct, and on the plus side is whole, free of internal contradiction, durable over its retention life, and retrievable when needed.
 
 | Test ID | ALCOA+ attribute | Test | Expected result |
 |---|---|---|---|

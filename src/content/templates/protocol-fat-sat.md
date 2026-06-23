@@ -158,7 +158,7 @@ A FAT or SAT result may be credited to IQ or OQ only when:
 3. The measuring instruments were calibrated and traceable at the time of test, with certificates attached.
 4. The equipment configuration and software version at test are recorded and are identical to the version installed on site (reconciled at SAT).
 5. The result, the raw data or printout, and the pass or fail are retained and retrievable as a controlled record.
-6. The protocol, results, and reviewer signatures meet the same data integrity standard expected of a qualification record (attributable, legible, contemporaneous, original, accurate, complete, consistent, enduring, available).
+6. The protocol, results, and reviewer signatures meet the same data integrity standard expected of a qualification record under ALCOA+ thinking: each result is traceable to the person who recorded it, readable, captured at the time the work was done, kept as the first or a true certified copy, factually correct, with nothing missing, free of contradictions, durable for the retention period, and retrievable when needed.
 
 Typical reuse pattern: build, material, and configuration checks from FAT credit into IQ; functional and control test cases from FAT credit into OQ, provided they have no site dependence; safety, utility, and clock-dependent cases are confirmed or repeated at SAT and credited from there. Record each credited test in the IQ/OQ traceability so an inspector can follow the line from URS to FAT/SAT result to qualification credit. Where a test cannot meet all six conditions, repeat it in qualification rather than crediting it.
 

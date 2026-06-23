@@ -29,8 +29,8 @@ You do not run the same depth of E&L work on a tablet bottle as on a metered-dos
 
 | Concern level | Dosage form examples | Why |
 |---|---|---|
-| Highest | Inhalation aerosols and solutions (OINDP), injectables and other parenterals, ophthalmics | Direct delivery to lung, bloodstream, or eye; little or no first-pass metabolism; intimate, often liquid, contact with the container and delivery device. |
-| High to medium | Transdermal patches, nasal sprays, large-volume parenterals | Sustained or direct contact; absorption that bypasses much of the gut. |
+| Highest | Inhalation aerosols and solutions (OINDP), injectables and other parenterals, sterile powders for injection | Direct delivery to lung or bloodstream; little or no first-pass metabolism; intimate, often liquid, contact with the container and delivery device. |
+| High to medium | Ophthalmics, transdermal patches, nasal sprays, large-volume parenterals | Direct delivery to the eye, or sustained contact and absorption that bypasses much of the gut. |
 | Lower | Oral solutions and suspensions, topical solutions | Some protective metabolism; less critical exposure. |
 | Lowest | Oral solid dosage forms, topical powders | Minimal contact, protective barriers, lower bioavailability of incidental contaminants. |
 
@@ -58,7 +58,7 @@ For medical devices and the device constituent of a combination product, the bio
 
 ### The 2023 revision of ISO 10993-17 (a transition closing in 2026)
 
-The device side of E&L changed materially in 2023 and the transition window is nearly shut, so this is worth knowing exactly. ISO 10993-17:2023 (the second edition) introduced a screening-first method built on the **Toxicological Screening Limit (TSL)**: a cumulative-exposure dose below which an identified constituent is of negligible toxicological concern and needs no further assessment. The standard sets two TSLs by contact duration, 120 micrograms cumulative for short-term exposure (24 hours to 30 days) and 600 micrograms cumulative for long-term exposure (over 30 days). A constituent whose estimated exposure is below the applicable TSL is screened out. One above it moves to a full toxicological risk assessment, where you estimate a worst-case exposure dose using either experimental release kinetics from the leachables study or assumed (conservative) release kinetics.
+The device side of E&L changed materially in 2023 and the transition window is nearly shut, so this is worth knowing exactly. ISO 10993-17:2023 (the second edition) introduced a screening-first method built on the **Toxicological Screening Limit (TSL)**: a cumulative-exposure dose below which an identified constituent is of negligible toxicological concern and needs no further assessment. The standard sets two TSLs by contact duration, 120 micrograms cumulative for short-term exposure (up to and including 30 days, which covers limited contact under 24 hours) and 600 micrograms cumulative for long-term exposure (over 30 days). A constituent whose estimated exposure is below the applicable TSL is screened out. One above it moves to a full toxicological risk assessment, where you estimate a worst-case exposure dose using either experimental release kinetics from the leachables study or assumed (conservative) release kinetics.
 
 FDA recognized ISO 10993-17:2023 in part on 18 December 2023 and set a transition: declarations of conformity to the 2002 first edition are accepted only until **20 December 2026**, after which the 2023 edition is the recognized version. If you run device-constituent toxicology, move to the 2023 method and its TSL and release-kinetics vocabulary now; an assessment written to the withdrawn first edition will be questioned after that date.
 
@@ -175,7 +175,7 @@ The practical approach: rely on supplier extractables data generated to the stan
 Extractables are everything a material can release under exaggerated conditions (aggressive solvents, heat, time): a worst-case survey to characterize the material. Leachables are what actually migrates into the real product under real storage and use over the shelf life. Leachables are normally a subset of extractables, and the extractables study is used to design the leachables study.
 
 **"Why does route of administration drive how much E&L work you do?"**
-Risk scales with degree of product-packaging contact and how directly the leachable reaches the patient. Inhalation, injectable, and ophthalmic products are highest concern because of intimate contact and direct delivery to lung, blood, or eye. Oral solids are lowest. The depth of the program follows that ranking.
+Risk scales with degree of product-packaging contact and how directly the leachable reaches the patient. Inhalation and injectable products are the highest concern because of intimate contact and direct delivery to lung or blood, with ophthalmic products close behind for direct delivery to the eye. Oral solids are lowest. The depth of the program follows that ranking.
 
 **"What is the AET and how does it relate to the SCT?"**
 The SCT is a safety threshold, the daily intake below which an organic leachable needs no further toxicological evaluation (0.15 micrograms per day for OINDP per PQRI). The AET is the analytical translation of the SCT for a specific product and method: the level at and above which you must report and identify compounds. The AET is an identification threshold, not a safety limit; safety is judged against the SCT, the QT, and compound-specific toxicology.
@@ -189,7 +189,7 @@ For pharmaceutical packaging and delivery: USP <1663> (extractables) and <1664> 
 ## Key takeaways
 
 - Extractables characterize what a material can release under forced conditions; leachables measure what actually migrates into the real product over its shelf life.
-- E&L rigor scales with product-packaging contact and route of administration; inhalation, injectable, and ophthalmic products carry the heaviest expectations.
+- E&L rigor scales with product-packaging contact and route of administration; inhalation and injectable products carry the heaviest expectations, with ophthalmic products close behind.
 - Use orthogonal analytics (GC-MS, LC-MS, ICP-MS) so the extractables picture is complete and the leachables target list is right.
 - The SCT is a safety threshold; the AET is an identification threshold derived from it. Do not confuse them, and do not reuse the OINDP SCT for other routes without checking.
 - Single-use systems add process leachables; qualify components with standardized supplier data plus a process-specific risk assessment.

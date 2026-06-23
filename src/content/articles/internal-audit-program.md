@@ -32,7 +32,7 @@ The requirement is solid across every GxP discipline. Knowing the exact citation
 
 A useful way to read this: device regulations name the requirement explicitly and even spell out independence; drug GMP implies it through the quality unit and EU Chapter 9; clinical and nonclinical wrap it inside the QA function. In all cases the spirit is identical, an independent self-check with teeth.
 
-> EudraLex Volume 4, Chapter 9: "Self inspections should be conducted in order to monitor the implementation and compliance with Good Manufacturing Practice principles and to propose necessary corrective measures."
+EudraLex Volume 4, Chapter 9 frames self inspection as a way to check that GMP is actually being implemented and complied with, and to propose the corrective measures that gaps call for.
 
 > 21 CFR 820.22: "Such audits shall be conducted by individuals who do not have direct responsibility for the matters being audited."
 
@@ -75,7 +75,7 @@ A common gap is leaving infrastructure, IT, and computerized systems off the sch
 
 ### Risk-based scheduling
 
-Not every area needs auditing at the same frequency. ISO 13485 clause 8.2.4 states the principle plainly: the audit program is planned "taking into consideration the status and importance of the processes and areas to be audited." Areas with higher risk, whether from regulatory history, process complexity, product criticality, or recent quality events, get audited more often. High-risk areas may be audited annually or more. Lower-risk areas may move to a two or three year cycle, with annual review of key metrics standing in for a full audit in the off years. This is the same logic that drives [quality risk management](/articles/quality-risk-management) generally: spend the scarce resource where the exposure is greatest.
+Not every area needs auditing at the same frequency. ISO 13485 clause 8.2.4 states the principle plainly: the audit program is planned around the status and importance of each process and area. Areas with higher risk, whether from regulatory history, process complexity, product criticality, or recent quality events, get audited more often. High-risk areas may be audited annually or more. Lower-risk areas may move to a two or three year cycle, with annual review of key metrics standing in for a full audit in the off years. This is the same logic that drives [quality risk management](/articles/quality-risk-management) generally: spend the scarce resource where the exposure is greatest.
 
 Factors that should push an area up the frequency list:
 
@@ -147,7 +147,7 @@ A practical habit: pick your audit type to match the worry. If you suspect a pro
 
 ## Auditor Selection and Independence
 
-Auditors must be independent of the area being audited. A QC analyst cannot audit the QC laboratory they work in. This independence is both a regulatory requirement (21 CFR 820.22 states it directly, ISO 13485 8.2.4 requires auditors not audit their own work, and ICH E6 requires sponsor audit functions independent of monitoring) and an operational necessity. People are less likely to identify problems in their own work, and even when they do, the appearance of bias undermines the audit's credibility. Independence does not require a separate department; in small organizations it can mean auditors from a different function, or trained auditors who simply do not audit their home area. What it cannot mean is someone auditing work they performed, approved, or supervise.
+Auditors must be independent of the area being audited. A QC analyst cannot audit the QC laboratory they work in. This independence is both a regulatory requirement (under the QSR 21 CFR 820.22, and now under the QMSR via ISO 13485:2016 clause 8.2.4, auditors must not audit their own work, and ICH E6 requires sponsor audit functions independent of monitoring) and an operational necessity. People are less likely to identify problems in their own work, and even when they do, the appearance of bias undermines the audit's credibility. Independence does not require a separate department; in small organizations it can mean auditors from a different function, or trained auditors who simply do not audit their home area. What it cannot mean is someone auditing work they performed, approved, or supervise.
 
 Auditors also need competence. An auditor who does not understand what a chromatography data system audit trail is supposed to contain cannot effectively audit that system's data integrity. Technical depth matters as much as audit technique, especially for specialized areas. The [GxP roles and responsibilities](/articles/gxp-roles-responsibilities) of the people being audited should be clear to the auditor before the audit starts.
 
@@ -195,7 +195,7 @@ The checklist is a starting point, not a cage. An effective auditor follows thre
 |---|-------|-----------|---------------|
 | 1 | Audit trail is enabled on the chromatography data system and cannot be disabled by analysts | 21 CFR 211.68, Part 11 | Inspect system config with admin; attempt or confirm disablement is blocked at the analyst role |
 | 2 | Audit trail review is performed and documented before batch disposition | Part 11 / Annex 11 | Pull 5 recent disposition packages; confirm a dated, signed audit trail review exists for each |
-| 3 | No shared analyst logins; each user is uniquely identified | Part 11 11.10(d) | Review user list; cross-check against the active employee roster |
+| 3 | No shared analyst logins; each user is uniquely identified | Part 11 11.10(d)/(g), 11.300 | Review user list; cross-check against the active employee roster |
 | 4 | Original electronic data is retained, not only printouts | ALCOA+ | Trace 3 results back to the source acquisition file and metadata |
 
 Send the auditee an agenda in advance: scope, dates, who you will need, and what records to have ready. A surprise audit is occasionally justified for-cause, but the routine schedule works better announced, because the goal is to assess the normal state of the operation, not to win a gotcha.
@@ -354,7 +354,7 @@ Expect these in a quality interview or from an inspector. Answer with the requir
 
 **"How do you decide audit frequency?"** Risk-based scheduling. Describe a documented scoring model driven by patient impact, recent quality events, recent change, and regulatory history, mapping to annual / biennial / triennial tiers, approved by quality management.
 
-**"Who can audit a given area?"** Anyone independent of and not responsible for the work being audited, who is qualified on both audit technique and the technical domain. Independence is a 21 CFR 820.22 requirement, not a preference.
+**"Who can audit a given area?"** Anyone independent of and not responsible for the work being audited, who is qualified on both audit technique and the technical domain. Independence is a requirement under the QSR 21 CFR 820.22, and now under the QMSR via ISO 13485:2016 clause 8.2.4, not a preference.
 
 **"Walk me through how you'd audit a QC lab's data integrity."** Preparation (prior findings, deviations, SOPs), then on-floor: review audit trail configuration and that it cannot be disabled, confirm audit trail review is performed before disposition, check for unique logins and segregation of duties, trace a few results back to original electronic source data, interview an analyst, observe a run. Classify against ALCOA+ and Part 11.
 

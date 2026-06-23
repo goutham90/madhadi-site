@@ -1,15 +1,15 @@
 ---
-title: "Medical Device Software: FDA Premarket Guidance, Cybersecurity, and the Total Product Lifecycle"
-description: "How to build, document, and defend software in a medical device through FDA premarket submission, premarket cybersecurity, and AI/ML change control. Covers software documentation level, V&V, threat modeling, and predetermined change control plans."
+title: "Software as a Medical Device in Pharma and Combination Products: FDA Premarket Expectations, Cybersecurity, and the Product Lifecycle"
+description: "How to build, document, and defend regulated software in a combination product or digital health context: FDA premarket expectations, premarket cybersecurity, and AI/ML change control. Covers software documentation level, V&V, threat modeling, and predetermined change control plans."
 pubDate: 2026-06-20
-tags: ["medical-devices", "samd", "cybersecurity", "fda", "software-validation", "ai-ml", "iec-62304", "premarket"]
-pillar: "medical-devices"
+tags: ["samd", "combination-products", "cybersecurity", "fda", "software-validation", "ai-ml", "iec-62304", "premarket"]
+pillar: "csv-csa"
 tier: "Advanced"
 ---
 
-Software inside a medical device gets regulated as a medical device. That single fact drives a large body of work that a pharma or life sciences quality professional may not have met before, because device software is governed by a different premarket apparatus than a drug or biologic. If you came up through GMP and computerized system validation, the vocabulary overlaps (V&V, risk, traceability) but the artifacts, the submission expectations, and the lifecycle obligations are distinct.
+Software with a medical purpose gets regulated as a medical device, even when it sits inside a drug or biologic program. This matters for pharma, biotech, biologics, and cell and gene therapy companies more often than people expect: a prefilled pen or autoinjector with embedded dosing logic, a digital companion app that adjusts a regimen, an on-body delivery system for a biologic, or a connected device constituent of a combination product all carry software that FDA reviews under a device apparatus distinct from the drug or biologic application. If you came up through GMP and computerized system validation, the vocabulary overlaps (V&V, risk, traceability) but the artifacts, the submission expectations, and the lifecycle obligations are distinct.
 
-This page walks through what FDA expects in a premarket submission for device software, how premarket cybersecurity has become a statutory requirement rather than a best practice, and how AI and machine learning models are handled through a predetermined change control plan. The companion to this page is [IEC 62304 software lifecycle](/articles/iec-62304-samd-software-lifecycle), which is the process standard that produces most of the evidence you will submit. Read that one for the engineering process. Read this one for the regulatory deliverables, the security expectations, and the lifecycle obligations that sit on top of that process.
+This page walks through what FDA expects for this kind of software, how premarket cybersecurity has become a statutory requirement rather than a best practice, and how AI and machine learning models are handled through a predetermined change control plan. The companion to this page is [IEC 62304 software lifecycle](/articles/iec-62304-samd-software-lifecycle), which is the process standard that produces most of the evidence you will submit. Read that one for the engineering process. Read this one for the regulatory deliverables, the security expectations, and the lifecycle obligations that sit on top of that process.
 
 ---
 
@@ -17,15 +17,15 @@ This page walks through what FDA expects in a premarket submission for device so
 
 Before any V&V or submission work, you have to classify what you are building. Three categories matter.
 
-**Software in a Medical Device (SiMD).** Firmware or application software that is a component of a physical device, for example the control software in an infusion pump or the embedded software in a continuous glucose monitor. The device is regulated; the software rides along as part of it.
+**Software in a Medical Device (SiMD).** Firmware or application software that is a component of a physical device, for example the dosing and occlusion logic in an on-body delivery system for a biologic, or the embedded control software in a connected autoinjector that is the device constituent of a combination product. The device is regulated; the software rides along as part of it.
 
-**Software as a Medical Device (SaMD).** Software that performs a medical purpose without being part of a hardware device. The International Medical Device Regulators Forum (IMDRF) defined this term in its 2013 document "Software as a Medical Device (SaMD): Key Definitions." A radiology image analysis application that flags suspected intracranial hemorrhage, running on general purpose computing hardware, is SaMD. FDA adopted the IMDRF framing.
+**Software as a Medical Device (SaMD).** Software that performs a medical purpose without being part of a hardware device. The International Medical Device Regulators Forum (IMDRF) defined this term in its 2013 document "Software as a Medical Device (SaMD): Key Definitions." A digital companion application that recommends a dose adjustment for a therapy, running on a patient's own phone, is SaMD. FDA adopted the IMDRF framing.
 
-**Non-device software.** The 21st Century Cures Act of 2016 amended section 520(o) of the Federal Food, Drug, and Cosmetic Act to carve certain software functions out of the device definition: administrative support of a facility, maintaining or encouraging a healthy lifestyle, electronic patient records, transferring or displaying data, and certain clinical decision support that meets specific conditions. FDA's guidance "Clinical Decision Support Software" (final, September 2022) explains the CDS criteria. If your function meets all four CDS criteria (it does not acquire signals from a device, it displays medical information, it provides recommendations rather than a specific directive, and the user can independently review the basis), it is not a device.
+**Non-device software.** The 21st Century Cures Act of 2016 amended section 520(o) of the Federal Food, Drug, and Cosmetic Act to carve certain software functions out of the device definition: administrative support of a facility, maintaining or encouraging a healthy lifestyle, electronic patient records, transferring or displaying data, and certain clinical decision support that meets specific conditions. FDA's revised final guidance "Clinical Decision Support Software" (January 2026), which superseded the September 2022 version, explains the current CDS criteria. The 2026 revision added enforcement discretion where a CDS function produces a single clinically appropriate recommendation, rather than treating any specific output as automatically device-like, and it raised transparency and usability expectations. If your function meets all four CDS criteria (it does not acquire signals from a device, it displays medical information, it provides recommendations a provider can act on independently, and the user can review the basis for those recommendations), it is not a device.
 
 > Getting this classification wrong is the most expensive mistake on the topic. If you treat a regulated function as non-device, you ship without clearance and face enforcement. If you treat a non-device wellness function as a device, you burden a product with submission work it never needed.
 
-**Acceptance criteria for the classification step:** a written determination, signed by regulatory affairs, that names the device function, cites the relevant definition or exclusion, identifies the device classification (Class I, II, or III) and product code, and identifies the submission pathway. Cross-link this to your [device submission pathways 510(k) and PMA](/articles/device-submission-pathways-510k-pma) analysis.
+**Acceptance criteria for the classification step:** a written determination, signed by regulatory affairs, that names the software function, cites the relevant definition or exclusion, identifies the device classification (Class I, II, or III) and product code where a device constituent applies, and identifies the submission pathway. For a combination product, cross-link this to your overall [marketing application pathway](/articles/ind-nda-bla-pathways) analysis, since the device constituent and its software are reviewed alongside the drug or biologic.
 
 ---
 
@@ -35,16 +35,19 @@ For decades FDA's expectations for software documentation were keyed to a "level
 
 ### How to determine the Documentation Level
 
-You select Enhanced if any of the following is true:
+Two categories are hard triggers for Enhanced:
 
-- The device is a constituent part of a combination product (for example a drug delivery device with software).
 - The device is intended to test blood donations for transmissible agents, or is used to determine donor and recipient compatibility, or is a Blood Establishment Computer Software.
-- The device is a class III device.
 - A failure or latent flaw of the device software function could present a probable risk of death or serious injury, to a patient, user, or others, before risk mitigation.
 
-If none apply, the device software function is Basic. The decisive clause is the last one: the probable risk of death or serious injury **before** mitigation. You assess the hazard of the software failing, not the residual risk after you have added safeguards. A practical consequence is that many higher risk devices land in Enhanced even when their mitigations are excellent, because the determination is made pre mitigation.
+Two further categories make Enhanced the default, but a sponsor may instead submit a rationale for Basic that FDA will consider during review:
 
-**Acceptance criteria:** the determination is documented with a rationale that maps to the four Enhanced triggers, and it is consistent with the risk analysis. An inspector or reviewer will check that a device you called Basic does not have hazards in its risk file that read like "death or serious injury."
+- The device is a constituent part of a combination product (for example a drug delivery device with software).
+- The device is a class III device.
+
+If none apply, the device software function is Basic. The decisive clause is the pre-mitigation one: the probable risk of death or serious injury **before** mitigation. You assess the hazard of the software failing, not the residual risk after you have added safeguards. A practical consequence is that many higher risk devices land in Enhanced even when their mitigations are excellent, because the determination is made pre mitigation.
+
+**Acceptance criteria:** the determination is documented with a rationale that maps to the Enhanced categories, and it is consistent with the risk analysis. If you call a combination-product or Class III software function Basic, document the rationale FDA will weigh. An inspector or reviewer will check that a device you called Basic does not have hazards in its risk file that read like "death or serious injury."
 
 ### What documents each level requires
 
@@ -82,11 +85,11 @@ A few definitions, because interviewers test them:
 
 ### IEC 62304 software safety classification
 
-IEC 62304 assigns each software item a safety class that scales the required rigor:
+IEC 62304 assigns each software item a safety class that scales the required rigor. The three classes are graded by the worst harm the software could contribute to, per clause 4.3:
 
-- **Class A:** no injury or damage to health is possible from the software.
-- **Class B:** non serious injury is possible.
-- **Class C:** death or serious injury is possible.
+- **Class A:** the software cannot lead to any harm to a person's health.
+- **Class B:** the software could contribute to a harm that stays short of serious.
+- **Class C:** the software could contribute to a fatal outcome or a serious harm.
 
 The classification is done after considering the system level risk controls external to the software (hardware interlocks, for example). Class C demands the fullest set of process activities: detailed design, unit verification, integration testing, and a documented architecture that supports segregation of safety critical items.
 
@@ -144,7 +147,7 @@ How to do it, in sequence:
 
 ### Security risk management vs safety risk management
 
-Keep these separate but linked. Safety risk management under [ISO 14971](/articles/iso-14971-risk-management-devices) is about harm to the patient from device malfunction. Security risk management uses a different scale, because the relevant axis is exploitability, not just probability of random failure. AAMI TIR57, "Principles for medical device security, Risk management," is the recognized reference for running security risk management alongside ISO 14971. The link between them is the case where a security exploit leads to patient harm: that crossover must be reflected in the safety risk file.
+Keep these separate but linked. Safety risk management under ISO 14971, the same risk-thinking covered in [quality risk management](/articles/quality-risk-management), is about harm to the patient from device malfunction. Security risk management uses a different scale, because the relevant axis is exploitability, not just probability of random failure. AAMI TIR57, "Principles for medical device security, Risk management," is the recognized reference for running security risk management alongside ISO 14971. The link between them is the case where a security exploit leads to patient harm: that crossover must be reflected in the safety risk file.
 
 ### The software bill of materials
 
@@ -178,7 +181,7 @@ A persistent challenge is the **locked vs adaptive** model distinction. A locked
 
 ### The Predetermined Change Control Plan (PCCP)
 
-FDA's answer is the Predetermined Change Control Plan. The FD&C Act was amended (section 515C, added by the Food and Drug Omnibus Reform Act of 2022) to authorize FDA to approve a PCCP, and FDA issued the guidance "Predetermined Change Control Plans for Machine Learning, Enabled Device Software Functions" (final, December 2024). A PCCP lets a manufacturer specify, in advance and as part of the authorized submission, certain modifications it intends to make to the device, along with how those modifications will be developed, validated, and implemented, so that making those changes does not require a new marketing submission.
+FDA's answer is the Predetermined Change Control Plan. The FD&C Act was amended (section 515C, added by the Food and Drug Omnibus Reform Act of 2022) to authorize FDA to approve a PCCP, and FDA issued the guidance "Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificial Intelligence-Enabled Device Software Functions" (final, December 2024). The final guidance dropped "machine learning" from the title in favor of "AI-enabled," broadening it from the April 2023 draft. A PCCP lets a manufacturer specify, in advance and as part of the authorized submission, certain modifications it intends to make to the device, along with how those modifications will be developed, validated, and implemented, so that making those changes does not require a new marketing submission.
 
 A PCCP has three parts:
 
@@ -209,7 +212,7 @@ For the broader engineering view of model lifecycle inside a quality system, see
 
 ## The Total Product Lifecycle: postmarket obligations
 
-Clearance is the start, not the end. Device software obligations continue through the [device postmarket surveillance and MDR](/articles/device-postmarket-surveillance-mdr) regime and the quality system.
+Clearance is the start, not the end. Software obligations continue through postmarket surveillance, including the [complaint handling](/articles/product-complaint-handling) process that captures field signals, and the quality system.
 
 ### Postmarket cybersecurity
 
@@ -221,7 +224,7 @@ Not every software change requires a new 510(k). FDA's guidance "Deciding When t
 
 ### The quality system anchor
 
-All of this sits inside a device quality system. In the United States that has historically been 21 CFR Part 820, the Quality System Regulation. FDA finalized the Quality Management System Regulation (QMSR) in 2024, which incorporates ISO 13485:2016 by reference, with a transition to February 2026. Design controls (21 CFR 820.30, and ISO 13485 design and development), the related [design controls for medical devices](/articles/design-controls-medical-devices) and [medical device quality system QMSR](/articles/medical-device-quality-system-qmsr) topics, are where software requirements, design, V&V, and the design history file live.
+All of this sits inside a quality system. For a combination product, the device constituent must meet device quality system expectations alongside the drug or biologic GMPs (21 CFR Part 4 streamlines how both sets apply). In the United States the device quality system has historically been 21 CFR Part 820, the Quality System Regulation; FDA finalized the Quality Management System Regulation (QMSR), which incorporates ISO 13485:2016 by reference, effective 2 February 2026. The discipline connects to your overall [pharmaceutical quality system](/articles/pharmaceutical-quality-system). Design controls (21 CFR 820.30, and ISO 13485 design and development) are where software requirements, design, V&V, and the design history file live, the same traceability thinking covered in [user requirements and traceability](/articles/user-requirements-and-traceability).
 
 ---
 
@@ -298,13 +301,11 @@ Explain locked vs adaptive, the validation difficulty an adaptive model creates,
 ### Related reading
 
 - [IEC 62304 software lifecycle](/articles/iec-62304-samd-software-lifecycle)
-- [ISO 14971 risk management for devices](/articles/iso-14971-risk-management-devices)
-- [Design controls for medical devices](/articles/design-controls-medical-devices)
-- [Device submission pathways 510(k) and PMA](/articles/device-submission-pathways-510k-pma)
-- [Device postmarket surveillance and MDR](/articles/device-postmarket-surveillance-mdr)
-- [Medical device quality system QMSR](/articles/medical-device-quality-system-qmsr)
-- [EU MDR and IVDR overview](/articles/eu-mdr-ivdr-overview)
-- [Unique device identification UDI](/articles/unique-device-identification-udi)
+- [Quality risk management](/articles/quality-risk-management)
+- [Marketing application pathways (IND, NDA, BLA)](/articles/ind-nda-bla-pathways)
+- [Product complaint handling](/articles/product-complaint-handling)
+- [Pharmaceutical quality system](/articles/pharmaceutical-quality-system)
 - [GxP machine learning model lifecycle](/articles/gxp-ml-model-lifecycle)
+- [Validating AI in GxP systems](/articles/validating-ai-gxp-systems)
 - [Computer software assurance (FDA CSA)](/articles/computer-software-assurance-fda)
 - [User requirements and traceability](/articles/user-requirements-and-traceability)

@@ -192,7 +192,7 @@ A spec is "not more than (NMT) 0.20% for a single impurity." An analyst's raw re
 
 ## Validation strategy for a configured COTS LIMS
 
-The strategy is risk-based and lifecycle-based per GAMP 5 Second Edition and Annex 11. You do not test the whole product as if you wrote it; you assess supplier capability, scope to your GxP-impacting configuration and data, and test proportionate to risk. FDA's Computer Software Assurance (CSA) draft guidance reinforces this: assurance effort scales with the system's impact, and you can credit unscripted/exploratory testing and vendor evidence for lower-risk functions. See [computer software assurance (FDA)](/articles/computer-software-assurance-fda) and [GAMP 5 and CSV framework](/articles/gamp5-csv-framework).
+The strategy is risk-based and lifecycle-based per GAMP 5 Second Edition and Annex 11. You do not test the whole product as if you wrote it; you assess supplier capability, scope to your GxP-impacting configuration and data, and test proportionate to risk. FDA's Computer Software Assurance (CSA) final guidance (issued 24 September 2025) reinforces this: assurance effort scales with the system's impact, and you can credit unscripted/exploratory testing and vendor evidence for lower-risk functions. See [computer software assurance (FDA)](/articles/computer-software-assurance-fda) and [GAMP 5 and CSV framework](/articles/gamp5-csv-framework).
 
 ### Deliverables, in sequence
 

@@ -172,7 +172,7 @@ DSCSA requires trading partners to be able to **verify** a product identifier, e
 
 VRS answers a simple question: "I have this GTIN, serial, lot, and expiry. Is it a valid, manufacturer-issued identifier?" The requester sends those four data elements; the network routes the query (using a GS1 Lightweight Messaging Standard / PI lookup) to the **responder** operated by or for the product's manufacturer; the response is a yes/no on the validity of that identifier. Crucially, VRS returns a verification result, not the full transaction history. It confirms the number is real; it does not by itself prove the unit is the genuine physical product.
 
-The **saleable returns verification requirement** (effective for wholesale distributors in 2019, with enforcement discretion that ran into 2020) is the highest-volume use of VRS. A distributor that receives returned, undamaged, in-date product cannot resell it unless it verifies the product identifier first. Given the volume of returns, manual verification is impractical, which is why VRS exists.
+The **saleable returns verification requirement** (effective for wholesale distributors November 27, 2019, but under FDA enforcement discretion that was extended twice, ultimately to November 27, 2023) is the highest-volume use of VRS. A distributor that receives returned, undamaged, in-date product cannot resell it unless it verifies the product identifier first. Given the volume of returns, manual verification is impractical, which is why VRS exists.
 
 ### Verification roles and timing
 
@@ -350,7 +350,6 @@ DSCSA is a distributed, partner-to-partner EPCIS model with VRS verification and
 - [good distribution practice cold chain](/articles/good-distribution-practice-cold-chain)
 - [supply chain data integrity](/articles/supply-chain-data-integrity)
 - [cold chain shipping qualification](/articles/cold-chain-shipping-qualification)
-- [unique device identification udi](/articles/unique-device-identification-udi)
 - [recall management field actions](/articles/recall-management-field-actions)
 - [product complaint handling](/articles/product-complaint-handling)
 - [gamp5 csv framework](/articles/gamp5-csv-framework)

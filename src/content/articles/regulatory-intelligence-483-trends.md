@@ -21,7 +21,7 @@ There is no single regulation that says "thou shalt run a regulatory intelligenc
 
 - **21 CFR 211.180(e)** requires that records be reviewed at least annually to evaluate quality standards and determine the need for changes. Trending external enforcement against your own processes is a defensible input to that evaluation.
 - **ICH Q10, Pharmaceutical Quality System (2008)**, Section 1.6 and Section 4 describe continual improvement and management review, with monitoring of internal and external factors that may affect the quality system. Regulatory enforcement trends are an external factor by any reasonable reading.
-- **ICH Q9(R1), Quality Risk Management (2023)** expects risk identification to be informed by relevant information, including historical data and stakeholder concerns. Warning-letter patterns are exactly that kind of historical data.
+- **ICH Q9(R1), Quality Risk Management (2022)** expects risk identification to be informed by relevant information, including historical data and stakeholder concerns. Warning-letter patterns are exactly that kind of historical data.
 - **EU GMP Chapter 1** and the concept of the Pharmaceutical Quality System require that the system be reviewed and improved. The EMA and national authorities expect firms to be aware of current expectations, which evolve faster through enforcement than through formal guidance revision.
 
 The quality rationale is simpler than the regulatory citation. Inspectors are human, they read each other's reports, and citation themes cluster by year. Data integrity citations surged after 2014. Contamination control and the revised Annex 1 drove a wave of sterile-facility findings. Cross-contamination in shared facilities, inadequate investigations, and audit trail review recur every single year. If five firms in your modality were cited for the same gap last year, the probability that your next inspection probes that area is high. RI converts that probability into a prioritized work list.
@@ -116,7 +116,7 @@ The single most common failure mode is making RI a one-person hobby with no path
 
 Reading for intelligence is different from reading for interest. Work each document in a fixed sequence.
 
-1. **Capture the metadata.** Date, issuing office, product type, dosage form or device class, inspection type (preapproval, routine surveillance, for-cause, GCP). Context changes meaning. A preapproval-inspection 483 about an unvalidated method means something different from the same words in a routine surveillance visit.
+1. **Capture the metadata.** Date, issuing office, product type, dosage form (and, for combination products, the device-constituent class where relevant), inspection type (preapproval, routine surveillance, for-cause, GCP). Context changes meaning. A preapproval-inspection 483 about an unvalidated method means something different from the same words in a routine surveillance visit.
 2. **Extract each observation verbatim.** Do not paraphrase at capture time; paraphrasing introduces your bias before you have coded it.
 3. **Code the cited regulation.** For drug GMP, map to the specific 211 subpart (211.22 quality unit, 211.42 buildings and facilities, 211.84 testing of components, 211.100 written procedures, 211.160/211.165 laboratory controls, 211.192 investigations, 211.194 laboratory records, and so on). The FDA citation dataset already does this for you at the dataset level; for individual documents you do it yourself.
 4. **Code the failure theme.** Regulation alone is too coarse. Add your own taxonomy: inadequate investigation, data integrity (audit trail), data integrity (access control), aseptic technique, environmental monitoring excursions not investigated, OOS handling, cleaning validation, supplier oversight, training. See [Audit Finding Classification](/articles/audit-finding-classification) for classification discipline.
@@ -146,7 +146,7 @@ Whether it lives in a validated application, a controlled spreadsheet, or a purp
 - Document ID and type (483, WL, EIR, EU NC report)
 - Issue date and fiscal year
 - Issuing authority and office
-- Product type and dosage form/device class
+- Product type and dosage form (device-constituent class for combination products)
 - Cited regulation(s)
 - Failure theme (your taxonomy)
 - Mechanism (free text)

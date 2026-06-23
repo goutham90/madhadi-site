@@ -19,7 +19,7 @@ Saturated steam kills by coagulating and hydrolyzing proteins and nucleic acids.
 
 The expectation to validate the process rather than rely on end-product testing is foundational. Several documents carry it:
 
-> "There shall be appropriate written procedures, designed to prevent objectionable microorganisms in drug products not required to be sterile, and to assure that drug products purporting to be sterile are sterile." (21 CFR 211.113(b), Control of microbiological contamination)
+21 CFR 211.113, "Control of microbiological contamination," splits the duty in two. Subsection (a) requires written procedures designed to prevent objectionable microorganisms in drug products not required to be sterile. Subsection (b) requires written procedures designed to prevent microbiological contamination of drug products purporting to be sterile, and it adds that such procedures shall include validation of all aseptic and sterilization processes. That last clause is the legal hook: the regulation tells you to validate the sterilization process, not to test sterility into the product.
 
 The principle that terminal sterilization is preferred over aseptic processing whenever the product can withstand it appears in FDA's guidance "Sterile Drug Products Produced by Aseptic Processing, Current Good Manufacturing Practice" (2004) and across the EU GMP Annex 1, "Manufacture of Sterile Medicinal Products" (2022 revision). Annex 1 states that terminal sterilization should be used where the product allows, and a decision tree governing the choice between terminal and aseptic routes appears in PIC/S and EMA guidance.
 
@@ -31,7 +31,7 @@ The detailed engineering standards a validation program leans on:
 - **ISO 11138 series** for biological indicators (general requirements in Part 1, moist heat BIs in Part 3).
 - **ISO 11139** for the vocabulary (definitions of D-value, z-value, SAL, F0).
 
-For drug products, the GMP frame (21 CFR 211, EU GMP Part 1 and Annex 1) sits on top of these technical standards. For medical devices, ISO 13485 and the device QMS regulation pull in the ISO 17665 process validation.
+For drug products and biologics, the GMP frame (21 CFR 211, EU GMP Part 1 and Annex 1) sits on top of these technical standards, and ISO 17665 is the engineering reference the validation program cites. The same ISO 17665 process validation logic is pulled in by a device quality system where a combination product carries a device constituent, so the moist heat method below applies to a sealed drug or biologic container and to the device portion of a combination product alike.
 
 ---
 
@@ -45,7 +45,7 @@ Overkill ignores the actual product bioburden and instead designs the cycle to d
 
 Overkill is the default for equipment, components, porous loads, and anything that tolerates heat. It is forgiving because you do not need to know or control the incoming bioburden tightly; you simply prove the process delivers enough lethality with a large safety margin. The common rule of thumb is a minimum delivered F0 of 12 minutes at the coldest location, but the real definition is the 12-log SLR of *G. stearothermophilus* demonstrated with biological indicators.
 
-Use overkill when: the load can take the heat, you want minimal dependence on bioburden monitoring, and you want the simplest defensible validation. Most hospital and industrial wrapped-goods, hard-goods, filter, and equipment cycles are overkill.
+Use overkill when: the load can take the heat, you want minimal dependence on bioburden monitoring, and you want the simplest defensible validation. Most heat-stable component, hard-goods, filter, garment, and equipment cycles are overkill, and so are many terminally sterilized small-molecule liquids that tolerate the full heat input.
 
 ### Bioburden (or bioburden/biological indicator) approach
 
@@ -125,7 +125,7 @@ Thermocouples tell you the heat that arrived. Biological indicators tell you whe
 
 A BI is a defined population of resistant bacterial spores on or in a carrier, with a certified count and a certified D-value for the relevant process. For moist heat the organism is *Geobacillus stearothermophilus*. Forms include inoculated paper strips in glassine envelopes, self-contained BIs (spore strip plus a growth ampoule that you crush and incubate after exposure), and spore suspensions used to directly inoculate product or a representative carrier. Each lot ships with a certificate stating the population (often 10⁵ to 10⁶ CFU per unit) and the D₁₂₁. ISO 11138-1 and -3, USP <1229.5>, and USP <55>/<1035> govern BI performance and use.
 
-When the natural bioburden's resistance is unknown or when carrier geometry matters, you may use **product-inoculated** units or a **biological process challenge device (PCD)**: a worst-case representation of the hardest-to-sterilize location, such as a long narrow lumen or a dense fabric pack, carrying the BI.
+When the natural bioburden's resistance is unknown or when carrier geometry matters, you may use **product-inoculated** units or a **biological process challenge device (PCD)**: a worst-case representation of the hardest-to-sterilize location, such as the center of the largest-fill sealed container, a densely packed component tray, or, for a combination product, a narrow lumen, carrying the BI.
 
 ### The half-cycle (overkill) method
 

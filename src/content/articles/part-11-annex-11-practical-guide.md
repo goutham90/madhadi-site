@@ -7,17 +7,17 @@ pillar: "csv-csa"
 tier: "Intermediate"
 ---
 
-21 CFR Part 11 and EU Annex 11 are the two regulatory frameworks that govern electronic records and computerized systems in pharmaceutical, biotech, and medical device GxP environments. They are not identical, but they cover the same ground: what technical and procedural controls must exist when you use electronic records and electronic signatures in place of paper.
+21 CFR Part 11 and EU Annex 11 are the two regulatory frameworks that govern electronic records and computerized systems in pharmaceutical, biotech, biologics, and cell and gene therapy GxP environments. They are not identical, but they cover the same ground: what technical and procedural controls must exist when you use electronic records and electronic signatures in place of paper.
 
 Most people meet these rules as a checklist someone hands them late in a validation project. That framing causes more failed inspections than almost anything else in computerized system work, because Part 11 and Annex 11 are not really about features. They are about whether a record can be trusted years after it was created, by a person who was not in the room when it was made. This article explains what each requirement actually means, how to assess a system against both frameworks, and what the most common gaps look like when an inspector starts pulling threads.
 
-It applies across the regulated industries. A laboratory information management system in a small-molecule plant, a manufacturing execution system in a biologics facility, an electronic data capture system in a clinical trial, and the firmware on an implantable device all live under the same logic: if the record is electronic and it is kept to satisfy a regulation, you are accountable for its trustworthiness.
+It applies across the regulated industries. A laboratory information management system in a small-molecule plant, a manufacturing execution system in a biologics facility, an electronic data capture system in a clinical trial, and the batch record system for a cell and gene therapy product all live under the same logic: if the record is electronic and it is kept to satisfy a regulation, you are accountable for its trustworthiness.
 
 ---
 
 ## The regulatory context
 
-**21 CFR Part 11** (Code of Federal Regulations, Title 21, Part 11) was issued by FDA in 1997. It applies when electronic records are used under a predicate rule, a GxP regulation that requires records be kept (21 CFR Part 211 for drug GMP, Part 312 for clinical INDs, Part 58 for GLP, Part 820 for the device Quality System Regulation, and others). Part 11 does not require electronic records. It governs them when you choose to use them.
+**21 CFR Part 11** (Code of Federal Regulations, Title 21, Part 11) was issued by FDA in 1997. It applies when electronic records are used under a predicate rule, a GxP regulation that requires records be kept (21 CFR Part 211 for drug GMP, Part 312 for clinical INDs, the Part 600 series for biologics, Part 1271 for human cells, tissues, and cellular and tissue-based products, Part 58 for GLP, and others). Part 11 does not require electronic records. It governs them when you choose to use them.
 
 **EU Annex 11** is the EU GMP guideline on computerised systems. It applies to GxP computerized systems used in EU manufacturing, not just to electronic records substituting for paper but to all computerized systems in GxP scope. The current version took effect in June 2011. A substantially expanded draft revision was published for consultation in 2025, signalling tighter expectations on data integrity, audit trail review, artificial intelligence, and supplier oversight. As of this writing the 2011 text remains the in-force version, so assess against it and watch the draft for direction of travel.
 
@@ -112,7 +112,7 @@ Part 11 has two subparts: Subpart B (Electronic Records) and Subpart C (Electron
 
 **§11.100, General requirements.** Each electronic signature must be unique to one individual and never reused or reassigned. Before allocating a signature, the organization must verify the individual's identity, and it must certify to FDA (in writing, one time per organization) that electronic signatures are intended to be the legally binding equivalent of handwritten signatures.
 
-That certification, sent to FDA's Office of Regional Operations, is a step many sites overlook entirely. It is a one-time organizational filing, not a per-system task, but it has to exist. If an inspector asks for it and you cannot produce it, every electronic signature in the building is exposed.
+That certification is a step many sites overlook entirely. It is a one-time organizational filing, not a per-system task, but it has to exist. The certification has to bear a handwritten signature, though it may be submitted to FDA on paper or electronically. A 2023 technical amendment to Part 11 updated where it goes, directing the certification to FDA's Letters of Non-Repudiation Agreement page rather than the address named in the original 1997 rule, so check the current submission route before you file. If an inspector asks for it and you cannot produce it, every electronic signature in the building is exposed.
 
 **§11.200, Components and controls.**
 - Non-biometric signatures must use at least two distinct identification components, typically a user ID and a private password.
@@ -143,11 +143,11 @@ Annex 11 covers the same record and signature ground, then extends into operatin
 
 **Printouts (clause 8).** It must be possible to obtain clear printed copies of electronically stored data, and for records supporting batch release the printout must indicate if any data has been changed since the original entry. The electronic record remains the authoritative source. A printout is a copy. See [static and dynamic records and true copies](/articles/static-dynamic-records-true-copies).
 
-**Audit trails (clause 9).** Consideration, based on risk, should be given to building into the system an audit trail of GxP-relevant changes and deletions. Audit trails must be available, convertible to a readable form, and regularly reviewed, with the review frequency tied to the system's GxP impact.
+**Audit trails (clause 9).** Where the risk to GxP data warrants it, the system should capture a trail of relevant changes and deletions. The expectation is that this trail can be produced in a form a reviewer can read, and that someone actually looks at it on a schedule set by how much the system matters to GxP outcomes.
 
 **Change and configuration management (clause 10).** Changes made through a defined procedure. See [change control for validated systems](/articles/change-control-validated-systems) and [IT change and configuration management](/articles/it-change-and-configuration-management-gxp).
 
-**Periodic evaluation (clause 11).** Systems are periodically reviewed to confirm they remain in a validated state and compliant. The review covers current functionality, deviation records, incidents, problems, upgrade history, performance, reliability, security, and validation status reports.
+**Periodic evaluation (clause 11).** Systems are periodically reviewed to confirm they remain in a validated state and compliant. A sound review looks back across how the system has actually behaved since the last check: whether the functions still meet the need, what deviations, incidents, and problems were logged, what upgrades went in, and how the system held up on performance, reliability, security, and validation status.
 
 **Security (clause 12).** Physical and logical controls restrict access to authorized persons, with the extent of controls based on system criticality, plus creation, change, and cancellation of access authorizations recorded.
 
@@ -196,7 +196,7 @@ A Part 11 / Annex 11 assessment is a document that evaluates a specific GxP comp
 Answer two questions:
 
 1. Does this system generate, modify, maintain, archive, retrieve, or transmit **GxP records**?
-2. Are those records used under a **predicate rule** (Part 211, Part 312, Part 58, Part 820, or others), or are they GxP records in an EU GMP context that brings Annex 11 into play?
+2. Are those records used under a **predicate rule** (Part 211, Part 312, the Part 600 series, Part 1271, Part 58, or others), or are they GxP records in an EU GMP context that brings Annex 11 into play?
 
 If yes, the system is in scope and the assessment proceeds. If no, record the scoping decision and the reasoning so the next reviewer does not have to reconstruct it. For the wider scoping logic, see [CSV risk assessment methodology](/articles/csv-risk-assessment-methodology) and the [GAMP 5 CSV framework](/articles/gamp5-csv-framework), which sets the software categories that drive how much rigour each system needs.
 
@@ -352,7 +352,7 @@ If you are interviewing for a CSV, data integrity, or QA role, Part 11 and Annex
 
 **"What is the difference between Part 11 and Annex 11?"** Part 11 is a US regulation about electronic records and signatures, triggered when those records are kept under a predicate rule. Annex 11 is an EU GMP guideline about computerized systems as a whole, broader in scope, and it adds explicit expectations Part 11 leaves implicit: supplier oversight (cl.3), periodic review (cl.11), and business continuity (cl.16). Same trust goal, wider EU lens.
 
-**"What is a predicate rule and why does it matter?"** A predicate rule is the underlying GxP regulation that requires the record to exist at all, for example Part 211 for drug GMP or Part 820 for devices. Part 11 only applies to electronic records kept to satisfy a predicate rule. It matters because it sets scope: if the record is not kept under a predicate rule, Part 11 does not apply, and the 2003 scope guidance turns on exactly this point.
+**"What is a predicate rule and why does it matter?"** A predicate rule is the underlying GxP regulation that requires the record to exist at all, for example Part 211 for drug GMP or the Part 600 series for biologics. Part 11 only applies to electronic records kept to satisfy a predicate rule. It matters because it sets scope: if the record is not kept under a predicate rule, Part 11 does not apply, and the 2003 scope guidance turns on exactly this point.
 
 **"Walk me through how you would assess a new system."** Confirm scope (GxP records under a predicate rule or in EU GMP), map applicable Part 11 sections and Annex 11 clauses in one matrix, assess each control with objective evidence including a few negative tests, document and rank gaps by severity, then feed it into the validation plan and close critical gaps before go-live.
 

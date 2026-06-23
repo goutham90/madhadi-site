@@ -7,7 +7,7 @@ pillar: "csv-csa"
 tier: "Intermediate"
 ---
 
-Most AI used in regulated pharma, biotech, and device companies is not built in house. It arrives as a vendor product: a SaaS platform with a machine learning feature, a cloud model accessed through an API, a document-classification engine sold as part of a quality system, or a large language model wrapped in someone else's application. The regulated company still owns the GxP decision the AI touches, but it does not own the model, the training data, the infrastructure, or the change schedule. That split is the central problem of this article.
+Most AI used in regulated pharma, biotech, biologics, and cell-and-gene-therapy companies is not built in house. It arrives as a vendor product: a SaaS platform with a machine learning feature, a cloud model accessed through an API, a document-classification engine sold as part of a quality system, or a large language model wrapped in someone else's application. The regulated company still owns the GxP decision the AI touches, but it does not own the model, the training data, the infrastructure, or the change schedule. That split is the central problem of this article.
 
 A traditional software supplier ships a deterministic product, you validate it for your intended use, and as long as the version does not change, the validated state holds. An AI supplier ships something that can change behavior without a version bump, whose internal logic neither of you can fully inspect, and whose performance depends on data you may never see. You cannot validate that away by yourself, and you cannot delegate it entirely to the vendor either. What you can do is agree, in writing and in advance, on who is responsible for what, then assess and monitor against that agreement.
 
@@ -19,11 +19,7 @@ This article covers how to do that. It assumes you already understand basic supp
 
 ### Why it matters
 
-The shared-responsibility idea comes from cloud computing, where the provider secures the infrastructure and the customer secures what they put on it. Auditors and inspectors already expect a clear division of duties for any outsourced GxP activity, and 21 CFR Part 11 plus EU GMP Annex 11 both keep the regulated company accountable for the integrity of records regardless of where the system runs. EU GMP Annex 11 clause 3.1 requires a formal agreement that states the third party's responsibilities:
-
-> When third parties (e.g. suppliers, service providers) are used e.g. to provide, install, configure, integrate, validate, maintain (e.g. via remote access), modify or retain a computerised system or related service or for data processing, formal agreements must exist between the manufacturer and any third parties, and these agreements should include clear statements of the responsibilities of the third party.
->
-> -- EU GMP Annex 11, clause 3.1 (Suppliers and Service Providers)
+The shared-responsibility idea comes from cloud computing, where the provider secures the infrastructure and the customer secures what they put on it. Auditors and inspectors already expect a clear division of duties for any outsourced GxP activity, and 21 CFR Part 11 plus EU GMP Annex 11 both keep the regulated company accountable for the integrity of records regardless of where the system runs. EU GMP Annex 11 clause 3.1 requires a formal agreement that states the third party's responsibilities. The clause makes the point plainly: whenever an outside party supplies, installs, configures, integrates, validates, maintains (including by remote access), modifies, hosts, or processes data for a computerised system, a formal written agreement has to exist between the manufacturer and that party, and the agreement has to spell out exactly what the third party is responsible for (EU GMP Annex 11, clause 3.1, Suppliers and Service Providers).
 
 The risk if you skip this: the most common AI supplier failure is not a technical defect, it is an accountability gap. Each side assumes the other validated the model, tested for drift, or controlled the change. Nobody did. The first time anyone notices is during an inspection, when the investigator asks who confirmed the model still performs and both parties point at each other. A documented shared-responsibility model closes that gap before it opens.
 

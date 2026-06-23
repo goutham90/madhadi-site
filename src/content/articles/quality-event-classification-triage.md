@@ -29,16 +29,16 @@ Every one of these needs a severity label before the investigation scopes itself
 
 No single regulation hands you a three-tier classification table, but the obligation to grade events and respond proportionately runs through all of them.
 
-> ICH Q10, *Pharmaceutical Quality System* (2008), Section 3.2.2: the corrective action and preventive action system should result in "product and process improvements and increased product and process understanding," and the firm should use "a structured approach to the investigation process... with the objective of determining the root cause. The level of effort, formality and documentation of the investigation should be commensurate with the level of risk."
+ICH Q10, *Pharmaceutical Quality System* (2008), Section 3.2.2 describes the corrective and preventive action system as a way to drive product and process improvement and deeper process understanding, and calls for a structured investigation approach aimed at finding root cause. The proportionality principle itself, that the effort, formality, and documentation applied should match the level of risk, comes from ICH Q9, *Quality Risk Management*.
 
-That last sentence is the legal spine of triage. "Commensurate with the level of risk" means you must first establish the level of risk, which is exactly what classification does.
+That proportionality idea is the spine of triage. Matching effort to the level of risk means you must first establish the level of risk, which is exactly what classification does.
 
 - **21 CFR 211.192** requires that any unexplained discrepancy or batch failure to meet specifications be thoroughly investigated, whether or not the batch was already distributed, and that the investigation extend to other batches and products that may have been associated. The depth of "thorough" scales with severity.
 - **21 CFR 211.100(b)** requires deviations from written procedures to be recorded and justified.
 - **EU GMP Chapter 1 (Pharmaceutical Quality System)** requires that deviations be assessed for impact on product quality and that significant deviations be investigated.
 - **ICH Q9(R1), *Quality Risk Management* (2023 revision)** provides the risk framework that underpins severity, detectability, and probability scoring. Q9(R1) added emphasis on reducing subjectivity in risk assessments, which is directly relevant to keeping classification consistent.
 - **EU GMP Annex 16** ties the Qualified Person's batch certification to the disposition of unresolved deviations, so the classification of an open event can block release.
-- **For medical devices, 21 CFR 820 / ISO 13485:2016** require nonconformity control and CAPA with action proportionate to risk, and risk management per **ISO 14971:2019**. See [iso-14971-risk-management-devices](/articles/iso-14971-risk-management-devices) and [medical-device-quality-system-qmsr](/articles/medical-device-quality-system-qmsr).
+- **For combination products (drug plus device), 21 CFR Part 4** layers device CAPA and nonconformity expectations onto the drug GMP system, so the device constituent part also needs action proportionate to risk and a risk-management basis. The same quality risk management framework that drives severity (see [quality-risk-management](/articles/quality-risk-management)) is what underpins those decisions, and it ties back to the firm's [pharmaceutical-quality-system](/articles/pharmaceutical-quality-system).
 - **For clinical, ICH E6(R3) Good Clinical Practice** distinguishes serious from non-serious GCP noncompliance and protocol deviations, with serious breaches reportable to authorities. See [clinical-qa-gcp-data-integrity](/articles/clinical-qa-gcp-data-integrity).
 
 ### The quality rationale
@@ -178,7 +178,7 @@ A 3x3 example. Map the resulting band to a tier.
 | **Medium** (quality impact, limited harm) | Minor | Major | Major |
 | **Low** (no SISPQ impact) | Minor | Minor | Major |
 
-Detectability then adjusts: an event with very poor detectability (controls would not have caught it) bumps one band higher. This mirrors FMEA logic where RPN = S × O × D, used in [iso-14971-risk-management-devices](/articles/iso-14971-risk-management-devices) and device CAPA.
+Detectability then adjusts: an event with very poor detectability (controls would not have caught it) bumps one band higher. This mirrors FMEA logic where RPN = S × O × D, one of the methods covered in [quality-risk-management](/articles/quality-risk-management).
 
 ### Worked risk-ranking example
 
@@ -208,7 +208,7 @@ A few hard points on timelines and reporting:
 - **US field alert reports (21 CFR 314.81)** for NDA/ANDA products must be submitted within 3 working days of receiving information about specified problems (for example, mix-ups, failures to meet specifications, bacteriological contamination). A critical classification should trip this screen automatically.
 - **Biological Product Deviation Reports (21 CFR 600.14 / 21 CFR 1271.350)** require reporting deviations affecting safety, purity, or potency of distributed biologics or HCT/Ps, generally within 45 calendar days.
 - **EU Annex 16** means an open critical or major deviation can block QP certification, so the QP must be looped in. See [qualified-person-batch-release-annex-16](/articles/qualified-person-batch-release-annex-16).
-- **Medical device adverse events / field corrections** follow MDR reporting (21 CFR 803) and EU MDR vigilance timelines; a critical device nonconformity triggers a reportability decision. See [device-postmarket-surveillance-mdr](/articles/device-postmarket-surveillance-mdr).
+- **For a combination product**, an event affecting the device constituent part can pull in device-side postmarket reporting on top of the drug or biologic obligations, so a critical nonconformity triggers a reportability decision against both constituent parts. Route confirmed defects through [product-complaint-handling](/articles/product-complaint-handling) so nothing falls between the two reporting frameworks.
 - **GCP serious breaches** under ICH E6(R3) and regional rules are reportable to authorities, typically within a short window (for example, 7 days in some regions) of becoming aware. See [gcp-audits-and-inspections](/articles/gcp-audits-and-inspections).
 
 The classification step should include a "reportability screen" so the regulatory clock starts on day zero, not after the investigation finishes.
@@ -293,7 +293,7 @@ QA owns the final classification. I document the severity drivers and the patien
 ICH Q10 requires effort commensurate with risk. The tier sets the depth: minor gets a correction and rationale, major gets a documented root cause and impact assessment, critical gets a formal investigation with full batch impact assessment and CAPA. Over-investigating a minor is as much a defect as under-investigating a critical.
 
 **"When does a quality event become reportable to a regulator?"**
-At classification I run a reportability screen. For US NDA/ANDA products, field alert reportable problems go in within 3 working days (21 CFR 314.81). For distributed biologics and HCT/Ps, BPDRs are generally due within 45 days (21 CFR 600.14 / 1271.350). Devices follow MDR (21 CFR 803) and EU MDR vigilance timelines; serious GCP breaches follow E6(R3) and regional rules. Critical product-quality events also feed the recall decision.
+At classification I run a reportability screen. For US NDA/ANDA products, field alert reportable problems go in within 3 working days (21 CFR 314.81). For distributed biologics and HCT/Ps, BPDRs are generally due within 45 days (21 CFR 600.14 / 1271.350). For a combination product, an event in the device constituent part can pull in the device-side postmarket reporting framework as well, so I screen against both. Serious GCP breaches follow E6(R3) and regional rules. Critical product-quality events also feed the recall decision.
 
 **"How do you keep classification consistent across reviewers?"**
 Written criteria with anchored examples in the SOP, a risk matrix for non-obvious cases, periodic calibration sessions where reviewers classify sample events and compare, and trend review to catch drift. Q9(R1) specifically pushes to reduce subjectivity in risk assessment.

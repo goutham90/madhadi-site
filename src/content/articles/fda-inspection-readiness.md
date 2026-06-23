@@ -23,7 +23,7 @@ Before the logistics, it helps to understand where FDA's authority comes from, b
 
 The Federal Food, Drug, and Cosmetic Act (FD&C Act) authorizes FDA to inspect facilities that manufacture, process, pack, or hold regulated products. Section 704 of the Act covers the right of entry and inspection. Section 501 defines what makes a drug "adulterated," and importantly, a drug is deemed adulterated if it is made in a facility that does not conform to current good manufacturing practice, even if the finished product itself tests within specification. That is the legal hook that makes CGMP compliance, and the records that demonstrate it, inspectable.
 
-Section 704(a)(4) of the Act gives FDA the explicit authority to request records in advance of or in lieu of an inspection, and Section 707 (added by the Drug Quality and Security Act in 2013) deems a drug adulterated if the owner or operator delays, denies, or limits an inspection, or refuses to permit entry. Refusing or stalling is not a neutral act; it changes the product's legal status.
+Section 704(a)(4) of the Act gives FDA the explicit authority to request records in advance of or in lieu of an inspection, and Section 707 of FDASIA (2012) added Section 501(j) to the Act, which deems a drug adulterated if the owner or operator delays, denies, or limits an inspection, or refuses to permit entry or inspection. Refusing or stalling is not a neutral act; it changes the product's legal status.
 
 The current good manufacturing practice regulations themselves live in Title 21 of the Code of Federal Regulations. The main parts an investigator will reference include 21 CFR Part 210 and Part 211 (drugs and finished pharmaceuticals), the Part 600 series (biologics), Part 11 (electronic records and electronic signatures), and Part 820 (the Quality System Regulation for devices, being aligned to ISO 13485 under the Quality Management System Regulation, QMSR, with a compliance date of February 2, 2026). For clinical work, the bioresearch monitoring (BIMO) program inspects against 21 CFR Parts 50, 54, 56, and 312. For data integrity specifically, FDA's 2018 guidance "Data Integrity and Compliance With Drug CGMP: Questions and Answers" is the document that lays out the agency's current thinking, and investigators are trained against it.
 
@@ -338,7 +338,7 @@ Audit trail configuration and whether it can be disabled, account and privilege 
 FDA has stated it will consider a response received within 15 business days of the 483 before deciding on further action such as a Warning Letter. Responding within that window with credible, dated corrective actions can change the agency's enforcement decision.
 
 **"Can FDA inspect a facility without advance notice?"**
-Yes, for domestic CGMP inspections in particular. Delaying, denying, limiting, or refusing an inspection deems the product adulterated under Section 707. The only safe posture is to be ready unannounced.
+Yes, for domestic CGMP inspections in particular. Delaying, denying, limiting, or refusing an inspection deems the product adulterated under Section 501(j) of the Act, added by Section 707 of FDASIA. The only safe posture is to be ready unannounced.
 
 ---
 

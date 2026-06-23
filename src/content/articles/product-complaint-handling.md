@@ -17,13 +17,13 @@ This article covers the full lifecycle: what a complaint is, how to receive and 
 
 ### The regulatory definition
 
-A complaint is any written, electronic, or oral communication that alleges deficiencies related to the identity, quality, durability, reliability, safety, effectiveness, or performance of a product after it is released for distribution.
+For a drug or biologic, the requirement lives in **21 CFR 211.198**, "Complaint files," within the cGMP for finished pharmaceuticals. It requires written procedures for the handling of all written and oral complaints regarding a drug product, and a written record of each complaint kept on file. For APIs, the parallel expectation is in **ICH Q7, section 15** (Complaints and Recalls). **EU GMP Chapter 8** ("Complaints, Quality Defects and Product Recalls") sets the European expectation and ties complaints explicitly to the recall decision and to root cause analysis.
 
-That exact wording comes from the device Quality System Regulation, **21 CFR 820.3(b)** (definition of "complaint"), and it is the cleanest definition in the regulations. The device complaint-handling requirement itself sits at **21 CFR 820.198**, "Complaint files." Note that FDA finalized the **Quality Management System Regulation (QMSR), 21 CFR Part 820**, in February 2024 to align with **ISO 13485:2016**, with the rule taking effect February 2, 2026. Under the QMSR, the complaint-handling expectations of ISO 13485 clause 8.2.2 are incorporated by reference, so device manufacturers now read the ISO clause and the residual Part 820 sections together rather than the old 820.198 in isolation.
+A clean working definition of a complaint is any written, electronic, or oral communication that alleges deficiencies related to the identity, quality, durability, reliability, safety, effectiveness, or performance of a product after it is released for distribution. That wording is the **21 CFR 820.3(b)** definition, which captures the elements an inspector expects to see regardless of product type.
 
-For drugs, the requirement lives in **21 CFR 211.198**, "Complaint files," within the cGMP for finished pharmaceuticals. It requires written procedures for the handling of all written and oral complaints regarding a drug product, and a written record of each complaint kept on file. For APIs, the parallel expectation is in **ICH Q7, section 15** (Complaints and Recalls).
+The quality system standards reinforce this. **ICH Q10 (Pharmaceutical Quality System)** names complaint handling as part of the corrective and preventive action system and the management review inputs. **ISO 13485:2016 clause 8.2.2** requires a documented complaint-handling procedure.
 
-The quality system standards reinforce this. **ICH Q10 (Pharmaceutical Quality System)** names complaint handling as part of the corrective and preventive action system and the management review inputs. **ISO 13485:2016 clause 8.2.2** requires a documented complaint-handling procedure. **EU GMP Chapter 8** ("Complaints, Quality Defects and Product Recalls," revised 2014) sets the European expectation and ties complaints explicitly to the recall decision and to root cause analysis.
+If you also handle combination products or devices, a second set of requirements applies on top of the pharma basis. The device complaint-handling requirement sits at **21 CFR 820.198**, "Complaint files." FDA finalized the **Quality Management System Regulation (QMSR), 21 CFR Part 820**, in February 2024 to align with **ISO 13485:2016**, with the rule taking effect February 2, 2026; under the QMSR the complaint-handling expectations of ISO 13485 clause 8.2.2 are incorporated by reference, so you read the ISO clause and the residual Part 820 sections together. For combination products, expect both the drug cGMP complaint expectations and these device-side ones to apply under the 21 CFR Part 4 framework.
 
 ### Why it is required (the risk rationale)
 
@@ -33,7 +33,7 @@ Three reasons, in order of severity:
 2. **Regulatory reporting obligations.** Certain complaints trigger mandatory reports with hard clocks: medical device reports (MDRs), pharmacovigilance adverse event reports, biological product deviation reports, field alert reports for drugs. If your complaint intake does not flag these, you miss a legal deadline. That is one of the most common and most serious findings inspectors write.
 3. **Continuous improvement and state of control.** Complaint trends tell you whether your process is drifting, whether a supplier change degraded quality, or whether a design weakness keeps surfacing. This feeds CAPA, annual product review, and management review.
 
-> EU GMP Chapter 8.1: "The principles of Quality Risk Management should be applied to the investigation and assessment of quality defects and to the decision-making process in relation to product recalls, corrective and preventive actions and other risk-reducing actions."
+> EU GMP Chapter 8 (clause 8.1) makes the point directly: apply quality risk management to how you investigate and assess quality defects, and to the decisions that follow, recalls, corrective and preventive actions, and any other action taken to reduce risk.
 
 ---
 
@@ -164,7 +164,7 @@ A pharmacist calls: a vial of lyophilized biologic "looked cloudy after reconsti
 
 One call, three potential regulatory clocks, two parallel investigations, one linked file. If intake had logged only "cosmetic appearance complaint" and never asked about the patient, every one of those clocks would have been missed.
 
-See [pharmacovigilance and safety data integrity](/articles/pharmacovigilance-safety-data-integrity) and [device postmarket surveillance and MDR](/articles/device-postmarket-surveillance-mdr) for the reporting mechanics on each side.
+See [pharmacovigilance and safety data integrity](/articles/pharmacovigilance-safety-data-integrity) for the reporting mechanics on the safety side, and your device vigilance and MDR procedures for the device side if you handle combination products.
 
 ---
 
@@ -359,7 +359,6 @@ Complaint number and dates, reporter, product and lot, verbatim nature, whether 
 - [What is a CAPA](/articles/what-is-a-capa) and [CAPA effectiveness verification](/articles/capa-effectiveness-verification)
 - [Root cause analysis techniques](/articles/root-cause-analysis-techniques)
 - [Recall management and field actions](/articles/recall-management-field-actions)
-- [Device postmarket surveillance and MDR](/articles/device-postmarket-surveillance-mdr)
 - [Pharmacovigilance and safety data integrity](/articles/pharmacovigilance-safety-data-integrity)
 - [Annual product review and PQR](/articles/annual-product-review-pqr)
 - [Management review under Q10](/articles/management-review-q10)

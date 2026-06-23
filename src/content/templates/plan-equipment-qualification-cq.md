@@ -45,13 +45,13 @@ This plan applies to the systems listed in section 6 at `<<FILL: site / area>>`.
 
 ## 4. Definitions
 
-- **Commissioning**: a well-planned, documented, and managed engineering approach to start up and turn over facilities, systems, and equipment to the end user in a verified, operational, and safe state. Commissioning is an engineering activity; it can generate evidence usable for qualification when planned and executed under quality oversight.
+- **Commissioning**: the planned and controlled engineering work, with its own documentation and oversight, that brings facilities, systems, and equipment up from installation to a working, checked-out, and safe condition ready to hand to the people who will run them (the sense used in ISPE Baseline Guide Volume 5 and ASTM E2500). Commissioning is an engineering activity; it can generate evidence usable for qualification when planned and executed under quality oversight.
 - **Qualification**: the documented verification that critical aspects perform as intended and meet predetermined acceptance criteria, confirming the system is fit for its intended use.
-- **Critical aspect (CA)**: a function, feature, ability, or performance of a system necessary to ensure consistent product quality and patient safety. Critical aspects are determined from product quality and process risk, not from a generic feature checklist.
-- **Critical design element (CDE)**: a design feature or function that, if not met, would prevent a critical aspect from being satisfied; the design that controls a critical aspect.
-- **Direct-impact system**: a system expected to have a direct impact on product quality; it receives qualification verification of its critical aspects.
-- **Indirect-impact system**: a system that supports a direct-impact system but is not expected to directly affect product quality; it is commissioned, not qualified.
-- **No-impact system**: a system with no effect on product quality; it is commissioned only.
+- **Critical aspect (CA)**: any part of how a system works, what it does, or what it must achieve that has to be right for the product to stay consistently within quality and for patients to be safe (the concept defined in ASTM E2500 and ISPE Baseline Guide Volume 5). Critical aspects are determined from product quality and process risk, not from a generic feature checklist.
+- **Critical design element (CDE)**: the specific part of the engineered design chosen to make a critical aspect achievable, so that a shortfall in this design element would leave the linked critical aspect unmet (the term as used in ASTM E2500 and ISPE Baseline Guide Volume 5).
+- **Direct-impact system**: a system whose operation can act on product quality, so its critical aspects are confirmed through qualification (a classification level described in ISPE Baseline Guide Volume 5).
+- **Indirect-impact system**: a system that serves or feeds a direct-impact system without itself acting on product quality, so it is commissioned rather than qualified (same source).
+- **No-impact system**: a system whose operation cannot reach product quality, so commissioning alone is sufficient (same source).
 - **Subject matter expert (SME)**: the individual with specific expertise in a discipline who makes and is accountable for technical decisions within that discipline.
 - **Verification**: the application of engineering and quality methods (review, inspection, testing) to confirm a system meets the acceptance criteria for its intended use, planned to the level of risk.
 

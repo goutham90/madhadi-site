@@ -46,12 +46,12 @@ This assessment applies to the components of `<<FILL: system name>>` at `<<FILL:
 ## 4. Definitions
 
 - **Component**: an individual item within a system that performs a function, for example a pump, a valve, a sensor, a heat exchanger, a controller, a filter housing.
-- **Critical aspect (CA)**: a function or characteristic of equipment or a system that can affect product quality or patient safety, derived from the critical quality attributes and critical process parameters of the product. Critical aspects are the link between the product and the hardware.
-- **Critical design element (CDE)**: the specific design feature, setting, range, material, or function of a component that delivers a critical aspect and therefore must be verified. The CDE is what you actually test.
-- **Critical component**: a component with at least one critical design element, that is, one whose correct function is necessary to deliver a critical aspect.
-- **Noncritical component**: a component with no critical design element; its failure does not affect product quality, patient safety, or data integrity, and it is handled under good engineering practice.
-- **Good engineering practice (GEP)**: established engineering methods and standards applied to the design, procurement, installation, and commissioning of a system, used to confirm noncritical components without formal qualification.
-- **Verification**: documented confirmation that a critical aspect, delivered by its critical design elements, meets acceptance criteria. Replaces the IQ/OQ language of older practice when an integrated, risk-based approach is used.
+- **Critical aspect (CA)** (term used in ASTM E2500): in this assessment, anything a piece of equipment or a system does, or any property it holds, that has the potential to change product quality or put a patient at risk. We work each one out from the product's critical quality attributes and critical process parameters, so a critical aspect is what ties the product back to the hardware.
+- **Critical design element (CDE)** (term used in ASTM E2500): in this assessment, the precise design choice within a component, a setting, an operating range, a material, or a built-in function, that makes a critical aspect happen and so has to be tested. The CDE is the thing you put under test.
+- **Critical component**: in this assessment, any component that carries one or more critical design elements, meaning the plant cannot deliver a critical aspect unless that component works correctly.
+- **Noncritical component**: in this assessment, any component that carries no critical design element. Its failure leaves product quality, patient safety, and data integrity untouched, so we confirm it through good engineering practice.
+- **Good engineering practice (GEP)** (term used in ASTM E2500): for this assessment, the recognized engineering know-how and reference standards we apply when we design, buy, install, and commission a system, used to confirm noncritical components without putting them through formal qualification.
+- **Verification** (term used in ASTM E2500): in this assessment, the documented act of showing that a critical aspect, as built into its critical design elements, satisfies its acceptance criteria. When work follows an integrated, risk-based route, this single verified record takes the place of the separate IQ and OQ steps that older programs ran.
 
 ## 5. Inputs to this assessment
 

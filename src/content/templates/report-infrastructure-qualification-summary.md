@@ -62,7 +62,7 @@ For infrastructure delivered as a service (IaaS or PaaS), state clearly which la
 ## 4. Definitions
 
 - **Infrastructure qualification (IQ for infrastructure)**: documented verification that IT infrastructure components are installed and configured according to an approved specification and operate as required to support GxP applications.
-- **GAMP 5 Category 1**: the GAMP 5 classification for infrastructure software (operating systems, database engines, network software, virtualization), qualified by verification against a specification rather than by application-style functional testing.
+- **GAMP 5 Category 1**: under the GAMP 5 software categories, the group used for established infrastructure software such as the operating system, the database engine, network components, and the virtualization layer. Because this software is widely used and not configured for a specific business process, it is handled by checking it against an approved specification rather than by running the kind of functional test scripts an application would need.
 - **Qualified baseline**: the recorded, controlled, as-built state (component versions, configuration values, firmware, OS and database versions, patch level) that the conclusion certifies and that change control then protects.
 - **Installation verification**: confirmation that the right components, versions, and configuration are present, matching the specification.
 - **Operational verification**: confirmation that infrastructure services (time sync, backup and restore, failover, access control, monitoring) actually work as required.

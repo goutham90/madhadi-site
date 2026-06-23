@@ -17,7 +17,7 @@ One framing helps before the role list. Almost everyone in a regulated company t
 
 ## The legal backbone behind the roles
 
-US drug GMP roles are not arbitrary job descriptions. They trace back to the regulations in 21 CFR Parts 210 and 211, with 21 CFR 211.22 establishing the quality control unit and its authority. EU manufacturers operate under EudraLex Volume 4, the GMP guide, where Chapter 2 covers personnel and Annex 16 defines the Qualified Person who certifies batches. Medical device manufacturers in the US work under 21 CFR Part 820, the Quality System Regulation, now being harmonized to ISO 13485 under the Quality Management System Regulation (QMSR), with a compliance date of February 2, 2026. ICH Q10, the Pharmaceutical Quality System, sits over the drug and biologic side and describes management responsibility, the product lifecycle, and continual improvement in a way that most modern quality organizations now mirror.
+US drug GMP roles are not arbitrary job descriptions. They trace back to the regulations in 21 CFR Parts 210 and 211, with 21 CFR 211.22 establishing the quality control unit and its authority. EU manufacturers operate under EudraLex Volume 4, the GMP guide, where Chapter 2 covers personnel and Annex 16 defines the Qualified Person who certifies batches. Medical device manufacturers in the US work under 21 CFR Part 820, which as of February 2, 2026 became the Quality Management System Regulation (QMSR), incorporating ISO 13485:2016 by reference in place of the former Quality System Regulation. ICH Q10, the Pharmaceutical Quality System, sits over the drug and biologic side and describes management responsibility, the product lifecycle, and continual improvement in a way that most modern quality organizations now mirror.
 
 These documents matter for one practical reason: they tell you which responsibilities cannot be delegated, blurred, or subordinated. Where the same person both runs a test and decides whether the result passes, that is not a style choice. It is a structural defect an inspector will name. The roles below exist in the shape they do because the regulations require certain separations.
 
@@ -133,7 +133,7 @@ QC generates data. QA reviews and approves data. The two functions are kept orga
 3. If no assignable laboratory cause is found, Phase II, the full investigation, expands into manufacturing and the broader process, often with a formal hypothesis test.
 4. QA oversees the investigation and approves the conclusion. Retesting and resampling follow predefined, approved rules, not analyst discretion.
 
-This two-phase structure comes from FDA's 2006 guidance "Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production." QA oversight is a regulatory expectation, not a bureaucratic preference.
+This two-phase structure comes from FDA's guidance "Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production" (originally 2006, revised May 2022). QA oversight is a regulatory expectation, not a bureaucratic preference.
 
 **Acceptance criteria for clean QC data.** Each result is attributable to a named analyst and a qualified instrument, contemporaneously recorded, with the original electronic data and its audit trail preserved. System suitability passes before the run is used. Any reintegration or reprocessing is documented with the reason. The Certificate of Analysis matches the underlying raw data exactly.
 
@@ -198,7 +198,7 @@ See [the OOS investigation process](/articles/oos-investigation-process), [out-o
 | URS-027 | Audit trail captures who, what, when for GxP record changes, and cannot be disabled by users | High (data integrity) | OQ-031 | Pass; change logged with old/new value, user, timestamp |
 | URS-040 | Result rounds to 2 decimals per rounding SOP | Medium | OQ-045 | Pass across boundary values |
 
-**A newer testing philosophy.** FDA's "Computer Software Assurance for Production and Quality System Software" was issued as a draft in 2022 and finalized in 2025. It pushes toward effort proportional to risk, with less rote scripted testing for low-risk functions and more for the features that actually affect product or data quality. Practitioners increasingly speak of CSA as the testing philosophy and CSV as the documented outcome. The two are covered in [the GAMP 5 CSV framework](/articles/gamp5-csv-framework) and [computer software assurance](/articles/computer-software-assurance-fda).
+**A newer testing philosophy.** FDA's "Computer Software Assurance for Production and Quality System Software" was issued as a draft in 2022 and finalized on September 24, 2025 as "Computer Software Assurance for Production and Quality Management System Software." It pushes toward effort proportional to risk, with less rote scripted testing for low-risk functions and more for the features that actually affect product or data quality. Practitioners increasingly speak of CSA as the testing philosophy and CSV as the documented outcome. The two are covered in [the GAMP 5 CSV framework](/articles/gamp5-csv-framework) and [computer software assurance](/articles/computer-software-assurance-fda).
 
 **Roles and responsibilities.** A validation specialist's day is mostly structured document work: writing test scripts, reviewing vendor documentation, executing protocols, capturing evidence as screenshots or printouts, writing deviation reports when a test fails, and chasing approvals. The work is bursty. It peaks at system go-live, then quiets until the next change or upgrade triggers regression testing. A validation lead is judged on whether the documented evidence would survive an inspector reading it cold, with no narration from the author. QA approves the plan, the protocols, and the summary report; without QA approval, the package is not valid.
 
@@ -208,7 +208,7 @@ See [the OOS investigation process](/articles/oos-investigation-process), [out-o
 
 - "Explain the V-model." Map requirements on the left to verification on the right: URS to PQ, functional spec to OQ, design/installation to IQ.
 - "What is the difference between IQ, OQ, and PQ?" Installed correctly, functions correctly across its range, performs correctly in the real process.
-- "What is the difference between CSV and CSA?" CSA is the risk-based assurance mindset that scales testing effort to risk; CSV is the documented validation outcome. The 2022 FDA CSA guidance was a draft, finalized in 2025.
+- "What is the difference between CSV and CSA?" CSA is the risk-based assurance mindset that scales testing effort to risk; CSV is the documented validation outcome. FDA's 2022 draft (titled "...Quality System Software") was finalized September 24, 2025 as "Computer Software Assurance for Production and Quality Management System Software."
 - "A test fails. What do you do?" Raise a deviation, investigate, and resolve it. You never change the expected result to make it pass.
 
 For the artifacts this function produces, see [the validation deliverables guide](/articles/validation-deliverables-guide), [writing validation protocols and reports](/articles/writing-validation-protocols-and-reports), and [the validation master plan and periodic review](/articles/validation-master-plan-and-periodic-review).
@@ -353,7 +353,7 @@ For people building a career here, consulting is a fast way to see many systems 
 
 ## Manufacturing and Operations
 
-Manufacturing personnel are not quality staff, but they are primary generators of GMP records. Every operator who fills in a batch record step, initials a process entry, or performs an environmental monitoring sample is creating GMP documentation. The same is true on the device side, where production and process controls under 21 CFR 820.70 govern how operators run and record manufacturing steps.
+Manufacturing personnel are not quality staff, but they are primary generators of GMP records. Every operator who fills in a batch record step, initials a process entry, or performs an environmental monitoring sample is creating GMP documentation. The same is true on the device and combination-product side, where production and process controls now flow from ISO 13485:2016 Clause 7, incorporated under the QMSR (21 CFR Part 820, effective February 2, 2026), with the former 820.70 reserved.
 
 **GMP responsibilities of manufacturing:**
 
@@ -393,18 +393,18 @@ See [good distribution practice and cold chain](/articles/good-distribution-prac
 
 ## Medical Device Quality
 
-Device organizations run a quality system that maps to the same separations as drug GMP but under a different rulebook. In the US that is 21 CFR Part 820, transitioning to the Quality Management System Regulation that incorporates ISO 13485 by reference, with a compliance date of February 2, 2026. The EU equivalents are the Medical Device Regulation (EU 2017/745) and the In Vitro Diagnostic Regulation (EU 2017/746).
+Device organizations run a quality system that maps to the same separations as drug GMP but under a different rulebook. In the US that is 21 CFR Part 820, which as of February 2, 2026 is the Quality Management System Regulation, incorporating ISO 13485:2016 by reference. This scope also reaches combination products, where the device constituent part is held to these requirements under 21 CFR Part 4. The EU equivalents are the Medical Device Regulation (EU 2017/745) and the In Vitro Diagnostic Regulation (EU 2017/746).
 
 **What is distinct on the device side:**
 
-- Design controls under 21 CFR 820.30: design inputs, outputs, review, verification, validation, transfer, and the design history file. There is no direct drug-GMP equivalent.
+- Design controls now addressed through ISO 13485:2016 Clause 7.3, incorporated by reference under the QMSR (21 CFR Part 820, with 820.30 the legacy pre-2026 QSR locus, now reserved): design inputs, outputs, review, verification, validation, transfer, and the design history file. There is no direct drug-GMP equivalent.
 - Risk management under ISO 14971, applied across the product lifecycle.
 - For software, IEC 62304 governs the software development lifecycle, and software as a medical device carries its own cybersecurity expectations.
 - Postmarket surveillance and vigilance reporting under MDR and, in the US, Medical Device Reporting.
 
 The roles look familiar: a device quality function owns the QMS and CAPA, design assurance engineers own design controls, and regulatory affairs owns submissions through 510(k) or PMA pathways. The mental model from drug GMP carries over: someone generates evidence, someone independent reviews it, and someone with defined authority decides.
 
-See [design controls for medical devices](/articles/design-controls-medical-devices), [the QMSR medical device quality system](/articles/medical-device-quality-system-qmsr), [ISO 14971 risk management](/articles/iso-14971-risk-management-devices), and [device submission pathways](/articles/device-submission-pathways-510k-pma).
+See [user requirements and traceability](/articles/user-requirements-and-traceability), [the pharmaceutical quality system](/articles/pharmaceutical-quality-system), [quality risk management](/articles/quality-risk-management), and [IND, NDA, and BLA pathways](/articles/ind-nda-bla-pathways).
 
 ---
 

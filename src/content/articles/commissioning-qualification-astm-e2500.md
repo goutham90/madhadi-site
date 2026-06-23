@@ -15,7 +15,7 @@ ASTM E2500 is the standard that put a different idea on paper: spend your qualif
 
 ## What ASTM E2500 actually is
 
-The full title is **ASTM E2500, "Standard Guide for Specification, Design, and Verification of Pharmaceutical and Biopharmaceutical Manufacturing Systems and Equipment."** It was first issued in 2007 and has been revised since (current revision E2500-13, reapproved in later years). It is a consensus standard published by ASTM International, not a regulation. No regulator wrote it and no regulator mandates it. You will not find "thou shalt use E2500" in any CFR part or EU directive.
+The full title is **ASTM E2500, "Standard Guide for Specification, Design, and Verification of Pharmaceutical and Biopharmaceutical Manufacturing Systems and Equipment."** It was first issued in 2007 and has been revised since. The current revision is ASTM E2500-25, published 15 March 2025 (its title adds the subtitle "Science and Risk Based Approach"), which superseded E2500-20 (2020) and the earlier E2500-13 and E2500-07. It is a consensus standard published by ASTM International, not a regulation. No regulator wrote it and no regulator mandates it. You will not find "thou shalt use E2500" in any CFR part or EU directive.
 
 That matters for how you talk about it. E2500 is an **acceptable approach** to meeting GMP expectations, not an obligation. It is widely recognized because its principles line up with what regulators already ask for: a lifecycle approach, risk management, and a focus on critical quality attributes.
 
@@ -31,7 +31,7 @@ E2500 is built on a small set of ideas. Know them cold, because interviewers ask
 4. **Quality by design and good engineering practice.** Quality is built in during specification and design, not inspected in at the end. Good engineering practice (GEP) underpins the whole lifecycle.
 5. **Subject matter expert decisions.** SMEs, not QA alone, plan, execute, and approve verification. QA approves the approach and the acceptance criteria for critical aspects, but the technical judgment sits with the experts.
 
-> ASTM E2500 frames the goal as ensuring that manufacturing systems and equipment "are fit for intended use" and that "critical aspects... are designed appropriately, verified to be working correctly, and are maintained in a state of control."
+> ASTM E2500 frames the goal as ensuring that manufacturing systems and equipment are fit for their intended use, and that the critical aspects are designed soundly, shown to function correctly, and then held in a state of control over the operating life.
 
 That phrase, **fit for intended use**, is the heart of it. You are not proving the equipment was installed exactly per a checklist. You are proving it does the job the process needs.
 
@@ -41,11 +41,11 @@ That phrase, **fit for intended use**, is the heart of it. You are not proving t
 
 This is where people get tangled, so be precise.
 
-**Commissioning** is the well-planned, documented, and managed engineering approach to the startup and turnover of facilities, systems, and equipment to the owner. It results in a safe and functional environment that meets established design requirements and stakeholder expectations. Commissioning is GEP. It is not a GMP activity by itself, but it can generate documentation that GMP qualification leverages.
+**Commissioning** is the well-planned, documented, and managed engineering approach to the startup and turnover of facilities, systems, and equipment to the owner. It results in a safe and functional environment that meets established design requirements and stakeholder expectations. Commissioning is GEP. It is not a GMP activity by itself, but it can generate documentation that GMP qualification reuses.
 
 **Qualification** is the traditional GMP term for documented evidence that equipment is installed correctly, operates correctly, and performs correctly for its intended use. Regulations use this word. EU GMP Annex 15 uses IQ/OQ/PQ. The FDA process validation guidance uses "qualification" within Stage 2.
 
-**Verification** is the E2500 term. It is "a systematic approach to verify that manufacturing systems, acting singly or in combination, are fit for intended use, have been properly installed, and are operating correctly." Verification is the umbrella. It can be satisfied by commissioning activities, by vendor testing, by qualification protocols, or by any documented engineering activity that provides the needed assurance, as long as the activity covers a critical aspect and meets predefined acceptance criteria with appropriate rigor and approval.
+**Verification** is the E2500 term. In the standard's sense it is a structured, methodical way of confirming that manufacturing systems, whether on their own or working together, are fit for their intended use, were installed properly, and run correctly. Verification is the umbrella. It can be satisfied by commissioning activities, by vendor testing, by qualification protocols, or by any documented engineering activity that provides the needed assurance, as long as the activity covers a critical aspect and meets predefined acceptance criteria with appropriate rigor and approval.
 
 The key mental shift: E2500 does not delete IQ/OQ/PQ. It says the **objective** is verification of critical aspects, and IQ/OQ/PQ are some of the tools you can use to get there, not the only ones, and not mandatory in their classic form. Many sites keep the IQ/OQ/PQ deliverable names because regulators and their own quality systems expect them, but they execute them in a leaner, risk-targeted way and let commissioning carry the non-critical load.
 
@@ -161,7 +161,7 @@ Reusing is not "trust the vendor." It is "verify the vendor is trustworthy, then
 
 1. A **supplier assessment** establishing the vendor has a quality system capable of producing reliable evidence. See [supplier-vendor-qualification](/articles/supplier-vendor-qualification) and [software-supplier-assessment-csa](/articles/software-supplier-assessment-csa).
 2. **Predefined acceptance criteria** in the FAT/SAT protocol that map to critical aspects, approved before execution. Vendor test plans written purely for engineering signoff often do not test the GMP-critical attribute at all.
-3. **Documentation that meets data integrity expectations**: contemporaneous, attributable, legible, original, accurate (ALCOA+). A FAT result recorded a week later from memory is not reusable. See [ALCOA+ in detail](/articles/alcoa-plus-deep-dive).
+3. **Documentation that meets data integrity expectations**: attributable, legible, contemporaneous, original, accurate, and the four plus attributes, complete, consistent, enduring, available (ALCOA+). A FAT result recorded a week later from memory is not reusable. See [ALCOA+ in detail](/articles/alcoa-plus-deep-dive).
 4. **Quality oversight proportionate to criticality**: for critical aspects, quality reviews and approves the plan and the acceptance criteria, and witnesses or reviews the result.
 5. A **gap analysis**: what did the vendor test cover, what did it not cover, and what site verification fills the gaps (for example, performance under your actual process load, or integration with site utilities and the site control system).
 
@@ -177,7 +177,7 @@ A chromatography skid arrives with a vendor FAT package. Decision logic:
 | Skid integration with site DCS and alarms | No (not connected at vendor) | Yes | Site verification required; cannot reuse |
 | Cleaning / sanitization cycle at process conditions | Partial | Yes (CQA: carryover) | Site performance verification required |
 
-Two of five critical aspects are fully reused, two are reused-then-confirmed, and one cannot be reused at all and gets full site verification. That table, documented with rationale, is exactly what an inspector wants to see, and it is exactly the documented science-based judgment E2500 is asking for.
+None of the five critical aspects are reused outright: three are reused then confirmed at site or SAT (flow rate, UV detector, conductivity), and two require fresh site verification (DCS integration, which cannot be reused, and the cleaning cycle at process conditions). That table, documented with rationale, is exactly what an inspector wants to see, and it is exactly the documented science-based judgment E2500 is asking for.
 
 A common and costly mistake is the all-or-nothing reflex: either re-execute everything at the site (wasteful, and the original argument for E2500) or wave through the entire vendor package (indefensible). The right answer is almost always per-aspect.
 
@@ -216,7 +216,7 @@ E2500 changed who decides. The shift from QA-approves-everything to SME-leads-wi
 | **Subject Matter Expert (SME)** | Plans, leads, executes, and approves verification of critical aspects within their expertise. Defines acceptance criteria. Makes the technical fitness-for-use call. The SME is the center of gravity. |
 | **Quality Assurance** | Approves the overall approach, the risk methodology, and acceptance criteria for critical aspects. Approves the Acceptance and Release. Confirms the process was followed and ALCOA+ was met. QA does not need to approve every GEP commissioning document. |
 | **System / Process Owner** | Owns the URS and the requirements. Accountable that the system meets process needs and stays in a state of control after handover. |
-| **Engineering / Commissioning lead** | Executes commissioning (GEP), manages FAT/SAT, produces the engineering documentation that verification leverages. |
+| **Engineering / Commissioning lead** | Executes commissioning (GEP), manages FAT/SAT, produces the engineering documentation that verification reuses. |
 | **Vendor / Supplier** | Designs and builds to specification, provides documentation (FAT/SAT results, calibration certs, material certs, software records) under their own quality system. |
 | **Validation / C&Q engineer** | Often the integrating role: builds the criticality assessments, writes the C&Q plan, defines the reusing strategy, compiles the summary. |
 

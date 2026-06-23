@@ -53,7 +53,7 @@ This protocol applies to the single instrument identified in the header and sect
 - **Operating range**: the span of a parameter (flow rate, wavelength, temperature, gradient composition) over which the instrument will be used and is therefore challenged at low, mid, and high points.
 - **Acceptance limit**: the tolerance an instrument module must meet, taken from the manufacturer specification or a recognized standard, against which the actual measured value is judged.
 - **Traceable standard / reference**: a certified test tool or material (for example a holmium oxide or didymium filter for wavelength, a caffeine or potassium dichromate solution for linearity, a calibrated flow meter, a thermocouple) traceable to a national or international standard.
-- **Instrument category (USP <1058>)**: the risk-based grouping (Group A, B, C) that sets the depth of qualification; Group C computerized analytical instruments such as a chromatograph with a data system carry the full OQ.
+- **Instrument category (USP <1058>)**: the tier assigned to an instrument under the USP <1058> risk-based scheme, which scales how much qualification an instrument needs to its complexity. The most complex tier covers software-driven analytical systems, for example a chromatograph paired with a data system, and these get the full module-by-module OQ in this protocol; refer to the current chapter for the tier names and how to assign them.
 
 ## 5. Instrument and operating ranges under qualification
 

@@ -3,7 +3,7 @@ title: "Record: Primary Mode of Action (PMOA) Determination"
 description: "A plug-and-play record documenting the primary mode of action determination for a combination product: the constituents and their modes of action, the most-important-therapeutic-action rationale, the resulting lead center and base system, and any RFD interaction, with a filled specimen and the regulations it satisfies."
 pubDate: 2026-06-22
 docType: "Record"
-pillar: "medical-devices"
+pillar: "quality-assurance"
 relatedArticles: ["combination-products-cgmp-part-4"]
 tags: ["combination products", "PMOA", "primary mode of action", "RFD", "21 CFR Part 4", "record", "center assignment"]
 tier: "Intermediate"

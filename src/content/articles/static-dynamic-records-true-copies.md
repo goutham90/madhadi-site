@@ -79,11 +79,11 @@ A common error is to treat a transcribed or transformed version as equivalent to
 
 ### What a true copy is and the regulatory basis
 
-A **true copy** is a copy of original data that has been verified to preserve the full content and meaning of the original record. The MHRA 2018 guidance defines it as a copy (irrespective of media) of the original record that has been verified and certified to confirm it is an exact and complete copy that preserves the entire content and meaning of the original record, including, where appropriate, metadata and the original record's dynamic nature.
+A **true copy** is a copy of original data that has been verified to preserve the full content and meaning of the original record. The MHRA **GXP Data Integrity Guidance and Definitions** (2018) frames it as a verified and certified copy, in any media, that is exact and complete and that holds the original's full content and meaning, including metadata and the original's dynamic nature where those apply.
 
 The reason true copies exist as a concept: organizations need to migrate, archive, scan, and back up records all the time. A true copy gives you a defensible way to retire or replace an original, or to provide a copy to an inspector or a partner, while preserving the legal and scientific weight of the original. Without the true-copy mechanism, every original would have to be kept forever in its first format, which is not workable across decades of storage and platform changes.
 
-Both the FDA 2018 Q&A and ICH GCP recognize certified copies. The GCP definition of a **certified copy** is a copy (irrespective of the type of media used) of the original record that has been verified (for example by a dated signature, or by generation through a validated process) to have the same information, including data that describe the context, content, and structure, as the original.
+Both the FDA 2018 Q&A and ICH GCP recognize certified copies. Under **ICH E6 Good Clinical Practice**, a **certified copy** is a copy in any media, verified either by a dated signature or by a validated generating process, that carries the same information as the original, including the data describing its context, content, and structure.
 
 ### The decisive rule: dynamic stays dynamic
 

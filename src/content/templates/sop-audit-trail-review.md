@@ -42,7 +42,7 @@ This procedure applies to all computerized systems that create, modify, or store
 
 ## 4. Definitions
 
-- **Audit trail**: secure, computer-generated, time-stamped record that allows reconstruction of the events relating to creation, modification, or deletion of an electronic record.
+- **Audit trail**: a protected, system-produced log, with each entry carrying its own date and time, that captures who did what to a record so the full history of how the record was created, altered, or removed can be traced back later. See 21 CFR Part 11 and EU GMP Annex 11 section 9 for the controlling requirements.
 - **Critical audit trail entry**: a change to data or metadata that could affect a result, a decision, or product quality (for example a changed result, a re-integration, a changed sequence, a deleted file, a changed clock, a changed user privilege).
 - **Review by exception**: a method where validated tools filter the audit trail so reviewers focus on the entries that matter, rather than reading every line.
 

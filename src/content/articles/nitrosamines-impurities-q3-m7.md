@@ -73,9 +73,9 @@ Higher daily doses tighten the percentage thresholds, because the absolute intak
 
 Q3C classifies solvents by toxicity into three tiers and sets control accordingly.
 
-- **Class 1**, solvents to avoid (benzene, carbon tetrachloride, 1,2-dichloroethane, 1,1-dichloroethene, 1,1,1-trichloroethane). Known carcinogens or environmental hazards. If unavoidable, controlled at very low ppm limits.
-- **Class 2**, solvents to limit (for example acetonitrile, methanol, dichloromethane, toluene). Each has a **Permitted Daily Exposure (PDE)** in mg/day and a corresponding concentration limit in ppm.
-- **Class 3**, low-toxicity solvents (for example ethanol, acetone, ethyl acetate). Generally regarded as acceptable up to 0.5% (5000 ppm) without further justification.
+- **Class 1**, the most hazardous tier that Q3C says to keep out of manufacture where possible. Benzene and several chlorinated solvents (such as carbon tetrachloride, the dichloroethanes, and trichloroethane) sit here as known carcinogens or environmental hazards; if a process cannot avoid one, it is held to very low ppm limits.
+- **Class 2**, solvents Q3C says to restrict rather than eliminate (acetonitrile, methanol, dichloromethane, and toluene are typical examples). Each carries a **Permitted Daily Exposure (PDE)** in mg/day and a matching concentration limit in ppm.
+- **Class 3**, the lower-toxicity tier (ethanol, acetone, and ethyl acetate among them). Q3C treats these as acceptable up to roughly 0.5% (5000 ppm) without extra justification.
 
 Q3C also defines the **Option 1 / Option 2** approach. Option 1 uses a simple concentration limit (ppm) derived from the PDE assuming a 10 g/day product mass. Option 2 lets you use the actual daily dose to back-calculate a higher allowable concentration when the dose is small, useful when a solvent is hard to remove but the product is low-dose. The PDE itself is derived from a No-Observed-Effect Level divided by modifying factors, a structure that recurs throughout impurity toxicology.
 
@@ -90,10 +90,10 @@ Use the right analytical method: residual solvents are almost always measured by
 
 Q3D replaced the old USP heavy-metals colorimetric test, a method that was non-specific, insensitive, and frankly a relic, with a risk-based, element-specific framework. It sets **PDEs for 24 elements** and groups them into classes by toxicity and likelihood of occurrence:
 
-- **Class 1**, As, Cd, Hg, Pb. Human toxicants, limited use; always assess.
-- **Class 2A**, Co, Ni, V. Higher probability of occurrence; always assess.
-- **Class 2B**, for example Ag, Au, Pd, Pt, the platinum-group catalysts. Assess only if intentionally added.
-- **Class 3**, for example Ba, Cr, Cu, Li, Mo, Sb, Sn. Lower oral toxicity; assessment depends on route.
+- **Class 1** gathers the human toxicants of greatest concern, arsenic, cadmium, mercury, and lead, which see little legitimate use and must be assessed in every case.
+- **Class 2A** holds elements (cobalt, nickel, vanadium) that are more likely to turn up in a process and so also warrant assessment regardless of intent.
+- **Class 2B** covers the precious-metal and platinum-group catalysts (silver, gold, palladium, platinum, and the like), which need assessment only when they are deliberately introduced.
+- **Class 3** picks up elements of lower oral toxicity (barium, chromium, copper, lithium, molybdenum, antimony, tin among them), where the need to assess depends on the route of administration.
 
 PDEs differ by route of administration: oral, parenteral, and inhalation limits diverge by orders of magnitude because bioavailability and target-organ exposure differ. The expected analytical workhorses are **ICP-MS** and **ICP-OES**, validated per the general chapter framework (USP <232> for limits and <233> for procedures in the United States, harmonized with Q3D).
 
@@ -118,7 +118,7 @@ A subset of organic impurities is more dangerous than its concentration alone im
 
 ### The Threshold of Toxicological Concern
 
-M7's central concept is the **Threshold of Toxicological Concern (TTC)**: a generic acceptable intake of **1.5 µg/day** for a single mutagenic impurity, derived to correspond to a theoretical excess cancer risk of about 1 in 100,000 over a lifetime. The TTC is deliberately conservative, it is a default you can fall back on when you lack compound-specific data. If you have a compound-specific carcinogenicity dataset, you may calculate a compound-specific acceptable intake instead, which is often higher than the generic TTC.
+M7's central concept is the **Threshold of Toxicological Concern (TTC)**. The guideline sets a single-impurity intake of **1.5 µg/day** as a generic acceptable level, a figure chosen so that lifetime exposure corresponds to a theoretical excess cancer risk of about 1 in 100,000. Treat it as a conservative default: a number you can rely on when no compound-specific data exist. When a compound-specific carcinogenicity dataset is available, you can work out an acceptable intake tailored to that impurity instead, and that value is often higher than the generic figure.
 
 Two adjustments matter:
 
@@ -129,13 +129,13 @@ Two adjustments matter:
 
 M7 classifies impurities by mutagenic and carcinogenic potential:
 
-| Class | Description | Control |
-|-------|-------------|---------|
-| 1 | Known mutagenic carcinogens | Compound-specific limit |
-| 2 | Known mutagens, unknown carcinogenic potential | TTC-based (1.5 µg/day) |
-| 3 | Alerting structure, unrelated to API, no mutagenicity data | TTC-based, or test (Ames) |
-| 4 | Alerting structure shared with API (API non-mutagenic) | Treat as non-mutagenic |
-| 5 | No alerting structure | Treat as non-mutagenic |
+| Class | What it covers | How you control it |
+|-------|----------------|--------------------|
+| 1 | Impurities shown to be both mutagenic and carcinogenic | Hold to a limit derived from the compound's own data |
+| 2 | Impurities mutagenic in test systems but with carcinogenic potential not established | Default to the TTC (1.5 µg/day) |
+| 3 | Impurities carrying a structural alert not present in the API, with no mutagenicity data of their own | Either default to the TTC or run an Ames test and reclassify |
+| 4 | Impurities whose alert is also present in the API, where the API itself has tested non-mutagenic | Handle as a non-mutagenic impurity |
+| 5 | Impurities with no structural alert at all | Handle as a non-mutagenic impurity |
 
 The classification drives the control. Class 1 and 2 mean you control to a specific number. Class 3 gives you a choice: control to the TTC, or run an Ames test and reclassify based on the result. Class 4 and 5 fall out of the mutagenic-control burden entirely (they still get controlled as ordinary Q3A impurities if they cross thresholds).
 
@@ -147,10 +147,10 @@ M7 formally endorses computational toxicology. Impurities without experimental d
 
 M7 lays out four **control approaches**, and choosing among them is where the strategy lives:
 
-- **Option 1**, include the impurity in the drug-substance specification with a limit at or below the acceptable intake, tested routinely by an appropriately sensitive method.
-- **Option 2**, include it in the specification of a raw material or intermediate, with routine testing upstream.
-- **Option 3**, include it in an upstream specification but with a periodic-verification / skip-testing justification rather than every batch, supported by process understanding.
-- **Option 4**, no analytical testing on any specification; instead, a **process-based control argument** showing, through documented purge-factor knowledge, that downstream chemistry removes the impurity to well below the acceptable intake with high confidence. This is the most elegant and the most scrutinized: it requires fate-and-purge understanding (and often spiking/purge studies) of where the impurity goes and why it cannot survive to the final drug substance.
+- **Option 1**, put the impurity on the drug-substance specification at a limit no higher than the acceptable intake, and test for it on every batch with a method sensitive enough to see it.
+- **Option 2**, move the control upstream by specifying and routinely testing the impurity on a raw material or intermediate instead.
+- **Option 3**, keep the upstream specification but, backed by process understanding, justify checking it periodically (skip testing) rather than batch by batch.
+- **Option 4**, drop analytical testing entirely and rely on a **process-based control argument**: documented purge-factor knowledge showing, with high confidence, that the downstream chemistry strips the impurity to well below the acceptable intake. This is the cleanest route on paper and the one reviewers probe hardest, because it stands on a real understanding of where the impurity goes and why it cannot reach the final drug substance, usually backed by spiking and purge studies.
 
 **How the purge argument works in practice.** A purge factor is the ratio of how much impurity enters a step to how much survives it, driven by reactivity, solubility, volatility, and ionizability relative to the API and to wash and crystallization conditions. You multiply purge factors across steps. If an impurity forms at an early step and three downstream steps each give a purge factor of roughly 100, the predicted total purge is on the order of a million-fold, and if the worst-case input level divided by that purge sits orders of magnitude below the acceptable intake, you have a quantitative Option 4 case. The argument is strengthened by spiking studies that demonstrate the predicted purge experimentally at relevant or exaggerated input levels.
 

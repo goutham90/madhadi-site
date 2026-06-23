@@ -9,7 +9,7 @@ tier: "Advanced"
 
 A validated GxP system has two jobs that pull in opposite directions. It has to stay frozen enough that you can defend its qualified state to an inspector, and current enough that a known vulnerability doesn't sit unpatched for six months. The discipline that resolves that tension lives at the seam between two regulatory worlds that rarely talk to each other: the electronic-records requirements that quality people own (21 CFR Part 11, EU GMP Annex 11), and the security controls that IT and InfoSec own (identity, least privilege, patching, logging). When those two worlds are wired together well, every record is attributable, every privileged action is governed, and a security update is just another controlled change. When they aren't, you get a security hole or a 483, sometimes both from the same root cause.
 
-This article walks the access-control and security surface of a validated GxP system from the ground up: unique identity, role design and segregation of duties, privileged-account governance, what an electronic signature actually proves (and doesn't), and how to run patch and vulnerability management without invalidating qualification. It applies across pharmaceutical and biologics manufacturing, medical-device production, laboratory operations, clinical systems, and any other regulated environment where a computerized system holds GxP records.
+This article walks the access-control and security surface of a validated GxP system from the ground up: unique identity, role design and segregation of duties, privileged-account governance, what an electronic signature actually proves (and doesn't), and how to run patch and vulnerability management without invalidating qualification. It applies across pharmaceutical, biologics, and cell and gene therapy manufacturing, combination-product operations, laboratory systems, clinical systems, and any other regulated environment where a computerized system holds GxP records.
 
 ## Why access control is a data-integrity control, not just a security control
 
@@ -26,9 +26,9 @@ The governing texts are worth naming precisely:
 - **MHRA "GXP Data Integrity Guidance and Definitions"** (2018): the UK regulator's definitions and expectations, used as a reference across GxP.
 - **PIC/S PI 041** ("Good Practices for Data Management and Integrity in Regulated GMP/GDP Environments"): the inspectorate-aligned data-integrity guide.
 
-GAMP 5 (Second Edition, 2022) from ISPE is the industry methodology that ties validation rigor to risk; it is guidance, not a regulation, but inspectors recognize it as a reasonable approach. For medical-device-makers, the same identity and signature logic surfaces in the device quality system and in cybersecurity expectations; see [device software cybersecurity for SaMD](/articles/device-software-cybersecurity-samd) for the product-side equivalent.
+GAMP 5 (Second Edition, 2022) from ISPE is the industry methodology that ties validation rigor to risk; it is guidance, not a regulation, but inspectors recognize it as a reasonable approach. For software as a medical device and the software side of combination products, the same identity and signature logic surfaces in the product's own cybersecurity expectations; see [device software cybersecurity for SaMD](/articles/device-software-cybersecurity-samd) for the product-side equivalent.
 
-> **Annex 11, clause 12.1 (Security):** "Physical and/or logical controls should be in place to restrict access to computerised system to authorised persons." Clause 12.4 adds that "management systems for data and for documents should be designed to record the identity of operators entering, changing, confirming or deleting data including date and time."
+> **Annex 11, clause 12.1 (Security):** the clause expects physical or logical controls, or both, that limit system access to authorized persons only. **Clause 12.4** goes further: the systems that manage data and documents should capture the identity of whoever enters, changes, confirms, or deletes data, together with the date and time of that action.
 
 ## Unique identity: the non-negotiable foundation
 

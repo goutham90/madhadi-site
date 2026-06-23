@@ -71,7 +71,7 @@ The two models meet at the unit. A **unit procedure** runs on a **unit**. A **ph
 
 ### Phase states and the phase state model
 
-Phases are state machines. ISA-88 defines a standard set of states (idle, running, complete, paused, pausing, held, holding, restarting, stopped, stopping, aborted, aborting) and standard commands (start, stop, hold, restart, abort, pause, resume, reset). This is not academic. When a deviation happens, the batch record shows the phase state transitions: the phase went to HOLDING when the operator pressed hold, sat in HELD for 14 minutes, then RESTARTING. That trail is your evidence of what the system and the operator did, and it is exactly what an investigator reads during an out-of-specification or deviation review.
+Phases are state machines. ISA-88 specifies a defined set of operating states, such as running, paused or held, and aborted, along with the commands that drive the transitions between them, such as start, hold, restart, and abort. This is not academic. When a deviation happens, the batch record shows the phase state transitions: the phase went to HOLDING when the operator pressed hold, sat in HELD for 14 minutes, then RESTARTING. That trail is your evidence of what the system and the operator did, and it is exactly what an investigator reads during an out-of-specification or deviation review.
 
 Practical consequence: the phase state model is part of what you qualify. Your validation has to prove that hold, restart, and abort behave safely from every state the phase can be in, because in real production those commands get pressed at the worst possible moments.
 

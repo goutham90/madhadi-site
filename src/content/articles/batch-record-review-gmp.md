@@ -19,7 +19,7 @@ This article walks through what a batch record is, what a complete one contains,
 
 Under 21 CFR 211.188, a batch production and control record must be prepared for each batch of drug product. It must include, or refer to, the master batch record and document the actual conditions and results of each significant step in manufacturing. A companion regulation, 21 CFR 211.192, requires that all production and control records, including those for packaging and labeling, be reviewed and approved by the quality control unit to determine compliance with all established procedures before a batch is released or distributed. The same regulation requires that any unexplained discrepancy or any failure of a batch to meet specifications be thoroughly investigated, whether or not the batch was already distributed.
 
-The EU framework carries the same obligations in different words. EU GMP Volume 4, Chapter 4 sets the documentation requirements for batch processing and packaging records, and EU GMP Annex 16 makes the Qualified Person personally responsible for confirming each batch was made and checked in compliance before certification. ICH Q7, the API GMP guide, mirrors all of this for active pharmaceutical ingredients in its Sections 6.5 and 6.6. The point worth internalizing: batch record review is not a single-country rule. It is a near-universal expectation of every GMP regime, because the logic is the same everywhere. You cannot release what you cannot reconstruct.
+The EU framework carries the same obligations in different words. EU GMP Volume 4, Chapter 4 sets the documentation requirements for batch processing and packaging records, and EU GMP Annex 16 makes the Qualified Person personally responsible for confirming each batch was made and checked in compliance before certification. ICH Q7, the API GMP guide, mirrors all of this for active pharmaceutical ingredients in its Sections 6.5 and 6.7. The point worth internalizing: batch record review is not a single-country rule. It is a near-universal expectation of every GMP regime, because the logic is the same everywhere. You cannot release what you cannot reconstruct.
 
 Two documents sit at the center of the activity, and confusing them is a common early mistake.
 
@@ -155,11 +155,11 @@ Yield reconciliation catches process problems that no other control catches. Wor
 | Actual yield | Reconciliation | Reviewer action |
 |---|---|---|
 | 9.6 kg | 4% loss, within normal range | Accept, no action |
-| 9.1 kg | 9% loss, near the limit | Confirm against historical range for this step |
+| 9.1 kg | 9% loss, below the lower action limit | Investigate: confirm against historical range, raise a deviation if it stands |
 | 7.2 kg | 28% loss, well outside range | Reject for explanation: clogged filter, failed transfer, line not rinsed, lost material |
 | 10.0 kg, batch after batch | Exact match every time | Investigate: real processes vary; a perfect repeat suggests numbers are being made to fit |
 
-Unexpected yield loss, consistent loss at the same step, or yield that is suspiciously perfect are all signals worth investigating. Reconciliation also matters for accountability: it forces you to account for all material, what entered the process, what came out, and what was discarded, so a diversion cannot hide in normal variation. 21 CFR 211.103 requires that actual yields and percentages of theoretical yield be determined at the conclusion of each appropriate phase of manufacturing, and that any unexplained discrepancy be investigated, so reconciliation is not optional good practice. It is the rule.
+Unexpected yield loss, consistent loss at the same step, or yield that is suspiciously perfect are all signals worth investigating. Reconciliation also matters for accountability: it forces you to account for all material, what entered the process, what came out, and what was discarded, so a diversion cannot hide in normal variation. 21 CFR 211.103 requires that actual yields and percentages of theoretical yield be determined at the conclusion of each appropriate phase of manufacturing, and 21 CFR 211.192 requires that any unexplained discrepancy be thoroughly investigated, so reconciliation is not optional good practice. It is the rule.
 
 A worked number for the granulation row above: theoretical 10.0 kg, actual 9.1 kg.
 
@@ -343,7 +343,7 @@ These come up for QA reviewer, QA disposition, and quality manager roles, and th
 The master defines what should happen and is a controlled, pre-approved document changed only through change control. The executed record documents what actually happened for one specific batch. The two must agree, and any difference is either an approved deviation or a data integrity problem.
 
 **"Which regulations govern batch record review?"**
-In the US, 21 CFR 211.188 requires the batch record, 211.186 the master record, 211.192 the production record review by the quality unit before release, and 211.103 yield reconciliation. Disposition authority sits with the quality unit under 211.22. In the EU, the documentation requirements are in EU GMP Chapter 4 and QP certification in Annex 16. ICH Q7 Sections 6.5 and 6.6 cover the same ground for APIs.
+In the US, 21 CFR 211.188 requires the batch record, 211.186 the master record, 211.192 the production record review by the quality unit before release, and 211.103 yield reconciliation. Disposition authority sits with the quality unit under 211.22. In the EU, the documentation requirements are in EU GMP Chapter 4 and QP certification in Annex 16. ICH Q7 Sections 6.5 and 6.7 cover the same ground for APIs.
 
 **"A batch has zero deviations. Is that good?"**
 Not necessarily. For a simple, well-controlled step it can be fine. For a complex batch it is a flag, because real processes generate minor, no-impact deviations and their total absence often means the team is not documenting them, which is a data integrity concern. I would check the deviation threshold and the trend across recent batches.
@@ -390,7 +390,7 @@ More questions across the quality function are collected in [GxP quality intervi
 - EU GMP Volume 4, Chapter 4, Documentation
 - EU GMP Volume 4, Annex 11, Computerised Systems
 - EU GMP Volume 4, Annex 16, Certification by a Qualified Person and Batch Release
-- ICH Q7, Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients (Sections 6.5, 6.6)
+- ICH Q7, Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients (Sections 6.5, 6.7)
 - FDA Guidance: Data Integrity and Compliance With Drug CGMP, Questions and Answers (December 2018)
 - ICH Q9(R1), Quality Risk Management
 - ICH Q10, Pharmaceutical Quality System

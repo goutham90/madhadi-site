@@ -25,15 +25,15 @@ Depyrogenation is therefore the process of reducing endotoxin on a surface (glas
 
 Several documents anchor this work, and an inspector will expect you to know which says what:
 
-- **United States Pharmacopeia (USP) General Chapter <85> Bacterial Endotoxins Test.** This is the compendial method for measuring endotoxin (the LAL or recombinant assays). It also states the principle used to validate dry heat depyrogenation: a process that demonstrates a minimum 3-log (1000-fold) reduction of a known quantity of endotoxin is considered to render an item free of detectable pyrogen for practical purposes.
-- **USP General Chapter <1228> Depyrogenation** and its companion **<1228.1> Dry Heat Depyrogenation** and **<1228.5> Endotoxin Indicators for Use in the Validation of Depyrogenation Cycles.** These informational chapters describe the science of depyrogenation, the design of dry heat cycles, and how endotoxin indicators are prepared, characterized, and used. <1228.5> is the chapter to cite when an inspector asks where the endotoxin indicator requirements come from.
-- **USP General Chapter <161> Medical Devices: Bacterial Endotoxins and Pyrogen Tests** sets endotoxin limits for devices, relevant when the items being depyrogenated are device components.
+- **United States Pharmacopeia (USP) General Chapter <85> Bacterial Endotoxins Test.** This is the compendial method for measuring endotoxin (the LAL or recombinant assays). It is the assay you use to quantify recovered endotoxin in a depyrogenation study; it is not the source of the depyrogenation acceptance criterion, and it is the wrong chapter to cite if an inspector asks where the 3-log requirement comes from.
+- **USP General Chapter <1228> Depyrogenation** and its companion **<1228.1> Dry Heat Depyrogenation** and **<1228.5> Endotoxin Indicators for Depyrogenation.** These informational chapters describe the science of depyrogenation, the design of dry heat cycles, and how endotoxin indicators are prepared, characterized, and used. <1228.1> is where the principle that a validated dry heat depyrogenation process should achieve a minimum 3-log (1000-fold) endotoxin reduction is set out; <1228.5> is the chapter to cite when an inspector asks where the endotoxin indicator requirements come from.
+- **USP General Chapter <161> Medical Devices, Bacterial Endotoxin and Pyrogen Tests** sets endotoxin limits for devices, relevant when the items being depyrogenated are device components.
 - **FDA Guidance for Industry: Sterile Drug Products Produced by Aseptic Processing, Current Good Manufacturing Practice (2004).** This guidance explicitly addresses depyrogenation and states that a depyrogenation process should be validated to demonstrate a minimum 3-log reduction in endotoxin.
 - **EU GMP Annex 1, Manufacture of Sterile Medicinal Products (2022 revision, effective 25 August 2023).** Annex 1 requires that processes for rendering components free of endotoxin be validated, that dry heat sterilization or depyrogenation be demonstrated, and ties the whole effort to the site Contamination Control Strategy.
 - **EN ISO 20857:2010, Sterilization of health care products, Dry heat, Requirements for the development, validation and routine control of a sterilization process for medical devices.** This is the dry heat standard most often cited on the device side and the source of the lethality and reduction concepts used industry-wide.
 - **21 CFR 211.94** (container and closure suitability) and **21 CFR 211.113** (control of microbiological contamination, including validation of sterilization processes) provide the US cGMP legal hook.
 
-> USP <85> on the operating principle: a dry heat process intended to depyrogenate is validated by showing that it produces a reduction of not less than 3 log units in the endotoxin content of an inoculated challenge.
+> The operating principle, as set out in USP <1228.1> and the FDA 2004 aseptic processing guidance: a dry heat process intended to depyrogenate is validated by showing it produces a reduction of not less than 3 log units in the endotoxin content of an inoculated challenge. USP <85> is the assay used to measure that endotoxin, not the source of the acceptance criterion.
 
 ### The quality rationale
 
@@ -212,7 +212,7 @@ These are the patterns that show up in observations and deficiency letters, desc
 Sterility kills organisms but does not remove endotoxin, a heat-stable lipopolysaccharide that is pyrogenic when injected. Moist heat at 121 C does not reliably destroy it. Dry heat at high temperature does, so depyrogenation is a separate step targeting endotoxin, not viability.
 
 **Q: What is the acceptance criterion for a depyrogenation cycle and where does it come from?**
-A minimum 3-log (1000-fold) reduction of a known endotoxin challenge at the worst-case location, in three consecutive cycles. The basis is USP <85> and the FDA 2004 aseptic processing guidance, with USP <1228.1> describing the dry heat process and <1228.5> the endotoxin indicators.
+A minimum 3-log (1000-fold) reduction of a known endotoxin challenge at the worst-case location, in three consecutive cycles. The basis is USP <1228.1> Dry Heat Depyrogenation and the FDA 2004 aseptic processing guidance, with <1228.5> covering the endotoxin indicators. USP <85> is the assay you use to measure the endotoxin, not the source of the 3-log criterion, so do not cite it as the basis.
 
 **Q: What is your t=0 value in the reduction calculation?**
 The mean recovered endotoxin from unprocessed positive control indicators of the same lot, assayed the same day by the same method, not the nominal label claim. The residual on processed indicators is the endpoint, and the difference in log10 is the reduction.

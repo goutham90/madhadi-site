@@ -168,12 +168,12 @@ Confirm controls over the records the system holds remain effective across the A
 
 | ALCOA+ attribute | Control / evidence | Finding |
 |---|---|---|
-| Attributable | Unique accounts, no shared logins for data-affecting actions | `<<FILL>>` |
-| Legible / enduring | Records and audit trail readable and retained for retention period | `<<FILL>>` |
-| Contemporaneous | System time synchronized and locked; entries time-stamped | `<<FILL>>` |
-| Original / true copy | Source records and certified copies controlled | `<<FILL>>` |
-| Accurate | Audit trail review performed at defined frequency, exceptions handled | `<<FILL>>` |
-| Complete / consistent / available | No data deletion by users; full retrievability for retention period | `<<FILL>>` |
+| Attributable | Every action ties back to a named individual through a personal login; no accounts are shared for actions that create or change data | `<<FILL>>` |
+| Legible / enduring | Records and the audit trail stay readable, in a usable form, for the full retention period | `<<FILL>>` |
+| Contemporaneous | The system clock is synchronized to a reliable source and protected from user change, so each entry is stamped at the moment it happens | `<<FILL>>` |
+| Original / true copy | The first-captured record, and any verified copy that stands in for it, is identified and kept under control | `<<FILL>>` |
+| Accurate | Audit trail review runs at the set frequency and any exception is investigated and resolved | `<<FILL>>` |
+| Complete / consistent / available | Users cannot delete records, the full record set hangs together, and everything can be retrieved on demand throughout retention | `<<FILL>>` |
 
 | Check | Finding |
 |---|---|

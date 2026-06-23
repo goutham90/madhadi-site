@@ -53,7 +53,7 @@ Two memory anchors help in interviews. First: the quality unit's authority and t
 
 Part 210 is short. It does two jobs.
 
-**210.1** states that the regulations in Parts 210 through 226 are the minimum cGMP for methods, facilities, and controls used in manufacturing, processing, packing, or holding of a drug. It also states the consequence directly: failure to comply renders the drug adulterated under section 501(a)(2)(B), and the person responsible is subject to regulatory action.
+**210.1** states that the regulations in this part and in parts 211, 213, 225, and 226 are the minimum cGMP for methods, facilities, and controls used in manufacturing, processing, packing, or holding of a drug. It also states the consequence directly: failure to comply renders the drug adulterated under section 501(a)(2)(B), and the person responsible is subject to regulatory action.
 
 **210.2** addresses applicability and how Part 211 interacts with other regulations (for example, biologics regulations in Parts 600-680). Where two cGMP regulations apply, you follow both; the more specific or more stringent requirement governs.
 
@@ -313,7 +313,7 @@ Common findings: this subpart and 211.192 together dominate data integrity warni
 
 Sections 211.180 through 211.198. If Subpart B gives the quality unit its authority, Subpart J gives the inspection its evidence. Records are the only proof cGMP happened.
 
-**211.180, General requirements.** Records retained for at least 1 year after the expiration date of the batch (or 1 year after distribution for products with no expiration date, or up to 3 years for certain OTC products). Records available for inspection. Records of equipment, components, and procedures kept. The often-overlooked 211.180(e) requires periodic review of records (an annual product review style requirement) to evaluate quality standards and determine the need for changes. That is the regulatory root of the [annual product review / PQR](/articles/annual-product-review-pqr).
+**211.180, General requirements.** Records retained for at least 1 year after the expiration date of the batch, or 3 years after distribution of the batch for certain OTC drug products that lack expiration dating because they qualify for the exemption in 211.137. Records available for inspection. Records of equipment, components, and procedures kept. The often-overlooked 211.180(e) requires periodic review of records (an annual product review style requirement) to evaluate quality standards and determine the need for changes. That is the regulatory root of the [annual product review / PQR](/articles/annual-product-review-pqr).
 
 **211.182, Equipment cleaning and use log.** A written record of major equipment cleaning, maintenance, and use, in chronological order.
 
@@ -394,7 +394,7 @@ Part 211 covers finished drug products. It is one regulation in a connected set,
 - **Investigational products**: clinical-phase product is made under cGMP appropriate to the phase; FDA's Phase 1 cGMP guidance and, in the EU, Annex 13, address this. See [GMP for investigational products (Annex 13)](/articles/gmp-for-investigational-products-annex-13).
 - **EU equivalent**: the EU GMP guide (EudraLex Volume 4) is the European counterpart; the structure differs but the intent matches. Inspection dynamics differ too. See [FDA vs EMA inspection dynamics](/articles/fda-vs-ema-inspection-dynamics).
 - **Electronic records and signatures**: Part 11 sits on top of any Part 211 record kept electronically. See [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11).
-- **Medical devices**: a different system entirely, historically the Quality System Regulation (21 CFR 820), now harmonized to ISO 13485 under the QMSR. See [medical device quality system (QMSR)](/articles/medical-device-quality-system-qmsr).
+- **Medical devices**: a different system entirely, historically the Quality System Regulation (21 CFR 820), now harmonized to ISO 13485 under the QMSR. For a combination product such as a prefilled syringe or an autoinjector, both Part 211 and the device system apply under the Part 4 cGMP framework. See [combination products cGMP (Part 4)](/articles/combination-products-cgmp-part-4).
 
 ---
 
@@ -464,7 +464,7 @@ For identity, no, you always run at least one in-house identity test (211.84(d)(
 211.186 master = the approved, signed template, one per product. 211.188 batch = the executed record reproduced from the master for a specific batch, capturing each significant step, equipment, component lots, results, and the people who did and checked each step.
 
 **"What makes a drug 'adulterated' under cGMP?"**
-Section 501(a)(2)(B) of the FD&C Act: not made in conformity with cGMP. 210.1 ties failure to comply with Parts 210-226 directly to that adulteration finding. This is the legal teeth behind the regulation.
+Section 501(a)(2)(B) of the FD&C Act: not made in conformity with cGMP. 210.1 ties failure to comply with Part 211 and the related cGMP parts directly to that adulteration finding. This is the legal teeth behind the regulation.
 
 **"Where in Part 211 are computerized systems addressed?"**
 211.68 (automated equipment: access controls, input/output checks, backups), plus the records sections 211.180, 211.188, and 211.194 read together with Part 11. Many candidates only cite Part 11 and miss that 211.68 is the cGMP foundation.
@@ -473,7 +473,7 @@ Section 501(a)(2)(B) of the FD&C Act: not made in conformity with cGMP. 210.1 ti
 Because a correctly made product with the wrong label is a patient-safety event and a frequent recall cause. 211.122, 211.125, and 211.130 build in label control, reconciliation, gang-printing prohibition, and line clearance precisely because mix-ups are easy and dangerous.
 
 **"How long must batch records be retained?"**
-211.180: at least 1 year after the batch expiration date (with the OTC and no-expiry variations). Reserve samples (211.170) are kept for a set period after expiration and examined at least annually.
+211.180: at least 1 year after the batch expiration date, or 3 years after distribution for certain OTC products that are exempt from expiration dating under 211.137. Reserve samples (211.170) are kept for a set period after expiration and examined at least annually.
 
 ---
 

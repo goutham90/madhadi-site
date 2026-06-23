@@ -25,11 +25,11 @@ The specification documents are the left arm of the validation V-model. The clas
 
 Reading the V-model is simple: a requirement written on the left is proven by the test directly across from it on the right. A URS line is satisfied by PQ or UAT, a function described in the FS is exercised in OQ, and a design or configuration item is confirmed in IQ. The traceability matrix is the literal wiring between the two arms.
 
-This pairing is not arbitrary. It is the structure behind GAMP 5 Second Edition (ISPE, 2022), *A Risk-Based Approach to Compliant GxP Computerized Systems*, which is the most widely used industry framework for CSV. It is also consistent with EU GMP Annex 11 (*Computerised Systems*) and with the FDA's *Computer Software Assurance for Production and Quality System Software* guidance (2022), which shifts emphasis toward critical thinking and risk rather than documentation volume but still expects requirements and traceability for higher-risk functions.
+This pairing is not arbitrary. It is the structure behind GAMP 5 Second Edition (ISPE, 2022), *A Risk-Based Approach to Compliant GxP Computerized Systems*, which is the most widely used industry framework for CSV. It is also consistent with EU GMP Annex 11 (*Computerised Systems*) and with the FDA's *Computer Software Assurance for Production and Quality System Software* guidance (final, September 2025), which shifts emphasis toward critical thinking and risk rather than documentation volume but still expects requirements and traceability for higher-risk functions.
 
-> EU GMP Annex 11, clause 4.4: "User Requirements Specifications should describe the required functions of the computerised system and be based on documented risk assessment and GMP impact. User requirements should be traceable throughout the life-cycle."
+EU GMP Annex 11, clause 4.4 makes the same point in regulatory terms: the User Requirements Specification should set out the system's required functions, be grounded in a documented risk assessment and GMP impact, and stay traceable across the whole lifecycle.
 
-That single sentence is the regulatory hook for almost everything in this article: requirements must exist, must be risk-based, and must be traceable across the lifecycle.
+That single clause is the regulatory hook for almost everything in this article: requirements must exist, must be risk-based, and must be traceable across the lifecycle.
 
 ---
 
@@ -185,8 +185,8 @@ The RTM is a single table that shows, for every requirement, the design that imp
 Regulatory basis:
 - **EU GMP Annex 11, clause 4.4**: user requirements should be traceable throughout the lifecycle.
 - **GAMP 5 Second Edition** describes traceability between requirements, risk assessment, specification, and verification as a core expectation, scaled to risk.
-- **FDA CSA guidance (2022)** keeps traceability for higher-risk functions while encouraging less ceremony for low-risk ones; you still have to show that critical functions were verified.
-- For medical devices, **21 CFR Part 820.30** (design controls, now harmonized under the **QMSR**, 21 CFR Part 820 as amended effective 2026, aligning with **ISO 13485:2016**) and **IEC 62304** require traceability from requirements through design to verification. The same discipline appears across GxP because the logic is universal.
+- **FDA CSA guidance (final, September 2025)** keeps traceability for higher-risk functions while encouraging less ceremony for low-risk ones; you still have to show that critical functions were verified.
+- For combination products and software regulated as a medical device, the same requirement-to-design-to-verification traceability is expected by analogous device frameworks: **21 CFR Part 820.30** design controls (harmonized under the **QMSR**, 21 CFR Part 820 as amended, effective 2 February 2026, aligning with **ISO 13485:2016**) and **IEC 62304**. The discipline is identical to the GAMP 5 / Annex 11 model above, because the underlying logic is universal across GxP.
 
 The quality rationale lives in two failure modes the RTM is built to catch:
 - **Coverage gaps**: a requirement with no test. The system might not actually do what you said it does, and you will never find out until an inspector or a user does.
@@ -343,6 +343,5 @@ Open the RTM, find the audit trail URS line, follow it to the FS item describing
 - [validation-test-failure-management](/articles/validation-test-failure-management)
 - [validation-summary-report-and-release](/articles/validation-summary-report-and-release)
 - [21-cfr-part-11-eu-annex-11](/articles/21-cfr-part-11-eu-annex-11)
-- [design-controls-medical-devices](/articles/design-controls-medical-devices)
 - [data-criticality-and-data-risk](/articles/data-criticality-and-data-risk)
 - [change-control-validated-systems](/articles/change-control-validated-systems)

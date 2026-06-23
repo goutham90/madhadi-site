@@ -15,7 +15,7 @@ This article walks the full lifecycle: CRF and EDC design, edit-check specificat
 
 ## The regulatory frame: why CDM is a GxP activity
 
-Clinical data management is governed primarily by Good Clinical Practice. The controlling document is **ICH E6(R2) Good Clinical Practice (2016)**, now being superseded in practice by **ICH E6(R3) (finalized 2025)**, which restructures GCP around a quality-by-design and risk-proportionate model and puts far more weight on data governance, computerized systems, and the sponsor's oversight of data flow.
+Clinical data management is governed primarily by Good Clinical Practice. The controlling document is **ICH E6(R2) Good Clinical Practice (2016)**, with **ICH E6(R3) (Step 4, January 2025)** now being adopted regionally (FDA in September 2025; staggered EU/EMA application). E6(R3) restructures GCP around a quality-by-design and risk-proportionate model and puts far more weight on data governance, computerized systems, and the sponsor's oversight of data flow.
 
 Three threads from ICH E6 land directly on CDM:
 
@@ -27,7 +27,7 @@ On top of GCP sit the electronic records rules. In the United States, **21 CFR P
 
 So a CDM operation is simultaneously a GCP activity (the trial), a Part 11 / Annex 11 activity (the system), and a data-standards activity (the submission). All three have to be satisfied at once, which is what makes the discipline harder than it looks.
 
-> ICH E6(R2) 5.5.3: "When using electronic trial data handling and/or remote electronic trial data systems, the sponsor should: (a) Ensure and document that the electronic data processing system(s) conforms to the sponsor's established requirements for completeness, accuracy, reliability, and consistent intended performance (i.e., validation)."
+ICH E6(R2) 5.5.3 sets the baseline for electronic data handling: when a sponsor uses electronic trial data systems, it should establish and document that the system meets its predefined requirements for completeness, accuracy, reliability, and consistent intended performance, which is the act of validation, and then maintain SOPs, controlled access, audit trails, and backup around it.
 
 Related reading: [ICH E6 Good Clinical Practice](/articles/ich-e6-good-clinical-practice), [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11), [Clinical QA and GCP Data Integrity](/articles/clinical-qa-gcp-data-integrity).
 
@@ -281,7 +281,7 @@ The audit trail entry is what proves the original was not obscured. The query te
 
 ## Source data, SDV, and risk-based monitoring (the boundary CDM shares)
 
-CDM does not own the source, but it lives next to it. **Source data** is the original record (the patient chart, the lab printout, the device output). **Source data verification (SDV)** is the monitor's comparison of CRF entries against source. Modern trials use **risk-based monitoring (RBM)** under **ICH E6(R2)/(R3)** and **FDA's guidance on a risk-based approach to monitoring (2013, updated 2019)**, targeting verification at critical data and high-risk sites instead of 100 percent SDV. CDM contributes the edit checks, the central statistical monitoring signals, and the query stream that RBM relies on. For depth, see [Source Data and SDV in Clinical Trials](/articles/source-data-and-sdv-clinical) and [Risk-Based Monitoring in Clinical](/articles/risk-based-monitoring-clinical).
+CDM does not own the source, but it lives next to it. **Source data** is the original record (the patient chart, the lab printout, the device output). **Source data verification (SDV)** is the monitor's comparison of CRF entries against source. Modern trials use **risk-based monitoring (RBM)** under **ICH E6(R2)/(R3)** and **FDA's risk-based monitoring guidance (original final 2013) and its companion Questions and Answers guidance (draft 2019, finalized April 2023)**, targeting verification at critical data and high-risk sites instead of 100 percent SDV. CDM contributes the edit checks, the central statistical monitoring signals, and the query stream that RBM relies on. For depth, see [Source Data and SDV in Clinical Trials](/articles/source-data-and-sdv-clinical) and [Risk-Based Monitoring in Clinical](/articles/risk-based-monitoring-clinical).
 
 The integrity expectation across this boundary is **ALCOA+**: data should be Attributable, Legible, Contemporaneous, Original, Accurate, plus Complete, Consistent, Enduring, and Available. See [ALCOA+ in detail](/articles/alcoa-plus-deep-dive) and [Data Integrity Foundations](/articles/data-integrity-foundations).
 
@@ -291,7 +291,7 @@ The integrity expectation across this boundary is **ALCOA+**: data should be Att
 
 ### Why CDISC is required
 
-CDISC (Clinical Data Interchange Standards Consortium) standards are not optional for most regulated submissions. The **FDA Study Data Technical Conformance Guide** and the FDA Data Standards Catalog require standardized study data in CDISC formats for studies whose start dates fall after the FDA's published cutoff dates (the requirement was phased in following the 2014 binding guidance on electronic submission of study data). Japan's PMDA has a parallel requirement. The rationale is reviewability: a reviewer who receives standardized SDTM and ADaM can load, check, and re-analyze any sponsor's data with the same tools, instead of learning a bespoke structure per submission.
+CDISC (Clinical Data Interchange Standards Consortium) standards are not optional for most regulated submissions. The **FDA Study Data Technical Conformance Guide** and the FDA Data Standards Catalog require standardized study data in CDISC formats for studies whose start dates fall after the FDA's published cutoff dates (the requirement traces to the December 2014 binding guidance on standardized study data, with CDISC formats required for studies starting on or after the catalog cutoffs: NDA/BLA around December 2016, IND around December 2017). Japan's PMDA has a parallel requirement. The rationale is reviewability: a reviewer who receives standardized SDTM and ADaM can load, check, and re-analyze any sponsor's data with the same tools, instead of learning a bespoke structure per submission.
 
 The standards form a chain:
 

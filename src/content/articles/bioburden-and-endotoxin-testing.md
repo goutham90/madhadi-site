@@ -36,7 +36,7 @@ The governing documents are compendial chapters and the cGMP regulation that mak
 | USP <1111> | Microbiological Examination of Nonsterile Products: Acceptance Criteria for Pharmaceutical Preparations | The numeric acceptance limits by dosage form |
 | USP <85> | Bacterial Endotoxins Test | The LAL test: gel-clot, turbidimetric, chromogenic methods, limits, MVD |
 | USP <1085> | Guidelines on the Endotoxins Test | Supporting guidance, including recombinant reagent considerations |
-| USP <151> | Pyrogen Test | The rabbit pyrogen test (RPT), the historical in vivo method |
+| USP <151> | Pyrogen Test | The rabbit pyrogen test (RPT), the legacy in vivo method that BET has largely replaced but which remains official and is still required by a small number of monographs |
 | USP <71> | Sterility Tests | Related release test, covered separately |
 | USP <1227> | Validation of Microbial Recovery from Pharmacopeial Articles | Method suitability / recovery validation basis |
 | Ph. Eur. 2.6.12 / 2.6.13 / 2.6.14 | Microbiological enumeration / specified organisms / bacterial endotoxins | European harmonized equivalents |
@@ -69,9 +69,9 @@ USP <61> gives you two numbers per sample:
 
 2. **Prepare the sample.** Dissolve, dilute, or suspend in a validated diluent (commonly pH 7.0 phosphate buffer or peptone saline). Neutralize antimicrobial activity if present, using validated neutralizers (lecithin and polysorbate are typical) or dilution.
 
-3. **Plate and incubate.**
-   - TAMC on SCDA: 30 to 35 C for 3 to 5 days.
-   - TYMC on SDA: 20 to 25 C for 5 to 7 days.
+3. **Plate and incubate** (USP <61> conditions).
+   - For TAMC, hold SCDA plates at 30 to 35 C, reading at 3 to 5 days.
+   - For TYMC, hold SDA plates at 20 to 25 C, reading at 5 to 7 days.
 
 4. **Count and calculate.** Count colonies on plates yielding a countable range (for the plate method, typically not more than 250 colonies for TAMC and not more than 50 for TYMC, on the most appropriate dilution). Multiply by the dilution factor to get CFU per gram or per mL.
 
@@ -81,7 +81,7 @@ USP <61> gives you two numbers per sample:
 
 Before the method counts for anything, you must show it can actually recover organisms from your specific product. This is **method suitability testing** (sometimes called the growth-promotion / recovery validation), grounded in USP <61> itself and USP <1227>.
 
-You inoculate the sample preparation with a low number of a panel of challenge organisms, typically NMT 100 CFU, and demonstrate recovery within a factor of 2 of the count obtained from an inoculum control without product. The standard panel:
+You inoculate the sample preparation with a small dose of each challenge organism, no more than about 100 CFU, and show that the count you recover stays within a factor of two of a parallel inoculum control run without product. The standard panel:
 
 | Organism | ATCC | Demonstrates |
 |----------|------|--------------|
@@ -100,19 +100,19 @@ A 10 g sample of a topical cream is suspended in diluent to 100 mL (1:10 dilutio
 CFU/g = colonies x dilution factor / sample volume plated
 = 48 x 10 / 1 = 480 CFU/g TAMC.
 
-USP <1111> interprets each 10^n limit as a maximum acceptable count on a 2 x 10^n basis: a 10^1 limit means 20 CFU/g, 10^2 means 200 CFU/g, and 10^3 means 2000 CFU/g. So if <1111> sets TAMC NMT 10^2 CFU/g for a topical preparation, a result of 200 CFU/g still passes, 250 CFU/g fails the 10^2 limit, and a count of 480 CFU/g would only meet a 10^3 limit.
+Under USP <1111>, a stated limit of 10^n is read as allowing a count up to 2 x 10^n before it is exceeded. In practice that puts the ceilings at 20 CFU/g for a 10^1 limit, 200 CFU/g for 10^2, and 2000 CFU/g for 10^3. So if <1111> sets TAMC NMT 10^2 CFU/g for a topical preparation, a result of 200 CFU/g still passes, 250 CFU/g fails the 10^2 limit, and a count of 480 CFU/g would only meet a 10^3 limit.
 
 ### Acceptance criteria, USP <1111>
 
-The limits depend on dosage form and route. Representative values from <1111>:
+The limits depend on dosage form and route. The values below are summarized for orientation; confirm the current figures against USP <1111> for your specific route:
 
-| Product type | TAMC | TYMC | Specified organism limit |
+| Product type | TAMC | TYMC | Specified organism requirement |
 |--------------|------|------|--------------------------|
-| Non-aqueous oral | 10^3 CFU/g or mL | 10^2 CFU/g or mL | Absence of E. coli per g/mL |
-| Aqueous oral | 10^2 | 10^1 | Absence of E. coli per g/mL |
-| Topical / transdermal | 10^2 | 10^1 | Absence of S. aureus and P. aeruginosa per g/mL |
+| Non-aqueous oral | 10^3 CFU/g or mL | 10^2 CFU/g or mL | E. coli must be absent per g/mL |
+| Aqueous oral | 10^2 | 10^1 | E. coli must be absent per g/mL |
+| Topical / transdermal | 10^2 | 10^1 | S. aureus and P. aeruginosa must be absent per g/mL |
 | Oral aqueous, nasal | 10^2 | 10^1 | Per route, see <62> |
-| Vaginal, urethral | 10^2 | 10^1 | Absence of P. aeruginosa, S. aureus, C. albicans |
+| Vaginal, urethral | 10^2 | 10^1 | P. aeruginosa, S. aureus and C. albicans must be absent |
 
 Sterile products are not tested to <1111>; they are tested by USP <71> sterility and must show no recovery. <1111> applies to nonsterile products and to in-process bioburden where the firm sets its own action/alert limits based on process capability, not <1111>.
 
@@ -131,7 +131,7 @@ The classic specified organisms:
 - **Pseudomonas aeruginosa** (water-borne, opportunistic, topical and inhalation)
 - **Staphylococcus aureus** (topical, skin contact)
 - **Candida albicans** and **Clostridia** for specific routes
-- **Bile-tolerant Gram-negative bacteria** as a broader hygiene indicator
+- **Bile-tolerant Gram-negative bacteria**, which <62> handles as a separate quantitative (enumeration) category with its own counting limits rather than as one of the absence-based named organisms above, used as a broader hygiene indicator
 
 ### How it works
 
@@ -162,7 +162,7 @@ LAL is derived from the blood cells (amebocytes) of the horseshoe crab. Endotoxi
 
 - **EU** = Endotoxin Unit, the activity unit. Defined against the reference standard endotoxin (RSE) and traceable through control standard endotoxin (CSE).
 - **lambda** (the reagent label claim / lysate sensitivity), in EU/mL: the lowest endotoxin concentration that gives a positive result for gel-clot, or the lowest point on the standard curve for photometric methods.
-- **MVD** = Maximum Valid Dilution: the greatest dilution at which you can still detect the endotoxin limit.
+- **MVD** = Maximum Valid Dilution, as defined in USP <85>: the most you can dilute the sample and still be capable of reading the endotoxin limit.
 - **MVC** = Maximum Valid Concentration: the corresponding least dilution / highest product concentration testable.
 
 ### The three methods
@@ -181,9 +181,9 @@ The endotoxin limit is product-specific and route-specific. The formula:
 
 **Endotoxin limit = K / M**
 
-where:
-- **K** = the threshold pyrogenic dose of endotoxin per kg of body weight per hour. By convention: **5 EU/kg** for parenteral products (intravenous, intramuscular, subcutaneous), **0.2 EU/kg** for intrathecal products, and **350 EU per device** rinse basis for medical devices (or per the device standard).
-- **M** = the maximum recommended human dose per kg of body weight per hour. Use a standard body weight of **70 kg** unless the product is for a defined smaller population.
+where (per USP <85>):
+- **K** = the threshold pyrogenic dose, expressed as endotoxin per kg of body weight per hour. The conventional values are **5 EU/kg** for parenteral products (intravenous, intramuscular, subcutaneous) and **0.2 EU/kg** for intrathecal products. For a combination product with a device path, the device limit is set differently: under USP <161> it is **20 EU/device** (0.5 EU/mL of rinse or extract) for general and cardiovascular contact, and **2.15 EU/device** (0.06 EU/mL) for a device contacting cerebrospinal fluid, on a per-device rinse basis rather than as a value of K. (Note: 350 EU is sometimes quoted, but that is the maximum endotoxin a person may receive per hour for a drug, 5 EU/kg x 70 kg, not a per-device limit.)
+- **M** = the maximum recommended human dose per kg of body weight per hour, with body weight taken as **70 kg** unless the product is intended for a defined smaller population.
 
 Worked example, a small-volume injectable:
 
@@ -197,7 +197,7 @@ For large-volume parenterals (LVPs) administered by volume, the limit is often e
 
 ### Maximum Valid Dilution (MVD)
 
-You cannot test product neat if it interferes with the reagent, but you also cannot dilute past the point where you would miss the limit. MVD sets the ceiling:
+You cannot test product neat if it interferes with the reagent, but you also cannot dilute past the point where you would miss the limit. MVD sets the ceiling, and USP <85> derives it from the endotoxin limit, the product concentration, and the reagent sensitivity:
 
 **MVD = (Endotoxin limit x Concentration of product) / lambda**
 
@@ -217,19 +217,19 @@ Before any BET result is meaningful, you must prove the product itself does not 
 
 Two controls dominate:
 
-- **Positive Product Control (PPC):** product spiked with a known amount of endotoxin (commonly 2 lambda for gel-clot, or a mid-curve spike for photometric). The PPC must recover within **50 to 200 percent** of the spiked value (for photometric methods). If recovery is outside that window, the product is interfering and the result is invalid.
-- **Standard curve / standard series:** for photometric methods, a curve of at least three concentrations with correlation coefficient |r| not less than 0.980. For gel-clot, a confirmation of label lysate sensitivity using a standard series, geometric mean of the endpoint within 0.5 lambda to 2 lambda.
+- **Positive Product Control (PPC):** product spiked with a known amount of endotoxin (commonly 2 lambda for gel-clot, or a mid-curve spike for photometric). For photometric methods, USP <85> expects the spike to be recovered in the range of **50 to 200 percent**; recovery outside that range means the product is interfering and the result is invalid.
+- **Standard curve / standard series:** for photometric methods, USP <85> calls for a curve of at least three concentrations whose correlation coefficient |r| is at least **0.980**. For gel-clot, you confirm the labeled lysate sensitivity with a standard series, and the geometric mean endpoint should land between **0.5 lambda and 2 lambda**.
 
 If interference is found, you remove it by dilution (up to MVD), by neutralization, by pH adjustment to 6 to 8, by using endotoxin-specific buffer, or by treating divalent cation effects. You then re-validate.
 
 ### Gel-clot procedure, step by step
 
 1. Reconstitute lysate of known lambda. Prepare LAL reagent water (LRW), endotoxin-free.
-2. Confirm lysate sensitivity with a standard series (lambda, 2 lambda, 0.5 lambda, 0.25 lambda) in replicates; geometric mean endpoint must be 0.5 lambda to 2 lambda.
+2. Confirm lysate sensitivity with a replicate standard series (lambda, 2 lambda, 0.5 lambda, 0.25 lambda); the geometric mean of the endpoints should fall between 0.5 lambda and 2 lambda.
 3. Prepare product at the chosen dilution (at or below MVD).
 4. Set up four tube types: negative control (LRW), positive control (endotoxin at 2 lambda in LRW), product sample, positive product control (product spiked at 2 lambda).
-5. Incubate at 37 +/- 1 C for 60 +/- 2 minutes, undisturbed.
-6. Invert each tube 180 degrees in one smooth motion. A firm gel that holds when inverted = positive. No gel or a gel that slumps = negative.
+5. Hold the tubes undisturbed at 37 +/- 1 C for 60 +/- 2 minutes.
+6. Turn each tube over through a full 180 degrees in a single steady movement. If a solid gel stays in place, the result is positive; if there is no gel or the gel collapses, it is negative.
 7. Interpret:
    - Negative control must be negative.
    - Positive control must be positive.
@@ -256,7 +256,7 @@ Limit = 10 EU/mL. 3.6 < 10, so the batch **passes** for endotoxin. PPC recovery 
 
 ## Recombinant Factor C and the animal-reduction shift
 
-rFC reagents reproduce the LAL cascade's first enzyme without harvesting horseshoe crab blood. They are endotoxin-specific (they do not react to beta-glucans, which can cause false positives in LAL), reduce animal use, and are now recognized in USP <1085>, a dedicated USP chapter for recombinant reagents, and Ph. Eur. 2.6.32. As of recent USP revisions, recombinant reagent use no longer requires a full alternative-method comparability submission as an alternative method in the same way it once did, because the chapters now describe these reagents directly. A firm switching to rFC still performs method suitability/validation for its specific products and should document the change through change control with a side-by-side comparability rationale. Expect interviewers to ask whether you have evaluated rFC: the right answer covers specificity (no beta-glucan interference), sustainability, and the validation/change-control work still required.
+rFC reagents reproduce the LAL cascade's first enzyme without harvesting horseshoe crab blood. They are endotoxin-specific (they do not react to beta-glucans, which can cause false positives in LAL), reduce animal use, and are now recognized in USP <1085>, a dedicated USP chapter for recombinant reagents, and Ph. Eur. 2.6.32. As of recent USP revisions, recombinant reagent use no longer requires a full alternative-method comparability submission as an alternative method in the same way it once did, because the chapters now describe these reagents directly. A firm switching to rFC still performs method suitability/validation for its specific products and should document the change through change control with a side-by-side comparability rationale. Expect interviewers to ask if your lab has evaluated rFC: the right answer covers specificity (no beta-glucan interference), sustainability, and the validation/change-control work still required.
 
 ---
 
@@ -313,7 +313,7 @@ A: Bioburden is a viable count of culturable organisms; endotoxin is LPS from Gr
 A: Limit = K / M. K is the threshold pyrogenic dose per kg per hour: 5 EU/kg for most parenterals, 0.2 EU/kg for intrathecal. M is the maximum human dose per kg per hour, using 70 kg standard body weight unless a defined population applies. Then express per mL using product strength. I would also state the LVP and WFI fixed limits, 0.5 EU/mL and 0.25 EU/mL.
 
 **Q: What is MVD and why does it matter?**
-A: Maximum Valid Dilution is the greatest dilution at which the endotoxin limit is still detectable: MVD = (endotoxin limit x product concentration) / lambda. It matters because you often must dilute to overcome interference, but diluting past MVD means a result at the limit would fall below the reagent's sensitivity, so a "pass" would be meaningless.
+A: Maximum Valid Dilution, per USP <85>, is the most you can dilute a sample and still be able to read the endotoxin limit, computed as MVD = (endotoxin limit x product concentration) / lambda. It matters because you often must dilute to overcome interference, but diluting past MVD means a result at the limit would fall below the reagent's sensitivity, so a "pass" would be meaningless.
 
 **Q: Which is your most important BET control and why?**
 A: The positive product control. It proves the product is not masking endotoxin by inhibiting the reaction. A negative sample with a failing PPC is not a pass; it is an invalid test. Recovery must fall within 50 to 200 percent for photometric methods.

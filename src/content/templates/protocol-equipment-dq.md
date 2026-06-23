@@ -49,8 +49,8 @@ This protocol applies to the single `<<FILL: equipment / make / model>>` to be i
 
 - **Design qualification (DQ)**: documented verification that the proposed design of the equipment is suitable for its intended use and meets the user requirements before it is built or bought.
 - **User requirements specification (URS)**: the controlled document that states what the equipment must do, expressed in user and process terms, against which every downstream test is traced.
-- **Good engineering practice (GEP)**: established engineering methods and standards, applied throughout the project lifecycle, that deliver suitable and cost-effective solutions and form the basis on which quality activities build.
-- **Critical design element (CDE), also called critical aspect**: a function, feature, or design characteristic of the equipment that is necessary to assure product quality or patient safety, identified from process knowledge and risk assessment, and the subject of focused verification.
+- **Good engineering practice (GEP)**: how the project does sound, value-for-money engineering at every stage using recognized methods, codes, and in-house standards; it is the baseline of competent work that the quality and qualification effort then builds on top of (concept per ISPE GEP).
+- **Critical design element (CDE), also called critical aspect**: any part of the equipment's design, a function, a built-in feature, or a measurable characteristic, that has to work for the product to be safe and meet its quality requirements; CDEs are picked out using what is known about the process plus the risk assessment, and they get the closest verification effort (concept per ASTM E2500 critical aspects).
 - **Critical process parameter (CPP) and critical quality attribute (CQA)**: the process inputs and product outputs that the equipment design must be able to control and deliver; CDEs are the design features that make that control possible.
 - **Subject matter expert (SME)**: the qualified person whose knowledge and judgment support a design decision and its verification.
 

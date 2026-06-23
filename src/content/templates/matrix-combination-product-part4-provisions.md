@@ -3,7 +3,7 @@ title: "Matrix: 21 CFR Part 4 Streamlined-Provision Mapping"
 description: "A plug-and-play matrix mapping the added provisions under 21 CFR 4.4 to the procedure that satisfies each, the evidence, the applicability decision, and the owner, for both drug-base and device-base combination products, with a filled specimen and the regulations it satisfies."
 pubDate: 2026-06-22
 docType: "Matrix"
-pillar: "medical-devices"
+pillar: "quality-assurance"
 relatedArticles: ["combination-products-cgmp-part-4"]
 tags: ["combination products", "21 CFR Part 4", "matrix", "design controls", "QMSR", "provision mapping", "cGMP"]
 tier: "Intermediate"

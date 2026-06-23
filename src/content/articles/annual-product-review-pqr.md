@@ -24,18 +24,18 @@ That's the whole legal floor in the US: representative batches, plus complaints,
 
 The EU PQR is more prescriptive. Chapter 1 enumerates the inputs explicitly. A PQR must review, at minimum:
 
-- Starting materials and packaging materials, especially from new sources, and traceability of the supply chain of active substances
-- Critical in-process controls and finished-product results
-- All batches that failed to meet specification(s) and their investigations
-- All significant deviations or non-conformances, their investigations, and the effectiveness of resulting corrective and preventive actions
-- All changes to processes or analytical methods
-- Marketing authorization variations submitted, granted, or refused, including third-country (export-only) dossiers
-- The results of the stability monitoring program and any adverse trends
-- All quality-related returns, complaints, and recalls, and the investigations performed
-- Adequacy of any previous corrective actions on product process or equipment
-- Post-marketing commitments for new MAs and variations
-- Qualification status of relevant equipment and utilities (HVAC, water, compressed gases)
-- Review of any contractual/technical agreements to confirm they're up to date
+- Incoming starting and packaging materials, with attention to any new sources and to how the active-substance supply chain can be traced end to end
+- The critical in-process checks and the finished-product test results
+- Any batch that missed a specification, together with the investigation that followed
+- Significant deviations and non-conformances, how they were investigated, and whether the corrective and preventive actions taken actually worked
+- Changes made to the manufacturing process or to analytical methods
+- The state of marketing authorization variations filed, approved, or turned down, including export-only (third-country) dossiers
+- What the stability program showed, and whether any unfavorable trends emerged
+- Quality-related returns, complaints, and recalls, and the investigations they triggered
+- Whether earlier corrective actions on the product, process, or equipment held up
+- Post-marketing commitments tied to new authorizations and to variations
+- The qualification status of the equipment and utilities that touch the product (HVAC, water systems, compressed gases)
+- A check that the relevant contractual and technical agreements are still current
 
 The two-list difference is the practical headache: an EU PQR explicitly demands the stability program, the MA-variation status, the utility/equipment qualification status, and the technical-agreement review. A bare-minimum US APR doesn't name those, but FDA inspectors expect a *mature* review to include them anyway, and the FDA's process-validation thinking (the 2011 guidance's **Stage 3, Continued Process Verification**) leans on the same data. So in practice the sensible design is: write to the EU list, and you've covered both.
 
@@ -116,7 +116,7 @@ Suppose tablet assay (label claim 100.0%, specification 95.0 to 105.0%) across t
 | 11 | 97.6 |
 | 12 | 97.3 |
 
-Every single result is inside the 95.0-105.0% specification. A naive review writes "all batches within specification, no action required" and closes. The right review plots these on an individuals chart and sees a monotonic seven-point downward run, a Nelson rule violation, with the mean sliding from about 100% toward the lower spec. Projected forward, the next several batches risk an OOS. This is a *signal*, even though nothing failed. The review must disposition it: investigate (degrading reference standard? a column aging in the assay method? a real formulation or blend-uniformity drift? a raw-material potency shift?), and either justify it as benign with evidence or open a CAPA. Catching this is the entire reason the review exists. A daily release system saw twelve passing batches; only the retrospective saw the slide.
+Every single result is inside the 95.0-105.0% specification. A naive review writes "all batches within specification, no action required" and closes. The right review plots these on an individuals chart and sees all twelve points stepping down without a single reversal, a continuous decline that clears the Nelson trend test (rule 3, six or more consecutive points moving in one direction) several times over, with the mean sliding from about 100% toward the lower spec. Projected forward, the next several batches risk an OOS. This is a *signal*, even though nothing failed. The review must disposition it: investigate (degrading reference standard? a column aging in the assay method? a real formulation or blend-uniformity drift? a raw-material potency shift?), and either justify it as benign with evidence or open a CAPA. Catching this is the entire reason the review exists. A daily release system saw twelve passing batches; only the retrospective saw the slide.
 
 The same logic applies to categorical data. If your deviation register shows the "fill-line stoppage" category at 4, 6, 9, 14 over four years, the count is climbing even though each individual deviation was investigated and closed. The review names the trend and asks whether the line needs an engineering fix, a different mechanism than closing one more deviation.
 
@@ -129,7 +129,7 @@ This is the hinge of the whole exercise and the most common place reviews fall d
 The discipline is straightforward:
 
 1. **Every signal gets a disposition.** Either a documented technical justification that the trend is acceptable (with the data that supports it), or an action.
-2. **Actions route through the existing CAPA system** under [21 CFR 211.192](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-211/subpart-J/section-211.192) (and, for device-combination contexts, [21 CFR 820.100](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820/subpart-J/section-820.100), now folded into the Quality Management System Regulation harmonized with ISO 13485). The review should not invent a parallel action-tracking mechanism. It should open CAPAs, reference the CAPA numbers, and let the QMS own closure. See [what a CAPA is](/articles/what-is-a-capa) and [CAPA effectiveness verification](/articles/capa-effectiveness-verification).
+2. **Actions route through the existing CAPA program.** On the drug side there is no dedicated CAPA section in 21 CFR Part 211; [21 CFR 211.192](https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-211/subpart-J/section-211.192) is the production-record-review provision that mandates investigating discrepancies and recording conclusions and follow-up, and that investigation/follow-up obligation is what feeds the formal CAPA program, which sits under ICH Q10 and the broader cGMP quality system. For drug-device [combination products](/articles/combination-products-cgmp-part-4) under the Quality Management System Regulation (the amended 21 CFR Part 820, effective 2 February 2026), the operative CAPA requirement is ISO 13485:2016 clauses 8.5.2 (corrective action) and 8.5.3 (preventive action), incorporated by reference; the former combined CAPA section 820.100 is now reserved. The review should not invent a parallel action-tracking mechanism. It should open CAPAs, reference the CAPA numbers, and let the QMS own closure. See [what a CAPA is](/articles/what-is-a-capa) and [CAPA effectiveness verification](/articles/capa-effectiveness-verification).
 3. **The review checks last year's CAPAs.** Both the EU list ("adequacy of previous corrective actions") and a defensible APR require you to look back at what the *prior* review committed to and confirm those actions closed and worked. Effectiveness checks that never happened are a classic finding.
 
 A useful internal rule: the conclusions section must explicitly answer the regulation's own question, does anything need to change in the specifications, the manufacturing process, or the controls? If the answer is no, say so and say why. If yes, the CAPA numbers are right there.
@@ -142,7 +142,7 @@ The cleanest way to present this in the report itself is a signal register. One 
 
 | Signal | Evidence | Disposition | Reference |
 |---|---|---|---|
-| Assay drifting toward lower spec (7-point run) | Individuals chart, batches 01-12 | Investigate: confirm reference-standard potency and method column age | CAPA-2026-0142 |
+| Assay drifting toward lower spec (12-batch continuous decline) | Individuals chart, batches 01-12 | Investigate: confirm reference-standard potency and method column age | CAPA-2026-0142 |
 | Dissolution Ppk 1.18 (below 1.33 threshold) | Capability summary, 12 batches | Justified acceptable: spread is method variability, mean centered, no drift; monitor next period | Technical memo in review, no CAPA |
 | Particulate complaints up 0.8 to 1.9 per million units | Complaint trend, 3-year | Investigate: correlate with new stopper supplier introduced this period | CAPA-2026-0143 |
 | Fill-line stoppage deviations 9 to 14 | Deviation category trend | Engineering review of line, not another single-event correction | CAPA-2026-0144 |

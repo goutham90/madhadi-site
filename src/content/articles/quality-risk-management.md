@@ -11,17 +11,13 @@ Quality risk management (QRM) is the formal framework for making quality decisio
 
 [ICH Q9(R1)](https://www.ich.org/page/quality-guidelines), the revision that reached Step 4 in January 2023, is the governing guideline. The original Q9 was issued in 2005 and adopted by FDA (as a guidance for industry in 2006), EMA, and the other ICH regions in the years that followed. The R1 revision did not rewrite the framework. It tightened the language around four problems that 18 years of practice had exposed: subjectivity in scoring, formality that did not match the size of the decision, gaps in knowledge that scoring masks, and risk-based decisions made by people who never communicate them. Anyone who applies QRM seriously should read R1 with those four targets in mind, because they are the things inspectors now probe.
 
-This article covers the Q9(R1) framework, the main risk assessment tools, the scoring mechanics, the documentation that holds up under inspection, and the judgment calls that separate useful QRM from a risk-documentation exercise. It applies across pharmaceutical drug product, biologics, medical devices, combination products, and the GxP systems that support them.
+This article covers the Q9(R1) framework, the main risk assessment tools, the scoring mechanics, the documentation that holds up under inspection, and the judgment calls that separate useful QRM from a risk-documentation exercise. It applies across small-molecule drug product, biologics, cell and gene therapy, combination products, and the GxP systems that support them.
 
 ---
 
 ## What ICH Q9(R1) Actually Says
 
-Q9(R1) sets out principles and a process. The two principles are stated plainly in the guideline and worth memorizing because they decide every argument you will ever have about scope:
-
-> "The evaluation of the risk to quality should be based on scientific knowledge and ultimately link to the protection of the patient."
-
-> "The level of effort, formality and documentation of the quality risk management process should be commensurate with the level of risk."
+Q9(R1) sets out principles and a process. Two principles anchor the guideline and are worth committing to memory, because they decide every argument you will ever have about scope. The first: a quality risk evaluation should rest on scientific knowledge and tie back, in the end, to protecting the patient. The second: how much effort, formality, and documentation you put into the QRM process should track the level of risk involved.
 
 Everything else is method. Hold onto the second principle in particular. It is the sentence that lets you say no to a forty-row FMEA for a low-impact change, and it is the sentence inspectors quote when they find you produced one anyway and used none of it.
 
@@ -40,15 +36,15 @@ R1 also added something the 2005 version only implied: an explicit statement tha
 
 QRM has a small set of defined terms, and getting them wrong in conversation marks you as someone who runs the template without understanding it.
 
-| Term | Definition (per Q9 vocabulary) | Common confusion |
+| Term | Plain-language meaning (Q9 vocabulary) | Common confusion |
 |---|---|---|
-| Harm | Damage to health, including from loss of product quality or availability | Treated as the same as the failure that caused it |
-| Hazard | The potential source of harm | Conflated with risk |
-| Risk | The combination of the probability of occurrence of harm and the severity of that harm | Reduced to "probability" alone |
-| Severity | A measure of the possible consequences of a hazard | Confused with how often it happens |
-| Risk reduction | Actions taken to lessen the probability of harm and the severity of harm | Assumed to be the only allowed response (acceptance is also valid) |
-| Risk acceptance | The decision to accept residual risk | Skipped entirely, so no one owns the leftover risk |
-| Residual risk | The risk remaining after risk control measures have been taken | Never calculated, so reduction is claimed without proof |
+| Harm | Injury to health, which Q9 counts as including harm that flows from a product losing quality or from the product not being available | Treated as the same as the failure that caused it |
+| Hazard | Anything that could act as a source of harm | Conflated with risk |
+| Risk | How likely harm is to occur, taken together with how bad that harm would be | Reduced to "probability" alone |
+| Severity | How serious the consequences of a hazard could be | Confused with how often it happens |
+| Risk reduction | Steps that cut either how often harm occurs or how serious it is | Assumed to be the only allowed response (acceptance is also valid) |
+| Risk acceptance | A deliberate decision to live with the risk that is left | Skipped entirely, so no one owns the leftover risk |
+| Residual risk | Whatever risk is still present once the control measures are in place | Never calculated, so reduction is claimed without proof |
 
 If you can state these cleanly and explain that risk is severity combined with probability (not one or the other), you are already ahead of most candidates.
 
@@ -197,7 +193,7 @@ HACCP fits best where a single step is a point of no return:
 - steps in some biologic and advanced-therapy processes where a contamination event would be undetectable in the final product because there is no terminal sterilization,
 - any step where loss of control on a quality attribute cannot be recovered downstream.
 
-For sterile and aseptic work, HACCP thinking dovetails with the contamination control strategy expected under [Annex 1](/articles/annex-1-contamination-control-strategy), and the broader program lives in your [environmental monitoring program](/articles/environmental-monitoring-program). For devices and software as a medical device, the parallel discipline is the structured risk management of [ISO 14971](/articles/iso-14971-risk-management-devices), which uses similar logic with its own vocabulary.
+For sterile and aseptic work, HACCP thinking dovetails with the contamination control strategy expected under [Annex 1](/articles/annex-1-contamination-control-strategy), and the broader program lives in your [environmental monitoring program](/articles/environmental-monitoring-program). For the device-constituent side of a [combination product](/articles/combination-products-cgmp-part-4) or for software as a medical device, ISO 14971 supplies a parallel structured risk-management discipline that uses similar logic with its own vocabulary, and the same Q9 thinking carries across.
 
 ---
 
@@ -331,7 +327,7 @@ None of this is new philosophy. It is the accumulated lesson of two decades of s
 - [Pharmaceutical Quality System (ICH Q10)](/articles/pharmaceutical-quality-system)
 - [CSV Risk Assessment Methodology](/articles/csv-risk-assessment-methodology)
 - [GAMP 5 CSV Framework](/articles/gamp5-csv-framework)
-- [ISO 14971 Risk Management for Devices](/articles/iso-14971-risk-management-devices)
+- [Combination Products Under cGMP Part 4](/articles/combination-products-cgmp-part-4)
 - [Deviation Management](/articles/deviation-management)
 - [Root Cause Analysis Techniques](/articles/root-cause-analysis-techniques)
 - [Data Criticality and Data Risk](/articles/data-criticality-and-data-risk)

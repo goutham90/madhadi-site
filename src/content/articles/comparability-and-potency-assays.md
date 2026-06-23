@@ -21,7 +21,7 @@ Comparability is the structured demonstration that a biological product remains 
 
 The governing guidance is **ICH Q5E, "Comparability of Biotechnological/Biological Products Subject to Changes in Their Manufacturing Process" (2004)**. ICH Q5E sets the framework: you assess the change, you characterize pre- and post-change product, and you decide whether quality data alone are sufficient or whether nonclinical or clinical bridging data are needed.
 
-> "The demonstration of comparability does not necessarily mean that the quality attributes of the pre-change and post-change product are identical, but that they are highly similar and that the existing knowledge is sufficiently predictive to ensure that any differences in quality attributes have no adverse impact upon safety or efficacy of the drug product." (ICH Q5E, Section 1.3)
+ICH Q5E frames comparability this way: demonstrating comparability does not require that pre-change and post-change product be identical. It requires that they be highly similar, and that existing product and process knowledge is predictive enough to ensure any differences in quality attributes carry no adverse impact on the safety or efficacy of the drug product (ICH Q5E, Section 1.4 General Principles; the same definition appears in the Section 3 Glossary under "Comparable").
 
 Comparability does not stand alone. It pulls in:
 
@@ -153,7 +153,7 @@ QA owns the gate. Analytical and process SMEs own the science. Regulatory owns t
 
 Potency is the measure of the biological activity of the product using a relevant, quantitative biological assay, based on the attribute or attributes linked to the relevant biological properties. For US biologics, potency is a statutory requirement. **21 CFR 600.3(s)** defines potency as "the specific ability or capacity of the product, as indicated by appropriate laboratory tests or by adequately controlled clinical data obtained through the administration of the product in the manner intended, to effect a given result." **21 CFR 610.10** requires that tests for potency consist of either in vitro or in vivo tests, or both, specifically designed for each product to indicate its potency.
 
-> "Tests for potency shall consist of either in vitro or in vivo tests, or both, which have been specifically designed for each product so as to indicate its potency in a manner adequate to satisfy the requirements for potency stated in the license application." (21 CFR 610.10)
+> "Tests for potency shall consist of either in vitro or in vivo tests, or both, which have been specifically designed for each product so as to indicate its potency in a manner adequate to satisfy the interpretation of potency given by the definition in 600.3(s) of this chapter." (21 CFR 610.10)
 
 The key FDA guidance for CGT is **"Potency Tests for Cellular and Gene Therapy Products" (FDA, January 2011)** and the more recent draft **"Potency Assurance for Cellular and Gene Therapy Products"** which moves toward a potency assurance strategy (a system of complementary measures) rather than reliance on a single assay. ICH ties in through **ICH Q6B**, which addresses biological activity in the specification, and the analytical procedure lifecycle now sits under **ICH Q2(R2) (2023)** for validation and **ICH Q14 (2023)** for development.
 

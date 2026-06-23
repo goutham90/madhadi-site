@@ -130,19 +130,19 @@ For each step give the action, the precise expected result, the actual result as
 
 ### 6E. ALCOA+ attribute checks
 
-These steps confirm the record carries each ALCOA+ attribute. Map each to evidence already captured above where possible.
+These steps confirm the record carries each ALCOA+ attribute. The attribute names are taken from the data integrity framework cited in section 12; the test expectations below are written for this script. Map each to evidence already captured above where possible.
 
 | Step | ALCOA+ attribute | Action | Expected result | Actual result | Pass / Fail | Evidence ref | Initials / date |
 |---|---|---|---|---|---|---|---|
-| 6.21 | Attributable | Re-inspect entries from 6.4 and 6.16. | `<<FILL: every entry and signature names a single identified user; no shared or generic identity>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
-| 6.22 | Legible | View and export the audit trail. | `<<FILL: entries are human-readable on screen and in export; codes are resolved to meaningful values>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
-| 6.23 | Contemporaneous | Compare time stamp from 6.12 to reference time. | `<<FILL: the recorded time matches the time the action actually occurred within tolerance>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
-| 6.24 | Original | Confirm the captured value is the source value. | `<<FILL: the original (raw) value is retained and recoverable; the old value from 6.4 is preserved, not overwritten>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
+| 6.21 | Attributable | Re-inspect entries from 6.4 and 6.16. | `<<FILL: each entry and signature ties back to one named, identified person, with no shared or generic account in use>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
+| 6.22 | Legible | View and export the audit trail. | `<<FILL: a reviewer can read every entry on screen and in the export, and any internal codes are shown as plain, meaningful text>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
+| 6.23 | Contemporaneous | Compare time stamp from 6.12 to reference time. | `<<FILL: the entry was stamped at the moment the action was performed, matching the controlled reference within tolerance, not back-dated or batched>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
+| 6.24 | Original | Confirm the captured value is the source value. | `<<FILL: the first-captured value can still be retrieved; the old value from 6.4 sits alongside the new one and was never overwritten>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
 | 6.25 | Accurate | Cross-check old and new values in 6.4 against what was entered. | `<<FILL: recorded values match the actual values entered; no transcription or rounding error introduced by the system>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
 | 6.26 | Complete | Confirm no entries are missing across 6.1 to 6.20. | `<<FILL: every action taken produced a corresponding audit entry; no gaps in sequence>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
 | 6.27 | Consistent | Compare time stamp formats and sequence ordering. | `<<FILL: format and chronological ordering are consistent across all entries>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
-| 6.28 | Enduring | Confirm entries persist after logout and a record refresh. | `<<FILL: entries remain after session end and reload; not held only in volatile memory>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
-| 6.29 | Available | Export or print the audit trail for the test record. | `<<FILL: the audit trail can be retrieved, read, and exported on demand in a usable form within the retention period>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
+| 6.28 | Enduring | Confirm entries persist after logout and a record refresh. | `<<FILL: entries survive the end of the session and a reload, written to durable storage rather than held only in volatile memory>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
+| 6.29 | Available | Export or print the audit trail for the test record. | `<<FILL: across the retention period a reviewer can call up, read, and export the audit trail on demand in a usable form>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` | `<<FILL>>` |
 
 Add or remove rows so every requirement in section 1 is exercised. Number steps continuously; do not reuse a number after a revision.
 

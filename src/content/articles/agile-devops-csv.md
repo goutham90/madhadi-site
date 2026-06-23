@@ -22,10 +22,10 @@ Nothing in the predicate rules forces a waterfall lifecycle. **21 CFR Part 11** 
 Three documents made Agile validation defensible in practice:
 
 - **ISPE GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition (2022).** The second edition added explicit treatment of iterative and incremental (Agile) development, of software tools and automation, and of IT service management practices like ITIL. It is the reference most auditors expect you to cite. GAMP 5 second edition has a dedicated appendix on Agile software development and another on software tools.
-- **FDA Guidance, "Computer Software Assurance for Production and Quality System Software" (final, September 2022 draft superseded by the 2025 final).** Computer Software Assurance (CSA) reframes effort around risk and explicitly endorses using vendor activities, unscripted testing, and automated testing as evidence. CSA is the philosophy that makes "the pipeline tested it" an acceptable sentence in a validation report. See [the CSA article](/articles/computer-software-assurance-fda) for the full treatment.
+- **FDA Guidance, "Computer Software Assurance for Production and Quality System Software" (draft September 2022, finalized 24 September 2025).** Computer Software Assurance (CSA) reframes effort around risk and explicitly endorses using vendor activities, unscripted testing, and automated testing as evidence. CSA is the philosophy that makes "the pipeline tested it" an acceptable sentence in a validation report. See [the CSA article](/articles/computer-software-assurance-fda) for the full treatment.
 - **ISPE GAMP Good Practice Guides on agile and innovative delivery.** ISPE has published GAMP good practice guidance addressing agile and modern software delivery; these flesh out how to document Agile work without drowning it in paperwork. Use the current ISPE catalogue for the exact title in force when you write your plan.
 
-> EU Annex 11, paragraph 4.1: "The validation documentation and reports should cover the relevant steps of the life cycle." The life cycle can be iterative. The requirement is coverage of the relevant steps, not a single linear pass.
+> EU Annex 11, paragraph 4.1 directs that the validation documentation and reports span the relevant steps of the system life cycle. The life cycle can be iterative. The requirement is coverage of the relevant steps, not a single linear pass.
 
 ### The quality rationale
 
@@ -93,7 +93,7 @@ A GxP-fit user story contains:
 | Acceptance criteria | Given a result is entered above the upper spec limit, When the analyst saves, Then the record is flagged OOS, the result cannot be auto-approved, and an audit trail entry records the flag with user, timestamp, and reason. |
 | Risk note | Severity high (could release failing product), probability low, detectability low if not flagged → high rigor |
 | Design link | CFG-1042: rule engine spec, spec-limit lookup table |
-| Trace up | URS-07 (OOS handling), Annex 11 cl. 1, Part 11 audit trail |
+| Trace up | URS-07 (OOS handling), Annex 11 cl. 9 (Audit Trails), Part 11 audit trail |
 | Trace down | AT-1042-01 scripted test, automated test suite OOS-flag-001 |
 | Approval | Product owner accepted 2026-03-04, built in v2.7.0 |
 

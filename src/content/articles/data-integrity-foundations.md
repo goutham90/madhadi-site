@@ -19,11 +19,11 @@ In a regulated context, data integrity does not mean "the data is right." It mea
 
 The distinction matters. A spreadsheet of test results might contain perfectly correct numbers. But if any analyst could overwrite a cell with no record of who changed what, when, or why, the spreadsheet has no integrity even when every value happens to be accurate. Integrity is a property of the system and the controls around the record, not just the values inside it.
 
-The formal definition from the [FDA December 2018 guidance "Data Integrity and Compliance With Drug CGMP"](https://www.fda.gov/media/119267/download) is:
+The formal definition from the [FDA December 2018 guidance "Data Integrity and Compliance With Drug CGMP: Questions and Answers"](https://www.fda.gov/media/119267/download) is:
 
 > "Data integrity refers to the completeness, consistency, and accuracy of data. Complete, consistent, and accurate data should be attributable, legible, contemporaneously recorded, original or a true copy, and accurate (ALCOA)."
 
-The [MHRA "GXP Data Integrity Guidance and Definitions" (March 2018)](https://www.gov.uk/government/publications/gxp-data-integrity-guidance-and-definitions) adds that data integrity "requires that data is complete, consistent and accurate throughout the data lifecycle."
+The [MHRA "GXP Data Integrity Guidance and Definitions" (March 2018)](https://www.gov.uk/government/publications/gxp-data-integrity-guidance-and-definitions) frames the same idea, expecting data to stay complete, consistent, and accurate across the whole data lifecycle.
 
 Both definitions point at the same thing: data needs to be trustworthy at every stage of its life, from initial generation on an instrument, through review and approval, to long-term archival. A record that was accurate when generated but was then modified, selectively retained, or stored in a way that makes it inaccessible has lost its integrity.
 
@@ -58,7 +58,7 @@ This is why the regulatory framework ties data integrity directly to GMP complia
 
 These are not "data integrity" requirements in name, but they are the statutory basis for enforcement when data is found to be unreliable. When an inspector finds that audit trails were disabled or that failing test results were deleted, the 483 observation is typically written against 211.68 or 211.194. The phrase "data integrity" rarely appears in the underlying regulation. The obligation is enforced through the existing record and recordkeeping requirements.
 
-The same enforcement hooks exist in the device world. Under the harmonized Quality Management System Regulation (QMSR) at 21 CFR Part 820, effective February 2, 2026, FDA incorporates ISO 13485:2016 by reference, and record control requirements now sit at 21 CFR 820.35 (control of records). The former Quality System Regulation sections 21 CFR 820.180 (records, general requirements) and 21 CFR 820.181 (device master record) were removed and reserved as part of that amendment, so a current citation for device record controls is 820.35, not 820.180/820.181. The broader good clinical practice framework anchors trial data reliability through ICH E6. See [medical device quality system (QMSR)](/articles/medical-device-quality-system-qmsr) and [ICH E6 good clinical practice](/articles/ich-e6-good-clinical-practice).
+The same enforcement hooks exist in the device world. Under the harmonized Quality Management System Regulation (QMSR) at 21 CFR Part 820, effective February 2, 2026, FDA incorporates ISO 13485:2016 by reference, and record control requirements now sit at 21 CFR 820.35 (control of records). The former Quality System Regulation sections 21 CFR 820.180 (records, general requirements) and 21 CFR 820.181 (device master record) were removed and reserved as part of that amendment, so a current citation for device record controls is 820.35, not 820.180/820.181. The broader good clinical practice framework anchors trial data reliability through ICH E6. See the medical device quality system under the QMSR and [ICH E6 good clinical practice](/articles/ich-e6-good-clinical-practice).
 
 The EU framework reaches the same place through [EudraLex Volume 4, Annex 11](https://health.ec.europa.eu/system/files/2016-11/annex11_01-2011_en_0.pdf), which governs computerized systems in EU GMP, working alongside the [PIC/S PI 041-1 guidance](https://picscheme.org/en/publications) on good practices for data management and integrity. For the relationship between US and EU electronic records rules, see [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11).
 
@@ -72,7 +72,7 @@ For someone entering this field, the regulatory environment can be confusing. He
 - FDA 21 CFR Part 211, GMP for finished pharmaceuticals
 - FDA 21 CFR Part 11, electronic records and electronic signatures (final rule, 1997)
 - FDA 21 CFR Part 820, device quality system (QMSR amendments effective February 2026)
-- FDA guidance, "Data Integrity and Compliance With Drug CGMP" (December 2018)
+- FDA guidance, "Data Integrity and Compliance With Drug CGMP: Questions and Answers" (December 2018)
 
 **European Union**
 - EudraLex Volume 4, Annex 11, computerized systems
@@ -83,14 +83,14 @@ For someone entering this field, the regulatory environment can be confusing. He
 - MHRA "GXP Data Integrity Guidance and Definitions" (March 2018), the clearest and most explicit national guidance available
 
 **International**
-- WHO Technical Report Series 996, Annex 5 (2016), guidance on good data and record management practices
+- WHO Technical Report Series 1033, Annex 4 (2021), "Guideline on data integrity," which superseded the earlier TRS 996, Annex 5 (2016) guidance on good data and record management practices
 - PIC/S PI 041-1, harmonized guidance across PIC/S participating authorities
 - ICH Q10, Pharmaceutical Quality System, which addresses quality culture and management responsibility for data reliability
 - ICH E6 (R2/R3), good clinical practice, which carries data integrity expectations into trials
 
 These documents do not all say exactly the same thing in exactly the same words, but they converge on the same requirements. An ALCOA+ framework applied consistently will satisfy all of them.
 
-A useful way to read this stack: the regulations (Part 11, Part 211, Part 820, Annex 11) are binding law. The guidances (the FDA 2018 document, MHRA 2018, PIC/S PI 041-1, WHO TRS 996) explain how inspectors interpret and apply that law. Guidance documents are not themselves legally binding in the way a regulation is, but ignoring them is a fast route to a finding, because they describe exactly what an inspector will look for.
+A useful way to read this stack: the US CFR regulations (Part 11, Part 211, Part 820) are binding law. The EU GMP annexes (Annex 11, Annex 15) are GMP guidelines that derive their force from the underlying GMP directive framework rather than being EU Regulations in themselves, but inspectors treat them as effectively mandatory. The guidances (the FDA 2018 document, MHRA 2018, PIC/S PI 041-1, WHO data integrity guideline) explain how inspectors interpret and apply that law. Guidance documents are not themselves legally binding in the way a regulation is, but ignoring them is a fast route to a finding, because they describe exactly what an inspector will look for.
 
 | Document | Region | Type | Primary focus |
 |---|---|---|---|
@@ -98,10 +98,10 @@ A useful way to read this stack: the regulations (Part 11, Part 211, Part 820, A
 | 21 CFR Part 11 | US | Regulation | Electronic records and signatures |
 | 21 CFR Part 820 (QMSR) | US | Regulation | Device quality system records |
 | FDA DI guidance 2018 | US | Guidance | How CGMP applies to data integrity |
-| Annex 11 | EU | Regulation (GMP annex) | Computerized systems |
+| Annex 11 | EU | Guideline (GMP annex, effectively mandatory) | Computerized systems |
 | MHRA DI guidance 2018 | UK | Guidance | Data integrity definitions and expectations |
 | PIC/S PI 041-1 | International | Guidance | Data management and integrity, harmonized |
-| WHO TRS 996 Annex 5 | International | Guidance | Good data and record management practices |
+| WHO TRS 1033 Annex 4 (2021) | International | Guidance | Data integrity (superseded TRS 996 Annex 5, 2016) |
 
 For the deeper governance view of how an organization ties all of this together, see the [data governance framework](/articles/data-governance-framework) article.
 

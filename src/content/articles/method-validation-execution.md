@@ -9,7 +9,7 @@ tier: "Advanced"
 
 Validating an analytical method is where the protocol stops being a document and becomes pipetting. The protocol tells you to demonstrate accuracy across 80-120 percent of nominal; the bench reality is deciding how many spike levels, what diluent, which reference standard lot, how to handle a recovery outlier at 80 percent, and whether your single failing injection means a method failure or a sequence failure. This article is about the second part. It assumes you already know what a validation protocol looks like and now have to run one and pass it.
 
-The framework is ICH Q2(R2), *Validation of Analytical Procedures*, adopted by ICH in 2023 and the version most agencies now expect. It is paired with ICH Q14, *Analytical Procedure Development*, also 2023, which formalizes the development knowledge that feeds your validation. In the United States the underlying expectation lives in 21 CFR 211.165(e), which requires that the accuracy, sensitivity, specificity, and reproducibility of test methods be established and documented, and in 21 CFR 211.194(a)(2), which requires the statement of each method used. USP General Chapter <1225> *Validation of Compendial Procedures* mirrors ICH Q2 for compendial work, and <1210> *Statistical Tools for Compendial Validation* gives the math. Keep those four references on the protocol cover and you can defend almost any design decision an inspector challenges.
+The framework is ICH Q2(R2), *Validation of Analytical Procedures*, adopted by ICH in 2023 and the version most agencies now expect. It is paired with ICH Q14, *Analytical Procedure Development*, also 2023, which formalizes the development knowledge that feeds your validation. In the United States the underlying expectation lives in 21 CFR 211.165(e), which requires that the accuracy, sensitivity, specificity, and reproducibility of test methods be established and documented, and in 21 CFR 211.194(a)(2), which requires the statement of each method used. USP General Chapter <1225> *Validation of Compendial Procedures* mirrors ICH Q2 for compendial work, and <1210> *Statistical Tools for Procedure Validation* gives the math. Keep those four references on the protocol cover and you can defend almost any design decision an inspector challenges.
 
 ---
 
@@ -122,16 +122,9 @@ Linearity is the method's ability to produce results directly proportional to an
 
 ### What goes in it and the required range
 
-ICH Q2(R2) minimum ranges to design against:
+The minimum ranges to design against, per ICH Q2(R2), break out by what the procedure does. For a content or potency assay, cover 80 to 120 percent of the test concentration. For content uniformity, widen that to 70 to 130 percent. For dissolution, span plus or minus 20 percent across the specified range. For impurity quantitation, run from the reporting threshold up to 120 percent of the specification.
 
-| Procedure | Minimum range to validate |
-|---|---|
-| Assay (content/potency) | 80 to 120 percent of test concentration |
-| Content uniformity | 70 to 130 percent of test concentration |
-| Dissolution | Plus or minus 20 percent over the specified range |
-| Impurities (quantitation) | Reporting threshold to 120 percent of the specification |
-
-Linearity uses a minimum of 5 concentration levels per ICH Q2(R2). Prepare them independently from the standard, ideally as separate weighings rather than serial dilutions of one stock, so a single weighing error does not propagate through every level.
+For linearity, ICH Q2(R2) sets the floor at 5 concentration levels. Prepare them independently from the standard, ideally as separate weighings rather than serial dilutions of one stock, so a single weighing error does not propagate through every level.
 
 ### How to do it
 
@@ -154,7 +147,7 @@ Common criteria: r not less than 0.999 for assay (r squared not less than 0.998 
 | 110 | 0.550 | 553,640 |
 | 120 | 0.600 | 603,900 |
 
-Regression on this set gives a slope near 1,009,000 area per mg/mL, an intercept near minus 1,400 area (well under 2 percent of the 100 percent response), and r squared above 0.9999. Residuals alternate sign with no trend. Pass.
+Regression on this set gives a slope near 1,014,000 area per mg/mL, an intercept near minus 4,500 area (about minus 0.9 percent of the 100 percent response, well under the 2 percent limit), and r squared above 0.9999. Residuals alternate sign with no trend. Pass.
 
 ### Common mistakes
 
@@ -168,11 +161,11 @@ Regression on this set gives a slope near 1,009,000 area per mg/mL, an intercept
 
 ### What it is and why it is required
 
-Accuracy expresses the closeness of agreement between the value found and the true (accepted reference) value. It is the bias question: does the method read the right number on average. ICH Q2(R2) requires it across the range, and 21 CFR 211.165(e) names accuracy directly. For an assay, accuracy is usually established by recovery of known spikes.
+Accuracy is how near the result the method reports sits to the value taken as the truth, the accepted reference value. It is the bias question: does the method read the right number on average. ICH Q2(R2) requires it across the range, and 21 CFR 211.165(e) names accuracy directly. For an assay, accuracy is usually established by recovery of known spikes.
 
 ### What goes in it
 
-The standard design is recovery at a minimum of 3 concentration levels covering the range, with a minimum of 3 replicates at each level, for 9 determinations per ICH Q2(R2). For a drug product, you spike known amounts of the reference standard into the placebo matrix and recover. For a drug substance, you can compare against a reference standard of known purity or use spiked recovery. For impurities, you spike the matrix with known amounts of the impurity at levels from the reporting threshold up.
+The usual design recovers spiked standard at 3 or more concentration levels across the range, repeating each level at least 3 times, so you land on 9 determinations, the count ICH Q2(R2) treats as the floor. For a drug product, you spike known amounts of the reference standard into the placebo matrix and recover. For a drug substance, you can compare against a reference standard of known purity or use spiked recovery. For impurities, you spike the matrix with known amounts of the impurity at levels from the reporting threshold up.
 
 ### How to do it
 
@@ -213,11 +206,11 @@ Mean recovery 100.0 percent, overall RSD about 0.5 percent. Pass. A trend across
 
 ### What it is and why it is required
 
-Precision is the closeness of agreement among a series of measurements from multiple samplings of the same homogeneous sample. ICH Q2(R2) splits it into three layers:
+Precision describes how tightly repeated measurements cluster when you sample the same uniform material several times and run each through the method. ICH Q2(R2) splits it into three layers:
 
-- **Repeatability** (intra-assay): same analyst, same instrument, same day, short interval.
-- **Intermediate precision**: variation within the same lab across days, analysts, instruments, and reagent lots.
-- **Reproducibility**: variation between laboratories, assessed for compendial methods and during method transfer, not usually within a single-site validation.
+- **Repeatability** (intra-assay): one analyst, one instrument, one day, results gathered over a short interval.
+- **Intermediate precision**: scatter seen inside one lab once you let days, analysts, instruments, and reagent lots change.
+- **Reproducibility**: scatter seen when different laboratories run the method, assessed for compendial methods and during method transfer, not usually within a single-site validation.
 
 The risk precision controls is the spread. A perfectly accurate method that scatters widely will fail real batches by chance and pass bad ones. 21 CFR 211.165(e) calls this reproducibility in the regulation, but the modern decomposition is the ICH one.
 
@@ -242,7 +235,7 @@ Common assay criteria: repeatability RSD not more than 1.0-2.0 percent; intermed
 | Repeatability rep 1-6 | A | 1 | HPLC-01 | 99.8, 100.2, 99.6, 100.4, 99.9, 100.1 |
 | Intermediate set | B | 2 | HPLC-02 | 100.5, 99.4, 100.7, 99.8, 100.0, 100.3 |
 
-Repeatability RSD about 0.3 percent; combined intermediate precision RSD about 0.5 percent. Pass. If the day-2 mean had shifted to 97 percent, you would investigate the second analyst or instrument as a specific assignable cause rather than just reporting a wider RSD.
+Repeatability RSD about 0.3 percent; combined intermediate precision RSD about 0.4 percent. Pass. If the day-2 mean had shifted to 97 percent, you would investigate the second analyst or instrument as a specific assignable cause rather than just reporting a wider RSD.
 
 ### Common mistakes
 
@@ -263,7 +256,7 @@ The detection limit (DL or LOD) is the lowest amount detectable but not necessar
 Three accepted approaches under ICH Q2(R2):
 
 1. **Signal-to-noise**: typically S/N around 3:1 for the DL and 10:1 for the QL. Simple, common for chromatography.
-2. **Standard deviation of response and slope**: DL = 3.3 times sigma over S, QL = 10 times sigma over S, where sigma is the standard deviation of the response (often the intercept's standard error from the linearity regression) and S is the slope.
+2. **Standard deviation of response and slope**: compute DL as 3.3 times sigma divided by S and QL as 10 times sigma divided by S, where sigma is the standard deviation of the response (often the intercept's standard error from the linearity regression) and S is the slope.
 3. **Visual evaluation**: for some methods, the lowest level reliably observed.
 
 ### Acceptance criteria
@@ -281,7 +274,7 @@ The QL must be at or below the reporting threshold for the impurity per ICH Q3A/
 
 ### What it is and why it is required
 
-Robustness is the measure of a method's capacity to remain unaffected by small, deliberate variations in method parameters. ICH Q2(R2) and ICH Q14 both stress it, and Q14 frames it through the development concept of the method operable design region. The risk: a method that only works at exactly the written conditions will drift out the first time a different column lot or a slightly different mobile phase pH shows up in routine use.
+Robustness is how well the result holds steady when you nudge method parameters by small amounts on purpose. ICH Q2(R2) and ICH Q14 both stress it, and Q14 frames it through the development concept of the method operable design region. The risk: a method that only works at exactly the written conditions will drift out the first time a different column lot or a slightly different mobile phase pH shows up in routine use.
 
 ### What goes in it
 

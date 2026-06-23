@@ -17,14 +17,14 @@ This article covers what QP certification means, the legal basis, the content of
 
 The QP role is written into EU primary legislation, not just guidance. Two directives create it.
 
-- **Directive 2001/83/EC** (the Community code relating to medicinal products for human use), Articles 48 to 52, requires every manufacturing and importation authorisation holder to have at its disposal at least one Qualified Person. Article 51 sets out the QP's core duty: to certify, in a register or equivalent document, that each batch of medicinal product has been manufactured and checked in compliance with the law in force and in accordance with the requirements of the marketing authorisation.
+- **Directive 2001/83/EC** (the Community code relating to medicinal products for human use), Articles 48 to 52, requires every manufacturing and importation authorisation holder to have at its disposal at least one Qualified Person. Article 51 sets out the QP's core duty: recording in a register, or an equivalent document, confirmation that every batch was produced and tested as the applicable law and the terms of the marketing authorisation require.
 - **Directive 2001/82/EC** historically did the equivalent for veterinary products. For veterinary medicines the framework has since moved to **Regulation (EU) 2019/6**, applicable from 28 January 2022, which carries the QP concept forward.
 
 For investigational medicinal products, the QP duty is set by **Directive 2001/20/EC** and, since 31 January 2022, by the Clinical Trials Regulation **Regulation (EU) 536/2014**, with the relevant GMP detail in **Annex 13** of the EU GMP guide. Certification of IMPs has its own nuances, covered briefly later and in the linked article on Annex 13.
 
 The qualifications a person must hold to act as a QP are set in **Article 49 of Directive 2001/83/EC**: a defined educational base (pharmacy, medicine, chemistry, pharmaceutical chemistry and technology, or biology and similar), plus at least two years of practical experience in qualitative analysis, quantitative analysis, and other testing and checking of medicinal products, in one or more authorised manufacturers. National competent authorities recognise and, in several member states, formally register or assess QPs. The detailed operating expectations sit in **Annex 16**, which tells the QP how to discharge the Article 51 duty in real supply chains.
 
-> Annex 16, Section 1.1: "The Qualified Person performing certification of a finished product batch may do so based in part on advice and decisions taken by others. This should be documented... The persons relied upon... should be appropriately qualified and trained to perform their role."
+> Annex 16, Section 1.1 establishes the principle that a QP certifying a finished batch can base that decision partly on the advice and decisions of other people, that this dependence has to be written down, and that anyone the QP leans on must be suitably qualified and trained for the part they play.
 
 The risk rationale is straightforward. Patients cannot inspect a sterile injectable or verify a tablet's content uniformity. The QP is the single accountable human checkpoint who confirms, before product reaches the market, that the whole chain of manufacture, testing, and authorisation actually held together. Putting that duty on a named, qualified, legally exposed person is the control that makes the rest of the GMP system enforceable.
 
@@ -54,13 +54,11 @@ The practical sequence: QP certifies, then the batch is released for sale. You c
 
 ## What the QP is certifying: the full scope of the duty
 
-When a QP certifies, the confirmation is broad. Annex 16, Section 1.7, lists the elements the QP must ensure have been met before certification. A working QP reads this as a checklist of what must be true, regardless of who actually did each part.
+When a QP certifies, the confirmation is broad. Section 1.7 of Annex 16 sets out the conditions a QP has to satisfy before certifying. A working QP treats them as a list of what must hold true, regardless of who actually did each part. Paraphrased, the main confirmations cover:
 
-The core confirmations include:
-
-1. The batch and its manufacture comply with the **marketing authorisation** (and, for IMPs, the clinical trial authorisation and product specification file).
-2. Manufacture complied with **GMP** or, for products made outside the EU, with GMP standards at least equivalent to EU GMP.
-3. The **manufacturing and testing processes** were validated, and the specific batch followed the validated process.
+1. That the batch, and the way it was made, fits the **marketing authorisation** (and, for IMPs, the clinical trial authorisation and product specification file).
+2. That production met **GMP**, or, for product made outside the EU, GMP at a standard no lower than EU GMP.
+3. That the **manufacturing and testing processes** carry a valid validation status and that this particular batch ran on the validated process.
 4. Any **deviations or planned changes** to production or quality control were authorised under the company's pharmaceutical quality system and were either closed or assessed as not affecting the batch's compliance.
 5. All required **in-process and finished-product testing and checks** were performed, including any additional sampling, inspection, tests, or checks required by deviations or changes.
 6. All required **GMP audits** of active substance manufacturing sites and other relevant sites were performed.
@@ -77,11 +75,11 @@ The QP does not personally repeat every test or re-audit every site. The duty is
 
 No QP physically observes every step at every site, particularly in modern global supply chains where the active substance, drug product, primary packaging, and finished packaging may all happen at different companies on different continents. Annex 16 explicitly permits the QP to certify based, in part, on the advice and decisions of others, provided certain conditions hold.
 
-The reliance principle (Annex 16, Section 1.5) has clear conditions. The QP relying on others must:
+The reliance principle in Section 1.5 of Annex 16 sets clear conditions. Paraphrased, a QP who depends on others has to:
 
-- Have **personal knowledge** of the reliability of the persons and systems being relied upon, gained through experience and via the pharmaceutical quality system.
-- Ensure the parties relied upon are **subject to GMP and audit**, either directly or through the company's supplier qualification and audit program.
-- Ensure responsibilities are **defined in writing** in technical or quality agreements.
+- Know first-hand, through experience and the pharmaceutical quality system, that those people and systems can be trusted (**personal knowledge** of their reliability).
+- Make sure the parties being depended on actually fall under **GMP and are audited**, whether directly or through the company's supplier qualification and audit program.
+- Pin down responsibilities **in writing**, through technical or quality agreements.
 
 What this looks like in practice: a QP at the EU importing/release site does not personally test the active substance, but relies on the supplier qualification program, the audit reports of the API site, the analytical results provided, and the quality agreement that defines who is responsible for what. The QP must be able to demonstrate, if asked by an inspector, the basis for that reliance, including the audit history and the agreement.
 

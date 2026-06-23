@@ -9,7 +9,7 @@ tier: "Advanced"
 
 A recall is the most visible thing a quality system ever does. Everything else happens behind the firewall of the site. A recall puts your decisions in front of distributors, pharmacies, hospitals, patients, and a regulator who is watching how fast you move and how well you account for every unit. By the time you are running one, the defect already exists. What you control is speed, completeness, and proof. This page covers how recalls and related field actions are classified, decided, executed, reconciled, and verified, for drugs and biologics under US FDA rules, with the cross-references to complaints, deviations, and CAPA that make the system actually work.
 
-The vocabulary matters and people get it wrong in interviews. A **recall** is a firm's removal or correction of a marketed product that the FDA considers to be in violation of the laws it administers. A **market withdrawal** is removal or correction of a product for a minor issue that would not be subject to legal action by FDA, or no violation at all (for example, normal stock rotation, or a tamper that is not a manufacturing defect). A **stock recovery** is retrieval of product that has not yet left the firm's control. A **field alert report (FAR)** is a specific NDA/ANDA holder notification to FDA, separate from a recall, that can precede or accompany one. A **medical device correction or removal** is governed by a different rule (21 CFR Part 806) and a device "recall" is defined under 21 CFR Part 7 and Part 810. Use the right word for the right situation.
+The vocabulary matters and people get it wrong in interviews. A **recall** is a firm's removal or correction of a marketed product that the FDA considers to be in violation of the laws it administers. A **market withdrawal** is removal or correction of a product for a minor issue that would not be subject to legal action by FDA, or no violation at all (for example, normal stock rotation, or a tamper that is not a manufacturing defect). A **stock recovery** is retrieval of product that has not yet left the firm's control. A **field alert report (FAR)** is a specific NDA/ANDA holder notification to FDA, separate from a recall, that can precede or accompany one. If you make a combination product (a drug plus a device), the device constituent carries a separate vocabulary: a **device correction or removal** is governed by 21 CFR Part 806 and a device "recall" is defined under 21 CFR Part 7 and Part 810. Use the right word for the right situation.
 
 ---
 
@@ -400,7 +400,7 @@ These are the generic patterns that show up in inspectional observations and war
 - **Misclassification by convenience.** Calling a recall a "market withdrawal" to avoid Part 7 obligations and FDA reporting when the product is genuinely violative.
 - **Disposition gaps.** Returned product commingled with saleable stock, or destruction without certificates.
 - **Weak root cause and CAPA.** Product removed but no systemic corrective action, so the defect recurs. The recall fixed the symptom, not the cause.
-- **Missed parallel obligations.** Forgetting the biologic BPDR (45 days), the device 21 CFR 806 correction/removal report, or the drug shortage notification.
+- **Missed parallel obligations.** Forgetting the biologic BPDR (45 days), the 21 CFR 806 correction/removal report for a combination product's device constituent, or the drug shortage notification.
 
 Cross-link: see [FDA warning letters patterns](/articles/fda-warning-letters-patterns) and [483 warning letter response](/articles/483-warning-letter-response) for how these surface and how to respond.
 
@@ -430,7 +430,7 @@ A periodic test of the recall system, usually starting from a lot number to reco
 Level A is 100 percent of consignees, Level B is a percentage between A and C, Level C is 10 percent, Level D is 2 percent, Level E is no checks. A Class I recall is typically Level A or B.
 
 **"What additional reports apply to a biologic versus a small-molecule drug?"**
-For a licensed biologic, a biological product deviation report under 21 CFR 600.14 within 45 days of discovery, in addition to any FAR-equivalent handling and the recall reporting. For a device it would be a correction/removal report under 21 CFR 806. Knowing which obligation attaches to which product type is the point.
+For a licensed biologic, a biological product deviation report under 21 CFR 600.14 within 45 days of discovery, in addition to any FAR-equivalent handling and the recall reporting. For a combination product, the device constituent can also pull in a correction/removal report under 21 CFR 806. Knowing which obligation attaches to which product type is the point.
 
 **"How do you decide recall depth?"**
 By class and where the risk lives. Class I sterile injectables go to user level; a low-risk Class III defect might stop at wholesale. Going too shallow is the common finding, so when in doubt I go deeper and document the rationale.
@@ -482,6 +482,5 @@ Use this as the operational spine. Each line maps to a section above.
 - [Quality event classification triage](/articles/quality-event-classification-triage)
 - [Stability programs ICH](/articles/stability-programs-ich)
 - [DSCSA serialization and track and trace](/articles/dscsa-serialization-track-and-trace)
-- [Device postmarket surveillance MDR](/articles/device-postmarket-surveillance-mdr)
 - [Management review Q10](/articles/management-review-q10)
 - [FDA warning letters patterns](/articles/fda-warning-letters-patterns)

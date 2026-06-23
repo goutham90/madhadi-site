@@ -19,9 +19,7 @@ Management review is a structured, periodic evaluation of the pharmaceutical qua
 
 The primary basis is ICH Q10, Pharmaceutical Quality System (2008). Q10 names management review as one of the four PQS elements (alongside the process performance and product quality monitoring system, CAPA system, and change management system) and it dedicates a section to management responsibilities. Q10 expects senior management to review the performance of the PQS on a periodic basis and to ensure continual improvement. Two specific Q10 ideas drive the meeting:
 
-> Management review should provide assurance that process performance and product quality are managed over the lifecycle. (ICH Q10, Section 4, paraphrased)
-
-> Management review should include action items resulting from previous management reviews, periodic quality reviews, and corrective and preventive actions. (ICH Q10, Section 4, paraphrased)
+The first, drawn from ICH Q10 Section 3.2.4 (Management Review of Process Performance and Product Quality), is that the review exists to give leadership confidence that performance and quality stay in control across the product lifecycle. The second, also from Section 3.2.4, is that the review has to carry forward the open items from earlier reviews, from periodic quality reviews, and from the CAPA system, so nothing falls through the gaps between meetings.
 
 ICH Q10 is guidance, not law on its own. It becomes enforceable through the GMP regulations that the agencies do enforce:
 
@@ -68,7 +66,7 @@ Two cadence traps:
 
 ## What goes into it: the required inputs
 
-The inputs are where most of the regulatory specificity lives. ISO 13485:2016 Section 5.6.2 gives an explicit input list for devices, and ICH Q10 plus EU Chapter 1 imply a similar set for drugs. A management review that demonstrates control over the PQS should pull from the following categories. Treat this as your standing agenda.
+The inputs are where most of the regulatory specificity lives. ISO 13485:2016 Section 5.6.2 spells out a required input list, and ICH Q10 plus EU Chapter 1 imply a similar set for drugs and biologics. A management review that demonstrates control over the PQS should pull from the following categories. Treat this as your standing agenda.
 
 | Input category | What to bring | Source systems |
 |----------------|---------------|----------------|
@@ -95,7 +93,7 @@ A practical principle: bring trends, not single data points. A management review
 
 ## What comes out: the required outputs
 
-Outputs are what separate a real management review from an information session. ISO 13485:2016 Section 5.6.3 requires that outputs include decisions and actions related to improvement of the PQS, improvement of product related to requirements, and resource needs. The same logic applies under Q10.
+Outputs are what separate a real management review from an information session. Under ISO 13485:2016 Section 5.6.3, the review has to produce decisions and actions in four areas: keeping the quality system suitable, adequate, and effective; improving the product against customer and regulatory requirements; meeting resource needs; and responding to new or changed regulations that apply to the organization. The same logic applies under Q10.
 
 Your record should capture, at minimum:
 
@@ -337,4 +335,3 @@ It sits at the top of the escalation pyramid. It consumes outputs from CAPA, dev
 - [Annual Product Review (PQR)](/articles/annual-product-review-pqr) for a key product-level input.
 - [FDA Inspection Readiness](/articles/fda-inspection-readiness) and [Inspection Readiness](/articles/inspection-readiness) for presenting the review under inspection.
 - [Internal Audit Program](/articles/internal-audit-program) and [Quality Metrics and KPIs](/articles/quality-metrics-and-kpis) for two of the most scrutinized inputs.
-- [Medical Device Quality System (QMSR)](/articles/medical-device-quality-system-qmsr) for the ISO 13485 Section 5.6 device-specific requirements.

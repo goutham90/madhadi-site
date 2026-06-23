@@ -23,7 +23,7 @@ Automation systems in GxP manufacturing sit inside the same regulatory framework
 - **EU GMP Annex 11**, Computerised systems. The European expectation for any computerized system used in GMP, including process control systems. It requires validation proportional to risk, an enabled and reviewable audit trail, controlled changes, managed access, and periodic evaluation. Annex 11 explicitly addresses electronic data, accuracy checks, and the relationship between a computerized system and the process it controls.
 - **EU GMP Annex 15**, Qualification and validation. The qualification life cycle (URS, DQ, IQ, OQ, PQ) that frames how you demonstrate a system is fit for use.
 - **GAMP 5 Second Edition (2022)**, A Risk-Based Approach to Compliant GxP Computerized Systems. The industry framework that drives the software category model, the life cycle, and the testing approach for PLCs, SCADA, DCS, and their integration with MES.
-- **FDA Computer Software Assurance for Production and Quality System Software**, issued as a draft in 2022 and finalized in 2025. It reframes effort around critical thinking and risk, pushing test rigor toward features whose failure would most directly harm product quality or patient safety. It is a useful lens for scoping automation testing, treated more fully in [Computer Software Assurance (CSA)](/articles/computer-software-assurance-fda).
+- **FDA Computer Software Assurance for Production and Quality Management System Software**, issued as a draft in 2022 (then titled "Production and Quality System Software") and finalized 24 September 2025 with "Management" added to align with the QMSR and ISO 13485. It reframes effort around critical thinking and risk, pushing test rigor toward features whose failure would most directly harm product quality or patient safety. It is a useful lens for scoping automation testing, treated more fully in [Computer Software Assurance (CSA)](/articles/computer-software-assurance-fda).
 
 A practical point: regulators do not inspect your validation binder for its own sake. They inspect to answer one question. Can you trust the data this system produced when you released the batch. Every validation activity should trace back to that question. For the broader context, see [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11) and the [GAMP 5 CSV framework](/articles/gamp5-csv-framework).
 
@@ -71,7 +71,8 @@ A PLC that controls a regulated process is a GxP computerized system. Its ladder
 
 GAMP 5 categorizes PLC software as:
 
-- **Category 3**: Non-configurable, firmware and embedded operating system components.
+- **Category 1**: Infrastructure software, the embedded operating system and supporting platform the application runs on.
+- **Category 3**: Non-configured products used as supplied, such as standard non-configurable firmware.
 - **Category 4**: Configurable applications, standard function blocks configured by the user.
 - **Category 5**: Custom-developed programs, bespoke ladder logic or function blocks written from scratch.
 
@@ -198,10 +199,11 @@ DCS platforms are used for continuous and complex batch processes: fermentation,
 
 DCS systems in regulated plants often implement the ISA-88 (commonly written S88) batch control model: phases, operations, unit procedures, and procedures coordinated by a batch manager. The core idea of S88 is to separate the recipe (what to make) from the equipment (how to make it), so the same equipment can run different products and the same recipe can run on different equipment trains.
 
-Under S88:
-- **General recipe / master recipe**: the defined manufacturing procedure, controlled at the recipe level.
-- **Site recipe**: the master recipe adapted for a specific site or process train.
-- **Control recipe**: the recipe as executed for one specific batch. This is the GxP record.
+S88 defines four recipe types in a fixed derivation order, each derived from the one above it:
+- **General recipe**: equipment-independent, corporate-level. It states what to make without reference to a specific site or equipment train.
+- **Site recipe**: derived from the general recipe and adapted to a specific site, allowing for local constraints (raw materials, language, regulations).
+- **Master recipe**: derived from the site recipe and tied to a specific process cell or equipment train. It is the equipment-specific template used to build control recipes.
+- **Control recipe**: derived from the master recipe and executed for one specific batch. This is the GxP record.
 
 Recipe management requires validation:
 - Recipe versions controlled, with approval before use.
@@ -371,7 +373,7 @@ Compression discards values inside the deadband. If the deadband is wider than t
 Manual setpoint overrides, mode changes, and alarm acknowledgments, each with a user, timestamp, old and new value, and a reason that ties to a deviation or instruction where required. Unexplained interventions get investigated before release.
 
 **"Explain S88 recipe levels."**
-Master recipe is the controlled manufacturing procedure, site recipe is the site or train adaptation, control recipe is the as-executed record for one batch and is the GxP record retained with the batch.
+Four levels, each derived from the one above. General recipe is equipment-independent and corporate-level. Site recipe is the general recipe adapted to a specific site. Master recipe is derived from the site recipe and is equipment or process-cell specific, the template that control recipes are built from. Control recipe is the as-executed record for one batch and is the GxP record retained with the batch.
 
 **"How do you validate a DCS-to-EBR interface?"**
 Mapping verification field by field with units and rounding, error handling for mid-batch failure, transaction integrity for partial writes, performance at peak load, and source-to-target reconciliation so the EBR value provably equals the DCS value.
@@ -427,7 +429,7 @@ The jump from baseline to this state is mostly about moving controls from manual
 - EU GMP Annex 11, Computerised systems
 - EU GMP Annex 15, Qualification and validation
 - ISPE GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition (2022)
-- FDA Guidance, Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2025)
+- FDA Guidance, Computer Software Assurance for Production and Quality Management System Software (final, 24 September 2025; the 2022 draft was titled "Production and Quality System Software")
 - ANSI/ISA-95, Enterprise-Control System Integration
 - ANSI/ISA-88 (S88), Batch Control
 - ANSI/ISA-18.2, Management of Alarm Systems for the Process Industries

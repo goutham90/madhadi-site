@@ -25,7 +25,7 @@ A third idea sits underneath both: the CCS must be **site-wide and holistic, not
 
 The CCS is not a free-standing idea. It is a sterile-manufacturing application of the ICH quality framework.
 
-**ICH Q9(R1), *Quality Risk Management*** (the R1 revision was finalized in 2023, adding material on subjectivity, formality of risk management, and risk-based decision-making) provides the method. Every choice in a CCS, why this air classification, this gowning regimen, this monitoring frequency, this transfer method, should trace to a documented risk assessment. Annex 1 explicitly invokes QRM and expects the assessments to be science-based and current.
+**ICH Q9(R1), *Quality Risk Management*** (the R1 revision reached ICH Step 4 in January 2023, FDA final guidance 2023, adding material on subjectivity, formality of risk management, and risk-based decision-making) provides the method. Every choice in a CCS, why this air classification, this gowning regimen, this monitoring frequency, this transfer method, should trace to a documented risk assessment. Annex 1 explicitly invokes QRM and expects the assessments to be science-based and current.
 
 **ICH Q10, *Pharmaceutical Quality System***, provides the home. The CCS lives inside your PQS. It is not a one-time document you write to pass an inspection; it is a managed element subject to change control, periodic review, management review, and continual improvement. A CCS that has not been touched since the validation campaign is a CCS that has decayed.
 
@@ -62,7 +62,7 @@ Words like "holistic" mean nothing until you see a row. Below is a small extract
 | Disinfectant fails against a resident spore-former | Sporicidal agent on a validated rotation; sound application technique | Disinfectant efficacy study against site isolates incl. spore-formers; coupon log-reduction data | EM recovery trending; objectionable-organism flagging | Low if rotation followed; owner QC Micro |
 | Filter failure during sterilizing-grade filtration | 0.22/0.2 um rated membrane; redundant filtration where justified; pre- and post-use integrity test | Bacterial-retention validation at worst case; integrity-test method validation | Post-use integrity test every batch; pre-use post-sterilization test where required | Low; owner Manufacturing/QA |
 
-Notice three things this matrix does that a control inventory does not. It names a hazard before it names a control, so the reader sees what each control is *for*. It separates the evidence the control works (one-time qualification) from the verification that it keeps working (routine monitoring). And it forces a residual-risk statement with a named owner, which is where management accountability and the link to [risk management for devices and ISO 14971](/articles/iso-14971-risk-management-devices) thinking enter. The matrix is the part an inspector will photograph.
+Notice three things this matrix does that a control inventory does not. It names a hazard before it names a control, so the reader sees what each control is *for*. It separates the evidence the control works (one-time qualification) from the verification that it keeps working (routine monitoring). And it forces a residual-risk statement with a named owner, which is where management accountability and the link to [quality risk management](/articles/quality-risk-management) thinking enter. The matrix is the part an inspector will photograph.
 
 ## Roles and responsibilities
 
@@ -103,22 +103,24 @@ One subtlety inspectors probe: a barrier system does not relax monitoring; it ch
 
 ## Air classification and monitoring acceptance criteria
 
-The grade system survived the revision, but the limits were sharpened. The four cleanroom grades and their non-viable particle limits, at rest and in operation, remain anchored to ISO 14644-1 classification methodology. The change with the most operational impact: Annex 1 now specifies a limit for the **>=5 um particle size in Grade A** of **20 particles/m3** in operation, where the prior text had treated the Grade A 5 um count as not applicable / effectively unmeasurable. That single number has driven re-qualification work across the industry. For the classification method itself, see [cleanroom classification to ISO 14644](/articles/cleanroom-classification-iso-14644).
+The grade system survived the revision, but the limits were realigned. The four cleanroom grades and their non-viable particle limits, at rest and in operation, remain anchored to ISO 14644-1 classification methodology. The change with the most operational impact concerns the **>=5 um particle size in Grade A**: the 2008 text carried a Grade A >=5 um limit of **20 particles/m3** (a figure experts had set somewhat arbitrarily), and the 2022 revision **removed the >=5 um limit from Grade A (and from Grade B at rest) for classification** to align with ISO 14644-1, retaining a 29/m3 figure only for routine monitoring (Table 5). That realignment, not a new tighter number, is what drove re-qualification work across the industry. For the classification method itself, see [cleanroom classification to ISO 14644](/articles/cleanroom-classification-iso-14644).
 
-Non-viable airborne particle limits (per Annex 1, aligned to ISO 14644-1):
+Non-viable airborne particle classification limits (Annex 1 2022, Table 1, aligned to ISO 14644-1), in particles/m3:
 
 | Grade | >=0.5 um at rest | >=5 um at rest | >=0.5 um in operation | >=5 um in operation |
 |---|---|---|---|---|
-| A | 3,520 | 20 | 3,520 | 20 |
-| B | 3,520 | 29 | 352,000 | 2,900 |
-| C | 352,000 | 2,900 | 3,520,000 | 29,000 |
-| D | 3,520,000 | 29,000 | not defined | not defined |
+| A | 3,520 | Not specified | 3,520 | Not specified |
+| B | 3,520 | Not specified | 352,000 | 2,930 |
+| C | 352,000 | 2,930 | 3,520,000 | 29,300 |
+| D | 3,520,000 | 29,300 | Not predetermined | Not predetermined |
 
-For viable monitoring, Annex 1 sets action limits for Grade A at effectively **no growth**, the expectation is that a single colony-forming unit recovered in Grade A is investigated. The widely-cited maximum limits for viable contamination:
+Read this table carefully, because it is a frequent source of error. For Grade A (and for Grade B at rest), the >=5 um count is "Not specified" for classification; the 2008 fixed value of 20/m3 was removed, and a >=5 um figure may be included only where indicated by the CCS or by historical trend data. Grade D in operation is "Not predetermined" (the firm sets it from the CCS), whereas Grade D at rest is defined (3,520,000 at >=0.5 um, 29,300 at >=5 um). These are the classification limits of Table 1; do not confuse them with the in-operation monitoring limits of Table 5, where Grade A and Grade B both carry a >=5 um monitoring limit of 29/m3.
+
+For viable monitoring, Annex 1 sets the Grade A limit at **no growth**; any recovery in Grade A is a departure from the expected state and is investigated. The widely-cited maximum limits for viable contamination:
 
 | Grade | Air sample (CFU/m3) | Settle plate, 90 mm (CFU/4 hr) | Contact plate, 55 mm (CFU/plate) | Glove print, 5 fingers (CFU) |
 |---|---|---|---|---|
-| A | no growth (<1) | no growth (<1) | no growth (<1) | no growth (<1) |
+| A | No growth | No growth | No growth | No growth |
 | B | 10 | 5 | 5 | 5 |
 | C | 100 | 50 | 25 | not specified |
 | D | 200 | 100 | 50 | not specified |
@@ -135,15 +137,15 @@ The revision also pushed **continuous monitoring** for Grade A. Viable and non-v
 
 The aseptic process simulation, or media fill, is where the CCS meets evidence. The principle: substitute a microbiological growth medium for product and run the process as you actually run it, then incubate the filled units and look for growth. Annex 1's acceptance expectation is stringent and worth knowing cold, because inspectors probe it directly:
 
-- Fewer than 5,000 units filled: no contaminated units. A single positive triggers investigation, including consideration of a repeat run.
-- 5,000 to 10,000 units: one contaminated unit warrants investigation, including consideration of a repeat run; two positives are cause for revalidation after investigation.
-- More than 10,000 units: one contaminated unit triggers investigation; two positives are cause for revalidation after investigation.
+- The target is **zero growth** (clause 9.46). Any contaminated unit is a **failed APS**, regardless of how many units were filled.
+- A single contaminated unit therefore triggers a full investigation and root-cause determination, plus revalidation of the aseptic process, normally a minimum of three successful consecutive repeat APS runs.
+- Product manufactured since the last successful APS is quarantined and its disposition assessed; routine filling resumes only after a successful revalidation.
 
-Across every run size the target is zero, and any positive is investigated thoroughly, the unit-count thresholds govern when a result also forces revalidation, not whether a single positive can be ignored.
+This is a deliberate change from the older tiered approach (the 2008-era and FDA-2004-aseptic-guidance scheme of one positive versus two positives at different unit counts), which Annex 1 2022 replaced. The frequently quoted figure of **5,000 to 10,000 units** is not an acceptance tier at all; clause 9.40 cites it only as the typical number of units to fill in a simulation. Acceptance is governed by clause 9.46, where any single positive fails the run.
 
 The simulation must be representative: it should incorporate the worst-case interventions, the maximum number of operators and their normal activities, shift changes, and the longest permitted process duration. Designing a media fill that quietly avoids the riskiest interventions is a classic way to pass a media fill and fail reality. The CCS should connect APS design to the routine interventions it is meant to qualify, and APS results should feed back into the CCS as evidence (or counter-evidence) that the controls hold. Media fills are run on a defined periodic basis (commonly twice per year per line, per shift configuration) and after significant change. The mechanics of designing, running, and reading a media fill are covered in [aseptic processing and media fills](/articles/aseptic-processing-and-media-fills).
 
-A worked acceptance example: a line fills 8,200 units in a media fill and one unit shows growth. That falls in the 5,000-10,000 band, so the single positive does not automatically force revalidation, but it does force a thorough investigation, identification of the recovered organism, an assessment of whether the contamination route is credible on the real product, and a documented decision (frequently a confirmatory or repeat run). If a second positive appeared in the same run, the expectation shifts to revalidation after the investigation. The CCS is where you record that this line's APS acceptance basis, the intervention list it qualifies, and the link to the routine controls.
+A worked acceptance example: a line fills 8,200 units in a media fill and one unit shows growth. Under Annex 1 2022 that single positive is a failed APS. It forces a thorough investigation, identification of the recovered organism, an assessment of whether the contamination route is credible on the real product, and revalidation of the aseptic process, normally a minimum of three successful consecutive APS runs. Product filled since the last successful simulation is quarantined and its disposition assessed, and routine filling resumes only after the revalidation succeeds. The unit count (8,200) does not soften that outcome; it is simply within the typical fill range. The CCS is where you record this line's APS acceptance basis, the intervention list it qualifies, and the link to the routine controls.
 
 ## How inspectors test a CCS
 
@@ -216,7 +218,7 @@ These are the questions a hiring manager, an auditor, or an inspector asks on th
 
 **"Closed RABS or isolator, how do you justify the choice in the CCS?"** By the product and process risk. An isolator gives complete operator-to-critical-zone separation and can run in a lower-classified background but needs validated VHP decontamination, glove integrity management, and an aeration endpoint. A closed RABS keeps operators out of the critical zone with a Grade B background and is simpler to decontaminate but carries operator-proximity risk. The CCS records the rationale and names each technology's failure modes as hazards.
 
-**"What are the media-fill acceptance criteria?"** Target zero contaminated units at every run size. Below 5,000 units, any positive triggers investigation and consideration of a repeat. From 5,000 to 10,000 and above 10,000, one positive triggers investigation and two positives are cause for revalidation after investigation. Any single positive is always investigated; the count thresholds govern when revalidation is also forced.
+**"What are the media-fill acceptance criteria?"** Under Annex 1 2022 (clause 9.46) the target is zero growth, and any contaminated unit is a failed APS regardless of the number of units filled. A single positive forces a full investigation and revalidation of the aseptic process, normally a minimum of three successful consecutive runs, with product made since the last successful APS quarantined and its disposition assessed. The older tiered scheme of one positive versus two positives at different unit counts was superseded; the 5,000 to 10,000 figure is just the typical fill quantity (clause 9.40), not an acceptance tier.
 
 **"An inspector says 'show me your CCS', what does a strong response look like?"** Not a binder of SOP references. A document that states this product's contamination risks on this line and reasons through how the layered controls address each, that you can defend by tracing one risk from hazard to barrier to procedure to APS to monitoring to trend to deviation history without a break.
 

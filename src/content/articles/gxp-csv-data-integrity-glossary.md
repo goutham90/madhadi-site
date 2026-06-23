@@ -42,7 +42,7 @@ Good Manufacturing Practice. The "c" means "current," signaling that expectation
 Good Laboratory Practice, governing nonclinical safety studies that support regulatory submissions. US GLP is **21 CFR Part 58**. Note the trap: routine QC release testing in a manufacturing lab is GMP, not GLP. GLP applies to the toxicology and safety studies done before and during clinical development.
 
 ### GCP
-Good Clinical Practice, governing the conduct of clinical trials to protect subjects and ensure credible data. The global standard is **ICH E6(R2)**, with E6(R3) advancing the framework toward more risk-based and technology-enabled trials.
+Good Clinical Practice, governing the conduct of clinical trials to protect subjects and ensure credible data. The current global standard is **ICH E6(R3)**, which reached Step 4 in January 2025 and was adopted by FDA in 2025, superseding E6(R2). Its restructured format of overarching general principles plus annexes emphasizes risk-proportionate, technology-enabled trials.
 
 ### GDP
 Good Distribution Practice, governing storage and transport of medicines through the supply chain so product reaches the patient with quality intact. The EU guideline is **2013/C 343/01**. Cold chain control sits here.
@@ -129,22 +129,13 @@ A system where electronic records are kept but signatures or some steps stay on 
 Computer System Validation (also Computerized System Validation). Documented evidence that a computerized system does what it is intended to do, consistently and reliably, and that it will keep doing so. Required wherever a computerized system supports a GxP activity. The lifecycle approach is in [GAMP 5 CSV Framework](/articles/gamp5-csv-framework).
 
 ### CSA
-Computer Software Assurance, the **FDA** guidance finalized for medical device production and quality system software. CSA reframes the effort toward critical thinking and testing that matches risk, rather than producing documentation for its own sake. It does not replace validation; it changes where you spend the effort. See [Computer Software Assurance (FDA)](/articles/computer-software-assurance-fda) and the contrast in [CSV vs CSA Audit Checklist](/articles/csv-csa-audit-checklist).
+Computer Software Assurance, the **FDA** guidance "Computer Software Assurance for Production and Quality System Software" (final 24 September 2025), which supersedes Section 6 of FDA's General Principles of Software Validation. CSA reframes the effort toward critical thinking and testing that matches risk, rather than producing documentation for its own sake. It does not replace validation; it changes where you spend the effort. See [Computer Software Assurance (FDA)](/articles/computer-software-assurance-fda) and the contrast in [CSV vs CSA Audit Checklist](/articles/csv-csa-audit-checklist).
 
 ### GAMP 5
 **Good Automated Manufacturing Practice, Second Edition**, the ISPE guide that is the de facto industry method for CSV. It introduces the software category model and a risk-based, scalable V-model lifecycle. Not a regulation, but cited and expected. See [GAMP 5 CSV Framework](/articles/gamp5-csv-framework).
 
 ### GAMP software categories
-The GAMP 5 classification that scales validation effort to the type of software:
-
-| Category | Type | Example | Validation focus |
-|---|---|---|---|
-| 1 | Infrastructure software | Operating system, database engine | Qualify the platform |
-| 3 | Non-configured (used as supplied) | Standard firmware, simple COTS | Verify intended use, supplier reliance |
-| 4 | Configured | LIMS, MES, configured CDS | Verify the configuration and workflows |
-| 5 | Custom (bespoke) | Custom code, custom scripts | Full lifecycle including design and code review |
-
-Category 2 was retired in GAMP 5. The point: a Category 3 tool does not need the same rigor as a Category 5 build. Misclassifying upward wastes effort; misclassifying downward leaves risk uncovered.
+GAMP 5 sorts software into numbered categories so the validation effort scales to the type of software, from underlying infrastructure (operating systems, database engines, which you qualify as a platform), through off-the-shelf products used as supplied, to configured products such as a LIMS or MES, to fully custom code. The higher categories carry more verification because more of the system was built or shaped for you, with custom builds reaching the full lifecycle including design and code review. Category 2 was dropped in the GAMP 5 model. For the full classification and worked examples, read [GAMP 5 CSV Framework](/articles/gamp5-csv-framework). The point: an off-the-shelf tool used as supplied does not need the same rigor as a custom build. Misclassifying upward wastes effort; misclassifying downward leaves risk uncovered.
 
 ### V-model
 The validation lifecycle drawn as a V: requirements and specifications descend the left side (URS, FS, DS), and verification activities ascend the right side, each test level tied back to the spec it verifies (IQ to design, OQ to functional spec, PQ to user requirements). It makes traceability visual.
@@ -352,7 +343,7 @@ Quality by Design builds quality into the process by understanding it, using **D
 **Validation** proves an analytical method is fit for purpose (accuracy, precision, specificity, linearity, range, and so on) per **ICH Q2(R2)**. **Verification** confirms a compendial (USP/Ph. Eur.) method works in your lab. **Transfer** moves a validated method between labs with documented equivalence. See [Method Validation Essentials](/articles/method-validation-essentials), [Compendial Method Verification](/articles/compendial-method-verification), and [Analytical Method Transfer](/articles/analytical-method-transfer).
 
 ### AIQ
-Analytical Instrument Qualification, the **USP <1058>** framework that classifies instruments into Groups A, B, and C and defines DQ/IQ/OQ/PQ for each. The link between qualifying the instrument and validating the software on it. See [Analytical Instrument Qualification](/articles/analytical-instrument-qualification).
+Analytical Instrument Qualification, the **USP <1058>** framework that classifies instruments into Groups A, B, and C and scales the DQ/IQ/OQ/PQ effort to the group. Group A (standard apparatus and non-measuring equipment) needs only documented conformance to a specification or SOP, while Groups B and C require progressively fuller qualification, with Group C (computer-controlled systems) adding software validation. It is the link between qualifying the instrument and validating the software on it. See [Analytical Instrument Qualification](/articles/analytical-instrument-qualification).
 
 ### Cpk / control chart
 **Cpk** is a process capability index measuring how well a process fits within its specification limits relative to its variation; higher is better, and values around 1.33 are a common target. Control charts (run charts with control limits) distinguish normal variation from a signal that something changed. See [Statistics in Quality (Cpk and Control Charts)](/articles/statistics-in-quality-cpk-control-charts).

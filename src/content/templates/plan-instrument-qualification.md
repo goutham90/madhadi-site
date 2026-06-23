@@ -48,10 +48,10 @@ This plan does not by itself satisfy computerized system validation for a networ
 
 - **AIQ (analytical instrument qualification)**: the documented collection of activities that demonstrate an instrument is suitable for its intended use and kept in a state of maintenance and calibration consistent with that use.
 - **Intended use**: the specific analytical purpose, the methods to be run, and the performance the instrument must deliver, written down before qualification so that qualification can be designed against it.
-- **DQ (design qualification)**: documented evidence that the proposed instrument is suitable for the intended use, including selection of the supplier and the specification it must meet.
-- **IQ (installation qualification)**: documented evidence that the instrument as received and installed matches the purchase order and the design specification, and that the installation environment and utilities are correct.
-- **OQ (operational qualification)**: documented evidence that the installed instrument operates across its intended ranges as specified, tested against the manufacturer specification and the user's requirements.
-- **PQ (performance qualification)**: documented evidence that the instrument performs for its intended use under real conditions, typically using a representative method and a system suitability check, on an ongoing basis.
+- **DQ (design qualification)**: the records that show, before purchase, that the chosen instrument and supplier can meet what the intended use demands, with the specification the instrument has to satisfy written down.
+- **IQ (installation qualification)**: the records that confirm the instrument arrived and was set up as ordered, matches its design specification, and sits in a correct environment with the right utilities and accessories.
+- **OQ (operational qualification)**: the records that prove the installed instrument runs correctly across the ranges it will be used in, checked against both the maker's stated performance and what the laboratory needs from it.
+- **PQ (performance qualification)**: the records that show, in actual use, the instrument keeps doing its job, normally by running a representative method with a system suitability check and repeating that check on a set schedule.
 - **Group A / B / C**: the USP <1058> risk-based classification that sets how much qualification an instrument needs, from simple apparatus (A) to standard equipment with a defined function (B) to configurable instruments with software (C).
 
 ## 5. Group classification
@@ -60,9 +60,9 @@ Classify the instrument before deciding the qualification depth. The class is dr
 
 | USP <1058> group | What it is | Qualification expectation |
 |---|---|---|
-| Group A | Standard apparatus with no measurement capability or usual requirement for calibration; correct use is self-evident | No formal qualification beyond a documented conformity check; covered by good documentation that it is fit for use. Examples: nitrogen evaporators, magnetic stirrers, vortex mixers. |
-| Group B | Standard equipment and instruments providing a measured value, controlled by firmware, needing calibration against a specification | DQ, IQ, OQ against the manufacturer and user specification; calibration and maintenance on schedule. Examples: balances, pH meters, melting-point apparatus, ovens, pumps, simple detectors. |
-| Group C | Instruments and computerized analytical systems, configurable or programmable, where user requirements drive the function | Full DQ, IQ, OQ, PQ; the associated software is addressed by validation appropriate to its configurability. Examples: HPLC and UHPLC with a data system, GC, dissolution apparatus with control software, mass spectrometers. |
+| Group A | Simple equipment that produces no analytical reading and is normally not calibrated, where correct operation is obvious from how it is used | No formal qualification beyond a documented conformity check; covered by good documentation that it is fit for use. Typical items: stirrers, mixers, evaporators, centrifuges, and similar lab aids. |
+| Group B | Equipment that returns a measured value and runs on fixed firmware rather than user-configurable software, so it has to be calibrated and checked against a stated specification | DQ, IQ, OQ against the manufacturer and user specification; calibration and maintenance on schedule. Typical items: balances, pH and conductivity meters, ovens and incubators, pumps, melting-point devices, basic detectors. |
+| Group C | More complex instruments and analytical systems whose behavior the user shapes through configurable or programmable software, so the function depends on how it is set up | Full DQ, IQ, OQ, PQ; the associated software is addressed by validation appropriate to its configurability. Typical items: HPLC and UHPLC with a chromatography data system, GC, dissolution systems with control software, mass spectrometers. |
 
 | Item | Entry |
 |---|---|

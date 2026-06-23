@@ -33,13 +33,15 @@ The clauses you must be able to quote:
 
 - **11.300 (Controls for identification codes/passwords).** Covers uniqueness of the ID/password combination, periodic password aging, loss management, unauthorized-use detection and reporting, and testing of any device that bears or generates codes.
 
-> 11.200(a): "Employ at least two distinct identification components such as an identification code and password."
+> 11.200(a)(1): "Employ at least two distinct identification components such as an identification code and password."
 
 ### EU GMP Annex 11 (Computerised Systems) and Eudralex Volume 4
 
-Annex 11 of the EU GMP Guide, in force since June 2011, is the European counterpart. It is principle-based rather than prescriptive, so it states outcomes rather than two-component mechanics. The relevant clause is Annex 11 section 14 (Electronic Signatures):
+Annex 11 of the EU GMP Guide, in force since June 2011, is the European counterpart. It is principle-based rather than prescriptive, so it states outcomes rather than two-component mechanics. The relevant clause is Annex 11 section 14 (Electronic Signatures), which allows electronic records to be signed electronically and sets out three expectations for those signatures:
 
-> "Electronic records may be signed electronically. Electronic signatures are expected to: a) have the same impact as hand-written signatures within the boundaries of the company, b) be permanently linked to their respective record, c) include the time and date that they were applied."
+1. Within the company they should carry the same weight as a handwritten signature.
+2. They must stay permanently linked to the record they sign.
+3. They must record the date and time the signature was applied.
 
 Annex 11 also leans on EU GMP Chapter 4 (Documentation) for the record-control principles and on the eIDAS Regulation (Regulation (EU) No 910/2014) when a signature must carry legal weight outside the company boundary, for example on a Qualified Person's declaration that travels with a batch. eIDAS defines simple, advanced, and qualified electronic signatures; most internal GMP signatures sit at the "advanced" tier in practical terms, while cross-company or regulatory-facing signatures may need a qualified electronic signature backed by a certificate.
 
@@ -142,13 +144,13 @@ The "Reason" line is optional under the letter of 11.50 but is good practice and
 
 This is the clause that drives the most configuration decisions, and the one interviewers love because the rule text is precise.
 
-### What 11.200(a) actually says
+### What 11.200(a)(1) actually says
 
-11.200(a) splits signature execution into two cases based on whether the signing happens inside a single continuous session of controlled system access:
+11.200(a)(1) splits signature execution into two cases based on whether the signing happens inside a single continuous session of controlled system access:
 
-> 11.200(a)(1): "When an individual executes a series of signings during a single, continuous period of controlled system access, the first signing shall be executed using all electronic signature components; subsequent signings shall be executed using at least one electronic signature component that is only executable by, and designed to be used only by, the individual."
+> 11.200(a)(1)(i): "When an individual executes a series of signings during a single, continuous period of controlled system access, the first signing shall be executed using all electronic signature components; subsequent signings shall be executed using at least one electronic signature component that is only executable by, and designed to be used only by, the individual."
 
-> 11.200(a)(2): "When an individual executes one or more signings not performed during a single, continuous period of controlled system access, each signing shall be executed using all of the electronic signature components."
+> 11.200(a)(1)(ii): "When an individual executes one or more signings not performed during a single, continuous period of controlled system access, each signing shall be executed using all of the electronic signature components."
 
 Decoded:
 
@@ -169,7 +171,7 @@ You define the boundary in configuration:
 
 ### How to configure it: the decision sequence
 
-1. Decide the two signature components. For non-biometric signatures this is almost always user ID plus password (11.200(a)). Document this choice.
+1. Decide the two signature components. For non-biometric signatures this is almost always user ID plus password (11.200(a)(1)). Document this choice.
 2. Decide which component is required for subsequent in-session signings. Choose the password (private, individual-executable). Configure the application so subsequent signings prompt for password only, not full re-login.
 3. Set the inactivity timeout per system risk. Justify the value in the risk assessment; do not accept the vendor default without rationale.
 4. Set the absolute session cap if the system supports it.
@@ -187,7 +189,7 @@ You define the boundary in configuration:
 | Wrong password on any signing | None applied | Signature rejected, attempt logged, audit trail entry |
 | Repeated wrong password | None applied | Lockout per 11.300; security event raised |
 
-The "individual-executable" requirement in 11.200(a)(1) is why you cannot use the user ID as the single subsequent component: if a colleague can see or already-populated the ID field, it is not "only executable by" the individual. The password is the component that stays private.
+The "individual-executable" requirement in 11.200(a)(1)(i) is why you cannot use the user ID as the single subsequent component: if a colleague can see or already-populated the ID field, it is not "only executable by" the individual. The password is the component that stays private.
 
 ### Common re-authentication mistakes
 
@@ -259,7 +261,7 @@ Non-repudiation is the property that a signer cannot credibly deny having signed
 
 ### The Part 11 certification letter (11.100(c))
 
-Before first use of electronic signatures, US-regulated organizations must certify to the FDA, in a one-time signed paper letter to the Office of Regional Operations, that their electronic signatures are intended to be the legally binding equivalent of handwritten signatures. This is an organizational, one-time act, not per-system, and it is frequently forgotten by companies new to Part 11. If asked in an audit "have you submitted your Part 11 certification," the answer should be a documented yes with the letter on file.
+Before first use of electronic signatures, US-regulated organizations must certify to the FDA, in a one-time certification that carries a handwritten signature, that their electronic signatures are intended to be the legally binding equivalent of handwritten signatures. Under 11.100(c)(1) the certification may be submitted electronically or on paper; following a 2023 technical amendment the FDA routes it to its Letters of Non-Repudiation Agreement page rather than the old Office of Regional Operations address. This is an organizational, one-time act, not per-system, and it is frequently forgotten by companies new to Part 11. If asked in an audit "have you submitted your Part 11 certification," the answer should be a documented yes with the letter on file.
 
 ---
 
@@ -319,7 +321,7 @@ When you build your [inspection readiness](/articles/fda-inspection-readiness) p
 
 ## Interview-ready questions and answers
 
-**Q: Walk me through 11.200(a). When do you need both signature components and when do you need one?**
+**Q: Walk me through 11.200(a)(1). When do you need both signature components and when do you need one?**
 First signing in a single continuous session needs both components, typically ID and password. Subsequent signings in that same session need at least one component, and it must be one only the individual can execute, so the password. Once the session ends, by logout or timeout, the next signing needs both components again. The user ID alone is not acceptable as the single subsequent component because it is not individual-executable.
 
 **Q: How is an electronic signature bound to its record?**
@@ -335,7 +337,7 @@ For a manufacturing execution system I would default to password-based two-compo
 The earlier signature must be invalidated. The system should either block the edit and force re-signature, or accept the edit, increment the version, mark the prior signature as applying only to the prior version, and require a new signature on the new version. If the old signature silently stays attached to changed content, you have a binding failure and a data-integrity finding.
 
 **Q: What is the Part 11 certification letter and who needs it?**
-It is the one-time written certification under 11.100(c) to the FDA, sent to the Office of Regional Operations, stating that the organization's electronic signatures are intended to be the legally binding equivalent of handwritten signatures. It is organization-wide, not per system, and must be on file before first use of electronic signatures.
+It is the one-time certification under 11.100(c) to the FDA, bearing a handwritten signature and submittable electronically or on paper (the FDA now routes it to its Letters of Non-Repudiation Agreement page), stating that the organization's electronic signatures are intended to be the legally binding equivalent of handwritten signatures. It is organization-wide, not per system, and must be on file before first use of electronic signatures.
 
 **Q: How do you achieve non-repudiation?**
 Through the stack, not one control: identity verification at enrollment, individual-only signature components or biometrics, signature-to-record binding, and an audit trail that independently records the signing event. Each removes one way a signer could deny the act; together they make denial untenable.

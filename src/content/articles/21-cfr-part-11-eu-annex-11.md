@@ -21,7 +21,7 @@ It helps to remember what these rules replaced. For most of the twentieth centur
 
 Part 11 and Annex 11 exist to rebuild, in software and procedure, the assurance that ink and paper used to provide for free. Part 11 took effect on August 20, 1997. Its central promise is conditional: if you meet the controls in the regulation, FDA will treat your electronic records and signatures as the legal equivalent of paper and ink. If you do not, your electronic records may not satisfy the underlying GMP, GLP, or GCP recordkeeping requirements at all. That linkage to the underlying requirement, which FDA calls the "predicate rule," is the single most important concept for reading Part 11 correctly. Part 11 never stands alone. It always sits on top of a predicate rule that already required the record to exist.
 
-A predicate rule is just the other FDA regulation that obliges you to keep the record in the first place. For drug manufacturing it is 21 CFR 211 (cGMP for finished pharmaceuticals). For nonclinical safety studies it is 21 CFR 58 (GLP). For clinical trials it is 21 CFR 312 and the GCP regulations. For medical devices it is 21 CFR 820 (the Quality System Regulation, transitioning to the Quality Management System Regulation under 21 CFR 820 as amended). Part 11 supplies the electronic controls; the predicate rule supplies the reason the record must exist and how long it must be kept. When you assess a system, identify its predicate rule first. Everything else follows from it.
+A predicate rule is just the other FDA regulation that obliges you to keep the record in the first place. For drug manufacturing it is 21 CFR 211 (cGMP for finished pharmaceuticals). For nonclinical safety studies it is 21 CFR 58 (GLP). For clinical trials it is 21 CFR 312 and the GCP regulations. For medical devices and the device part of a combination product it is 21 CFR 820, now the Quality Management System Regulation (QMSR), effective February 2, 2026, which incorporates ISO 13485:2016 by reference. Part 11 supplies the electronic controls; the predicate rule supplies the reason the record must exist and how long it must be kept. When you assess a system, identify its predicate rule first. Everything else follows from it.
 
 ---
 
@@ -141,7 +141,7 @@ Part 11 subpart C covers electronic signatures. The requirements are precise, an
 
 **Signature manifestation (11.50).** Signed records must show the printed name of the signer, the date and time the signature was executed, and the meaning of the signature, such as "reviewed by," "approved by," or "performed by." This information must appear on any human-readable form of the record, including printouts.
 
-**Agency certification (11.100(c)).** Before or at the time of first using electronic signatures, an organization must certify to FDA, in a paper letter signed with a traditional handwritten signature, that it intends its electronic signatures to be the legally binding equivalent of handwritten signatures. This is a one-time certification to the agency, not a per-system filing. The letter goes to the FDA Office of Regional Operations, references 21 CFR 11.100(c), and need only be submitted once for the organization. Keep a copy; inspectors sometimes ask to see it.
+**Agency certification (11.100(c)).** Before or at the time of first using electronic signatures, an organization must certify to FDA that it intends its electronic signatures to be the legally binding equivalent of handwritten signatures. Under 11.100(c)(1) the certification must carry a traditional handwritten signature, but it may be submitted in electronic or paper form, it is not restricted to a mailed paper letter. This is a one-time certification to the agency, not a per-system filing. FDA's 2023 technical amendment updated the submission route: the current path is FDA's published Letters of Non-Repudiation Agreement page (with electronic submitters using the Electronic Submissions Gateway), not the former Office of Regional Operations mailing address. Keep a copy; inspectors sometimes ask to see it.
 
 A worked example helps tie these together. An analyst finishes a chromatography run and approves the result. A compliant flow: the analyst is already logged in under a unique account, the system prompts for the password again, the analyst selects the meaning "approved by" from a controlled list, and the system writes the printed name, the timestamp, and the meaning into the record and locks that signature to that exact record version. If the result is later reprocessed, the prior signature does not silently carry over to the new version. Each of those behaviors traces to a specific clause above, and the absence of any one of them is a common inspection finding.
 
@@ -172,7 +172,7 @@ Three things make this compliant rather than decorative: each line shows printed
 | Quality assurance | Owns the accountability policy, approves the role matrix, audits attribution |
 | HR / identity management | Verifies identity before a signature is assigned (11.100(b)) |
 | Individual user | Signs the accountability agreement, never shares credentials |
-| Regulatory affairs | Files and retains the 11.100(c) certification letter to FDA |
+| Regulatory affairs | Files and retains the 11.100(c) certification to FDA |
 
 ---
 
@@ -196,11 +196,11 @@ Annex 11 is organized as principles followed by numbered clauses grouped under t
 
 **Annex 11 is lifecycle-wide.** It addresses risk management as a thread through the whole lifecycle (Principle and clause 1), supplier and service provider assessment (clause 3.2), and formal validation with traceability between requirements and testing (clause 4).
 
-**Annex 11 is explicit on data integrity.** Clause 5 requires built-in checks for the correct and secure entry and processing of data where the system exchanges data electronically with other systems. Clause 6 requires accuracy checks for critical data entered manually. Clause 9 requires consideration, based on a risk assessment, of building an audit trail that records GMP-relevant changes and deletions, and clause 12 covers security and access control.
+**Annex 11 is explicit on data integrity.** Where a system passes data to another system electronically, clause 5 expects the interface itself to be checked so the transfer stays correct and secure. Clause 6 turns attention to data a person types in by hand, asking for a way to confirm critical entries were keyed correctly. Clause 9 frames the audit trail as a risk-based decision, log the GMP-relevant changes and deletions when the risk assessment calls for it, and clause 12 covers security and access control.
 
-**Annex 11 addresses storage and backup.** Clause 7 requires that data be secured against damage by both physical and electronic means and that stored data be checked for accessibility, readability, and accuracy. Clause 7.2 requires regular backups and verification that backups can be restored.
+**Annex 11 addresses storage and backup.** Clause 7 is about protecting stored data from harm, physical and electronic alike, and periodically confirming you can still reach it, read it, and trust it. Clause 7.2 pushes further: take backups on a routine, and prove the restore actually works rather than assuming it.
 
-**Annex 11 requires business continuity.** Clause 16 requires arrangements to ensure continuity of support for processes in the event of a system breakdown, with the recovery time matched to the criticality of the process. This is a documented, tested disaster recovery expectation, covered in depth in the [backup, restore, and disaster recovery validation article](/articles/backup-restore-disaster-recovery-validation).
+**Annex 11 requires business continuity.** Clause 16 asks what happens when the system goes down: you need a plan that keeps the supported process running, and the speed of that recovery should track how critical the process is. In practice this is a documented, tested disaster recovery expectation, covered in depth in the [backup, restore, and disaster recovery validation article](/articles/backup-restore-disaster-recovery-validation).
 
 **Annex 11 names third parties directly.** Clause 3 sets expectations for any third party involved in providing, installing, configuring, integrating, validating, maintaining, or operating a system, and requires formal agreements that define each party's responsibilities. Clause 7.2 also reaches data held on behalf of the company by a third party.
 
@@ -229,7 +229,8 @@ The two regulations cover much of the same ground but allocate it differently. T
 | Audit trails | 11.10(e) | Clause 9 (risk-based) |
 | Access controls and security | 11.10(d), (g) | Clause 12 |
 | Electronic signatures | Subpart C | Clause 14 |
-| Data accuracy checks | 11.10(f), (h) | Clause 5, Clause 6 |
+| Interface and device checks | 11.10(h) (device checks) | Clause 5 (electronic data exchange) |
+| Manual data entry accuracy checks | No direct equivalent (closest is validation, 11.10(a)) | Clause 6 (critical data entered manually) |
 | Data retention and archiving | 11.10(b), (c) | Clause 7, Clause 17 |
 | Backup and restore | Not explicit | Clause 7.2 (required) |
 | Disaster recovery / continuity | Not explicit | Clause 16 (required) |
@@ -327,7 +328,7 @@ It is the underlying FDA regulation that requires the record to exist (211 for c
 By who controls access to the content, not by where it is hosted. If your organization controls access through your own identity management and a contract that walls off provider staff, it is closed even in the cloud. If a party you do not govern controls access, or records cross a public boundary, it is open and needs the 11.30 controls. When unsure, treat it as open.
 
 **"Walk me through a compliant electronic signature."**
-Unique account per person (11.100(a)), identity verified before assignment (11.100(b)), two components for the first signing in a session and re-prompt across sessions (11.200(a)), bound to the specific record version so it cannot be copied to another record (11.70), and the printed name, timestamp, and meaning shown on screen and on the printout (11.50). One-time certification letter to FDA under 11.100(c).
+Unique account per person (11.100(a)), identity verified before assignment (11.100(b)), two components for the first signing in a session and re-prompt across sessions (11.200(a)), bound to the specific record version so it cannot be copied to another record (11.70), and the printed name, timestamp, and meaning shown on screen and on the printout (11.50). One-time certification to FDA under 11.100(c).
 
 **"What is the difference between Part 11 and Annex 11 on audit trails?"**
 Part 11.10(e) requires a computer-generated, time-stamped audit trail for create, modify, delete actions, retained as long as the record. Annex 11 clause 9 is risk-based: you build the audit trail for GMP-relevant changes based on a risk assessment. In practice both expect old and new values, user, and timestamp on critical data, and both expect the trail to be reviewed, not just generated.

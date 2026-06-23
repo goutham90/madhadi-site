@@ -666,13 +666,6 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
-"design-controls-medical-devices.md": {
-	id: "design-controls-medical-devices.md";
-  slug: "design-controls-medical-devices";
-  body: string;
-  collection: "articles";
-  data: InferEntrySchema<"articles">
-} & { render(): Render[".md"] };
 "deviation-management.md": {
 	id: "deviation-management.md";
   slug: "deviation-management";
@@ -680,23 +673,9 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
-"device-postmarket-surveillance-mdr.md": {
-	id: "device-postmarket-surveillance-mdr.md";
-  slug: "device-postmarket-surveillance-mdr";
-  body: string;
-  collection: "articles";
-  data: InferEntrySchema<"articles">
-} & { render(): Render[".md"] };
 "device-software-cybersecurity-samd.md": {
 	id: "device-software-cybersecurity-samd.md";
   slug: "device-software-cybersecurity-samd";
-  body: string;
-  collection: "articles";
-  data: InferEntrySchema<"articles">
-} & { render(): Render[".md"] };
-"device-submission-pathways-510k-pma.md": {
-	id: "device-submission-pathways-510k-pma.md";
-  slug: "device-submission-pathways-510k-pma";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -809,13 +788,6 @@ declare module 'astro:content' {
 "eu-ai-act-life-sciences.md": {
 	id: "eu-ai-act-life-sciences.md";
   slug: "eu-ai-act-life-sciences";
-  body: string;
-  collection: "articles";
-  data: InferEntrySchema<"articles">
-} & { render(): Render[".md"] };
-"eu-mdr-ivdr-overview.md": {
-	id: "eu-mdr-ivdr-overview.md";
-  slug: "eu-mdr-ivdr-overview";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -1072,13 +1044,6 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
-"iso-14971-risk-management-devices.md": {
-	id: "iso-14971-risk-management-devices.md";
-  slug: "iso-14971-risk-management-devices";
-  body: string;
-  collection: "articles";
-  data: InferEntrySchema<"articles">
-} & { render(): Render[".md"] };
 "it-change-and-configuration-management-gxp.md": {
 	id: "it-change-and-configuration-management-gxp.md";
   slug: "it-change-and-configuration-management-gxp";
@@ -1103,13 +1068,6 @@ declare module 'astro:content' {
 "managing-a-live-inspection.md": {
 	id: "managing-a-live-inspection.md";
   slug: "managing-a-live-inspection";
-  body: string;
-  collection: "articles";
-  data: InferEntrySchema<"articles">
-} & { render(): Render[".md"] };
-"medical-device-quality-system-qmsr.md": {
-	id: "medical-device-quality-system-qmsr.md";
-  slug: "medical-device-quality-system-qmsr";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
@@ -1509,13 +1467,6 @@ declare module 'astro:content' {
 "training-program-gxp.md": {
 	id: "training-program-gxp.md";
   slug: "training-program-gxp";
-  body: string;
-  collection: "articles";
-  data: InferEntrySchema<"articles">
-} & { render(): Render[".md"] };
-"unique-device-identification-udi.md": {
-	id: "unique-device-identification-udi.md";
-  slug: "unique-device-identification-udi";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

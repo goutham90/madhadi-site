@@ -46,13 +46,13 @@ State the rules once, up front, so a reviewer sees that a "trend" is defined, no
 
 ### 3.1 Control-chart signal rules
 
-A metric is flagged when any of the following is true for the period. These are the common Western Electric / Nelson style run rules; cite the set you have adopted.
+A metric is flagged when any of the criteria below is met for the period. Adopt one published run-rule set (for example the Western Electric or Nelson rules) as your governing reference, state which set you use, and apply it unchanged each period. The criteria below describe the kinds of patterns that set should detect; replace them with the exact counts and limits from the standard you adopt.
 
-1. One point beyond a control (action) limit.
-2. Two of three consecutive points beyond the same alert (2 sigma) limit.
-3. Four of five consecutive points beyond the same 1 sigma line.
-4. Seven (or eight) consecutive points on the same side of the centerline (a shift).
-5. Six consecutive points steadily increasing or decreasing (a drift).
+1. A single point that falls outside an action (control) limit.
+2. A short cluster of recent points repeatedly breaching the same warning (2 sigma) zone, where most of a small consecutive group lands beyond that zone.
+3. A run of recent points that mostly sit beyond the same 1 sigma zone on one side, signalling the process has moved toward a limit.
+4. A long enough sequence of points all on one side of the centerline to indicate a sustained shift in level.
+5. A steady run of points trending in one direction (all rising or all falling) that indicates drift.
 6. A point at or worse than a registered, validated, or regulatory limit, regardless of statistical status.
 
 Any flagged metric gets a row in the escalation log (section 8) and, where required, an OOT investigation per `<<FILL: SOP-ID>>`.

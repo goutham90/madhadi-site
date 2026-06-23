@@ -9,7 +9,7 @@ tier: "Advanced"
 
 An inspection is won or lost in the minutes between a question being asked and an answer being given. Readiness work, the document indexing, the mock inspections, the SME coaching, all of it pays off only if the live event is run with discipline. This article is about that live event: how the front room and back room actually operate hour by hour, who sits where, how a document request travels from the inspector's pen to the inspector's hand, what a subject matter expert (SME) should and should not say, and how you close each day so tomorrow starts clean.
 
-The mechanics described here apply to a US FDA inspection conducted under the Federal Food, Drug, and Cosmetic Act, an EU GMP inspection by a national competent authority under Directive 2003/94/EC and the EudraLex Volume 4 framework, an EMA-coordinated inspection, an MHRA inspection, or a PMDA inspection. The legal authorities differ, and the differences matter (covered below), but the room mechanics are nearly identical across them.
+The mechanics described here apply to a US FDA inspection conducted under the Federal Food, Drug, and Cosmetic Act, an EU GMP inspection by a national competent authority under Commission Directive (EU) 2017/1572 and the EudraLex Volume 4 framework, an EMA-coordinated inspection, an MHRA inspection, or a PMDA inspection. The legal authorities differ, and the differences matter (covered below), but the room mechanics are nearly identical across them.
 
 For the upstream preparation that feeds this, see [FDA inspection readiness](/articles/fda-inspection-readiness), [inspection readiness](/articles/inspection-readiness), and [the mock inspection program](/articles/mock-inspection-program). For the differences between agencies, see [FDA vs EMA inspection dynamics](/articles/fda-vs-ema-inspection-dynamics).
 
@@ -22,7 +22,7 @@ A live inspection is the period from the moment an investigator presents credent
 The authority you are responding to:
 
 - **US FDA.** Section 704 of the FD&C Act (21 U.S.C. 374) grants the right to inspect. The investigator carries an FDA Form 482 (Notice of Inspection), which they present at the start. Observations are issued on FDA Form 483 at the close. The FD&C Act, after the FDA Safety and Innovation Act amendments, makes delaying, denying, limiting, or refusing an inspection a basis for deeming a drug adulterated under section 501(j). That single fact governs front room behavior: you cooperate, you do not stall.
-- **EU / EEA.** Directive 2001/83/EC and the GMP Directive 2003/94/EC give competent authorities inspection powers; EudraLex Volume 4 is the GMP code being assessed. The Compilation of Union Procedures on Inspections describes how inspectors operate. Deficiencies are graded critical, major, or other (minor) and land in an inspection report, followed where warranted by a decision on the GMP certificate or a statement of non-compliance entered into EudraGMDP.
+- **EU / EEA.** Directive 2001/83/EC and Commission Directive (EU) 2017/1572 (which lays down GMP principles for human medicinal products and supersedes the former Directive 2003/94/EC; Delegated Regulation (EU) 2017/1569 covers investigational medicinal products) give competent authorities inspection powers; EudraLex Volume 4 is the GMP code being assessed. The Compilation of Union Procedures on Inspections describes how inspectors operate. Deficiencies are graded critical, major, or other (minor) and land in an inspection report, followed where warranted by a decision on the GMP certificate or a statement of non-compliance entered into EudraGMDP.
 - **PIC/S members (MHRA, HPRA, TGA, Health Canada, and others).** Operate to the PIC/S GMP Guide (PE 009), which mirrors EudraLex Volume 4, with the same critical/major/other grading.
 
 You do not get to choose whether the inspection happens. You do get to choose how organized, honest, and controlled your side of it is. The front room and back room model exists to make that control possible.
@@ -278,7 +278,7 @@ The room model is the same; several practical points differ. For the full treatm
 | Grading | No formal grading on the 483 itself; significance assessed later | Explicit critical/major/other grading |
 | Photography | Investigators take photos as part of inspection | Usually requested first |
 | Consequence of refusal | Delay/deny/limit/refuse can deem product adulterated (FDCA 501(j)) | Can lead to non-compliance statement, GMP certificate action |
-| Response vehicle | Written 483 response (commit within ~15 working days for timely review of corrective actions) | CAPA response to the inspection report within the timeline the authority sets |
+| Response vehicle | Written 483 response (submit within 15 business days so corrective-action adequacy is reviewed before any warning letter) | CAPA response to the inspection report within the timeline the authority sets |
 
 A practical consequence: with FDA, you will not always get a daily wrap up, and observations can feel like they crystallize at the closeout, so your real time scribe record and internal debriefs carry more of the early warning load. With EU inspectors, graded deficiencies and a structured report mean you should clarify grading rationale at the close so your CAPA is proportionate.
 

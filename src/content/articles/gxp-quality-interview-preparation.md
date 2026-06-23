@@ -36,7 +36,7 @@ The depth scales with the role. For an entry point, expect mostly definitional a
 
 GxP is the umbrella for the Good Practice regulations: Good Manufacturing Practice (GMP), Good Clinical Practice (GCP), Good Laboratory Practice (GLP), Good Distribution Practice (GDP), and others. The common thread is that they require records and controls sufficient to prove product quality, patient safety, and data reliability.
 
-A strong answer connects GxP to the patient: the regulations exist because a defective drug or a falsified record can kill someone, and the public cannot inspect the product themselves. So the regulator inspects the system that made it. Tie it to specifics if you can: US cGMP for finished pharmaceuticals lives in 21 CFR Parts 210 and 211; GLP for nonclinical studies in 21 CFR Part 58; GCP is harmonized through ICH E6(R2). See [what is GMP](/articles/what-is-gmp) and the [CFR 210/211 cGMP walkthrough](/articles/cfr-210-211-cgmp-walkthrough).
+A strong answer connects GxP to the patient: the regulations exist because a defective drug or a falsified record can kill someone, and the public cannot inspect the product themselves. So the regulator inspects the system that made it. Tie it to specifics if you can: US cGMP for finished pharmaceuticals lives in 21 CFR Parts 210 and 211; GLP for nonclinical studies in 21 CFR Part 58; GCP is harmonized through ICH E6(R3), which reached Step 4 in January 2025 and superseded E6(R2). See [what is GMP](/articles/what-is-gmp) and the [CFR 210/211 cGMP walkthrough](/articles/cfr-210-211-cgmp-walkthrough).
 
 **Trap:** treating GxP as paperwork. The interviewer wants to hear that the records exist because they are evidence, not bureaucracy.
 
@@ -64,7 +64,7 @@ Quality Control is the testing function: it runs assays and inspects product aga
 
 ### "What is a CAPA, and how is it different from a correction?"
 
-A correction is the immediate fix: you scrap the bad batch, you re-train the operator who made the error. Corrective action addresses the root cause so the same problem does not recur. Preventive action addresses a potential problem that has not happened yet, often a risk identified from a trend. The CAPA concept appears in 21 CFR Part 820 for devices and is embedded throughout the pharmaceutical quality system described in ICH Q10. The most common interview mistake is calling a correction a CAPA. Read [what is a CAPA](/articles/what-is-a-capa) and [CAPA effectiveness verification](/articles/capa-effectiveness-verification).
+A correction is the immediate fix: you scrap the bad batch, you re-train the operator who made the error. Corrective action addresses the root cause so the same problem does not recur. Preventive action addresses a potential problem that has not happened yet, often a risk identified from a trend. The CAPA concept is embedded throughout the pharmaceutical quality system described in ICH Q10. It also sits in 21 CFR Part 820, though under the Quality Management System Regulation effective 2 February 2026, Part 820 now incorporates ISO 13485:2016 by reference and CAPA derives from ISO 13485 clause 8.5; the old prescriptive 820.100 is the legacy, pre-2026 provision. The most common interview mistake is calling a correction a CAPA. Read [what is a CAPA](/articles/what-is-a-capa) and [CAPA effectiveness verification](/articles/capa-effectiveness-verification).
 
 ---
 
@@ -102,12 +102,12 @@ A good URS requirement is uniquely numbered, testable, and free of design langua
 
 GAMP 5 is the ISPE guide *GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems*, with a second edition published in 2022 that strengthened the risk-based and critical-thinking message. Its core idea is that validation effort scales with risk and with how much the software was customized.
 
-| Category | Type | Examples | Validation effort |
+| Category | What it covers | Examples | Validation effort |
 |---|---|---|---|
-| 1 | Infrastructure software | Operating systems, databases, middleware | Qualified as part of infrastructure |
-| 3 | Non-configured products | Used as installed, default config | Verify intended use |
-| 4 | Configured products | LIMS, MES, configurable platforms | Verify configuration and use |
-| 5 | Custom / bespoke | Code written for you, custom scripts | Full lifecycle, highest rigor |
+| 1 | Underlying platform layer the application runs on | Operating systems, databases, middleware | Qualified as part of infrastructure |
+| 3 | Commercial software run as supplied, no configuration | Used as installed, default config | Verify intended use |
+| 4 | Commercial software set up to fit your process | LIMS, MES, configurable platforms | Verify configuration and use |
+| 5 | Software written specifically for you | Code written for you, custom scripts | Full lifecycle, highest rigor |
 
 There is no Category 2 in the current guide; it was retired. Mentioning that detail signals you actually know the guide rather than a summary of it. Tie it together at [GAMP 5 CSV framework](/articles/gamp5-csv-framework) and [CSV risk assessment methodology](/articles/csv-risk-assessment-methodology).
 
@@ -115,7 +115,7 @@ There is no Category 2 in the current guide; it was retired. Mentioning that det
 
 ### "How does Computer Software Assurance (CSA) change things?"
 
-CSA is the FDA's draft guidance *Computer Software Assurance for Production and Quality System Software* (2022), aimed at device and production software but influential across the field. It shifts emphasis from documentation volume to critical thinking and risk: spend assurance effort on functions that affect product quality or patient safety, use the least burdensome testing that gives confidence (including unscripted and ad hoc testing for low-risk functions), and lean on vendor activities. The contrast to make: traditional CSV often produced thick scripts for trivial functions; CSA asks "what is the risk if this fails, and what testing actually reduces it?" See [computer software assurance FDA](/articles/computer-software-assurance-fda) and [CSV vs CSA audit checklist](/articles/csv-csa-audit-checklist).
+CSA is the FDA's final guidance *Computer Software Assurance for Production and Quality Management System Software*, issued 24 September 2025 (updated 3 February 2026), aimed at device and production software but influential across the field. It shifts emphasis from documentation volume to critical thinking and risk: spend assurance effort on functions that affect product quality or patient safety, use the least burdensome testing that gives confidence (including unscripted and ad hoc testing for low-risk functions), and lean on vendor activities. The contrast to make: traditional CSV often produced thick scripts for trivial functions; CSA asks "what is the risk if this fails, and what testing actually reduces it?" See [computer software assurance FDA](/articles/computer-software-assurance-fda) and [CSV vs CSA audit checklist](/articles/csv-csa-audit-checklist).
 
 A strong nuance: CSA does not abolish documentation or validation. It re-allocates effort. If you claim "CSA means we don't need test scripts," you will lose the room.
 
@@ -208,7 +208,7 @@ These come up for QA roles constantly. The interviewer wants structured thinking
 
 ### "Walk me through an OOS investigation."
 
-Out-of-specification investigation in the US follows the framework of the FDA guidance *Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production* (2006). The two-phase structure:
+Out-of-specification investigation in the US follows the framework of the FDA guidance *Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production* (original October 2006, Level 2 revision May 2022). The two-phase structure:
 
 - **Phase I, laboratory investigation.** Before discarding the result, determine whether the lab caused it. Review the method, the analyst technique, the calculations, the instrument, the standards. You may not invalidate a result just because it is inconvenient; you need an assignable lab cause. Retesting and resampling are tightly controlled and must be pre-defined, not fishing for a pass.
 - **Phase II, full-scale investigation.** If no lab cause is found, expand to manufacturing: the batch record, the process, raw materials, and other batches potentially affected. This may lead to a CAPA and affects batch disposition.
@@ -315,7 +315,7 @@ Expect deviation, CAPA, OOS, change control, document control, batch record revi
 
 ### Clinical or GCP quality
 
-Expect ICH E6(R2) GCP, trial master file, source data verification, and clinical data integrity. See [ICH E6 Good Clinical Practice](/articles/ich-e6-good-clinical-practice), [eTMF / trial master file](/articles/etmf-trial-master-file), and [clinical QA and GCP data integrity](/articles/clinical-qa-gcp-data-integrity).
+Expect ICH E6(R3) GCP (Step 4 January 2025, FDA final guidance September 2025, superseding E6(R2)), trial master file, source data verification, and clinical data integrity. See [ICH E6 Good Clinical Practice](/articles/ich-e6-good-clinical-practice), [eTMF / trial master file](/articles/etmf-trial-master-file), and [clinical QA and GCP data integrity](/articles/clinical-qa-gcp-data-integrity).
 
 ---
 
@@ -355,7 +355,7 @@ These do two things: they show domain fluency, and the answers tell you whether 
 ## Final preparation checklist
 
 - Know the V-model, the deliverables, and GAMP 5 categories without notes.
-- Be able to cite Part 11, Annex 11, the OOS guidance, the Process Validation guidance, ICH Q9/Q10, and the CSA draft by name and topic, without inventing clause numbers.
+- Be able to cite Part 11, Annex 11, the OOS guidance, the Process Validation guidance, ICH Q9/Q10, and the final CSA guidance by name and topic, without inventing clause numbers.
 - Have a clean answer for the failed-test, the OOS, and the data-integrity-event scenarios, all built on "document, investigate, escalate, do not silently fix."
 - Prepare four STAR stories.
 - Be able to scale effort to risk in every technical answer, because that is the trait the field hires for.

@@ -21,13 +21,13 @@ Before designing anything, you need to know which documents the auditors and ins
 
 The controlling standard is **ICH E6(R2), Integrated Addendum to ICH E6(R1): Guideline for Good Clinical Practice**, finalized in 2016 and adopted by FDA, EMA, and the other ICH regions. It defines audit and inspection explicitly:
 
-> **Audit** (1.6): A systematic and independent examination of trial-related activities and documents to determine whether the evaluated trial-related activities were conducted, and the data were recorded, analyzed and accurately reported according to the protocol, sponsor's standard operating procedures (SOPs), Good Clinical Practice, and the applicable regulatory requirement(s).
+> **Audit** (definition 1.6): a structured, independent check of trial activities and records that asks whether the work was carried out, and the data captured, analyzed, and reported, in line with the protocol, the sponsor's SOPs, GCP, and the applicable regulatory requirements.
 
-> **Inspection** (1.29): The act by a regulatory authority(ies) of conducting an official review of documents, facilities, records, and any other resources that are deemed by the authority(ies) to be related to the clinical trial...
+> **Inspection** (definition 1.29): a regulatory authority's official review of the documents, facilities, records, and any other resources it considers connected to the clinical trial, conducted at the authority's discretion and wherever it judges relevant.
 
 The structural point in that pair of definitions: an **audit is what the sponsor does**; an **inspection is what the authority does**. Section 5.19 (Audit) makes the sponsor responsible for a written audit procedure, for auditor independence from the audited activity, and for keeping audit certificates and reports protected so they are not routinely demanded by inspectors. Section 5.2 (Contract Research Organization) makes the sponsor responsible for any trial-related duty it transfers to a CRO or vendor, which is why vendor audits exist at all. Section 5.0 (Quality Management) added in R2 introduces risk-based quality management, which is the basis for risk-based audit planning.
 
-E6(R3) was finalized in 2023 and is being adopted across regions, sharpening the quality-by-design and risk-proportionate themes. The audit and inspection logic carries forward. Build to the version in force in your protocols and reference R3 where it applies.
+E6(R3) reached Step 4 (final) on 6 January 2025 (FDA adopted it 9 September 2025; overarching principles and Annex 1 effective 23 July 2025) and is being adopted across regions, sharpening the quality-by-design and risk-proportionate themes. The audit and inspection logic carries forward. Build to the version in force in your protocols and reference R3 where it applies.
 
 ### FDA regulations and BIMO
 
@@ -184,7 +184,7 @@ When a sponsor delegates a GCP activity, it keeps the responsibility. The vendor
 
 ### Why and on what basis
 
-ICH E6(R2) 5.2.1 states that any trial-related duty transferred to a CRO should be specified in writing, and that any duty not specifically transferred is retained by the sponsor. 5.2.2 makes the sponsor responsible for the quality and integrity of the trial data regardless of who generated it. That is the legal hook for auditing CROs, central labs, IRT/RTSM providers, eCOA/ePRO vendors, central imaging, bioanalytical labs, EDC and eTMF system providers, pharmacovigilance vendors, and IP depots.
+ICH E6(R2) 5.2.1 makes the sponsor responsible for the quality and integrity of the trial data regardless of who generated it. 5.2.2 states that any trial-related duty transferred to a CRO should be specified in writing, and 5.2.3 retains with the sponsor any duty not specifically transferred. That is the legal hook for auditing CROs, central labs, IRT/RTSM providers, eCOA/ePRO vendors, central imaging, bioanalytical labs, EDC and eTMF system providers, pharmacovigilance vendors, and IP depots.
 
 Vendor audits also connect to broader supplier qualification expectations. See the companion articles on supplier and vendor qualification and on conducting a supplier audit for the procurement-side mechanics.
 
@@ -357,7 +357,7 @@ That last point is the payoff of the whole program: when you can show the inspec
 
 Beyond individual site findings, these systemic patterns draw inspection findings against sponsors and CROs:
 
-- **Inadequate sponsor oversight of CROs and vendors.** Delegating the activity and the oversight, with no evidence the sponsor checked the vendor's work, directly contradicts ICH E6(R2) 5.2.2.
+- **Inadequate sponsor oversight of CROs and vendors.** Delegating the activity and the oversight, with no evidence the sponsor checked the vendor's work, directly contradicts ICH E6(R2) 5.2.1.
 - **An audit program that is not risk-based.** Auditing the easy targets and skipping the high-risk ones, or auditing everyone on the same flat frequency.
 - **CAPAs that do not close or are not effective**, shown by repeat findings.
 - **No auditor independence**, with people auditing their own processes.
@@ -375,7 +375,7 @@ Beyond individual site findings, these systemic patterns draw inspection finding
 
 **Routine versus for-cause: when do you launch a for-cause audit?** When a trigger appears: a serious or repeated deviation, a safety signal, a data anomaly suggesting fabrication, a whistleblower, a failed vendor deliverable, or a regulator action on a peer. For-cause audits are narrow, deep, fast, and they preserve evidence.
 
-**A CRO delegated a task and botched it. Who is responsible to the regulator?** The sponsor. ICH E6(R2) 5.2.1 says any duty not specifically transferred is retained, and 5.2.2 holds the sponsor responsible for data quality and integrity regardless of who generated it. The CRO's failure is the sponsor's failure to oversee.
+**A CRO delegated a task and botched it. Who is responsible to the regulator?** The sponsor. ICH E6(R2) 5.2.1 holds the sponsor responsible for data quality and integrity regardless of who generated it, and 5.2.3 retains with the sponsor any duty not specifically transferred. The CRO's failure is the sponsor's failure to oversee.
 
 **Walk me through a site audit.** Plan and sample, opening meeting, document and facility review, source-data verification on the sample with consent and IP and safety as priorities, staff interviews against the delegation log, daily debriefs, closing meeting, report, CAPA, verification, closure.
 

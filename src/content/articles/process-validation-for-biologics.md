@@ -59,7 +59,7 @@ This map is the spine of the validation program. Every clearance study, every po
 
 Viral clearance studies are scaled-down laboratory experiments that deliberately spike a known quantity of model virus into the feed of a purification step, run the step under defined conditions, and measure how much virus survives in the output. The result is expressed as a log reduction value (LRV). The studies prove that even if an adventitious virus slips past raw-material and cell-line controls, the downstream process removes or inactivates it to a level that gives an acceptable safety margin.
 
-The regulatory basis is **ICH Q5A(R2)**. Viral safety is built on three independent pillars: (1) selection and testing of cell lines and raw materials, (2) testing the product at appropriate stages for the absence of detectable virus, and (3) assessing the capacity of the process to clear infectious virus. Process validation owns pillar 3. You cannot rely on any one pillar alone, and an inspector will expect to see all three addressed.
+The regulatory basis is **ICH Q5A(R2)**. Under that framework, viral safety rests on three complementary controls that work together rather than in isolation: keeping known and adventitious agents out of the starting materials by characterizing and screening the cell substrate and raw materials; checking intermediates and product at chosen points so any virus that got in would be detected; and proving the purification train can knock down or kill infectious virus if it ever reaches that far. Process validation owns the third control. No single control carries the safety case on its own, and an inspector will expect to see all three addressed.
 
 ### Choosing the model viruses
 

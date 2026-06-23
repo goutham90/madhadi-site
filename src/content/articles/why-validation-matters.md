@@ -15,7 +15,7 @@ This article is written to work at two levels. If you are new, it explains the i
 
 Validation is collecting evidence, before you rely on something, that it works as intended and will keep working.
 
-A simple comparison. When a new bridge is built, nobody opens it to traffic on the builder's word that it is fine. Engineers load it, test it, measure it, and document that it holds far more weight than it will ever carry. Only then do cars drive across. Validation in pharma, biotech, and medical devices is the same instinct, applied to the things that make medicine: the manufacturing process, the equipment, the computer systems, and the test methods.
+A simple comparison. When a new bridge is built, nobody opens it to traffic on the builder's word that it is fine. Engineers load it, test it, measure it, and document that it holds far more weight than it will ever carry. Only then do cars drive across. Validation in pharma, biotech, and cell and gene therapy is the same instinct, applied to the things that make medicine: the manufacturing process, the equipment, the computer systems, and the test methods.
 
 ## Why it matters: three plain reasons
 
@@ -25,7 +25,7 @@ This is the reason validation exists at all, and it surprises people. You might 
 
 Sterility is the classic example. To prove a vial is sterile by testing, you would have to open it, which destroys it. You can only test a small sample, and a passing sample does not prove the millions of units you did not open are sterile. So instead of testing quality into the product at the end, you build it in: you prove the sterilization process itself reliably works, every time, and you control it. That proof is validation.
 
-The same logic applies to a tablet's uniformity, a biologic's potency, or a weld on a device. When the result of a process cannot be fully checked by inspecting or testing the final item, you must validate the process instead. This is stated almost word for word in the medical device regulation, 21 CFR 820.75: where a process result cannot be fully verified by later inspection and test, the process "shall be validated with a high degree of assurance." (Under the device Quality Management System Regulation, effective in 2026, the requirement now sits within ISO 13485:2016, but the principle is unchanged.)
+The same logic applies to a tablet's content uniformity, a biologic's potency, or the seal on a sterile container. When the result of a process cannot be fully checked by inspecting or testing the final item, you must validate the process instead. For drug products this is the core of the cGMP rules: 21 CFR 211.100 and 21 CFR 211.110 require that production and in-process controls be established and that a process be designed and confirmed to assure the product has the identity, strength, quality, and purity it claims. The same principle is stated in even plainer language in the combination-product and device world: 21 CFR 820.75 requires that where a process result cannot be fully verified by later inspection and test, the process "shall be validated with a high degree of assurance." (Under the Quality Management System Regulation, effective in 2026, that device requirement now sits within ISO 13485:2016, but the principle is unchanged.) For a drug-device combination product, both bodies of rules apply.
 
 ### 2. Patient safety
 
@@ -49,7 +49,7 @@ Validation is not a best practice that companies do to be thorough. It is a lega
 
 > Active ingredients and methods. ICH Q7 requires validation in the manufacture of active pharmaceutical ingredients, and ICH Q2 sets out how analytical (test) methods are validated.
 
-> Medical devices. As noted above, 21 CFR 820.75 (now within the Quality Management System Regulation and ISO 13485:2016) requires process validation where the result cannot be fully verified later.
+> Combination products and the device constituent. For a drug-device combination product (for example a prefilled syringe or an autoinjector), the device-side rules apply too: 21 CFR 820.75 (now within the Quality Management System Regulation and ISO 13485:2016) requires process validation where the result cannot be fully verified later.
 
 The common thread: every regulator, in every market, expects you to prove your processes, equipment, systems, and methods work before you use them to make or test a product that reaches a patient.
 

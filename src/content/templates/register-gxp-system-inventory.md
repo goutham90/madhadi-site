@@ -61,12 +61,12 @@ Use these definitions so every entry is consistent. The same field meanings appl
 
 These are the GAMP 5 (2nd ed.) software categories. Use them to set the validation effort, not to skip a risk assessment.
 
-| Category | Meaning | Typical validation emphasis |
+| Category | Meaning (in plain terms) | Typical validation emphasis |
 |---|---|---|
-| 1 | Infrastructure software (operating systems, databases, middleware) | Qualified infrastructure; record version and patch control |
-| 3 | Non-configured (used as supplied, default configuration) | Verify intended use; risk-based testing of GxP functions |
-| 4 | Configured (configured to the business process, no custom code) | Validate the configuration and the GxP-relevant workflows |
-| 5 | Custom / bespoke (or custom code, scripts, macros) | Full lifecycle rigor; design review and code-level controls |
+| 1 | Foundational layer the applications run on, such as operating systems, database engines, and network or middleware services | Qualified infrastructure; record version and patch control |
+| 3 | Off-the-shelf product run as delivered, with no setup beyond its out-of-the-box behavior | Verify intended use; risk-based testing of GxP functions |
+| 4 | Commercial product tailored to your process through built-in settings and parameters, without writing code | Validate the configuration and the GxP-relevant workflows |
+| 5 | Software written or coded for your needs, including bespoke applications and user-authored scripts or macros | Full lifecycle rigor; design review and code-level controls |
 
 ### Criticality tier and what it drives
 

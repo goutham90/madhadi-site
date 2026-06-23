@@ -40,7 +40,7 @@ For the foundational vocabulary behind all of this, the difference between valid
 | Situation | Event | Governing reference |
 |---|---|---|
 | Validated in-house method moves dev to QC, or to a CTL, or to a new site | Full transfer | USP <1224>, quality agreement |
-| Validated method moving to a closing-lab scenario (SU gone) | Revalidation at RU | USP <1224> Approach 2 |
+| Validated method moving to a closing-lab scenario (SU gone) | Revalidation at RU | USP <1224> Approach 3 |
 | Compendial method introduced for the first time | Verification (not transfer) | USP <1226> |
 | Same lab, same equipment, trained analysts | Nothing (routine) | n/a |
 | Simple/well-characterized method, same staff and equipment, or RU already runs it | Documented waiver | USP <1224> Approach 4 |
@@ -105,23 +105,23 @@ Writing it this way removes the temptation to "interpret" the result later. Eith
 
 ## Transfer Approaches
 
-USP <1224> recognizes four approaches. Choosing the right one is a risk and feasibility decision, not a preference.
+USP <1224> recognizes four approaches. Choosing the right one is a risk and feasibility decision, not a preference. The chapter names them rather than numbering them; the "Approach 1 to 4" labels below are this article's shorthand, presented in the chapter's own order (comparative testing, co-validation, revalidation, transfer waiver).
 
 **Approach 1: Comparative testing.** The most common and most direct. Both the SU and the RU analyze the same lot of material under the same conditions, and the results are compared statistically. If the two labs are equivalent within the predefined criteria, the transfer passes. This gives the strongest evidence because the same samples are run by both labs, so a difference in result is attributable to the lab, not the material.
 
 *Sample design.* Typically three or more independent preparations per laboratory at the concentrations that matter: 100% of nominal for an assay; near the specification limit and around the limit of quantitation for impurity methods; at multiple stability-relevant levels if the method supports a stability program. For an assay it is common to use a homogeneous lot split between the labs, sometimes spiked at low and high points to bracket the range.
 
-**Approach 2: Revalidation (or partial revalidation) at the receiving unit.** The RU validates, or revalidates a defined subset of, the method in its own laboratory against the original validation acceptance criteria. If the RU's results meet those criteria, the transfer is considered successful. This is the right choice when the SU cannot run samples concurrently, for example because the SU laboratory is closing or no longer has the instrument. It gives a weaker head-to-head comparison than Approach 1 but shows the method performs adequately at the RU. The revalidation scope is usually accuracy, precision, and specificity at minimum, with the full list driven by what is sensitive to the change of site and equipment.
+**Approach 2: Co-validation between two laboratories.** Both labs participate in the original validation at the same time, so the SU's validation already includes the RU's data as a second site. This is efficient when a method is being designed for multi-site use from the start, and it is rarely used for transfers that happen after the original validation is already complete.
 
-**Approach 3: Co-validation between two laboratories.** Both labs participate in the original validation at the same time, so the SU's validation already includes the RU's data as a second site. This is efficient when a method is being designed for multi-site use from the start, and it is rarely used for transfers that happen after the original validation is already complete.
+**Approach 3: Revalidation (or partial revalidation) at the receiving unit.** The RU validates, or revalidates a defined subset of, the method in its own laboratory against the original validation acceptance criteria. If the RU's results meet those criteria, the transfer is considered successful. This is the right choice when the SU cannot run samples concurrently, for example because the SU laboratory is closing or no longer has the instrument. It gives a weaker head-to-head comparison than Approach 1 but shows the method performs adequately at the RU. The revalidation scope is usually accuracy, precision, and specificity at minimum, with the full list driven by what is sensitive to the change of site and equipment.
 
 **Approach 4: Transfer waiver.** As described above, formal experimental transfer is omitted on a documented, justified basis. The justification, not the absence of work, is the deliverable.
 
 | Approach | Best used when | Strength of equivalence evidence | Main limitation |
 |---|---|---|---|
 | Comparative testing | SU and RU can run the same samples concurrently | Highest (direct head-to-head) | Needs both labs operational at once |
-| Revalidation at RU | SU cannot run concurrently (lab closing, instrument gone) | Moderate (no direct comparison) | Relies on original criteria, not a side-by-side |
 | Co-validation | Method designed for multi-site use from the start | High (RU is a validation site) | Only practical at original validation time |
+| Revalidation at RU | SU cannot run concurrently (lab closing, instrument gone) | Moderate (no direct comparison) | Relies on original criteria, not a side-by-side |
 | Transfer waiver | Simple/compendial method, same staff and equipment, or RU already runs it | Inferential (justification-based) | Defensible only with a documented rationale |
 
 ---
@@ -292,7 +292,7 @@ A t-test asks whether there is a detectable difference. Failing to detect a diff
 Set the equivalence limit before testing based on the specification width and method capability, often ±2% to ±3% of label claim for a small molecule. Choose alpha (usually 0.05), which corresponds to a 90% confidence interval on the difference of means. The transfer passes only if the whole 90% interval falls within ±limit. I document the rationale for the limit in the protocol so it is clearly pre-specified.
 
 **"Which transfer approach would you pick if the sending lab is about to close?"**
-Approach 2, revalidation at the receiving unit, because comparative testing needs both labs running concurrently. I would revalidate accuracy, precision, and specificity at minimum against the original validation criteria, scoped by what is most sensitive to the change of site and instrument. Before the SU closes I would also capture as much head-to-head data as possible while it is still possible.
+Approach 3, revalidation at the receiving unit, because comparative testing needs both labs running concurrently. I would revalidate accuracy, precision, and specificity at minimum against the original validation criteria, scoped by what is most sensitive to the change of site and instrument. Before the SU closes I would also capture as much head-to-head data as possible while it is still possible.
 
 **"A transfer fails. The RU mean is 2% higher than the SU. What do you do?"**
 Investigate before retesting, the same as an OOS. I look for an assignable cause: reference standard lot or assigned potency, mobile phase grade or pH, column lot, sample prep, instrument settings. If I find and fix a concrete cause, I repeat the affected portion under the same protocol. What I never do is widen the criterion to make the existing data pass.

@@ -106,7 +106,7 @@ Reviewer score (E): `<<FILL>>` - open items: `<<FILL>>`. Mark N/A for service or
 | F1 | Are laboratory and production systems that generate GxP data audit-trailed, with unique user logins and role-based access? | Yes, with examples | Shared logins, audit trail off or unverified |
 | F2 | Can ordinary users disable the audit trail, change the system clock, or delete raw data? | No; controls and segregation in place | Yes, or cannot say |
 | F3 | How is raw data and metadata retained, backed up, and protected from loss? | Defined retention and backup | No defined retention |
-| F4 | Do your records and systems meet ALCOA+ expectations (attributable, legible, contemporaneous, original, accurate, complete, consistent, enduring, available)? | Yes, demonstrable | Cannot demonstrate |
+| F4 | Do your records and systems satisfy the ALCOA+ data quality principles, meaning each record can be traced to its author, stays readable, is captured at the time of the activity, preserves the first capture and its metadata, reflects what actually happened, leaves nothing out, agrees across the record set, survives for its full retention life, and can be retrieved when needed? | Yes, demonstrable | Cannot demonstrate |
 
 Reviewer score (F): `<<FILL>>` - open items: `<<FILL>>`
 

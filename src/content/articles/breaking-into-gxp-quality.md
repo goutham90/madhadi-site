@@ -17,7 +17,7 @@ This article is the resource I wish had existed when I started, before AI-genera
 
 ## What the Field Actually Is
 
-GxP quality is a cluster of related disciplines that exist to make sure regulated products are safe, effective, and consistently made. The "x" in GxP stands for whatever practice applies: GMP for manufacturing, GLP for nonclinical laboratory studies, GCP for clinical trials, GDP for distribution. The quality functions wrap around all of them. For medical devices the same idea shows up as the Quality Management System Regulation (21 CFR Part 820, harmonized to ISO 13485 in the 2024 QMSR final rule) and the EU Medical Device Regulation, covered in the [medical device QMSR article](/articles/medical-device-quality-system-qmsr) and the [EU MDR and IVDR overview](/articles/eu-mdr-ivdr-overview).
+GxP quality is a cluster of related disciplines that exist to make sure regulated products are safe, effective, and consistently made. The "x" in GxP stands for whatever practice applies: GMP for manufacturing, GLP for nonclinical laboratory studies, GCP for clinical trials, GDP for distribution. The quality functions wrap around all of them. For combination products that pair a drug or biologic with a device, the same idea extends through the device-side quality system expectations, but the grammar of GxP quality is shared.
 
 **Quality Assurance (QA).** Owns the quality management system: the SOPs, deviations, CAPAs, batch release, regulatory submissions, internal audits, and supplier qualification. QA is the function that signs off on whether a product can be released to patients. If you want the full architecture, the [pharmaceutical quality system article](/articles/pharmaceutical-quality-system) lays it out.
 
@@ -66,9 +66,9 @@ The essential primary sources, all freely available except the ISPE guides:
 
 - [ISPE GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition (2022)](https://ispe.org/publications/guidance-documents/gamp-5-guide-2nd-edition). The industry reference for computer system validation. Requires ISPE membership or purchase. Worth it once you are committed to a CSV path. The [GAMP 5 framework article](/articles/gamp5-csv-framework) summarizes the model.
 - [ICH Q10, Pharmaceutical Quality System (2008)](https://www.ich.org/page/quality-guidelines). Free. Foundational.
-- [ICH Q9(R1), Quality Risk Management (revised version reached Step 4 in 2023)](https://www.ich.org/page/quality-guidelines). Free. Essential for any validation or risk-based decision. The [quality risk management article](/articles/quality-risk-management) walks through how it is applied.
+- [ICH Q9(R1), Quality Risk Management (revised version reached Step 4 in December 2022; adopted by FDA as final guidance in 2023)](https://www.ich.org/page/quality-guidelines). Free. Essential for any validation or risk-based decision. The [quality risk management article](/articles/quality-risk-management) walks through how it is applied.
 
-**If you are heading toward medical devices** rather than pharma, the parallel reading list is 21 CFR Part 820 / the QMSR, ISO 13485 for quality systems, ISO 14971 for risk management (see the [ISO 14971 article](/articles/iso-14971-risk-management-devices)), and IEC 62304 for software lifecycle (see the [IEC 62304 article](/articles/iec-62304-samd-software-lifecycle)). The underlying habits of mind are identical; only the citations change.
+**If you are heading toward medical devices** rather than pharma, the parallel reading list is 21 CFR Part 820 / the QMSR, ISO 13485 for quality systems, ISO 14971 for risk management, and IEC 62304 for software lifecycle (see the [IEC 62304 article](/articles/iec-62304-samd-software-lifecycle)). The underlying habits of mind are identical; only the citations change.
 
 You do not need to read all of these before your first job. But you should read the FDA data integrity Q&A and Part 11 before any interview for a data integrity, CSV, or QA role. Those two documents underlie most of what inspectors look for, and being able to talk about them concretely separates a serious candidate from someone who skimmed a blog post.
 

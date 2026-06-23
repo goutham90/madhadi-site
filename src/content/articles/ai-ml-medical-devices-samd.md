@@ -1,33 +1,33 @@
 ---
-title: "AI/ML-Enabled Medical Devices and SaMD: Change Control and Regulatory Expectations"
-description: "How device regulators frame AI and machine learning in medical devices and software as a medical device, covering the model lifecycle, good machine learning practice, the predetermined change control plan, transparency, and real-world performance monitoring, with a worked PCCP outline."
+title: "AI/ML in Regulated Drug and Biologic Software: Change Control and Regulatory Expectations"
+description: "How regulators frame AI and machine learning in software that supports drug, biologic, and combination products, covering the model lifecycle, good machine learning practice, the predetermined change control plan, transparency, and real-world performance monitoring, with a worked PCCP outline."
 pubDate: 2026-06-22
-tags: ["AI", "machine-learning", "SaMD", "medical-devices", "PCCP", "GMLP", "change-control"]
-pillar: "medical-devices"
+tags: ["AI", "machine-learning", "SaMD", "combination-products", "PCCP", "GMLP", "change-control"]
+pillar: "ai-automation"
 tier: "Advanced"
 ---
 
-A machine learning model inside a medical device creates a regulatory problem that the device framework was not built to handle. The traditional model assumes a device is designed, locked, cleared or approved, and then sold in that fixed state until the manufacturer files for a change. An AI model wants to do the opposite: keep learning, keep improving, change its behavior as it sees more data. The whole value proposition of machine learning is adaptation, and the whole logic of premarket review is stability. Device regulators have spent the last several years building a framework to reconcile those two facts, and that framework is now concrete enough to be operational.
+A machine learning model embedded in regulated product software creates a problem the premarket framework was not built to handle. The traditional model assumes the software is designed, locked, authorized, and then distributed in that fixed state until the manufacturer files for a change. An AI model wants to do the opposite: keep learning, keep improving, change its behavior as it sees more data. The whole value proposition of machine learning is adaptation, and the whole logic of premarket review is stability. Regulators have spent the last several years building a framework to reconcile those two facts, and that framework is now concrete enough to be operational. For pharma, biotech, biologics, and cell and gene therapy organizations, this matters wherever software performs a clinical function: digital health software that supports a drug or biologic, the software component of a combination product, or a companion diagnostic that gates therapy.
 
-This article covers how device regulators frame AI and machine learning, the AI/ML lifecycle, the good machine learning practice principles, the predetermined change control plan (PCCP) and what goes in it, transparency expectations, and real-world performance monitoring. It is written so that after reading it you could scope the work, sit in a design review, and answer the questions an interviewer or an inspector will ask. It is general guidance to adapt and verify against current regulations and your own quality system, not legal or regulatory advice.
+This article covers how regulators frame AI and machine learning in clinical software, the AI/ML lifecycle, the good machine learning practice principles, the predetermined change control plan (PCCP) and what goes in it, transparency expectations, and real-world performance monitoring. It is written so that after reading it you could scope the work, sit in a design review, and answer the questions an interviewer or an inspector will ask. It is general guidance to adapt and verify against current regulations and your own quality system, not legal or regulatory advice.
 
-If you are coming to this from the manufacturing and quality side, the companion piece on [validating AI-enabled GxP systems](/articles/validating-ai-gxp-systems) covers the same problems for models used inside a quality operation rather than sold as part of a product. The device quality system that all of this sits inside is described in [the medical device quality system under the QMSR](/articles/medical-device-quality-system-qmsr), and the underlying software lifecycle standard in [IEC 62304 software lifecycle](/articles/iec-62304-samd-software-lifecycle).
+If you are coming to this from the manufacturing and quality side, the companion piece on [validating AI-enabled GxP systems](/articles/validating-ai-gxp-systems) covers the same problems for models used inside a quality operation rather than distributed as part of a product. The quality system that all of this sits inside is described in [the pharmaceutical quality system](/articles/pharmaceutical-quality-system), and the underlying software lifecycle standard in [IEC 62304 software lifecycle](/articles/iec-62304-samd-software-lifecycle).
 
 ---
 
-## How Device Regulators Frame AI and Machine Learning
+## How Regulators Frame AI and Machine Learning in Clinical Software
 
 The first thing to get right is the vocabulary, because the regulatory category drives everything downstream.
 
-Software as a medical device (SaMD) is software intended for a medical purpose that performs that purpose without being part of a hardware medical device. A diagnostic algorithm that reads images and flags suspected disease is SaMD. Software embedded in an infusion pump is software in a medical device, not SaMD, though much of the AI thinking applies to both. The regulators usually use the broader phrase "AI-enabled device software function" to capture the AI component wherever it lives, in standalone SaMD or as part of a larger device.
+Software as a medical device (SaMD) is software intended for a medical purpose that performs that purpose without being part of a hardware product. A diagnostic algorithm that reads images and flags suspected disease is SaMD. The software that drives an autoinjector or a connected drug-delivery system is software within a combination product, not standalone SaMD, though much of the AI thinking applies to both. For a therapeutics company, the AI usually shows up as a companion or complementary diagnostic, a digital health tool tied to a drug or biologic, or the software part of a drug-device combination. Regulators often use the broader phrase "AI-enabled device software function" to capture the AI component wherever it lives, in standalone SaMD or as part of a larger product.
 
-Regulators frame AI devices around a few load-bearing ideas.
+Regulators frame these AI-enabled products around a few load-bearing ideas.
 
-**Total product lifecycle (TPLC).** Device regulators treat an AI device as something to be governed across its entire life, from design through retirement, not just at the moment of clearance. The reason is the one above: an AI device's behavior is not fixed at clearance, so a point-in-time review is insufficient on its own. The TPLC framing is why so much of the AI device framework is about what happens after the device is on the market.
+**Total product lifecycle (TPLC).** Regulators treat an AI-enabled product as something to be governed across its entire life, from design through retirement, not just at the moment of authorization. The reason is the one above: an AI product's behavior is not fixed at authorization, so a point-in-time review is insufficient on its own. The TPLC framing is why so much of the AI framework is about what happens after the product is on the market.
 
-**Locked versus adaptive (continuously learning) models.** A locked model produces the same output for the same input every time; it only changes when the manufacturer deliberately retrains and redeploys it. An adaptive or continuously learning model updates itself in the field as it sees new data. Almost everything cleared to date has been a locked model, redeployed in controlled steps, because a model that silently rewrites itself in the field is very hard to keep inside a cleared safety envelope. The PCCP, discussed below, is the mechanism that lets a manufacturer plan and pre-authorize those controlled updates without a new submission each time.
+**Locked versus adaptive (continuously learning) models.** A locked model produces the same output for the same input every time; it only changes when the manufacturer deliberately retrains and redeploys it. An adaptive or continuously learning model updates itself in the field as it sees new data. Almost everything authorized to date has been a locked model, redeployed in controlled steps, because a model that silently rewrites itself in the field is very hard to keep inside an authorized safety envelope. The PCCP, discussed below, is the mechanism that lets a manufacturer plan and pre-authorize those controlled updates without a new submission each time.
 
-**The international guiding principles.** Three device regulators, the US FDA, Health Canada, and the UK MHRA, have published joint guiding principles that set the shared direction even where binding law differs by jurisdiction:
+**The international guiding principles.** Three regulators, the US FDA, Health Canada, and the UK MHRA, have published joint guiding principles that set the shared direction even where binding law differs by jurisdiction:
 
 - Good Machine Learning Practice for Medical Device Development: Guiding Principles, jointly published October 2021, ten principles.
 - Predetermined Change Control Plans for Machine Learning-Enabled Medical Devices: Guiding Principles, jointly published October 24, 2023, five principles.
@@ -35,15 +35,15 @@ Regulators frame AI devices around a few load-bearing ideas.
 
 These are principles, not binding guidance. They tell you the direction of travel and the expectations regulators share, and they sit underneath the country-specific guidance that does carry weight.
 
-**Risk-based classification still applies.** AI does not create a separate risk class. An AI device is classified by the same rules as any device, by intended use and risk, in the US through the 510(k), De Novo, or premarket approval (PMA) pathways, in the EU through the device class under the Medical Devices Regulation (MDR) or In Vitro Diagnostic Regulation (IVDR). The classification fundamentals are covered in [device submission pathways: 510(k) and PMA](/articles/device-submission-pathways-510k-pma) and [the EU MDR and IVDR](/articles/eu-mdr-ivdr-overview). AI raises the evidentiary bar within a class; it does not move the class.
+**Risk-based classification still applies.** AI does not create a separate risk class. AI-enabled software is classified by the same rules as any product of its type, by intended use and risk. Where the software is a standalone diagnostic, the device classification and submission rules apply; where it is part of a drug-device combination, the product follows the marketing pathway for its primary mode of action, which for a therapeutics company usually means an IND, NDA, or BLA. The submission pathways for drugs and biologics are covered in [IND, NDA, and BLA pathways](/articles/ind-nda-bla-pathways). In the EU, standalone diagnostic software falls under the Medical Devices Regulation (MDR) or In Vitro Diagnostic Regulation (IVDR) device class. AI raises the evidentiary bar within a class; it does not move the class.
 
-A note on the EU, where a second law now stacks on top of the device rules. The EU Artificial Intelligence Act, Regulation (EU) 2024/1689, entered into force on 1 August 2024 and applies in phases. AI systems that are themselves medical devices, or that are safety components of devices subject to third-party conformity assessment under MDR or IVDR, fall into the AI Act's high-risk category, which brings obligations on data governance, human oversight, transparency, and risk management on top of the existing device requirements. The phased application dates are staggered and, as of mid-2026, actively moving: the high-risk obligations for AI that is a device or device safety component were originally timed for 2026 and 2027, but a proposed amendment under discussion in 2026 would push the full high-risk obligations for MDR and IVDR products out to 2028. Treat any single date as provisional and verify the deadline applicable to your device class and notified-body route against the current text rather than quoting one from memory. The practical point holds regardless of the exact date: an AI medical device sold in the EU answers to two overlapping regimes at once, and the technical file has to satisfy both.
+A note on the EU, where a second law now stacks on top of the product rules. The EU Artificial Intelligence Act, Regulation (EU) 2024/1689, entered into force on 1 August 2024 and applies in phases. AI systems that are themselves medical devices, or that are safety components of devices subject to third-party conformity assessment under MDR or IVDR, fall into the AI Act's high-risk category, which brings obligations on data governance, human oversight, transparency, and risk management on top of the existing requirements. The phased application dates are staggered and, as of mid-2026, actively moving: most of the Act became applicable on 2 August 2026, while the high-risk obligations for AI that is embedded in a regulated product (the Annex I bucket, which captures devices and IVDs) were dated 2 August 2027. A proposed amendment under discussion in 2026 would push those product-embedded high-risk obligations for MDR and IVDR products out to 2028. Treat any single date as provisional and verify the deadline applicable to your product class and notified-body route against the current text rather than quoting one from memory. The practical point holds regardless of the exact date: an AI-enabled diagnostic or combination product sold in the EU answers to two overlapping regimes at once, and the technical file has to satisfy both.
 
 ---
 
-## The AI/ML Lifecycle for a Device
+## The AI/ML Lifecycle for a Regulated Product
 
-WHY this matters: the regulatory expectations attach to lifecycle stages, so if you cannot describe your own lifecycle you cannot show where each control lives. The lifecycle below is the device-flavored version of the general model lifecycle in [the GxP ML model lifecycle](/articles/gxp-ml-model-lifecycle); the difference is that here the artifact is a regulated product and the evidence ends up in a marketing submission and a technical file.
+WHY this matters: the regulatory expectations attach to lifecycle stages, so if you cannot describe your own lifecycle you cannot show where each control lives. The lifecycle below is the product-facing version of the general model lifecycle in [the GxP ML model lifecycle](/articles/gxp-ml-model-lifecycle); the difference is that here the artifact is a regulated product and the evidence ends up in a marketing submission and a technical file.
 
 The stages, in order:
 
@@ -65,24 +65,24 @@ ACCEPTANCE CRITERIA for the lifecycle as a whole: every stage has a documented o
 
 ## Good Machine Learning Practice (GMLP)
 
-WHY: GMLP is the shared baseline the three regulators expect, the AI analogue of good engineering practice. It is not a checklist you certify against; it is the set of habits a credible AI device program demonstrates. WHAT it contains: ten principles published in October 2021. Paraphrased and grouped for use, not quoted verbatim:
+WHY: GMLP is the shared baseline the three regulators expect, the AI analogue of good engineering practice. It is not a checklist you certify against; it is the set of habits a credible AI program demonstrates. WHAT it contains: ten principles published in October 2021. The themes below are summarized in my own words for working use, not reproduced from the source text:
 
-- **Multidisciplinary expertise across the lifecycle.** Clinical, data science, software, quality, and human factors all engaged from the start, not consulted at the end.
-- **Good software engineering and security practices.** Version control, secure development, data integrity, and the discipline of [device software cybersecurity](/articles/device-software-cybersecurity-samd) underneath the model.
-- **Clinical-study participants and datasets represent the intended population.** Across age, sex, race, ethnicity, disease severity, sites, and equipment, so performance claims hold for the people who will actually be exposed to the device.
-- **Training data are independent of test data.** No leakage between the data the model learned from and the data used to judge it.
-- **Selected reference datasets are based on the best available methods.** Ground truth is defined rigorously, because a model can only be as good as the labels it learned.
-- **Model design is tailored to the available data and the intended use.** Including a clear account of how the model's outputs map to clinical decisions.
-- **Focus on the performance of the human-AI team.** Not the algorithm in isolation, because the device is the clinician plus the tool.
-- **Testing demonstrates device performance in clinically relevant conditions.** Realistic data, realistic sites, realistic use, not just a clean benchmark.
-- **Users are provided clear, essential information.** The transparency principle, expanded in the 2024 transparency principles.
-- **Deployed models are monitored for performance, and re-training risks are managed.** The post-market half of the lifecycle, and the conceptual root of the PCCP.
+- **Bring every discipline in early.** Clinical, data science, software, quality, and human factors all engaged from the start, not consulted at the end.
+- **Build on sound software engineering and security.** Version control, secure development, data integrity, and the discipline of [software cybersecurity for SaMD](/articles/device-software-cybersecurity-samd) underneath the model.
+- **Make the data look like the people who will use the product.** Across age, sex, race, ethnicity, disease severity, sites, and equipment, so performance claims hold for the population that will actually be exposed.
+- **Keep the data you train on separate from the data you test on.** No leakage between the data the model learned from and the data used to judge it.
+- **Define ground truth with the strongest method you can.** A model can only be as good as the labels it learned from, so reference standards have to be rigorous.
+- **Fit the model to the data and the intended use.** Including a clear account of how the model's outputs map to clinical decisions.
+- **Judge the clinician-plus-tool, not the model alone.** The product in use is the human and the algorithm together, so that is what you measure.
+- **Test under conditions that look like real use.** Realistic data, realistic sites, realistic workflow, not just a clean benchmark.
+- **Give users the information they need to use it well.** The transparency theme, expanded in the 2024 transparency principles.
+- **Watch the deployed model and manage retraining risk.** The post-market half of the lifecycle, and the conceptual root of the PCCP.
 
-> The guiding principles describe deployed models being monitored for performance and re-training risks being managed, framed across the total product lifecycle. (Paraphrased from the jointly published GMLP guiding principles, FDA, Health Canada, and MHRA, October 2021.)
+> The guiding principles call for deployed models to be monitored for performance and for retraining risks to be managed, framed across the total product lifecycle. (Summarized from the jointly published GMLP guiding principles, FDA, Health Canada, and MHRA, October 2021.)
 
-HOW to evidence GMLP in practice: do not write a document called "GMLP compliance." Instead, point to where each principle is satisfied in your real records. Multidisciplinary expertise shows up in design review attendance and the risk file. Representativeness shows up in the data card and the subgroup performance table. Monitoring shows up in the post-market plan. GMLP is a lens for completeness, not a separate deliverable.
+HOW to evidence GMLP in practice: do not write a document called "GMLP compliance." Instead, point to where each principle is satisfied in your real records. Cross-functional involvement shows up in design review attendance and the risk file. Representativeness shows up in the data card and the subgroup performance table. Monitoring shows up in the post-market plan. GMLP is a lens for completeness, not a separate deliverable.
 
-WORKED EXAMPLE: a team building an AI tool that flags suspected intracranial hemorrhage on head CT. Representativeness means the training data span scanner vendors, slice thicknesses, hospital sites, patient ages, and a realistic mix of hemorrhage types and sizes, including the small bleeds that are easy to miss. Human-AI team performance means measuring how radiologists perform with the tool versus without it, because a tool that is accurate but ignored, or accurate but trusted blindly, changes patient outcomes in ways the standalone metric will not show.
+WORKED EXAMPLE: a team building an AI tool that flags suspected intracranial hemorrhage on head CT. Representativeness means the training data span scanner vendors, slice thicknesses, hospital sites, patient ages, and a realistic mix of hemorrhage types and sizes, including the small bleeds that are easy to miss. Clinician-plus-tool performance means measuring how radiologists perform with the tool versus without it, because a tool that is accurate but ignored, or accurate but trusted blindly, changes patient outcomes in ways the standalone metric will not show.
 
 COMMON MISTAKES that map to inspection or review findings: a model validated only on data from one or two sites, then claimed for general use; demographic subgroups not analyzed, so a performance gap for an underrepresented group is invisible until it surfaces in the field; test-set leakage inflating the headline number; and standalone algorithm metrics presented as if they were clinical performance, with no study of the clinician using it.
 
@@ -94,7 +94,7 @@ This is the part of the framework that is genuinely new, and the part most worth
 
 ### What a PCCP is and why it exists
 
-WHY: without a PCCP, every meaningful change to a cleared AI model would require a new marketing submission, which is slow and incompatible with the pace at which models improve. The PCCP solves this by letting a manufacturer describe, in advance and as part of the original submission, the modifications it expects to make, how it will make and validate them, and the limits within which they stay. The regulator reviews and authorizes that plan up front. Modifications that fall inside the authorized plan can then be implemented without a new submission; modifications outside it still need one.
+WHY: without a PCCP, every meaningful change to an authorized AI model would require a new marketing submission, which is slow and incompatible with the pace at which models improve. The PCCP solves this by letting a manufacturer describe, in advance and as part of the original submission, the modifications it expects to make, how it will make and validate them, and the limits within which they stay. The regulator reviews and authorizes that plan up front. Modifications that fall inside the authorized plan can then be implemented without a new submission; modifications outside it still need one.
 
 ### Guidance status, verified
 
@@ -128,7 +128,7 @@ ACCEPTANCE CRITERIA for a PCCP that will survive review:
 
 ### Worked PCCP outline
 
-Here is a concrete outline for a hypothetical locked SaMD that triages chest X-rays for suspected pneumothorax, cleared via De Novo, with a PCCP to allow controlled improvement. Treat it as a template to adapt, not a finished plan.
+Here is a concrete outline for a hypothetical locked SaMD that triages chest X-rays for suspected pneumothorax, authorized via De Novo, with a PCCP to allow controlled improvement. Treat it as a template to adapt, not a finished plan.
 
 ```
 PCCP: Chest X-ray Pneumothorax Triage SaMD, v1.0
@@ -137,7 +137,7 @@ PCCP: Chest X-ray Pneumothorax Triage SaMD, v1.0
    - Intended use, patient population, clinical workflow (triage prioritization,
      not diagnosis; radiologist remains the decision-maker)
    - Model type: locked CNN classifier, single output (priority flag + score)
-   - Cleared performance baseline (sensitivity/specificity with CIs, by subgroup)
+   - Authorized performance baseline (sensitivity/specificity with CIs, by subgroup)
 
 2. DESCRIPTION OF MODIFICATIONS (in scope only)
    M1. Periodic retraining on accumulated, curated data from existing
@@ -158,7 +158,7 @@ PCCP: Chest X-ray Pneumothorax Triage SaMD, v1.0
    3.3 Verification and validation
        - Locked, version-controlled test set, touched once per update
        - Pre-stated acceptance criteria:
-         * sensitivity >= cleared baseline, lower CI bound not below X
+         * sensitivity >= authorized baseline, lower CI bound not below X
          * specificity within stated band
          * no subgroup performance drop beyond defined tolerance
        - Statistical method and sample-size basis
@@ -209,11 +209,11 @@ COMMON MISTAKES: a single aggregate accuracy figure with no subgroup breakdown a
 
 ## Real-World Performance Monitoring
 
-WHY: this is the post-market half of the total product lifecycle and the part most likely to be weak, because the work happens after the excitement of clearance. An AI model can degrade with no code change at all when the population, the equipment, or clinical practice shifts (data drift and concept drift). A model that performed well at clearance is not assumed to keep performing; you have to show it. This connects directly to [device postmarket surveillance under MDR](/articles/device-postmarket-surveillance-mdr), of which AI monitoring is a specialized case.
+WHY: this is the post-market half of the total product lifecycle and the part most likely to be weak, because the work happens after the excitement of authorization. An AI model can degrade with no code change at all when the population, the equipment, or clinical practice shifts (data drift and concept drift). A model that performed well at authorization is not assumed to keep performing; you have to show it. This connects directly to [product complaint handling](/articles/product-complaint-handling), of which AI performance monitoring feeds the same post-market channels.
 
 WHAT to monitor:
 
-- **Real-world clinical performance** against the cleared baseline, on representative samples, broken out by site and subgroup so a localized failure does not hide in the aggregate.
+- **Real-world clinical performance** against the authorized baseline, on representative samples, broken out by site and subgroup so a localized failure does not hide in the aggregate.
 - **Input data distribution** versus the training distribution, as an early warning that the model is seeing a population it was not built for.
 - **Override and disagreement rate**, where the clinician's final decision differs from the model's output, a cheap continuous signal that often moves before the formal metric review catches degradation.
 - **Complaints, adverse events, and use errors** tied to the AI function, feeding the standard postmarket channels.
@@ -230,7 +230,7 @@ COMMON MISTAKES: deploy-and-forget, with no monitoring, so the validated state i
 
 ## Roles and Responsibilities
 
-AI device work fails at the seams between functions, because no one role owns the whole lifecycle. Name owners explicitly. Adapt the titles to your organization.
+AI product work fails at the seams between functions, because no one role owns the whole lifecycle. Name owners explicitly. Adapt the titles to your organization.
 
 | Activity | Accountable | Contributes |
 |---|---|---|
@@ -239,20 +239,20 @@ AI device work fails at the seams between functions, because no one role owns th
 | Model development and training | Data Science / ML Engineering | Software, Clinical |
 | Clinical and standalone performance evaluation | Clinical / Biostatistics | Data Science, Regulatory |
 | Human factors and human-AI interaction | Human Factors Engineering | Clinical, Software |
-| Risk management file (ISO 14971) | Risk owner / QA | Clinical, Data Science |
+| Risk management file (ISO 14971 / ICH Q9) | Risk owner / QA | Clinical, Data Science |
 | PCCP authorship | Regulatory + System Owner | Data Science, QA, Clinical |
 | Marketing submission | Regulatory Affairs | All |
 | Transparency and labeling | Regulatory + Product | Clinical, Human Factors |
 | Real-world performance monitoring | Post-market / Quality | Data Science, Clinical |
 | Change implementation under PCCP | System Owner + QA | Data Science, Regulatory |
 
-The recurring failure is treating the model as a pure data-science deliverable that regulatory and quality see only at submission time. The data representativeness decisions, the held-out test discipline, the PCCP scope, and the monitoring design all need quality and regulatory involvement while the model is being built. The device risk file is the spine that ties it together; see [ISO 14971 risk management for devices](/articles/iso-14971-risk-management-devices) and [design controls for medical devices](/articles/design-controls-medical-devices) for the surrounding quality-system machinery.
+The recurring failure is treating the model as a pure data-science deliverable that regulatory and quality see only at submission time. The data representativeness decisions, the held-out test discipline, the PCCP scope, and the monitoring design all need quality and regulatory involvement while the model is being built. The risk file is the spine that ties it together; see [quality risk management](/articles/quality-risk-management) and [user requirements and traceability](/articles/user-requirements-and-traceability) for the surrounding quality-system machinery.
 
 ---
 
 ## How This Plays Out in an Inspection or Review
 
-A reviewer or inspector approaching an AI device asks a predictable set of questions, and the technical file should answer them before they are asked: What is the intended use and what clinical decision does the model support? Who was in the training and test data, and does it represent the indicated population across subgroups? Were training and test data independent, and was performance reported on data the model never saw? How does the clinician actually use the output, and was the human-AI team studied? If you intend to update the model, what is in the PCCP, what is in scope, and what falls outside it? How do you monitor real-world performance, and what do you do when it degrades? How do you tell users what the device does, how well, and which version they are running?
+A reviewer or inspector approaching an AI-enabled product asks a predictable set of questions, and the technical file should answer them before they are asked: What is the intended use and what clinical decision does the model support? Who was in the training and test data, and does it represent the indicated population across subgroups? Were training and test data independent, and was performance reported on data the model never saw? How does the clinician actually use the output, and was the human-AI team studied? If you intend to update the model, what is in the PCCP, what is in scope, and what falls outside it? How do you monitor real-world performance, and what do you do when it degrades? How do you tell users what the product does, how well, and which version they are running?
 
 The pattern that reads as a system under control: a coherent file that states the intended use, shows representative data and honest subgroup performance, presents a bounded PCCP with pre-stated acceptance criteria, and describes live monitoring with a defined response. The pattern that invites deeper scrutiny: a single aggregate metric, a vague open-ended change plan, and no post-market evidence. The general inspection dynamics in [FDA inspection readiness](/articles/fda-inspection-readiness) apply here too; the AI-specific twist is that the questions center on data representativeness, change control, and post-market performance rather than on a fixed configuration.
 
@@ -277,9 +277,9 @@ Pulling the recurring failures into one list:
 
 ## Interview Questions and How to Answer Them
 
-If you are interviewing for a regulatory, quality, or digital quality role and AI devices come up, these questions separate a practitioner from someone reciting buzzwords. Short, concrete answers win.
+If you are interviewing for a regulatory, quality, or digital quality role and AI-enabled products come up, these questions separate a practitioner from someone reciting buzzwords. Short, concrete answers win.
 
-**"What is a PCCP and why does it exist?"** A predetermined change control plan is a plan, submitted and authorized as part of the original marketing submission, that describes the modifications a manufacturer intends to make to an AI device after authorization, the methodology to develop and validate them, and an impact assessment. It exists so that controlled, planned improvements can be implemented without a new submission each time, while changes outside the plan still require one. It is the mechanism that reconciles a learning model with point-in-time premarket review.
+**"What is a PCCP and why does it exist?"** A predetermined change control plan is a plan, submitted and authorized as part of the original marketing submission, that describes the modifications a manufacturer intends to make to an AI-enabled product after authorization, the methodology to develop and validate them, and an impact assessment. It exists so that controlled, planned improvements can be implemented without a new submission each time, while changes outside the plan still require one. It is the mechanism that reconciles a learning model with point-in-time premarket review.
 
 **"What are the three parts of a PCCP?"** Description of Modifications (the specific, bounded changes), the Modification Protocol (how each change is developed, validated, and implemented, with pre-stated acceptance criteria), and the Impact Assessment (the benefit-risk analysis tying each change to the protocol step that controls its risks).
 
@@ -287,7 +287,7 @@ If you are interviewing for a regulatory, quality, or digital quality role and A
 
 **"What is GMLP?"** Good Machine Learning Practice, ten guiding principles jointly published by FDA, Health Canada, and the MHRA in October 2021. The themes I keep front of mind: multidisciplinary teams across the lifecycle, representative data, independence of training and test sets, focusing on human-AI team performance rather than the algorithm alone, clear information to users, and monitoring deployed models for performance.
 
-**"How do you know an AI device still performs after a year in the field?"** Because real-world performance monitoring shows it. I check clinical performance against the cleared baseline on representative samples by site and subgroup, watch input drift as an early warning, and track the clinician override rate as a continuous leading indicator. Without that evidence, the validated state is just an assertion from clearance day. If degradation appears and the fix is in scope, I correct it through the PCCP; if not, I file a new submission.
+**"How do you know an AI product still performs after a year in the field?"** Because real-world performance monitoring shows it. I check clinical performance against the authorized baseline on representative samples by site and subgroup, watch input drift as an early warning, and track the clinician override rate as a continuous leading indicator. Without that evidence, the validated state is just an assertion from authorization day. If degradation appears and the fix is in scope, I correct it through the PCCP; if not, I file a new submission.
 
 **"What does transparency require for an AI device?"** That the user can tell what the device does and does not do, how well it performs with uncertainty and by subgroup, the population it was validated on, its known limitations, and which version is active, all delivered in a form that fits the user and the context of use. It is what makes human oversight meaningful rather than a rubber stamp, and for a high-risk device in the EU it is a legal obligation under the AI Act, not just good practice.
 
@@ -297,8 +297,8 @@ If you are interviewing for a regulatory, quality, or digital quality role and A
 
 ## The Honest Assessment
 
-The AI device framework is further along than the manufacturing-and-quality framework discussed in the companion article, because device regulators started earlier and have published binding guidance. The PCCP guidance is final, the GMLP and transparency principles are settled and harmonized across three regulators, and the lifecycle approach is coherent. That is real progress, and it gives an AI device program a defensible structure to build to.
+The AI software framework is further along than the manufacturing-and-quality framework discussed in the companion article, because the device-side regulators started earlier and have published binding guidance that the broader product world now borrows from. The PCCP guidance is final, the GMLP and transparency principles are settled and harmonized across three regulators, and the lifecycle approach is coherent. That is real progress, and it gives an AI software program a defensible structure to build to.
 
-The unsettled parts are honest to name. The lifecycle-management guidance is still draft and will change. Continuously learning, adaptive models in the field remain largely theoretical in practice, because almost everything cleared is a locked model updated in controlled steps. The EU AI Act adds a second, overlapping regime whose phased dates are still settling and worth verifying rather than assuming. And the hardest engineering problems, demonstrating that a model still performs across shifting real-world populations, and keeping human oversight genuinely meaningful rather than a rubber stamp, are operational challenges no guidance fully solves for you.
+The unsettled parts are honest to name. The lifecycle-management guidance is still draft and will change. Continuously learning, adaptive models in the field remain largely theoretical in practice, because almost everything authorized is a locked model updated in controlled steps. The EU AI Act adds a second, overlapping regime whose phased dates are still settling and worth verifying rather than assuming. And the hardest engineering problems, demonstrating that a model still performs across shifting real-world populations, and keeping human oversight genuinely meaningful rather than a rubber stamp, are operational challenges no guidance fully solves for you.
 
 The path that holds up: state the intended use and clinical claim precisely, build on representative data with honest subgroup performance, study the human-AI team and not just the algorithm, write a bounded PCCP with pre-stated acceptance criteria if you intend to improve the model, deliver transparency that fits the user, and monitor real-world performance from day one with a defined response when it degrades. Describe the guidance status accurately, final where it is final and draft where it is draft, and a reviewer reads a program that knows exactly what framework it is operating in. That is more defensible than a confident claim built on guidance that has not yet settled.

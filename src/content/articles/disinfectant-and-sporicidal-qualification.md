@@ -21,7 +21,7 @@ EU GMP Annex 1 (2022) is the most direct driver. It states that disinfectants an
 
 In the United States, the FDA "Guidance for Industry: Sterile Drug Products Produced by Aseptic Processing, Current Good Manufacturing Practice" (2004) is explicit that the suitability, efficacy, and limitations of disinfecting agents and procedures should be assessed, that the effectiveness should be measured periodically, and that a sporicidal agent should be used routinely. The underlying CGMP hook is 21 CFR 211.56 and 211.67, which require sanitation procedures and cleaning of equipment and facilities at appropriate intervals to prevent contamination. The relevant compendial methods sit in the USP, principally the chapter on antimicrobial effectiveness testing and the informational chapter on disinfectants and antiseptics, which describe the carrier and suspension test designs in general terms. PIC/S PI 007 (Validation of Aseptic Processing) and the broader pharmaceutical microbiology literature add detail, but Annex 1 and the FDA aseptic guidance are the two documents an inspector will hold you to.
 
-> Annex 1 (2022), paraphrased: the disinfection process should be validated to demonstrate suitability and effectiveness, contact times should be established, and the program should account for the surfaces and the organisms actually present.
+> What Annex 1 (2022) requires, in plain terms: prove the disinfection actually works and for how long it must stay in contact, and build the program around the surfaces in the room and the organisms you actually recover there. See EU GMP Annex 1 (2022) for the governing wording.
 
 ### The risk rationale
 

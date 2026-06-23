@@ -90,7 +90,7 @@ USP <1790> is where the operational detail lives. It defines the conditions unde
 
 ### Standard manual inspection conditions
 
-- **Illuminance at the inspection point:** USP <1790> describes an illuminance range of roughly 2,000 to 3,750 lux at the point of inspection for routine clear-solution inspection, with higher levels (up to about 8,000 to 10,000 lux) for difficult-to-inspect products such as colored solutions, suspensions, or amber containers. Verify and document the actual illuminance with a calibrated lux meter at the inspection station.
+- **Illuminance at the inspection point:** USP <1790> sets out a recommended illuminance band for routine clear-solution inspection and a higher band for products that are harder to inspect, such as colored solutions, suspensions, or amber containers. Treat the chapter as the source for the actual figures, set your station to the appropriate band for the product, and verify and document the actual illuminance with a calibrated lux meter at the inspection station.
 - **Backgrounds:** both a matte black and a matte white background are used. Black background reveals light or reflective particles; white background reveals dark particles. Inspectors view each unit against both.
 - **Inspection time:** a defined viewing time per unit, commonly on the order of 5 to 10 seconds total split between the two backgrounds. Too fast and detection drops; the time is part of the qualified method.
 - **Manipulation:** units are gently swirled or inverted to suspend particles, taking care not to introduce air bubbles that mimic particles or to create foam in protein products.
@@ -100,15 +100,13 @@ USP <1790> is where the operational detail lives. It defines the conditions unde
 
 POD is the heart of qualification. A particle of a given size and type has a probability, not a certainty, of being seen. The standard way to characterize an inspection process is to build POD curves: for a set of seeded units containing known particle sizes, measure the fraction detected at each size across multiple inspectors and repeats.
 
-A defect or particle is generally categorized by its POD:
+USP <1790> frames POD as a banded scale, and the naming is a known source of confusion, so be precise about what each band means:
 
-| Zone | Approximate POD | Meaning |
-|---|---|---|
-| Reject zone | >= 0.70 (often expressed as "always detected" target) | Particles large or contrasting enough to be reliably found |
-| Gray zone | roughly 0.30 to 0.70 | Detection is uncertain; these drive variability between inspectors and runs |
-| Accept zone | <= 0.30 | Below reliable visual detection; control depends on prevention, not inspection |
+- **Reject zone (high POD):** particles large or contrasting enough that inspection reliably finds them. "Reject" here means the unit is reliably detected and removed, not that it is bad in some other sense. This is the high end of the POD scale.
+- **Gray zone (intermediate POD):** detection is partial and uncertain. These units drive variability between inspectors and between runs, and they are where a qualification challenge actually discriminates.
+- **Accept zone (low POD):** the particle is below the level at which visual inspection reliably finds it. This does not mean such a unit is "good" or has been judged acceptable; it means the particle is undetectable by inspection, so control for that size range depends on prevention upstream, not on catching it at the inspection step.
 
-The practical use: when you qualify inspectors or machines, you build a defect kit that spans the gray zone, because anyone can find a 1,000 micrometer black wire and that proves nothing. The discrimination test is in the gray zone, around the size threshold where human vision becomes unreliable, typically in the low hundreds of micrometers depending on the matrix.
+Refer to USP <1790> for the specific POD values that bound each band. The practical use: when you qualify inspectors or machines, you build a defect kit that spans the gray zone, because anyone can find a 1,000 micrometer black wire and that proves nothing. The discrimination test is in the gray zone, around the size threshold where human vision becomes unreliable, typically in the low hundreds of micrometers depending on the matrix.
 
 ---
 
@@ -205,7 +203,7 @@ An AVI machine is a computerized system and a measurement system at once, so it 
 
 - **URS and design:** define what defects must be detected, throughput, reject mechanisms, data capture, and audit trail. See [user requirements and traceability](/articles/user-requirements-and-traceability) and [equipment qualification lifecycle](/articles/equipment-qualification-lifecycle).
 - **IQ/OQ/PQ:** install, then challenge operationally, then performance-qualify on real product and real defect sets.
-- **Knapp test (the standard AVI comparison):** the recognized method for demonstrating that an automated or semi-automated machine performs at least as well as qualified manual inspection. You build a test set of units, each characterized by manual inspection over many repeats to assign each unit a detection probability, then group them. The machine (or semi-auto setup) is run against the same set multiple times. The acceptance criterion is that the machine's reject zone efficiency (the sum of detection across the reject-zone units) equals or exceeds that of the manual inspection benchmark. In plainer terms: the machine must be at least as good as a qualified human at catching the units humans reliably catch.
+- **Knapp test (the standard AVI comparison):** the recognized method, sometimes called the Knapp-Kushner method, for demonstrating that an automated or semi-automated machine performs at least as well as qualified manual inspection. You build a test set of units, each characterized by manual inspection over many repeats to assign each unit a detection probability, then group them. The machine (or semi-auto setup) is run against the same set multiple times. The primary acceptance criterion is that the machine's reject zone efficiency (the sum of detection across the reject-zone units) equals or exceeds that of the manual inspection benchmark. Many implementations also look at performance across the gray and accept zones, not the reject zone alone, so the machine is not just matching humans on easy units while doing worse elsewhere. In plainer terms: the machine must be at least as good as a qualified human at catching the units humans reliably catch, and should not be worse on the harder ones.
 - **Recipe and parameter control:** the inspection recipe (lighting, camera, thresholds, rotation) is configuration that must be under change control. See [change control for validated systems](/articles/change-control-validated-systems).
 - **False reject monitoring:** track machine reject rate. A creeping false-reject rate signals drift, a new component lot, or a degraded sensor, and it destroys yield. Rejected units are routinely re-inspected manually to recover good product and to verify the machine is not over-rejecting.
 - **Part 11 / Annex 11:** AVI machines generate electronic records and need audit trails, access control, and data integrity controls. See [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11) and [audit trail design and review](/articles/audit-trail-design-and-review).
@@ -227,20 +225,13 @@ USP <788> has two methods, and Method 1 is the default:
 - **Method 1: Light Obscuration Particle Count Test.** An automated particle counter passes the solution through a sensor; particles block light proportional to size. This is the first-choice method. If a product cannot be tested by light obscuration (too viscous, colored, forms bubbles, opaque, or the result is near the limit and ambiguous), you go to Method 2.
 - **Method 2: Microscopic Particle Count Test.** The solution is filtered onto a membrane and particles are counted and sized under a microscope. Slower, more operator-dependent, but works where light obscuration fails.
 
-The limits depend on container fill volume:
+The acceptance limits in USP <788> are organized along three axes, and understanding the structure matters more than memorizing the numbers (the exact figures live in the chapter and you should read them there):
 
-| Container type | Size threshold | Limit |
-|---|---|---|
-| Small volume parenterals (SVP, <= 100 mL), Method 1 | >= 10 micrometers | <= 6,000 particles per container |
-| SVP (<= 100 mL), Method 1 | >= 25 micrometers | <= 600 particles per container |
-| Large volume parenterals (LVP, > 100 mL), Method 1 | >= 10 micrometers | <= 25 particles per mL |
-| LVP (> 100 mL), Method 1 | >= 25 micrometers | <= 3 particles per mL |
-| SVP, Method 2 (microscopic) | >= 10 micrometers | <= 3,000 particles per container |
-| SVP, Method 2 | >= 25 micrometers | <= 300 particles per container |
-| LVP, Method 2 | >= 10 micrometers | <= 12 particles per mL |
-| LVP, Method 2 | >= 25 micrometers | <= 2 particles per mL |
+- **Container fill volume.** Small volume parenterals (SVP, fill volume at or below 100 mL) carry their limits expressed per container. Large volume parenterals (LVP, fill volume above 100 mL) carry their limits expressed per mL.
+- **Particle size.** Each container category has a separate limit at the >= 10 micrometer threshold and a tighter limit at the >= 25 micrometer threshold.
+- **Test method.** Method 1 (light obscuration) and Method 2 (microscopic) each have their own set of limits; the microscopic limits are not the same numbers as the light-obscuration limits.
 
-Note the per-container limits for small volume and per-mL limits for large volume, and that the microscopic-method limits differ from light-obscuration. Mixing those up is a classic interview trip-wire.
+So for any given product you read the chapter at the intersection of its fill-volume category, the relevant size threshold, and the method you ran. Note the per-container basis for small volume versus the per-mL basis for large volume, and that the microscopic-method limits differ from light-obscuration. Mixing those up is a classic interview trip-wire.
 
 ### How to run light obscuration (the core steps)
 
@@ -316,16 +307,16 @@ These are the patterns that recur in regulatory findings and audits. None are ti
 The 100% inspection removes defective units. The AQL re-inspection on the accepted lot verifies that the 100% inspection was effective, because no inspection is perfect. The AQL step is a check on the process, not a second chance to catch units.
 
 **Q: What are the <788> sub-visible limits for a small volume parenteral by light obscuration?**
-No more than 6,000 particles per container at >=10 micrometers and no more than 600 per container at >=25 micrometers. For large volume parenterals it switches to per-mL: 25 per mL at >=10 and 3 per mL at >=25.
+For small volume parenterals the light-obscuration limits are expressed per container, with a higher allowance at the >=10 micrometer threshold and a tighter one at >=25 micrometers. For large volume parenterals the basis switches to per mL, again with separate >=10 and >=25 micrometer limits. The point an interviewer is testing is that you know the per-container versus per-mL split and the two size thresholds; read the exact figures from USP <788>.
 
 **Q: How do you qualify a manual inspector?**
 Vision and color screening, training on the defect library, then a blinded challenge set spanning good units, gray-zone particles, reject-zone particles, and container/cosmetic defects. Acceptance is based on detection of critical defects and a controlled false-reject rate, with gray-zone results trended against the group POD. Re-qualify on a set frequency and on triggers.
 
 **Q: What is the gray zone?**
-The particle-size band where probability of detection is partial, roughly 0.30 to 0.70. Below it, detection is unreliable and you rely on prevention. Above it, particles are reliably found. Qualification challenge sets concentrate on the gray zone because that is where the method discriminates.
+The particle-size band where probability of detection is partial rather than reliable. Below it, detection is unreliable and you rely on prevention. Above it, particles are reliably found and removed. Qualification challenge sets concentrate on the gray zone because that is where the method discriminates. USP <1790> defines the POD values that bound the band.
 
 **Q: How do you prove an automated inspection machine is good enough to replace humans?**
-The Knapp test. You characterize a defect set by manual inspection over many repeats to assign each unit a detection probability, then run the machine against the same set. The machine must match or exceed the reject-zone detection efficiency of the qualified manual benchmark.
+The Knapp test, also known as the Knapp-Kushner method. You characterize a defect set by manual inspection over many repeats to assign each unit a detection probability, then run the machine against the same set. The machine must match or exceed the reject-zone detection efficiency of the qualified manual benchmark, and a good evaluation also confirms it is not worse than humans across the gray and accept zones.
 
 **Q: Light obscuration gives a high particle count. What do you check first?**
 Bubbles from dissolved air or surfactants (degas the sample), then the blank (a contaminated blank inflates everything), then sample handling and environment. Prove the assignable cause before concluding; do not just re-test into compliance.

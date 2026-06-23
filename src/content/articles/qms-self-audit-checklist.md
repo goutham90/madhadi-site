@@ -9,7 +9,7 @@ pillar: "quality-assurance"
 
 A quality management system audit isn't just a pre-inspection exercise. It's the diagnostic tool for understanding whether your quality system is actually managing quality, or just producing documentation that looks like it does. The difference matters enormously when your system is under pressure: when batches are failing, when an out-of-specification result won't resolve, when an inspector is in the building.
 
-This checklist covers the core elements of a pharmaceutical or life-sciences QMS aligned with ICH Q10 and FDA/EMA expectations. The same structure applies whether you make small-molecule drug product, a biologic, an in-vitro diagnostic, or a medical device. The regulation numbers shift between a drug GMP citation and a device quality-system citation, but the underlying control (a working deviation system, a CAPA loop that closes, document control people trust) is the same in every sector. Work through each section methodically. The questions are designed to probe whether the system works, not just whether documentation exists. A useful mental model: an inspector reads your records to find what your system actually does, not what your procedures say it should do. Your self-audit should read the same way.
+This checklist covers the core elements of a pharmaceutical or life-sciences QMS aligned with ICH Q10 and FDA/EMA expectations. The same structure applies across small-molecule drug product, a biologic, a cell or gene therapy, and a drug-device combination product. The regulation numbers shift between a drug GMP citation and the device-side citation that a combination product also has to satisfy, but the underlying control (a working deviation system, a CAPA loop that closes, document control people trust) is the same in every case. Work through each section methodically. The questions are designed to probe whether the system works, not just whether documentation exists. A useful mental model: an inspector reads your records to find what your system actually does, not what your procedures say it should do. Your self-audit should read the same way.
 
 Before you start, decide how you will run it. A self-audit done as a paperwork tick-box exercise produces a clean report and a false sense of security. A self-audit done by someone willing to pull records, follow threads, and ask people what really happens produces findings that sting a little. The second kind is the one worth doing. Schedule it when you have time to chase the uncomfortable answers, give yourself permission to write down what you find, and treat your own findings with the same seriousness you would treat an external observation.
 
@@ -19,10 +19,9 @@ Before you start, decide how you will run it. A self-audit done as a paperwork t
 
 Self-inspection is not optional, and it is not a courtesy you extend to yourself. It is a named, written requirement.
 
-> "Self inspections should be conducted in order to monitor the implementation and compliance with Good Manufacturing Practice principles and to propose necessary corrective measures."
-> EU GMP Volume 4, Chapter 9 (Self Inspection)
+EU GMP Volume 4, Chapter 9 (Self Inspection) frames self-inspection as a way to check how well GMP principles are being put into practice and to drive the corrective measures that follow from what you find.
 
-EU GMP Chapter 9 requires self-inspections, requires that they be recorded, and requires that observations lead to corrective measures that are themselves followed up. ICH Q10 (Pharmaceutical Quality System) folds internal audit into its process performance and product quality monitoring system and into management review, so a self-audit feeds the governance loop above it. US drug GMP under 21 CFR Part 211 does not use the words "internal audit," but 21 CFR 211.22 makes the quality unit responsible for the authority to review and approve all quality-related procedures and to ensure they are followed, which only works if someone checks. For devices, the quality system regulation (recently aligned to ISO 13485 under the FDA Quality Management System Regulation, 21 CFR Part 820, harmonized in the 2024 final rule effective February 2026) requires internal audits by design.
+EU GMP Chapter 9 requires self-inspections, requires that they be recorded, and requires that observations lead to corrective measures that are themselves followed up. ICH Q10 (Pharmaceutical Quality System) folds internal audit into its process performance and product quality monitoring system and into management review, so a self-audit feeds the governance loop above it. US drug GMP under 21 CFR Part 211 does not use the words "internal audit," but 21 CFR 211.22 makes the quality unit responsible for the authority to review and approve all quality-related procedures and to ensure they are followed, which only works if someone checks. If you also make a combination product, the device-side quality system that Part 4 pulls in (21 CFR Part 820, now aligned to ISO 13485 under FDA's Quality Management System Regulation effective 2 February 2026) names internal audits as an explicit requirement, so the obligation is written down directly rather than implied.
 
 So the self-audit answers three questions a regulator will eventually ask you directly:
 
@@ -54,7 +53,7 @@ A finding that reads "document control is weak" is useless. It cannot be argued,
 
 | Part | What it states | Example |
 |---|---|---|
-| Requirement | The rule the practice fails to meet | "EU GMP Chapter 4 requires records be completed at the time each action is taken." |
+| Requirement | The rule the practice fails to meet | "EU GMP Chapter 4 sets the expectation that each entry is recorded as the action happens." |
 | Observation | The specific, evidenced fact | "In 6 of 10 batch records sampled (BR-2291, BR-2294, ...), the in-process check entry was signed in a single session at end of shift, not at the recorded times." |
 | Impact / severity | Why it matters and the grade | "Contemporaneous recording is not assured; data integrity of in-process checks is questionable. Major." |
 | Reference | Where to fix it | "SOP-QA-014 §5.3; reinforced via document control and training." |
@@ -105,7 +104,7 @@ Document control is foundational. If your document system doesn't work, if peopl
 
 ### What the regulations expect here
 
-The requirement to control records and define who may issue and change them sits in 21 CFR 211.68, 211.180, 211.186, and 211.194, and in EU GMP Chapter 4 (Documentation). EU GMP Chapter 4 is explicit that documents must be designed, prepared, reviewed, and distributed with care, and that records must be made or completed at the time each action is taken. If your forms allow blanks to be filled in later from memory, you are not meeting that contemporaneous-record expectation. The same principle underpins the data integrity expectation that records be original and contemporaneous, which is treated in more depth in [Good Documentation Practices](/articles/good-documentation-practices) and [ALCOA+ in detail](/articles/alcoa-plus-deep-dive).
+The requirement to control records and define who may issue and change them sits in 21 CFR 211.68, 211.180, 211.186, and 211.194, and in EU GMP Chapter 4 (Documentation). EU GMP Chapter 4 is explicit that documents are designed, prepared, reviewed, and distributed with care, and that an entry goes onto the record as the action it captures takes place. If your forms allow blanks to be filled in later from memory, you are not meeting that contemporaneous-record expectation. The same principle underpins the data integrity expectation that records be original and contemporaneous, which is treated in more depth in [Good Documentation Practices](/articles/good-documentation-practices) and [ALCOA+ in detail](/articles/alcoa-plus-deep-dive).
 
 ### Acceptance criteria: what good looks like
 
@@ -269,7 +268,7 @@ That is measurable, time-bound, and falsifiable, which is the entire point.
 
 ### What the regulations expect here
 
-ICH Q10 (Pharmaceutical Quality System), section 3.2.2, names CAPA as one of the four core pharmaceutical quality system elements and requires that the methodology result in product and process improvements and an enhanced understanding of products and processes. The underlying regulatory hook for corrective action in US drug GMP is 21 CFR 211.192. For medical devices, CAPA is its own explicit requirement under the quality system regulation and ISO 13485, which is why device inspections cite CAPA so heavily. For a ground-up explanation of the concept, see [What Is a CAPA?](/articles/what-is-a-capa).
+ICH Q10 (Pharmaceutical Quality System), section 3.2.2, names CAPA as one of the four core pharmaceutical quality system elements and expects the approach to feed back into better products and processes and a stronger grasp of how they behave. The underlying regulatory hook for corrective action in US drug GMP is 21 CFR 211.192. For combination products that pair a drug or biologic with a delivery device, the device-side quality-system expectations under 21 CFR Part 4 bring CAPA in as its own explicit requirement, which is one reason CAPA gets so much inspection attention. For a ground-up explanation of the concept, see [What Is a CAPA?](/articles/what-is-a-capa).
 
 ### Common mistakes and inspection patterns
 

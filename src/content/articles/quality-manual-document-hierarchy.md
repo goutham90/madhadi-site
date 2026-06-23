@@ -38,7 +38,7 @@ For US drug GMP, 21 CFR Parts 210 and 211 require written procedures across the 
 
 For the quality system that ties it together, ICH Q10 (Pharmaceutical Quality System, 2008) describes a model that links management responsibility, the four core processes (process performance and product quality monitoring, CAPA, change management, and management review), and continual improvement. ICH Q10 expects documented policies and procedures and a quality manual or equivalent that describes the QMS.
 
-For medical devices, ISO 13485:2016 (Medical devices, Quality management systems) is explicit. Clause 4.2.1 lists required documentation including a quality policy and quality objectives, a quality manual, documented procedures and records required by the standard, and documents needed to ensure effective planning, operation, and control of processes. Clause 4.2.2 requires the quality manual itself. The US device regulation, 21 CFR Part 820 (now the Quality Management System Regulation, QMSR, which incorporates ISO 13485 by reference effective February 2, 2026), requires documented procedures and document controls.
+For combination products and any device constituent of a drug-device or biologic-device combination, ISO 13485:2016 (Quality management systems) is explicit about documentation. Clause 4.2.1 lists required documentation including a quality policy and quality objectives, a quality manual, documented procedures and records required by the standard, and documents needed to ensure effective planning, operation, and control of processes. Clause 4.2.2 requires the quality manual itself. In the US, 21 CFR Part 820 (now the Quality Management System Regulation, QMSR, which incorporates ISO 13485 by reference effective February 2, 2026) requires documented procedures and document controls, and 21 CFR Part 4 sets how those controls combine with drug GMP for a combination product.
 
 For the general management-system grammar that most QMS documents borrow, ISO 9001:2015 uses the term "documented information" to cover both documents and records, and clause 7.5 sets the rules for creating, updating, and controlling them.
 
@@ -79,19 +79,19 @@ What goes in a quality manual:
 | Cross-reference | A table mapping each regulatory requirement or standard clause to the procedure that satisfies it |
 | Management commitment | Reference to management review, resource provision, and continual improvement |
 
-ISO 13485:2016 clause 4.2.2 requires the quality manual to include the scope of the QMS with justification for any exclusions, the documented procedures or references to them, and a description of the interaction between QMS processes. ISO 9001:2015 dropped the explicit requirement for a quality manual, but most regulated companies keep one because it gives inspectors and new staff a single front door to the system, and because device and pharma frameworks still expect a top-level QMS description.
+For a pharmaceutical, biologics, or cell and gene therapy operation, the closest regulatory equivalent is the Site Master File. EU GMP and the PIC/S guidance on the Site Master File (PE 008) describe a document that summarizes a site's GMP activities, facilities, and quality system. It is not identical to a quality manual, but it serves the same "describe the system at a high level" purpose for a manufacturing site, and the two often cross-reference each other. ICH Q10 expects a quality manual or equivalent that describes the pharmaceutical quality system, its scope, and the responsibilities involved.
 
-A pharmaceutical equivalent is the Site Master File. EU GMP and the PIC/S guidance on the Site Master File (PE 008) describe a document that summarizes a site's GMP activities, facilities, and quality system. It is not identical to a quality manual, but it serves the same "describe the system at a high level" purpose for a manufacturing site, and the two often cross-reference each other.
+Where a quality manual is maintained, good practice is to state the scope of the QMS with justification for any exclusions, list the documented procedures or references to them, and describe how the QMS processes interact (the structure ISO 13485:2016 clause 4.2.2 sets out for the standards that require a manual). ISO 9001:2015 dropped the explicit requirement for a quality manual, but most regulated companies keep one because it gives inspectors and new staff a single front door to the system, and because pharma, biologics, and combination-product frameworks still expect a top-level QMS description.
 
 Worked example of a cross-reference table inside a quality manual:
 
 | Requirement | Reference standard/regulation | Governing procedure |
 |-------------|-------------------------------|---------------------|
-| Document control | ISO 13485 4.2.4; 21 CFR 820 doc controls | SOP-QA-001 Document Control |
-| Control of records | ISO 13485 4.2.5 | SOP-QA-002 Records Management |
-| CAPA | ISO 13485 8.5; 21 CFR 820 | SOP-QA-010 CAPA |
-| Internal audit | ISO 13485 8.2.4 | SOP-QA-020 Internal Audit |
-| Management review | ISO 13485 5.6; ICH Q10 | SOP-QA-030 Management Review |
+| Document control | EU GMP Chapter 4; 21 CFR 211.180/211.100; ICH Q10 | SOP-QA-001 Document Control |
+| Control of records | EU GMP Chapter 4; 21 CFR 211 Subpart J | SOP-QA-002 Records Management |
+| CAPA | ICH Q10 3.2.2; 21 CFR 211.192 | SOP-QA-010 CAPA |
+| Internal audit | EU GMP Chapter 9 self-inspection; ICH Q10 | SOP-QA-020 Internal Audit |
+| Management review | ICH Q10 3.2.4 | SOP-QA-030 Management Review |
 
 This table is what an inspector loves to see. It proves the company knows which requirements apply and has a named procedure for each.
 
@@ -101,7 +101,7 @@ Common mistakes at tier 1:
 
 - A quality manual that is a copy-paste of the ISO standard with no description of how this specific company actually works. Inspectors notice generic, content-free manuals.
 - A policy that promises continual improvement but is never reviewed and has no traceable objectives.
-- Exclusions claimed without justification (device QMS).
+- Scope boundaries or exclusions claimed without justification (for example, activities a site genuinely does not perform).
 - The manual references procedures that no longer exist or have been renumbered, breaking the chain.
 
 ---
@@ -342,7 +342,7 @@ A document is an instruction or specification that is version-controlled and tel
 Mostly granularity. An SOP governs a defined task or process; a work instruction is the most detailed, hands-on level, often for a specific machine or step. Many companies merge them. What matters is that the right level of detail exists for consistent performance, and that whichever document is used does not contradict the policy above it.
 
 **"Where does the requirement for written procedures come from?"**
-Cite specifics: 21 CFR 211 requires written procedures throughout (for example 211.22(d) for the quality unit and 211.100 for production controls), EU GMP Chapter 4 defines document types and control, ICH Q10 describes the pharmaceutical quality system, and for devices ISO 13485:2016 (incorporated by the US QMSR effective February 2, 2026) requires documented procedures, a quality policy, a quality manual, and control of records.
+Cite specifics: 21 CFR 211 requires written procedures throughout (for example 211.22(d) for the quality unit and 211.100 for production controls), EU GMP Chapter 4 defines document types and control, and ICH Q10 describes the pharmaceutical quality system. For combination products and device constituents, ISO 13485:2016 (incorporated by the US QMSR effective February 2, 2026) requires documented procedures, a quality policy, a quality manual, and control of records.
 
 **"What is a quality manual and is it still required?"**
 The top-level document describing the QMS: scope, organization, process interactions, and cross-references to procedures. ISO 13485 clause 4.2.2 still requires it. ISO 9001:2015 removed the explicit requirement, but most regulated firms keep one because it gives inspectors and new staff a single entry point and a requirement-to-procedure map.
@@ -380,6 +380,5 @@ Map applicable requirements to QMS processes, confirm a tier 1 description exist
 - [Change control for validated systems](/articles/change-control-validated-systems)
 - [Training program for GxP](/articles/training-program-gxp)
 - [QMS self-audit checklist](/articles/qms-self-audit-checklist)
-- [Medical device quality system (QMSR)](/articles/medical-device-quality-system-qmsr)
 - [What is GMP](/articles/what-is-gmp)
 - [Management review under ICH Q10](/articles/management-review-q10)

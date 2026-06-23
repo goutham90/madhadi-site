@@ -77,16 +77,6 @@ export const PILLARS: Pillar[] = [
     ],
   },
   {
-    slug: 'medical-devices', title: 'Medical Devices & SaMD', short: 'Medical Devices & SaMD',
-    blurb: 'QMSR/ISO 13485, ISO 14971 risk management, IEC 62304 software lifecycle.',
-    desc: 'Medical devices and software as a medical device sit under a distinct but overlapping quality framework. This pillar covers the FDA Quality Management System Regulation and its alignment with ISO 13485, ISO 14971 risk management, and the IEC 62304 software development lifecycle.',
-    image: '/images/instrument-machine.jpg',
-    regLinks: [
-      { href: 'https://www.iso.org/standard/59752.html', label: 'ISO 13485' },
-      { href: 'https://www.iso.org/standard/72704.html', label: 'ISO 14971' },
-    ],
-  },
-  {
     slug: 'clinical-gcp', title: 'Clinical & GCP', short: 'Clinical & GCP',
     blurb: 'GCP data integrity, EDC/eTMF/IRT systems, and safety/pharmacovigilance data.',
     desc: 'Clinical quality and good clinical practice govern the integrity of trial data and patient safety information. This pillar covers GCP data integrity, validation of EDC, IRT, eTMF and CTMS systems, and the integrity of pharmacovigilance and safety data.',

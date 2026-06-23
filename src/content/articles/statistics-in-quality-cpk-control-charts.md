@@ -15,7 +15,7 @@ This article walks through the four tools the work demands: how many units to in
 
 The 2011 FDA process validation guidance, *Process Validation: General Principles and Practices*, reframed validation as a lifecycle: Stage 1 process design, Stage 2 process qualification, Stage 3 continued process verification. It leans on statistical thinking throughout. It states plainly that a manufacturer should understand sources of variation, and that "the number of samples should be adequate to provide sufficient statistical confidence of quality both within a batch and between batches." That is a statistical standard of evidence, not a count you pick by feel.
 
-ICH Q10, *Pharmaceutical Quality System*, expects ongoing monitoring of process and product performance. ICH Q9(R1), *Quality Risk Management*, expects risk decisions to be informed by data. Beyond pharma, ISO 9001:2015 (clause 9.1.1) requires evaluation of quality management system performance using "applicable methods, including statistical techniques," and ISO 13485:2016 (clause 8.4, Analysis of data) for medical devices requires documented procedures that include appropriate statistical techniques. For device design and production, FDA 21 CFR 820.250 (Statistical techniques), now harmonized into the Quality Management System Regulation through ISO 13485, requires that sampling plans be "written and based on a valid statistical rationale." None of these prescribe a specific formula. They require that you have a defensible method and apply it.
+ICH Q10, *Pharmaceutical Quality System*, expects ongoing monitoring of process and product performance. ICH Q9(R1), *Quality Risk Management*, expects risk decisions to be informed by data. Beyond those, ISO 9001:2015 (clause 9.1.1) calls for evaluating quality management system performance using suitable methods, including statistical techniques where appropriate, and ISO 13485:2016 (clause 8.4, Analysis of data) requires documented procedures that include appropriate statistical techniques. FDA 21 CFR 211.110 ties in directly for drug products: it requires control procedures to monitor output and validate performance of the processes that may cause variability in in-process material and the drug product. As a supporting note for combination products and software in a medical context, 21 CFR 820.250 (Statistical techniques), now folded into the Quality Management System Regulation through harmonization with ISO 13485, requires sampling plans to rest on a valid statistical rationale and to be written down. None of these prescribe a specific formula. They require that you have a defensible method and apply it.
 
 So the inspector's question is rarely "what is your Cpk?" It is "how did you decide that number was acceptable, and what do you do when it moves?" Knowing the tools is the easy part. Knowing the assumptions behind them, and where they break, is the actual skill. The rest of this article is organized around that distinction: each tool, what it tells you, what it assumes, and what an auditor checks.
 
@@ -52,15 +52,15 @@ Here is the point that wins the interview. The single number that protects the p
 
 ### Switching rules are part of the standard
 
-Z1.4 also defines **switching rules**, normal, tightened, reduced inspection, that are part of the standard, not optional flavor. The built-in feedback logic:
+Z1.4 also defines **switching rules**, normal, tightened, reduced inspection, that are part of the standard, not optional flavor. The standard's own thresholds for moving between states are spelled out in the document itself; the logic, in summary, is a feedback loop:
 
 - Start at **normal** inspection.
-- Move to **tightened** when 2 of 5 consecutive lots are rejected on original inspection.
-- Return to **normal** when 5 consecutive lots are accepted under tightened.
-- Move to **reduced** (smaller samples) only when qualifying conditions are met (preceding 10 lots accepted, production steady, approved by authority).
-- If a lot is rejected under tightened, **discontinue inspection** under the plan and fix the process before resuming.
+- A run of rejections in recent lots moves you to **tightened** inspection.
+- A sustained run of accepted lots under tightened returns you to **normal**.
+- **Reduced** inspection (smaller samples) becomes available only once a longer history of accepted lots and steady, qualifying production conditions are met, with approval by the responsible authority.
+- A rejection while under tightened inspection stops sampling under the plan until the process is fixed.
 
-Inspectors notice when a site uses the AQL tables but ignores the switching rules; it signals the plan was selected for a number, not operated as a system. A documented finding pattern is a site sitting on tightened-triggering history while still sampling at normal level.
+Consult ANSI/ASQ Z1.4 for the exact numeric switching criteria. Inspectors notice when a site uses the AQL tables but ignores the switching rules; it signals the plan was selected for a number, not operated as a system. A documented finding pattern is a site sitting on tightened-triggering history while still sampling at normal level.
 
 ### Where attribute sampling breaks
 
@@ -169,16 +169,16 @@ The procedure is specific and inspectors ask about it:
 
 ### Western Electric / Nelson rules
 
-The control limit alone (a point beyond 3 sigma) is only one of several signals. The Western Electric rules (from the 1956 WECO *Statistical Quality Control Handbook*), refined by Nelson, define patterns that indicate a process is no longer behaving randomly even when no single point has breached 3 sigma. The chart is divided into zones: Zone A (2 to 3 sigma), Zone B (1 to 2 sigma), Zone C (0 to 1 sigma) on each side. The core set:
+The control limit alone (a point beyond 3 sigma) is only one of several signals. The Western Electric rules (from the 1956 WECO *Statistical Quality Control Handbook*), refined by Nelson, define patterns that indicate a process is no longer behaving randomly even when no single point has breached 3 sigma. The chart is divided into zones measured in sigma distance from the centerline (the outer band near the limits, a middle band, and an inner band) on each side. The patterns these rule sets recognize, described in general terms rather than reproduced verbatim, fall into a few families:
 
-1. **One point beyond 3 sigma** (Zone A and out): gross shift or measurement error.
-2. **Two of three consecutive points beyond 2 sigma** on the same side: emerging shift.
-3. **Four of five consecutive points beyond 1 sigma** on the same side: sustained smaller shift.
-4. **Eight (or nine) consecutive points on one side of the centerline**: a mean shift the limits have not caught yet.
+1. **A single point beyond the 3 sigma limit**: a gross shift or measurement error.
+2. **A short cluster of points crowding the outer band on one side**: an emerging shift.
+3. **A run of points sitting beyond the inner band on one side**: a sustained smaller shift.
+4. **A long run of consecutive points all on one side of the centerline**: a mean shift the limits have not caught yet.
 
-Nelson's full set adds trend rules (six points steadily increasing or decreasing), stratification (fifteen points hugging the centerline in Zone C, often a sign of incorrectly computed limits or mixed data streams), and oscillation (fourteen points alternating up and down, over-adjustment or two interleaved streams).
+The fuller rule sets also recognize a steady trend (a run of points consistently rising or falling), stratification (a long run hugging the centerline, often a sign of incorrectly computed limits or mixed data streams), and oscillation (a long alternating up-down pattern, signalling over-adjustment or two interleaved streams). The precise point counts and sigma multipliers for each pattern are set out in the Western Electric handbook and in Nelson's published rules; apply the specific values from those sources.
 
-A practical caution: every rule you add raises the **false-alarm rate**. A single point on a stable process trips the 3 sigma rule about 0.27 percent of the time (roughly 1 in 370 points). With all eight Nelson rules running, the chance of a false signal on a stable process climbs well above that. Apply rules deliberately. For routine release monitoring, the 3 sigma rule plus a run rule (8 or 9 on one side) and a trend rule covers most real signals without drowning the team in false positives. Reserve the full battery for investigations where sensitivity outweighs false-alarm cost. State which rules you apply in the SOP, so the response is consistent and the rule set is auditable.
+A practical caution: every rule you add raises the **false-alarm rate**. A single point on a stable process trips the 3 sigma rule about 0.27 percent of the time (roughly 1 in 370 points). With all eight Nelson rules running, the chance of a false signal on a stable process climbs well above that. Apply rules deliberately. For routine release monitoring, the 3 sigma rule plus a long-run-on-one-side rule and a trend rule covers most real signals without drowning the team in false positives. Reserve the full battery for investigations where sensitivity outweighs false-alarm cost. State which rules you apply in the SOP, so the response is consistent and the rule set is auditable.
 
 ### Rational subgrouping
 
@@ -274,8 +274,8 @@ Cp measures potential capability, the ratio of the spec width to the process spr
 **Q: When do you use Ppk instead of Cpk?**
 Cpk uses within-subgroup (short-term) sigma and assumes statistical control; Ppk uses the overall (long-term) sigma from all individual values and captures drift between subgroups. Use Ppk to report actual delivered performance over time, and compare the two: a large Cpk-to-Ppk gap means the process is wandering between subgroups even though each subgroup is tight.
 
-**Q: A point is inside the control limits but the last eight points are all above the centerline. Is the process in control?**
-No. That is a Western Electric run rule (eight or nine on one side), a sustained mean shift the 3 sigma limit has not yet caught. It is a special-cause signal and should trigger an assessment even though no single point breached 3 sigma.
+**Q: A point is inside the control limits but a long run of recent points are all above the centerline. Is the process in control?**
+No. That trips the Western Electric long-run-on-one-side rule, a sustained mean shift the 3 sigma limit has not yet caught. It is a special-cause signal and should trigger an assessment even though no single point breached 3 sigma.
 
 **Q: Why can't I just use specification limits as my control limits?**
 They answer different questions. Specs come from the customer or registration and describe acceptable product; control limits come from the process data and describe expected process behavior. A process can be in control and still fail spec, or be capable and out of control. Drawing specs on a control chart encourages operators to adjust toward spec, which adds variation (tampering).
@@ -298,7 +298,8 @@ None of this requires a statistician's depth on day one. It requires understandi
 - ICH Q9(R1) (Quality Risk Management), ICH Q10 (Pharmaceutical Quality System).
 - EU GMP Annex 15 (Qualification and Validation): ongoing process verification.
 - ANSI/ASQ Z1.4 (attribute sampling; ISO 2859-1 equivalent) and ANSI/ASQ Z1.9 (variables sampling; ISO 3951 equivalent).
-- 21 CFR 820.250 (Statistical techniques), now harmonized into the Quality Management System Regulation via ISO 13485:2016.
+- 21 CFR 211.110 (Sampling and testing of in-process materials and drug products): control procedures to monitor output and validate process performance.
+- 21 CFR 820.250 (Statistical techniques), now folded into the Quality Management System Regulation via harmonization with ISO 13485:2016: supporting hook for combination products and software in a medical context.
 - Squeglia, *Zero Acceptance Number Sampling Plans*: c=0 consumer-risk-based plans.
 - Western Electric, *Statistical Quality Control Handbook* (1956); L. S. Nelson, control-chart run rules (Journal of Quality Technology).
 - ISO 9001:2015 (clause 9.1.1) and ISO 13485:2016: requirements for statistical techniques in the quality management system.

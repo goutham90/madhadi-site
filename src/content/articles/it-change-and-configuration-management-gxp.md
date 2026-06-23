@@ -19,11 +19,11 @@ If you have not already, read [Change Control for Validated Systems](/articles/c
 
 A computerized system that supports a GxP decision must remain in its validated state for as long as it is in use. That principle is not subtle in the regulations.
 
-> EU GMP Annex 11 (2011), clause 10: "Any changes to a computerised system including system configurations should only be made in a controlled manner in accordance with a defined procedure."
+EU GMP Annex 11 (2011), clause 10 requires that any change to a computerized system, including its system configurations, be made only in a controlled way and under a defined procedure.
 
-> EU GMP Annex 11 (2011), clause 7.1 on data: storage should include the ability to obtain clear printed copies, and clause 12.1 requires physical and logical controls to restrict access to authorized persons. A configuration change to access control is therefore a regulated change.
+EU GMP Annex 11 (2011), clause 8.1 requires the ability to obtain clear printed copies of electronically stored data, and clause 12.1 requires physical and/or logical controls that restrict system access to authorized persons. A configuration change to access control is therefore a regulated change.
 
-The US side rests on the predicate rules. 21 CFR 211.68(a) requires that automatic, mechanical, or electronic equipment used in manufacture, processing, packing, or holding be "routinely calibrated, inspected, or checked according to a written program designed to assure proper performance." 21 CFR 211.68(b) requires that "appropriate controls" be exercised over computer systems to assure that changes are "instituted only by authorized personnel." 21 CFR Part 11.10(k) requires written policies that hold individuals accountable for actions taken under their electronic signatures, and 11.10(a) requires validation of systems to ensure accuracy, reliability, and consistent intended performance.
+The US side rests on the predicate rules. 21 CFR 211.68(a) requires that automatic, mechanical, or electronic equipment used in manufacture, processing, packing, or holding be "routinely calibrated, inspected, or checked according to a written program designed to assure proper performance." 21 CFR 211.68(b) requires that "appropriate controls" be exercised over computer systems to assure that changes are "instituted only by authorized personnel." 21 CFR 11.10(j) requires written policies that hold individuals accountable for actions taken under their electronic signatures, and 11.10(a) requires validation of systems to ensure accuracy, reliability, and consistent intended performance. Most directly on point for this article, 11.10(k)(2) requires revision and change control procedures that maintain an audit trail documenting the time-sequenced development and modification of systems documentation.
 
 The practical translation: an OS patch, a database upgrade, a firmware update, a TLS certificate rotation, or an access-control tweak on a GxP system is a change to a validated computerized system. It has to be controlled, risk-assessed, and documented, and the validated state has to be re-established or shown to be intact before the system is used for GxP work again.
 
@@ -62,7 +62,7 @@ Both are acceptable. The failure mode is a third pattern that exists by accident
 
 A CMDB is the inventory of configuration items and their relationships: which application runs on which server, which database, which OS build, which network segment, which storage. In ITIL it is the backbone of change and incident management. In GxP it serves a second purpose: it is part of how you prove you know the boundary of your validated system and its current configuration.
 
-GAMP 5 and Annex 11 both expect that you can describe the system, its components, and its environment. Annex 11 clause 4.3 requires an up-to-date listing of relevant systems and their GxP functionality. The CMDB, when kept honest, is a large part of that evidence.
+GAMP 5 and Annex 11 both expect that you can describe the system, its components, and its environment. Annex 11 clause 4.3 requires an up-to-date listing of relevant systems and their GMP functionality. The CMDB, when kept honest, is a large part of that evidence.
 
 ### What goes in it for a GxP system
 

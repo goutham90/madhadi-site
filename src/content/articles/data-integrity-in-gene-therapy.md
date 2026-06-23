@@ -46,7 +46,7 @@ When an inspector or interviewer presses on basis, these are the citations that 
 | EU Annex 11 | Computerised systems (EU GMP) | Risk-managed validation, audit trails for GMP-relevant changes, data integrity throughout the lifecycle |
 | EU Annex 1 (2022) | Manufacture of sterile medicinal products | Contamination control strategy; relevant where environmental and process data feed release |
 | FDA 2018 DI Q&A | Data Integrity and Compliance with Drug CGMP | Practical interpretation: audit trail review frequency, shared accounts, retention of all data |
-| FDA 2006 OOS guidance | Investigating Out-of-Specification Test Results | All results retained and evaluated; invalidation requires documented scientific justification |
+| FDA OOS guidance (Rev. 1, May 2022) | Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production | All results retained and evaluated; invalidation requires documented scientific justification |
 
 A program that almost always runs in parallel jurisdictions should treat the US and EU requirements as a single combined bar. The [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11) article and the [practical Part 11 / Annex 11 guide](/articles/part-11-annex-11-practical-guide) map the two side by side.
 
@@ -58,7 +58,7 @@ Drawing on published warning letters, FDA Form 483 observations, and inspection 
 
 The obvious failure, audit trails switched off, gets caught immediately and is increasingly rare. The harder problem is partial audit trails. A system records that a result was created and that a record was deleted, but it does not capture field-level edits, or it captures that a value was "modified" with a timestamp but not the previous value.
 
-The standard from 21 CFR 211.68 and 21 CFR Part 11 is that the audit trail must be complete enough to reconstruct any change to raw or critical data: the old value, the new value, who made the change, when, and why. If you cannot reconstruct the prior state of a number, the system fails. For how to design and review trails so they actually meet this bar, see [audit trail design and review](/articles/audit-trail-design-and-review) and [operationalizing audit trail review](/articles/operationalizing-audit-trail-review).
+The practical inspection standard, drawing on 21 CFR 211.68 and 21 CFR Part 11 for the recorded change and on ALCOA+ and EU Annex 11 expectation for the reason, is that the audit trail must be complete enough to reconstruct any change to raw or critical data: the old value, the new value, who made the change, when, and why. If you cannot reconstruct the prior state of a number, the system fails. For how to design and review trails so they actually meet this bar, see [audit trail design and review](/articles/audit-trail-design-and-review) and [operationalizing audit trail review](/articles/operationalizing-audit-trail-review).
 
 Instrument software for ddPCR, flow cytometry, and plate readers is the usual offender, because many of these packages were built as scientific tools first and compliant records systems second. The same gap appears in older standalone balances, pH meters, and device test rigs.
 
@@ -78,7 +78,7 @@ A defensible transfer either keeps the data inside a single validated system end
 
 This is the finding that turns a 483 into a warning letter. An analyst gets a result that looks wrong, decides the instrument was off or the sample was bad, reruns, and deletes the first acquisition from the instrument software. The only record that survives is the passing one.
 
-The agency position is unambiguous: all data, including failing and aberrant runs, must be retained and evaluated under the out-of-specification process. A decision to invalidate a result requires a documented scientific or technical justification, reviewed and approved, not a quiet deletion. The reference framework is the 2006 guidance "Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production," reinforced by 21 CFR 211.192, and the mechanics are covered in [the OOS investigation process](/articles/oos-investigation-process). When a failure points at a systemic problem, it should also feed [the CAPA system](/articles/what-is-a-capa).
+The agency position is unambiguous: all data, including failing and aberrant runs, must be retained and evaluated under the out-of-specification process. A decision to invalidate a result requires a documented scientific or technical justification, reviewed and approved, not a quiet deletion. The reference framework is the FDA guidance "Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production," now in its Revision 1 (May 2022), which supersedes the October 2006 original, reinforced by 21 CFR 211.192, and the mechanics are covered in [the OOS investigation process](/articles/oos-investigation-process). When a failure points at a systemic problem, it should also feed [the CAPA system](/articles/what-is-a-capa).
 
 Potency assays make this temptation acute. The assays are variable, batches are precious and few, and timelines are brutal. That combination is exactly when discipline matters most and is hardest to hold.
 
@@ -95,7 +95,7 @@ The table below summarizes the recurring findings, the underlying expectation, a
 | Partial or missing audit trail | Any change to critical data is reconstructable (old value, new value, who, when, why) | 21 CFR 211.68; 21 CFR Part 11.10(e); FDA 2018 DI Q&A |
 | Shared or generic logins | Each action attributable to a unique individual | 21 CFR Part 11.10(d), 11.10(g) |
 | Unverified data transfer | Data preserved and verified across every hand-off | FDA 2018 DI Q&A; ALCOA Original/Accurate |
-| Deleted failing results | All data retained; invalidation justified and approved | FDA 2006 OOS guidance; 21 CFR 211.192 |
+| Deleted failing results | All data retained; invalidation justified and approved | FDA OOS guidance (Rev. 1, May 2022); 21 CFR 211.192 |
 | Testing into compliance | Every acquisition accounted for against reported results | 21 CFR 211.194; 21 CFR Part 11.10(e) |
 | Inadequate computerized system controls | Systems validated for intended use, access controlled | 21 CFR Part 11; 21 CFR 211.68(b) |
 
@@ -229,7 +229,7 @@ If you work in or near data integrity, these come up in interviews and in inspec
 
 **What does ALCOA+ stand for, and which part is from which guidance?** Attributable, Legible, Contemporaneous, Original, Accurate from FDA, plus Complete, Consistent, Enduring, Available from MHRA and PIC/S. Then add that the letters are a memory aid, and the real test is whether an outsider can verify your data from your own systems.
 
-**A result is out of specification. Walk me through what an analyst may and may not do.** May not delete or overwrite the result, may not rerun and report only the passing value, may not adjust parameters until it passes. Must retain the original, raise the OOS, investigate per the procedure, and invalidate only with documented, approved scientific justification. Cite the 2006 OOS guidance and 21 CFR 211.192.
+**A result is out of specification. Walk me through what an analyst may and may not do.** May not delete or overwrite the result, may not rerun and report only the passing value, may not adjust parameters until it passes. Must retain the original, raise the OOS, investigate per the procedure, and invalidate only with documented, approved scientific justification. Cite the FDA OOS guidance, current Revision 1 (May 2022), and 21 CFR 211.192.
 
 **How often should audit trails be reviewed?** With the same frequency and rigor as the records they support, per the 2018 Q&A. Release-critical data gets reviewed every batch or run as part of disposition; lower-risk data on a risk-based periodic schedule. Be ready to explain how you set the schedule from a data criticality assessment.
 

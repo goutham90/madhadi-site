@@ -67,7 +67,7 @@ Split by classification (critical, major, minor) and by category (human error, e
 
 **What it is.** The rate at which test results fall outside the registered or in-house specification. The single biggest definition trap in any metrics program.
 
-**Why it matters.** OOS rate is a direct read on process capability and lab reliability. **21 CFR 211.192** drives the investigation requirement, and FDA's guidance *Investigating Out-of-Specification Test Results for Pharmaceutical Production* (2006) defines the investigation phases. A high invalidated-OOS rate (results blamed on lab error) is itself a red flag inspectors chase, because it can mask real process problems.
+**Why it matters.** OOS rate is a direct read on process capability and lab reliability. **21 CFR 211.192** drives the investigation requirement, and FDA's guidance *Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production* (Level 2 revision, May 2022; originally 2006) defines the investigation phases. A high invalidated-OOS rate (results blamed on lab error) is itself a red flag inspectors chase, because it can mask real process problems.
 
 **Formulas.** Track three numbers, not one.
 
@@ -254,7 +254,7 @@ These are the patterns that draw observations. None require company names to rec
 
 **"What is the difference between a leading and a lagging quality metric? Give examples."** A lagging metric measures an outcome that already happened: confirmed OOS rate, recall count, complaint rate. A leading metric predicts trouble before it lands at disposition: RFT, deviation rate, CAPA aging, training compliance. A good program weights toward leading indicators because they give you time to act. Saying only "OOS rate" as your headline metric signals you only watch outcomes.
 
-**"Your invalidated OOS rate is 60%. Is that good or bad?"** It is a flag. A high invalidation rate means you are attributing most OOS results to lab error rather than to the process. That can be legitimate if the lab genuinely had assignable causes, but sustained high invalidation often masks real process capability problems or signals a lab quality issue. I would investigate the invalidation reasons, look for repeat patterns by method or analyst, and make sure each invalidation has a sound, documented assignable cause per the 2006 OOS guidance, not a convenient one.
+**"Your invalidated OOS rate is 60%. Is that good or bad?"** It is a flag. A high invalidation rate means you are attributing most OOS results to lab error rather than to the process. That can be legitimate if the lab genuinely had assignable causes, but sustained high invalidation often masks real process capability problems or signals a lab quality issue. I would investigate the invalidation reasons, look for repeat patterns by method or analyst, and make sure each invalidation has a sound, documented assignable cause per the current OOS guidance (Level 2 revision, May 2022), not a convenient one.
 
 **"How do you set a target for a metric?"** From the firm's own historical baseline, adjusted toward an improvement goal, with external benchmarks where they exist, and always documented. The target must be defensible. I would not set it below current performance, because that defeats the purpose and an inspector will challenge it.
 

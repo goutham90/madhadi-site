@@ -21,16 +21,9 @@ There are two classification schemes, and people mix them up constantly. Knowing
 
 ISO 14644-1:2015 *Cleanrooms and associated controlled environments, Part 1: Classification of air cleanliness by particle concentration* defines ISO Classes 1 through 9. The class number is the exponent: an ISO Class N room has a maximum allowed concentration of particles per cubic metre given by a formula, and lower class numbers mean cleaner air. ISO 5 is very clean (the core of aseptic filling), ISO 8 is a typical controlled background.
 
-The maximum allowed concentrations (particles per cubic metre, equal to or greater than the stated size) that matter for pharma are:
+The maximum allowed concentrations that matter for pharma are set in ISO 14644-1:2015 Table 1 (refer to the standard for the exact figures by class). In round terms, the per cubic metre limit at the ≥0.5 µm size steps up by an order of magnitude per class: roughly 3,500 at ISO 5, 35,000 at ISO 6, 352,000 at ISO 7, and 3,520,000 at ISO 8. ISO 5 is the core of aseptic filling; ISO 8 is a typical controlled background. Consult ISO 14644-1 itself when you set acceptance criteria; do not work from a reproduced table.
 
-| ISO Class | ≥0.5 µm (particles/m³) | ≥5.0 µm (particles/m³) |
-|-----------|------------------------|------------------------|
-| ISO 5 | 3,520 | 29 (see note) |
-| ISO 6 | 35,200 | 293 |
-| ISO 7 | 352,000 | 2,930 |
-| ISO 8 | 3,520,000 | 29,300 |
-
-Note on the ≥5.0 µm column at ISO 5: the 2015 revision of ISO 14644-1 removed the ≥5.0 µm limit at ISO 5 from the body of the standard because counting statistics for large particles at very low concentrations are unreliable. EU GMP, however, still wants a macroparticle figure at Grade A/B for continuity with the older scheme, so Annex 1 carries its own ≥5.0 µm limits. This is a real point of confusion and a good interview probe.
+Note on the ≥5.0 µm column at ISO 5: the 2015 revision of ISO 14644-1 removed the ≥5.0 µm limit at ISO 5 from the body of the standard because counting statistics for large particles at very low concentrations are unreliable. EU GMP, however, still wants a macroparticle figure at Grade A/B for continuity with the older scheme, so Annex 1 carries its own ≥5.0 µm handling. This is a real point of confusion and a good interview probe.
 
 ### EU GMP Annex 1 Grade A-D
 
@@ -41,27 +34,13 @@ EU GMP Annex 1 (the 2022 revision, fully effective 25 August 2023, with the lyop
 | A | ISO 5 | ISO 5 | The critical zone: filling, stoppering, open product/container, aseptic connections |
 | B | ISO 5 | ISO 7 | Background to Grade A for aseptic processing |
 | C | ISO 7 | ISO 8 | Less critical aseptic steps, preparation of solutions to be filtered |
-| D | ISO 8 | not defined (microbial controlled) | Handling components after washing, less critical support |
+| D | ISO 8 | not predetermined (microbial controlled) | Handling components after washing, less critical support |
 
 The key idea: Grade A must hold ISO 5 in both states (at rest and in operation), because there is no acceptable degradation in the zone where sterile product is exposed. Grade B is ISO 5 at rest but is allowed to drift to ISO 7 in operation, reflecting that operators are present but the product is not open there. Grades C and D step down accordingly.
 
-Annex 1 total particle limits, for the record:
+The Annex 1 (2022) airborne particle classification limits for Grades A to D are set in the standard's own tables (Table 1 for classification, Table 5 for routine monitoring); read Annex 1 directly for the exact figures. A few features matter more than the raw numbers. In the 2022 classification table the ≥5.0 µm value for Grade A (both states) and for Grade B at rest is given as "not specified," not a number: the old 20/m³ macroparticle figure from the 2008 Annex 1 is gone. The 2022 monitoring table reinstates a ≥5.0 µm figure of 29/m³ for Grade A in both states, used for trending and the contamination control strategy rather than as a classification limit. Grade D in operation is "not predetermined" (the firm sets it from the contamination control strategy). When you draft acceptance criteria, state up front which table you are working to, classification or monitoring, because the two differ at exactly these ≥5.0 µm cells.
 
-| Grade | At rest ≥0.5 µm | At rest ≥5.0 µm | In operation ≥0.5 µm | In operation ≥5.0 µm |
-|-------|-----------------|-----------------|----------------------|----------------------|
-| A | 3,520 | 20 | 3,520 | 20 |
-| B | 3,520 | 29 | 352,000 | 2,930 |
-| C | 352,000 | 2,930 | 3,520,000 | 29,300 |
-| D | 3,520,000 | 29,300 | not defined | not defined |
-
-And the microbial limits (action limits), measured by air sampling, settle plates, contact plates, and glove prints. Grade A targets effectively no recovery (limit expressed as <1 CFU, meaning any recovery is investigated). The recovery of any microorganism in Grade A is a contamination control failure that gets investigated.
-
-| Grade | Air sample CFU/m³ | Settle plate (90 mm) CFU/4h | Contact plate (55 mm) CFU/plate | Glove print (5 fingers) CFU |
-|-------|-------------------|----------------------------|----------------------------------|------------------------------|
-| A | <1 | <1 | <1 | <1 |
-| B | 10 | 5 | 5 | 5 |
-| C | 100 | 50 | 25 | not specified |
-| D | 200 | 100 | 50 | not specified |
+And the microbial limits (action limits), measured by air sampling, settle plates, contact plates, and glove prints, are likewise set in Annex 1 (refer to the standard for the grade-by-grade values). The change that matters most: the 2022 revision states the Grade A limit as "no growth," not the older "<1 CFU." Any recovery of any microorganism in Grade A is a contamination control failure that gets investigated; there is no acceptable sub-one numeric value. Grades B, C, and D carry stepped numeric action limits, with glove print not specified at C and D.
 
 These microbial figures are EU GMP action limits, not ISO numbers. ISO 14644 says nothing about microbes. That separation (particles from ISO, microbes from GMP) is worth saying out loud in an interview.
 
@@ -95,7 +74,7 @@ ISO 14644-1:2015 sets the minimum number of sampling locations from the cleanroo
 
 ### Step 3: determine the sample volume per location
 
-At each location you must sample enough air to have a reasonable chance of detecting particles at the class limit. The standard sets a minimum single sample volume so that, at the class concentration limit for the most stringent considered size, you would expect to count at least 20 particles. Practically, for ISO 5 at ≥0.5 µm this drives a sample of at least 1 m³ (1,000 litres) at each point, which at a 28.3 L/min (1 cfm) counter is about 35 minutes per location, or proportionally less with a higher flow counter. The minimum sample volume is never less than 2 litres and never less than a one-minute sample.
+At each location you must sample enough air to have a reasonable chance of detecting particles at the class limit. The standard sets a minimum single sample volume Vs = (20 / Cn,m) × 1,000 litres, so that at the class concentration limit (Cn,m) for the most stringent considered size you would expect to count at least 20 particles. Run the arithmetic for the size that drives the largest volume. For ISO 5 at ≥0.5 µm alone (Cn,m = 3,520) the formula yields only about 5.7 litres, which is why the ≥0.5 µm limit at ISO 5 does not by itself force a large sample. The common practice of pulling 1 m³ (1,000 litres) per point comes from the largest considered particle size (the lowest concentration limit, for example when a ≥5.0 µm figure is in play) and from the practical need to resolve very low counts reliably, not from the ≥0.5 µm class limit. At a 28.3 L/min (1 cfm) counter, 1 m³ is about 35 minutes per location, or proportionally less with a higher flow counter. The minimum sample volume is never less than 2 litres and never less than a one-minute sample.
 
 ### Step 4: sample at work height, isophasic with airflow
 
@@ -107,11 +86,11 @@ For classification you compare the particle concentration at each location again
 
 ### Worked example: classifying a Grade B background at rest
 
-Suppose a 40 m² Grade B gowning-adjacent room, classified at rest, target ISO 5 at ≥0.5 µm (limit 3,520 particles/m³).
+Suppose a 24 m² Grade B gowning-adjacent room, classified at rest, target ISO 5 at ≥0.5 µm (limit 3,520 particles/m³).
 
-1. Annex A lookup for 40 m² gives a minimum number of locations (in this size band the table yields a defined count; lay them on a grid covering the room and over the door transfer point).
-2. Considered sizes: ≥0.5 µm and ≥5.0 µm (Annex 1 wants the macroparticle figure at Grade B at rest, limit 29/m³).
-3. Sample volume: 1 m³ per location to satisfy the 20-particle rule at ISO 5.
+1. Annex A lookup for 24 m² gives six sampling locations (the table fixes the count by floor-area band); lay them on a grid covering the room and over the door transfer point.
+2. Considered sizes: ≥0.5 µm and ≥5.0 µm (the Grade B at-rest ≥5.0 µm figure is handled per the monitoring table, 29/m³, since the 2022 classification table leaves it not specified).
+3. Sample volume: drive it from the largest considered size; in practice 1 m³ per location resolves the low macroparticle counts reliably.
 4. Counter at 28.3 L/min runs ~35 min per location at work height.
 5. Results (≥0.5 µm, particles/m³): 1,210; 980; 1,540; 2,030; 760; 1,890. Every value is below 3,520. The ≥5.0 µm column reads 0, 4, 11, 7, 2, 9, all below 29. The room passes at rest as ISO 5 / Grade B at rest.
 
@@ -169,7 +148,7 @@ There is no single universal number in the standard; you set a target based on t
 
 ### Worked example
 
-Challenge a Grade C room to 35,200,000 particles/m³ at ≥0.5 µm (roughly 100x the ISO 8 in-operation limit). After stopping the challenge, you need the concentration to fall to 352,000/m³ (1/100). Logging every minute, you see it cross 352,000/m³ at 14 minutes. With an acceptance criterion of ≤20 minutes, the room passes, and you record 14 minutes as the qualified recovery time, used downstream to justify a 20-minute settle period after operators exit before declaring at-rest.
+Challenge a Grade C room to 35,200,000 particles/m³ at ≥0.5 µm (about 10x the ISO 8 in-operation limit of 3,520,000/m³). After stopping the challenge, you need the concentration to fall to 352,000/m³, which is 1/100 of the challenge. Logging every minute, you see it cross 352,000/m³ at 14 minutes. With an acceptance criterion of ≤20 minutes, the room passes, and you record 14 minutes as the qualified recovery time, used downstream to justify a 20-minute settle period after operators exit before declaring at-rest.
 
 Note: recovery testing applies to non-unidirectional (turbulent) rooms. A true Grade A unidirectional zone sweeps continuously, so the recovery concept is replaced by demonstrating the unidirectional flow velocity and uniformity instead.
 
@@ -292,10 +271,10 @@ ISO 14644 classifies air cleanliness purely by airborne particle concentration a
 Because Grade A is the critical zone where sterile product, containers, and closures are exposed. There is no acceptable degradation there. Grade B is the background to Grade A: operators are present but product is not open, so a controlled drift to ISO 7 in operation is acceptable as long as the Grade A zone it surrounds stays at ISO 5.
 
 **Q: What happened to the ≥5.0 µm limit at ISO 5 in the 2015 revision?**
-ISO 14644-1:2015 removed the ≥5.0 µm limit at ISO 5 from the classification body because counting large particles at such low concentrations is statistically unreliable. EU GMP still requires a macroparticle figure at Grade A/B for monitoring continuity, so Annex 1 carries its own ≥5.0 µm limits separate from ISO classification.
+ISO 14644-1:2015 removed the ≥5.0 µm limit at ISO 5 from the classification body because counting large particles at such low concentrations is statistically unreliable. Annex 1 (2022) followed suit in its classification table, where the Grade A and Grade B at-rest ≥5.0 µm cells now read "not specified" rather than the old 20/m³ figure. The 2022 monitoring table keeps a ≥5.0 µm value of 29/m³ at Grade A for trending and the contamination control strategy, so the macroparticle figure survives as a monitoring expectation, not a classification limit.
 
 **Q: How do you set the number of sampling locations and the sample volume?**
-Locations come from the ISO 14644-1:2015 Annex A lookup table tied to floor area (not the old square-root rule). Sample volume per location must be large enough to expect at least 20 particles at the class limit for the most stringent considered size, with a floor of 2 litres and at least one minute. For ISO 5 at ≥0.5 µm that drives roughly 1 m³ per point.
+Locations come from the ISO 14644-1:2015 Annex A lookup table tied to floor area (not the old square-root rule). Sample volume per location must be large enough to expect at least 20 particles at the class limit for the most stringent considered size, with a floor of 2 litres and at least one minute. For ISO 5 at ≥0.5 µm alone the formula yields only about 5.7 litres; the common 1 m³ per point comes from the largest considered size and the practical need to resolve low counts, not from the ≥0.5 µm limit.
 
 **Q: What does a smoke study prove that a particle count cannot?**
 A particle count is a snapshot at the probe. A smoke study shows the airflow pattern, whether unidirectional flow actually sweeps contamination away from exposed product during real interventions. You can pass particle counts and still have an airflow that pulls room air over an open vial when an operator reaches in. Smoke catches that.

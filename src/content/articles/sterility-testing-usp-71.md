@@ -82,7 +82,7 @@ The logic is simple. If the product or the test setup suppresses microbial growt
 
 ### The challenge organisms
 
-USP <71> prescribes a panel that covers aerobes, an anaerobe, yeast, and mold. The standard organisms (with their ATCC reference numbers):
+USP <71> calls for a panel spanning aerobes, an anaerobe, a yeast, and a mold. The reference strains commonly used, with their ATCC catalog identifiers, are summarized below; refer to the chapter itself for the official strain list and assignments:
 
 | Organism | Type | ATCC | Medium it grows in |
 |---|---|---|---|
@@ -194,12 +194,12 @@ This is the high-stakes part. A turbid tube is not automatically a batch failure
 
 ### The regulatory frame
 
-USP <71> states the conditions under which a sterility test may be invalidated. A positive result invalidates the test ONLY if one or more of these is established:
+USP <71> sets out the conditions under which a sterility test may be invalidated. A positive result invalidates the test ONLY if one or more of these is established (paraphrased from the chapter; see USP <71> for the exact wording):
 
-1. The data of the microbiological monitoring of the sterility testing facility show a fault (the environment was out of control).
-2. A review of the testing procedure used during the test shows a fault.
-3. Microbial growth is found in the negative controls.
-4. After identification of the micro-organism isolated from the test, the growth can be ascribed unequivocally to faults with respect to the material and/or the technique used in conducting the sterility test procedure (the organism is unambiguously a lab/handling organism, not a product organism, supported by the other evidence).
+1. Monitoring of the sterility testing facility shows the environment was out of control during the test.
+2. Review of the test procedure used during the run reveals a fault in how it was carried out.
+3. The negative controls themselves show microbial growth.
+4. Once the recovered organism is identified, the growth can be attributed without ambiguity to a problem with the materials or technique of the sterility test itself (the organism is clearly a lab or handling organism, not a product organism, backed by the other evidence).
 
 If, and only if, the test is shown invalid on one of these grounds, you discard it and repeat with the same number of units as the original test. If you cannot demonstrate invalidity, the product fails the sterility test and the batch is rejected. You cannot retest your way to a pass on the strength of "the first one was probably contamination."
 
@@ -279,7 +279,7 @@ S. aureus (6538), B. subtilis (6633), P. aeruginosa (9027), C. sporogenes (anaer
 Quarantine, preserve and speciate the isolate, review session EM, negative controls, GPT and technique, compare against the personnel/environment isolate library, then adjudicate against the four USP invalidation criteria. Invalidate and retest with the same number of units only if a criterion is unequivocally met; otherwise the batch fails. You cannot retest into compliance (the Barr principle).
 
 **Under what conditions may a sterility test be invalidated?**
-Only four: documented EM fault in the test facility, a documented procedural fault, growth in the negative controls, or the isolate identification unequivocally ascribes the growth to a material/technique fault of the test. Anything less and the result stands.
+Only four, paraphrasing USP <71>: a documented EM fault in the test facility, a documented procedural fault, growth in the negative controls, or an isolate identification that attributes the growth without ambiguity to a material or technique fault of the test. Anything less and the result stands.
 
 **Why 0.45 micron, not 0.22, in the test?**
 0.45 micron is the compendial standard for the sterility test membrane for retaining the relevant organisms in this assay. (0.22 micron is the typical sterilizing-grade filter in manufacturing, a different context.)

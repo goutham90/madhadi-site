@@ -86,12 +86,12 @@ For each item, record whether it has a GxP impact, with the rationale. Non-GxP i
 
 For GxP items, classify risk from the combination of GxP impact and system complexity. For computerized systems, use the GAMP 5 software categories as the starting point and adjust for the process the system controls.
 
-| GAMP 5 software category | Description | Typical validation emphasis |
+| GAMP 5 software category | What it covers, in your own program's terms | Typical validation emphasis |
 |---|---|---|
-| Category 1 | Infrastructure software (operating systems, databases, network) | Infrastructure qualification; record version; rely on supplier with assessment |
-| Category 3 | Non-configured (used as supplied) | Verify fitness for intended use against requirements; supplier testing reused where assessed |
-| Category 4 | Configured products | Verify the configuration against requirements; risk-based functional testing of configured GxP functions |
-| Category 5 | Custom / bespoke applications | Full lifecycle including design review and code-level controls; highest test rigor |
+| Category 1 | The underlying technical platform a GxP system runs on, such as the operating system, database engine, and network layer, not the GxP application itself | Qualify the environment, capture the installed versions, and lean on the vendor where a supplier assessment supports it |
+| Category 3 | A finished product run as delivered, with no configuration of its business logic | Confirm it does what your requirements need, and reuse the vendor's own testing where your assessment justifies it |
+| Category 4 | A product whose behavior you tailor through configuration rather than coding | Check that your configuration meets the requirements and test the configured GxP functions in proportion to risk |
+| Category 5 | An application written or built specifically for you | Apply the full lifecycle, including design review and controls down to the code, with the most thorough testing |
 
 Map the GxP impact to an overall risk level so that validation effort is proportionate. Spreadsheets used for GxP calculations are assessed individually; a GxP spreadsheet with a formula that affects a result is validated regardless of how simple it appears.
 

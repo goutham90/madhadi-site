@@ -23,7 +23,7 @@ Three sources govern clinical system requirements in the US context, with EU and
 
 **21 CFR Part 11**, Electronic Records; Electronic Signatures. Part 11 applies when electronic records are used to satisfy a predicate rule. For clinical research the predicate rules are 21 CFR Part 312 (Investigational New Drug Application), Part 314 (New Drug Application), Part 812 (Investigational Device Exemption), and Part 50 and Part 56 (informed consent and institutional review boards). Any system that generates, modifies, maintains, archives, retrieves, or transmits an electronic record that substitutes for a paper record is in scope. The two halves of Part 11 are records controls (Subpart B) and signature controls (Subpart C). Audit trails sit in §11.10(e), authority checks in §11.10(g), and the electronic signature mechanics in §11.50, §11.70, and §11.200 through §11.300.
 
-**FDA Guidance: Use of Electronic Records and Electronic Signatures in Clinical Investigations Under 21 CFR Part 11, Questions and Answers** (finalized 2023, replacing the 2007 draft on electronic source data and earlier guidance). This is the document that translates Part 11 into clinical specifics. It addresses electronic source data, certified copies, the use of digital health technologies and patient-owned devices, electronic informed consent, and the allocation of responsibility among sponsors, contract research organizations (CROs), and sites. When inspectors talk about Part 11 in a clinical context, this guidance is the lens they apply.
+**FDA Guidance: Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers** (final guidance issued 2 October 2024, finalizing the March 2023 draft and superseding the May 2007 final guidance Computerized Systems Used in Clinical Investigations and earlier guidance). This is the document that translates Part 11 into clinical specifics. It addresses electronic source data, certified copies, the use of digital health technologies and patient-owned devices, electronic informed consent, and the allocation of responsibility among sponsors, contract research organizations (CROs), and sites. When inspectors talk about Part 11 in a clinical context, this guidance is the lens they apply.
 
 **ICH E6 Good Clinical Practice.** E6(R2), the integrated addendum finalized in 2016, formally added risk-based quality management, sponsor oversight of vendors, and explicit expectations for validated computerized systems and electronic source data. E6(R3), adopted by the ICH in 2025, restructures the guideline around principles and proportionate, risk-based design. R3 keeps and strengthens the requirements that computerized systems be validated, that audit trails capture changes, and that sponsors maintain oversight regardless of how much work is outsourced. Annex 1 of R3 carries the operational detail on systems and data governance. The full treatment is in [ICH E6 Good Clinical Practice](/articles/ich-e6-good-clinical-practice).
 
@@ -37,7 +37,7 @@ A note on the predicate rule logic, because it trips people up. Part 11 does not
 |---|---|---|
 | 21 CFR Part 11 | US regulation | Audit trails, access, e-signatures on electronic records |
 | 21 CFR Part 312 / 314 / 812 | US predicate rules | Why the records exist; safety reporting timelines |
-| FDA Part 11 clinical Q&A (2023) | US guidance | Electronic source, eConsent, sponsor/CRO/site responsibility |
+| FDA Part 11 clinical Q&A (2024) | US guidance | Electronic source, eConsent, sponsor/CRO/site responsibility |
 | ICH E6(R2)/(R3) | International GCP | Validated systems, audit trails, sponsor oversight |
 | ICH E2A / E2B(R3) | International safety | Case management, electronic ICSR format |
 | EMA Computerised Systems guideline (2023) | EU guidance | Validation, audit trails, cloud, direct data capture |
@@ -61,7 +61,7 @@ This distinction is the single most misunderstood point in clinical computer sys
 4. Audit trails are enabled and capture the right events at the right granularity.
 5. Access controls are correct, with individual accounts and timely deprovisioning.
 
-The **GAMP 5 framework**, A Risk-Based Approach to Compliant GxP Computerized Systems (Second Edition, 2022), provides the structure. A vendor-supplied SaaS EDC platform is a GAMP Category 4 (configured) product. The vendor delivers the platform qualification. The sponsor validates the study build on top of it. Both layers are required, and neither substitutes for the other. The complementary concept of risk-based testing effort comes from the FDA's Computer Software Assurance for Production and Quality System Software guidance, issued as a draft in 2022 and finalized in 2025. CSA is written for production and quality systems rather than clinical, but its core argument, that testing effort should scale with risk and that unscripted and exploratory testing can produce valid evidence, applies cleanly to study configuration testing. The riskiest items (randomization, dispensing logic, eligibility edit checks) deserve the deepest scrutiny and the cosmetic items do not.
+The **GAMP 5 framework**, A Risk-Based Approach to Compliant GxP Computerized Systems (Second Edition, 2022), provides the structure. A vendor-supplied SaaS EDC platform is a GAMP Category 4 (configured) product. The vendor delivers the platform qualification. The sponsor validates the study build on top of it. Both layers are required, and neither substitutes for the other. The complementary concept of risk-based testing effort comes from the FDA's Computer Software Assurance guidance, issued as a draft in 2022 and finalized on 24 September 2025 as Computer Software Assurance for Production and Quality Management System Software. CSA is written for production and quality systems rather than clinical, but its core argument, that testing effort should scale with risk and that unscripted and exploratory testing can produce valid evidence, applies cleanly to study configuration testing. The riskiest items (randomization, dispensing logic, eligibility edit checks) deserve the deepest scrutiny and the cosmetic items do not.
 
 For the foundational treatment of these ideas, see [GAMP 5 and the CSV framework](/articles/gamp5-csv-framework) and [Computer Software Assurance](/articles/computer-software-assurance-fda).
 
@@ -125,13 +125,13 @@ Coverage inside those steps should include:
 - **Data exports** verified to match the statistical analysis plan and the downstream analysis formats, including CDISC SDTM mapping where applicable. See [clinical data management and CDISC](/articles/clinical-data-management-cdisc).
 - **Electronic signatures** on case report form (CRF) pages confirmed to meet the Part 11 signature manifestation and meaning requirements.
 
-A worked example shows why path coverage matters. Suppose a protocol requires that systolic blood pressure entries above 180 mmHg trigger a query. A test that enters 120 and sees no query proves nothing about the rule. The validation evidence must show an entry of 190 firing the query, an entry of 180 sitting on the boundary as the protocol defines it, and an entry of 179 staying silent. Three records, not one, and the boundary case is the one that catches off-by-one logic errors. A filled-in test line looks like this:
+A worked example shows why path coverage matters. Suppose a protocol requires that systolic blood pressure entries above 180 mmHg trigger a query. A test that enters 120 and sees no query proves nothing about the rule. The validation evidence must show an entry of 190 firing the query, an entry of 181 firing as the first value above the threshold, and an entry of 180 staying silent because 180 is not above 180. Three records, not one, and the boundary case is the one that catches off-by-one logic errors. A filled-in test line looks like this:
 
 | Test ID | Check | Input | Expected | Actual | Evidence | Result |
 |---|---|---|---|---|---|---|
 | EC-014a | SBP high alert | SBP = 190 | Query fires | Query fired | Screenshot 14a | Pass |
-| EC-014b | SBP boundary | SBP = 180 | Query fires (>= per protocol) | Query fired | Screenshot 14b | Pass |
-| EC-014c | SBP normal | SBP = 179 | No query | No query | Screenshot 14c | Pass |
+| EC-014b | SBP boundary above | SBP = 181 | Query fires (first value above 180) | Query fired | Screenshot 14b | Pass |
+| EC-014c | SBP boundary at limit | SBP = 180 | No query (180 is not above 180) | No query | Screenshot 14c | Pass |
 
 ### Acceptance criteria for an EDC build
 
@@ -359,8 +359,8 @@ Broader interview preparation is in [GxP quality interview preparation](/article
 - 21 CFR Part 11: Electronic Records; Electronic Signatures
 - 21 CFR Part 312: Investigational New Drug Application (including §312.32 safety reporting)
 - 21 CFR Part 812: Investigational Device Exemptions
-- FDA Guidance: Use of Electronic Records and Electronic Signatures in Clinical Investigations Under 21 CFR Part 11, Questions and Answers (2023)
-- FDA Guidance: Computer Software Assurance for Production and Quality System Software (draft 2022, finalized 2025)
+- FDA Guidance: Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers (final 2024)
+- FDA Guidance: Computer Software Assurance for Production and Quality Management System Software (draft 2022, finalized 24 September 2025)
 - FDA Bioresearch Monitoring (BIMO) Compliance Program 7348.810: Sponsors, Contract Research Organizations, and Monitors
 - ICH E6(R2): Guideline for Good Clinical Practice (2016)
 - ICH E6(R3): Guideline for Good Clinical Practice (2025)

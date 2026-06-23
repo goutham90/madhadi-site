@@ -123,7 +123,7 @@ Infrastructure is the foundation that GxP systems sit on. If time is wrong, if b
 
 **How to test it:** take the HR leaver list for the last quarter, pick three names, and check each system's user list and access logs for activity after the termination date. Separately, pull the full user list of one critical system and ask the owner to name every active account; an account no one can name is a finding.
 
-**Red flag:** if anyone says "we share the admin password between the lab manager and the backup analyst," that is a finding on the spot. Shared credentials destroy attributability, the first A in ALCOA+, and they implicate 21 CFR 211.68(b), which requires that input to and output from computer systems be checked for accuracy, and the broader expectation in 21 CFR Part 11 that actions be traceable to a unique individual.
+**Red flag:** if anyone says "we share the admin password between the lab manager and the backup analyst," that is a finding on the spot. Shared credentials destroy attributability, the first A in ALCOA+, and they implicate the 21 CFR Part 11 expectation that actions be traceable to a unique individual, with 21 CFR 211.68(b) as the supporting CGMP hook, since it requires that input to and output from computer systems be checked for accuracy and that changes be made only by authorized personnel.
 
 **Acceptance criteria:** no shared individual-accountable accounts, every active account maps to a current named person, leavers are disabled within the SOP-defined window with evidence, and a periodic access review exists with a recent completion date.
 
@@ -243,7 +243,7 @@ The "original" in ALCOA+ is what gets lost when an analyst transcribes a balance
 - [ ] Are all analytical runs, including failing ones, retained in the system?
 - [ ] Does it address practice injections and system suitability runs that precede sample analysis?
 
-**This specific issue:** if analysts routinely run a sample, see an unexpected result, and re-inject without documenting the first run, that is a data integrity failure regardless of whether the system happened to record it. The SOP must define the threshold for a reportable run, and every run above that threshold belongs in the official record. The governing expectations are 21 CFR 211.192 (investigation of discrepancies) and the FDA guidance "Investigating Out-of-Specification Test Results for Pharmaceutical Production" (October 2006). The full workflow is in the [OOS investigation process](/articles/oos-investigation-process) and the related [deviation management](/articles/deviation-management) article.
+**This specific issue:** if analysts routinely run a sample, see an unexpected result, and re-inject without documenting the first run, that is a data integrity failure regardless of whether the system happened to record it. The SOP must define the threshold for a reportable run, and every run above that threshold belongs in the official record. The governing expectations are 21 CFR 211.192 (investigation of discrepancies) and the FDA guidance "Investigating Out-of-Specification (OOS) Test Results for Pharmaceutical Production," original Oct 2006, Level 2 revision May 2022. The full workflow is in the [OOS investigation process](/articles/oos-investigation-process) and the related [deviation management](/articles/deviation-management) article.
 
 ### Data review procedures
 
@@ -408,7 +408,7 @@ The requirements these audit questions map to:
 | Audit trail configuration | 21 CFR 11.10(e); EU GMP Annex 11 clause 9 |
 | Audit trail review | FDA Data Integrity and CGMP guidance (Dec 2018); MHRA GXP Data Integrity Guidance (Mar 2018) |
 | Electronic signatures | 21 CFR 11.50, 11.70, 11.200; EU GMP Annex 11 clause 14 |
-| OOS handling | 21 CFR 211.192; FDA OOS Investigation guidance (Oct 2006) |
+| OOS handling | 21 CFR 211.192; FDA OOS Investigation guidance (orig. 2006; Level 2 rev. 2022) |
 | Documentation and corrections | 21 CFR 211.194(a); EU GMP Chapter 4 |
 | Backup and archival | EU GMP Annex 11 clauses 7 and 17 |
 

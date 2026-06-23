@@ -19,21 +19,21 @@ The regulatory center of gravity shifted around 2015 when the EMA and the PIC/S 
 
 Know these by name, number, and what each one actually requires. Inspectors test for an understanding of the hierarchy, not just the ability to recite titles.
 
-**EU GMP Chapter 3 (Premises and Equipment) and Chapter 5 (Production), 2015 revision.** These are the operative requirements for shared facilities in the EU/PIC/S system. Chapter 3 §3.6 and Chapter 5 §5.21 require that cross-contamination be prevented for all products, using a quality risk management process to assess and control risks, and that the outcome of a toxicological evaluation (the HBEL) be used to decide whether dedicated facilities are needed. The revised text deliberately removed the blanket requirement to dedicate facilities for certain product classes and replaced it with a risk-and-toxicology-based decision. Effective March 2015.
+**EU GMP Chapter 3 (Premises and Equipment) and Chapter 5 (Production), 2015 revision.** These are the operative requirements for shared facilities in the EU/PIC/S system. Chapter 3 §3.6 and Chapter 5 §5.20 require that cross-contamination be prevented for all products, using a quality risk management process that includes a potency and toxicological evaluation to assess and control risks, and that the outcome of that evaluation (the HBEL) be used to decide whether dedicated facilities are needed. The revised text deliberately removed the blanket requirement to dedicate facilities for certain product classes and replaced it with a risk-and-toxicology-based decision. Effective March 2015.
 
 **EMA Guideline on setting health-based exposure limits for use in risk identification in the manufacture of different medicinal products in shared facilities (EMA/CHMP/CVMP/SWP/169430/2012), effective 1 June 2015.** This is the HBEL guideline. It defines the Permitted Daily Exposure (PDE) approach, formerly called Acceptable Daily Exposure (ADE), and tells you how to derive a substance-specific limit from toxicology data. It is the source document for how the number is built.
 
-**EMA Questions and Answers on implementation of risk-based prevention of cross-contamination in production and "Guideline on setting health-based exposure limits..." (EMA/CHMP/CVMP/SWP/246844/2018), April 2018.** This Q&A is where the practical detail lives. It clarifies which products need a full PDE versus where simpler approaches suffice, who is qualified to derive an HBEL, how to handle the 1/1000 and 10 ppm defaults going forward, and how HBELs feed cleaning limits. If you only read one supporting document, read this one.
+**EMA Questions and Answers on implementation of risk-based prevention of cross-contamination in production and "Guideline on setting health-based exposure limits..." (EMA/CHMP/CVMP/SWP/246844/2018), April 2018.** This Q&A is where the practical detail lives. Question 1 states plainly that HBELs should be established for all medicinal products, with no carve-out for low-hazard products. It also covers who is qualified to derive an HBEL, how the 1/1000-dose and 10 ppm defaults can still serve as cleaning alert limits going forward, and how HBELs feed cleaning limits. If you only read one supporting document, read this one.
 
 **EU GMP Annex 1 (Manufacture of Sterile Medicinal Products), 2022 revision, effective 25 August 2023 (with the lyophilizer provision effective 25 August 2024).** Annex 1 requires a Contamination Control Strategy (CCS) and frames cross-contamination as one element of overall contamination control. For sterile and shared sterile facilities, your cross-contamination program is a subsection of the CCS, not a standalone document floating on its own.
 
-**ICH Q9(R1) Quality Risk Management, 2023.** The QRM engine behind every dedication and campaigning decision. The R1 revision (effective January 2023) added explicit treatment of subjectivity, formality of risk management, and risk-based decision making, all directly relevant to defending a "shared is acceptable" conclusion.
+**ICH Q9(R1) Quality Risk Management.** The QRM engine behind every dedication and campaigning decision. The R1 revision reached Step 4 in December 2022 (published January 2023), with EU implementation in July 2023 and FDA final guidance in 2023. It added explicit treatment of subjectivity, formality of risk management, and risk-based decision making, all directly relevant to defending a "shared is acceptable" conclusion.
 
-**ICH Q7 Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients.** For API manufacture, Q7 §5.2 covers dedicated production areas, campaign production, and cleaning between products, and is the API-side analog to Chapter 5.
+**ICH Q7 Good Manufacturing Practice Guide for Active Pharmaceutical Ingredients.** For API manufacture, Q7 §5.2 covers equipment maintenance, campaign production, and cleaning between products, while Q7 §4.4 (Containment) addresses dedicated production areas. Together they are the API-side analog to Chapter 5.
 
 **US cGMP, 21 CFR 211.42(c), 211.46, 211.176, and 211.67.** The US regulations do not use the HBEL vocabulary, but 211.42(c) (separate or defined areas to prevent contamination), 211.46 (air handling and the requirement to dedicate air systems for certain products such as penicillin), 211.176 (penicillin contamination testing), and 211.67 (equipment cleaning) carry the same obligations. The FDA expects scientifically justified limits; in practice many US sites use HBEL-derived limits even though the term is not in the CFR.
 
-> EU GMP Chapter 5, §5.20: "Cross-contamination should be prevented by attention to design of the premises and equipment as described in Chapter 3. This should be supported by attention to process design and implementation of any relevant technical or organizational measures, including effective and reproducible cleaning processes to control risk of cross-contamination."
+> EU GMP Chapter 5, §5.19 (paraphrased): cross-contamination is prevented first through the design of premises and equipment under Chapter 3, then reinforced by process design and by whatever technical and organizational measures the risk calls for, including cleaning processes that are effective and reproducible.
 
 The mental model: ICH Q9 is the method, the HBEL guideline gives you the number, Chapters 3 and 5 (or 211.42/211.67, or Q7 §5) impose the obligation, and Annex 1 wraps it into the CCS for sterile sites.
 
@@ -47,7 +47,7 @@ Everything downstream depends on the HBEL. Set it wrong and your cleaning limits
 
 The Permitted Daily Exposure is the maximum amount of a substance a person can be exposed to every day, for a lifetime, with no appreciable adverse health effect. It is expressed in mass per day, typically mg/day or µg/day. It is product specific and derived from toxicology, not from the dose.
 
-The old defaults were the 1/1000th minimum therapeutic dose rule and the 10 ppm rule. They were convenient but not health based. A potent compound with a tiny therapeutic dose could still carry over a toxicologically meaningful amount at 1/1000 of dose, and 10 ppm had no biological meaning at all. The 2015 framework requires a toxicological evaluation. The 2018 Q&A clarified that the old default approaches may still be used for low-hazard, well-understood products where a full PDE adds little, but a documented HBEL assessment is expected and the choice must be justified.
+The old defaults were the 1/1000th minimum therapeutic dose rule and the 10 ppm rule. They were convenient but not health based. A potent compound with a tiny therapeutic dose could still carry over a toxicologically meaningful amount at 1/1000 of dose, and 10 ppm had no biological meaning at all. The 2015 framework requires a toxicological evaluation. The 2018 Q&A (Question 1) is unambiguous: HBELs should be established for all medicinal products, with no low-hazard exemption. The 1/1000-dose and 10 ppm defaults are no longer acceptable as the toxicological basis. Per Question 6, a historically used cleaning limit may be retained only as a cleaning alert limit where, accounting for cleaning process capability, it reliably prevents excursions above the HBEL, never as a substitute for deriving the HBEL itself.
 
 ### The PDE formula
 
@@ -140,10 +140,10 @@ The headline change in the 2015 framework: dedication is now a risk-based decisi
 
 ### The mandatory dedications
 
-EU GMP Chapter 3 §3.6 and §5.20 still require **dedicated and self-contained facilities** for:
+Two cases still drive **dedicated and self-contained facilities**:
 
-- **Beta-lactam antibiotics** (penicillins, and certain cephalosporins/carbapenems), because of sensitization risk. The US codifies the penicillin separation in 21 CFR 211.42(d) and 211.46(d).
-- **Certain biological preparations** such as live organisms.
+- **Beta-lactam antibiotics** (penicillins, and certain cephalosporins/carbapenems), because of sensitization risk. The revised Chapter 3 §3.6 frames dedication as a risk-based decision and cites beta-lactams as an example where toxicological data cannot support a controllable risk, rather than as a hard-coded class. The US codifies the penicillin separation in 21 CFR 211.42(d) and 211.46(d).
+- **Certain biological preparations** such as live organisms. This live-organism containment requirement sits in EU GMP Annex 2 (biological active substances and medicinal products), not in the revised Chapter 3 §3.6.
 
 For these, no HBEL argument lets you share. The risk is sensitization or viability, not dose-related toxicity, so the PDE model does not apply.
 

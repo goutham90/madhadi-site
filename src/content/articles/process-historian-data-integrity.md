@@ -44,7 +44,7 @@ When historian data is stored, processed, or used in electronic form to satisfy 
 
 ### EU: EudraLex Volume 4, Annex 11 and Chapter 4
 
-**EU GMP Annex 11 (Computerised Systems)** is the most direct standard for a historian. It requires risk management across the system lifecycle, validation proportionate to risk, accuracy checks for critical data, audit trails for GMP-relevant changes, periodic evaluation, data storage with checks for accessibility and integrity throughout the retention period, and physical and logical security. **Annex 11 clause 4** covers validation, **clause 5** covers data accuracy checks, **clause 7** covers data storage, **clause 9** covers audit trails, and **clause 12** covers security. **EU GMP Chapter 4** sets documentation and retention expectations.
+**EU GMP Annex 11 (Computerised Systems)** is the most direct standard for a historian. Read as a whole, it pushes a risk-managed approach to the system across its life, validation scaled to that risk, confirmation that critical data is captured correctly, a record of GMP-relevant changes, recurring review of the system, storage that keeps data reachable and intact for as long as it must be kept, and controls that lock down both physical and logical access. The clauses that bite hardest for a historian are **clause 4** (validation), **clause 5** (accuracy of the data it ingests), **clause 7** (how that data is stored), **clause 9** (the audit trail), and **clause 12** (security). **EU GMP Chapter 4** sets documentation and retention expectations.
 
 ### Guidance that defines the expectation
 

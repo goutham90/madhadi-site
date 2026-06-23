@@ -19,7 +19,7 @@ The additions, Complete, Consistent, Enduring, Available, came later as the indu
 
 The practical implication is that ALCOA+ is not one company's policy and not one regulator's preference. It reflects a global consensus on what counts as a reliable record. If your data fails any element, that is not a technicality. It is an argument that the data cannot be used to make a quality decision, which means the decision itself is in question. For the underlying logic of why records carry this weight at all, see [Data Integrity Foundations](/articles/data-integrity-foundations).
 
-A note on the regulations the principles sit on top of. In the United States, 21 CFR 211.68 covers automatic equipment and the controls and records around it, 211.180 through 211.198 cover record retention and review, and 21 CFR Part 11 covers electronic records and electronic signatures. For devices, 21 CFR Part 820 (and the Quality Management System Regulation that aligns it with ISO 13485) carries equivalent record and traceability expectations. For nonclinical safety studies, the GLP regulation in 21 CFR Part 58 sets the raw-data and archive rules. In the EU, Annex 11 of the GMP guidelines covers computerised systems and Chapter 4 covers documentation. ALCOA+ is the shorthand. These citations are the law and guidance underneath it. For a side-by-side reading of the two electronic-records regimes, see [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11).
+A note on the regulations the principles sit on top of. In the United States, 21 CFR 211.68 covers automatic equipment and the controls and records around it, 211.180 through 211.198 cover record retention and review, and 21 CFR Part 11 covers electronic records and electronic signatures. For combination products and any 21 CFR Part 820 scope, the revised Part 820, now titled the Quality Management System Regulation (QMSR), incorporates ISO 13485:2016 by reference (effective 2 February 2026) and carries equivalent record and traceability expectations. For nonclinical safety studies, the GLP regulation in 21 CFR Part 58 sets the raw-data and archive rules. In the EU, Annex 11 of the GMP guidelines covers computerised systems and Chapter 4 covers documentation. ALCOA+ is the shorthand. These citations are the law and guidance underneath it. For a side-by-side reading of the two electronic-records regimes, see [21 CFR Part 11 and EU Annex 11](/articles/21-cfr-part-11-eu-annex-11).
 
 ### ALCOA versus ALCOA+ at a glance
 
@@ -72,7 +72,7 @@ Some authorities and trainers also speak of "ALCOA++" or add "Traceable" as a te
 
 **What it means.** Data must be readable for its entire retention period, not just on the day it is created. For some products that period runs well past a decade.
 
-**Why it is required.** A record you cannot read is a record you do not have. Annex 11 clause 7 and 21 CFR 211.180 tie readability to the retention obligation. If a result that supported a batch release becomes unreadable inside the retention window, the release decision is no longer defensible.
+**Why it is required.** A record you cannot read is a record you do not have. Annex 11 clause 17 on archiving and 21 CFR 211.180 tie long-term readability to the retention obligation. If a result that supported a batch release becomes unreadable inside the retention window, the release decision is no longer defensible.
 
 **What good looks like.**
 
@@ -126,7 +126,7 @@ Some authorities and trainers also speak of "ALCOA++" or add "Traceable" as a te
 
 **What it means.** Raw data is retained in the form it was first created. Transcribed data is acceptable only when the original is also kept and the transcription is verified, or when a controlled, verified true copy replaces it.
 
-**Why it is required.** 21 CFR 211.180(c) and Annex 11 require the original record or a true copy. The FDA's 2018 Q&A is explicit that for computerized systems the complete electronic data, including audit trails and metadata, is the record. The risk is that a summary or printout silently drops the context that would change the interpretation.
+**Why it is required.** 21 CFR 211.180(d) and Annex 11 require the original record or a true copy. The FDA's 2018 Q&A is explicit that for computerized systems the complete electronic data, including audit trails and metadata, is the record. The risk is that a summary or printout silently drops the context that would change the interpretation.
 
 **What good looks like.**
 
@@ -244,7 +244,7 @@ A common trap is conflating backup with archive. A backup protects against recen
 
 **What it means.** Data can be retrieved promptly for review and inspection. It is not enough that the record exists somewhere. It has to be findable when asked for.
 
-**Why it is required.** Inspectors and reviewers must be able to see records on request, and a record that cannot be produced reads as a control failure. Annex 11 clause 7 and the general inspection right under the CGMPs both assume prompt retrievability.
+**Why it is required.** Inspectors and reviewers must be able to see records on request, and a record that cannot be produced reads as a control failure. Annex 11 clause 8 on printouts and the ability to obtain clear copies, alongside the general inspection right under the CGMPs, both assume prompt retrievability.
 
 **Practical implications.**
 

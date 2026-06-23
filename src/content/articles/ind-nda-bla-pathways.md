@@ -23,7 +23,7 @@ Before the documents, know the law they sit on. Memorize these because interview
 | Marketing approval of a drug | Federal Food, Drug, and Cosmetic Act (FD&C Act) section 505; 21 CFR Part 314 | Governs the NDA and the approval standard |
 | Marketing approval of a biologic | Public Health Service Act (PHS Act) section 351; 21 CFR Part 601 | Governs the BLA and biologics licensure |
 | Clinical conduct, subject protection | 21 CFR Part 50 (informed consent), Part 56 (IRBs), Part 54 (financial disclosure) | Protects human subjects and data integrity |
-| Good clinical practice | ICH E6(R2), with E6(R3) finalized in 2023 | The international quality standard for running trials |
+| Good clinical practice | ICH E6(R2), with E6(R3) reaching Step 4 in January 2025 and adopted by FDA in September 2025 | The international quality standard for running trials |
 | Nonclinical safety study quality | 21 CFR Part 58, Good Laboratory Practice | Governs the integrity of animal/toxicology data supporting the IND |
 
 The drug-versus-biologic split is the single most common thing newcomers get wrong. A small-molecule chemical drug goes the 505/NDA route. A protein, monoclonal antibody, vaccine, blood product, gene therapy, or cell therapy goes the 351/BLA route. The clinical evidence requirements look similar, but the chemistry/manufacturing expectations, the review division, and even the user-fee accounting differ. Therapeutic proteins were moved under the PHS Act biologics framework by the Biologics Price Competition and Innovation Act of 2009, with the transition completed in 2020, so by default a protein is a biologic.
@@ -82,7 +82,7 @@ The IB and the protocol carry the clinical and ethical weight. The CMC and the t
 
 ### Worked example: a first-in-human dose justification snippet
 
-> The highest non-severely-toxic dose in the 28-day repeat-dose toxicology study in the most sensitive species was 50 mg/kg. Applying the standard body-surface-area conversion to a human equivalent dose and a 10-fold safety factor, the proposed maximum recommended starting dose is calculated and supported. The single-ascending-dose protocol begins three dose levels below this ceiling, with predefined stopping rules at grade 2 or higher drug-related adverse events.
+> The no-observed-adverse-effect-level (NOAEL) in the 28-day repeat-dose toxicology study in the most sensitive species was 50 mg/kg. Applying the standard body-surface-area conversion to a human equivalent dose and a 10-fold safety factor, the proposed maximum recommended starting dose is calculated and supported. The single-ascending-dose protocol begins three dose levels below this ceiling, with predefined stopping rules at grade 2 or higher drug-related adverse events.
 
 That is the kind of paragraph a reviewer reads in the introductory statement and cross-checks against Module 4. If the arithmetic does not tie, you get an information request, and your clock is now under pressure.
 
@@ -174,8 +174,8 @@ The FDA has four formal programs to speed up development and review for serious 
 
 | Program | Legal/policy basis | Trigger | What you get |
 |---|---|---|---|
-| Fast Track | FDASIA 2012 / FD&C Act 506 | Serious condition, potential to address unmet need | More frequent FDA interaction, eligibility for rolling review |
-| Breakthrough Therapy | FDASIA 2012 / FD&C Act 506 | Preliminary clinical evidence of substantial improvement over available therapy on a clinically significant endpoint | Intensive FDA guidance, organizational commitment, all Fast Track features |
+| Fast Track | FDAMA 1997 (amended by FDASIA 2012) / FD&C Act 506(b) | Serious condition, potential to address unmet need | More frequent FDA interaction, eligibility for rolling review |
+| Breakthrough Therapy | FDASIA 2012 / FD&C Act 506(a) | Preliminary clinical evidence of substantial improvement over available therapy on a clinically significant endpoint | Intensive FDA guidance, organizational commitment, all Fast Track features |
 | Accelerated Approval | FD&C Act 506(c); 21 CFR Part 314 Subpart H and Part 601 Subpart E | Effect on a surrogate or intermediate clinical endpoint reasonably likely to predict benefit | Approval on the surrogate, with a required confirmatory trial post-approval |
 | Priority Review | PDUFA policy | Significant improvement in safety or effectiveness | Shorter review clock (see below) |
 

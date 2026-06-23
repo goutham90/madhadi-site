@@ -59,7 +59,7 @@ Every CSV/CSA audit starts here. If your inventory is incomplete or your classif
 - [ ] Is the inventory reviewed and updated at least annually?
 - [ ] When a new system is deployed, is there a defined process for adding it to the inventory before it goes live?
 
-**Why it is required.** Annex 11 paragraph 4.3 expects an up-to-date listing of relevant systems and their GMP functionality, and the inventory is the practical control that makes Annex 11 periodic evaluation (11.11) and change control (11.10) possible at all. No inventory entry, no lifecycle.
+**Why it is required.** Annex 11 paragraph 4.3 expects an up-to-date listing of relevant systems and their GMP functionality, and the inventory is the practical control that makes Annex 11 periodic evaluation (paragraph 11) and change control (paragraph 10) possible at all. No inventory entry, no lifecycle.
 
 **What goes in a usable inventory.** A row per system with, at minimum: a unique system ID, the system name and version, a one-line description of GxP use, the GxP impact and the basis for it, the GAMP category, the validation status and last validation date, the regulatory record type (does it hold Part 11 electronic records, signatures, audit trails), the system owner and the QA owner, the hosting model (on-prem, vendor-hosted, SaaS), the periodic review frequency and last review date, and a data classification. A worked example:
 

@@ -29,7 +29,7 @@ The point is not bureaucratic. The audit trail is the record of who did what to 
 
 **FDA Guidance, "Data Integrity and Compliance With Drug CGMP: Questions and Answers" (December 2018)** is the document most often quoted. It states that audit trails that capture changes to critical data should be reviewed "with each record and before final approval of the record," and that routine scheduled audit trail review should be based on the complexity of the system and its intended use. It explicitly ties audit trail review to the batch record review and to QC analytical data review.
 
-**EU GMP Annex 11 (Computerised Systems), clause 9** states: "Consideration should be given, based on a risk assessment, to building into the system the creation of a record of all GMP-relevant changes and deletions (a system generated 'audit trail'). For change or deletion of GMP-relevant data the reason should be documented. Audit trails need to be available and convertible to a generally intelligible form and regularly reviewed." The word "regularly" is the operational hook.
+**EU GMP Annex 11 (Computerised Systems), clause 9** directs firms to consider, on the basis of a risk assessment, building a system-generated audit trail that captures all GMP-relevant changes and deletions, to document the reason for any change or deletion of GMP-relevant data, and to keep that audit trail available, convertible to an intelligible form, and reviewed on a regular basis. The expectation that the trail be reviewed regularly is the operational hook.
 
 **MHRA, "GXP Data Integrity Guidance and Definitions" (March 2018)** devotes significant attention to audit trail review. It introduces the concept of review by exception and states that the review should be performed by the person responsible for the data (or a designate) and that QA should provide oversight. It is the clearest published articulation of the risk-based, exception-based model.
 
@@ -142,7 +142,7 @@ Review by exception is the only thing that makes high-volume audit trail review 
 
 Instead of a human reading every audit trail entry, the system (or a validated tool/query) is configured to flag only entries that meet pre-defined criteria of interest, and the human reviews the flagged exceptions. The non-exception entries are not individually read by a person; the system has applied a deterministic rule to all of them, and the human reviews the output of that rule.
 
-The MHRA 2018 guidance and PIC/S PI 041-1 both explicitly permit this, with conditions. The MHRA language is that review by exception is acceptable provided it is "performed and documented and the exception process has itself been validated/verified and is shown to be effective."
+The MHRA 2018 guidance and PIC/S PI 041-1 both explicitly permit this, with conditions. In substance, the MHRA position is that review by exception is acceptable only when the exception review is itself performed and documented and the exception process has been validated or verified and demonstrated to be effective.
 
 ### The non-negotiable conditions
 

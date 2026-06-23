@@ -17,7 +17,7 @@ This article defines the three governance roles as they are actually used in pha
 
 No regulation contains a clean table that says "appoint an owner, a steward, and a custodian." The roles are an industry response to requirements that demand accountability for data integrity without prescribing the org chart. You assemble the model from several sources.
 
-**EU GMP Chapter 4 (Documentation)** and the **PIC/S PI 041-1 "Good Practices for Data Management and Integrity in Regulated GMP/GDP Environments" (2021)** are the most direct. PI 041-1 states that senior management is responsible for establishing a data governance system and for ensuring it is resourced and embedded in the quality system. It explicitly ties data integrity to defined responsibilities and to a culture where staff are not afraid to report problems. The guidance frames data governance as "the sum total of arrangements to ensure that data, irrespective of the format in which it is generated, is recorded, processed, retained and used to ensure a complete, consistent and accurate record throughout the data life cycle."
+**EU GMP Chapter 4 (Documentation)** and the **PIC/S PI 041-1 "Good Practices for Data Management and Integrity in Regulated GMP/GDP Environments" (2021)** are the most direct. PI 041-1 states that senior management is responsible for establishing a data governance system and for ensuring it is resourced and embedded in the quality system. It explicitly ties data integrity to defined responsibilities and to a culture where staff are not afraid to report problems. In substance, PI 041-1 frames data governance as the full set of arrangements that assure data integrity, so that a record stays complete, consistent, and accurate across its whole lifecycle, no matter how it was generated, recorded, processed, retained, retrieved, or used.
 
 **MHRA "GxP Data Integrity Guidance and Definitions" (2018)** says the same in fewer words: there should be a data governance system that is part of the overall quality management system, with clearly defined roles and responsibilities, and management is accountable for it.
 
@@ -225,7 +225,7 @@ The owner role in the governance model usually sits with operating-function lead
 Hiring managers in this space consistently value:
 
 - **Real data integrity depth**, not slideware: ALCOA+ applied to specific systems, audit trail review done in anger, data lifecycle thinking (see [ALCOA+ in detail](/articles/alcoa-plus-deep-dive) and [data-lifecycle-and-metadata](/articles/data-lifecycle-and-metadata)).
-- **CSV/CSA fluency**: GAMP 5 second edition, the FDA Computer Software Assurance guidance (2022 draft), risk-based testing (see [gamp5-csv-framework](/articles/gamp5-csv-framework) and [computer-software-assurance-fda](/articles/computer-software-assurance-fda)).
+- **CSV/CSA fluency**: GAMP 5 second edition, the FDA Computer Software Assurance for Production and Quality System Software final guidance (Sep 2025), risk-based testing (see [gamp5-csv-framework](/articles/gamp5-csv-framework) and [computer-software-assurance-fda](/articles/computer-software-assurance-fda)).
 - **System-specific knowledge** of the platform categories: CDS, LIMS, MES/EBR, EDMS, QMS, EDC. Knowing how audit trails and access controls work in a real LIMS or CDS is worth more than any certificate.
 - **Inspection experience**, having defended a system or a data set to FDA, EMA, or MHRA. Even one inspection moves you up a rung.
 - **The ability to write** a procedure, a risk assessment, or a remediation plan that holds up (see [technical-writing-for-gxp](/articles/technical-writing-for-gxp)).
@@ -261,7 +261,7 @@ Segregation of duties: admins do not hold data-entry or approval roles on the sa
 Periodic reviews and audit trail reviews completed on time, open access-recertification actions, data integrity deviations by category and trend, time to remediate, percentage of systems with assigned and accepted owners. Tie it back: management needs these to demonstrate the governance system is effective, which the guidance expects.
 
 **"What is the regulatory basis for the owner/steward/custodian model?"**
-Be precise: there is no single regulation that names those three roles. The model is assembled from PI/S PI 041-1 (2021), the MHRA GxP Data Integrity Guidance (2018), WHO TRS 1033 Annex 4 (2021) on management accountability and defined responsibilities, and EU GMP Annex 11 plus 21 CFR Part 11 for system-management responsibilities, access control, and the customer/third-party agreement. Showing you know it is an industry construct built on those requirements, rather than reciting a fictional clause, is what separates a strong candidate.
+Be precise: there is no single regulation that names those three roles. The model is assembled from PIC/S PI 041-1 (2021), the MHRA GxP Data Integrity Guidance (2018), WHO TRS 1033 Annex 4 (2021) on management accountability and defined responsibilities, and EU GMP Annex 11 plus 21 CFR Part 11 for system-management responsibilities, access control, and the customer/third-party agreement. Showing you know it is an industry construct built on those requirements, rather than reciting a fictional clause, is what separates a strong candidate.
 
 For broader interview prep, see [gxp-quality-interview-preparation](/articles/gxp-quality-interview-preparation).
 

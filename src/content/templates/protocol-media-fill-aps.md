@@ -155,7 +155,7 @@ Fill enough units to give statistical confidence that a low contamination rate w
 
 ## 12. Acceptance criteria
 
-The acceptance criterion under the current Annex 1 (2022) is the target of zero contaminated units. There is no tiered accept-reject count by batch size. Any single contaminated (turbid) unit means the APS has failed and triggers a full investigation, with the line not used for aseptic production until the root cause is understood and corrected. The unit count filled (section 11) sets the sensitivity of the test, not a numeric pass-fail allowance.
+Read your acceptance criterion off the current EU GMP Annex 1 (2022). In practice that standard sets the goal at no contaminated units, and it does not give you a sliding scale of allowed positives that grows with batch size. Treat one turbid unit as a failed simulation: stop using the line for aseptic production, run a full investigation, and only resume once the cause is found and fixed. The number of units you fill (section 11) governs how small a contamination rate the run can detect; it is not a budget of positives you are permitted to absorb.
 
 | Result | Disposition |
 |---|---|

@@ -57,7 +57,7 @@ Draw the line and state it. Equipment PQ challenges the equipment's ability to p
 - **Worst-case condition**: a set of conditions, within operating limits, that poses the greatest chance of process or product failure, used to challenge performance rather than confirm an easy midpoint.
 - **Replicate runs**: consecutive runs performed under the same defined conditions to demonstrate reproducibility, not a single passing run.
 - **Critical process parameter (CPP)**: a parameter whose variability affects a critical quality attribute and must therefore be controlled.
-- **Critical quality attribute (CQA)**: a physical, chemical, biological, or microbiological property that must be within a limit to ensure product quality.
+- **Critical quality attribute (CQA)**: a measurable feature of the product, whether physical, chemical, biological, or microbiological in nature, that has to stay inside a defined boundary for the product to be considered acceptable (per ICH Q8(R2)).
 
 ## 5. Prerequisites (verify before execution)
 
