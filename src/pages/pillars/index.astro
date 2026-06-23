@@ -6,6 +6,8 @@ import { PILLARS } from '../../data/pillars';
 const all = await getCollection('articles', ({ data }) => !data.draft);
 const count = (slug: string) => all.filter(a => a.data.pillar === slug).length;
 const total = all.length;
+const templates = await getCollection('templates', ({ data }) => !data.draft);
+const tcount = (slug: string) => templates.filter(t => t.data.pillar === slug).length;
 ---
 <Layout title="Topics" description="Twelve topic areas covering the full scope of GxP quality, data integrity, validation, and compliance across biotech, pharma, and life sciences, from foundations to program-level depth." wide={true}>
   <header class="hub-hero">
@@ -24,7 +26,7 @@ const total = all.length;
         <div class="pcard-body">
           <h2 class="pcard-title">{p.short}</h2>
           <p class="pcard-blurb">{p.blurb}</p>
-          <span class="pcard-count">{count(p.slug)} article{count(p.slug) === 1 ? '' : 's'} →</span>
+          <span class="pcard-count">{count(p.slug)} article{count(p.slug) === 1 ? '' : 's'}{tcount(p.slug) > 0 ? ` · ${tcount(p.slug)} document${tcount(p.slug) === 1 ? '' : 's'}` : ''} →</span>
         </div>
       </a>
     ))}

@@ -13,6 +13,8 @@ const tierOrder: Record<string, number> = { Beginner: 0, Intermediate: 1, Advanc
 const sorted = all.sort((a, b) => (tierOrder[a.data.tier ?? 'Intermediate'] ?? 1) - (tierOrder[b.data.tier ?? 'Intermediate'] ?? 1));
 const tierColors: Record<string, string> = { Beginner: '#0f7a52', Intermediate: '#005ea2', Advanced: '#0b2e4f' };
 const related = PILLARS.filter(x => x.slug !== p.slug).slice(0, 4);
+const docs = (await getCollection('templates', ({ data }) => !data.draft && data.pillar === p.slug))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 <Layout title={p.short} description={p.blurb} wide={true}>
   <header class="ph-hero">
@@ -42,6 +44,13 @@ const related = PILLARS.filter(x => x.slug !== p.slug).slice(0, 4);
     </div>
 
     <aside class="ph-aside">
+      {docs.length > 0 && (
+        <div class="ph-box ph-box-docs">
+          <h3>Ready-to-use documents</h3>
+          <ul>{docs.slice(0, 8).map(d => <li><a href={`/templates/${d.slug}`}>{d.data.title}</a></li>)}</ul>
+          <a class="ph-box-more" href="/templates">All templates →</a>
+        </div>
+      )}
       {p.regLinks && p.regLinks.length > 0 && (
         <div class="ph-box">
           <h3>Key references</h3>
@@ -83,6 +92,8 @@ const related = PILLARS.filter(x => x.slug !== p.slug).slice(0, 4);
   .ph-box h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 12px; }
   .ph-box ul { list-style: none; } .ph-box li { border-top: 1px solid var(--line); } .ph-box li:first-child { border-top: none; }
   .ph-box a { display: block; padding: 9px 0; font-size: 0.92rem; font-weight: 600; }
+  .ph-box-docs { border-top-color: var(--gold); }
+  .ph-box-more { color: var(--blue); font-weight: 700; font-size: 0.85rem; }
 
   @media (max-width: 900px) { .ph-body { grid-template-columns: 1fr; gap: 32px; } .ph-art { grid-template-columns: 1fr; } .ph-art-date { padding-top: 0; } }
 </style>

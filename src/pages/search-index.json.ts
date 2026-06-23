@@ -22,6 +22,7 @@ export async function GET() {
       tier: a.data.tier ?? '',
       u: `/articles/${a.slug}`,
       h: headings,
+      k: 'article',
     };
   });
 
@@ -39,6 +40,7 @@ export async function GET() {
       tier: '',
       u: `/templates/${t.slug}`,
       h: headings,
+      k: 'doc',
     };
   });
 

@@ -37,7 +37,9 @@ const total = (await getCollection('articles', ({ data }) => !data.draft)).lengt
   .sr-item:hover { text-decoration:none; padding-left: 6px; transition: padding-left .12s; }
   .sr-top { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
   .sr-pill { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#fff; background:var(--blue); padding:3px 9px; border-radius:3px; }
+  .sr-pill.is-doc { background: var(--gold); color: var(--navy); }
   .sr-tier { font-size:0.72rem; color: var(--faint); font-weight:600; }
+  .sr-kind { font-size:0.72rem; color: var(--faint); font-weight:600; text-transform:uppercase; letter-spacing:0.04em; }
   .sr-title { font-size:1.25rem; color: var(--navy); margin:0; }
   .sr-item:hover .sr-title { color: var(--blue); }
   .sr-desc { font-size:0.96rem; color: var(--muted); margin-top:4px; max-width: 70ch; }
@@ -56,8 +58,11 @@ const total = (await getCollection('articles', ({ data }) => !data.draft)).lengt
       if (!items.length) { results.innerHTML = '<p class="sr-empty">No matches for "' + esc(q) + '". Try a broader term, an acronym, or a regulation number.</p>'; status.textContent = '0 results'; return; }
       status.textContent = items.length + (items.length === 1 ? ' result' : ' results');
       results.innerHTML = items.map(function (it) {
+        var isDoc = it.k === 'doc';
+        var pill = '<span class="sr-pill' + (isDoc ? ' is-doc' : '') + '">' + esc(isDoc ? it.pn : (it.pn || it.p)) + '</span>';
+        var meta = isDoc ? '<span class="sr-kind">Ready-to-use document</span>' : (it.tier ? '<span class="sr-tier">' + esc(it.tier) + '</span>' : '<span class="sr-kind">Article</span>');
         return '<a class="sr-item" href="' + it.u + '">' +
-          '<div class="sr-top"><span class="sr-pill">' + esc(it.pn || it.p) + '</span>' + (it.tier ? '<span class="sr-tier">' + esc(it.tier) + '</span>' : '') + '</div>' +
+          '<div class="sr-top">' + pill + meta + '</div>' +
           '<h2 class="sr-title">' + esc(it.t) + '</h2>' +
           '<p class="sr-desc">' + esc(it.d) + '</p></a>';
       }).join('');
