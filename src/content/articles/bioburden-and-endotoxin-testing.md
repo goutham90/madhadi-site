@@ -104,15 +104,14 @@ Under USP <1111>, a stated limit of 10^n is read as allowing a count up to 2 x 1
 
 ### Acceptance criteria, USP <1111>
 
-The limits depend on dosage form and route. The values below are summarized for orientation; confirm the current figures against USP <1111> for your specific route:
+USP <1111> does not set one count limit for all nonsterile products. It assigns acceptance limits by dosage form and route of administration, and the logic behind the assignment is what you need to carry into a release decision or an interview. Two principles drive it:
 
-| Product type | TAMC | TYMC | Specified organism requirement |
-|--------------|------|------|--------------------------|
-| Non-aqueous oral | 10^3 CFU/g or mL | 10^2 CFU/g or mL | E. coli must be absent per g/mL |
-| Aqueous oral | 10^2 | 10^1 | E. coli must be absent per g/mL |
-| Topical / transdermal | 10^2 | 10^1 | S. aureus and P. aeruginosa must be absent per g/mL |
-| Oral aqueous, nasal | 10^2 | 10^1 | Per route, see <62> |
-| Vaginal, urethral | 10^2 | 10^1 | P. aeruginosa, S. aureus and C. albicans must be absent |
+- **The limits tighten as the route gets riskier.** A non-aqueous oral solid, which is a dry, low-water-activity environment that resists microbial growth and is taken by the most tolerant route, carries the most permissive TAMC and TYMC limits. As you move to aqueous oral, then topical and transdermal, then routes that approach mucosal or parenteral-adjacent exposure (nasal, inhalation, vaginal, urethral), the allowed counts drop, because water supports growth and the route gives organisms a more direct path into the patient. Inhalation and mucosal routes are held to the strictest nonsterile limits for this reason.
+- **The specified-organism requirement is route-driven, not count-driven.** Which named organisms must be absent depends on where the product goes, not on how high the total count is. Oral products are screened for the enteric indicators because the hazard is fecal-origin pathogens; skin-contact and water-exposed routes are screened for the skin and water opportunists; mucosal routes add the yeast that colonizes those surfaces. The route picks the organism list, which is then tested by the methods in USP <62>.
+
+Worked example for teaching, one route only. Suppose your product is a non-aqueous oral preparation, a dry capsule. Under the <1111> framework, this is the most permissive category, so it carries the highest allowable TAMC and TYMC of the nonsterile forms, and the specified-organism screen for an oral product targets the enteric indicator (the test is for absence of *E. coli* in the stated quantity). Read the current TAMC and TYMC figures for the "non-aqueous preparations for oral use" row directly from USP <1111> and apply the 2 x 10^n reading rule from the worked calculation above: a stated limit of 10^n permits a count up to but not including 2 x 10^n. So if you read a TAMC limit of 10^3 CFU/g for this row, a result of 1500 CFU/g still passes and 2000 CFU/g fails. Do the same lookup for your own dosage form and route, because the numbers and the organism list change with the category, and the compendial chapter is the only authoritative source for the current values.
+
+Look up the current acceptance limits and the route-specific organism requirements for your actual product in USP <1111>, or in Ph. Eur. 2.6.12 for the European harmonized equivalent. Do not carry a remembered number into a release decision; the category that applies to your formulation, and the figure attached to it, must come from the current chapter.
 
 Sterile products are not tested to <1111>; they are tested by USP <71> sterility and must show no recovery. <1111> applies to nonsterile products and to in-process bioburden where the firm sets its own action/alert limits based on process capability, not <1111>.
 

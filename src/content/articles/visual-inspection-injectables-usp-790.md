@@ -53,23 +53,24 @@ USP <790> does not promise zero particles in every unit. The detection of a part
 
 AQL is the maximum percent defective that, for sampling purposes, is treated as acceptable as a process average. Lower AQL is tighter. For visible particulates and critical defects the AQL is set low (commonly 0.65 percent or tighter for critical attributes; many sites use 0.10 percent for the most critical), with higher AQL values for minor cosmetic defects.
 
-Worked example using ANSI/ASQ Z1.4, General Inspection Level II, single sampling plan, normal inspection:
+How the sampling workflow runs. You inspect every unit, then you size the re-inspection sample from the accepted lot using ANSI/ASQ Z1.4 (attribute sampling). The mechanics are a short chain you should be able to recite:
 
-- Lot size after 100% inspection: 40,000 vials.
-- Z1.4 sample size code letter for 35,001-150,000 units at Level II is **N**.
-- Code letter N gives a sample size of **500**.
-- At AQL 0.65%, the single sampling plan accept/reject numbers for sample size 500 are **Ac = 7, Re = 8**. (Accept the lot if 7 or fewer defectives are found in the 500, reject if 8 or more.)
-- For a tighter critical AQL of 0.10% at sample size 500, the plan is **Ac = 1, Re = 2**.
+1. Take the lot size after 100% inspection and the chosen General Inspection Level (Level II is the usual default; reduced or tightened levels exist for special cases).
+2. Look up the **sample size code letter** for that lot-size band and inspection level. Larger lots and tighter inspection levels map to later code letters.
+3. The code letter gives you the **sample size**, the number of units you pull and re-inspect.
+4. At that sample size, pick the **accept/reject numbers** for the AQL you have assigned to the defect class. The accept number (Ac) is the most defectives you can find and still pass; one more (Re) rejects the lot.
 
-A realistic defect-tiered table for one product might read:
+The principle to internalize: a tighter AQL at the same sample size lowers the accept number, so the most critical defect classes tolerate the fewest defectives in the sample. The actual code letters, sample sizes, and accept/reject numbers are tabulated in ANSI/ASQ Z1.4; look them up for your specific lot size, inspection level, and AQL rather than working from memory, because the bands and cell values are exactly what the standard exists to define.
 
-| Defect class | Examples | AQL | Sample (n=500) Ac / Re |
-|---|---|---|---|
-| Critical | Visible particulate, cracked container, missing or compromised stopper, foreign matter, leaker | 0.10% | 1 / 2 |
-| Major | Heavy fill outside range, cosmetic defect impairing inspection, label illegible | 0.65% | 7 / 8 |
-| Minor | Minor scratch, minor label skew, minor cosmetic mark | 2.5% | 21 / 22 |
+A purely illustrative walk-through (the numbers below are made up to show the shape of the calculation, not values read from Z1.4). Suppose a lot of roughly forty thousand vials at General Inspection Level II maps to some code letter, and that code letter corresponds to a sample of several hundred units. You assign the critical defect class a very tight AQL, so its accept number at that sample size is low (you tolerate only a handful of defectives, or perhaps none, before rejecting). You assign the major class a looser AQL, so its accept number is higher, and the minor cosmetic class looser still. Replace each of these placeholders with the real Z1.4 values for your case before you write the sampling plan into an SOP.
 
-If the re-inspection sample fails the critical AQL, the lot does not get released on the basis of "we already inspected it once." It triggers an investigation and typically a 100% re-inspection, plus root cause work into why the original inspection let those units through.
+Tier the AQLs by defect severity. The design pattern, independent of the exact numbers, is one AQL per defect class, tightest for critical:
+
+- **Critical** (visible particulate, cracked container, missing or compromised stopper, foreign matter, leaker): the tightest AQL, so the smallest accept number.
+- **Major** (heavy fill outside range, cosmetic defect impairing inspection, illegible label): a looser AQL than critical.
+- **Minor** (minor scratch, minor label skew, minor cosmetic mark): the loosest AQL of the three.
+
+Fill in the sample size and the per-class accept/reject numbers from Z1.4 at your chosen sample-size code letter and AQLs. If the re-inspection sample fails the critical AQL, the lot does not get released on the basis of "we already inspected it once." It triggers an investigation and typically a 100% re-inspection, plus root cause work into why the original inspection let those units through.
 
 ### Sequence of decisions for a lot
 

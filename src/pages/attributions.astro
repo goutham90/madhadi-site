@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Image rights trail. All photographs are Unsplash License (free commercial use,
+// self-hosting permitted, attribution not required but recorded here as good practice).
+// Two microscopy images originate from the US National Cancer Institute (public domain),
+// mirrored on Unsplash. Kept in sync with /public/images/CREDITS.md.
+const images = [
+  { file: 'lab-beakers.jpg', subject: 'Laboratory beakers on a clean bench', author: 'Hans Reniers', src: 'Unsplash' },
+  { file: 'lab-glassware.jpg', subject: 'Laboratory glassware detail', author: 'Julia Koblitz', src: 'Unsplash' },
+  { file: 'scientist-pipette.jpg', subject: 'Analyst pipetting at the bench', author: 'Louis Reed', src: 'Unsplash' },
+  { file: 'scientist-test-tubes.jpg', subject: 'Analyst with test tubes', author: 'Julia Koblitz', src: 'Unsplash' },
+  { file: 'manufacturing-cleanroom.jpg', subject: 'Cleanroom operators', author: 'Walter Otto', src: 'Unsplash' },
+  { file: 'manufacturing-worker.jpg', subject: 'Operator in protective gear', author: 'Glsun Mall', src: 'Unsplash' },
+  { file: 'instrument-bench.jpg', subject: 'Analytical instrument bench', author: 'Adam Bezer', src: 'Unsplash' },
+  { file: 'instrument-machine.jpg', subject: 'Laboratory instrument', author: 'RephiLe water', src: 'Unsplash' },
+  { file: 'records-review.jpg', subject: 'Reviewing controlled records', author: 'Van Tay Media', src: 'Unsplash' },
+  { file: 'records-server.jpg', subject: 'Server and network records', author: 'Albert Stoynov', src: 'Unsplash' },
+  { file: 'audit-paperwork.jpg', subject: 'Audit and document review', author: 'Sebastian Herrmann', src: 'Unsplash' },
+  { file: 'audit-signing.jpg', subject: 'Reviewing and signing documents', author: 'Scott Graham', src: 'Unsplash' },
+  { file: 'microscopy-purple.jpg', subject: 'Microscopy texture (purple)', author: 'National Cancer Institute (US, public domain)', src: 'Unsplash mirror' },
+  { file: 'microscopy-blue.jpg', subject: 'Microscopy texture (blue)', author: 'National Cancer Institute (US, public domain)', src: 'Unsplash mirror' },
+];
+---
+<Layout title="Attributions and Credits" description="Image, font, and software credits for madhadi.com. Photographs are used under the Unsplash License; typefaces are open-licensed; the site is built with Astro.">
+  <header class="dc-hero">
+    <div class="wrap dc-inner">
+      <nav class="crumb"><a href="/">Home</a> <span>›</span> Attributions and Credits</nav>
+      <h1 class="dc-h1">Attributions and Credits</h1>
+      <p class="dc-lead">The images, typefaces, and software used to build this site, with their sources and licenses.</p>
+    </div>
+  </header>
+
+  <div class="wrap dc-body">
+    <section>
+      <h2>Images</h2>
+      <p>Unless otherwise stated, photographs on this site are used under the <a href="https://unsplash.com/license" rel="nofollow">Unsplash License</a>, which permits free commercial use and self-hosting and does not require attribution. Credits are listed here anyway as good practice. The two microscopy textures originate from the US National Cancer Institute and are in the public domain. A licensing record for every published image is maintained off-site in the project's rights register.</p>
+      <table class="attr-table">
+        <thead><tr><th>Image</th><th>Subject</th><th>Author</th><th>Source / license</th></tr></thead>
+        <tbody>
+          {images.map((i) => (
+            <tr><td><code>{i.file}</code></td><td>{i.subject}</td><td>{i.author}</td><td>{i.src} · Unsplash License</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Typefaces</h2>
+      <p>Headings and interface use Libre Franklin; article body text uses Newsreader; monospaced text uses a system monospace stack. The open typefaces are used under the SIL Open Font License, which permits embedding and self-hosting.</p>
+    </section>
+
+    <section>
+      <h2>Software</h2>
+      <p>The site is a static build generated with the Astro framework and served as static files. It runs no advertising or analytics trackers and sets no tracking cookies. Open-source components are used under their respective licenses; their notices are retained in the project's build.</p>
+    </section>
+
+    <section>
+      <h2>Standards and regulations</h2>
+      <p>Regulations, guidances, and standards are referred to by number, title, and publisher for identification and education only, and are described in original wording rather than reproduced. See the <a href="/disclaimer">Disclaimer, Terms and License</a> for the full citation, trademark, and copyright statement.</p>
+    </section>
+
+    <section>
+      <h2>Reporting an issue</h2>
+      <p>If you believe any credit is incorrect or any material should not be used, email <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a> and it will be reviewed promptly.</p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .dc-hero { background: var(--navy); color: #fff; }
+  .dc-inner { padding: 3.2rem 0 2.4rem; }
+  .crumb { font-size: 0.82rem; color: var(--on-navy-dim); margin-bottom: 1.1rem; } .crumb a { color: var(--on-navy-dim); } .crumb a:hover { color:#fff; } .crumb span { opacity:.6; margin:0 3px; }
+  .dc-h1 { color: #fff; font-size: clamp(1.9rem, 3.6vw, 2.8rem); margin: 6px 0 14px; letter-spacing: -0.025em; }
+  .dc-lead { color: var(--on-navy); font-family: var(--serif); font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.5; max-width: 60ch; }
+  .dc-body { max-width: var(--measure); padding: 48px 28px 60px; }
+  .dc-body section { margin-bottom: 2rem; }
+  .dc-body h2 { font-family: var(--display); font-size: 1.35rem; color: var(--navy); margin-bottom: 0.6rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+  .dc-body section:first-child h2 { border-top: none; padding-top: 0; }
+  .dc-body p { font-family: var(--serif); font-size: 1.08rem; line-height: 1.7; color: var(--ink-2); margin-bottom: 0.9rem; }
+  .dc-body a { color: var(--blue); font-weight: 600; }
+  .attr-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-family: var(--sans); font-size: 0.9rem; }
+  .attr-table th, .attr-table td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  .attr-table th { background: var(--panel); color: var(--navy); }
+  .attr-table code { font-family: var(--mono); font-size: 0.85em; }
+</style>

@@ -1578,6 +1578,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"assessment-compendial-verification-characteristic-selection.md": {
+	id: "assessment-compendial-verification-characteristic-selection.md";
+  slug: "assessment-compendial-verification-characteristic-selection";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "assessment-component-criticality.md": {
 	id: "assessment-component-criticality.md";
   slug: "assessment-component-criticality";
@@ -1588,6 +1595,13 @@ declare module 'astro:content' {
 "assessment-di-risk-gap-per-system.md": {
 	id: "assessment-di-risk-gap-per-system.md";
   slug: "assessment-di-risk-gap-per-system";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"assessment-eu-ai-act-classification.md": {
+	id: "assessment-eu-ai-act-classification.md";
+  slug: "assessment-eu-ai-act-classification";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1711,6 +1725,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"matrix-ai-act-mdr-ivdr-crosswalk.md": {
+	id: "matrix-ai-act-mdr-ivdr-crosswalk.md";
+  slug: "matrix-ai-act-mdr-ivdr-crosswalk";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "matrix-combination-product-part4-provisions.md": {
 	id: "matrix-combination-product-part4-provisions.md";
   slug: "matrix-combination-product-part4-provisions";
@@ -1823,6 +1844,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"plan-software-supplier-audit.md": {
+	id: "plan-software-supplier-audit.md";
+  slug: "plan-software-supplier-audit";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "plan-swab-rinse-sampling.md": {
 	id: "plan-swab-rinse-sampling.md";
   slug: "plan-swab-rinse-sampling";
@@ -1910,6 +1938,13 @@ declare module 'astro:content' {
 "protocol-cleaning-validation.md": {
 	id: "protocol-cleaning-validation.md";
   slug: "protocol-cleaning-validation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-compendial-method-verification.md": {
+	id: "protocol-compendial-method-verification.md";
+  slug: "protocol-compendial-method-verification";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2075,6 +2110,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"register-ai-system-inventory-eu-ai-act.md": {
+	id: "register-ai-system-inventory-eu-ai-act.md";
+  slug: "register-ai-system-inventory-eu-ai-act";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "register-gxp-system-inventory.md": {
 	id: "register-gxp-system-inventory.md";
   slug: "register-gxp-system-inventory";
@@ -2085,6 +2127,13 @@ declare module 'astro:content' {
 "register-quality-risk.md": {
 	id: "register-quality-risk.md";
   slug: "register-quality-risk";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-compendial-method-verification.md": {
+	id: "report-compendial-method-verification.md";
+  slug: "report-compendial-method-verification";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2141,6 +2190,13 @@ declare module 'astro:content' {
 "report-periodic-review-system.md": {
 	id: "report-periodic-review-system.md";
   slug: "report-periodic-review-system";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-software-supplier-assessment.md": {
+	id: "report-software-supplier-assessment.md";
+  slug: "report-software-supplier-assessment";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2288,6 +2344,13 @@ declare module 'astro:content' {
 "sop-oos-investigation.md": {
 	id: "sop-oos-investigation.md";
   slug: "sop-oos-investigation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-software-supplier-assessment.md": {
+	id: "sop-software-supplier-assessment.md";
+  slug: "sop-software-supplier-assessment";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">

@@ -55,15 +55,17 @@ The single most important thing for a quality person to internalize: **the HMI i
 
 ## The ISA-95 automation pyramid, and why a non-engineer needs it
 
-ISA-95 (the international standard ANSI/ISA-95, also published as IEC 62264, *Enterprise-Control System Integration*) gives a layered model of how plant systems stack up. You will see this drawn as a pyramid. Memorize it, because it tells you where any given system sits, what it does, and what kind of validation it needs.
+ISA-95 (the international standard ANSI/ISA-95, also published as IEC 62264, *Enterprise-Control System Integration*) gives a layered model of how plant systems stack up. You will see it drawn as a pyramid with five layers numbered 0 through 4. The principle is simple: the closer to the bottom, the closer to the physical equipment and the faster the timescale; the closer to the top, the closer to the business and the slower the timescale. Each layer talks mainly to the layer directly above and below it. Look up the current authoritative definitions and any sub-layer detail in ISA-95 / IEC 62264 itself when you need the exact wording for a specification, because the model is sometimes drawn with slightly different boundaries depending on the source.
 
-| Level | Name | What lives here | Typical timeframe | Example systems |
-|-------|------|-----------------|-------------------|-----------------|
-| Level 0 | Physical process | Sensors and actuators (the field) | Continuous, real time | Thermocouples, pressure transmitters, valves, pumps, motors |
-| Level 1 | Sensing and manipulating | Control devices | Milliseconds to seconds | PLC, DCS controllers, I/O modules |
-| Level 2 | Supervisory control | Monitoring and supervisory control | Seconds to minutes | SCADA, HMI, DCS operator stations |
-| Level 3 | Manufacturing operations | Production management and execution | Shifts, batches | MES, electronic batch records, historian, LIMS interface |
-| Level 4 | Business planning and logistics | Enterprise systems | Days, months | ERP, supply planning |
+Here is how I describe the five layers in my own terms, working up from the floor:
+
+- **Level 0, the equipment itself.** This is the physical process and the field devices wired to it: the sensors that measure (thermocouples, pressure and flow transmitters) and the actuators that move (valves, pumps, motors). It runs in real time, continuously. There is no "record" here yet, just physics and electrical signals.
+- **Level 1, the control devices.** This is where signals are read and commands are issued, in milliseconds to seconds. PLC and DCS controllers and their I/O modules live here. The fast interlocks and the control loops execute at this layer.
+- **Level 2, the operator-facing supervision.** This is where humans watch and steer the process over seconds to minutes: SCADA, the HMI, the DCS operator stations. Operators view values, acknowledge alarms, and send setpoints down to Level 1.
+- **Level 3, the operations and record layer.** This is where the batch is managed and the reviewable production record is assembled, on the timescale of shifts and batches: the MES, the electronic batch record, the process historian, and the LIMS interface. For a GMP record, this is usually the layer you point to.
+- **Level 4, the business systems.** This is enterprise planning and logistics, on the timescale of days and months: ERP, supply and production planning. It tells the plant what to make and when, not how to control a valve.
+
+A single worked example makes the layering concrete. Picture a bioreactor temperature reading of 37.0 degC during a batch. A thermocouple in the vessel (Level 0) produces a 4-20 mA signal. The DCS controller (Level 1) reads that signal, scales it to 37.0 degC, and runs the PID loop that holds the jacket temperature. The operator sees 37.0 degC on the HMI (Level 2) and could nudge the setpoint there. The historian logs the value every few seconds and the MES folds it into the electronic batch record (Level 3). At the end of the campaign, ERP (Level 4) reconciles how much product the batch yielded against the production plan. One value, touched at every layer, but only the Level 3 record is the thing a reviewer releases against.
 
 Why this matters to you:
 

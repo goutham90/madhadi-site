@@ -36,15 +36,15 @@ The governing quality bar for pure steam condensate is the Water for Injection m
 
 ### Steam quality: the three physical attributes (the part people forget)
 
-Chemistry is only half of steam qualification. The other half is the steam quality triad, which is what actually determines if your autoclave or SIP cycle sterilizes. The standard that practitioners build from is EN 285 (Sterilization, Steam sterilizers, Large sterilizers); refer to the current edition for its exact limits. It describes three measurements, performed with a steam quality test rig at the point of use. The values below are the limits commonly applied in practice; confirm them against your own edition of the standard:
+Chemistry is only half of steam qualification. The other half is the steam quality triad, which is what actually determines if your autoclave or SIP cycle sterilizes. The standard that practitioners build from is EN 285 (Sterilization, Steam sterilizers, Large sterilizers), which describes three measurements, performed with a steam quality test rig at the point of use. The standard sets the pass/fail figure for each attribute, so read the numeric limits straight from the current edition of EN 285 and apply them at your point of use. The three attributes, what each one tells you, and what happens when it drifts out:
 
-| Attribute | What it measures | Limit commonly applied | Failure mode if out |
-|---|---|---|---|
-| Non-condensable gases (NCG) | The proportion of air and other gases carried in the steam that stay gaseous instead of condensing | No more than about 3.5% by volume | Air pockets shield items from steam; cold spots; sterilization failure |
-| Dryness value (dryness fraction) | How much of the steam is dry saturated vapor rather than entrained liquid water | At least roughly 0.90, and tighter (around 0.95) for dense metal loads | Wet steam, superheating risk, poor heat transfer, wet packs |
-| Superheat | How far the steam temperature climbs above saturation when it expands to atmospheric pressure | No more than about 25 C | Steam behaves like hot air, drastically reduced lethality |
+| Attribute | What it measures | Failure mode if out |
+|---|---|---|
+| Non-condensable gases (NCG) | The proportion of air and other gases carried in the steam that stay gaseous instead of condensing. EN 285 caps this as a percentage by volume | Air pockets shield items from steam; cold spots; sterilization failure |
+| Dryness value (dryness fraction) | How much of the steam is dry saturated vapor rather than entrained liquid water. EN 285 sets a minimum, and applies a tighter minimum for dense metal loads | Wet steam, superheating risk, poor heat transfer, wet packs |
+| Superheat | How far the steam temperature climbs above saturation when it expands to atmospheric pressure. EN 285 caps the allowed rise in degrees Celsius | Steam behaves like hot air, drastically reduced lethality |
 
-If you only test condensate chemistry and skip the EN 285 triad, you have tested whether the steam is clean but not whether it sterilizes. That is a real and common gap.
+The exact NCG percentage, the dryness minimum (and the tighter value for dense metal loads), and the superheat cap are all printed in EN 285. Pull the current edition and read them off for your case rather than carrying a remembered number. If you only test condensate chemistry and skip the EN 285 triad, you have tested whether the steam is clean but not whether it sterilizes. That is a real and common gap.
 
 ### What goes in the qualification package
 
@@ -73,11 +73,11 @@ A worked acceptance summary for a pure steam point of use looks like this:
 | TOC | USP 643 | ≤ 500 ppb | 180 ppb | Pass |
 | Endotoxin | USP 85, BET | < 0.25 EU/mL | < 0.05 EU/mL | Pass |
 | Microbial (condensate) | membrane filtration | ≤ 10 CFU/100 mL (action; WFI alert/action set by site) | < 1 CFU/100 mL | Pass |
-| Non-condensable gases | EN 285 | ≤ 3.5% v/v | 1.8% | Pass |
-| Dryness value | EN 285 | ≥ 0.90 | 0.97 | Pass |
-| Superheat | EN 285 | ≤ 25 °C | 4 °C | Pass |
+| Non-condensable gases | EN 285 | per current EN 285 (NCG % v/v cap) | comfortably under the cap | Pass |
+| Dryness value | EN 285 | per current EN 285 (dryness minimum) | above the minimum | Pass |
+| Superheat | EN 285 | per current EN 285 (superheat cap, °C) | well under the cap | Pass |
 
-Microbial and endotoxin limits should be set against the WFI monograph and your site's alert/action regime; the numbers above are illustrative of how the table reads, not a substitute for your specifications.
+The three EN 285 steam-quality rows show where the attribute goes and where its verdict comes from, not the limit itself: take the NCG percentage, the dryness minimum, and the superheat cap from the current edition of EN 285 and enter them as your acceptance criteria. Microbial and endotoxin limits should be set against the WFI monograph and your site's alert/action regime; the numbers above are illustrative of how the table reads, not a substitute for your specifications.
 
 ### Common clean steam mistakes and findings
 
@@ -132,8 +132,8 @@ A worked acceptance table for a nitrogen used to overlay open product:
 | Attribute | Standard/method | Limit | Result | Verdict |
 |---|---|---|---|---|
 | Identity / purity | USP/Ph. Eur. Nitrogen monograph | ≥ 99.0% N2 (per monograph) | 99.9% | Pass |
-| Oil total | ISO 8573-1 Class 1 | ≤ 0.01 mg/m³ | < 0.003 mg/m³ | Pass |
-| Water (PDP) | ISO 8573-1 Class 2 | ≤ -40 °C PDP | -52 °C | Pass |
+| Oil total | ISO 8573-1 oil Class 1 | per ISO 8573-1 Class 1 oil limit | within the Class 1 oil limit | Pass |
+| Water (PDP) | ISO 8573-1 Class 2 | per ISO 8573-1 Class 2 pressure dew point | within the Class 2 dew point | Pass |
 | Particles | ISO 8573-1 Class 1 | per Class 1 table | within Class 1 | Pass |
 | Microbial | ISO 8573-7 / site limit | ≤ 1 CFU/m³ (site action) | 0 CFU/m³ | Pass |
 
@@ -244,10 +244,10 @@ For a sterile facility, the single integrating document is the Contamination Con
 Both are free of boiler additives. Pure steam is the higher grade: its condensate must meet the Water for Injection monograph (conductivity per USP 645, TOC per USP 643, endotoxin < 0.25 EU/mL, microbial control), and it is used to sterilize parenteral-contact equipment and the WFI system. Clean steam is generated from treated feedwater and is additive-free but is not held to the full WFI condensate spec. The Ph. Eur. "Pure steam" monograph requires the condensate to comply with WFI.
 
 **Q: Steam chemistry passes but the autoclave keeps failing biological indicators. Where do you look?**
-Steam quality, not chemistry. Run the EN 285 triad: non-condensable gases (≤ 3.5% v/v), dryness value (≥ 0.90), and superheat (≤ 25 °C). High NCG creates air pockets that shield the load; wet steam or superheated steam both kill lethality. Clean chemistry tells you the steam is pure, not that it sterilizes.
+Steam quality, not chemistry. Run the EN 285 triad: non-condensable gases, dryness value, and superheat, each checked against the limit in the current edition of EN 285 at your point of use. High NCG creates air pockets that shield the load; wet steam or superheated steam both kill lethality. Clean chemistry tells you the steam is pure, not that it sterilizes.
 
 **Q: How do you specify compressed air that blows onto open vials?**
-Against ISO 8573-1, naming the three purity classes: oil Class 1 (≤ 0.01 mg/m³ total, aerosol plus vapor), a water class with a pressure dew point below the lowest line temperature to prevent condensation, and a particle class appropriate to the room grade. Add microbial sampling per ISO 8573-7 and a point-of-use 0.22 µm sterilizing filter that is integrity tested on a schedule. Sample at the point of use after the final filter, not at the receiver.
+Against ISO 8573-1, naming the three purity classes: oil at the tightest class (Class 1, covering total oil, aerosol plus vapor, at the limit printed in ISO 8573-1), a water class with a pressure dew point below the lowest line temperature to prevent condensation, and a particle class appropriate to the room grade. Take each class threshold from the current ISO 8573-1 table at your point of use. Add microbial sampling per ISO 8573-7 and a point-of-use 0.22 µm sterilizing filter that is integrity tested on a schedule. Sample at the point of use after the final filter, not at the receiver.
 
 **Q: Name the HVAC qualification tests.**
 HEPA filter integrity by DOP/PAO scan, airflow volume and air changes per hour, air velocity for unidirectional zones, room pressure differentials, airflow visualization (smoke study) at rest and in operation, particle classification at rest and in operation per ISO 14644-1, recovery time per ISO 14644-3, and temperature and relative humidity. Requalification cadence comes from ISO 14644-2 and Annex 1.

@@ -71,13 +71,7 @@ A practical point: independence of verification scales with class. For Class C, 
 
 ## Safety classification: A, B, and C
 
-The single most consequential decision in an IEC 62304 project is the **software safety classification**. The standard defines three classes based on the severity of the harm that could result from a software failure, assuming the software fails and external risk control measures do not prevent the resulting hazardous situation:
-
-| Class | Possible consequence of failure | Rigor |
-|-------|----------------------------------|-------|
-| **A** | No injury or damage to health is possible | Minimum lifecycle process set |
-| **B** | Non-serious injury is possible | Adds detailed design, unit-level verification expectations |
-| **C** | Death or serious injury is possible | Full process set, most documentation |
+The single most consequential decision in an IEC 62304 project is the **software safety classification**. The standard defines three classes, named A, B, and C, that scale process rigor to the severity of the harm a software failure could cause, assuming the software fails and external risk control measures do not prevent the resulting hazardous situation. The dividing line between the classes is the worst credible injury. Class A is the floor: a failure of the software cannot lead to injury or damage to health, so it carries the lightest lifecycle process set. Class B sits in the middle: a failure could cause a non-serious injury, which adds expectations such as detailed design and unit-level verification on the affected items. Class C is the top: a failure could result in death or serious injury, which pulls in the full process set and the deepest documentation. The exact wording of each threshold lives in IEC 62304 itself; treat the standard as the authoritative text and confirm the current definitions there for any borderline case, because where a given failure falls between "non-serious" and "serious" injury is the judgment that drives most of the documentation load.
 
 The classification is done per software system, and the standard allows decomposition: a software system can be partitioned into items, and items into units, with the segregation argued and justified. If you can demonstrate effective segregation (independence such that a failure in a Class C item cannot affect a Class B or A item), you can classify items separately and apply the heavy Class C process set only where it is genuinely needed. This is one of the most important architectural levers in the whole standard, it directly determines documentation load and test depth.
 
@@ -205,15 +199,9 @@ For standalone software, IMDRF built a dedicated risk framework that regulators 
 1. **Significance of the information** the SaMD provides to the healthcare decision: *treat or diagnose*, *drive clinical management*, or *inform clinical management*.
 2. **State of the healthcare situation or condition**: *critical*, *serious*, or *non-serious*.
 
-Crossing the two axes produces a four-level categorization, with Category IV the highest impact:
+Crossing the two axes produces a four-level categorization. The logic is intuitive once you hold the two axes in mind: the more decisive the information is for the patient's care, and the more dire the underlying condition, the higher the category climbs. The most significant role the information can play (treat or diagnose) layered on the gravest condition (critical) lands at the top of the scale, Category IV, the highest impact. The least significant role (inform clinical management) layered on the mildest condition (non-serious) lands at the bottom, Category I. The two middle bands, where a higher-significance role meets a milder condition or a lower-significance role meets a graver condition, fill the levels in between, so that moving up either axis tends to raise the category. The 2014 IMDRF framework, "Software as a Medical Device (SaMD): Possible Framework for Risk Categorization and Corresponding Considerations," is the authoritative source for the exact category assigned to each pairing; consult it directly when you categorize a real product rather than reasoning from memory.
 
-| Healthcare situation | Treat/diagnose | Drive management | Inform management |
-|----------------------|----------------|------------------|-------------------|
-| **Critical** | IV | III | II |
-| **Serious** | III | II | I |
-| **Non-serious** | II | I | I |
-
-A SaMD that diagnoses a critical condition (Category IV), say, software that detects a large-vessel occlusion stroke and triages the patient, carries the highest expectations for clinical evidence and quality. Software that merely informs management of a non-serious condition (Category I) carries the least. This categorization is conceptually parallel to IEC 62304 safety class but operates at the clinical and intended-use level rather than the software-failure level; a serious SaMD product will typically also contain Class C software items. Keep the two straight in conversation: IMDRF category describes the clinical stakes of the output, IEC 62304 class describes the harm from a code failure. They correlate but are not the same axis, and an interviewer will test for that confusion.
+To make this concrete with one example, picture software that informs the diagnosis or directs the treatment of a critical, life-threatening condition, say an algorithm that detects a large-vessel occlusion stroke and triages the patient for intervention. Because it plays a decisive role for a critical condition, it sits at the highest category and carries the heaviest expectations for clinical evidence and quality. By contrast, software that merely informs the management of a non-serious condition, a low-stakes role for a mild condition, sits at the lowest category and carries the least. This categorization is conceptually parallel to IEC 62304 safety class but operates at the clinical and intended-use level rather than the software-failure level; a serious SaMD product will typically also contain Class C software items. Keep the two straight in conversation: IMDRF category describes the clinical stakes of the output, IEC 62304 class describes the harm from a code failure. They correlate but are not the same axis, and an interviewer will test for that confusion.
 
 IMDRF complemented this with documents on SaMD quality management system principles and on clinical evaluation, establishing that SaMD needs a defined **clinical evaluation** built on three pillars:
 

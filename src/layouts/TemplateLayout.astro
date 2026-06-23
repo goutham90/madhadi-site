@@ -30,16 +30,13 @@ const pillarNames: Record<string, string> = {
       <nav class="crumb"><a href="/">Home</a> <span>›</span> <a href="/templates">Templates</a>{pillar && <> <span>›</span> <a href={`/pillars/${pillar}`}>{pillarNames[pillar] ?? pillar}</a></>}</nav>
       <div class="tpl-eyebrow">
         <span class="doc-badge">{docType}</span>
-        <span class="tpl-pnp">Plug-and-play, inspection-grade</span>
+        <span class="tpl-pnp">Plug-and-play starting point</span>
         {pillar && <a href={`/pillars/${pillar}`} class="tpl-pillar">{pillarNames[pillar] ?? pillar}</a>}
       </div>
       <h1 class="tpl-title">{title}</h1>
       <p class="tpl-standfirst">{description}</p>
       <div class="tpl-meta"><span>Document type: {docType}</span></div>
-      <a class="tpl-dl" href={`/templates/${slug}.docx`} download>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-        Download Word (.docx)
-      </a>
+      <p class="tpl-dl-note">Read and copy the template below into your own quality system. It is a generic starting point for your own internal use, provided as is, with no warranty; see the <a href="/disclaimer">Terms and License</a>. Adopting it does not by itself create compliance.</p>
     </div>
   </header>
 
@@ -90,6 +87,8 @@ const pillarNames: Record<string, string> = {
   .tpl-dl { display: inline-flex; align-items: center; gap: 8px; margin-top: 1.2rem; background: #ffd98a; color: var(--navy); font-family: var(--sans); font-weight: 700; font-size: 0.92rem; padding: 10px 18px; border-radius: var(--radius); transition: background .15s, transform .15s; }
   .tpl-dl:hover { background: #ffe6ab; color: var(--navy); text-decoration: none; transform: translateY(-1px); }
   .tpl-dl svg { flex: none; }
+  .tpl-dl-note { margin-top: 0.7rem; font-size: 0.78rem; line-height: 1.5; color: var(--on-navy-dim); max-width: 52ch; }
+  .tpl-dl-note a { color: #ffd98a; text-decoration: underline; text-underline-offset: 2px; }
 
   .tpl-shell { padding-top: 2.4rem; padding-bottom: 4.5rem; }
   .tpl-howto { max-width: var(--measure); margin: 0 auto 2.2rem; background: var(--panel); border-left: 4px solid var(--blue); border-radius: var(--radius); padding: 1rem 1.3rem; font-size: 0.98rem; line-height: 1.6; color: var(--ink-2); }
