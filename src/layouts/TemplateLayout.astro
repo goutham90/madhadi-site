@@ -50,6 +50,10 @@ const pillarNames: Record<string, string> = {
       process specifics, then route it through your own document control, review, and approval.
       The filled specimen shows one worked example; adapt the numbers and scope to your operation
       and verify each cited regulation or standard against the current source before you rely on it.
+      This is a generic, originally worded starting point. It contains no confidential, proprietary, or
+      employer material, it is drafted with AI assistance and reviewed, it is not legal or compliance
+      advice, and adopting it does not by itself create or prove compliance. See the
+      <a href="/disclaimer">Disclaimer and Terms</a>.
     </aside>
 
     <article class="art-body prose"><slot /></article>
@@ -90,6 +94,8 @@ const pillarNames: Record<string, string> = {
   .tpl-shell { padding-top: 2.4rem; padding-bottom: 4.5rem; }
   .tpl-howto { max-width: var(--measure); margin: 0 auto 2.2rem; background: var(--panel); border-left: 4px solid var(--blue); border-radius: var(--radius); padding: 1rem 1.3rem; font-size: 0.98rem; line-height: 1.6; color: var(--ink-2); }
   .tpl-howto code { font-family: var(--mono); font-size: 0.85em; background: #fff; border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; }
+  .tpl-howto a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+  .tpl-howto a:hover { color: var(--blue-d); }
 
   /* shared long-form prose styling (mirrors ArticleLayout so tables/code render well) */
   .art-body { max-width: var(--measure); margin: 0 auto; font-family: var(--serif); font-size: 1.16rem; line-height: 1.7; color: #24292e; }
