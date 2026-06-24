@@ -230,7 +230,6 @@ const totalArticles = _navArticles.length;
     .mega-foot-sep { flex: 1; }
     /* drawer discipline grid (mobile) */
     .drawer-feature { font-weight: 700 !important; color: var(--blue) !important; }
-    .drawer-feature.drawer-install { color: var(--navy) !important; background: #ffd98a; border-radius: 8px; padding: 9px 12px; text-align: center; }
     .drawer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 8px 0 14px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
     .drawer-grid a { display: flex !important; justify-content: space-between; padding: 10px 6px !important; font-size: 0.95rem !important; border: none !important; color: var(--navy) !important; }
     .drawer-grid a span { color: var(--blue); font-size: 0.8rem; font-weight: 700; }
@@ -330,7 +329,6 @@ const totalArticles = _navArticles.length;
       </div>
     </div>
     <div class="drawer" id="drawer">
-      <a href="/install" class="drawer-feature drawer-install">Use as an app: full screen, offline →</a>
       <a href="/browse" class="drawer-feature">Browse all topics →</a>
       <div class="drawer-grid">
         {pillarNav.map(p => <a href={`/browse?pillar=${p.slug}`}>{p.short} <span>{p.count}</span></a>)}
