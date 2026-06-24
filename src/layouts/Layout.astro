@@ -252,6 +252,11 @@ const totalArticles = _navArticles.length;
     *:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
     img { max-width: 100%; display: block; }
 
+    /* Wide tables scroll inside their own box (set by rehype-table-wrap) instead of
+       forcing the whole page to scroll sideways on small screens. */
+    .table-scroll { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.8rem 0; }
+    .table-scroll > table { margin: 0; }
+
     /* ── Flow diagrams: real bordered boxes with arrows (no mermaid, no ASCII art) ── */
     .flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.55rem; margin: 1.9rem 0; font-family: var(--sans); }
     .flow-step { flex: 1 1 150px; min-width: 140px; display: flex; flex-direction: column; gap: 4px; background: var(--panel); border: 1px solid var(--line-strong); border-top: 3px solid var(--gold); border-radius: var(--radius); padding: 0.7rem 0.85rem; }
