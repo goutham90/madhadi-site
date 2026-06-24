@@ -3,9 +3,12 @@
  * fallback when offline, then an offline page); cache-first for same-origin static
  * assets; cross-origin requests (e.g. Google Fonts) bypass the cache. Bump VERSION
  * to roll all caches. */
-const VERSION = 'madhadi-v1';
+const VERSION = 'madhadi-v2';
 const CACHE = 'madhadi-cache-' + VERSION;
-const OFFLINE_URL = '/offline.html';
+/* Cloudflare Pages serves /offline.html at the extensionless /offline (it 307-redirects
+ * /offline.html). Precache and fall back to the canonical URL so no redirected response
+ * is cached or served for navigations. */
+const OFFLINE_URL = '/offline';
 const PRECACHE = [
   OFFLINE_URL,
   '/manifest.webmanifest',
