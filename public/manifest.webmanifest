@@ -1,0 +1,20 @@
+{
+  "name": "madhadi.com — GxP Quality, Data Integrity & Validation",
+  "short_name": "madhadi.com",
+  "description": "A free, independent educational reference on quality systems, data integrity, and computer and equipment validation in life sciences. Plain-language explanations plus how-to detail for people starting and growing a career in GxP quality.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0b2e4f",
+  "background_color": "#ffffff",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["education", "medical", "books"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
