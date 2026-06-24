@@ -483,7 +483,7 @@ const totalArticles = _navArticles.length;
     })();
   </script>
   <!-- Add-to-home-screen / install prompt (dismissible, device-aware) -->
-  <div id="a2hs" class="a2hs" hidden aria-label="Install madhadi.com as an app">
+  <div id="a2hs" class="a2hs" aria-label="Install madhadi.com as an app">
     <svg class="a2hs-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2.5"></rect><path d="M12 18h.01"></path></svg>
     <div class="a2hs-body">
       <strong class="a2hs-title">Use madhadi.com as an app</strong>
@@ -493,11 +493,14 @@ const totalArticles = _navArticles.length;
     <button id="a2hs-x" class="a2hs-x" type="button" aria-label="Dismiss">&times;</button>
   </div>
   <style is:global>
-    .a2hs { position: fixed; left: 50%; transform: translateX(-50%); bottom: 16px; z-index: 1200;
-      display: flex; align-items: center; gap: 12px; width: max-content; max-width: min(560px, calc(100vw - 24px));
+    /* Hidden by default via the class itself (NOT the [hidden] attribute, which a class
+     * display rule would override). JS adds .is-on to reveal. */
+    .a2hs { display: none; position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 1200;
+      align-items: center; gap: 12px; width: max-content; max-width: min(560px, calc(100vw - 24px));
       background: var(--navy, #0b2e4f); color: #fff; border: 1px solid #11385f; border-radius: 14px;
       padding: 11px 12px 11px 14px; box-shadow: 0 12px 34px rgba(0,0,0,.28);
-      font-family: var(--sans, system-ui, sans-serif); animation: a2hs-in .35s ease both; }
+      font-family: var(--sans, system-ui, sans-serif); }
+    .a2hs.is-on { display: flex; animation: a2hs-in .35s ease both; }
     @keyframes a2hs-in { from { opacity: 0; transform: translate(-50%, 14px); } to { opacity: 1; transform: translate(-50%, 0); } }
     .a2hs-ico { flex: none; width: 24px; height: 24px; color: #ffd98a; }
     .a2hs-body { display: flex; flex-direction: column; line-height: 1.3; min-width: 0; }
@@ -506,11 +509,14 @@ const totalArticles = _navArticles.length;
     .a2hs-go { flex: none; background: #ffd98a; color: #0b2e4f; border: 0; font-weight: 700; font-size: .85rem;
       padding: 8px 15px; border-radius: 9px; cursor: pointer; }
     .a2hs-go:hover { background: #ffe6ab; }
-    .a2hs-x { flex: none; background: transparent; border: 0; color: #9fb4c9; font-size: 1.5rem; line-height: 1;
-      cursor: pointer; padding: 0 4px; }
+    .a2hs-x { flex: none; background: transparent; border: 0; color: #9fb4c9; font-size: 1.6rem; line-height: 1;
+      cursor: pointer; padding: 4px 8px; margin: -4px -4px -4px 0; }
     .a2hs-x:hover { color: #fff; }
-    @media (max-width: 480px) { .a2hs { left: 12px; right: 12px; transform: none; width: auto; max-width: none; bottom: 12px; animation: a2hs-in-sm .35s ease both; }
-      @keyframes a2hs-in-sm { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } } }
+    @media (max-width: 480px) {
+      .a2hs { left: 12px; right: 12px; transform: none; width: auto; max-width: none; bottom: 12px; }
+      .a2hs.is-on { animation: a2hs-in-sm .35s ease both; }
+      @keyframes a2hs-in-sm { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    }
   </style>
   <script>
     /* Device-aware install prompt: Install button on Android/desktop Chrome (beforeinstallprompt),
@@ -525,8 +531,8 @@ const totalArticles = _navArticles.length;
       var txt = document.getElementById('a2hs-txt');
       var x = document.getElementById('a2hs-x');
       var deferred = null;
-      function show() { bar.hidden = false; }
-      function dismiss() { bar.hidden = true; try { localStorage.setItem('a2hs-dismissed', '1'); } catch (e) {} }
+      function show() { bar.classList.add('is-on'); }
+      function dismiss() { bar.classList.remove('is-on'); try { localStorage.setItem('a2hs-dismissed', '1'); } catch (e) {} }
       x.addEventListener('click', dismiss);
       window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault(); deferred = e;
