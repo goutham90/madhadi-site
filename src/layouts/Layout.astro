@@ -48,6 +48,17 @@ const totalArticles = _navArticles.length;
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="madhadi.com" />
   <meta name="mobile-web-app-capable" content="yes" />
+  <script is:inline>
+    /* Capture the install prompt as early as possible (Chrome can fire it before later
+     * scripts load). Stash it so the banner and /install page can use it whenever it arrives. */
+    window.__bipEvent = null;
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      window.__bipEvent = e;
+      window.dispatchEvent(new Event('bip-ready'));
+    });
+    window.addEventListener('appinstalled', function () { window.__bipEvent = null; });
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
@@ -141,6 +152,9 @@ const totalArticles = _navArticles.length;
     .util-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 34px; }
     .util a { color: var(--on-navy); }
     .util .util-note { color: var(--on-navy-dim); letter-spacing: 0.01em; }
+    .util-right { display: inline-flex; align-items: center; gap: 14px; }
+    .util .util-app { color: #ffd98a; font-weight: 700; }
+    .util .util-app:hover { color: #fff; }
 
     /* ── Masthead ── */
     .mast { background: #fff; border-bottom: 3px solid var(--navy); position: sticky; top: 0; z-index: 50; }
@@ -216,6 +230,7 @@ const totalArticles = _navArticles.length;
     .mega-foot-sep { flex: 1; }
     /* drawer discipline grid (mobile) */
     .drawer-feature { font-weight: 700 !important; color: var(--blue) !important; }
+    .drawer-feature.drawer-install { color: var(--navy) !important; background: #ffd98a; border-radius: 8px; padding: 9px 12px; text-align: center; }
     .drawer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 8px 0 14px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
     .drawer-grid a { display: flex !important; justify-content: space-between; padding: 10px 6px !important; font-size: 0.95rem !important; border: none !important; color: var(--navy) !important; }
     .drawer-grid a span { color: var(--blue); font-size: 0.8rem; font-weight: 700; }
@@ -287,7 +302,7 @@ const totalArticles = _navArticles.length;
 <body>
   <div class="util"><div class="wrap util-in">
     <span class="util-note">Independent and not affiliated with the FDA, MHRA, ISPE, PDA, or any agency.</span>
-    <a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a>
+    <span class="util-right"><a href="/install" class="util-app">Get the app</a><a href="mailto:goutham@madhadi.com">goutham@madhadi.com</a></span>
   </div></div>
 
   <header class="mast">
@@ -315,6 +330,7 @@ const totalArticles = _navArticles.length;
       </div>
     </div>
     <div class="drawer" id="drawer">
+      <a href="/install" class="drawer-feature drawer-install">Use as an app: full screen, offline →</a>
       <a href="/browse" class="drawer-feature">Browse all topics →</a>
       <div class="drawer-grid">
         {pillarNav.map(p => <a href={`/browse?pillar=${p.slug}`}>{p.short} <span>{p.count}</span></a>)}
@@ -530,20 +546,22 @@ const totalArticles = _navArticles.length;
       var go = document.getElementById('a2hs-go');
       var txt = document.getElementById('a2hs-txt');
       var x = document.getElementById('a2hs-x');
-      var deferred = null;
       function show() { bar.classList.add('is-on'); }
       function dismiss() { bar.classList.remove('is-on'); try { localStorage.setItem('a2hs-dismissed', '1'); } catch (e) {} }
       x.addEventListener('click', dismiss);
-      window.addEventListener('beforeinstallprompt', function (e) {
-        e.preventDefault(); deferred = e;
+      function offerInstall() {
+        if (!window.__bipEvent) return;
         go.hidden = false;
         txt.textContent = 'Full screen, works offline, one tap from your home screen.';
         show();
-      });
+      }
+      offerInstall();                                   // event may have already fired
+      window.addEventListener('bip-ready', offerInstall); // or it arrives later
       go.addEventListener('click', function () {
-        if (!deferred) return;
-        deferred.prompt();
-        deferred.userChoice.then(function () { deferred = null; dismiss(); });
+        var e = window.__bipEvent;
+        if (!e) { window.location.href = '/install'; return; }
+        e.prompt();
+        e.userChoice.then(function () { window.__bipEvent = null; dismiss(); });
       });
       var ua = navigator.userAgent || '';
       var isIOS = /iphone|ipad|ipod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);

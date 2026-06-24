@@ -12,10 +12,16 @@ import Layout from '../layouts/Layout.astro';
 
   <div class="wrap dc-body">
     <section class="ins-cta" id="ins-android">
-      <h2>Android &amp; desktop (Chrome, Edge)</h2>
-      <p>Tap the button, then confirm. If the button is greyed out, open the browser menu and choose <strong>Install app</strong> or <strong>Add to Home screen</strong>.</p>
+      <h2>Android (Chrome) &amp; desktop</h2>
+      <p>The reliable way, works every time:</p>
+      <ol class="ins-steps">
+        <li>Open the browser menu (the three dots, usually top right).</li>
+        <li>Tap <strong>Install app</strong>, or <strong>Add to Home screen</strong>.</li>
+        <li>Confirm <strong>Install</strong>.</li>
+      </ol>
+      <p>Or, when your browser offers it, one tap:</p>
       <button id="ins-btn" class="ins-btn" type="button" disabled>Install app</button>
-      <p class="ins-note" id="ins-note">Preparing the install option…</p>
+      <p class="ins-note" id="ins-note">If this button stays grey, use the menu steps above. They always work, the one-tap option is only offered by some browsers.</p>
     </section>
 
     <section id="ins-ios">
@@ -58,29 +64,22 @@ import Layout from '../layouts/Layout.astro';
     if (!isIOS && iosSec) { iosSec.style.display = 'none'; }
     if (standalone && note) { note.textContent = 'You are already using the installed app.'; }
 
-    var deferred = null;
-    window.addEventListener('beforeinstallprompt', function (e) {
-      e.preventDefault(); deferred = e;
+    function ready() {
+      if (!window.__bipEvent) return;
       btn.disabled = false;
-      if (note) note.textContent = 'Ready. Tap Install app above.';
-    });
+      if (note) note.textContent = 'Ready. Tap Install app above, or use the menu steps.';
+    }
+    ready();                                  // the event may have already fired (captured in <head>)
+    window.addEventListener('bip-ready', ready); // or it arrives a moment later
     btn.addEventListener('click', function () {
-      if (!deferred) {
-        if (note) note.textContent = 'Use the browser menu and choose "Install app" or "Add to Home screen".';
-        return;
-      }
-      deferred.prompt();
-      deferred.userChoice.then(function (c) {
-        if (note) note.textContent = (c && c.outcome === 'accepted') ? 'Installed. Check your home screen.' : 'No problem, you can install any time from here.';
-        deferred = null;
+      var e = window.__bipEvent;
+      if (!e) { if (note) note.textContent = 'This browser did not offer one-tap install. Use the menu steps above: Install app / Add to Home screen.'; return; }
+      e.prompt();
+      e.userChoice.then(function (c) {
+        if (note) note.textContent = (c && c.outcome === 'accepted') ? 'Installed. Check your home screen.' : 'No problem, you can install any time from the menu steps.';
+        window.__bipEvent = null;
       });
     });
-    // If no prompt fires shortly (already installed, unsupported browser, or iOS), guide the user.
-    setTimeout(function () {
-      if (!deferred && note && !standalone && !isIOS) {
-        note.textContent = 'If the button stays greyed out, you may already have it installed, or use the browser menu: Install app / Add to Home screen.';
-      }
-    }, 2500);
   })();
 </script>
 
