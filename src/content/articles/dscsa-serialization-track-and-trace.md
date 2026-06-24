@@ -22,7 +22,7 @@ The stated goal: protect patients from counterfeit, stolen, contaminated, divert
 The law set a phased, roughly ten-year build. Two anchor dates matter most:
 
 - **November 27, 2017 (manufacturers) and downstream dates through 2020**: product identifier (serialization) requirements began.
-- **November 27, 2023**: the start of "enhanced drug distribution security," the unit-level, fully electronic, interoperable tracing phase. FDA exercised enforcement discretion past that date through a series of stabilization periods, so different trading-partner segments came into full enforcement on staggered timelines rather than all at once. Treat November 2023 as the design target and confirm the current enforcement posture for your trading-partner type against the latest FDA guidance, because the discretion windows have shifted more than once.
+- **November 27, 2023**: the statutory start of "enhanced drug distribution security," the unit-level, fully electronic, interoperable tracing phase. FDA did not enforce on that date. It first granted a one-year stabilization period (announced August 2024) that moved effective enforcement to November 27, 2024, then issued staggered exemptions that pushed the real compliance clock out by trading-partner type. As verified against FDA's current guidance, those exemption windows ran to **May 27, 2025 for manufacturers and repackagers**, **August 27, 2025 for wholesale distributors**, **November 27, 2025 for dispensers with 26 or more full-time employees**, and **November 27, 2026 for small dispensers** (25 or fewer full-time employees) and, where applicable, their immediate trading partners. The exemptions were available to partners who had completed, or made documented efforts to complete, data connections with their immediate trading partners; no notification to FDA was required to use them. The practical reading as of mid-2026: every segment except small dispensers is now expected to be in full enhanced-phase exchange, the small-dispenser window closes 27 November 2026, and you should still confirm the live posture for your trading-partner type against the latest FDA guidance, because these dates moved more than once.
 
 ### Who is covered (and who is not)
 
@@ -187,6 +187,23 @@ The **saleable returns verification requirement** (effective for wholesale distr
 This is where the quality and regulatory disciplines intersect, and it is the part inspectors probe hardest because it is the patient-safety end of the law.
 
 A **suspect product** is one for which there is reason to believe it is potentially counterfeit, diverted, stolen, intentionally adulterated, the subject of a fraudulent transaction, or unfit for distribution and a risk to patients. An **illegitimate product** is one for which credible evidence shows it is counterfeit, diverted, stolen, intentionally adulterated, the subject of a fraudulent transaction, or unfit and a risk.
+
+### The determination path
+
+The two words that drive the clock are **suspect** and **illegitimate**. Suspect means "reason to believe" and opens an investigation; illegitimate means "credible evidence" and starts the 24-hour Form FDA 3911 clock. Walking the trigger through the path below keeps a team from either over-notifying (filing a 3911 on a product that was only suspect) or under-notifying (sitting on credible evidence).
+
+<div class="flow-v">
+  <div class="flow-step">Trigger received (failed scan, verification mismatch, tamper signs, tip, regulatory notice, a transaction that does not reconcile)</div>
+  <div class="flow-step">Quarantine and document immediately, then investigate: verify the PI through VRS, review transaction data, inspect the physical unit, contact the upstream partner and manufacturer</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">Does the investigation clear the product (valid PI, data reconciles, no tamper, authorized source)?</div>
+  <div class="flow-step">Yes: document the rationale and release. No 3911. Keep the record.</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">Is there now credible evidence the product is counterfeit, diverted, stolen, intentionally adulterated, the subject of a fraudulent transaction, or unfit and a patient risk?</div>
+  <div class="flow-step">Yes, it is illegitimate: notify FDA via Form FDA 3911 within 24 hours of the determination and notify immediate trading partners; coordinate disposition; terminate via 3911 when resolved</div>
+</div>
 
 ### Step-by-step
 

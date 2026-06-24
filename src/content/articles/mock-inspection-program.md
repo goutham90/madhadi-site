@@ -161,6 +161,22 @@ The behavior that most distinguishes a real inspection from a binder review is t
 5. The OOS involved an instrument. Pull the instrument's calibration and the audit trail for the run (see [chromatography-data-system-integrity](/articles/chromatography-data-system-integrity) and [audit-trail-design-and-review](/articles/audit-trail-design-and-review)).
 6. Check whether training records support that the analyst was qualified (see [training-program-gxp](/articles/training-program-gxp)).
 
+The same thread drawn as a path the mock inspector follows:
+
+<div class="flow">
+  <div class="flow-step">Batch record (random pull)</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Deviation referenced</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">CAPA: effectiveness verified?</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">OOS: root cause proven or assumed?</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Instrument calibration + audit trail</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Analyst training record</div>
+</div>
+
 By step 4 or 5, most sites have surfaced a real gap: a CAPA closed without effectiveness verification, an OOS root cause that blamed the analyst without proof, an audit trail nobody had reviewed. That single thread, rehearsed, is worth more than a hundred binder checks.
 
 Brief the SME presenters that the mock is testing real behavior. Do not script their answers. The point is to see what they actually say.

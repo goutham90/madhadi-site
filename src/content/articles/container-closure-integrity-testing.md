@@ -112,6 +112,27 @@ You then choose a CCIT method whose detection limit is below the MALL with adequ
 
 Pick a method matched to the package format, fill (liquid, lyophilized, suspension), headspace, and conductivity. Default to deterministic. Develop the test recipe: chamber pressures, dwell and test times, fixturing, and the signal threshold that distinguishes pass from fail.
 
+A practical way to narrow the choice is to read the package and the critical attribute in order: what is the fill, is the headspace the attribute that matters, is the product conductive, and do you need 100 percent in-line or sampled off-line. The path below resolves most format decisions; method development then confirms detectability against the MALL.
+
+<div class="flow-v">
+  <div class="flow-step">Is the critical attribute in the headspace itself (O2 for an oxygen-sensitive biologic, moisture or vacuum for a lyophilized vial)?</div>
+  <div class="flow-step">Yes: use headspace gas analysis (laser/FMS), non-destructive, also a stability-time-point and process monitor</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">No, you need to probe the seal directly. Is the unit a conductive liquid in a vial, ampoule, syringe, or BFS, and do you want fast 100 percent in-line testing?</div>
+  <div class="flow-step">Yes: use HVLD, after confirming product conductivity supports detection and showing the voltage does not degrade the product</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">Low-conductivity fill, or HVLD ruled out by product sensitivity, in a vial, syringe, pouch, or rigid container?</div>
+  <div class="flow-step">Use vacuum decay (or pressure decay for pouches and bags), non-destructive, suits in-line and off-line</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">Developing the method, correlating physical leak to microbial ingress, or fixing the sub-micron MALL?</div>
+  <div class="flow-step">Use helium tracer (mass spectrometry) as the development and qualification reference, then run a routine deterministic method against it</div>
+</div>
+
+The decision is rarely one method. A common mature program pairs a seal-probing leak test (vacuum decay or HVLD) for routine release with headspace analysis at stability time points, and anchors both to a helium correlation done once during development.
+
 ### 3. Validate the method
 
 Demonstrate the method reliably separates integral units from defective ones using controls with known, characterized leaks (see the validation section below).
@@ -186,6 +207,21 @@ During development you prove the chosen container closure system maintains integ
 ### Stability: CCIT in lieu of sterility
 
 Under the FDA 2008 guidance, a validated CCIT method can replace the sterility test at stability time points for sterile products. This is one of the most common practical applications. The program runs CCIT at defined stability intervals (often at the same pulls as other stability tests) to show the package stays integral across shelf life. To use CCIT in lieu of sterility you need the method validated for that product/package, a justified sampling plan, and pre-defined acceptance criteria. Many programs still keep an initial (time-zero) sterility test and rely on validated CCIT thereafter.
+
+The four conditions a reviewer checks before accepting CCIT in lieu of sterility:
+
+1. **Method validated for this product and package**, with the detection limit demonstrably below the sterility-driven MALL (or a justified attribute-driven MALL), positive controls characterized, and a probability-of-detection curve on file.
+2. **A defined, justified sample size per time point.** The 2008 guidance does not fix a number; the sample size should be at least equivalent to what the sterility test would have pulled and should be defensible against the method's measured false-reject and false-accept rates. A common pattern is the same unit count the stability protocol assigns to sterility, tested non-destructively so the units can be read again at later pulls where the method allows.
+3. **Pre-set, unambiguous acceptance criteria** stated as the validated instrument-signal pass/fail, not a vague "no leak detected."
+4. **A handling rule for a failure**, because a CCIT failure at a stability pull is an out-of-specification stability result that triggers an investigation, not a quiet retest. See [oos-investigation-process](/articles/oos-investigation-process) and [stability-programs-ich](/articles/stability-programs-ich).
+
+| In-lieu element | Acceptable | Finding-generating |
+|---|---|---|
+| Method status | Validated for this product/package, POD curve below MALL | Validated on a surrogate, never on the actual product |
+| Sample size | Justified, at least sterility-equivalent, tied to false-reject/accept rates | A single unit, or a number with no rationale |
+| Acceptance criterion | The locked validated signal threshold | "Operator judged it sealed" |
+| Failure handling | Treated as an OOS stability result with investigation | Retest until pass, no record of the first failure |
+| Time-zero | Initial sterility retained, CCIT thereafter | No sterility ever performed on the lot |
 
 ### Routine release and 100% in-line testing
 
