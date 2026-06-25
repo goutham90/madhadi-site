@@ -1,0 +1,1782 @@
+{
+"meta": {
+"wl_total": 3580,
+"wl_scoped": 1653,
+"obs_records": null,
+"years": [
+2014,
+2015,
+2016,
+2017,
+2018,
+2019,
+2020,
+2021,
+2022,
+2023,
+2025
+],
+"examples_matched": 33
+},
+"citations": [
+{
+"reference": "21 CFR 211.192",
+"area": "Drugs",
+"domain": "Investigations & CAPA",
+"short_desc": "Extent of discrepancy, failure  investigations",
+"plain_meaning": "When a batch (or any of its components) fails to meet a specification, or you see an unexplained discrepancy, you have to investigate it thoroughly, and the investigation cannot stop at the one batch in front of you. You must ask whether the same problem could have touched other batches of that product or other products, and follow the trail wherever it goes. The Quality unit reviews and approves the records, and the written investigation and conclusion become part of the batch record.",
+"why_matters": "A failure that is treated as a one-off when it actually points to a systemic cause can leave already-released, potentially defective product on the market and patients exposed.",
+"how_it_shows_up": "The most common 483 pattern is an investigation that explains away a single result but never assesses related batches or products that share the same root cause, equipment, raw material lot, analyst, or process step. For example, a biologics fill-finish operation gets an out-of-specification bioburden result on one drug-product lot, closes it as an isolated event, but never checks the other lots filled on the same line that shift or the other products using the same buffer hold tank, even though all of them shared the suspect cause; the investigation failed to \"extend\" as 211.192 requires. The same gap shows up when an OOS is blamed on analyst error without testing whether other batches run in that same analytical sequence were affected, or when a deviation is closed with no documented justification for why other batches were ruled in or out.",
+"biologics_note": "",
+"self_check_questions": [
+"When we investigate a failure or unexplained discrepancy, does the record explicitly document whether other batches of the same product and other products that could share the same cause were assessed, and the justification for that scope?",
+"Does every investigation reach a documented root cause and conclusion, with Quality unit review and approval, rather than defaulting to 'analyst error' or 'isolated event' without supporting evidence?",
+"If an investigation involves already-distributed batches, do we have a defined path to evaluate product impact and trigger field action when the evidence warrants it?"
+],
+"total": 2139,
+"trend": "rising",
+"per_year": {
+"2014": 209,
+"2015": 250,
+"2016": 227,
+"2017": 193,
+"2018": 201,
+"2019": 264,
+"2020": 128,
+"2021": 86,
+"2022": 170,
+"2023": 175,
+"2025": 236
+},
+"example": {
+"company": "Huons Co., Ltd.",
+"date": "06/15/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/huons-co-ltd-724650-06152026",
+"snippet": "2. Your firm failed to thoroughly investigate any unexplained discrepancy or failure of a batch or any of its components to meet any of its specifications, whether or not the batch has already been distributed (21 CFR 211.192). Your firm failed to open adequate investigations into out-of-specification (OOS) results. For example, (b)(4) batch (b)(4) failed..."
+}
+},
+{
+"reference": "21 CFR 211.22(d)",
+"area": "Drugs",
+"domain": "Quality unit",
+"short_desc": "Procedures not  in writing, fully followed",
+"plain_meaning": "The duties of your quality control unit, and the procedures it follows, have to be written down, and people have to actually do what those procedures say. Two parts: the rules exist on paper, and the rules get followed in practice.",
+"why_matters": "If the quality unit's authority and procedures are not written and consistently followed, decisions become inconsistent and undocumented, which undermines every release, investigation, and disposition decision the company makes.",
+"how_it_shows_up": "It shows up two ways: a quality unit acting without a written procedure for something it routinely does, or a written procedure that staff do not follow. Concrete example: a biologics maker has an SOP requiring QA to review and approve every deviation before lot disposition, but an investigator finds three drug substance lots released while the related deviations were still open, so the written procedure existed and was not followed. A second common form is QA approving batch records or supplier changes with no SOP that defines who in the quality unit holds that authority or the steps to do it.",
+"biologics_note": "",
+"self_check_questions": [
+"Are the quality unit's responsibilities and procedures (batch release, deviation and CAPA approval, change control, spec approval, supplier disposition) all captured in current, approved written procedures?",
+"When you pull recent records, can you show the quality unit actually performed each step its procedures require, in the required order, with no shortcuts or after-the-fact approvals?",
+"Does every routine quality unit activity map to a written procedure, with no recurring task being done from memory or undocumented practice?"
+],
+"total": 1807,
+"trend": "rising",
+"per_year": {
+"2014": 145,
+"2015": 160,
+"2016": 147,
+"2017": 185,
+"2018": 208,
+"2019": 215,
+"2020": 111,
+"2021": 80,
+"2022": 161,
+"2023": 152,
+"2025": 243
+},
+"example": {
+"company": "Sante Manufacturing Inc.",
+"date": "06/05/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/sante-manufacturing-inc-724931-06052026",
+"snippet": "Your firm\u2019s quality control unit failed to exercise its responsibility to ensure drug products manufactured are in compliance with CGMP and meet established specifications for identity, strength, quality, and purity (21 CFR 211.22). Based on the records and the information you provided, you did not demonstrate that your quality unit (QU) adequately..."
+}
+},
+{
+"reference": "21 CFR 211.100(a)",
+"area": "Drugs",
+"domain": "Procedures & SOPs",
+"short_desc": "Changes to Procedures Not Reviewed, Approved",
+"plain_meaning": "You need written procedures for how you produce and control your drug or biologic, and those procedures (plus any change to them) have to be drafted, reviewed, and approved by the right operating groups and then reviewed and approved by the quality unit before they take effect. The cited version of this observation means a production or process control procedure was created or changed without going through that review and approval, so a step changed on the floor before quality signed off.",
+"why_matters": "If procedures change without controlled review and quality approval, people can run the process a way nobody assessed for impact on identity, strength, quality, or purity, and you lose the assurance that what you made is what you say it is.",
+"how_it_shows_up": "An investigator finds that operators are running a step differently than the approved batch record or SOP, for example a cell therapy team adjusts an incubation time, a wash volume, or a fill speed, and the change was made in practice (a redline, an email instruction, a \"temporary\" practice, or a quietly issued new revision) without going through change control and without the quality unit reviewing and approving it. A common pattern is a procedure that was revised and is in use, but the revision lacks the required signatures, or the change was implemented before approval was complete.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every production and process control procedure, including each revision, carry documented review and approval by the appropriate operating unit AND by the quality unit before it is used?",
+"When you walk the floor, does the way people actually run each step match the current approved procedure, with no undocumented or 'temporary' deviations in routine use?",
+"Are all procedure changes routed through your change control system, with quality approval recorded before the change is implemented?"
+],
+"total": 1150,
+"trend": "rising",
+"per_year": {
+"2014": 105,
+"2015": 123,
+"2016": 110,
+"2017": 116,
+"2018": 101,
+"2019": 129,
+"2020": 59,
+"2021": 47,
+"2022": 93,
+"2023": 98,
+"2025": 169
+},
+"example": {
+"company": "Sante Manufacturing Inc.",
+"date": "06/05/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/sante-manufacturing-inc-724931-06052026",
+"snippet": "adequate written procedures for production and process control designed to assure that the drug products you manufacture have the identity, strength, quality, and purity they purport or are represented to possess (21 CFR 211.100(a)). Based on the records and information you provided, you did not demonstrate that you have adequately qualified your (b)(4)..."
+}
+},
+{
+"reference": "21 CFR 211.160(b)",
+"area": "Drugs",
+"domain": "Laboratory controls",
+"short_desc": "Scientifically sound laboratory controls",
+"plain_meaning": "Your lab controls, the specifications, standards, sampling plans, and test methods you use to decide whether materials and product pass or fail, have to be scientifically sound and appropriate for what they are testing. In plain terms, the limits you set and the way you test against them must actually be capable of catching a real problem, and you need a documented scientific basis for them.",
+"why_matters": "If a specification, sampling plan, or test method is not scientifically justified, you can release product that is actually out of specification or unsafe while your paperwork says it passed.",
+"how_it_shows_up": "This shows up when a method or limit is in use with no validation, no rationale, or no link to product quality. For example, a biologics QC lab runs a potency assay whose acceptance criteria were copied from an older product without any study showing those limits apply to the current process, or a sampling plan pulls one vial from a 5,000-vial fill lot with no statistical basis, so the result does not represent the batch. Investigators also cite this when system suitability or assay controls are missing, when a stability-indicating method was never shown to detect degradants, or when out-of-specification results are managed without a sound scientific procedure.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every specification, acceptance limit, and sampling plan in use have a documented scientific or statistical rationale tied to product quality, not just an inherited number?",
+"Are all test methods (including potency, purity, identity, and stability-indicating assays) validated or verified as suitable for their intended use, with system suitability or controls defined?",
+"Can you show that your sampling plans actually represent the batch or lot they are meant to judge?"
+],
+"total": 1149,
+"trend": "steady",
+"per_year": {
+"2014": 109,
+"2015": 130,
+"2016": 133,
+"2017": 124,
+"2018": 127,
+"2019": 145,
+"2020": 58,
+"2021": 40,
+"2022": 78,
+"2023": 84,
+"2025": 121
+},
+"example": {
+"company": "Gopaldas Visram & Co., Ltd.",
+"date": "06/02/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/gopaldas-visram-co-ltd-721755-06022026",
+"snippet": "inhalation or potential use in the (b)(4) area. Your quality unit (QU) did not effectively exercise its authority to ensure test procedures and specifications for talc are scientifically sound and appropriate (see 21 CFR 211.160(b)). Furthermore, you did not demonstrate that your firm\u2019s QU has adequate oversight of your contract testing facility. In..."
+}
+},
+{
+"reference": "21 CFR 211.113(b)",
+"area": "Drugs",
+"domain": "Sterility assurance",
+"short_desc": "Validation lacking for sterile drug products",
+"plain_meaning": "For any product that is labeled or sold as sterile, you must have written procedures to keep microbes out, and those procedures have to include validation of every aseptic process and every sterilization process you rely on. Validation means you have proven, with documented studies, that the process reliably delivers a sterile product, not just that you ran it.",
+"why_matters": "A sterile product that was never proven sterile can carry live microbes or endotoxin straight into a patient, which is one of the few defects that can kill quickly and trigger a recall or injunction.",
+"how_it_shows_up": "FDA points to a sterile process you depend on that has no complete, current validation behind it: an aseptic fill line that was never qualified with media fills, or media fills that do not cover the worst-case interventions and the full crew on the line. For example, a biologics maker aseptically fills a sterile-filtered monoclonal antibody drug product but cannot show a validated sterilizing-grade filtration step (no bacterial retention challenge at process conditions, no integrity test acceptance criteria), or a cell therapy site sterilizes final-container closures by an autoclave cycle that was never validated to the actual load and bioburden. It also shows up as expired or never-repeated media fills, missing terminal sterilization cycle validation, or revalidation skipped after a line or filter change.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every aseptic and sterilization process behind a product you label sterile have a current, approved validation package (for aseptic processing, passing media fills that cover worst-case interventions and the full operator crew; for sterilization, a validated cycle proven against the actual load and bioburden)?",
+"Can you show that sterilizing-grade filters used for sterile products have documented bacterial retention validation at your process conditions plus pre-use and post-use integrity testing with defined acceptance criteria?",
+"Do your procedures require revalidation or media-fill requalification on a defined schedule and after any change to the line, equipment, filter, formulation, or container-closure that could affect sterility?"
+],
+"total": 1015,
+"trend": "rising",
+"per_year": {
+"2014": 109,
+"2015": 157,
+"2016": 118,
+"2017": 92,
+"2018": 71,
+"2019": 121,
+"2020": 43,
+"2021": 32,
+"2022": 73,
+"2023": 94,
+"2025": 105
+},
+"example": {
+"company": "Huons Co., Ltd.",
+"date": "06/15/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/huons-co-ltd-724650-06152026",
+"snippet": "to follow appropriate written procedures that are designed to prevent microbiological contamination of drug products purporting to be sterile and that include validation of all aseptic and sterilization processes (21 CFR 211.113(b)). Smoke studies demonstrated a lack of unidirectional airflow in your ISO 5 aseptic processing operation. Multiple instances of..."
+}
+},
+{
+"reference": "21 CFR 211.25(a)",
+"area": "Drugs",
+"domain": "Training",
+"short_desc": "Training--operations, GMPs, written procedures",
+"plain_meaning": "Everyone who touches a drug or biologic product, or its records, has to be trained for the specific job they do, on current good manufacturing practices, and on the written procedures their work falls under. That training has to be real, documented, and kept current as procedures change.",
+"why_matters": "Untrained people make the mistakes that cause contamination, mix-ups, and bad records, so a gap here is treated as a sign the whole quality system can fail at the point where product is actually made.",
+"how_it_shows_up": "An investigator finds someone performing a task without documented training on it, or training records that do not line up with what people actually do. A common example: a fill-finish operator at a biologics plant is running aseptic operations but the training file has no record of gowning qualification or training on the current revision of the aseptic SOP, because the SOP was revised three months ago and no one retrained the line. It also shows up as a person trained on version 2 of a procedure while version 4 is in use, or a new hire put on the floor before any CGMP or job-specific training was completed.",
+"biologics_note": "",
+"self_check_questions": [
+"Can you pull any employee's training record and show documented training that covers their specific job, CGMPs, and every SOP their role requires before they performed the work unsupervised?",
+"When a procedure is revised, does your system require and record retraining on the new version before the affected staff use it?",
+"Is your training current and reassessed on a defined frequency (not a one-time event at hire), with a qualified trainer and a documented way to confirm the person actually understood it?"
+],
+"total": 875,
+"trend": "falling",
+"per_year": {
+"2014": 97,
+"2015": 106,
+"2016": 99,
+"2017": 113,
+"2018": 110,
+"2019": 113,
+"2020": 39,
+"2021": 43,
+"2022": 44,
+"2023": 44,
+"2025": 67
+},
+"example": {
+"company": "Pro Numb Tattoo Numbing Spray, LLC",
+"date": "04/14/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/pro-numb-tattoo-numbing-spray-llc-722589-04142026",
+"snippet": "relating to the production and control of each batch of drug product produced (21 CFR 211.188). Adequate training for employees engaged in the manufacture, processing, packing, or holding of drug products (21 CFR 211.25(a)). Establishment of routine calibration and written records of calibration checks according to a written program designed to ensure..."
+}
+},
+{
+"reference": "21 CFR 211.68(b)",
+"area": "Drugs",
+"domain": "Data integrity & records",
+"short_desc": "Written record not kept of program and validation data",
+"plain_meaning": "21 CFR 211.68(b) covers controls over your computerized GMP systems. It requires two things: that data going into and coming out of a computer system is checked for accuracy, and that only authorized people can make changes to master production and control records or other records the system holds. In practice this is the access-control and authorized-change rule for any computer that runs or records GMP activity, plus a requirement to keep a backup of the data. This citation, with its \"written record not kept of program and validation data\" framing, lands when a firm cannot show that system access and changes are limited to the right people and properly recorded.",
+"why_matters": "If anyone can change a recipe, a result, or a record without authorization or a trace, you cannot prove the data behind your product is genuine, which puts every batch decision and every release built on that data in doubt.",
+"how_it_shows_up": "An investigator opens a system and finds controls are missing or shared, so changes cannot be tied to one accountable person. Concrete example: a biologics QC lab runs an HPLC for a monoclonal antibody potency assay where every analyst logs in with one shared \"lab\" account that has administrator rights, so analysts can alter the processing method or integration parameters, and the firm has no written record of who validated the software, who is authorized to change it, or what was changed. The same pattern appears when a MES or batch-record system lets operators edit a master production record without a change control, when there is no audit trail, or when no backup of the data exists.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every person who can change a master production and control record, a recipe, or a result have a unique login (no shared or generic accounts), with administrator rights limited to people who do not also generate or approve GMP data?",
+"Do you have a current written list of who is authorized to make each type of change, supported by a documented change-control record and an audit trail that captures who changed what, when, and why?",
+"Is a backup of the system data created, verified as readable, and stored so it can be restored, for data that cannot simply be recreated?"
+],
+"total": 815,
+"trend": "rising",
+"per_year": {
+"2014": 35,
+"2015": 49,
+"2016": 80,
+"2017": 84,
+"2018": 93,
+"2019": 102,
+"2020": 57,
+"2021": 41,
+"2022": 83,
+"2023": 81,
+"2025": 110
+},
+"example": {
+"company": "Laboratorios Jaloma S.A. de C.V.",
+"date": "05/22/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/laboratorios-jaloma-sa-de-cv-725939-05222026",
+"snippet": "use. 3. Your firm failed to exercise appropriate controls over computer or related systems to assure that only authorized personnel institute changes in master production and control records, or other records (21 CFR 211.68(b)). Your firm lacked sufficient controls over your gas chromatography (GC) instrument used to test components in your finished drug..."
+}
+},
+{
+"reference": "21 CFR 211.166(a)",
+"area": "Drugs",
+"domain": "Stability & expiry",
+"short_desc": "Results not used for expiration dates, storage cond.",
+"plain_meaning": "You ran stability studies, but you did not actually use the results to set the product's storage conditions and expiration date. FDA expects the stability data itself, not a default or a borrowed number, to be the basis for the labeled shelf life and storage statement.",
+"why_matters": "If the expiry and storage conditions are not backed by your own stability data, you can ship product that degrades, loses potency, or becomes unsafe before its labeled date.",
+"how_it_shows_up": "An investigator finds the expiration date or storage statement was set without support from the stability results, for example a drug product carries a 24-month expiry while the stability data only covers 12 months, or a real-time or accelerated data point shows a result trending below specification yet the dating period was never shortened. A common biologics example: a monoclonal antibody drug substance is held at 2 to 8 degrees C with an assigned hold time, but the stability program never generated data at that condition to justify the hold, or a cell therapy intermediate is given a shelf life copied from a similar product instead of from study data on the actual material.",
+"biologics_note": "",
+"self_check_questions": [
+"Can you point to specific stability study data that directly supports every expiration date and storage condition on your labels and in your specifications?",
+"When a stability result trends toward or fails a specification, does a documented process force a reassessment of the assigned expiry and storage conditions?",
+"Are your labeled storage conditions (for example, temperature range and light protection) matched to the conditions actually tested in your stability program rather than assumed?"
+],
+"total": 757,
+"trend": "steady",
+"per_year": {
+"2014": 73,
+"2015": 92,
+"2016": 95,
+"2017": 87,
+"2018": 87,
+"2019": 106,
+"2020": 35,
+"2021": 29,
+"2022": 55,
+"2023": 37,
+"2025": 61
+},
+"example": {
+"company": "Sante Manufacturing Inc.",
+"date": "06/05/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/sante-manufacturing-inc-724931-06052026",
+"snippet": "of an appropriate written testing program designed to assess the stability characteristics of drug products and to use results of stability testing to determine appropriate storage conditions and expiration dates (21 CFR 211.166(a)) . Appropriate validation of your analytical methods (21CFR 211.160(b)) . Significant findings in this letter demonstrate that..."
+}
+},
+{
+"reference": "21 CFR 211.67(a)",
+"area": "Drugs",
+"domain": "Equipment & facilities",
+"short_desc": "Cleaning / Sanitizing / Maintenance",
+"plain_meaning": "FDA expects you to clean, maintain, and (where it matters for the product) sanitize or sterilize your equipment and utensils on a defined schedule, so that dirty or broken equipment does not change the safety, identity, strength, quality, or purity of the drug. The rule is not just \"clean it sometime,\" it is \"clean it at the right intervals and have the records to prove it.\"",
+"why_matters": "Residue, microbial buildup, or an unmaintained machine can carry contamination or an unnoticed malfunction from one batch into the next, putting patients at risk and putting every batch made on that equipment into question.",
+"how_it_shows_up": "It usually surfaces as cleaning that happened but was not recorded, intervals that are not defined or not followed, or equipment that was overdue for preventive maintenance and still in use. Example: a biologics fill line where the \"clean equipment\" status tag has expired but the line is running, or a bioreactor whose CIP (clean-in-place) cycle was performed without a recorded operator signature, hold-time check, or final rinse result, so there is no evidence the equipment was actually fit to make the next lot.",
+"biologics_note": "",
+"self_check_questions": [
+"Do your SOPs define specific cleaning, maintenance, and sanitization or sterilization intervals for each piece of product-contact equipment, and can you show records that those intervals were met?",
+"Can you produce a completed, signed, dated cleaning or maintenance record for any piece of equipment an inspector points to, including clean and dirty hold times where they apply?",
+"Is there a status system (tags, labels, or a logbook) that clearly shows whether a given piece of equipment is currently clean and within its maintenance schedule before it is used?"
+],
+"total": 718,
+"trend": "rising",
+"per_year": {
+"2014": 63,
+"2015": 68,
+"2016": 65,
+"2017": 54,
+"2018": 81,
+"2019": 99,
+"2020": 42,
+"2021": 33,
+"2022": 50,
+"2023": 68,
+"2025": 95
+},
+"example": {
+"company": "Medline Inc",
+"date": "05/28/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/medline-inc-724347-05282026",
+"snippet": "mix-ups; failed to perform operations within specifically defined areas of adequate size; and failed to establish and follow adequate written procedures for cleaning and maintenance of equipment (21 CFR 211.42(c) and 21 CFR 211.67(b)). Your firm isolated significant opportunistic pathogens, including B. cereus , in numerous samples of your (b)(4) finished..."
+}
+},
+{
+"reference": "21 CFR 211.67(b)",
+"area": "Drugs",
+"domain": "Process & cleaning validation",
+"short_desc": "Written procedures not established/followed",
+"plain_meaning": "You must have written procedures for cleaning and maintaining equipment, and you must actually follow them. Those procedures have to say who is responsible, how often cleaning and maintenance happen, and exactly how the work is done, in enough detail that one person can clean equipment the same way as the next. They also have to cover removing the last batch's identification, protecting clean equipment until use, and checking equipment for cleanliness right before use.",
+"why_matters": "If cleaning and maintenance are not written down clearly and followed every time, you can carry residue, cleaning agent, or microbial contamination from one product or batch into the next, which puts patient safety and product quality at direct risk.",
+"how_it_shows_up": "FDA reads this when a cleaning SOP is missing a required element or when records show the SOP was not followed. A common biotech example: a cell culture suite's cleaning procedure for a bioreactor names a detergent and a contact time but never specifies water quality, rinse volume, scrub technique, or who is accountable, so two operators clean it differently and one skips the final rinse. Another frequent version: the procedure exists but cleaning logs show maintenance or sanitization was done late, skipped, or not recorded, or equipment sat \"clean\" for weeks with no hold-time limit and no pre-use inspection before the next batch.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every cleaning and maintenance procedure for product-contact equipment name a responsible role, a defined schedule, and methods described in enough detail (agent, concentration, water quality, contact time, technique, rinse) that two operators would clean it identically?",
+"Do your records consistently show that cleaning, maintenance, and sanitization were performed on schedule, that previous batch identification was removed, that clean equipment was protected with a defined clean-hold time, and that equipment was inspected for cleanliness immediately before use?",
+"If an inspector pulled a random cleaning log from the last quarter, would it match the current approved SOP step for step, with no gaps, undocumented deviations, or out-of-schedule entries?"
+],
+"total": 715,
+"trend": "steady",
+"per_year": {
+"2014": 72,
+"2015": 78,
+"2016": 83,
+"2017": 81,
+"2018": 84,
+"2019": 96,
+"2020": 33,
+"2021": 21,
+"2022": 45,
+"2023": 44,
+"2025": 78
+},
+"example": {
+"company": "Medline Inc",
+"date": "05/28/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/medline-inc-724347-05282026",
+"snippet": "mix-ups; failed to perform operations within specifically defined areas of adequate size; and failed to establish and follow adequate written procedures for cleaning and maintenance of equipment (21 CFR 211.42(c) and 21 CFR 211.67(b)). Your firm isolated significant opportunistic pathogens, including B. cereus , in numerous samples of your (b)(4) finished..."
+}
+},
+{
+"reference": "21 CFR 211.110(a)",
+"area": "Drugs",
+"domain": "Production controls",
+"short_desc": "Control procedures to monitor and validate performance",
+"plain_meaning": "This rule says you must have written in-process control procedures that watch the steps of manufacturing that can make the product vary, and confirm those steps are performing the way they should. In plain terms, for every process step that could change a key product attribute, you need defined checks (what to measure, when, and the limits) so you catch drift before it reaches the finished product.",
+"why_matters": "Without controls on the steps that drive variability, a process can drift out of its validated state undetected, so a bad lot is not caught until release testing or, worse, after it reaches patients.",
+"how_it_shows_up": "FDA sees this when a step that obviously affects product quality has no defined in-process check, no acceptance limit, or a limit that nobody monitors against. Example: a biologics maker performs a bulk drug substance mixing or buffer-blending step that affects concentration uniformity, but there is no written in-process control for mix time, sampling location, or a homogeneity limit, so batch-to-batch variability in protein concentration is never caught in-process. The same gap shows up as a fill step with no in-process fill-weight or fill-volume monitoring, or a lyophilization cycle with no in-process checks on the parameters known to cause residual-moisture variability.",
+"biologics_note": "",
+"self_check_questions": [
+"Have we identified every process step that can cause variability in a critical in-process or finished-product attribute, and does each one have a written in-process control with a defined acceptance limit?",
+"Do operators actually record in-process results against those limits in real time, with a defined action when a result is out of limit, rather than the limit existing only on paper?",
+"Can we trace each in-process control back to process validation or development data showing the limit is the right one to detect and prevent that variability?"
+],
+"total": 648,
+"trend": "steady",
+"per_year": {
+"2014": 74,
+"2015": 82,
+"2016": 63,
+"2017": 66,
+"2018": 80,
+"2019": 93,
+"2020": 32,
+"2021": 20,
+"2022": 38,
+"2023": 52,
+"2025": 48
+},
+"example": {
+"company": "Uriel Pharmacy, Inc.",
+"date": "10/21/2025",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/uriel-pharmacy-inc-709977-10212025",
+"snippet": "procedures to monitor the output and to validate the performance of those manufacturing processes that may be responsible for causing variability in the characteristics of in-process material and the drug product (21 CFR 211.110(a)). Your firm also failed to have, for each batch of drug product, appropriate laboratory determination of satisfactory..."
+}
+},
+{
+"reference": "21 CFR 211.160(a)",
+"area": "Drugs",
+"domain": "Laboratory controls",
+"short_desc": "Deviations from laboratory control requirements",
+"plain_meaning": "This is the rule that governs how your lab control documents get written, approved, and followed. It says any specification, standard, sampling plan, test method, or other laboratory control mechanism (and any change to one) must be drafted by the right group and then reviewed and approved by the quality control unit before use. It also requires that these controls actually be followed and documented when the work is done, and that any deviation from a written control be recorded and justified. In short, your lab cannot run on undocumented, unapproved, or quietly ignored test rules.",
+"why_matters": "If lab controls are unapproved, outdated, or deviated from without being recorded and justified, every result they produce becomes hard to defend, which puts product release decisions and the integrity of your quality system in question.",
+"how_it_shows_up": "An investigator finds the lab using a method, sampling plan, or specification that the quality unit never reviewed or approved, or finds analysts departing from the written procedure without recording why. Concrete example: a biologics QC lab tightens the dilution scheme in a potency assay to deal with a recurring out-of-range result, the analysts run it the new way for three months, but the change was never drafted by the method owner or approved by the QC unit and no deviation was recorded, so a batch of monoclonal antibody drug substance was released against results from an unapproved, undocumented method.",
+"biologics_note": "",
+"self_check_questions": [
+"Can you show that every active specification, sampling plan, test method, and other lab control in use, including the latest revision of each, was reviewed and approved by the quality control unit before it went into use?",
+"When analysts depart from a written specification, sampling plan, or test procedure, is the deviation recorded and justified at the time, rather than handled informally or after the fact?",
+"Are your laboratory control activities documented at the time they are performed, so the record reflects what was actually done rather than being reconstructed later?"
+],
+"total": 597,
+"trend": "falling",
+"per_year": {
+"2014": 70,
+"2015": 78,
+"2016": 85,
+"2017": 72,
+"2018": 61,
+"2019": 78,
+"2020": 38,
+"2021": 18,
+"2022": 29,
+"2023": 41,
+"2025": 27
+},
+"example": {
+"company": "Gopaldas Visram & Co., Ltd.",
+"date": "06/02/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/gopaldas-visram-co-ltd-721755-06022026",
+"snippet": "inhalation or potential use in the (b)(4) area. Your quality unit (QU) did not effectively exercise its authority to ensure test procedures and specifications for talc are scientifically sound and appropriate (see 21 CFR 211.160(b)). Furthermore, you did not demonstrate that your firm\u2019s QU has adequate oversight of your contract testing facility. In..."
+}
+},
+{
+"reference": "21 CFR 211.63",
+"area": "Drugs",
+"domain": "Equipment & facilities",
+"short_desc": "Equipment Design, Size and Location",
+"plain_meaning": "Equipment used to make, process, pack, or hold a drug or biologic must be the right design, the right size, and in the right place so it can do its job and be cleaned and maintained. This is the baseline equipment rule: pick and position equipment that fits the operation rather than forcing the operation to work around equipment that does not fit.",
+"why_matters": "Equipment that is hard to clean, oversized or undersized for the batch, or crammed into a tight space drives product contamination, mix-ups, and cross-contamination, and those failures put patient safety and product quality at direct risk.",
+"how_it_shows_up": "An investigator sees a stainless tank with a sharp internal weld seam or a dead leg in the piping that the cleaning procedure cannot reach, so residue and microbial growth collect there. It also shows up as a fill line wedged so close to a wall that operators cannot reach behind it to clean, a vessel rated for a volume far larger or smaller than the actual batch, or a freezer for a cell therapy product placed where it cannot hold uniform temperature. The common thread is that the equipment's design, size, or location blocks proper operation or cleaning and maintenance.",
+"biologics_note": "",
+"self_check_questions": [
+"Can every product-contact surface of our equipment be reached and cleaned under the documented cleaning procedure, with no dead legs or inaccessible seams left out?",
+"Is each piece of equipment sized for the actual batch volumes and product types we run on it, rather than forced to fit a batch it was not designed for?",
+"Is equipment located with enough room around it for operators to clean, maintain, and operate it without crowding or cross-contamination between adjacent operations?"
+],
+"total": 592,
+"trend": "rising",
+"per_year": {
+"2014": 41,
+"2015": 56,
+"2016": 48,
+"2017": 44,
+"2018": 53,
+"2019": 66,
+"2020": 44,
+"2021": 25,
+"2022": 60,
+"2023": 74,
+"2025": 81
+},
+"example": {
+"company": "Fareva Morton Grove",
+"date": "03/03/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/fareva-morton-grove-719408-03032026",
+"snippet": "the manufacture, processing, packing, or holding of drug products that is of appropriate design, adequate size, and suitably located to facilitate operations for its intended use and for its cleaning and maintenance (21 CFR 211.63). Your firm utilizes (b)(4) as a component to manufacture your over-the-counter (OTC) drug products. However, you failed to..."
+}
+},
+{
+"reference": "21 CFR 211.68(a)",
+"area": "Drugs",
+"domain": "Equipment & facilities",
+"short_desc": "Written calibration / inspection records not  kept",
+"plain_meaning": "Automatic, mechanical, or electronic equipment used to make, test, or hold a drug or biologic must be calibrated, inspected, or checked on a routine schedule that follows a written program built to confirm the equipment keeps performing correctly. This citation means that program either does not exist, is not being followed, or the records proving the calibration and inspection checks happened are missing or incomplete.",
+"why_matters": "If instruments and automated systems are not verified on a defined schedule with records to prove it, you cannot show that any reading, weight, temperature, or result they produced was accurate, which puts product quality and every decision based on that data in doubt.",
+"how_it_shows_up": "It shows up when an instrument is found in use past its calibration due date, when there is no written program defining what gets calibrated, how often, and against what tolerances, or when the calibration certificate or inspection record cannot be located. For example, a balance used to weigh active ingredient for a biologic batch is past its calibration due date, or a bioreactor temperature probe has no record of the routine check that confirms it reads within the allowed range, so the batch data tied to it cannot be trusted.",
+"biologics_note": "",
+"self_check_questions": [
+"Does a written calibration and inspection program exist that lists each piece of automatic, mechanical, or electronic equipment, its calibration frequency, and its acceptance tolerances?",
+"Can you produce a current, in-date calibration or inspection record for every instrument and automated system in GMP use right now?",
+"Is there a control (such as a label, system block, or scheduling alert) that prevents equipment from being used once it is past its calibration due date?"
+],
+"total": 585,
+"trend": "steady",
+"per_year": {
+"2014": 64,
+"2015": 72,
+"2016": 80,
+"2017": 68,
+"2018": 64,
+"2019": 67,
+"2020": 33,
+"2021": 22,
+"2022": 36,
+"2023": 36,
+"2025": 43
+},
+"example": {
+"company": "Laboratorios Jaloma S.A. de C.V.",
+"date": "05/22/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/laboratorios-jaloma-sa-de-cv-725939-05222026",
+"snippet": "use. 3. Your firm failed to exercise appropriate controls over computer or related systems to assure that only authorized personnel institute changes in master production and control records, or other records (21 CFR 211.68(b)). Your firm lacked sufficient controls over your gas chromatography (GC) instrument used to test components in your finished drug..."
+}
+},
+{
+"reference": "21 CFR 211.165(a)",
+"area": "Drugs",
+"domain": "Laboratory controls",
+"short_desc": "Testing and release for distribution",
+"plain_meaning": "Before you ship any batch of finished drug product, the lab has to test it and confirm it meets the final specifications, including the identity and strength of every active ingredient. No batch goes out the door until that testing is done and the results pass.",
+"why_matters": "If a batch is released without complete, passing release testing, you may ship product that is the wrong drug, sub-potent, super-potent, or out of spec, which puts patients at direct risk and can trigger recalls and BLA or NDA delays.",
+"how_it_shows_up": "Investigators look for batches that were released without a full set of release tests, tests that were run but the result was missing or not reconciled against the specification, or a spec that does not actually cover identity and strength of each active. For example, a biologics maker releases lots of a monoclonal antibody drug product but the release panel has no identity assay tying the protein to that specific molecule, only a non-specific protein content test, so identity was never confirmed before distribution. Another common form: a small-molecule oral solid is released on a certificate of analysis where the assay (strength) result for the active was transcribed from the wrong batch, or a required test was skipped because the method was not yet validated.",
+"biologics_note": "",
+"self_check_questions": [
+"For every product, does your approved final release specification include a specific identity test and a strength (assay) test for each active ingredient, and is the batch blocked from release until all release results are in and confirmed passing?",
+"Can you show, for a recently shipped batch, a complete documented link from each release specification line to the actual passing test result that supported release (no missing, unreconciled, or after-the-fact results)?",
+"Are all methods used for release testing validated (or verified for compendial methods) and the instruments qualified before those results are used to release product?"
+],
+"total": 576,
+"trend": "steady",
+"per_year": {
+"2014": 64,
+"2015": 80,
+"2016": 73,
+"2017": 64,
+"2018": 56,
+"2019": 90,
+"2020": 22,
+"2021": 14,
+"2022": 40,
+"2023": 29,
+"2025": 44
+},
+"example": {
+"company": "Macau-Union Pharmaceutical Limited",
+"date": "05/29/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/macau-union-pharmaceutical-limited-724506-05292026",
+"snippet": "including the identity and strength of each active ingredient, prior to release, and for each batch of drug product required to be free of objectionable microorganisms, appropriate laboratory testing, as necessary (21 CFR 211.165(a) and 211.165(b)). Your firm did not adequately test your over-the-counter (OTC) drug products prior to release and distribution..."
+}
+},
+{
+"reference": "21 CFR 211.84(d)(2)",
+"area": "Drugs",
+"domain": "Materials & components",
+"short_desc": "Testing Each Component for Conformity with Specs",
+"plain_meaning": "If you accept a supplier's certificate of analysis (CoA) instead of running the full set of release tests on an incoming component yourself, you cannot just trust those CoA numbers forever. You have to prove the supplier's results are reliable by validating their test data at appropriate intervals (periodically re-testing the component in your own or a contract lab and comparing your results to what the CoA reported). This sits alongside 211.84(d)(1), which says that even when you rely on a CoA you must still run at least one specific identity test on each lot yourself. Note: this applies to active ingredients, excipients, and other components used to make finished drugs and biologics.",
+"why_matters": "If you rely on supplier paperwork that turns out to be wrong, falsified, or based on a different lot, an out-of-spec or wrong material can go straight into product, putting patient safety and product quality at risk with no independent check to catch it.",
+"how_it_shows_up": "A company accepts CoAs from a raw material or excipient supplier to skip full incoming testing but never re-tests those materials to confirm the supplier's numbers hold up, so there is no record of supplier-result validation at any interval. A concrete biologics example: a cell therapy or mAb manufacturer accepts CoAs for a critical buffer salt or a cell-culture media component and releases it on the supplier's data alone, with no periodic in-house assay to verify the supplier's purity or assay results, and (separately) no identity test performed on each received lot. Investigators frequently find the SOP either has no defined re-validation interval or the interval exists on paper but was never actually performed.",
+"biologics_note": "",
+"self_check_questions": [
+"Do you have a written procedure that defines a specific interval at which you re-test supplier-supplied components to validate their CoA results, and can you show records that the re-testing was actually done on schedule?",
+"For every lot of component you release on a CoA, can you show that you performed at least one specific identity test in-house (the 211.84(d)(1) requirement that pairs with this)?",
+"When your validation re-test results disagree with the supplier's CoA, do you have a documented process that triggers an investigation and a reassessment of whether you can keep relying on that supplier's data?"
+],
+"total": 569,
+"trend": "rising",
+"per_year": {
+"2014": 38,
+"2015": 59,
+"2016": 57,
+"2017": 62,
+"2018": 55,
+"2019": 66,
+"2020": 25,
+"2021": 23,
+"2022": 46,
+"2023": 48,
+"2025": 90
+},
+"example": {
+"company": "Sante Manufacturing Inc.",
+"date": "06/05/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/sante-manufacturing-inc-724931-06052026",
+"snippet": "at least one test to verify the identity of each component of a drug product. Your firm also failed to validate and establish the reliability of your component supplier\u2019s test analyses at appropriate intervals (21 CFR 211.84(d)(1) and 211.84(d)(2)). Your firm manufactures OTC drug products such as (b)(4) . Based on the records and information you provided,..."
+}
+},
+{
+"reference": "21 CFR 211.22(a)",
+"area": "Drugs",
+"domain": "Quality unit",
+"short_desc": "Authority lacking to review records, investigate errors",
+"plain_meaning": "Your quality unit must hold the real power to approve or reject every component, container, closure, in-process material, packaging, label, and finished product, and the authority to review production records to confirm no errors happened or that any error was fully investigated. This citation means that authority was missing, on paper or in practice. Because a licensed biologic is also a drug, Part 211 applies to biotech and biologics firms too.",
+"why_matters": "If the quality unit cannot independently approve, reject, or review records, defective material can reach patients and no one with the authority to stop it actually owns that call.",
+"how_it_shows_up": "It shows up when production, manufacturing science, or a site head can release or override a disposition without the quality unit, or when QA reviews are blocked, edited, or pressured by the people they are supposed to check. Example: at a cell therapy site, a manufacturing manager releases an autologous drug product lot to meet an infusion date before QA finishes the batch record review, or a procedure lets Operations dispose of a deviation as \"no impact\" without quality unit sign-off, showing the quality unit lacks the documented authority required by 211.22(a).",
+"biologics_note": "",
+"self_check_questions": [
+"Does a written procedure (and an org chart or charter) explicitly give the quality unit sole authority to approve or reject all components, materials, labeling, and finished product, independent of production?",
+"Can you show, with records, that no batch or material was ever released without the quality unit's disposition, even under schedule pressure?",
+"Does the quality unit have documented authority to review production and control records and to require full investigation of any error before release?"
+],
+"total": 564,
+"trend": "steady",
+"per_year": {
+"2014": 51,
+"2015": 52,
+"2016": 52,
+"2017": 76,
+"2018": 70,
+"2019": 71,
+"2020": 31,
+"2021": 19,
+"2022": 47,
+"2023": 42,
+"2025": 53
+},
+"example": {
+"company": "Sante Manufacturing Inc.",
+"date": "06/05/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/sante-manufacturing-inc-724931-06052026",
+"snippet": "Your firm\u2019s quality control unit failed to exercise its responsibility to ensure drug products manufactured are in compliance with CGMP and meet established specifications for identity, strength, quality, and purity (21 CFR 211.22). Based on the records and the information you provided, you did not demonstrate that your quality unit (QU) adequately..."
+}
+},
+{
+"reference": "FDCA 501(a)(2)(A)",
+"area": "Drugs",
+"domain": "Sterility assurance",
+"short_desc": "Beta-lactam, hazardous, highly potent drugs, prevention of cross-contamination",
+"plain_meaning": "When this citation is used in the Drugs program, it is the statutory adulteration hook (Federal Food, Drug, and Cosmetic Act section 501(a)(2)) behind a CGMP failure, and in the underlying observation the real issue is sterility assurance during aseptic processing. Plainly: environmental monitoring found microbial growth at or near your ISO 5 critical zone, and you did not properly evaluate the affected product or take corrective action, so a contamination signal was treated as routine instead of as a potential threat to product sterility. The operative CGMP requirements are 21 CFR 211.42 (aseptic area design and control), 211.113(b) (written procedures to prevent microbiological contamination), and 211.192 (investigate discrepancies and decide product impact). Note: the FDA short label on this code (beta-lactam, potent, cross-contamination) is a generic catalog title and does not describe this specific observation, which is about microbial control around the aseptic core.",
+"why_matters": "A missed or downplayed contamination signal next to the sterile core can mean a non-sterile product reaches a patient, the most serious failure a sterile drug or biologic maker can have.",
+"how_it_shows_up": "It shows up when an environmental monitoring result hits the action limit (a settle plate, active air sample, or surface swab grows organisms) in or beside the ISO 5 zone and the firm logs it, retests, or attributes it to \"sampling technique\" without a real investigation or a documented decision on the lots filled during that exposure. Example: a cell therapy filling suite running open manipulations in a biosafety cabinet inside an ISO 7 room records repeated mold recoveries on the ISO 5 to ISO 7 transition surfaces over three shifts; the firm reviews each result in isolation, releases all three lots, and never asks whether the adjacent contamination, the recovered organism, or the trend put product sterility at risk.",
+"biologics_note": "",
+"self_check_questions": [
+"When an environmental monitoring action limit is exceeded in or adjacent to the ISO 5 aseptic zone, does a written procedure require a documented investigation that identifies the organism and assesses impact on every lot filled during the exposure?",
+"Do we trend environmental monitoring data (by location, organism, and time) so adjacent or recurring excursions are caught as a pattern, not just judged one result at a time?",
+"Can we show, for our most recent aseptic excursion, the product evaluation and the remedial action we took (and the rationale if a lot was released)?"
+],
+"total": 558,
+"trend": "steady",
+"per_year": {
+"2014": 0,
+"2015": 0,
+"2016": 0,
+"2017": 0,
+"2018": 122,
+"2019": 146,
+"2020": 60,
+"2021": 34,
+"2022": 63,
+"2023": 76,
+"2025": 57
+},
+"example": null
+},
+{
+"reference": "21 CFR 211.100(b)",
+"area": "Drugs",
+"domain": "Production controls",
+"short_desc": "Procedure Deviations Recorded and Justified",
+"plain_meaning": "You have to actually follow your written production and process control procedures while you run the operation, and you have to write down what you did at the moment you do it, not later from memory. If you depart from a procedure for any reason, that deviation must be recorded and explained with a justification.",
+"why_matters": "If steps are skipped, done out of order, or recorded after the fact, you cannot prove the batch was made the way it was validated, so product quality and the integrity of the batch record are both in doubt.",
+"how_it_shows_up": "An operator signs the batch record showing a 30-minute mix and a specific addition order, but the room logbook or equipment data shows the steps happened in a different order or at a different time, so the record was not made at the time of performance. Concrete example: during fill-finish of a monoclonal antibody drug product, an operator holds the bulk at room temperature past the validated hold time to wait for a line changeover, then proceeds without recording the excursion or writing a justification, so an investigator finds the as-built process silently differed from the approved master procedure with no deviation on file.",
+"biologics_note": "",
+"self_check_questions": [
+"When you review executed batch records, can you confirm entries were made contemporaneously (at the time each step was performed) rather than reconstructed afterward?",
+"Is every departure from a written production or process procedure captured as a recorded deviation with a documented justification, before the batch is dispositioned?",
+"Do your master procedures match what operators actually do on the floor, verified through periodic gemba checks or process confirmation, with no informal undocumented work-arounds?"
+],
+"total": 529,
+"trend": "steady",
+"per_year": {
+"2014": 62,
+"2015": 72,
+"2016": 70,
+"2017": 65,
+"2018": 55,
+"2019": 54,
+"2020": 22,
+"2021": 21,
+"2022": 43,
+"2023": 33,
+"2025": 32
+},
+"example": {
+"company": "Sante Manufacturing Inc.",
+"date": "06/05/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/sante-manufacturing-inc-724931-06052026",
+"snippet": "adequate written procedures for production and process control designed to assure that the drug products you manufacture have the identity, strength, quality, and purity they purport or are represented to possess (21 CFR 211.100(a)). Based on the records and information you provided, you did not demonstrate that you have adequately qualified your (b)(4)..."
+}
+},
+{
+"reference": "21 CFR 211.198(a)",
+"area": "Drugs",
+"domain": "Investigations & CAPA",
+"short_desc": "Complaints reviewed by Quality Control Unit",
+"plain_meaning": "Your written complaint-handling procedure must say that the quality unit reviews any complaint that points to a product possibly missing one of its specifications, and decides whether that complaint needs a formal investigation. This applies to finished drugs and to licensed biologics, since a licensed biologic is also a drug.",
+"why_matters": "A complaint can be the first sign of a real quality or safety problem in product already in patients' hands; if the quality unit is not formally in the loop and deciding on investigations, a batch failure or contamination signal can be missed or buried.",
+"how_it_shows_up": "It usually shows up as an SOP that routes complaints to a customer-service or commercial team but never names the quality unit as the reviewer, or never says who decides whether an investigation is opened. For example, a biologics maker logs a complaint that vials of a monoclonal antibody arrived with visible particulates (a possible failure to meet the appearance and particulate specification), but the procedure has no step requiring QA to review it and judge whether a 211.198(b) investigation is needed, so it is closed as a shipping issue without a quality assessment.",
+"biologics_note": "",
+"self_check_questions": [
+"Does your written complaint procedure explicitly require the quality unit to review every complaint that suggests the product may have failed any specification?",
+"Does the procedure state who decides whether a complaint needs a formal investigation, especially for possible contamination or a serious or unexpected adverse experience?",
+"If you pulled your last 10 spec-related or adverse-event complaints, could you show a documented quality-unit review and a recorded investigate-or-not decision for each?"
+],
+"total": 528,
+"trend": "falling",
+"per_year": {
+"2014": 74,
+"2015": 78,
+"2016": 69,
+"2017": 78,
+"2018": 67,
+"2019": 64,
+"2020": 15,
+"2021": 19,
+"2022": 27,
+"2023": 15,
+"2025": 22
+},
+"example": {
+"company": "Lexia LLC",
+"date": "04/07/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/lexia-llc-722251-04072026",
+"snippet": "reserve sample that is representative of each batch of drug product (21 CFR 211.170(b). Establishment of written procedures describing the handling of all written and oral complaints regarding a drug product (21 CFR 211.198(a)). Establishment of a system by which the distribution of each lot of drug product can be readily determined to facilitate its recall..."
+}
+},
+{
+"reference": "21 CFR 211.42(c)(10)(iv)",
+"area": "Drugs",
+"domain": "Sterility assurance",
+"short_desc": "Environmental Monitoring System",
+"plain_meaning": "Any area where you make sterile drug or biologic product by aseptic processing must have a working system that monitors the cleanliness of the environment. In plain terms, you have to routinely measure the things that can contaminate product, the airborne particles, airborne microbes, microbes on surfaces, and microbes on the gowned people working there, and you have to do it at the right places, the right times, and against set limits. This citation says the monitoring system itself is deficient, not just one stray result.",
+"why_matters": "A blind or weak monitoring system means contamination can build up undetected and reach product, putting sterile injectables and biologics that go straight into patients at risk of causing infection or death.",
+"how_it_shows_up": "This shows up as gaps in what, where, when, or how you monitor: sample sites that do not cover the riskiest spots, missing or absent action and alert limits, monitoring frequency that does not match the activity, or trending that nobody reviews so repeat excursions go unnoticed. A common example: a biologics fill-finish line runs aseptic filling of a monoclonal antibody, but the routine EM plan never places an active-air or settle-plate sample at the actual point of fill and stopper placement, so the highest-risk zone has no data, or Grade A and B viable counts drift upward over months with no investigation because results are filed without trending. Operator glove and gown monitoring being skipped at the end of a shift, or particle counters that are out of calibration, fall under the same observation.",
+"biologics_note": "",
+"self_check_questions": [
+"Does a documented, risk-based environmental monitoring program define the sample sites, frequency, methods, and both alert and action limits for viable (air and surface) and nonviable (airborne particle) monitoring plus personnel (gown and glove) monitoring in every aseptic processing area, with the highest-risk locations such as the point of fill justified and covered?",
+"Are EM results trended over time, with excursions investigated, root-caused, and tied to CAPA, and is the trending reviewed by the quality unit on a defined schedule rather than just filed?",
+"Is the EM program kept current with the actual process and risk, reassessed after line changes, facility modifications, or recurring excursions, and supported by qualified methods, calibrated instruments, and trained personnel?"
+],
+"total": 479,
+"trend": "rising",
+"per_year": {
+"2014": 42,
+"2015": 83,
+"2016": 78,
+"2017": 47,
+"2018": 35,
+"2019": 52,
+"2020": 19,
+"2021": 17,
+"2022": 35,
+"2023": 38,
+"2025": 33
+},
+"example": {
+"company": "Huons Co., Ltd.",
+"date": "06/15/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/huons-co-ltd-724650-06152026",
+"snippet": "program that ensures appropriate simulations of worst-case conditions in commercial manufacturing. 4. Your firm failed to establish an adequate system for maintaining equipment used to control the aseptic conditions (21 CFR 211.42(c)(10)(vi)). You had inadequate procedures for monitoring of your (b)(4) gloves. Your procedures required sampling from (b)(4)..."
+}
+},
+{
+"reference": "21 CFR 606.100(b)",
+"area": "Biologics",
+"domain": "Procedures & SOPs",
+"short_desc": "Establish, maintain and follow manufacturing SOPs",
+"plain_meaning": "FDA expects you to have written standard operating procedures that spell out every step of how the product is made and handled, and then to actually work to those procedures. The SOPs have to be complete (no missing steps), current (matching what people really do), and followed in practice.",
+"why_matters": "If a step is undocumented, out of date, or routinely ignored, work happens differently from person to person and shift to shift, which puts product quality and patient safety at risk and means you cannot prove the product was made correctly.",
+"how_it_shows_up": "It shows up when the written procedure does not match the real activity, leaves out a step, or staff cannot follow it as written. For example, a cell therapy SOP for thawing and washing the apheresis starting material omits the actual incubation time operators use, or a fill-finish batch record references a viral-inactivation hold step that the current SOP never describes, so the documented process and the performed process diverge.",
+"biologics_note": "21 CFR 606.100(b) is specific to blood establishments: it requires written SOPs covering collection, processing, compatibility testing, storage, and distribution of blood and blood components. It does not apply to cell and gene therapy, monoclonal antibodies, or other non-blood biologics. The same expectation reaches other biologics through 21 CFR 211.100 (written production and process control procedures, deviations recorded and justified) and 211.22/211.160 (the quality unit owns procedures and laboratory controls are written), reinforced by 21 CFR 600/610 general biologics standards and, for human cells and tissues, 21 CFR 1271.180 (established and maintained procedures). Bottom line: blood establishments cite 606.100(b); a CGT, antibody, or vaccine maker meets the same requirement under 211 plus 600/610/1271.",
+"self_check_questions": [
+"Does a current, approved SOP exist for every step of your collection, processing, testing, storage, and distribution activities, with no undocumented steps?",
+"If you watched an operator perform a task today, would their actions match the approved SOP exactly?",
+"Are SOPs reviewed and updated on a defined schedule and whenever a process changes, so the written procedure never lags behind actual practice?"
+],
+"total": 412,
+"trend": "rising",
+"per_year": {
+"2014": 85,
+"2015": 64,
+"2016": 42,
+"2017": 56,
+"2018": 30,
+"2019": 36,
+"2020": 9,
+"2021": 8,
+"2022": 25,
+"2023": 13,
+"2025": 44
+},
+"example": {
+"company": "Hemarus LLC",
+"date": "10/08/2024",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/hemarus-llc-688656-10082024",
+"snippet": "Date: 05-27-20). 3. Failure to follow written standard operating procedures for all steps in the collection, processing, storage, and distribution of blood and blood components for further manufacturing purposes [21 CFR 606.100(b)]. For example, on April 15, 2024, FDA investigators observed freshly collected units of Source Plasma being placed immediately..."
+}
+},
+{
+"reference": "21 CFR 211.160(b)(4)",
+"area": "Drugs",
+"domain": "Laboratory controls",
+"short_desc": "Calibration - at intervals, written program, remedial action",
+"plain_meaning": "FDA expects you to calibrate the instruments, gauges, and recording devices used in your laboratory and operations on a defined schedule set by a written program, against known standards, with set accuracy and precision limits. The same rule requires you to spell out in advance what you do when an instrument fails calibration, including assessing results it produced since the last good check.",
+"why_matters": "If an instrument is uncalibrated or out of tolerance and you have no remedial-action plan, every measurement it made is suspect, which can put product disposition, release, and patient safety decisions on unreliable data.",
+"how_it_shows_up": "In practice this surfaces as instruments past their calibration due date still in use, no written program defining intervals or acceptance limits, or no documented response when a unit fails. For example, an HPLC used to release a monoclonal antibody drug substance is found 40 days past its calibration due date, or a temperature probe on a bioreactor reads out of tolerance and the firm has no procedure requiring an impact assessment of the batches run since the last passing calibration.",
+"biologics_note": "",
+"self_check_questions": [
+"Does a written calibration program define the interval, the reference standard, and the accuracy and precision limits for every instrument used in GMP testing and production?",
+"Is every active instrument currently within its calibration due date, with calibration records on file and traceable to a national or recognized standard?",
+"Does your procedure require a documented remedial action, including an impact assessment of results generated since the last passing calibration, whenever an instrument is found out of tolerance?"
+],
+"total": 365,
+"trend": "steady",
+"per_year": {
+"2014": 29,
+"2015": 52,
+"2016": 66,
+"2017": 50,
+"2018": 57,
+"2019": 37,
+"2020": 11,
+"2021": 8,
+"2022": 20,
+"2023": 20,
+"2025": 15
+},
+"example": {
+"company": "Gopaldas Visram & Co., Ltd.",
+"date": "06/02/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/gopaldas-visram-co-ltd-721755-06022026",
+"snippet": "inhalation or potential use in the (b)(4) area. Your quality unit (QU) did not effectively exercise its authority to ensure test procedures and specifications for talc are scientifically sound and appropriate (see 21 CFR 211.160(b)). Furthermore, you did not demonstrate that your firm\u2019s QU has adequate oversight of your contract testing facility. In..."
+}
+},
+{
+"reference": "21 CFR 211.165(e)",
+"area": "Drugs",
+"domain": "Laboratory controls",
+"short_desc": "Test methods",
+"plain_meaning": "Before you use a test method to decide whether a product passes or fails, you have to prove the method actually works and write that proof down. The rule names four things you must establish and document: accuracy (it gives a true result), sensitivity (it can detect what it is supposed to detect, down to the levels that matter), specificity (it measures the right thing and is not fooled by other components), and reproducibility (it gives consistent results across analysts, days, and instruments). If you cannot show this, the test result is not trustworthy and neither is the release decision built on it.",
+"why_matters": "If the method is not proven, a passing result means nothing, so you could release product that is sub-potent, impure, or contaminated, or reject good product, all on data you cannot defend.",
+"how_it_shows_up": "This typically shows up as a method used for batch release with no validation report on file, validation that skips one of the four required characteristics, or a method changed (new column, reagent, instrument, or specification) without revalidation. A concrete biologics example: a cell and gene therapy company runs a qPCR-based assay to detect residual host cell DNA in a drug substance and uses it to release lots, but there is no documented data establishing the assay's limit of detection (sensitivity) or that it is specific to host cell DNA and not picking up vector or carryover DNA. An auditor asks for the validation package and finds only a draft method with no acceptance criteria and no reproducibility study across analysts, so every release decision made with that assay is now in question.",
+"biologics_note": "",
+"self_check_questions": [
+"For every test method we use to release or reject a batch, is there a signed validation report on file that establishes accuracy, sensitivity, specificity, and reproducibility (or a documented scientific justification when a characteristic does not apply)?",
+"When we change a method, instrument, reagent, column, or specification, do we have a documented assessment that triggers revalidation before the changed method is used for release?",
+"For any compendial (for example USP) method we run as-is, have we documented verification under our own conditions, sample matrix, and analysts rather than assuming the compendial validation covers us?"
+],
+"total": 341,
+"trend": "steady",
+"per_year": {
+"2014": 27,
+"2015": 33,
+"2016": 47,
+"2017": 50,
+"2018": 33,
+"2019": 49,
+"2020": 14,
+"2021": 11,
+"2022": 24,
+"2023": 30,
+"2025": 23
+},
+"example": {
+"company": "Macau-Union Pharmaceutical Limited",
+"date": "05/29/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/macau-union-pharmaceutical-limited-724506-05292026",
+"snippet": "including the identity and strength of each active ingredient, prior to release, and for each batch of drug product required to be free of objectionable microorganisms, appropriate laboratory testing, as necessary (21 CFR 211.165(a) and 211.165(b)). Your firm did not adequately test your over-the-counter (OTC) drug products prior to release and distribution..."
+}
+},
+{
+"reference": "21 CFR 211.188",
+"area": "Drugs",
+"domain": "Data integrity & records",
+"short_desc": "Prepared for each batch, include complete information",
+"plain_meaning": "For every batch of a drug or biologic you make, you must create a batch production and control record that is a true, complete account of what actually happened during production and control of that specific batch. It has to follow the approved master batch record and capture the real dates, equipment, materials and lot numbers used, in-process and lab results, actual yield, labeling controls, and who performed, supervised, and checked each significant step.",
+"why_matters": "If the batch record is missing or incomplete, you cannot prove the batch was made correctly, so you cannot reliably judge whether it is safe to release, recall, or trust.",
+"how_it_shows_up": "An investigator pulls a batch record and finds gaps: blank fields, a missing operator or verifier signature, no recorded actual yield, equipment IDs left off, or a component lot number not documented. A concrete example: a biologics company filling a monoclonal antibody drug product leaves the in-process bioburden result and the second-person line-clearance check blank on the executed batch record, and the actual fill yield is never reconciled against theoretical, so there is no complete account of that lot's production. Another common form is the record being written up later from memory or transcribed from scrap paper rather than recorded contemporaneously at each step.",
+"biologics_note": "",
+"self_check_questions": [
+"Is a complete batch production and control record prepared for every batch, with all fields filled in (no blanks left without an explanation such as N/A and a reason)?",
+"Does each significant production and control step capture the actual data (dates and times, equipment IDs, component and in-process lot numbers, weights and measures, in-process and lab results, and actual yield versus theoretical) recorded at the time the step is done?",
+"Is each significant step signed or initialed by the person who performed it and by the person who checked or supervised it, with any deviation cross-referenced to its investigation?"
+],
+"total": 338,
+"trend": "falling",
+"per_year": {
+"2014": 43,
+"2015": 56,
+"2016": 31,
+"2017": 51,
+"2018": 26,
+"2019": 46,
+"2020": 16,
+"2021": 11,
+"2022": 22,
+"2023": 13,
+"2025": 23
+},
+"example": {
+"company": "IDO Pharm Co., Ltd.",
+"date": "05/04/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/ido-pharm-co-ltd-723449-05042026",
+"snippet": "of adequate batch production and control records that contain the accomplishment of each significant step in the manufacture, processing, packing, or holding of the batch, for each batch of drug product (21 CFR 211.188). Performance of routine calibrations of equipment used in the manufacture, processing, packing, and holding of a drug product (21 CFR..."
+}
+},
+{
+"reference": "21 CFR 211.42(c)(10)(v)",
+"area": "Drugs",
+"domain": "Sterility assurance",
+"short_desc": "Cleaning System",
+"plain_meaning": "For areas where you make sterile products without a final sterilization step (aseptic processing), the rule requires a defined, working system for cleaning and disinfecting the rooms and equipment so they reach and stay in an aseptic (sterile) state. It is not enough to wipe things down; you need a controlled program with the right agents, methods, contact times, and frequencies that is shown to actually remove contamination and microbes.",
+"why_matters": "If the cleaning and disinfection system does not reliably produce aseptic conditions, the sterile product can be contaminated with microbes, which can harm or kill patients and trigger recalls or a shutdown of the line.",
+"how_it_shows_up": "This shows up as gaps in the disinfectant program: agents not proven effective against the bugs found in the room, no validated contact (wet) time, no rotation of a sporicidal agent, expired or wrongly diluted disinfectants, or cleaning steps not tied to environmental monitoring trends. Example: a biologics fill-finish site running aseptic vial filling of a monoclonal antibody keeps recovering mold in its Grade A/B suite, but its disinfectant qualification never tested that mold and the SOP lists a 1-minute wipe while the product label requires 10 minutes of wet contact, so investigators cite that the cleaning and disinfecting system was not shown to produce aseptic conditions.",
+"biologics_note": "",
+"self_check_questions": [
+"Is your disinfectant and sporicidal program qualified (efficacy proven, including against organisms actually recovered in your monitoring) with defined agents, dilutions, contact times, and rotation, all written into approved SOPs?",
+"Are operators trained and verified to follow the cleaning and disinfecting steps exactly (correct agent, wet contact time, sequence, frequency), with records that show it was done that way each time?",
+"Do you review environmental monitoring trends against your cleaning and disinfection program and act (re-clean, investigate, adjust the program) when recoveries or adverse trends appear?"
+],
+"total": 338,
+"trend": "steady",
+"per_year": {
+"2014": 35,
+"2015": 60,
+"2016": 57,
+"2017": 38,
+"2018": 23,
+"2019": 37,
+"2020": 12,
+"2021": 10,
+"2022": 26,
+"2023": 21,
+"2025": 19
+},
+"example": {
+"company": "Huons Co., Ltd.",
+"date": "06/15/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/huons-co-ltd-724650-06152026",
+"snippet": "program that ensures appropriate simulations of worst-case conditions in commercial manufacturing. 4. Your firm failed to establish an adequate system for maintaining equipment used to control the aseptic conditions (21 CFR 211.42(c)(10)(vi)). You had inadequate procedures for monitoring of your (b)(4) gloves. Your procedures required sampling from (b)(4)..."
+}
+},
+{
+"reference": "21 CFR 211.194(a)",
+"area": "Drugs",
+"domain": "Laboratory controls",
+"short_desc": "Complete test data included in records",
+"plain_meaning": "Your lab records have to capture all the data from every test, examination, and assay you run to show a product meets its specifications, not just a final pass or fail number. That includes the raw data, the calculations, the chromatograms or spectra, who did the work, when, and on what equipment, so someone can reconstruct exactly how you reached the result.",
+"why_matters": "If the complete data is not in the record, you cannot prove a batch actually met spec, and missing or selectively recorded data is one of the fastest ways a finding escalates into a data integrity concern.",
+"how_it_shows_up": "An analyst records only the final assay value on a worksheet but the integrated chromatograms, the weighing tape, the standard preparation details, and the calculation steps are not attached or retained, so the result cannot be reconstructed. A common biologics example: a cell-based potency assay or an HPLC purity test where the printed result is filed but the underlying instrument data files, system suitability injections, and any reintegrations are missing, incomplete, or not tied to a specific analyst, instrument, and date.",
+"biologics_note": "",
+"self_check_questions": [
+"For a recent batch, can you pull a finished-product test and reconstruct the full result from raw data, standard and sample prep, calculations, and the analyst, date, and instrument used, with nothing missing?",
+"Do your lab records retain all original data including instrument output, chromatograms or spectra, and any reprocessing or reintegration, rather than just the final reported value?",
+"Is every test, examination, and assay needed to demonstrate conformance to specifications actually documented in the laboratory records, with no gaps between methods required and data on file?"
+],
+"total": 277,
+"trend": "falling",
+"per_year": {
+"2014": 24,
+"2015": 39,
+"2016": 35,
+"2017": 39,
+"2018": 33,
+"2019": 38,
+"2020": 15,
+"2021": 12,
+"2022": 12,
+"2023": 16,
+"2025": 14
+},
+"example": {
+"company": "Huons Co., Ltd.",
+"date": "06/15/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/huons-co-ltd-724650-06152026",
+"snippet": "but not limited to, the following. 1. Your firm failed to ensure that laboratory records included complete data derived from all tests necessary to ensure compliance with established specifications and standards (21 CFR 211.194(a)). Your laboratory records lacked complete and original data to support the analyses performed. For example: A. During the..."
+}
+},
+{
+"reference": "21 CFR 211.170(b)",
+"area": "Drugs",
+"domain": "Laboratory controls",
+"short_desc": "Reserve samples identified, representative, stored",
+"plain_meaning": "FDA expects you to keep a reserve (retain) sample of each batch of drug product so you can test it later if a problem comes up. This citation is specifically about the container: the reserve sample must be stored in the same immediate container-closure system the product was marketed in, or in one with essentially the same characteristics. It must be representative of the lot and properly stored and identified.",
+"why_matters": "If the reserve sample is in the wrong container, you cannot reliably reproduce later testing or investigate a stability or quality complaint, because the sample no longer behaves like what the patient actually received.",
+"how_it_shows_up": "An investigator pulls the reserve sample inventory and finds it does not match the marketed presentation. Example: a lyophilized biologic was shipped in a stoppered glass vial with a specific closure, but the reserve units were bulk-transferred into generic screw-cap tubes, or the reserve was kept loose rather than in the sealed, labeled vial. It also shows up as reserve samples that are short on quantity (less than twice what full testing would require), not held for the required retention period, stored at the wrong temperature, or not identified to a specific batch.",
+"biologics_note": "",
+"self_check_questions": [
+"Are your reserve samples held in the same immediate container-closure system as the marketed product, or one with essentially identical characteristics?",
+"Is each reserve sample clearly labeled to its specific batch, stored under the labeled conditions, and held for the full required retention period?",
+"Do you retain at least twice the quantity needed to perform all required release tests on the reserve sample?"
+],
+"total": 266,
+"trend": "steady",
+"per_year": {
+"2014": 27,
+"2015": 28,
+"2016": 23,
+"2017": 31,
+"2018": 39,
+"2019": 38,
+"2020": 10,
+"2021": 16,
+"2022": 16,
+"2023": 15,
+"2025": 23
+},
+"example": {
+"company": "Lexia LLC",
+"date": "04/07/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/lexia-llc-722251-04072026",
+"snippet": "control procedures (21 CFR 211.180(e)). Failure to retain and store, under conditions consistent with product labeling, an appropriately identified reserve sample that is representative of each batch of drug product (21 CFR 211.170(b). Establishment of written procedures describing the handling of all written and oral complaints regarding a drug product (21..."
+}
+},
+{
+"reference": "21 CFR 211.180(e)(2)",
+"area": "Drugs",
+"domain": "Quality unit",
+"short_desc": "Items to cover on annual reviews",
+"plain_meaning": "Once a year you have to look back at each drug product and review what went wrong with it, and 211.180(e)(2) names the specific things that review must cover: complaints, recalls, returned or salvaged product, and the investigations (deviations, OOS, failures) run for that product. This citation is for not having a written procedure for that annual review, or for having one and not following it.",
+"why_matters": "If your annual product review skips complaints, recalls, returns, or investigations, you miss the once-a-year chance to spot a recurring quality signal across batches, so a drifting process or a systemic problem keeps shipping unnoticed.",
+"how_it_shows_up": "The annual product review (also called the product quality review) exists but its written procedure or the report itself leaves out one of the named inputs. For example, a biologics maker's yearly review for a monoclonal antibody summarizes batch yields and stability but never pulls in the year's complaints and the deviation/OOS investigations for that product, so a repeating low-titer trend tied to a raw-material lot is never connected and never feeds a specification or process change. FDA reads that as either no procedure requiring those items or a procedure that was not followed.",
+"biologics_note": "",
+"self_check_questions": [
+"Does your written annual review procedure explicitly require pulling in complaints, recalls, returned or salvaged product, and the investigations run for each product?",
+"For your last annual review of each product, can you point to where those four inputs were actually documented and evaluated, not just listed?",
+"When the review finds a trend across those inputs, does it drive a documented conclusion about whether specifications or manufacturing and control procedures need to change?"
+],
+"total": 262,
+"trend": "steady",
+"per_year": {
+"2014": 31,
+"2015": 41,
+"2016": 29,
+"2017": 43,
+"2018": 29,
+"2019": 30,
+"2020": 12,
+"2021": 7,
+"2022": 9,
+"2023": 10,
+"2025": 21
+},
+"example": {
+"company": "GC America, Inc.",
+"date": "05/14/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/gc-america-inc-727602-05142026",
+"snippet": "data (21 CFR 211.68(b)). Your QU also failed to perform annual product reviews of your drug products since our previous inspection in 2018. Furthermore, no written procedures for this requirement were available (21 CFR 211.180(e)). In your response, you acknowledge you did not exercise appropriate controls to ensure authorized access to electronic records...."
+}
+},
+{
+"reference": "21 CFR 211.113(a)",
+"area": "Drugs",
+"domain": "Production controls",
+"short_desc": "Procedures for non-sterile drug products",
+"plain_meaning": "For drug products that are not required to be sterile (oral tablets, capsules, topicals, oral liquids, inhalation solutions, and similar dosage forms), you must have written procedures specifically designed to keep objectionable microorganisms out of the product, and you must actually follow them. \"Objectionable\" means organisms that can harm the patient or degrade the product given how it is made, used, and who takes it, not simply any bug that shows up on a plate.",
+"why_matters": "Microbial contamination of a non-sterile drug can cause patient infection or illness and trigger recalls, so the absence of working controls is a direct product-safety and patient-safety failure.",
+"how_it_shows_up": "FDA cites this when the procedures do not exist, are written but ignored, or do not actually control contamination. In a biotech making an oral or topical product, this surfaces as no defined microbial limits or bioburden alert and action levels, no objectionable-organism list tied to route of administration, water systems or non-sterile compounding areas with no routine monitoring, or a microbial out-of-limit result that is found but not acted on. A concrete example: a company makes a non-sterile oral liquid, its SOP sets no action limit for Burkholderia cepacia complex (a known oral-liquid risk), routine testing finds it, and there is no written trigger or procedure to investigate, quarantine, and prevent recurrence.",
+"biologics_note": "",
+"self_check_questions": [
+"Do you have current written procedures that define microbial limits with alert and action levels, name the objectionable organisms for each non-sterile product based on its route of administration and patient population, and describe the response when a limit is exceeded?",
+"Can you show records (bioburden and water monitoring, environmental data, batch documentation) that prove these procedures are actually being followed in production, not just on file?",
+"When an objectionable organism or out-of-limit microbial result is detected, does a defined procedure trigger investigation, product disposition, and corrective action, with documented evidence it was executed?"
+],
+"total": 258,
+"trend": "rising",
+"per_year": {
+"2014": 19,
+"2015": 21,
+"2016": 32,
+"2017": 33,
+"2018": 32,
+"2019": 30,
+"2020": 10,
+"2021": 13,
+"2022": 23,
+"2023": 21,
+"2025": 24
+},
+"example": {
+"company": "Huons Co., Ltd.",
+"date": "06/15/2026",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/huons-co-ltd-724650-06152026",
+"snippet": "to follow appropriate written procedures that are designed to prevent microbiological contamination of drug products purporting to be sterile and that include validation of all aseptic and sterilization processes (21 CFR 211.113(b)). Smoke studies demonstrated a lack of unidirectional airflow in your ISO 5 aseptic processing operation. Multiple instances of..."
+}
+},
+{
+"reference": "21 CFR 211.28(a)",
+"area": "Drugs",
+"domain": "Production controls",
+"short_desc": "Clothing appropriate for duties performed",
+"plain_meaning": "People who make, process, pack, or hold a drug or biologic have to wear clean clothing that fits the job, plus protective gear like head, face, hand, and arm coverings whenever that gear is needed to keep the product from getting contaminated. In short, the gowning has to match the contamination risk of the room and the task.",
+"why_matters": "People shed skin, hair, and microbes constantly, so the wrong or missing gowning is one of the most direct ways to contaminate a product, especially a sterile or low-bioburden one.",
+"how_it_shows_up": "This shows up when what people actually wear does not match the cleanliness grade of the area or the gowning SOP, or when the SOP itself does not require enough coverage for the work being done. For example, an operator in a Grade B aseptic fill area is observed with wrists or neck skin exposed between glove and sleeve, or a fill-room SOP that allows beard covers to be optional, or staff in a buffer-prep room wearing their own street shoes instead of dedicated cleanroom footwear. Investigators also cite cases where gowning qualification (the test that proves a person gowns correctly) is missing or expired for people working in classified areas.",
+"biologics_note": "",
+"self_check_questions": [
+"Does a current gowning SOP define exactly what clothing and protective coverings are required for each room grade and task, and does it match what your people actually wear on the floor?",
+"Is every person who enters a classified or aseptic area gowning-qualified, with that qualification documented and kept current?",
+"When you walk the floor during operations, is every operator fully covered as the SOP requires, with no exposed skin, hair, or street clothing where the SOP prohibits it?"
+],
+"total": 235,
+"trend": "falling",
+"per_year": {
+"2014": 50,
+"2015": 58,
+"2016": 56,
+"2017": 20,
+"2018": 14,
+"2019": 22,
+"2020": 0,
+"2021": 2,
+"2022": 6,
+"2023": 1,
+"2025": 6
+},
+"example": {
+"company": "Apothecary Pharma, LLC",
+"date": "12/01/2025",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/apothecary-pharma-llc-717972-12012025",
+"snippet": "that include validation of all aseptic and sterilization processes (21 CFR 211.113(b)). 3. Your firm failed to ensure that manufacturing personnel wear clothing appropriate to protect drug product from contamination (21 CFR 211.28(a)). 4. Your firm failed to establish an adequate system for maintaining equipment used to control the aseptic conditions (21..."
+}
+},
+{
+"reference": "21 CFR 606.160(a)(1)",
+"area": "Biologics",
+"domain": "Data integrity & records",
+"short_desc": "Person performing, test results, interpretation",
+"plain_meaning": "Records have to be created at the same time the work is done, not reconstructed later, and each record must be complete on its face: who did the work, the date, the actual test results, what those results mean (the interpretation, such as pass or fail or reactive or non-reactive), and the expiration date assigned to the product. The record also has to carry enough detail that someone can trace the full history of the unit or batch without asking the person who performed the step.",
+"why_matters": "If a record is incomplete, undated, unsigned, or written after the fact, you cannot prove what actually happened to a product, which undermines the reliability of every release decision built on top of it.",
+"how_it_shows_up": "An investigator pulls a batch or testing record and finds blanks where a result or interpretation should be, a missing analyst initial or date, a result entered but no pass or fail call recorded, or entries that were clearly filled in later from memory rather than at the time of the step. A concrete example: a QC release record shows an endotoxin or sterility test result but no interpretation against the acceptance limit, and the analyst initials and date were added during the next shift, so the company cannot show the result was reviewed and dispositioned when the work was performed.",
+"biologics_note": "21 CFR 606.160(a)(1) is specific to blood establishments (CGMP for blood and blood components). It does not by its own terms apply to cell and gene therapies, monoclonal antibodies, or other biologics. The same expectation reaches other biologics through 21 CFR 211.188 and 211.194 (complete, contemporaneous batch and laboratory records with results and interpretation) together with 21 CFR 600 and 610 (general biologics standards and release testing); for human cells, tissues, and cellular and tissue-based products it also appears under 21 CFR Part 1271.",
+"self_check_questions": [
+"Are records created at the time each significant step is performed, rather than transcribed or completed later from memory or scrap notes?",
+"Does every record show the person who performed the work, the date, the actual result, the interpretation of that result against its acceptance criteria, and the assigned expiration date where applicable?",
+"Can a reviewer trace the complete history of a unit or batch from the records alone, with no blank fields and no need to ask the person who did the work?"
+],
+"total": 211,
+"trend": "rising",
+"per_year": {
+"2014": 47,
+"2015": 41,
+"2016": 29,
+"2017": 24,
+"2018": 12,
+"2019": 20,
+"2020": 3,
+"2021": 2,
+"2022": 6,
+"2023": 7,
+"2025": 20
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.100(c)",
+"area": "Biologics",
+"domain": "Investigations & CAPA",
+"short_desc": "Record review prior to release",
+"plain_meaning": "When something does not go as expected, an unexplained discrepancy or a lot or unit that fails to meet any of its specifications, you must investigate it thoroughly before the product is released, and you must write down what you concluded and what follow-up you took. FDA expects the record review and investigation to happen at the front end, before a unit or lot is made available for distribution, not after.",
+"why_matters": "If you release product without first investigating and documenting a discrepancy or specification failure, you can ship material whose safety, identity, strength, purity, or potency is unproven, and you lose the ability to catch a systemic problem before it reaches patients.",
+"how_it_shows_up": "A reviewer signs off on batch release while an open out-of-specification result, an unexplained yield gap, or a deviation is still unresolved, or the investigation exists but never reaches a documented conclusion, root cause, or follow-up action. Concrete example: a cell therapy lot shows a viability result below the release limit, the analyst flags it, but the lot is dispositioned and released while the OOS investigation is still open and no conclusion or CAPA is recorded; an inspector finds the release record and the still-open investigation side by side.",
+"biologics_note": "21 CFR 606.100(c) is specific to blood and blood-component establishments (blood CGMP). For other biologics (monoclonal antibodies, recombinant proteins, vaccines) and for cell and gene therapy products, the same expectation, investigate discrepancies and specification failures and document conclusions and follow-up before release, lives under 21 CFR 211.192 (production-record and discrepancy review) together with the general biologics standards in Parts 600, 610, and 680, and for human cells, tissues, and cellular and tissue-based products under Part 1271. So a non-blood biologics company should self-check against 211.192 (and its lot-release controls under 211.165) rather than 606.100(c).",
+"self_check_questions": [
+"Does your release procedure require every open discrepancy, deviation, and out-of-specification result tied to a lot or unit to be closed with a documented conclusion before that lot or unit can be released?",
+"Do your investigation records show a thorough review (root cause where determinable, scope/impact on other lots, and a documented conclusion plus follow-up action), not just a note that a problem occurred?",
+"Can you pull any released lot and trace, in the record, that the review and investigation were completed and signed before the release decision was made?"
+],
+"total": 162,
+"trend": "rising",
+"per_year": {
+"2014": 29,
+"2015": 29,
+"2016": 16,
+"2017": 26,
+"2018": 7,
+"2019": 14,
+"2020": 2,
+"2021": 1,
+"2022": 10,
+"2023": 7,
+"2025": 21
+},
+"example": {
+"company": "Hemarus LLC",
+"date": "10/08/2024",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/hemarus-llc-688656-10082024",
+"snippet": "Date: 05-27-20). 3. Failure to follow written standard operating procedures for all steps in the collection, processing, storage, and distribution of blood and blood components for further manufacturing purposes [21 CFR 606.100(b)]. For example, on April 15, 2024, FDA investigators observed freshly collected units of Source Plasma being placed immediately..."
+}
+},
+{
+"reference": "21 CFR 606.160(b)",
+"area": "Biologics",
+"domain": "Data integrity & records",
+"short_desc": "Required records",
+"plain_meaning": "For each unit of blood or blood component, you must create and keep the specific records that show every step was done correctly: donor records, processing, storage and distribution, compatibility testing, quality control, and the general records that tie it all together. Each record has to capture what was done, plus enough information to trace the work back to the person who performed it and the equipment and materials used.",
+"why_matters": "If a record category is missing or incomplete, you cannot prove a unit was collected, tested, and released safely, and you lose the traceability that lets you recall a unit or investigate a transfusion problem after the fact.",
+"how_it_shows_up": "An investigator pulls a sample of unit records and finds gaps: a processing step with no initials or date, a quality control result that was performed but never written down, or a storage temperature log that skips a shift. In a blood establishment supporting a plasma or source-material program, this often surfaces as donor eligibility or component-labeling records that exist in the operator's notebook but were never transferred into the controlled record system, so the released unit has no complete, retrievable history. The same gap also appears when an electronic record system captures the test result but not who ran it or which instrument was used.",
+"biologics_note": "21 CFR 606.160(b) is specific to blood establishments (CGMP for blood and blood components). It does not apply to cell and gene therapies, monoclonal antibodies, or other non-blood biologics. The same expectation, complete, contemporaneous, traceable records covering every production and control step, applies to other biologics through 21 CFR 211.180 and 211.188 (batch and master production records) together with 21 CFR 600 and 610; for human cells, tissues, and cellular and tissue-based products (HCT/Ps), the parallel record requirements sit in 21 CFR Part 1271 (subpart D).",
+"self_check_questions": [
+"For a sampled unit, can you produce a complete set of records across all six categories (donor, processing, storage and distribution, compatibility testing, quality control, and general) with no missing steps?",
+"Does every record identify who performed each step, when it was done, and the equipment, reagents, or materials used, so the work is traceable to the responsible person?",
+"Are records made at the time the work is performed and then retained and retrievable for the full required period, rather than reconstructed later or left only in personal notebooks?"
+],
+"total": 111,
+"trend": "rising",
+"per_year": {
+"2014": 16,
+"2015": 16,
+"2016": 5,
+"2017": 20,
+"2018": 5,
+"2019": 15,
+"2020": 1,
+"2021": 2,
+"2022": 9,
+"2023": 3,
+"2025": 19
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.60(a)",
+"area": "Biologics",
+"domain": "Equipment & facilities",
+"short_desc": "Provide proper equipment to meet requirements",
+"plain_meaning": "The equipment you use to collect, process, test, store, and ship blood and blood components has to be the right equipment for the job and kept in working order. That means observing, standardizing, and calibrating it on a set schedule that your own written procedures spell out, so you can trust the readings and outputs it gives you.",
+"why_matters": "If equipment is not calibrated and checked on schedule, you cannot prove a result is real, and a wrong reading on a scale, centrifuge, sealer, or storage unit can directly compromise product safety or potency without anyone catching it.",
+"how_it_shows_up": "It shows up as equipment running past its calibration due date, missing or incomplete calibration records, or no written schedule at all, so an inspector can pull a device and find no proof it was verified. Concrete example: a refrigerated centrifuge or a temperature-monitored storage unit in operation with a calibration sticker that expired months ago, and the SOP either does not state a calibration interval or the interval was silently skipped, so every unit processed in that window now has questionable data behind it.",
+"biologics_note": "This citation is written specifically for blood establishments (collection, processing, compatibility testing, storage and distribution of blood and blood components under 21 CFR Part 606). It does not apply to cell and gene therapy, monoclonal antibodies, or other biologics. The same expectation, that equipment is qualified, calibrated, and maintained on a defined, documented schedule, appears for other biologics and finished drugs under 21 CFR 211.67 (equipment cleaning and maintenance) and 211.68 (automatic, mechanical, and electronic equipment, including calibration), supported by 21 CFR 600/610 for biologics generally, and under Part 1271 for human cell and tissue products (HCT/Ps).",
+"self_check_questions": [
+"Do your written procedures (SOP Manual) name each piece of equipment used in collection, processing, testing, storage, and distribution, and state a specific inspection, standardization, and calibration schedule for each?",
+"Can you pull any in-use device right now and show a current, in-date calibration record traceable to that schedule?",
+"When a calibration is overdue or fails, do you have a defined process to quarantine the equipment and assess the impact on any product handled since the last good calibration?"
+],
+"total": 109,
+"trend": "steady",
+"per_year": {
+"2014": 20,
+"2015": 12,
+"2016": 16,
+"2017": 13,
+"2018": 5,
+"2019": 16,
+"2020": 4,
+"2021": 1,
+"2022": 6,
+"2023": 3,
+"2025": 13
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.171",
+"area": "Biologics",
+"domain": "Investigations & CAPA",
+"short_desc": "Biological product deviation report",
+"plain_meaning": "When something goes wrong with a product that could affect its safety, purity, or potency (a \"deviation\" from your approved process, plus unexpected events affecting a distributed product), you have to formally tell FDA by filing a Biological Product Deviation Report (BPDR). You get 45 calendar days from the moment you first had information suggesting a reportable event happened, and missing that window or never filing at all is the violation.",
+"why_matters": "If you do not report a deviation that may affect a product already released or in distribution, FDA loses the chance to track safety signals across the system and you lose the chance to act before a patient is harmed.",
+"how_it_shows_up": "It shows up as an event your quality system caught (a mix-up, a failed in-process control, a temperature excursion, a labeling error, a contamination finding) where the product was already distributed, but no BPDR was filed, or it was filed past the 45-day clock. Concrete example: a blood center discovers during a look-back that a unit of plasma was released even though a required infectious-disease test was invalid; the deviation is investigated internally but the BPDR is submitted on day 60, so the late filing itself is the 606.171 observation. The same pattern, an event affecting a distributed lot that is investigated but not reported to FDA on time, is what an inspector looks for.",
+"biologics_note": "21 CFR 606.171 is specific to blood and blood components and applies to licensed blood establishments and registered transfusion services; it is not the citation for cell and gene therapy, monoclonal antibodies, vaccines, or other biologics. The same \"report deviations on a distributed product\" expectation reaches other licensed biologics through 21 CFR 600.14 (biological product deviation reporting for licensed biologics other than blood), supported by 21 CFR 600/610 and the manufacturing controls in 21 CFR 211. For human cells, tissues, and cellular and tissue-based products, the parallel adverse-reaction and deviation expectations live in 21 CFR Part 1271 (including 1271.350 for HCT/Ps regulated under section 361). Match the report pathway to your product type rather than assuming 606.171.",
+"self_check_questions": [
+"Do we have a written procedure that defines what counts as a reportable deviation, starts the 45-day clock from the date we first had information suggesting a reportable event, and assigns who files the report?",
+"Can we show that every deviation affecting a distributed (or released) product in the last two years was either filed with FDA within 45 days or has a documented rationale for why it was not reportable?",
+"Does our deviation and investigation workflow have a built-in trigger and tracking step so a reportability assessment happens automatically and the filing deadline cannot be silently missed?"
+],
+"total": 94,
+"trend": "falling",
+"per_year": {
+"2014": 20,
+"2015": 10,
+"2016": 10,
+"2017": 6,
+"2018": 12,
+"2019": 16,
+"2020": 4,
+"2021": 0,
+"2022": 3,
+"2023": 2,
+"2025": 11
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.170(a)",
+"area": "Biologics",
+"domain": "Investigations & CAPA",
+"short_desc": "Adverse Reaction- Reports of Investigations",
+"plain_meaning": "This rule says a blood establishment must keep records of every complaint or report of an adverse reaction tied to a unit of blood or a blood component, whether the reaction shows up at collection (the donor) or after transfusion (the patient). You have to capture the report, document it, and keep that record so reactions can be reviewed and acted on.",
+"why_matters": "If you do not capture and keep adverse reaction reports, a recurring safety signal, like a contaminated unit, a labeling mix-up, or a transmissible infection, can go unseen and reach another patient.",
+"how_it_shows_up": "In practice this shows up when a report comes in by phone, email, or from a transfusing hospital but never gets logged, or gets logged in a side spreadsheet that is not part of the controlled record. A concrete example: a hospital calls a blood center to report a febrile, possibly hemolytic reaction in a patient, the staff member who took the call notes it but no formal adverse reaction record is opened, so the unit is never traced back, the donor is never deferred or evaluated, and no investigation links it to two earlier reports on units from the same donor. For other biologics the same gap looks like a product complaint of a serious reaction that is taken but never entered into the complaint file or routed for investigation.",
+"biologics_note": "21 CFR Part 606 is CGMP for blood and blood components specifically, so 606.170(a) applies to blood establishments (collection and transfusion services), not to cell and gene therapy, monoclonal antibodies, or other biologics. The same expectation, capturing, documenting, and retaining reports of complaints and adverse reactions and routing them for investigation, appears for other biologics under the drug CGMP complaint-handling requirement at 21 CFR 211.198 together with the general biological product standards in 21 CFR 600 (including adverse experience reporting under 600.80), 610, and 680, and for human cell and tissue based products under Part 1271 (including adverse reaction reporting at 1271.350). A licensed biologic is also a drug, so the 211 complaint-file and investigation expectations apply alongside the biologics-specific rules.",
+"self_check_questions": [
+"Does every report of an adverse reaction or complaint, no matter how it arrives (phone, email, fax, hospital report), get captured in a controlled record rather than a personal note or stray spreadsheet?",
+"Can you pull the full set of adverse reaction reports for a given unit or donor and show each one was documented, dated, and retained?",
+"Is there a defined path that takes each captured report into investigation, donor deferral or evaluation, and look-back when warranted?"
+],
+"total": 46,
+"trend": "rising",
+"per_year": {
+"2014": 5,
+"2015": 9,
+"2016": 6,
+"2017": 4,
+"2018": 4,
+"2019": 6,
+"2020": 0,
+"2021": 0,
+"2022": 4,
+"2023": 3,
+"2025": 5
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.65(e)",
+"area": "Biologics",
+"domain": "Materials & components",
+"short_desc": "Following manufacturer's instructions",
+"plain_meaning": "When you use a supply or reagent, you have to use it the way its manufacturer says to. That covers storage temperature, in-use and expiry limits, dilution or reconstitution steps, validated equipment settings, required controls, and any other condition in the package insert, label, or instructions for use. Using a material off-label or outside those stated conditions is the violation.",
+"why_matters": "If you deviate from the manufacturer's stated conditions, the supply or reagent may not perform as intended, which can produce wrong test results or an unsafe product and put patients at risk.",
+"how_it_shows_up": "It shows up when operators run a material outside its labeled conditions and the records prove it: a kit stored or used past its labeled in-use window, a reagent diluted differently than the insert specifies, an assay incubated at a temperature the IFU does not allow, or required positive and negative controls skipped. Concrete example: a QC lab runs an endotoxin (LAL) reagent at a sample-to-reagent ratio and incubation time that differ from the manufacturer's package insert, so the lysate sensitivity is no longer the validated value and the release result for a biologic drug substance cannot be trusted. An inspector compares your batch and lab records against the insert and the gap is plain.",
+"biologics_note": "This exact citation, 21 CFR 606.65(e), lives in Part 606, which is CGMP for blood and blood components and applies to blood establishments specifically, not to cell and gene therapy, monoclonal antibodies, or other non-blood biologics. The same expectation reaches every other biologic and drug through 21 CFR 211.65 and 211.160(b) (equipment and laboratory controls used as specified) backed by 21 CFR 600/610/680 for biologics, and through 21 CFR Part 1271 for human cell and tissue-based products: in all cases, supplies, reagents, and equipment must be used in line with their qualified or validated conditions and the manufacturer's instructions.",
+"self_check_questions": [
+"For every supply and reagent we use, is the current manufacturer insert or instructions for use on file, and does our SOP or method match its stated storage, use, and expiry conditions?",
+"When an operator or analyst uses a material, do the records show it was used within the manufacturer's labeled conditions (correct temperature, dilution, in-use time, and any required controls)?",
+"If we ever need to use a material outside the manufacturer's instructions, is that handled through a documented, justified, and approved change or deviation rather than done at the bench?"
+],
+"total": 44,
+"trend": "rising",
+"per_year": {
+"2014": 10,
+"2015": 4,
+"2016": 4,
+"2017": 6,
+"2018": 6,
+"2019": 1,
+"2020": 0,
+"2021": 0,
+"2022": 3,
+"2023": 3,
+"2025": 7
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.151(e)",
+"area": "Biologics",
+"domain": "Data integrity & records",
+"short_desc": "Procedures to maintain records of emergency transfusions",
+"plain_meaning": "When blood or a blood component is released for an emergency transfusion before the usual compatibility testing is finished, you must keep a complete record of it. That record has to include the requesting physician's signature and a written justification explaining why the emergency action was taken. The point is simple: every decision to skip or shorten routine pretransfusion testing is captured in writing, with a named person accountable for it.",
+"why_matters": "If you cannot reconstruct who authorized an emergency release and why, you have no audit trail for a high-risk decision that bypassed normal safety testing, and you cannot prove the action was appropriate or investigate if a reaction occurs.",
+"how_it_shows_up": "An inspector reviews emergency-release events and finds units issued before crossmatch completion with no physician signature on file, or a checkbox marked \"emergency\" but no written reason for the urgency. As a concrete example, a hospital-based blood bank releases uncrossmatched group O units for a trauma patient; the release form is filled in by a technologist but the ordering physician never signs it and no note records why testing could not wait, so the record does not support the decision after the fact. The same gap appears when an SOP exists on paper but staff route emergency releases verbally and backfill paperwork inconsistently, leaving some events with no justification at all.",
+"biologics_note": "This is a blood-establishment-specific citation. 21 CFR Part 606 is CGMP for blood and blood components (blood banks and transfusion services), so 606.151(e) applies to emergency transfusion records, not to cell and gene therapy products or monoclonal antibodies. The general-biologics analogue is the same underlying expectation seen for other licensed biologics: complete, contemporaneous, attributable records of any deviation from a required testing or release step, with documented authorization and justification. For most biologics that lives under 21 CFR 211 (211.100 written procedures, 211.188 batch records, 211.192 investigation of unexplained discrepancies) plus 600/610, and for human cells, tissues, and cellular and tissue-based products under Part 1271. A licensed biologic is also a drug, so 211 record-keeping expectations apply alongside the biologics rules.",
+"self_check_questions": [
+"Does every emergency transfusion (release before routine compatibility testing is complete) have a record on file that includes the requesting physician's signature?",
+"Does each of those records contain a written justification explaining why the emergency action was necessary?",
+"Can you retrieve, for any past emergency release, a complete and contemporaneous record that lets a reviewer reconstruct who authorized it and why?"
+],
+"total": 40,
+"trend": "rising",
+"per_year": {
+"2014": 4,
+"2015": 5,
+"2016": 0,
+"2017": 5,
+"2018": 2,
+"2019": 7,
+"2020": 0,
+"2021": 0,
+"2022": 2,
+"2023": 1,
+"2025": 14
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.40(a)(1)",
+"area": "Biologics",
+"domain": "Equipment & facilities",
+"short_desc": "Provide space for examination",
+"plain_meaning": "FDA expects a blood establishment to have a physical area set aside where each prospective donor can be examined and questioned privately and accurately before being accepted to donate. The space has to actually support a private, reliable suitability assessment, not just exist on paper.",
+"why_matters": "If the screening space does not allow privacy and an accurate exam, donors may withhold honest answers or be wrongly judged suitable, which lets unsafe donations enter the supply and puts recipients at risk.",
+"how_it_shows_up": "In a blood or plasma collection center, this shows up as a screening booth or curtained bay that does not block sound or sight from the waiting area, so a donor's health questions and hemoglobin or vital-sign checks can be overheard. For a non-blood biologics company, the same expectation appears at the donor screening step for source material: a plasmapheresis center supplying a fractionation plant, or a cell or gene therapy firm collecting starting material by apheresis, needs a defined, private, fit-for-purpose area where donor history and physical assessment are done before collection.",
+"biologics_note": "This citation is specific to blood and blood component establishments under 21 CFR Part 606 (CGMP for blood). For other biologics the same expectation is not tied to 606; it appears through the donor eligibility and physical-plant requirements under 21 CFR 211 (adequate facilities and space) together with 600/610/680, and for cell and tissue-based products under 21 CFR Part 1271 (donor eligibility determination and suitable facilities). A monoclonal antibody or recombinant biologic with no human donor step would not have a 606.40(a)(1) analogue at all; the parallel only applies where you collect material from a human donor.",
+"self_check_questions": [
+"Is there a defined, documented screening area where a prospective donor's medical history questions and physical or vital-sign checks can be done so others cannot see or overhear them?",
+"Has the screening space been assessed and recorded as adequate for an accurate exam (lighting, room, equipment, and quiet conditions to take a reliable history and measurements)?",
+"Do your facility procedures and any audit walkthroughs confirm the private screening area is consistently used for every donor before acceptance?"
+],
+"total": 38,
+"trend": "steady",
+"per_year": {
+"2014": 7,
+"2015": 8,
+"2016": 4,
+"2017": 3,
+"2018": 4,
+"2019": 3,
+"2020": 2,
+"2021": 1,
+"2022": 4,
+"2023": 1,
+"2025": 1
+},
+"example": null
+},
+{
+"reference": "21 CFR 630.10(g)(1)",
+"area": "Biologics",
+"domain": "Production controls",
+"short_desc": "Proof Of Identity",
+"plain_meaning": "On the day a person donates blood or a blood component, the establishment has to confirm who the donor is (proof of identity) and capture a postal address where that donor can be reached for at least 8 weeks after the donation. This citation means that step was missed, incomplete, or not recorded.",
+"why_matters": "If you cannot reliably identify a donor or reach them after donation, you cannot trace a unit back to its source or warn the donor about a positive test or a safety problem, which puts recipients of the product at risk.",
+"how_it_shows_up": "An investigator reviewing donation records finds units collected where the identity check was not documented, the donor's postal address was blank or obviously stale, or the procedure let staff skip the address field. A concrete example: a plasma or whole-blood collection center processes a donor through registration, but the donor history record has no recorded ID verification and only a phone number, so when a post-donation infectious-disease result comes back reactive, the center has no valid mailing address to send the required donor notification.",
+"biologics_note": "This is a blood-establishment specific citation. Part 630 governs donor eligibility for blood and blood components only, so it does not apply to cell or gene therapy products, monoclonal antibodies, or other recombinant biologics. The same underlying expectation appears elsewhere for other products: licensed biologics must control source materials and keep traceability and records under 21 CFR 211 (records and controls), 600/610 (general biologics standards), and the donor-eligibility and tracking requirements under Part 1271 for human cells, tissues, and cellular and tissue-based products (HCT/Ps), including donor identification and the ability to track a product from donor to recipient and back.",
+"self_check_questions": [
+"For every collection, does your donor record show that proof of identity was obtained and documented on the day of donation?",
+"Does each donation record capture a current postal address where the donor can be contacted for at least 8 weeks after donation, and is the address-capture field required (not skippable) in your system?",
+"If a post-donation test result or safety concern arises, can you reliably reach the donor using the recorded contact information?"
+],
+"total": 32,
+"trend": "falling",
+"per_year": {
+"2014": 0,
+"2015": 0,
+"2016": 0,
+"2017": 6,
+"2018": 4,
+"2019": 12,
+"2020": 0,
+"2021": 2,
+"2022": 5,
+"2023": 0,
+"2025": 3
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.60(b)",
+"area": "Biologics",
+"domain": "Equipment & facilities",
+"short_desc": "Equipment calibration frequency",
+"plain_meaning": "Equipment used to collect, process, test, store, or distribute blood and blood components has to be checked, standardized, and calibrated on a set schedule, and that schedule has to be at least as often as the regulation requires. In short: you cannot rely on a thermometer, scale, centrifuge, or testing instrument that has drifted out of accuracy because nobody calibrated it on time.",
+"why_matters": "If equipment is not calibrated at the required frequency, every measurement it makes (temperature, weight, spin force, test result) becomes untrustworthy, so you can release a product or accept a test result based on a reading that was wrong.",
+"how_it_shows_up": "An investigator pulls calibration records and finds gaps: a refrigerator temperature recorder that was due for calibration in March but signed off in July with no deviation, or a centrifuge with no documented standardization at the required interval. A concrete example: a biologics facility runs storage units for a temperature-sensitive product, the calibration schedule says quarterly, but the logbook shows one quarter skipped, and product was stored and released during that window with no assessment of whether the unit was reading true.",
+"biologics_note": "21 CFR 606.60 is CGMP for blood and blood establishments specifically, so the exact citation applies to blood and blood component operations, not to cell and gene therapy, monoclonal antibodies, or other biologics. The same expectation reaches other biologics and finished drugs through 21 CFR 211.68 (automatic, mechanical, and electronic equipment routinely calibrated, inspected, or checked per a written program) and 211.160(b)(4) (instruments and recording devices calibrated at suitable intervals), backed by the general biologics standards in 21 CFR 600/610; for human cells, tissues, and cellular and tissue-based products, the parallel sits in 21 CFR 1271 (for example 1271.200 on equipment cleaning, maintenance, and calibration). So a biotech, biologics, or CGT company should read this observation as the calibration-frequency expectation that applies to them under those sections.",
+"self_check_questions": [
+"Does every piece of measuring or processing equipment have a written calibration frequency that meets or exceeds the regulatory minimum, and are all calibrations on or ahead of schedule with no silent gaps?",
+"When a calibration is found out of tolerance or is missed, do you open a deviation and assess the impact on every product or test result generated since the last good calibration?",
+"Can you produce, on demand, current calibration records (date done, date due, who performed it, pass or fail) for any instrument an investigator points to?"
+],
+"total": 26,
+"trend": "falling",
+"per_year": {
+"2014": 6,
+"2015": 1,
+"2016": 1,
+"2017": 7,
+"2018": 1,
+"2019": 4,
+"2020": 0,
+"2021": 2,
+"2022": 3,
+"2023": 0,
+"2025": 1
+},
+"example": null
+},
+{
+"reference": "21 CFR 600.14(c)",
+"area": "Biologics",
+"domain": "Investigations & CAPA",
+"short_desc": "When to report",
+"plain_meaning": "If you hold a biologics license and a reportable deviation happens to a product you have already distributed, you have to file a Biological Product Deviation Report (on Form FDA-3486) as soon as possible, and no later than 45 calendar days from the date anyone in your control chain first gets information that reasonably suggests a reportable event occurred. Paragraph (c) is specifically about the timing: the clock starts at discovery, not at the end of your investigation, and 45 days is the hard ceiling, not a target.",
+"why_matters": "A late or missed BPDR means FDA loses timely visibility into product that may affect patient safety, and chronic 45-day misses signal a quality system that cannot detect, decide, and act on its own events, which is exactly what an inspection probes.",
+"how_it_shows_up": "It shows up when the day-count from first awareness to FDA submission exceeds 45 days, or when the company cannot prove what date that 45-day clock should have started. A common pattern: a contract fill-finish site for a licensed monoclonal antibody finds a sterility-relevant excursion on lot already shipped, emails the license holder, and the report does not go out for 70 days because the firm waited for the full root-cause investigation to close first. FDA reads the clock from the date of that first email (information reasonably suggesting a reportable event), not from investigation closure, so the firm is already 25 days late. It also appears when a firm decides an event is not reportable but cannot show a documented, defensible reportability assessment with a date.",
+"biologics_note": "",
+"self_check_questions": [
+"Can you point to a written procedure that defines exactly when the 45-calendar-day BPDR clock starts (the date of first awareness, not investigation closure) and assigns who tracks it?",
+"For every BPDR you filed in the last two years, can you show the date of first awareness and the submission date, and confirm each was within 45 calendar days?",
+"When you decide an event is NOT a reportable biological product deviation, do you document that reportability decision with the rationale and a date, so a reviewer can see the call was made and timed correctly?"
+],
+"total": 26,
+"trend": "rising",
+"per_year": {
+"2014": 5,
+"2015": 2,
+"2016": 4,
+"2017": 3,
+"2018": 7,
+"2019": 2,
+"2020": 0,
+"2021": 0,
+"2022": 1,
+"2023": 2,
+"2025": 0
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.100(b)(15)",
+"area": "Biologics",
+"domain": "Equipment & facilities",
+"short_desc": "Schedules and procedures for equipment & calibration",
+"plain_meaning": "Your written standard operating procedures must spell out when and how equipment gets maintained and calibrated, including the schedule (how often) and the actual step-by-step procedure. It is not enough to maintain and calibrate equipment; the SOP itself has to describe the schedules and the methods in writing.",
+"why_matters": "If equipment that measures temperature, volume, speed, or other critical values is not maintained and calibrated on a defined schedule, you cannot trust the readings, and a drifting or broken instrument can release a product that is actually out of specification.",
+"how_it_shows_up": "An investigator reads the SOP and finds it says equipment \"will be maintained and calibrated\" but never states the frequency (monthly, annually, before each use) or the actual procedure, acceptance limits, or what to do on a failure. Concrete example: a biologics fill-finish or cell-therapy operation has a centrifuge, a freezer monitoring probe, and a balance, but the SOP lists no calibration interval and no method, and the calibration stickers or records show gaps, units done late, or no defined tolerance, so the inspector cites a missing written schedule and procedure.",
+"biologics_note": "This exact citation lives in 21 CFR Part 606, which is CGMP for blood and blood components specifically (blood establishments), so 606.100(b)(15) is written for blood operations. The same expectation applies to other biologics under 21 CFR 211.67 and 211.68 (equipment cleaning, maintenance, and calibration of automatic/mechanical/electronic equipment) together with the general biologics standards in 21 CFR 600 and 610, and for human cell and tissue based products under 21 CFR Part 1271 (1271.200, equipment maintained and calibrated on a schedule per written procedures). A licensed biologic is also a drug, so the 211 requirements apply to a biotech/biologics maker regardless.",
+"self_check_questions": [
+"Does each piece of critical equipment have a written SOP that states the maintenance and calibration frequency (not just that it will be done)?",
+"Does that SOP describe the actual calibration method, the acceptance limits or tolerances, and what to do when a unit fails or is found out of tolerance?",
+"Can you show calibration and maintenance records that match the scheduled intervals in the SOP, with no unexplained gaps or overdue items?"
+],
+"total": 24,
+"trend": "rising",
+"per_year": {
+"2014": 4,
+"2015": 4,
+"2016": 4,
+"2017": 4,
+"2018": 1,
+"2019": 1,
+"2020": 1,
+"2021": 0,
+"2022": 1,
+"2023": 1,
+"2025": 3
+},
+"example": {
+"company": "Hemarus LLC",
+"date": "10/08/2024",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/hemarus-llc-688656-10082024",
+"snippet": "Date: 05-27-20). 3. Failure to follow written standard operating procedures for all steps in the collection, processing, storage, and distribution of blood and blood components for further manufacturing purposes [21 CFR 606.100(b)]. For example, on April 15, 2024, FDA investigators observed freshly collected units of Source Plasma being placed immediately..."
+}
+},
+{
+"reference": "21 CFR 606.40",
+"area": "Biologics",
+"domain": "Equipment & facilities",
+"short_desc": "Suitable size, construction, etc.",
+"plain_meaning": "Your facility has to be the right size, built the right way, and located so that staff can actually keep it clean, maintain it, and run operations correctly without product getting contaminated or mixed up. In plain terms: enough room for each step, separation between dirty and clean work, surfaces and layout you can clean, plus working lighting, ventilation, handwashing, restrooms, drains that prevent back-siphonage, and safe waste disposal.",
+"why_matters": "If the building works against you, contamination, mix-ups, and cleaning failures become routine instead of rare, and that puts product safety and patient safety at risk.",
+"how_it_shows_up": "It shows up as crowded or shared space where incompatible activities overlap, layouts that force quarantined and released material to mingle, cleaning that cannot reach behind fixed equipment, or missing basics like adequate ventilation, handwashing sinks, or trapped drains. Concrete example: a biologics fill suite where the warehouse expands product volume faster than the floor plan, so quarantine, in-process, and released material end up staged in the same corridor, an investigator photographs a released vial sitting next to a held lot, and the firm cannot show a defined, separate area for each, which reads directly as inadequate space and location to facilitate proper operations.",
+"biologics_note": "21 CFR 606.40 is current good manufacturing practice for blood and blood components specifically (blood establishments collecting and processing whole blood, components, and apheresis products); it does not directly govern cell and gene therapy, monoclonal antibodies, or other non-blood biologics. The same facility expectation applies to other biologics through 21 CFR 211.42 (buildings of suitable size, construction, and location with defined separate areas to prevent contamination and mix-ups), 211.46 (lighting, ventilation, and air filtration), 211.56 (sanitation), and 211.58 (maintenance), reinforced by the general biologics standards in 21 CFR 600, 610, and 680; for human cell, tissue, and cellular and tissue-based products, the parallel facility requirement is in 21 CFR Part 1271 (notably 1271.190 facilities and 1271.195 environmental controls).",
+"self_check_questions": [
+"Can you point to a defined, physically separate area for each operation (donor screening or material receipt, processing, in-process storage, quarantine, released-product storage, packaging and labeling, and waste) so incompatible activities do not overlap?",
+"Does every room have working lighting and ventilation, handwashing stations, restrooms, and drains with traps that prevent back-siphonage, all confirmed on a current schedule?",
+"Can cleaning and maintenance personnel physically reach all surfaces, equipment, and floor areas, with no spots blocked by fixed equipment or overcrowding, and is that verified during routine cleaning checks?"
+],
+"total": 21,
+"trend": "falling",
+"per_year": {
+"2014": 3,
+"2015": 5,
+"2016": 4,
+"2017": 4,
+"2018": 0,
+"2019": 2,
+"2020": 1,
+"2021": 0,
+"2022": 0,
+"2023": 1,
+"2025": 1
+},
+"example": null
+},
+{
+"reference": "21 CFR 600.14(a)(1)",
+"area": "Biologics",
+"domain": "Investigations & CAPA",
+"short_desc": "Who must report - receiving information",
+"plain_meaning": "If you hold the license for a biological product and you controlled it when something went wrong, you must report certain manufacturing deviations to FDA (a Biological Product Deviation Report). Paragraph (a)(1) is specifically about the front end of that duty: you must have written procedures that make sure deviation, complaint, and adverse-event information actually reaches you, including events that happen at your contractors who manufacture, hold, label, or distribute the product. You cannot report what you never find out about, so the rule requires a system for obtaining the information in the first place.",
+"why_matters": "If information about a reportable deviation never reaches the license holder, a distributed product that may not meet safety, purity, or potency goes uncorrected and the required FDA report is never filed, which is both a patient-safety gap and a reporting violation.",
+"how_it_shows_up": "It typically appears when a company relies on contract manufacturers, fill-finish sites, distributors, or storage providers but has no written procedure requiring those partners to notify it of deviations, complaints, and adverse events tied to its licensed product. For example, a biologics company outsources fill-finish of a licensed monoclonal antibody; the CMO experiences a temperature excursion during holding of distributed lots, but the quality agreement and the company's own SOPs never define a notification path, so the license holder learns of it months later (or only during the inspection) and the 45-day BPDR clock was never started. Inspectors also cite it when complaint and adverse-event intake procedures do not feed into the deviation-reporting decision, so reportable events sit in a complaint file and are never evaluated for BPDR.",
+"biologics_note": "",
+"self_check_questions": [
+"Do we have written procedures that require every party who manufactures, holds, labels, or distributes our licensed biological product (including all contractors) to notify us of deviations, complaints, and adverse events for distributed product?",
+"Are our quality agreements and complaint and adverse-event intake procedures explicitly linked to our biological product deviation reporting process, so incoming information is routed to the people who decide whether a report is required and the 45-day clock is tracked?",
+"Can we show a current example where information received from a contractor or from a complaint was assessed against the BPDR criteria and either reported to FDA within 45 days or documented with a justified not-reportable rationale?"
+],
+"total": 20,
+"trend": "steady",
+"per_year": {
+"2014": 7,
+"2015": 3,
+"2016": 1,
+"2017": 0,
+"2018": 1,
+"2019": 2,
+"2020": 2,
+"2021": 0,
+"2022": 1,
+"2023": 1,
+"2025": 2
+},
+"example": null
+},
+{
+"reference": "21 CFR 606.20(b)",
+"area": "Biologics",
+"domain": "Training",
+"short_desc": "Qualifications of responsible personnel",
+"plain_meaning": "The people who collect, process, test, store, or distribute blood and blood components must be qualified for those jobs. FDA expects the right number of people, with the right education, training, and hands-on experience for what each role actually does.",
+"why_matters": "If unqualified or undertrained staff handle blood, the chance of a unit being mislabeled, mistyped, contaminated, or released wrong goes up, and that lands directly on patient safety.",
+"how_it_shows_up": "An investigator finds operators running compatibility testing or component processing whose training records do not match the procedures they perform, or a shift staffed too thinly to do the work as written. A concrete example: a blood establishment where two technologists were performing crossmatch testing but their files showed no documented qualification or competency assessment for that test, so FDA cited the personnel as not adequate in training and experience.",
+"biologics_note": "This citation is specific to blood establishments under 21 CFR Part 606, the CGMP for blood and blood components. It does not apply to cell and gene therapy products, monoclonal antibodies, or other biologics. The same expectation that personnel be qualified by education, training, and experience appears for other biologics under 21 CFR 211.25 (and 600/610/680 for licensed biologics generally), and for human cell and tissue products under 21 CFR Part 1271 (1271.170, personnel). A drug or non-blood biologic company should map its version of this control to 211.25 plus its applicable biologics rules, not to 606.",
+"self_check_questions": [
+"Does every person who collects, processes, tests, stores, or distributes blood have documented education, training, and experience that matches the specific tasks they perform?",
+"Are competency assessments completed and on file before staff work independently, and repeated on a defined schedule?",
+"Is each function staffed with enough qualified people to perform the work as the procedures require, including across all shifts?"
+],
+"total": 19,
+"trend": "steady",
+"per_year": {
+"2014": 7,
+"2015": 3,
+"2016": 1,
+"2017": 2,
+"2018": 0,
+"2019": 3,
+"2020": 0,
+"2021": 0,
+"2022": 1,
+"2023": 1,
+"2025": 1
+},
+"example": {
+"company": "Hemarus LLC",
+"date": "10/08/2024",
+"url": "https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/warning-letters/hemarus-llc-688656-10082024",
+"snippet": "thereof, to assure competent performance of their assigned functions, and to ensure that the final product has the safety, purity, potency, identity and effectiveness it purports or is represented to possess [21 CFR 606.20(b)]. For example, since September 27, 2022, nine of (b)(4) employees approved as physician substitutes by your Medical Director failed..."
+}
+},
+{
+"reference": "21 CFR 640.4(f)",
+"area": "Biologics",
+"domain": "Sterility assurance",
+"short_desc": "Arm preparation",
+"plain_meaning": "This rule applies to blood establishments collecting Whole Blood. It says the donor's skin at the needle insertion (phlebotomy) site must be cleaned and disinfected thoroughly using a validated method that gives the best possible assurance the collected blood ends up in a sterile container. In short, prep the arm right so the unit does not get contaminated by skin bacteria during the draw.",
+"why_matters": "Skin flora introduced at the draw can contaminate the unit, which for a product transfused into a patient can cause a life-threatening bloodstream infection (sepsis).",
+"how_it_shows_up": "An investigator watches the actual collection step and finds the arm-prep procedure is not being followed or has never been validated as effective. Concrete example: a plasma-derived or blood-component operation where phlebotomists skip the required scrub contact time, use an expired or wrong-concentration antiseptic, touch the disinfected site before needle insertion, or the SOP never established that the chosen prep method actually achieves the needed skin antisepsis. Related sterility-of-collection failures show up the same way in other settings, such as an aseptic cell-therapy apheresis or tissue recovery where the donor or patient site prep is not controlled or proven.",
+"biologics_note": "This citation lives in 21 CFR Part 640 (with the general blood CGMP of Part 606) and is specific to blood establishments collecting Whole Blood and blood components; it does not by its terms apply to cell and gene therapies, monoclonal antibodies, or other recombinant biologics. The general-biologics analogue is the same expectation expressed elsewhere: aseptic collection and contamination control under 21 CFR 211 (a licensed biologic is also a drug, so 211 applies) together with 21 CFR 600/610/680 for biological products, and for human cell and tissue based products the donor eligibility and processing controls of 21 CFR Part 1271. The common thread across all of them is a validated, controlled method to keep the starting material and product sterile at the point of collection.",
+"self_check_questions": [
+"Is the phlebotomy site preparation method (antiseptic, concentration, scrub technique, and contact/dry time) documented in an SOP and validated to give maximum assurance of a sterile collection?",
+"Are collection staff trained and periodically observed performing arm prep correctly, including not re-touching the disinfected site before insertion, with records to show it?",
+"Do you monitor outcomes (for example bacterial contamination rates, antiseptic lot/expiry control, and skin-prep deviations) and investigate any sterility failures back to the prep step?"
+],
+"total": 18,
+"trend": "rising",
+"per_year": {
+"2014": 3,
+"2015": 2,
+"2016": 0,
+"2017": 1,
+"2018": 2,
+"2019": 1,
+"2020": 0,
+"2021": 0,
+"2022": 1,
+"2023": 3,
+"2025": 5
+},
+"example": null
+}
+],
+"foundations": [
+{
+"reference": "FOUNDATION",
+"domain": "Quality unit",
+"plain_meaning": "FDA expects one quality unit with real independence and real authority over the product. It has to be free to make quality decisions (approve or reject materials, procedures, specifications, and finished product) without production or commercial pressure overruling it, and it has to actually exercise that authority across the whole lifecycle. ICH Q10 describes this as a single, well-defined pharmaceutical quality system where management owns quality, resources are adequate, and the quality unit sits over batch release, change control, deviations, and supplier oversight.",
+"why_matters": "If the quality unit can be overruled, under-resourced, or routed around, every other control (release, investigations, change control) loses its last line of defense, and product decisions get made on schedule or cost instead of on data.",
+"how_it_shows_up": "A common gap is a quality unit that signs batch release but in practice cannot stop a shipment: a deviation is left open or downgraded, or a needed change is pushed through, because production or a launch date wins the argument. It also shows up as no current procedure defining the quality unit's authorities, an org chart where quality reports into operations, or quality stretched so thin that reviews are rubber-stamped rather than done.",
+"biologics_note": "",
+"self_check_questions": [
+"Does a current, approved procedure or quality manual define the quality unit and give it clear authority to approve or reject materials, procedures, specifications, and finished product, including the authority to stop release or distribution?",
+"Does the quality unit report and make release decisions independently of production and commercial functions, so a quality rejection cannot be overruled by manufacturing or business pressure?",
+"Does senior management review the quality system on a defined schedule and provide enough trained staff and resources that quality reviews, investigations, and approvals are done on time rather than rushed or skipped?"
+]
+},
+{
+"reference": "FOUNDATION",
+"domain": "Data integrity and records",
+"plain_meaning": "Data integrity means your records are complete, accurate, and trustworthy from the moment they are created through their full retention period. ALCOA+ is the shorthand FDA uses for the qualities a good record has: Attributable (you can tell who did it and when), Legible, Contemporaneous (recorded at the time the work happened, not backfilled), Original (or a verified true copy), and Accurate, plus Complete, Consistent, Enduring, and Available. An inspector expects to see that paper and electronic records reflect what actually happened, that each entry is tied to a real, identified person, that systems have audit trails capturing creates/changes/deletes, that access is controlled by individual logins with no shared accounts, and that nobody can quietly overwrite or delete data.",
+"why_matters": "If records can be altered, backdated, or attributed to no one, the inspector cannot trust any of your data, which can invalidate batch release, study results, and the filing itself, and is one of the fastest routes to a warning letter or import alert.",
+"how_it_shows_up": "A QC lab runs HPLC under a single shared \"QC analyst\" Windows and software login, so the audit trail cannot show which person ran or reprocessed a sample, and the account has admin rights that allow deleting injections. A reviewer also finds that operators sign batch records at end of shift for steps done hours earlier, and a few entries were corrected with white-out instead of a single-line cross-out with initials, date, and reason.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every person who touches GxP records have a unique individual login, with no shared or generic accounts, and are administrator rights separated from the operators and analysts who generate the data?",
+"Are audit trails turned on for your GxP systems, set so users cannot disable or alter them, and are they actually reviewed (for example as part of batch or result review) rather than just existing?",
+"Can you show that records are made contemporaneously, that corrections keep the original entry visible with who/when/why, and that original data and true copies are protected from deletion or overwrite for the full retention period?"
+]
+},
+{
+"reference": "FOUNDATION",
+"domain": "Procedures & SOPs",
+"plain_meaning": "An inspector expects every GxP activity to be governed by a written procedure that is the approved, current version, that staff actually follow it, and that records are created, dated, reviewed, and kept for the required period. They expect a controlled system that shows who approved each document, when it became effective, what changed, and that old versions are pulled from use so nobody works from an outdated copy.",
+"why_matters": "If people work from outdated or uncontrolled procedures, or records cannot be found or trusted, you cannot prove the product was made and tested correctly, which puts patient safety and the entire quality system in doubt.",
+"how_it_shows_up": "During a walkthrough an inspector finds an operator using a printed procedure at the line that is two revisions behind the approved version, or asks for a batch record from 18 months ago and it takes hours to locate, with some entries in pencil, undated, or signed by someone who was not on shift that day. Another common gap is an SOP that is past its scheduled periodic review date and was never reassessed.",
+"biologics_note": "",
+"self_check_questions": [
+"Can you confirm that every controlled document in active use is the current approved version, with superseded copies removed from the point of use?",
+"Are records completed at the time the work is done, legible, dated, and attributable to the person who did the work (good documentation practices)?",
+"Do you have a defined retention period for each record type, and can you retrieve any required record within a reasonable time during an inspection?"
+]
+},
+{
+"reference": "FOUNDATION",
+"domain": "Investigations & CAPA",
+"plain_meaning": "FDA expects that when something goes wrong (a deviation, an out-of-specification result, a complaint, a failure), you open a record, investigate it to a true root cause, take corrective and preventive action, and later confirm the action actually worked. Investigations should be opened promptly, closed within defined timeframes, scaled to the risk, and tied to a CAPA that has a measurable effectiveness check rather than just a closure signature.",
+"why_matters": "If investigations are slow, shallow, or their fixes are never verified, the same failure recurs and product reaching patients may be defective without anyone catching the systemic cause.",
+"how_it_shows_up": "A common gap is the investigation that names a person or a single event as the root cause (\"operator error,\" \"one-time mistake\") instead of finding why the system allowed it, then closing the CAPA with retraining and no effectiveness check, so months later the identical deviation reappears. Inspectors also see large backlogs of overdue investigations and CAPAs left open well past their due dates with repeated extensions and no justification.",
+"biologics_note": "",
+"self_check_questions": [
+"Are your deviations and investigations opened, assigned, and closed within defined timeframes, with any extension documented and justified rather than open-ended?",
+"Do your investigations reach a true systemic root cause (using a documented method) and assess impact on other batches, products, and lots, instead of stopping at operator error or retraining?",
+"Does each CAPA have a defined effectiveness check with acceptance criteria, performed after implementation to confirm the problem did not recur before the action is considered done?"
+]
+},
+{
+"reference": "FOUNDATION",
+"domain": "Change control & validation lifecycle",
+"plain_meaning": "FDA expects that anything that can affect product quality, a process, a piece of equipment, or a computer system, is shown to work for its intended use before you rely on it, and that any later change to it goes through a documented review and approval before it takes effect. In practice that means qualified equipment and facilities, validated manufacturing and cleaning processes, validated computer systems that hold GxP data, and a single change control system that catches the impact of a change and re-tests or re-validates as needed.",
+"why_matters": "If a process, system, or piece of equipment is changed or used without proof it still works, you can release product that does not meet specifications, and you lose the ability to say your data and results are trustworthy.",
+"how_it_shows_up": "A common gap is the silent change: a spreadsheet formula, an instrument method, a software setting, or a process parameter gets adjusted to fix a problem, and the change is made directly in production with no change record, no impact assessment, and no re-validation or re-qualification. It surfaces when an inspector finds the current state of a system does not match its last validated or qualified configuration, or finds validation that was done once at install and never revisited after later changes.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every change to a GxP process, system, equipment, or facility go through one documented change control with an impact assessment and approval before it takes effect?",
+"Can you show current, approved validation or qualification evidence (IQ/OQ/PQ, process validation, CSV) that matches the actual configuration in use today, not just the original install?",
+"When a change is assessed, do you decide and document whether re-validation, re-qualification, or revalidation of affected items is needed, and complete it before release?"
+]
+},
+{
+"reference": "FOUNDATION",
+"domain": "Training & competency",
+"plain_meaning": "An inspector expects every person who touches a GMP/GxP activity to be trained for the specific job they do before they do it, and to stay current as procedures change. Training has to be more than reading an SOP and signing a sheet: there should be a defined curriculum tied to each role, a record showing who was trained on what and when, and some evidence the person can actually perform the task (competency), not just that they attended.",
+"why_matters": "Untrained or undertrained staff are a root cause behind data errors, deviations, contamination events, and failed batches, and an inspector who sees a documented training gap will question every record those people produced.",
+"how_it_shows_up": "A common gap is the \"read-and-sign\" trap: an operator signs that they reviewed the latest SOP revision, but there is no check that they understood it or can perform the step, and the training record was backdated or completed after the work was already done. Another frequent finding is a person performing a task (running an assay, reviewing a batch record, doing an aseptic intervention) with no role-based curriculum or qualification on file for that specific activity, plus overdue refresher and annual GMP training that nobody tracked to closure.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every person have a defined, role-based training curriculum, and can you show training was completed before they performed each GMP/GxP task?",
+"Beyond read-and-sign, do you assess and document actual competency for higher-risk tasks (for example aseptic technique, batch record review, analytical testing) with a qualified assessor and re-qualification when needed?",
+"Are refresher and periodic GMP/GxP training, and retraining triggered by SOP changes or deviations, tracked to on-time completion with no overdue items going unaddressed?"
+]
+},
+{
+"reference": "FOUNDATION",
+"domain": "Quality system oversight",
+"plain_meaning": "An inspector expects senior management to actively run the quality system, not just sign off on it once a year. That means a regular management review where leaders look at real quality data (deviations, complaints, CAPA status and aging, recalls, rejected batches, trends), make documented decisions, and assign and track actions with owners and due dates. They expect the company to know its own quality state from metrics and to walk into an inspection already prepared, not scrambling.",
+"why_matters": "If leadership does not see and act on quality data in time, small recurring problems grow into systemic failures, repeat deviations, and findings that point to a quality system out of control rather than a one-off slip.",
+"how_it_shows_up": "A company holds management reviews, but they are slide decks that report all-green status while CAPAs sit open for over a year, the same deviation keeps recurring, and no action item from the prior review was ever closed. During an inspection, no one can produce a clear picture of open CAPA aging or deviation trends, so the team pulls numbers together by hand while the investigator waits.",
+"biologics_note": "",
+"self_check_questions": [
+"Do we hold documented management reviews on a defined schedule where senior leaders see actual quality metrics (deviation, complaint, CAPA aging, batch reject and recall trends), with action items that have owners, due dates, and tracked closure?",
+"Can we produce, on short notice, a current and accurate view of our open deviations, CAPAs, and their aging, and explain the trends rather than assembling the numbers by hand during the inspection?",
+"When metrics show an adverse or recurring trend, is there a documented record that management saw it, decided what to do, and that the resulting actions were carried out and verified for effectiveness?"
+]
+},
+{
+"reference": "FOUNDATION",
+"domain": "Supplier & Contract-Facility Oversight",
+"plain_meaning": "You stay responsible for quality even when someone else does the work. An inspector expects to see that you qualified each supplier and contract facility (CMO, CDMO, testing lab, raw-material and component vendor) before relying on them, that a written quality agreement spells out who does what for every GMP activity, and that you keep watching their performance over time through approved-vendor lists, audits, scorecards, and incoming material controls rather than trusting them once and walking away.",
+"why_matters": "If a supplier or contract site fails and you cannot show you qualified and oversaw them, the failure becomes your failure, and a defect or adulterated material can reach a patient because no one was actually watching the seam between the two companies.",
+"how_it_shows_up": "A common gap is a contract testing lab or fill-finish CMO doing GMP work with no signed quality agreement, an expired or generic one, or roles that contradict the SOPs, so when a lab investigation or deviation happens nobody can show who owned the decision. Another frequent gap is a vendor on the approved list with no qualification record, no risk-based audit, and incoming material accepted on the supplier's certificate of analysis with no periodic verification of that certificate.",
+"biologics_note": "",
+"self_check_questions": [
+"Does every contract facility and GMP supplier you rely on have a current signed quality agreement that defines responsibilities, and do those responsibilities match your own SOPs?",
+"Was each supplier and contract facility qualified before use through a risk-based process (questionnaire, audit, or on-site assessment), with the qualification documented and kept current?",
+"Do you monitor ongoing supplier and contractor performance (approved-vendor list, periodic re-evaluation, audits, scorecards, deviation and CoA trending) instead of relying on a one-time approval?"
+]
+}
+]
+}

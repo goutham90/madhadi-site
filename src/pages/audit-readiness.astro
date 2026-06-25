@@ -1,0 +1,284 @@
+---
+import Layout from '../layouts/Layout.astro';
+import tool from '../data/audit_tool.json';
+
+const cites = tool.citations || [];
+const foundations = tool.foundations || [];
+const years = tool.meta?.years || [];
+const wlTotal = tool.meta?.wl_total || 0;
+const obsRecords = 17657; // FY2014-2025 483 citation records merged
+const drugs = cites.filter((c) => c.area === 'Drugs');
+const biologics = cites.filter((c) => c.area === 'Biologics');
+const maxYear = Math.max(1, ...cites.flatMap((c) => Object.values(c.per_year || {}).map(Number)));
+const domains = Array.from(new Set(cites.map((c) => c.domain))).sort();
+const trendLabel = { rising: 'Rising', steady: 'Steady', falling: 'Falling' };
+
+// sparkline bar heights (per year) for a citation
+const spark = (c) => years.map((y) => {
+  const v = Number((c.per_year || {})[String(y)] || 0);
+  return { y, v, h: Math.round((v / maxYear) * 100) };
+});
+---
+<Layout title="FDA Audit Readiness" wide={true}
+  description="A free audit-readiness tool built on FDA's real Warning Letters and Form 483 inspection observations (FY2014-2025). Self-check your quality system against the citations FDA issues most to drug and biologics companies, with plain-language meaning, what to verify, and real examples.">
+
+  <header class="ar-hero">
+    <div class="wrap ar-hero-in">
+      <div class="page-label ar-eyebrow">Tool / Audit Readiness</div>
+      <h1 class="ar-h1">Are you ready for an FDA inspection?</h1>
+      <p class="ar-lead">A free self-assessment built on what FDA actually cites. We analyzed <strong>{wlTotal.toLocaleString()} Warning Letters</strong> and <strong>{obsRecords.toLocaleString()} Form 483 observations</strong> ({years[0]}-{years[years.length-1]}) so you can check your quality system against the findings drug and biologics companies receive most, in plain language, with what to verify and a real example for each.</p>
+      <div class="ar-stats">
+        <div class="ar-stat"><span class="ar-stat-n">{wlTotal.toLocaleString()}</span><span class="ar-stat-l">Warning Letters analyzed</span></div>
+        <div class="ar-stat"><span class="ar-stat-n">{obsRecords.toLocaleString()}</span><span class="ar-stat-l">483 observations, {years.length} years</span></div>
+        <div class="ar-stat"><span class="ar-stat-n">{cites.length}</span><span class="ar-stat-l">top citations decoded</span></div>
+      </div>
+      <p class="ar-disc">Educational pattern analysis from public FDA data, not legal, regulatory, or compliance advice, and not a prediction of any inspection outcome. See the <a href="/disclaimer">Disclaimer and Terms</a>.</p>
+    </div>
+  </header>
+
+  <div class="wrap ar-tabs-wrap">
+    <div class="ar-tabs" role="tablist">
+      <button class="ar-tab is-on" id="tab-check" role="tab" aria-selected="true">Self-assessment</button>
+      <button class="ar-tab" id="tab-explore" role="tab" aria-selected="false">Top observations explorer</button>
+    </div>
+  </div>
+
+  <!-- ================= SELF-ASSESSMENT ================= -->
+  <section class="wrap ar-panel" id="panel-check">
+    <p class="ar-panel-intro">Answer honestly across the eight areas an inspector probes. You will get a readiness picture and a prioritized list of gaps, each tied to what FDA cites most. Nothing is sent anywhere, it all runs in your browser.</p>
+    <form id="ar-form">
+      {foundations.map((f, fi) => (
+        <fieldset class="ar-fset" data-domain={f.domain}>
+          <legend class="ar-legend"><span class="ar-legend-n">{String(fi + 1).padStart(2, '0')}</span>{f.domain}</legend>
+          <p class="ar-fset-why">{f.plain_meaning}</p>
+          {(f.self_check_questions || []).map((q, qi) => (
+            <div class="ar-q">
+              <p class="ar-q-text">{q}</p>
+              <div class="ar-q-opts">
+                <label><input type="radio" name={`q-${fi}-${qi}`} value="1" /> Yes</label>
+                <label><input type="radio" name={`q-${fi}-${qi}`} value="0.5" /> Partly</label>
+                <label><input type="radio" name={`q-${fi}-${qi}`} value="0" /> No</label>
+                <label><input type="radio" name={`q-${fi}-${qi}`} value="-1" /> Not sure</label>
+              </div>
+            </div>
+          ))}
+        </fieldset>
+      ))}
+      <div class="ar-actions">
+        <button type="button" id="ar-score-btn" class="ar-btn">See my readiness</button>
+        <button type="reset" class="ar-btn ar-btn-ghost">Reset</button>
+      </div>
+    </form>
+    <div id="ar-result" class="ar-result" hidden></div>
+  </section>
+
+  <!-- ================= EXPLORER ================= -->
+  <section class="wrap ar-panel" id="panel-explore" hidden>
+    <p class="ar-panel-intro">The CFR citations FDA issues most to drug and biologics makers, ranked by frequency over {years.length} years, each decoded into plain language with what to verify and a real Warning Letter example.</p>
+    <div class="ar-filters">
+      <div class="ar-filter-group" id="ar-area">
+        <button class="ar-chip is-on" data-area="all">All</button>
+        <button class="ar-chip" data-area="Drugs">Drugs ({drugs.length})</button>
+        <button class="ar-chip" data-area="Biologics">Biologics ({biologics.length})</button>
+      </div>
+      <select id="ar-domain" class="ar-select">
+        <option value="all">All domains</option>
+        {domains.map((d) => <option value={d}>{d}</option>)}
+      </select>
+    </div>
+
+    <div class="ar-cards" id="ar-cards">
+      {cites.map((c) => (
+        <article class="ar-card" data-area={c.area} data-domain={c.domain}>
+          <div class="ar-card-head">
+            <div>
+              <span class="ar-ref">{c.reference}</span>
+              <span class={`ar-trend ar-${c.trend}`}>{trendLabel[c.trend] || c.trend}</span>
+            </div>
+            <span class="ar-count">{c.total.toLocaleString()} citations</span>
+          </div>
+          <div class="ar-card-meta"><span class="ar-domain-tag">{c.domain}</span><span class="ar-area-tag">{c.area}</span></div>
+          <div class="ar-spark" aria-hidden="true">
+            {spark(c).map((s) => (<span class="ar-bar" style={`height:${Math.max(3, s.h)}%`} title={`FY${s.y}: ${s.v}`}></span>))}
+          </div>
+          <p class="ar-mean">{c.plain_meaning}</p>
+          <details class="ar-more">
+            <summary>What to verify and a real example</summary>
+            <p class="ar-sub"><strong>Why it matters.</strong> {c.why_matters}</p>
+            <p class="ar-sub"><strong>How it shows up.</strong> {c.how_it_shows_up}</p>
+            {c.biologics_note && <p class="ar-bionote"><strong>Biologics note.</strong> {c.biologics_note}</p>}
+            <p class="ar-sub"><strong>Self-check:</strong></p>
+            <ul class="ar-checks">{(c.self_check_questions || []).map((q) => <li>{q}</li>)}</ul>
+            {c.example && c.example.snippet && (
+              <div class="ar-example">
+                <div class="ar-example-h">Real Warning Letter, {c.example.company} ({c.example.date})</div>
+                <p class="ar-example-q">{c.example.snippet}</p>
+                {c.example.url && <a class="ar-example-link" href={c.example.url} target="_blank" rel="noopener nofollow">Read the FDA letter →</a>}
+              </div>
+            )}
+          </details>
+        </article>
+      ))}
+    </div>
+    <p class="ar-empty" id="ar-empty" hidden>No citations match that filter.</p>
+  </section>
+
+  <script is:inline define:vars={{ foundations }}>
+    (function () {
+      // tab switching
+      const tabs = { check: document.getElementById('tab-check'), explore: document.getElementById('tab-explore') };
+      const panels = { check: document.getElementById('panel-check'), explore: document.getElementById('panel-explore') };
+      function show(which) {
+        for (const k in tabs) {
+          const on = k === which;
+          tabs[k].classList.toggle('is-on', on); tabs[k].setAttribute('aria-selected', on ? 'true' : 'false');
+          panels[k].hidden = !on;
+        }
+      }
+      tabs.check.addEventListener('click', () => show('check'));
+      tabs.explore.addEventListener('click', () => show('explore'));
+
+      // explorer filtering
+      const cards = Array.from(document.querySelectorAll('.ar-card'));
+      const empty = document.getElementById('ar-empty');
+      let area = 'all', domain = 'all';
+      function applyFilter() {
+        let shown = 0;
+        cards.forEach((c) => {
+          const ok = (area === 'all' || c.dataset.area === area) && (domain === 'all' || c.dataset.domain === domain);
+          c.style.display = ok ? '' : 'none'; if (ok) shown++;
+        });
+        empty.hidden = shown > 0;
+      }
+      document.getElementById('ar-area').addEventListener('click', (e) => {
+        const b = e.target.closest('.ar-chip'); if (!b) return;
+        document.querySelectorAll('#ar-area .ar-chip').forEach((x) => x.classList.remove('is-on'));
+        b.classList.add('is-on'); area = b.dataset.area; applyFilter();
+      });
+      document.getElementById('ar-domain').addEventListener('change', (e) => { domain = e.target.value; applyFilter(); });
+
+      // scoring
+      document.getElementById('ar-score-btn').addEventListener('click', function () {
+        const result = document.getElementById('ar-result');
+        const perDomain = [];
+        let gotAll = 0, totalQ = 0;
+        foundations.forEach((f, fi) => {
+          let sum = 0, ans = 0, n = (f.self_check_questions || []).length, unsure = 0;
+          for (let qi = 0; qi < n; qi++) {
+            totalQ++;
+            const sel = document.querySelector(`input[name="q-${fi}-${qi}"]:checked`);
+            if (!sel) continue;
+            ans++; gotAll++;
+            const v = parseFloat(sel.value);
+            if (v < 0) { unsure++; sum += 0; } else { sum += v; }
+          }
+          const pct = n ? Math.round((sum / n) * 100) : 0;
+          perDomain.push({ domain: f.domain, pct, answered: ans, n, unsure, why: f.why_matters });
+        });
+        if (gotAll === 0) { result.hidden = false; result.innerHTML = '<p class="ar-warn">Answer a few questions first, then try again.</p>'; result.scrollIntoView({behavior:'smooth'}); return; }
+        const overall = Math.round(perDomain.reduce((a, d) => a + d.pct, 0) / perDomain.length);
+        const gaps = perDomain.slice().sort((a, b) => a.pct - b.pct).filter((d) => d.pct < 70).slice(0, 4);
+        const band = overall >= 80 ? ['Strong', '#1a7f4b'] : overall >= 55 ? ['Developing', '#b8860b'] : ['At risk', '#b3261e'];
+        let html = `<div class="ar-score-top"><div class="ar-gauge" style="--p:${overall}"><span>${overall}<small>%</small></span></div>`;
+        html += `<div class="ar-score-side"><div class="ar-band" style="color:${band[1]}">${band[0]}</div><p>Readiness across the eight core areas. This is a directional self-check on public FDA citation patterns, not a guarantee. Verify everything against the current regulations and your own records.</p>`;
+        if (gotAll < totalQ) html += `<p class="ar-note">You answered ${gotAll} of ${totalQ}. Unanswered and "Not sure" count against readiness, treat "Not sure" as a gap to confirm.</p>`;
+        html += `</div></div>`;
+        html += `<h3 class="ar-rh">By area</h3><div class="ar-bars">`;
+        perDomain.forEach((d) => {
+          const col = d.pct >= 80 ? '#1a7f4b' : d.pct >= 55 ? '#b8860b' : '#b3261e';
+          html += `<div class="ar-barrow"><span class="ar-barlbl">${d.domain}</span><span class="ar-bartrk"><span class="ar-barfill" style="width:${d.pct}%;background:${col}"></span></span><span class="ar-barpct">${d.pct}%</span></div>`;
+        });
+        html += `</div>`;
+        if (gaps.length) {
+          html += `<h3 class="ar-rh">Where to focus first</h3><ol class="ar-gaps">`;
+          gaps.forEach((g) => { html += `<li><strong>${g.domain}</strong> (${g.pct}%). ${g.why}</li>`; });
+          html += `</ol><p class="ar-note">Open the <button type="button" class="ar-inline-link" id="ar-go-explore">Top observations explorer</button> to see the exact FDA citations behind these areas, what to verify, and real examples.</p>`;
+        }
+        result.innerHTML = html; result.hidden = false;
+        const go = document.getElementById('ar-go-explore'); if (go) go.addEventListener('click', () => { show('explore'); window.scrollTo({top:0,behavior:'smooth'}); });
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+  </script>
+
+  <style>
+    .ar-hero { background: var(--navy); color: #fff; border-bottom: 4px solid var(--gold); }
+    .ar-hero-in { padding: 3.2rem 0 2.6rem; }
+    .ar-eyebrow { color: #ffd98a; margin-bottom: 1rem; }
+    .ar-h1 { color: #fff; font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 1rem; }
+    .ar-lead { color: var(--on-navy); font-family: var(--serif); font-size: clamp(1.08rem, 1.7vw, 1.32rem); line-height: 1.55; max-width: 70ch; }
+    .ar-lead strong { color: #fff; }
+    .ar-stats { display: flex; flex-wrap: wrap; gap: 2.2rem; margin: 1.8rem 0 1.2rem; }
+    .ar-stat { display: flex; flex-direction: column; }
+    .ar-stat-n { font-family: var(--display); font-weight: 700; font-size: 1.9rem; color: #ffd98a; }
+    .ar-stat-l { font-size: 0.82rem; color: var(--on-navy-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+    .ar-disc { font-size: 0.84rem; color: var(--on-navy-dim); max-width: 75ch; margin-top: 0.4rem; } .ar-disc a { color: #ffd98a; text-decoration: underline; }
+
+    .ar-tabs-wrap { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--page); z-index: 20; }
+    .ar-tabs { display: flex; gap: 4px; padding-top: 0.8rem; }
+    .ar-tab { background: none; border: 0; border-bottom: 3px solid transparent; font-family: var(--sans); font-weight: 700; font-size: 1rem; color: var(--muted); padding: 0.8rem 1.1rem; cursor: pointer; }
+    .ar-tab.is-on { color: var(--navy); border-bottom-color: var(--gold); }
+
+    .ar-panel { padding: 2rem 28px 4rem; }
+    .ar-panel-intro { font-family: var(--serif); font-size: 1.1rem; line-height: 1.6; color: var(--ink-2); max-width: 72ch; margin-bottom: 2rem; }
+
+    .ar-fset { border: 1px solid var(--line); border-left: 3px solid var(--navy); border-radius: var(--radius); padding: 1.2rem 1.3rem; margin-bottom: 1.2rem; }
+    .ar-legend { font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--navy); padding: 0 8px; display: flex; align-items: baseline; gap: 10px; }
+    .ar-legend-n { font-family: var(--mono); font-size: 0.78rem; color: var(--gold-d, #b8860b); }
+    .ar-fset-why { font-size: 0.95rem; color: var(--muted); margin: 0.2rem 0 1rem; }
+    .ar-q { padding: 0.7rem 0; border-top: 1px solid var(--line); }
+    .ar-q-text { font-size: 1rem; color: var(--ink); margin-bottom: 0.5rem; }
+    .ar-q-opts { display: flex; flex-wrap: wrap; gap: 1.1rem; font-size: 0.92rem; }
+    .ar-q-opts label { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; color: var(--ink-2); }
+    .ar-actions { display: flex; gap: 0.8rem; margin-top: 1.4rem; }
+    .ar-btn { background: var(--navy); color: #fff; border: 0; font-family: var(--sans); font-weight: 700; font-size: 1rem; padding: 0.8rem 1.7rem; border-radius: 10px; cursor: pointer; }
+    .ar-btn:hover { background: var(--navy-2, #11385f); }
+    .ar-btn-ghost { background: none; color: var(--navy); border: 1px solid var(--line-strong); }
+
+    .ar-result { margin-top: 2rem; border: 1px solid var(--line); border-top: 4px solid var(--gold); border-radius: var(--radius); padding: 1.6rem; background: var(--panel); }
+    .ar-score-top { display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; }
+    .ar-gauge { --p: 0; width: 116px; height: 116px; border-radius: 50%; flex: none; display: grid; place-items: center;
+      background: conic-gradient(var(--navy) calc(var(--p) * 1%), var(--line) 0); }
+    .ar-gauge span { width: 88px; height: 88px; background: #fff; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 1.9rem; color: var(--navy); }
+    .ar-gauge small { font-size: 0.9rem; }
+    .ar-score-side { flex: 1 1 280px; } .ar-band { font-family: var(--display); font-weight: 700; font-size: 1.3rem; }
+    .ar-score-side p { font-size: 0.92rem; color: var(--ink-2); line-height: 1.5; } .ar-note { font-size: 0.85rem !important; color: var(--muted) !important; margin-top: 0.5rem; }
+    .ar-rh { font-family: var(--display); font-size: 1.1rem; color: var(--navy); margin: 1.5rem 0 0.7rem; }
+    .ar-barrow { display: grid; grid-template-columns: minmax(120px, 0.6fr) 1fr 44px; gap: 10px; align-items: center; margin-bottom: 6px; font-size: 0.9rem; }
+    .ar-bartrk { background: var(--line); border-radius: 999px; height: 10px; overflow: hidden; } .ar-barfill { display: block; height: 100%; }
+    .ar-barpct { font-family: var(--mono); font-size: 0.82rem; text-align: right; }
+    .ar-gaps { padding-left: 1.3rem; } .ar-gaps li { margin-bottom: 0.5rem; font-size: 0.96rem; line-height: 1.5; }
+    .ar-inline-link { background: none; border: 0; color: var(--blue); font-weight: 700; cursor: pointer; padding: 0; font-size: inherit; text-decoration: underline; }
+    .ar-warn { color: var(--muted); }
+
+    .ar-filters { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.6rem; }
+    .ar-filter-group { display: flex; gap: 6px; }
+    .ar-chip { background: #fff; border: 1px solid var(--line-strong); color: var(--navy); font-family: var(--sans); font-weight: 600; font-size: 0.9rem; padding: 7px 14px; border-radius: 999px; cursor: pointer; }
+    .ar-chip.is-on { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .ar-select { font-family: var(--sans); font-size: 0.9rem; padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 8px; background: #fff; color: var(--navy); }
+
+    .ar-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1.1rem; }
+    .ar-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem 1.2rem; background: #fff; display: flex; flex-direction: column; }
+    .ar-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    .ar-ref { font-family: var(--mono); font-weight: 700; font-size: 0.96rem; color: var(--navy); }
+    .ar-trend { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 4px; margin-left: 7px; }
+    .ar-rising { background: #fde8e6; color: #b3261e; } .ar-steady { background: #eef2f6; color: #4a5158; } .ar-falling { background: #e6f4ea; color: #1a7f4b; }
+    .ar-count { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+    .ar-card-meta { display: flex; gap: 6px; margin: 0.5rem 0 0.6rem; flex-wrap: wrap; }
+    .ar-domain-tag { font-size: 0.72rem; font-weight: 700; background: var(--panel); color: var(--navy); padding: 2px 8px; border-radius: 4px; }
+    .ar-area-tag { font-size: 0.72rem; color: var(--muted); padding: 2px 6px; }
+    .ar-spark { display: flex; align-items: flex-end; gap: 2px; height: 30px; margin-bottom: 0.7rem; }
+    .ar-bar { flex: 1; background: var(--gold); opacity: 0.8; border-radius: 1px 1px 0 0; min-height: 2px; }
+    .ar-mean { font-family: var(--serif); font-size: 1rem; line-height: 1.55; color: var(--ink); }
+    .ar-more { margin-top: 0.6rem; } .ar-more summary { cursor: pointer; font-weight: 700; font-size: 0.9rem; color: var(--blue); }
+    .ar-sub { font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); margin-top: 0.6rem; } .ar-sub strong { color: var(--navy); }
+    .ar-bionote { font-size: 0.9rem; line-height: 1.5; background: #fff8e7; border-left: 3px solid var(--gold); padding: 0.5rem 0.7rem; margin-top: 0.6rem; color: var(--ink-2); }
+    .ar-checks { padding-left: 1.2rem; margin-top: 0.3rem; } .ar-checks li { font-size: 0.9rem; line-height: 1.45; margin-bottom: 0.3rem; color: var(--ink-2); }
+    .ar-example { background: var(--panel); border-radius: 8px; padding: 0.7rem 0.9rem; margin-top: 0.8rem; }
+    .ar-example-h { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 0.3rem; }
+    .ar-example-q { font-family: var(--serif); font-style: italic; font-size: 0.92rem; line-height: 1.5; color: var(--ink-2); }
+    .ar-example-link { font-size: 0.82rem; font-weight: 700; color: var(--blue); }
+    .ar-empty { color: var(--muted); padding: 2rem 0; }
+    @media (max-width: 560px) { .ar-cards { grid-template-columns: 1fr; } .ar-stats { gap: 1.3rem; } }
+  </style>
+</Layout>

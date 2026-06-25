@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { tagKey, tagDisplay } from '../data/tags';
+import auditTool from '../data/audit_tool.json';
+const wlTotal = auditTool?.meta?.wl_total || 0;
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const recent = allArticles
@@ -99,6 +101,7 @@ const topics = Object.values(tagAgg)
           <li><a href="/pillars">Browse the topic areas</a></li>
           <li><a href="/articles">The full article index</a></li>
           <li><a href="/templates">Ready-to-use SOPs &amp; templates</a></li>
+          <li><a href="/audit-readiness">Check your FDA audit readiness</a></li>
           <li><a href="/regulatory-refs">Regulatory references &amp; citations</a></li>
           <li><a href="/glossary">Glossary of GxP terms</a></li>
         </ul>
@@ -107,6 +110,23 @@ const topics = Object.values(tagAgg)
           <figcaption>Where the record begins, the bench.</figcaption>
         </figure>
       </aside>
+    </div>
+  </section>
+
+  <!-- ═════ FLAGSHIP: FDA AUDIT READINESS TOOL ═════ -->
+  <section class="ar-feat">
+    <div class="wrap ar-feat-in">
+      <div class="ar-feat-copy">
+        <span class="ar-feat-tag">Free interactive tool</span>
+        <h2 class="ar-feat-h">Are you ready for an FDA inspection?</h2>
+        <p class="ar-feat-p">Self-check your quality system against what FDA actually cites. Built on <strong>{wlTotal.toLocaleString()} real Warning Letters</strong> and <strong>17,657 Form 483 observations</strong> (FY2014-2025), decoded into plain language with what to verify and a real example for every finding, for drug and biologics makers.</p>
+        <a href="/audit-readiness" class="ar-feat-cta">Check your audit readiness →</a>
+      </div>
+      <div class="ar-feat-side">
+        <div class="ar-feat-stat"><span>{wlTotal.toLocaleString()}</span><small>Warning Letters analyzed</small></div>
+        <div class="ar-feat-stat"><span>17,657</span><small>483 observations, 11 years</small></div>
+        <div class="ar-feat-stat"><span>48</span><small>top citations decoded</small></div>
+      </div>
     </div>
   </section>
 
@@ -357,4 +377,17 @@ const topics = Object.values(tagAgg)
     .cta-in { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 560px) { .rec { grid-template-columns: 1fr; gap: 6px; } .hd-stats { grid-template-columns: 1fr 1fr; gap: 22px; } }
+  /* Flagship FDA audit-readiness feature band */
+  .ar-feat { background: var(--navy); color: #fff; border-top: 4px solid var(--gold); border-bottom: 4px solid var(--gold); }
+  .ar-feat-in { display: grid; grid-template-columns: 1.7fr 1fr; gap: 2.6rem; align-items: center; padding: 2.6rem 0; }
+  .ar-feat-tag { display: inline-block; font-family: var(--mono); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); background: #ffd98a; padding: 4px 11px; border-radius: 4px; margin-bottom: 1rem; }
+  .ar-feat-h { font-family: var(--display); font-weight: 700; color: #fff; font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.9rem; }
+  .ar-feat-p { color: var(--on-navy); font-family: var(--serif); font-size: clamp(1.02rem, 1.5vw, 1.18rem); line-height: 1.55; max-width: 62ch; margin-bottom: 1.4rem; } .ar-feat-p strong { color: #ffd98a; }
+  .ar-feat-cta { display: inline-block; background: #ffd98a; color: var(--navy); font-family: var(--sans); font-weight: 700; font-size: 1rem; padding: 0.85rem 1.7rem; border-radius: 10px; transition: background .15s, transform .15s; }
+  .ar-feat-cta:hover { background: #ffe6ab; color: var(--navy); transform: translateY(-1px); text-decoration: none; }
+  .ar-feat-side { display: grid; gap: 0.9rem; }
+  .ar-feat-stat { background: rgba(255,255,255,0.06); border: 1px solid #ffffff22; border-left: 3px solid var(--gold); border-radius: 8px; padding: 0.7rem 1rem; }
+  .ar-feat-stat span { display: block; font-family: var(--display); font-weight: 700; font-size: 1.7rem; color: #ffd98a; line-height: 1; }
+  .ar-feat-stat small { font-size: 0.8rem; color: var(--on-navy-dim); text-transform: uppercase; letter-spacing: 0.03em; }
+  @media (max-width: 760px) { .ar-feat-in { grid-template-columns: 1fr; gap: 1.6rem; padding: 2rem 0; } .ar-feat-side { grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; } .ar-feat-stat span { font-size: 1.3rem; } }
 </style>
