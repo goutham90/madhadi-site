@@ -17,7 +17,7 @@ This article covers how to structure an electronic TMF (eTMF), how the DIA TMF R
 
 The TMF is the collection of essential documents that, individually and together, permit evaluation of the conduct of a trial and the quality of the data produced. That definition comes straight from ICH E6, which is the operative standard.
 
-The regulatory basis is **ICH E6(R2) Good Clinical Practice**, Section 8 ("Essential Documents for the Conduct of a Clinical Trial"), and its successor **ICH E6(R3)** finalized in 2025, which restructures the essential-records expectations around a risk and quality-by-design philosophy. ICH E6(R2) Section 8.1 sets the core obligation: essential documents are the records that, individually and together, let someone evaluate how the trial was conducted and how good the resulting data are. Their purpose is to show that the investigator, sponsor, and monitor met Good Clinical Practice and every applicable regulatory requirement.
+The regulatory basis is **ICH E6(R2) Good Clinical Practice**, Section 8 ("Essential Documents for the Conduct of a Clinical Trial"), and its successor **ICH E6(R3)**, which restructures the essential-records expectations around a risk and quality-by-design philosophy. The R3 Principles and Annex 1 (interventional trials) reached Step 4 in January 2025; Annex 2 (additional considerations for nontraditional designs such as decentralised elements, pragmatic trials, and real-world data) reached Step 4 on 3 June 2026, completing the R3 set. R3 keeps the same essential-records intent but speaks of records being "fit for purpose" and quality being built into design, which changes how you justify your TMF Index and your QC effort rather than the list of documents itself. ICH E6(R2) Section 8.1 sets the core obligation: essential documents are the records that, individually and together, let someone evaluate how the trial was conducted and how good the resulting data are. Their purpose is to show that the investigator, sponsor, and monitor met Good Clinical Practice and every applicable regulatory requirement.
 
 Two layers of regulation sit underneath this. In the United States, **21 CFR Part 312** (IND regulations) and **21 CFR Part 11** (electronic records and signatures) govern, with Part 312.62 requiring the investigator to maintain records and 312.57/312.58 covering sponsor records and FDA access. In the European Union, the **Clinical Trials Regulation (EU) No 536/2014** explicitly names the TMF in Article 57 and requires it to be readily available and directly accessible to inspectors, with **Commission Implementing Regulation (EU) 2017/556** detailing inspection procedures and **Commission Delegated Regulation (EU) 2017/1569** addressing investigational medicinal product manufacture. EU 536/2014 also sets the archiving floor: the TMF must be retained for **at least 25 years** after the end of the trial, longer than most other jurisdictions.
 
@@ -145,6 +145,24 @@ The day-to-day job is converting a stream of incoming documents into correctly c
 6. **Reconcile against the expected list.** Mark the placeholder satisfied. If the artifact is expected per site, the system tracks one slot per site so a gap is visible.
 7. **Handle exceptions.** Where a document genuinely does not exist or is delayed, file a documented placeholder or a "missing document" note explaining why and when it is expected. Never leave a silent empty slot.
 
+The same workflow drawn as a decision path, including the two places a document can leave the happy path:
+
+<div class="flow">
+  <div class="flow-step">Document arrives (signed PDF, wet-ink scan, system export)</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Classify and index against the study TMF Index; set the true document date</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Second-person QC: legible, complete, correct version, correct artifact?</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">QC pass: set to Final/Approved, mark the expected-list placeholder satisfied, reconcile</div>
+  <div class="flow-step">QC fail: route back with a reason, re-index or re-request, then QC again</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">Document genuinely does not exist or is delayed</div>
+  <div class="flow-step">File a dated "not applicable" rationale or a "missing document" note with the expected date, never a silent empty slot</div>
+</div>
+
 Acceptance criteria for a single filed record: correct artifact classification; correct and current version; legible and complete (all pages, signatures, dates present); accurate document date; QC passed by a second person; filed within the timeliness target; metadata fields complete; audit trail intact.
 
 ---
@@ -210,6 +228,8 @@ You cannot 100% QC a large TMF forever, so sample by risk:
 - **Statistically meaningful sampling** for medium-risk routine documents, with a defined sample size and acceptance limit (for example a defined number of documents per site per quarter with an error threshold that triggers escalation and a wider review).
 - **Trigger a 100% review** of an artifact type or a site when sampling shows an error rate above your acceptance limit, which is the same logic as any quality sampling plan. See [statistics in quality: Cpk and control charts](/articles/statistics-in-quality-cpk-control-charts).
 
+A worked sampling decision makes this concrete. Suppose a site has 240 medium-risk filed documents this quarter and your TMF Plan sets a sample of 32 with an acceptance limit of 1 error (accept on 0 or 1 finding, escalate to 100% review of that artifact type at 2 or more). The QC reviewer pulls 32, finds 2 misclassifications in monitoring visit reports, so the artifact type fails the sample. The action is not "fix those two": it is a 100% review of monitoring visit reports at that site, a root-cause look at why classification drifted (often a coordinator using the wrong artifact code), and a check of whether the same pattern shows at other sites. Record the sample size, the acceptance limit, the result, and the triggered action so the sampling decision is defensible rather than ad hoc.
+
 ### Periodic TMF review (the formal health check)
 
 Run scheduled TMF reviews at milestones: study start-up complete, first patient in, ongoing at a defined cadence (often quarterly), database lock, and pre-inspection. Each review checks completeness against the expected list, timeliness trends, open placeholders, and quality sampling, and produces a documented report with CAPA-style actions and owners. A TMF review with no follow-through is theater; the actions and their closure are what an inspector reads. See [CAPA effectiveness verification](/articles/capa-effectiveness-verification).
@@ -219,6 +239,20 @@ Run scheduled TMF reviews at milestones: study start-up complete, first patient 
 Reconcile the sponsor TMF against each Investigator Site File at monitoring visits and at close-out. The monitor confirms the ISF holds what it should and that sponsor-side copies match. Document the reconciliation; "I checked it" with no record is, by the TMF's own rule, the same as not having checked it.
 
 ---
+
+## TMF transfer at a CRO change: the reconciliation runbook
+
+Changing CRO or bringing a study in-house mid-trial is where TMFs quietly break. Documents are lost or duplicated, reference-model versions do not line up, metadata and audit trail drop on export, and the reconciliation is never formally closed. Run the transfer as a controlled, signed-off project, not an IT file copy.
+
+1. **Write a transfer plan and freeze the source.** Name the sending and receiving owners, the cut-off date, and the exact scope (which studies, which sites, sponsor TMF and ISF copies). Put the source eTMF into a read-only or controlled state at cut-off so nothing changes mid-transfer.
+2. **Agree the index mapping first.** Both sides confirm the reference-model version each system uses and produce an artifact-to-artifact mapping. Version mismatch (for example a 3.1 index into a 3.2 index) is the single biggest source of mis-filing, so resolve every unmapped or renumbered artifact before any document moves.
+3. **Export with metadata and audit trail intact.** Use the model's exchange format where both systems support it. The export must carry the document, its metadata (artifact type, document date, version, site, status), and the audit trail. A bulk PDF dump that loses metadata and history is not an acceptable transfer of a GxP record.
+4. **Verify counts and a content sample on import.** Reconcile expected counts per artifact and per site against the source. Then QC a risk-based sample of imported records for correct classification, correct document date, intact audit trail, and readability. High-risk artifacts (consent versions, IRB approvals, safety reports) get 100% verification, not sampling.
+5. **Reconcile against the expected list, not just against the old system.** Confirm the receiving TMF's expected-document configuration matches the study TMF Index so completeness metrics restart correctly. A transfer that reconciles system-to-system but breaks the expected-list denominator hides gaps.
+6. **Resolve and close every exception.** Track missing, duplicated, or mis-mapped documents to closure. Duplicates are deduplicated with a documented rule (keep the QC-passed final, retire the draft); gaps are chased from the source or rationalised.
+7. **Sign off the transfer.** A documented, dual-signed reconciliation statement (sending and receiving owners, plus QA) records that the scope transferred completely, the sample passed, and exceptions are closed. Until that sign-off exists, the receiving organisation cannot claim the TMF is complete and an inspector will treat the transfer as open.
+
+Acceptance criteria for a completed transfer: artifact and site counts reconcile to the source; high-risk artifacts are 100% verified; metadata and audit trails are intact and reviewable; the expected-document list is reconfigured to the study TMF Index; every exception is closed; and a dual-signed reconciliation statement exists. The receiving organisation owns the TMF the moment it accepts the transfer, including any inherited gaps, which is exactly why the sample and the sign-off matter. See [quality in technology transfer](/articles/quality-in-technology-transfer) for the analogous discipline on the manufacturing side.
 
 ## Roles and responsibilities
 
@@ -243,7 +277,7 @@ When the trial ends, the TMF moves from active management to archive, but it mus
 
 Retention floors differ by region, and you keep the longest applicable:
 
-- **EU CTR (EU) No 536/2014**: at least 25 years after the end of the trial for the sponsor and investigator TMF.
+- **EU CTR (EU) No 536/2014**: at least 25 years after the end of the trial for the sponsor and investigator TMF. The archiving obligation sits in Article 58 (archiving of the clinical trial master file), distinct from Article 57, which governs the TMF's contents and accessibility to inspectors.
 - **US 21 CFR 312.62**: records retained for 2 years after a marketing application is approved for the indication, or 2 years after the IND is discontinued and FDA notified, whichever is later. Longer retention is common in practice.
 - **ICH E6** expects retention for at least 2 years after the last approval or discontinuation, and per applicable regulatory requirements, which in the EU means the 25-year floor.
 

@@ -1648,9 +1648,23 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"checklist-master-recipe-build-review.md": {
+	id: "checklist-master-recipe-build-review.md";
+  slug: "checklist-master-recipe-build-review";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "checklist-sop-drafting.md": {
 	id: "checklist-sop-drafting.md";
   slug: "checklist-sop-drafting";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"checklist-tmf-periodic-review.md": {
+	id: "checklist-tmf-periodic-review.md";
+  slug: "checklist-tmf-periodic-review";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1665,6 +1679,13 @@ declare module 'astro:content' {
 "form-change-request-record.md": {
 	id: "form-change-request-record.md";
   slug: "form-change-request-record";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-coi-coc-verification-log.md": {
+	id: "form-coi-coc-verification-log.md";
+  slug: "form-coi-coc-verification-log";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1697,6 +1718,20 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"form-recipe-change-record.md": {
+	id: "form-recipe-change-record.md";
+  slug: "form-recipe-change-record";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-serial-number-reconciliation.md": {
+	id: "form-serial-number-reconciliation.md";
+  slug: "form-serial-number-reconciliation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "form-sop-review-and-approval.md": {
 	id: "form-sop-review-and-approval.md";
   slug: "form-sop-review-and-approval";
@@ -1714,6 +1749,13 @@ declare module 'astro:content' {
 "guide-infrastructure-qualification.md": {
 	id: "guide-infrastructure-qualification.md";
   slug: "guide-infrastructure-qualification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"log-back-room-document-request.md": {
+	id: "log-back-room-document-request.md";
+  slug: "log-back-room-document-request";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1844,6 +1886,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"plan-mock-inspection.md": {
+	id: "plan-mock-inspection.md";
+  slug: "plan-mock-inspection";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "plan-software-supplier-audit.md": {
 	id: "plan-software-supplier-audit.md";
   slug: "plan-software-supplier-audit";
@@ -1861,6 +1910,13 @@ declare module 'astro:content' {
 "plan-system-decommissioning-retirement.md": {
 	id: "plan-system-decommissioning-retirement.md";
   slug: "plan-system-decommissioning-retirement";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"plan-tmf-management.md": {
+	id: "plan-tmf-management.md";
+  slug: "plan-tmf-management";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1931,6 +1987,13 @@ declare module 'astro:content' {
 "protocol-backup-restoration-test.md": {
 	id: "protocol-backup-restoration-test.md";
   slug: "protocol-backup-restoration-test";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-ccit-method-validation.md": {
+	id: "protocol-ccit-method-validation.md";
+  slug: "protocol-ccit-method-validation";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2082,6 +2145,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"record-atmp-conditional-oos-release.md": {
+	id: "record-atmp-conditional-oos-release.md";
+  slug: "record-atmp-conditional-oos-release";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "record-management-review.md": {
 	id: "record-management-review.md";
   slug: "record-management-review";
@@ -2176,6 +2246,13 @@ declare module 'astro:content' {
 "report-instrument-qualification-summary.md": {
 	id: "report-instrument-qualification-summary.md";
   slug: "report-instrument-qualification-summary";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"report-mock-inspection.md": {
+	id: "report-mock-inspection.md";
+  slug: "report-mock-inspection";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2313,6 +2390,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"sop-chain-of-identity-custody.md": {
+	id: "sop-chain-of-identity-custody.md";
+  slug: "sop-chain-of-identity-custody";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "sop-change-control-validated-systems.md": {
 	id: "sop-change-control-validated-systems.md";
   slug: "sop-change-control-validated-systems";
@@ -2348,6 +2432,20 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"sop-recipe-management-change-control.md": {
+	id: "sop-recipe-management-change-control.md";
+  slug: "sop-recipe-management-change-control";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-routine-container-closure-integrity-testing.md": {
+	id: "sop-routine-container-closure-integrity-testing.md";
+  slug: "sop-routine-container-closure-integrity-testing";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "sop-software-supplier-assessment.md": {
 	id: "sop-software-supplier-assessment.md";
   slug: "sop-software-supplier-assessment";
@@ -2362,9 +2460,23 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"sop-suspect-illegitimate-product-dscsa.md": {
+	id: "sop-suspect-illegitimate-product-dscsa.md";
+  slug: "sop-suspect-illegitimate-product-dscsa";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "sop-template-generic.md": {
 	id: "sop-template-generic.md";
   slug: "sop-template-generic";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-tmf-filing-indexing-qc.md": {
+	id: "sop-tmf-filing-indexing-qc.md";
+  slug: "sop-tmf-filing-indexing-qc";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2449,6 +2561,13 @@ declare module 'astro:content' {
 "toolkit-root-cause-analysis.md": {
 	id: "toolkit-root-cause-analysis.md";
   slug: "toolkit-root-cause-analysis";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"wi-saleable-returns-verification-vrs.md": {
+	id: "wi-saleable-returns-verification-vrs.md";
+  slug: "wi-saleable-returns-verification-vrs";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">

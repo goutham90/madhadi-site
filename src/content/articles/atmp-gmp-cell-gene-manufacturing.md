@@ -27,6 +27,22 @@ A practical way to hold this in your head: in the US, CGT is "drug GMP plus tiss
 
 ---
 
+## Autologous versus allogeneic: how the controls differ
+
+Before the specific controls, fix the distinction that drives most of them. An **autologous** product is made from the patient's own cells and given back to that same patient. An **allogeneic** product is made from a donor's cells and given to one or more different patients. The quality system is not the same for the two, and an interviewer or inspector will expect you to know exactly where they diverge.
+
+| Control area | Autologous | Allogeneic |
+|---|---|---|
+| Batch size | One patient per batch; n=1, no second unit to sample | One donor lot can yield many doses for many patients |
+| Donor eligibility | No eligibility "rejection" (you cannot reject the patient); still test and label, including biohazard labeling if markers positive | Full donor eligibility determination required (21 CFR 1271 Subpart C; EU Directive 2004/23/EC) before use |
+| Chain of identity | The dominant control: patient-to-product link must be unbroken, mix-up is catastrophic | Still required donor-to-product-to-recipient, but one lot maps to many recipients, so traceability is one-to-many |
+| Starting material variability | High and patient-driven (disease, prior therapy, lymphocyte counts); incoming material cannot be re-ordered | More controllable; healthy or selected donors, banked and characterised |
+| Release strategy | Conditional / out-of-specification release pathway often needed because of n=1 and short shelf life | Conventional batch release more achievable; larger lots allow full testing |
+| Scale and comparability | "Scale-out" (more single-patient runs), comparability hard with no side-by-side material | "Scale-up" possible; comparability more like conventional biologics |
+| Failure consequence | A failed batch can mean no treatment for that specific patient (may not tolerate a second collection) | A failed lot affects supply but not a single named patient's only chance |
+
+The practical lesson: autologous products push you toward closed systems, n=1 release thinking, and chain of identity as the highest control, while allogeneic products push you toward donor eligibility rigor, banking and characterisation, and one-to-many traceability. Many programs run both modalities, so the quality system has to carry both logics without confusing them.
+
 ## Chain of identity: the control that has no equivalent in conventional GMP
 
 ### What it is and why it is required
@@ -86,7 +102,7 @@ Chain of identity answers "is this the right patient's product." Chain of custod
 
 A COC system documents every transfer of physical possession plus the environmental conditions during transport and storage. The risk it manages is product degradation: cells lose viability if they warm, vectors lose titer, cryopreserved material is destroyed by even a brief excursion above its glass-transition temperature. Because most CGT products cannot be re-made quickly (the patient may not be able to undergo a second apheresis), a custody or condition failure can mean no treatment at all.
 
-In the EU the ATMP GMP Guidelines and the traceability articles of Directive 2001/83/EC and Regulation 1394/2007 require that traceability be maintained for a defined retention period (the EU requirement is 30 years after the product expiry date for ATMPs). In the US, 21 CFR 1271 sets tracking and record-retention requirements, and the drug cGMPs require distribution records that allow recall.
+In the EU the ATMP GMP Guidelines, the traceability provisions of Regulation 1394/2007, and the donor-to-recipient traceability of Directive 2004/23/EC require that traceability be maintained for a defined retention period (the EU requirement is 30 years after the product expiry date for ATMPs). In the US, 21 CFR 1271 sets tracking and record-retention requirements, and the drug cGMPs require distribution records that allow recall.
 
 ### What goes in COC records
 
@@ -133,12 +149,32 @@ In conventional GMP a batch is many units made together, and statistics are your
 
 **Concurrent multi-patient manufacturing raises segregation risk.** Running several single-patient batches in the same facility at the same time is the norm, and it is exactly where mix-ups happen. The ATMP GMP Guidelines and CBER both require either closed systems or strict spatial and temporal segregation, with line clearance discipline that is more like aseptic filling than like bulk biologics. See [cross-contamination control in shared facilities](/articles/cross-contamination-control-shared-facilities).
 
+**Vein-to-vein time is a quality constraint, not just a logistics one.** The total turnaround from apheresis (vein) to infusion (vein) sets the clock for everything: manufacturing slot, release testing, cold-chain transport, and clinical scheduling all have to fit inside it for a patient whose disease may be progressing. This is why rapid release methods, conditional release pathways, and tightly choreographed scheduling exist in CGT. A quality decision that adds days (a re-test, a deviation hold) has a direct clinical cost, which is the tension the QA-to-clinical interface has to manage honestly rather than by quietly cutting corners. Build the expected vein-to-vein timeline, the manufacturing slot booking, and the release-test turnaround into one schedule so a delay surfaces early instead of at the bedside.
+
 ### How single-batch release actually runs
 
 1. **Define the release panel and split it into "before infusion" and "for the record."** Identity, dose (cell count), viability, and a rapid sterility readout typically gate infusion. Full sterility (USP <71>, 14 days) and some characterisation assays may report after administration.
 2. **Pre-agree the OOS-release pathway.** Write the SOP that says what happens if a result is out of specification but the physician judges benefit outweighs risk: who approves, what is communicated, how it is recorded. This is a clinical-quality joint decision.
 3. **Use a per-patient batch record that is also the COI record.** One document, one identifier, one disposition.
 4. **Disposition by the Qualified Person (EU) or the responsible quality unit (US).** In the EU, ATMP release is a QP function under the ATMP GMP Guidelines, aligned in spirit with the principles in Annex 16. See [Qualified Person batch release (Annex 16)](/articles/qualified-person-batch-release-annex-16) and [batch disposition decisions](/articles/batch-disposition-decisions).
+
+The release decision drawn as a path, including the rare out-of-specification branch the ATMP Guidelines permit:
+
+<div class="flow-v">
+  <div class="flow-step">Are all infusion-gating tests (identity, viable dose, viability, endotoxin, rapid sterility) complete and within spec, and does the COI reconciliation tie out?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Yes: QP / quality unit certifies and releases; list pending for-the-record tests with committed report dates and a plan to act on a later failure</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">No: one or more gating results is out of specification, but the treating physician judges benefit may outweigh risk for this patient</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Invoke the pre-approved OOS-release SOP: documented risk assessment, defined approval chain, mandatory physician notification recorded, patient informed; QP/quality unit and physician jointly authorise and record the rationale</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">No SOP, no pre-agreed approval chain, or COI does not reconcile</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Do not release; quarantine and investigate. You cannot improvise an OOS-release decision case by case without the procedure built in advance</div>
+</div>
 
 ### Acceptance criteria for a single-batch release
 

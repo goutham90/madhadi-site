@@ -34,6 +34,20 @@ The quality rationale for the standard is reuse and consistency. Without a layer
 
 ---
 
+## ISA-88 and ISA-95: where the line is
+
+People conflate ISA-88 with ISA-95, and an interviewer will probe the difference. They are complementary standards that meet at the MES, not competitors.
+
+| | ISA-88 (S88) | ISA-95 (S95) |
+|---|---|---|
+| Subject | Batch control: how a single batch is structured and run | Enterprise-to-control integration: how business systems and manufacturing systems exchange information |
+| Published as | IEC 61512 | IEC 62264 |
+| Core models | Physical model, procedural model, recipe types | Equipment hierarchy, functional/data models, the B2MML data exchange |
+| Typical question it answers | "What is the master recipe and how does a phase run?" | "How does the ERP production order become an MES work order, and how do results report back?" |
+| Where it lives | MES recipe engine, DCS/PLC batch logic | The MES-to-ERP layer (often called Level 3 to Level 4 integration) |
+
+A clean way to hold it: ISA-95 hands a production order down to the plant and collects the production result back up; ISA-88 is what actually structures and executes the batch once that order lands. The equipment hierarchy in ISA-95 (enterprise, site, area, work centre, work unit) deliberately aligns with the ISA-88 physical model so the two standards stack. In a GMP setting, ISA-88 gives you the master and control recipe and the batch record; ISA-95 gives you the order-to-result information flow and the genealogy that ties a lot back to its order and materials. You validate both, but for different reasons: ISA-88 structure for faithful reproduction of the master production record, ISA-95 interfaces for data integrity across system boundaries.
+
 ## The two models: physical and procedural
 
 ISA-88 separates **what the equipment is** from **what the process does**. This separation is the single most important idea in the standard. The same procedure can run on different equipment; the same equipment can run different procedures. Keeping them apart is what makes recipes portable and equipment reusable.
@@ -194,6 +208,19 @@ This is the procedure a manufacturing and automation team follows to create a ne
 
 ---
 
+### Worked example: designing exception handling for one phase
+
+Exception handling is the part teams skip and inspectors probe, so design it explicitly per phase. Take a single phase, "Charge media to 1500 L (range 1485 to 1515)," and decide what happens in each failure mode before you build the happy path.
+
+| Failure mode | Designed system behaviour | Operator action | Record |
+|---|---|---|---|
+| Flow meter reads outside range at end of charge | Phase fails, holds the unit, raises an alarm; does not advance | Acknowledge alarm, assess, decide top-up or deviation | Phase state trail + alarm + any deviation |
+| Charge stalls (valve fault) mid-phase | Phase goes to HELD, closes the charge valve safely | Investigate valve, restart or abort per SOP | HELD duration, restart/abort command, who and when |
+| Power loss mid-charge, then recovery | On restart the batch engine reports last known state; phase requires operator confirmation of actual vessel volume before resuming | Verify real level against recorded value, confirm or correct, resume or abort | Power-recovery prompt, confirmed value, signature |
+| Operator presses Hold during charge | Phase to HOLDING then HELD, charge paused safely | Resume when ready, or abort | Hold/restart transitions with timestamps |
+
+Two design rules fall out of this. First, every abnormal path must leave the equipment in a safe, defined state, never an ambiguous one. Second, power recovery must never silently resume against a stale setpoint; it must force the operator to confirm the real-world condition, because the gap between the recorded state and the physical vessel is exactly where a bad batch is made. Your validation then has to test each of these paths, not just a clean charge, which is why "challenge the failure paths" is an acceptance criterion above and not a nicety.
+
 ## Recipe change control in a validated plant
 
 A master recipe is a master production record. Changing it is changing the master production record, which sits under 21 CFR 211.186, 21 CFR 211.100 (procedures and review of production deviations), Annex 11, and your own change control SOP. Recipe change control is where many plants get into trouble, because recipe changes are frequent, often urgent, and tempting to treat as "just a parameter tweak."
@@ -209,6 +236,26 @@ A parameter on a phase can be a critical process parameter. Widening a temperatu
 3. **Determine regulatory impact.** Some recipe parameters are registered in the filing. Changing them may require a variation or prior approval. ICH Q12 tools (established conditions, post-approval change management) govern what can change with what level of reporting. See [ich-q12-lifecycle-management](/articles/ich-q12-lifecycle-management).
 4. **Author the new version in a controlled draft state.** Make the edit in the MES in a draft/under-revision recipe state so the current effective recipe keeps running production untouched.
 5. **Test/revalidate proportionate to risk.** A critical parameter change gets challenge testing and possibly process validation impact (a parameter at a new edge may need a PPQ assessment). A typo fix in a prompt gets a documented verification. Do not over-test the trivial or under-test the critical.
+
+The proportionality decision drawn as a path:
+
+<div class="flow-v">
+  <div class="flow-step">Does the change touch a critical process parameter, an IPC acceptance range, or a registered/established condition?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Yes: challenge testing of the changed logic plus a process-validation impact assessment; widening a CPP edge may need a PPQ assessment and a regulatory variation</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">Does it change procedural sequencing, exception handling, signatures, or calculations (functional, not a CPP)?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Test the changed function and its boundary and failure paths in a qualified test environment; no PPQ unless product impact is identified</div>
+</div>
+<div class="flow-v">
+  <div class="flow-step">Is it cosmetic only (prompt wording, a label, a non-functional display)?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Documented verification that the text changed and nothing functional moved; lightest path, but still under change control</div>
+</div>
+
+The trap is letting the lightest path swallow a change that actually moves quality. The criticality call in step 2 is what keeps a "just a range tweak" from skipping the testing a critical parameter needs.
 6. **Review and approve the new version.** Same approvers as a new recipe: manufacturing, automation, QA. Electronic signatures.
 7. **Release with effective date and supersede the old version.** The system retains the prior version (you must be able to reconstruct which recipe version made any historical batch). Set a clear effective point so there is no ambiguity about which version a given lot used.
 8. **Verify the first batch.** Heightened review of the first production batch on the new recipe version is a sound control, especially for critical changes.
