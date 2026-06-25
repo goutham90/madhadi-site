@@ -177,14 +177,14 @@ const spark = (c) => years.map((y) => {
       }).catch(function () { document.getElementById('ar-prog-txt').textContent = 'Could not load questions, please reload.'; });
     }
     function renderSections() {
-      var tags = activeTags(), host = document.getElementById('ar-sections'), html = '';
+      var tags = activeTags(), host = document.getElementById('ar-sections'), html = '', shown = 0;
       QB.sections.forEach(function (s, si) {
         var applicable = s.questions.filter(function (q) { return q.tag === 'general' || tags[q.tag]; });
-        var na = applicable.length === 0;
-        html += '<details class="ar-sect" data-si="' + si + '"' + (na ? ' data-na="1"' : '') + '>';
-        html += '<summary class="ar-sect-sum"><span class="ar-sect-name">' + s.name + '</span>';
-        html += na ? '<span class="ar-sect-na">Not applicable</span>' : '<span class="ar-sect-meta" id="sm-' + si + '">' + applicable.length + ' questions</span>';
-        html += '</summary><div class="ar-sect-body" data-loaded="0"><p class="ar-sect-intro">' + s.intro + '</p></div></details>';
+        if (applicable.length === 0) return; // only sections that apply to the chosen profile are shown
+        shown++;
+        html += '<details class="ar-sect" data-si="' + si + '">';
+        html += '<summary class="ar-sect-sum"><span class="ar-sect-name">' + shown + '. ' + s.name + '</span><span class="ar-sect-meta">' + applicable.length + ' Qs</span></summary>';
+        html += '<div class="ar-sect-body" data-loaded="0"><p class="ar-sect-intro">' + s.intro + '</p></div></details>';
       });
       host.innerHTML = html;
       host.querySelectorAll('.ar-sect').forEach(function (d) {
@@ -195,20 +195,18 @@ const spark = (c) => years.map((y) => {
     function buildSection(d) {
       var body = d.querySelector('.ar-sect-body');
       if (body.dataset.loaded === '1') return;
-      var si = +d.dataset.si, s = QB.sections[si], tags = activeTags(), html = '';
+      var si = +d.dataset.si, s = QB.sections[si], tags = activeTags(), html = '', num = 0;
       s.questions.forEach(function (q, qi) {
-        var applicable = q.tag === 'general' || tags[q.tag];
-        var key = s.key + '::' + qi, cur = applicable ? (ANSWERS[key] || '') : 'na';
-        html += '<div class="ar-q' + (applicable ? '' : ' ar-q-na') + '" data-key="' + key + '">';
-        html += '<p class="ar-q-text">' + q.q + (q.tag !== 'general' ? ' <span class="ar-q-tag">' + q.tag + '</span>' : '') + '</p>';
-        if (applicable) {
-          html += '<div class="ar-q-opts">';
-          [['1','Yes'],['0.5','Partly'],['0','No'],['na','N/A']].forEach(function (o) {
-            html += '<label><input type="radio" name="' + key + '" value="' + o[0] + '"' + (cur === o[0] ? ' checked' : '') + '/> ' + o[1] + '</label>';
-          });
-          html += '</div>';
-        } else { html += '<div class="ar-q-naflag">Not applicable to your profile</div>'; }
-        html += '</div>';
+        if (!(q.tag === 'general' || tags[q.tag])) return; // only applicable questions are rendered
+        num++;
+        var key = s.key + '::' + qi, cur = ANSWERS[key] || '';
+        html += '<div class="ar-q" data-key="' + key + '">';
+        html += '<div class="ar-q-text"><span class="ar-q-num">' + num + '</span><span class="ar-q-body">' + q.q + (q.tag !== 'general' ? ' <span class="ar-q-tag">' + q.tag + '</span>' : '') + '</span></div>';
+        html += '<div class="ar-q-opts">';
+        [['1','Yes'],['0.5','Partly'],['0','No'],['na','N/A']].forEach(function (o) {
+          html += '<label class="ar-opt"><input type="radio" name="' + key + '" value="' + o[0] + '"' + (cur === o[0] ? ' checked' : '') + '/><span>' + o[1] + '</span></label>';
+        });
+        html += '</div></div>';
       });
       body.insertAdjacentHTML('beforeend', html);
       body.dataset.loaded = '1';
@@ -332,10 +330,13 @@ const spark = (c) => years.map((y) => {
       var host = document.getElementById('lib-list'), slice = libFiltered.slice(libShown, libShown + PAGE), html = '';
       slice.forEach(function (x) {
         if (libMode === 'wl') {
-          html += '<article class="lib-card"><div class="lib-head"><span class="lib-co">' + esc(x.company) + '</span><span class="lib-date">' + esc(x.issue_date) + '</span></div>';
-          html += '<div class="lib-sub">' + esc(x.subject) + '</div><div class="lib-office">' + esc(x.office) + '</div>';
-          if (x.cfr && x.cfr.length) { html += '<div class="lib-cfr">' + x.cfr.map(function (c) { return '<span class="lib-chip" title="' + esc(c.label) + '">' + esc(c.ref) + (c.label ? ': ' + esc(c.label) : '') + '</span>'; }).join('') + '</div>'; }
+          var om = (x.office || '').match(/\(([A-Za-z\/ ]{2,8})\)/);
+          var off = om ? om[1] : (x.office || '').replace('Center for ', '').replace(/ \(.*\)/, '').slice(0, 30);
+          html += '<article class="lib-card">';
+          html += '<div class="lib-head"><span class="lib-co">' + esc(x.company) + '</span><span class="lib-date">' + esc(x.issue_date) + '</span></div>';
+          html += '<div class="lib-meta">' + esc(x.subject) + (off ? ' <span class="lib-dot">·</span> ' + esc(off) : '') + '</div>';
           if (x.lead) html += '<p class="lib-lead">' + esc(x.lead) + '</p>';
+          if (x.cfr && x.cfr.length) { html += '<div class="lib-cfr">' + x.cfr.slice(0, 6).map(function (c) { return '<span class="lib-chip" title="' + esc(c.label) + '">' + esc(c.ref) + '</span>'; }).join('') + (x.cfr.length > 6 ? '<span class="lib-chip lib-more">+' + (x.cfr.length - 6) + '</span>' : '') + '</div>'; }
           if (x.url) html += '<a class="lib-link" href="' + esc(x.url) + '" target="_blank" rel="noopener nofollow">Read the full FDA letter →</a>';
           html += '</article>';
         } else {
@@ -391,13 +392,17 @@ const spark = (c) => years.map((y) => {
     .ar-sect-sum { cursor: pointer; padding: 0.9rem 1.1rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--display); font-weight: 700; color: var(--navy); list-style: none; }
     .ar-sect-sum::-webkit-details-marker { display: none; }
     .ar-sect-name { font-size: 1.05rem; }
-    .ar-sect-meta { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); white-space: nowrap; } .ar-sect-na { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    .ar-sect-meta { margin-left: auto; font-family: var(--mono); font-size: 0.74rem; color: var(--muted); white-space: nowrap; background: var(--panel); padding: 2px 9px; border-radius: 999px; }
     .ar-sect-body { padding: 0 1.1rem 1rem; } .ar-sect-intro { font-size: 0.93rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.8rem; border-top: 1px solid var(--line); padding-top: 0.8rem; }
-    .ar-q { padding: 0.7rem 0; border-top: 1px solid var(--line); } .ar-q-na { opacity: 0.5; }
-    .ar-q-text { font-size: 0.98rem; color: var(--ink); margin-bottom: 0.45rem; line-height: 1.45; }
-    .ar-q-tag { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; background: var(--panel-2); color: var(--muted); padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
-    .ar-q-opts { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem; } .ar-q-opts label { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; color: var(--ink-2); }
-    .ar-q-naflag { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+    .ar-q { padding: 1rem 0; border-top: 1px solid var(--line); }
+    .ar-q:first-child { border-top: none; padding-top: 0.3rem; }
+    .ar-q-text { display: flex; gap: 0.65rem; font-size: 0.99rem; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.5; }
+    .ar-q-num { flex: none; font-family: var(--mono); font-size: 0.74rem; font-weight: 700; color: #fff; background: var(--navy); width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .ar-q-body { flex: 1; }
+    .ar-q-tag { font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase; background: var(--panel-2); color: var(--muted); padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
+    .ar-q-opts { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-left: 1.9rem; }
+    .ar-opt { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.86rem; color: var(--ink-2); border: 1px solid var(--line); border-radius: 999px; padding: 4px 13px; transition: border-color .12s; }
+    .ar-opt:hover { border-color: var(--navy); } .ar-opt input { margin: 0; }
     .ar-actions { display: flex; gap: 0.8rem; margin-top: 1.6rem; flex-wrap: wrap; }
     .ar-btn { background: var(--navy); color: #fff; border: 0; font-family: var(--sans); font-weight: 700; font-size: 1rem; padding: 0.8rem 1.7rem; border-radius: 10px; cursor: pointer; } .ar-btn:hover { background: var(--navy-2,#11385f); }
     .ar-btn-ghost { background: none; color: var(--navy); border: 1px solid var(--line-strong); }
@@ -446,9 +451,10 @@ const spark = (c) => years.map((y) => {
     .lib-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; background: #fff; }
     .lib-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
     .lib-co { font-family: var(--display); font-weight: 700; color: var(--navy); font-size: 1.02rem; } .lib-ref { font-family: var(--mono); font-weight: 700; color: var(--navy); }
-    .lib-date, .lib-area { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); white-space: nowrap; }
-    .lib-sub { font-weight: 600; color: var(--ink); font-size: 0.92rem; margin: 0.4rem 0 0.2rem; } .lib-short { font-weight: 600; color: var(--ink); margin: 0.4rem 0; }
-    .lib-office { font-size: 0.8rem; color: var(--muted); }
+    .lib-date, .lib-area { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); white-space: nowrap; margin-left: auto; }
+    .lib-meta { font-size: 0.85rem; color: var(--ink-2); font-weight: 600; margin: 0.4rem 0 0.1rem; } .lib-dot { color: var(--muted); font-weight: 400; }
+    .lib-short { font-weight: 600; color: var(--ink); margin: 0.4rem 0; }
+    .lib-more { background: var(--panel-2) !important; color: var(--muted) !important; }
     .lib-cfr { display: flex; flex-wrap: wrap; gap: 5px; margin: 0.6rem 0; } .lib-chip { font-family: var(--mono); font-size: 0.72rem; background: var(--panel); color: var(--navy); padding: 2px 7px; border-radius: 4px; }
     .lib-lead { font-family: var(--serif); font-size: 0.9rem; line-height: 1.5; color: var(--ink-2); margin-top: 0.5rem; }
     .lib-link { display: inline-block; margin-top: 0.6rem; font-size: 0.83rem; font-weight: 700; color: var(--blue); }
