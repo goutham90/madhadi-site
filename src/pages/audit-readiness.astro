@@ -172,7 +172,7 @@ const spark = (c) => years.map((y) => {
 
     function loadQuestions() {
       if (QB) return Promise.resolve(QB);
-      return fetch('/data/audit_questions.json').then(function (r) { return r.json(); }).then(function (d) {
+      return fetch('/data/audit_questions.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
         QB = d; renderSections(); return d;
       }).catch(function () { document.getElementById('ar-prog-txt').textContent = 'Could not load questions, please reload.'; });
     }
@@ -292,7 +292,7 @@ const spark = (c) => years.map((y) => {
       if (LIB[libMode]) { renderLib(); return; }
       var url = libMode === 'wl' ? '/data/fda_wl.json' : '/data/fda_obs.json';
       document.getElementById('lib-list').innerHTML = '<p class="ar-loading">Loading the FDA library...</p>';
-      fetch(url).then(function (r) { return r.json(); }).then(function (d) { LIB[libMode] = d; buildFilter(); renderLib(); })
+      fetch(url, { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) { LIB[libMode] = d; buildFilter(); renderLib(); })
         .catch(function () { document.getElementById('lib-list').innerHTML = '<p class="ar-warn">Could not load the library, please reload.</p>'; });
     }
     function buildFilter() {
@@ -340,9 +340,11 @@ const spark = (c) => years.map((y) => {
           if (x.url) html += '<a class="lib-link" href="' + esc(x.url) + '" target="_blank" rel="noopener nofollow">Read the full FDA letter →</a>';
           html += '</article>';
         } else {
-          html += '<article class="lib-card"><div class="lib-head"><span class="lib-ref">' + esc(x.ref) + '</span><span class="lib-area">' + esc(x.area) + ' · ' + x.total.toLocaleString() + ' citations · ' + esc(x.trend) + '</span></div>';
-          html += '<div class="lib-short">' + esc(x.short) + '</div>';
+          var rb = (x.ref.match(/21 CFR \d+\.\d+/) || [x.ref])[0];
+          html += '<article class="lib-card lib-obs"><div class="lib-head"><span class="lib-ref">' + esc(x.ref) + '</span><span class="lib-area"><span class="lib-tpill lib-' + esc(x.trend) + '">' + esc(x.trend) + '</span> ' + x.total.toLocaleString() + ' citations</span></div>';
+          html += '<div class="lib-short">' + esc(x.short) + ' <span class="lib-dot">·</span> ' + esc(x.area) + ' (FY' + (LIB.obs.years && LIB.obs.years[0]) + '-' + (LIB.obs.years && LIB.obs.years[LIB.obs.years.length-1]) + ')</div>';
           if (x.meaning) html += '<p class="lib-lead">' + esc(x.meaning) + '</p>'; else if (x.long) html += '<p class="lib-lead">' + esc(x.long) + '</p>';
+          html += '<button type="button" class="lib-cite-wl" data-ref="' + esc(rb) + '">Find Warning Letters citing ' + esc(rb) + ' &rarr;</button>';
           html += '</article>';
         }
       });
@@ -357,6 +359,17 @@ const spark = (c) => years.map((y) => {
     var st; document.getElementById('lib-search').addEventListener('input', function () { clearTimeout(st); st = setTimeout(function () { if (LIB[libMode]) renderLib(); }, 180); });
     document.getElementById('lib-filter').addEventListener('change', function () { if (LIB[libMode]) renderLib(); });
     document.getElementById('lib-more').addEventListener('click', appendLib);
+    // From a 483 observation, jump to the Warning Letters that cite that CFR.
+    document.getElementById('lib-list').addEventListener('click', function (e) {
+      var b = e.target.closest('.lib-cite-wl'); if (!b) return;
+      var ref = b.dataset.ref || '';
+      libMode = 'wl';
+      document.getElementById('lib-wl').classList.add('is-on');
+      document.getElementById('lib-obs').classList.remove('is-on');
+      document.getElementById('lib-search').value = ref;
+      if (LIB.wl) { buildFilter(); renderLib(); } else { loadLibrary(); }
+      var c = document.querySelector('.ar-lib-controls'); if (c) c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     // preload the self-assessment questions on first paint (default tab)
     loadQuestions();
@@ -458,6 +471,11 @@ const spark = (c) => years.map((y) => {
     .lib-cfr { display: flex; flex-wrap: wrap; gap: 5px; margin: 0.6rem 0; } .lib-chip { font-family: var(--mono); font-size: 0.72rem; background: var(--panel); color: var(--navy); padding: 2px 7px; border-radius: 4px; }
     .lib-lead { font-family: var(--serif); font-size: 0.9rem; line-height: 1.5; color: var(--ink-2); margin-top: 0.5rem; }
     .lib-link { display: inline-block; margin-top: 0.6rem; font-size: 0.83rem; font-weight: 700; color: var(--blue); }
+    .lib-obs .lib-ref { font-size: 1.02rem; }
+    .lib-tpill { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 1px 7px; border-radius: 4px; }
+    .lib-tpill.lib-rising { background: #fde8e6; color: #b3261e; } .lib-tpill.lib-steady { background: #eef2f6; color: #4a5158; } .lib-tpill.lib-falling { background: #e6f4ea; color: #1a7f4b; }
+    .lib-cite-wl { margin-top: 0.7rem; background: none; border: 1px solid var(--line-strong); color: var(--blue); font-family: var(--sans); font-weight: 700; font-size: 0.8rem; padding: 6px 12px; border-radius: 8px; cursor: pointer; }
+    .lib-cite-wl:hover { background: var(--panel); border-color: var(--navy); }
     .ar-lib-more-wrap { text-align: center; margin-top: 1.6rem; }
     @media (max-width: 560px) { .ar-cards, .ar-lib-list { grid-template-columns: 1fr; } .ar-stats { gap: 1.3rem; } .ar-barrow { grid-template-columns: 1fr 60px; } .ar-bartrk { display: none; } }
 

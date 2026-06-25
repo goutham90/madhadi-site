@@ -3,7 +3,7 @@
  * fallback when offline, then an offline page); cache-first for same-origin static
  * assets; cross-origin requests (e.g. Google Fonts) bypass the cache. Bump VERSION
  * to roll all caches. */
-const VERSION = 'madhadi-v2';
+const VERSION = 'madhadi-v3';
 const CACHE = 'madhadi-cache-' + VERSION;
 /* Cloudflare Pages serves /offline.html at the extensionless /offline (it 307-redirects
  * /offline.html). Precache and fall back to the canonical URL so no redirected response
@@ -36,6 +36,19 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return; // let cross-origin (fonts, etc.) pass through
+
+  // Data files change in place (same URL) on every refresh, so never serve them stale:
+  // network-first, fall back to cache only when offline.
+  if (url.pathname.indexOf('/data/') === 0) {
+    event.respondWith(
+      fetch(req).then(function (res) {
+        var copy = res.clone();
+        caches.open(CACHE).then(function (c) { c.put(req, copy); }).catch(function () {});
+        return res;
+      }).catch(function () { return caches.match(req); })
+    );
+    return;
+  }
 
   // Page navigations: network-first, fall back to cache, then offline page.
   if (req.mode === 'navigate') {
