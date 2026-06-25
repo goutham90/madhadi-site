@@ -50,7 +50,7 @@
 "tag": "general"
 },
 {
-"q": "Do management review inputs include the recognized performance and quality indicators (deviations, CAPA, complaints, recalls, change management, audit and inspection results, supplier performance, and stability or product quality trends)?",
+"q": "Do management review inputs include the recognized performance and quality indicators (such as deviation and CAPA status, complaints and recalls, change management, audit and inspection results, supplier performance, and stability or product-quality trends)?",
 "tag": "general"
 },
 {
@@ -82,7 +82,7 @@
 "tag": "general"
 },
 {
-"q": "Is there a documented training program with a curriculum tied to roles, and can you show training is completed and assessed for effectiveness before personnel perform unsupervised GxP work?",
+"q": "Is training completed and assessed for effectiveness before personnel perform unsupervised GxP work, per a role-based curriculum?",
 "tag": "general"
 },
 {
@@ -142,7 +142,7 @@
 "tag": "general"
 },
 {
-"q": "Is there a defined and documented process for managing the quality aspects of product discontinuation or site closure (for example handling of records, retention samples, stability, and ongoing supply obligations)?",
+"q": "Is there a defined and documented process for managing the quality aspects of product discontinuation (covering handling of records, retention samples, ongoing stability, and continued supply obligations)?",
 "tag": "general"
 },
 {
@@ -181,7 +181,7 @@
 "tag": "general"
 },
 {
-"q": "Before release, does the quality unit review the complete batch record including that the batch was produced and controlled per the master production and control records?",
+"q": "Before release, does the quality unit review the batch record to confirm the batch was produced and controlled in accordance with the approved master production and control records?",
 "tag": "general"
 },
 {
@@ -189,7 +189,7 @@
 "tag": "general"
 },
 {
-"q": "Are all deviations, out-of-specification results, and unexplained discrepancies fully investigated and dispositioned by the quality unit before the affected batch is released?",
+"q": "Are deviations, out-of-specification results, and unexplained discrepancies affecting a batch investigated and dispositioned by the quality unit before that batch is released?",
 "tag": "general"
 },
 {
@@ -217,7 +217,7 @@
 "tag": "general"
 },
 {
-"q": "Is there documented evidence that the quality unit's written procedures are actually followed in practice, not just on paper, for example release records that match the steps the procedure requires?",
+"q": "Is there documented evidence (such as release records that follow the required procedural steps) that the quality unit's written procedures are followed in practice?",
 "tag": "general"
 },
 {
@@ -249,10 +249,6 @@
 "tag": "general"
 },
 {
-"q": "Does the quality unit review production records for accuracy, completeness, and compliance with established procedures before releasing a batch?",
-"tag": "general"
-},
-{
 "q": "Does the quality unit have defined authority over the review and approval of validation protocols and reports affecting product quality?",
 "tag": "general"
 },
@@ -270,10 +266,6 @@
 },
 {
 "q": "Does the quality unit have a defined role in reviewing and approving the responses, root cause, and effectiveness checks for complaints and recalls?",
-"tag": "general"
-},
-{
-"q": "When manufacturing operations are outsourced, does the written quality agreement clearly define which party's quality unit holds final batch disposition and reject authority?",
 "tag": "general"
 },
 {
@@ -297,8 +289,8 @@
 "tag": "general"
 },
 {
-"q": "For products requiring batch certification by a qualified person under EU or other markets, is the QP's role, independence, and certification authority defined and separate from the US release function where both apply?",
-"tag": "biologics"
+"q": "For products marketed in the EU, is the Qualified Person's batch certification role and authority defined and distinct from the US batch release function where both apply?",
+"tag": "general"
 },
 {
 "q": "For cell and gene therapy or other products with short shelf life, does the quality unit have a defined, documented process for expedited release that still preserves full review and reject authority?",
@@ -368,7 +360,7 @@
 "tag": "general"
 },
 {
-"q": "Are corrections to records made by a single line through the original entry (original remaining readable), with the correct value, initials, date, and a reason where the reason is not obvious, and is overwriting, erasing, or correction fluid prohibited?",
+"q": "Are corrections to records made by a single line through the original entry (with the original remaining readable), the correct value entered, and the correction initialed and dated, with a reason recorded where it is not obvious (no overwriting, erasing, or correction fluid)?",
 "tag": "general"
 },
 {
@@ -408,7 +400,7 @@
 "tag": "computerized"
 },
 {
-"q": "Do you have a defined records retention schedule that meets the regulatory minimums (for example at least one year past the product expiration date, or longer where required for biologics or other product types) and is the schedule followed in practice?",
+"q": "Do you have a defined records retention schedule that meets the applicable regulatory minimums (for example, batch and related records retained at least one year past the product expiration date per 21 CFR 211.180, with longer periods where required for biologics or other product types), and is the schedule followed in practice?",
 "tag": "general"
 },
 {
@@ -472,12 +464,8 @@
 "tag": "cgt"
 },
 {
-"q": "For combination products, do your document control and records cover both the drug and device constituent parts under the applicable cGMP streams, so device history records and design records are not left outside the system?",
+"q": "For combination products, do your document control and records cover both the drug and device constituent parts under the applicable cGMP streams per 21 CFR Part 4, including any device records (such as design and device history records) required for the device constituent so they are not left outside the system?",
 "tag": "combination"
-},
-{
-"q": "When you describe a document or record control gap during an inspection, can you show that you detected it yourself through periodic review, internal audit, or self-inspection rather than relying on the investigator to find it?",
-"tag": "general"
 },
 {
 "q": "Are obsolete documents retained for the required period for traceability (to reconstruct what instruction was in force at the time a historical batch was made), separate from the active controlled set?",
@@ -588,7 +576,7 @@
 },
 {
 "q": "Are aborted, trial, or unreported analytical runs and integrations controlled and accounted for, so there is no testing into compliance, unjustified reprocessing, or selective deletion of out-of-specification results?",
-"tag": "api"
+"tag": "general"
 },
 {
 "q": "Is data review designed as an independent second-person review by someone other than the person who generated the data, qualified to detect errors, omissions, and integrity problems?",
@@ -632,7 +620,7 @@
 },
 {
 "q": "When you receive data from a vendor, CMO, or contract lab, do you have a defined way to assess its reliability (for example audit, raw data review, or system access) rather than accepting certificates of analysis or reports at face value?",
-"tag": "api"
+"tag": "general"
 },
 {
 "q": "Are hybrid systems (electronic record plus a paper signature or paper record plus an electronic system) formally defined, justified, and controlled so the linkage between the paper and electronic parts is unambiguous and complete?",
@@ -742,11 +730,11 @@
 "tag": "computerized"
 },
 {
-"q": "Do electronic signatures based on user ID and password use two distinct components, with the full two-component entry required for the first signing of a session and at least one component for subsequent signings within a continuous session?",
+"q": "Where electronic signatures use two distinct identification components such as user ID and password, does the system require all components for the first signing executed during a single continuous period of controlled system access, and at least one component for each subsequent signing within that period?",
 "tag": "computerized"
 },
 {
-"q": "Have you submitted to the FDA the certification that electronic signatures are the legally binding equivalent of handwritten signatures, as required before relying on Part 11 e-signatures?",
+"q": "Has your organization submitted the one-time certification to FDA (per 21 CFR 11.100(c)) that electronic signatures used in your systems are intended to be the legally binding equivalent of handwritten signatures?",
 "tag": "computerized"
 },
 {
@@ -821,11 +809,11 @@
 "tag": "computerized"
 },
 {
-"q": "For every system that creates, modifies, or deletes GxP electronic records, is a secure, computer-generated, time-stamped audit trail enabled and configured to capture operator entries and actions that create, modify, or delete those records (21 CFR 211.68, Part 11.10(e))?",
+"q": "For every system that creates, modifies, or deletes GxP electronic records, is a secure, computer-generated, time-stamped audit trail enabled and configured to capture operator entries and actions that create, modify, or delete those records (21 CFR Part 11.10(e))?",
 "tag": "computerized"
 },
 {
-"q": "Does each audit trail entry capture who made the change, what was changed (old value and new value), when it occurred (date and time), and where required the reason for the change, so a reviewer can reconstruct the event without consulting another source?",
+"q": "Does each audit trail entry capture who made the change, what was changed (including the original value and the new value), and when it occurred (date and time)?",
 "tag": "computerized"
 },
 {
@@ -841,7 +829,7 @@
 "tag": "computerized"
 },
 {
-"q": "Are users prevented from editing or deleting audit trail entries, and have you confirmed that no role (including IT, vendor, or database administrators) can alter trail content without leaving its own auditable evidence?",
+"q": "Are users prevented from editing or deleting audit trail entries within the application?",
 "tag": "computerized"
 },
 {
@@ -873,7 +861,7 @@
 "tag": "computerized"
 },
 {
-"q": "Is the audit trail review performed by someone who understands the data and the process (the person responsible for the data or a qualified designate), and is QA oversight of the review defined?",
+"q": "Is the audit trail review performed by someone who understands the data and the process (the person responsible for the data or a qualified designate)?",
 "tag": "general"
 },
 {
@@ -893,7 +881,7 @@
 "tag": "computerized"
 },
 {
-"q": "Do you avoid using review by exception as a way to skip looking at a high-criticality record's change history entirely, keeping record-level review tied to record approval?",
+"q": "Is record-level audit trail review of high-criticality records kept tied to record approval, so review by exception does not replace examining that record's change history?",
 "tag": "computerized"
 },
 {
@@ -909,7 +897,7 @@
 "tag": "computerized"
 },
 {
-"q": "Are audit trails retained for at least the full record retention period of the data they describe, and remain readable and reviewable across system upgrades, migrations, and decommissioning?",
+"q": "Are audit trails retained for at least the full record retention period of the data they describe?",
 "tag": "computerized"
 },
 {
@@ -917,7 +905,7 @@
 "tag": "computerized"
 },
 {
-"q": "Are audit trails included in the system backup and restore process, and have you verified that restored data brings its audit trail with it intact?",
+"q": "Have you verified that a restore operation brings the data's audit trail back intact along with the records?",
 "tag": "computerized"
 },
 {
@@ -980,7 +968,7 @@
 "tag": "general"
 },
 {
-"q": "Does your definition of a deviation cover all departures from approved procedures, specifications, master batch records, validated parameters, and expected results, not just manufacturing process steps?",
+"q": "Does your definition of a deviation cover departures from any approved procedure, specification, master batch record, or validated parameter, not only manufacturing process steps?",
 "tag": "general"
 },
 {
@@ -1028,7 +1016,7 @@
 "tag": "general"
 },
 {
-"q": "When human error is concluded as the root cause, is it justified with evidence and are the underlying system factors such as procedure clarity, training, and workload examined rather than just retraining the individual?",
+"q": "When human error is concluded as the root cause, are the underlying system factors (procedure clarity, training, workload) examined rather than only retraining the individual?",
 "tag": "general"
 },
 {
@@ -1084,7 +1072,7 @@
 "tag": "general"
 },
 {
-"q": "Do you distinguish between unplanned deviations and planned or pre-approved deviations, and are planned deviations approved before execution with a justification and a defined scope and expiry?",
+"q": "Are planned (pre-approved) deviations approved before execution with a documented justification, defined scope, and expiry?",
 "tag": "general"
 },
 {
@@ -1097,7 +1085,7 @@
 },
 {
 "q": "Are out-of-specification and out-of-trend laboratory results handled through a defined investigation process that integrates with deviation and batch disposition decisions?",
-"tag": "api"
+"tag": "general"
 },
 {
 "q": "If deviations are managed in an electronic system, is it validated, with audit trails enabled and reviewed, and are records protected against unauthorized edits or backdating?",
@@ -1143,7 +1131,7 @@
 "tag": "general"
 },
 {
-"q": "Can you distinguish in your records between a correction (immediate fix or containment), a corrective action (addresses the cause of an existing problem so it does not recur), and a preventive action (addresses a potential problem before it occurs), and is each used correctly rather than every action being labeled corrective?",
+"q": "Do your records clearly distinguish among a correction (immediate fix or containment), a corrective action (eliminates the cause of an existing problem to prevent recurrence), and a preventive action (addresses a potential problem before it occurs), and apply each label correctly rather than defaulting everything to corrective?",
 "tag": "general"
 },
 {
@@ -1155,7 +1143,7 @@
 "tag": "general"
 },
 {
-"q": "When human error is cited as a root cause, is it justified with supporting evidence and examined for underlying systemic contributors (training, procedure clarity, workload, system design) rather than being used as a default conclusion?",
+"q": "When human error is cited as a root cause, is it examined for underlying systemic contributors (training, procedure clarity, workload, system design) rather than accepted as the default conclusion?",
 "tag": "general"
 },
 {
@@ -1187,7 +1175,7 @@
 "tag": "general"
 },
 {
-"q": "Is an effectiveness check defined for CAPAs at the time of action planning, with the specific success criteria, the method of verification, the data to be reviewed, and the timing all documented up front?",
+"q": "At the time of action planning, is an effectiveness check defined for the CAPA with its success criteria, verification method, data to be reviewed, and timing documented up front?",
 "tag": "general"
 },
 {
@@ -1239,7 +1227,7 @@
 "tag": "general"
 },
 {
-"q": "Do CAPA records demonstrate good documentation practices and data integrity (contemporaneous entries, attributable signatures, no backdating, complete supporting evidence attached)?",
+"q": "Do CAPA records demonstrate ALCOA data integrity attributes (contemporaneous, attributable, complete, with supporting evidence attached)?",
 "tag": "general"
 },
 {
@@ -1326,7 +1314,7 @@
 "tag": "general"
 },
 {
-"q": "Does the assessment evaluate regulatory and filing impact, including whether the change requires a regulatory submission, a variation, or prior approval, and whether it can be implemented before authority notification or approval?",
+"q": "Does the impact assessment evaluate regulatory and filing impact, including whether the change requires a regulatory submission, variation, or prior approval?",
 "tag": "general"
 },
 {
@@ -1394,7 +1382,7 @@
 "tag": "general"
 },
 {
-"q": "When a change requires a regulatory variation or submission, is implementation held until the appropriate notification or approval status is confirmed, and is this linkage documented in the change record?",
+"q": "When a change requires a regulatory variation or submission, is implementation held until the appropriate notification or approval status is confirmed?",
 "tag": "general"
 },
 {
@@ -1485,11 +1473,11 @@
 "tag": "general"
 },
 {
-"q": "Do you prohibit outlier tests for chemical assays where they are not scientifically valid, and where outlier tests are used for biological or microbiological assays, are they predefined in the approved method or specification rather than applied retrospectively to remove a failing value?",
+"q": "Do you prohibit the use of outlier tests for chemical assays where they are not scientifically valid?",
 "tag": "general"
 },
 {
-"q": "Does your procedure prohibit averaging a passing result with the original OOS result to obtain a reportable value, and does it define correctly when averaging of replicate determinations is and is not scientifically appropriate?",
+"q": "Does your procedure prohibit averaging a passing retest result with the original OOS result to obtain a reportable value?",
 "tag": "general"
 },
 {
@@ -1570,10 +1558,10 @@
 },
 {
 "q": "When testing is performed at a contract laboratory or CDMO, do quality agreements define how OOS/OOT results are reported, investigated, and approved, and does your quality unit have oversight of and access to those investigation records?",
-"tag": "api"
+"tag": "general"
 },
 {
-"q": "For microbiological OOS results (such as sterility test failures, bioburden, endotoxin, or environmental excursions), do you apply the appropriate compendial and guidance-driven rules for invalidating a sterility test only on identified laboratory or test-system cause, and investigate beyond the lab when no such cause exists?",
+"q": "For sterility test failures, do you invalidate the result only when an identified laboratory or test-system cause is documented, and otherwise treat the failure as a true result requiring full investigation?",
 "tag": "sterile"
 },
 {
@@ -1636,7 +1624,7 @@
 "tag": "general"
 },
 {
-"q": "Are the accuracy and reliability of test methods established and documented per 211.194(a)(2), and is the rationale recorded when a compendial method (USP, NF) is used in place of an in-house validated method?",
+"q": "Are the accuracy, sensitivity, specificity, and reproducibility of test methods established and documented as required by 211.165(e)?",
 "tag": "general"
 },
 {
@@ -1688,7 +1676,7 @@
 "tag": "general"
 },
 {
-"q": "Is each result checked by a second person or validated system, and are calculations, integrations, and transcriptions verified for accuracy before the result is reported?",
+"q": "Is each reported result independently verified by a second qualified person or a validated system before it is reported?",
 "tag": "general"
 },
 {
@@ -1775,7 +1763,7 @@
 "tag": "general"
 },
 {
-"q": "For products labeled for refrigerated storage (5C), do you run the long-term condition at 5C and an accelerated condition at 25C/60% RH, and have you justified the absence of a separate intermediate condition?",
+"q": "For products labeled for refrigerated storage (5C), do you run the long-term condition at 5C and an accelerated condition at 25C/60% RH per ICH Q1A?",
 "tag": "general"
 },
 {
@@ -1807,7 +1795,7 @@
 "tag": "general"
 },
 {
-"q": "Do your stability protocols include all stability-indicating attributes for the dosage form (for example assay, related substances/degradation products, dissolution, water content, microbial limits, container-closure integrity, and physical attributes), not just assay?",
+"q": "Do your stability protocols include all stability-indicating attributes relevant to the specific dosage form (not assay alone), with the selected attribute set justified for that product?",
 "tag": "general"
 },
 {
@@ -1855,7 +1843,7 @@
 "tag": "general"
 },
 {
-"q": "Do you have an ongoing (commitment) stability program that places at least one commercial batch per year per product, strength, and container-closure system on long-term study, per 21 CFR 211.166 and ICH Q1A?",
+"q": "Do you have an ongoing (commitment) stability program that places at least one commercial batch per year per product, strength, and container-closure system on long-term study (a written stability program is required by 21 CFR 211.166, with the per-year enrollment cadence per ICH Q1A)?",
 "tag": "general"
 },
 {
@@ -1907,7 +1895,7 @@
 "tag": "general"
 },
 {
-"q": "When stability testing is outsourced to a contract laboratory, is the work governed by a quality/technical agreement, and do you review and approve their protocols, methods, data, and OOS investigations?",
+"q": "When stability testing is outsourced to a contract laboratory, do you review and approve their protocols, methods, data, and OOS investigations under a governing quality/technical agreement?",
 "tag": "general"
 },
 {
@@ -1994,11 +1982,11 @@
 "tag": "general"
 },
 {
-"q": "If any PPQ acceptance criterion was not met, is there a documented justified conclusion (and any protocol change handled through change control) explaining why the process is still considered qualified?",
+"q": "If any PPQ acceptance criterion was not met, was the result investigated under the deviation/OOS process and a quality-approved disposition reached before the process was declared qualified?",
 "tag": "general"
 },
 {
-"q": "Was commercial distribution of PPQ batches authorized only after the PPQ report was approved, or, if batches were released earlier, is there a documented risk-based justification for doing so?",
+"q": "Was commercial distribution of PPQ batches authorized only after the PPQ report was reviewed and approved by the quality unit?",
 "tag": "general"
 },
 {
@@ -2046,7 +2034,7 @@
 "tag": "general"
 },
 {
-"q": "Per 21 CFR 211.110, are in-process controls and sampling defined to monitor and validate the performance of the manufacturing steps that may cause variability in the finished product (for example blend uniformity, content uniformity, dissolution, fill weight)?",
+"q": "Per 21 CFR 211.110(a), are in-process control procedures established to monitor output and validate performance of the manufacturing steps that may cause variability in the finished product, with appropriate in-process sampling and testing?",
 "tag": "general"
 },
 {
@@ -2113,7 +2101,7 @@
 "tag": "general"
 },
 {
-"q": "Do your MACO calculations correctly account for the shared equipment surface area, the minimum batch size of the next product, the largest daily dose of the next product, and the smallest dose of the next product as applicable?",
+"q": "Do your MACO calculations correctly use the shared equipment surface area, the minimum batch size of the next product, the largest daily dose of the next product, and the smallest (minimum) therapeutic dose of the previously manufactured product?",
 "tag": "general"
 },
 {
@@ -2201,7 +2189,7 @@
 "tag": "general"
 },
 {
-"q": "Is dedicated equipment used (rather than shared) for highly hazardous, highly sensitizing, or otherwise difficult-to-clean products such as certain potent compounds, beta-lactams, or biologics where carryover risk cannot be controlled, and is that decision documented?",
+"q": "Is dedicated (non-shared) equipment used for products where carryover cannot be adequately controlled by cleaning, such as beta-lactams, highly sensitizing materials, and certain highly potent compounds, and is that decision documented with a risk-based rationale?",
 "tag": "general"
 },
 {
@@ -2260,7 +2248,7 @@
 "tag": "general"
 },
 {
-"q": "Is each piece of equipment and each instrument assigned a risk-based qualification approach, and can you show the rationale for the level of qualification effort applied (for example, why a given item received full DQ/IQ/OQ/PQ versus a reduced approach)?",
+"q": "Can you show a documented, risk-based rationale for the level of qualification effort applied to each piece of equipment and instrument (for example, why a given item received full DQ/IQ/OQ/PQ versus a reduced approach)?",
 "tag": "general"
 },
 {
@@ -2300,7 +2288,7 @@
 "tag": "general"
 },
 {
-"q": "Is there a documented program ensuring measuring and recording devices have suitable accuracy and precision for their intended use, as required by 211.68, before they are relied upon for decisions?",
+"q": "Is there a documented program ensuring measuring and recording devices have suitable accuracy and precision for their intended use, as required by 21 CFR 211.68 and 211.160(b)(4), before they are relied upon for decisions?",
 "tag": "general"
 },
 {
@@ -2336,7 +2324,7 @@
 "tag": "general"
 },
 {
-"q": "Are instruments that are out of calibration, defective, or not yet qualified clearly identified and removed from service or quarantined to prevent inadvertent GxP use, per 211.67?",
+"q": "Are instruments that are out of calibration, defective, or not yet qualified clearly identified and removed from service or quarantined to prevent inadvertent GxP use?",
 "tag": "general"
 },
 {
@@ -2348,7 +2336,7 @@
 "tag": "general"
 },
 {
-"q": "Are lubricants, coolants, and other maintenance materials that contact product (or could contact product) controlled so they do not alter the safety, identity, strength, quality, or purity of the product beyond established requirements, per 211.63/211.65?",
+"q": "Are lubricants, coolants, and other maintenance materials that contact product (or could contact product) controlled so they do not alter the safety, identity, strength, quality, or purity of the product beyond established requirements, per 211.65(b)?",
 "tag": "general"
 },
 {
@@ -2380,7 +2368,7 @@
 "tag": "general"
 },
 {
-"q": "For computerized or automated equipment, are appropriate controls in place over changes to programs, input/output verification, and access, with these controls documented per 211.68(b)?",
+"q": "For computerized or automated equipment, are appropriate controls in place over changes to programs, with these controls documented per 21 CFR 211.68(b)?",
 "tag": "computerized"
 },
 {
@@ -2443,7 +2431,7 @@
 "tag": "sterile"
 },
 {
-"q": "Are airlocks, gowning rooms, and pass-throughs designed and used so that doors interlock or procedural controls prevent simultaneous opening, and is the degowning/gowning sequence defined per area grade?",
+"q": "Are airlocks, gowning rooms, and pass-throughs designed and used so that interlocks or procedural controls prevent simultaneous opening of doors between differently classified areas?",
 "tag": "sterile"
 },
 {
@@ -2487,7 +2475,7 @@
 "tag": "general"
 },
 {
-"q": "Was the water system validated through the recognized three-phase qualification approach (Phase 1 daily, Phase 2 daily, Phase 3 one year) before routine use, and is a current periodic review of system performance maintained?",
+"q": "Was the water system qualified through a recognized multi-phase performance qualification approach (an initial intensive sampling phase, a continued sampling phase, and a long-term phase covering a full year to capture seasonal variation) before routine use, and is a current periodic review of system performance maintained?",
 "tag": "general"
 },
 {
@@ -2495,7 +2483,7 @@
 "tag": "sterile"
 },
 {
-"q": "Are compressed gases and process air that contact product or product-contact surfaces (for example nitrogen, compressed air, CO2, oxygen) filtered, and tested to defined specifications for identity, purity, particulates, moisture, oil, and microbial content as applicable?",
+"q": "Are compressed gases and process air that contact product or product-contact surfaces tested against defined specifications for the relevant attributes (identity, purity, moisture, oil, particulates, and microbial content as applicable)?",
 "tag": "general"
 },
 {
@@ -2527,11 +2515,11 @@
 "tag": "general"
 },
 {
-"q": "Is there a documented integrated pest management program with a defined scope, a contracted or qualified provider, a current trending log of device activity, and pest sightings handled through deviation or work-order processes?",
+"q": "Is there a documented integrated pest management program with defined scope and a qualified or contracted provider, including a current trending log of pest-control device activity?",
 "tag": "general"
 },
 {
-"q": "Are pest control device locations mapped, are no pesticides used in a manner that could contaminate product or surfaces, and are any chemicals used reviewed and approved for use in a GMP facility?",
+"q": "Are pest control chemicals (pesticides, rodenticides) restricted to approved, GMP-reviewed agents and applied only in a manner that cannot contaminate product or product-contact surfaces?",
 "tag": "general"
 },
 {
@@ -2670,7 +2658,7 @@
 "tag": "sterile"
 },
 {
-"q": "Do aseptic process simulations (media fills) cover each filling line, container/closure configuration, and shift, and are they performed at the defined frequency (initially in triplicate per shift/line and at least twice a year per shift thereafter)?",
+"q": "Do aseptic process simulations (media fills) cover each filling line, container/closure configuration, and shift, with initial line qualification of three consecutive successful runs per line/process and periodic revalidation at least twice a year per line/shift thereafter?",
 "tag": "sterile"
 },
 {
@@ -2682,7 +2670,7 @@
 "tag": "sterile"
 },
 {
-"q": "Is the media fill acceptance criterion zero contaminated units when filling fewer than 5000 units, and the appropriate count-based criteria for runs of 5000 to 10000 and over 10000 units, per FDA aseptic guidance and Annex 1?",
+"q": "Is the media fill target zero contaminated units with any contaminated unit triggering investigation, and are run-size-based action limits applied per FDA aseptic guidance, consistent with the Annex 1 expectation of no contamination?",
 "tag": "sterile"
 },
 {
@@ -2706,7 +2694,7 @@
 "tag": "sterile"
 },
 {
-"q": "Where redundant (two) sterilizing filters or single-use filtration assemblies are used, is the rationale documented, and is the post-use integrity test failure handling defined (including which filter is considered sterilizing)?",
+"q": "Where redundant (two) sterilizing filters are used, is the post-use integrity-test failure handling defined, including which filter is considered the sterilizing filter?",
 "tag": "sterile"
 },
 {
@@ -2769,7 +2757,7 @@
 "tag": "sterile"
 },
 {
-"q": "Do you control and document media expiry, storage conditions, and lot-to-lot performance, and is media that fails growth promotion or is past expiry physically quarantined or destroyed so it cannot reach the bench?",
+"q": "Is media that fails growth promotion or is past its expiry physically quarantined or destroyed so it cannot reach the bench?",
 "tag": "sterile"
 },
 {
@@ -2789,7 +2777,7 @@
 "tag": "sterile"
 },
 {
-"q": "Are EM incubation conditions (temperature ranges, sequence, and total duration across both incubation temperatures) defined, justified, and verified with continuous temperature monitoring of the incubators?",
+"q": "Are EM incubation conditions (temperature ranges, sequence, and total duration across both incubation temperatures) defined and justified?",
 "tag": "sterile"
 },
 {
@@ -2817,7 +2805,7 @@
 "tag": "sterile"
 },
 {
-"q": "Are sterility tests conducted in a qualified isolator or Grade A environment with documented environmental monitoring of the test session, so a contaminated result can be properly investigated for true versus laboratory cause?",
+"q": "Are sterility tests conducted in a qualified isolator or Grade A environment with documented environmental monitoring of each test session?",
 "tag": "sterile"
 },
 {
@@ -2845,7 +2833,7 @@
 "tag": "sterile"
 },
 {
-"q": "If a recombinant Factor C or non-LAL endotoxin method is used, has it been validated as an alternative method per USP <1225> with a documented equivalence comparison to the compendial method?",
+"q": "If a recombinant Factor C or other non-LAL endotoxin method is used, has it been validated as an alternative microbiological method per USP <1223> (with recombinant Factor C addressed in USP <1085.1>/<85>) including a documented equivalence comparison to the compendial method?",
 "tag": "sterile"
 },
 {
@@ -2932,11 +2920,11 @@
 "tag": "general"
 },
 {
-"q": "Is at least one specific identity test performed on each lot of each incoming component, drug product container, and closure, as required by 211.84(d)(1) and (d)(2), rather than relying on the supplier's identity statement alone?",
+"q": "Is at least one specific identity test performed on each lot of each incoming component as required by 21 CFR 211.84(d)(1), rather than relying on the supplier's identity statement alone, and are drug product containers and closures tested or examined for conformance (with CoA reliance where justified) per 211.84(d)(3)?",
 "tag": "general"
 },
 {
-"q": "When you accept a supplier's certificate of analysis in lieu of full testing for other attributes, have you first validated the reliability of that supplier's test results at appropriate intervals through your own full analysis, and is that validation documented per 211.84(d)(2)?",
+"q": "When you accept a supplier's certificate of analysis in lieu of full testing for an attribute, have you established the reliability of that supplier's test results through your own periodic full analysis as required by 211.84(d)(2)?",
 "tag": "general"
 },
 {
@@ -2984,7 +2972,7 @@
 "tag": "general"
 },
 {
-"q": "Are retest dates versus expiry dates correctly distinguished for materials, with a documented basis (stability data or supplier data) for any assigned retest interval, and is material used or fully retested before that interval lapses?",
+"q": "Is a documented basis (stability or supplier data) maintained for any assigned retest interval, and is material fully retested or used before that interval lapses?",
 "tag": "general"
 },
 {
@@ -2992,7 +2980,7 @@
 "tag": "general"
 },
 {
-"q": "Is stock rotated and issued on a first-expiry-first-out or first-in-first-out basis, with a control that flags or blocks issue of the oldest or near-expiry material being bypassed?",
+"q": "Is stock issued on a first-expiry-first-out (or first-in-first-out) basis, with a control that flags or blocks any attempt to bypass the oldest or nearest-expiry material?",
 "tag": "general"
 },
 {
@@ -3068,7 +3056,7 @@
 "tag": "packaging"
 },
 {
-"q": "When incoming material fails a specification or shows an out-of-specification CoA result, is it handled through the deviation/OOS process, and is the supplier's response and any trend in failures fed back into the supplier qualification status?",
+"q": "When incoming material fails a specification or shows an out-of-specification CoA result, is it handled through your deviation/OOS process with a documented disposition decision?",
 "tag": "general"
 },
 {
@@ -3127,11 +3115,11 @@
 "tag": "general"
 },
 {
-"q": "Are blanks, N/A entries, and unused fields handled by a defined rule so there are no unexplained empty spaces that could be filled in later?",
+"q": "Is there a defined rule for how blanks, N/A entries, and unused fields are handled so that no field is left blank in a way that could be completed later (211.188)?",
 "tag": "general"
 },
 {
-"q": "Where the batch record is electronic (MES or eBR), is it validated, are entries attributable through unique logins, and are audit trails capturing who did what and when reviewed as part of batch disposition?",
+"q": "Where the batch record is electronic (MES or eBR), is the system validated for its intended use with entries attributable through unique individual logins (Part 11)?",
 "tag": "computerized"
 },
 {
@@ -3159,7 +3147,7 @@
 "tag": "general"
 },
 {
-"q": "Are theoretical yield and actual yield calculated and recorded at the conclusion of each appropriate phase of manufacturing, processing, packaging, and holding (211.103)?",
+"q": "Are actual yields and percentages of theoretical yield determined and recorded at the conclusion of each appropriate phase of manufacturing, processing, packaging, and holding (211.103)?",
 "tag": "general"
 },
 {
@@ -3227,7 +3215,7 @@
 "tag": "general"
 },
 {
-"q": "Is there a process for capturing the actual as-run conditions when an operator must depart from the written instruction, so the executed record reflects what truly happened on the batch?",
+"q": "When execution departs from the written instruction, is the actual as-run condition captured and routed through the deviation system so the executed record reflects what actually happened (211.100)?",
 "tag": "general"
 },
 {
@@ -3246,11 +3234,11 @@
 "tag": "packaging"
 },
 {
-"q": "Is labeling issued only by the labeling control unit against the specific batch record, with the quantity issued recorded and reconciled against quantity used, returned, and destroyed?",
+"q": "Is labeling issued only by the labeling control unit against the specific approved batch record?",
 "tag": "packaging"
 },
 {
-"q": "Does label reconciliation have a defined acceptable variance limit, and is any reconciliation discrepancy beyond that limit investigated before the batch is released?",
+"q": "Are label reconciliation discrepancies that exceed the defined acceptable variance limit investigated and resolved before the batch is released?",
 "tag": "packaging"
 },
 {
@@ -3266,7 +3254,7 @@
 "tag": "packaging"
 },
 {
-"q": "Are incoming printed components received and held under quarantine with each lot uniquely identified, sampled, and tested or examined before being moved to approved status?",
+"q": "Are incoming printed packaging components held under quarantine, with each lot uniquely identified, until released to approved status?",
 "tag": "packaging"
 },
 {
@@ -3286,7 +3274,7 @@
 "tag": "packaging"
 },
 {
-"q": "Are online printing devices, such as ink-jet or laser coders applied directly to the unit, checked to confirm that all imprinting conforms to the batch record specification?",
+"q": "Where online printing devices (such as ink-jet or laser coders) are used, is the imprint verified against the batch record specification at defined points and the verification recorded?",
 "tag": "packaging"
 },
 {
@@ -3294,11 +3282,11 @@
 "tag": "packaging"
 },
 {
-"q": "Are vision systems, scanners, or other electronic verification devices used to check labels and codes qualified, challenged with known good and bad samples, and shown to reject defects reliably?",
+"q": "Are vision/electronic verification systems for labels and codes qualified and challenged with known defective samples to confirm they reliably reject defects?",
 "tag": "packaging"
 },
 {
-"q": "When automated code or label verification equipment is used, are challenge or verification checks performed at defined frequencies and a failure handled with defined actions, such as quarantine of suspect units?",
+"q": "Are defined actions (such as quarantine of suspect units and rework) specified and followed when automated code/label verification equipment fails a check?",
 "tag": "packaging"
 },
 {
@@ -3314,7 +3302,7 @@
 "tag": "packaging"
 },
 {
-"q": "Are tamper-evident features applied and verified as required for the product type, and is the tamper-evident statement on the label accurate?",
+"q": "Are tamper-evident features applied and verified as required for the product type during packaging?",
 "tag": "packaging"
 },
 {
@@ -3330,7 +3318,7 @@
 "tag": "packaging"
 },
 {
-"q": "Is there a defined procedure for handling and documenting set-down or partial batches, such as bulk held between filling and packaging, including hold time limits and re-identification?",
+"q": "Are set-down or partial batches (such as bulk held between filling and packaging) handled under a defined procedure that includes hold-time limits?",
 "tag": "packaging"
 },
 {
@@ -3346,7 +3334,7 @@
 "tag": "packaging"
 },
 {
-"q": "Is the product identifier encoded in a 2D data matrix barcode on each package and homogeneous case, and verified for grade and readability during the run?",
+"q": "Is the product identifier encoded in a 2D data matrix barcode on each package and homogeneous case as required under DSCSA?",
 "tag": "packaging"
 },
 {
@@ -3409,7 +3397,7 @@
 "tag": "general"
 },
 {
-"q": "Can you show that every person performing a GxP activity is qualified for that specific task by a combination of education, training, and experience, as required by 21 CFR 211.25 (or the equivalent biologics, device, or regional requirement)?",
+"q": "Can you show that every person performing a GxP activity is qualified for that specific task by a combination of education, training, and experience, as required by 21 CFR 211.25?",
 "tag": "general"
 },
 {
@@ -3449,15 +3437,15 @@
 "tag": "general"
 },
 {
-"q": "When a deviation or CAPA root cause is identified as inadequate training or human error, can you show the corresponding retraining was actually completed and its effectiveness later checked, rather than retraining being closed as a paper action only?",
+"q": "When a deviation or CAPA root cause is identified as inadequate training or human error, can you show the corresponding retraining was actually completed and verified as effective, rather than closed as a paper action only?",
 "tag": "general"
 },
 {
-"q": "When a procedure is revised, is there a controlled process that identifies who must be retrained, completes that retraining before the revised procedure takes effect, and prevents the new version from being used by untrained staff?",
+"q": "When a procedure is revised, does a controlled process ensure affected staff are retrained before the revised version takes effect?",
 "tag": "general"
 },
 {
-"q": "Are training records (paper or electronic) attributable, legible, contemporaneous, original, and accurate (ALCOA), with no backdating, and can you confirm a record's training date is never later than the day the work was performed?",
+"q": "Are training records (paper or electronic) attributable, legible, contemporaneous, original, and accurate (ALCOA), with controls that prevent backdating?",
 "tag": "general"
 },
 {
@@ -3525,7 +3513,7 @@
 "tag": "api"
 },
 {
-"q": "For combination products, are staff trained on the device-related GMP requirements that apply in addition to drug GMP (for example design and process controls relevant to the device constituent), matched to the tasks they perform?",
+"q": "For combination products, are staff trained on the additional constituent-part GMP controls that apply under 21 CFR Part 4 (for example the specified device or drug requirements beyond the base GMP determined by the primary mode of action), matched to the tasks they perform?",
 "tag": "combination"
 },
 {
@@ -3624,7 +3612,7 @@
 "tag": "general"
 },
 {
-"q": "Is your distribution record system able to produce, by lot, a complete list of direct consignees with contact details and quantities shipped, fast enough to support a Class I recall, per 211.150 distribution records?",
+"q": "Is your distribution record system able to produce, by lot, a complete list of direct consignees with contact details and quantities shipped, fast enough to support a Class I recall, per 211.196 distribution records (and 211.150 distribution procedures designed to facilitate recall)?",
 "tag": "general"
 },
 {
@@ -3640,7 +3628,7 @@
 "tag": "general"
 },
 {
-"q": "For returned goods, do you assess and document conditions of storage and shipping before the return, and destroy product when there is doubt about its safety, identity, strength, quality, or purity per 211.204?",
+"q": "For returned goods, do you assess and document the storage and shipping conditions the product was exposed to before the return per 21 CFR 211.204?",
 "tag": "general"
 },
 {
@@ -3767,7 +3755,7 @@
 "tag": "general"
 },
 {
-"q": "Are APRs completed within the timeframe defined in your procedure, and can you show a tracking log demonstrating that APRs are not chronically overdue?",
+"q": "Are APRs completed within the timeframe defined in your procedure, with no chronically overdue reviews?",
 "tag": "general"
 },
 {
@@ -3823,7 +3811,7 @@
 "tag": "general"
 },
 {
-"q": "Do internal audit findings receive formal responses with root cause, corrective and preventive actions, owners, and due dates, and are those actions tracked to closure and verified for effectiveness?",
+"q": "Are internal audit findings closed with documented CAPA, and is the effectiveness of those corrective actions verified after closure?",
 "tag": "general"
 },
 {
@@ -3855,7 +3843,7 @@
 "tag": "general"
 },
 {
-"q": "Is there a procedure governing the response to an FDA Form 483 that drives a written response within 15 business days to qualify for review before regulatory action, with corrections, corrective actions, and timelines for each observation?",
+"q": "Is there a procedure governing the response to an FDA Form 483 that targets a timely written response (FDA generally expects within 15 business days) addressing corrections, corrective actions, and timelines for each observation?",
 "tag": "general"
 },
 {
@@ -3863,7 +3851,7 @@
 "tag": "general"
 },
 {
-"q": "Are commitments made in inspection responses tracked as formal CAPAs with owners and due dates, and is their completion and effectiveness verified and reported to management?",
+"q": "Are commitments made in inspection responses tracked as formal CAPAs to verified completion and effectiveness?",
 "tag": "general"
 },
 {
@@ -3879,7 +3867,7 @@
 "tag": "cgt"
 },
 {
-"q": "For combination products, does the periodic review and metrics program cover the device constituent part and applicable design and CGMP streams (21 CFR Part 4), including device-related complaints and any reportable events?",
+"q": "For combination products, does the periodic review and metrics program cover each constituent part per the streamlined approach in 21 CFR Part 4 (drug and, where present, device requirements), including device-related complaints and any reportable events?",
 "tag": "combination"
 },
 {
@@ -3914,7 +3902,7 @@
 "tag": "biologics"
 },
 {
-"q": "Are cell banks stored under controlled, monitored conditions with documented inventory control, and are vials split across more than one physical location or freezer to prevent total loss?",
+"q": "Are cell banks (master and working) stored under controlled, monitored conditions with documented, traceable inventory control?",
 "tag": "biologics"
 },
 {
@@ -3970,7 +3958,7 @@
 "tag": "biologics"
 },
 {
-"q": "Does lot release testing include the general biological product standards under 21 CFR 610: sterility (610.12), general safety where applicable, purity, identity (610.14), and constituent materials controls?",
+"q": "Does lot release testing include the applicable general biological product standards under 21 CFR 610 (sterility per 610.12, purity per 610.13, and identity per 610.14)?",
 "tag": "biologics"
 },
 {
@@ -3998,7 +3986,7 @@
 "tag": "biologics"
 },
 {
-"q": "Does comparability assessment span quality attributes, and where quality data alone cannot conclude comparability, is nonclinical or clinical bridging data considered?",
+"q": "When quality-attribute data alone cannot establish comparability after a manufacturing change, is nonclinical or clinical bridging data evaluated per ICH Q5E?",
 "tag": "biologics"
 },
 {
@@ -4069,7 +4057,7 @@
 "tag": "cgt"
 },
 {
-"q": "Is donor testing performed using FDA-licensed, approved, or cleared donor screening assays run by a CLIA-certified or equivalent laboratory, for at least HIV-1/2, HBV, HCV, syphilis, and (where applicable) HTLV, CMV, and West Nile virus, with the test panel matched to the cell or tissue type?",
+"q": "Is donor testing performed using FDA-licensed, approved, or cleared donor screening assays run by an appropriately certified (e.g., CLIA) laboratory, with the panel of communicable disease agents tested determined by the cell or tissue type per 21 CFR 1271.85?",
 "tag": "cgt"
 },
 {
@@ -4077,7 +4065,7 @@
 "tag": "cgt"
 },
 {
-"q": "When a donor is determined ineligible or eligibility is not complete, and the product is still used under the urgent-medical-need or autologous provisions, is the required documentation, labeling, and physician notification in place per 1271.60, 1271.65, and 1271.90?",
+"q": "When an HCT/P from a donor determined ineligible or with incomplete eligibility is made available for use under an exception (e.g., autologous use per 1271.90), is the required documentation and labeling of the ineligibility/incompleteness in place per 1271.65 and 1271.90?",
 "tag": "cgt"
 },
 {
@@ -4129,11 +4117,11 @@
 "tag": "cgt"
 },
 {
-"q": "For products released before sterility results are final, do you use a rapid or compendial method with a documented justification, perform a 14-day confirmatory sterility test (USP and 21 CFR 610.12 expectations), and have a written procedure for action if a post-release sterility positive occurs after the product is administered?",
+"q": "For products released before final sterility results, is there a written procedure defining the action to take (including physician/patient notification and recall consideration) if a sterility positive is detected after the product has been administered?",
 "tag": "cgt"
 },
 {
-"q": "Is there a documented, risk-based release strategy for short shelf-life products that defines which tests must be complete before release, which are reported post-administration, and how an out-of-specification result on a pending test is handled and communicated to the treating physician?",
+"q": "Is there a documented, risk-based release strategy for short shelf-life products that defines which tests must be complete before release versus reported post-administration?",
 "tag": "cgt"
 },
 {
@@ -4197,7 +4185,7 @@
 "tag": "cgt"
 },
 {
-"q": "Are HCT/P adverse reactions and product deviations reported to FDA within the timeframes of 21 CFR 1271 Subpart D and E (including 1271.350 adverse reaction reporting and 1271.150 deviation reporting), and for licensed products, are biological product deviation reports filed per 21 CFR 600.14?",
+"q": "Are HCT/P adverse reactions and product deviations reported to FDA within the timeframes of 21 CFR 1271.350 (1271.350(a) adverse reaction reporting and 1271.350(b) HCT/P deviation reporting), and for licensed (351) products, are biological product deviation reports filed per 21 CFR 600.14?",
 "tag": "cgt"
 },
 {
@@ -4387,7 +4375,7 @@
 "tag": "combination"
 },
 {
-"q": "If you operate a device QMS base (the QMSR, formerly 21 CFR 820), can you demonstrate compliance with the specifically called-out drug CGMP provisions in 21 CFR 4.4(b)(2), including 211.84 (component testing), 211.103 (yield calculation), 211.132 (tamper-evident packaging where applicable), 211.137 (expiration dating), 211.165 (release testing), 211.166-211.167 (stability), and 211.170 (reserve samples)?",
+"q": "If you operate under a device QMS base per 21 CFR 4.4(b)(2), do you also demonstrate compliance with the specifically called-out drug CGMP provisions that apply to your product (211.84, 211.103, 211.132, 211.137, 211.165, 211.166-211.167, 211.170)?",
 "tag": "combination"
 },
 {
@@ -4407,7 +4395,7 @@
 "tag": "combination"
 },
 {
-"q": "Has design verification confirmed that design outputs meet design inputs, and has design validation demonstrated the product conforms to defined user needs and intended uses under actual or simulated use conditions?",
+"q": "Has design verification confirmed that the design outputs meet the design inputs for the device constituent part?",
 "tag": "combination"
 },
 {
@@ -4415,7 +4403,7 @@
 "tag": "combination"
 },
 {
-"q": "Have you applied use-related risk analysis and human factors / usability engineering to the combination product, consistent with FDA human factors guidance and the applicable parts of IEC 62366, for products with a user interface (for example prefilled syringes, autoinjectors, on-body injectors, inhalers, pens)?",
+"q": "Have you applied use-related risk analysis and human factors / usability engineering to the combination product, consistent with applicable FDA human factors guidance, for products with a user interface (for example autoinjectors, on-body injectors, inhalers, pens)?",
 "tag": "combination"
 },
 {
@@ -4459,7 +4447,7 @@
 "tag": "combination"
 },
 {
-"q": "Do you submit the required reports under the combination product PMSR framework, including ICSRs / adverse event reports, malfunction reports, five-day reports, and any field alert or correction-and-removal reporting that applies to your constituent parts?",
+"q": "Do you submit the post-market safety reports required under the combination product PMSR framework (21 CFR 4.100-4.126), with each report type (ICSRs, malfunction reports, five-day reports) triggered and timed per its own underlying requirement?",
 "tag": "combination"
 },
 {
@@ -4487,7 +4475,7 @@
 "tag": "combination"
 },
 {
-"q": "Is there a defined process for assessing when a change requires a new regulatory submission or supplement, and for the device side, whether the change is significant enough to warrant re-validation or notification?",
+"q": "Is there a defined process for assessing when a change to the combination product requires a new regulatory submission or supplement?",
 "tag": "combination"
 },
 {
@@ -4550,7 +4538,7 @@
 "tag": "clinical"
 },
 {
-"q": "Is it clear from your records that the sponsor retains ultimate responsibility for the quality and integrity of the trial data regardless of what was delegated, and that you would catch a CRO failure rather than discover it at inspection?",
+"q": "Is the sponsor's ultimate responsibility for the quality and integrity of the trial data, regardless of what is delegated, documented and reflected in your oversight records?",
 "tag": "clinical"
 },
 {
@@ -4626,7 +4614,7 @@
 "tag": "clinical"
 },
 {
-"q": "Do you track deviation trends across sites and use them to drive corrective and preventive action, and can you show CAPA effectiveness was checked rather than just opened and closed?",
+"q": "Do you track protocol deviation trends across sites and use them to drive corrective and preventive actions?",
 "tag": "clinical"
 },
 {
@@ -4638,7 +4626,7 @@
 "tag": "clinical"
 },
 {
-"q": "Is access to the randomization system and treatment codes restricted to authorized unblinded personnel, with the audit trail showing no unauthorized access occurred?",
+"q": "Is access to the randomization system and treatment codes restricted to authorized unblinded personnel, with access logs and audit trails available for review?",
 "tag": "clinical"
 },
 {
@@ -4646,7 +4634,7 @@
 "tag": "clinical"
 },
 {
-"q": "Are suspected unexpected serious adverse reactions (or IND safety reports) assessed for expedited reporting and submitted to regulators and investigators within the required regulatory timeframes (for example, 7 and 15 calendar days as applicable), with the clock-start documented?",
+"q": "Are events that qualify for expedited safety reporting (US IND safety reports under 21 CFR 312.32 for serious and unexpected suspected adverse reactions, or EU SUSARs) assessed and submitted to regulators and investigators within the applicable regulatory timeframes (fatal or life-threatening within 7 calendar days and other qualifying events within 15 calendar days for US IND reports), with the clock-start documented?",
 "tag": "clinical"
 },
 {
@@ -4692,5 +4680,6 @@
 ]
 }
 ],
-"total_questions": 1122
+"total_questions": 1119,
+"reviewed": "2026-06-25 (independent multi-agent accuracy + framing review)"
 }
