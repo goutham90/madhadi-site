@@ -195,20 +195,20 @@ const spark = (c) => years.map((y) => {
     function buildSection(d) {
       var body = d.querySelector('.ar-sect-body');
       if (body.dataset.loaded === '1') return;
-      var si = +d.dataset.si, s = QB.sections[si], tags = activeTags(), html = '', num = 0;
+      var si = +d.dataset.si, s = QB.sections[si], tags = activeTags(), rows = '', num = 0;
       s.questions.forEach(function (q, qi) {
         if (!(q.tag === 'general' || tags[q.tag])) return; // only applicable questions are rendered
         num++;
         var key = s.key + '::' + qi, cur = ANSWERS[key] || '';
-        html += '<div class="ar-q" data-key="' + key + '">';
-        html += '<div class="ar-q-text"><span class="ar-q-num">' + num + '</span><span class="ar-q-body">' + q.q + (q.tag !== 'general' ? ' <span class="ar-q-tag">' + q.tag + '</span>' : '') + '</span></div>';
-        html += '<div class="ar-q-opts">';
+        rows += '<div class="ar-qrow">';
+        rows += '<div class="ar-qcell-q"><span class="ar-qnum">' + num + '</span><span>' + q.q + (q.tag !== 'general' ? ' <span class="ar-q-tag">' + q.tag + '</span>' : '') + '</span></div>';
         [['1','Yes'],['0.5','Partly'],['0','No'],['na','N/A']].forEach(function (o) {
-          html += '<label class="ar-opt"><input type="radio" name="' + key + '" value="' + o[0] + '"' + (cur === o[0] ? ' checked' : '') + '/><span>' + o[1] + '</span></label>';
+          rows += '<label class="ar-qcell"><input type="radio" name="' + key + '" value="' + o[0] + '"' + (cur === o[0] ? ' checked' : '') + '/><span class="ar-qcell-l">' + o[1] + '</span></label>';
         });
-        html += '</div></div>';
+        rows += '</div>';
       });
-      body.insertAdjacentHTML('beforeend', html);
+      var head = '<div class="ar-qt-head"><span>Question</span><span>Yes</span><span>Partly</span><span>No</span><span>N/A</span></div>';
+      body.insertAdjacentHTML('beforeend', '<div class="ar-qt">' + head + rows + '</div>');
       body.dataset.loaded = '1';
       body.querySelectorAll('input[type=radio]').forEach(function (inp) {
         inp.addEventListener('change', function () { ANSWERS[inp.name] = inp.value; saveAnswers(); updateProgress(); });
@@ -363,7 +363,7 @@ const spark = (c) => years.map((y) => {
   })();
   </script>
 
-  <style>
+  <style is:global>
     .ar-hero { background: var(--navy); color: #fff; border-bottom: 4px solid var(--gold); }
     .ar-hero-in { padding: 3.2rem 0 2.6rem; }
     .ar-eyebrow { color: #ffd98a; margin-bottom: 1rem; }
@@ -460,5 +460,24 @@ const spark = (c) => years.map((y) => {
     .lib-link { display: inline-block; margin-top: 0.6rem; font-size: 0.83rem; font-weight: 700; color: var(--blue); }
     .ar-lib-more-wrap { text-align: center; margin-top: 1.6rem; }
     @media (max-width: 560px) { .ar-cards, .ar-lib-list { grid-template-columns: 1fr; } .ar-stats { gap: 1.3rem; } .ar-barrow { grid-template-columns: 1fr 60px; } .ar-bartrk { display: none; } }
+
+    /* question table (rows/columns), styled globally so JS-injected rows are covered */
+    .ar-qt { margin-top: 0.5rem; }
+    .ar-qt-head { display: grid; grid-template-columns: 1fr 3rem 3.6rem 3rem 3.2rem; gap: 4px; padding: 0 0 0.4rem; font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); border-bottom: 2px solid var(--line-strong); }
+    .ar-qt-head span { text-align: center; } .ar-qt-head span:first-child { text-align: left; }
+    .ar-qrow { display: grid; grid-template-columns: 1fr 3rem 3.6rem 3rem 3.2rem; gap: 4px; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+    .ar-qrow:nth-child(even) { background: #fafbfc; }
+    .ar-qcell-q { display: flex; gap: 0.6rem; font-size: 0.96rem; line-height: 1.45; color: var(--ink); padding: 0 0.6rem 0 0.3rem; }
+    .ar-qnum { flex: none; font-family: var(--mono); font-size: 0.72rem; font-weight: 700; color: #fff; background: var(--navy); width: 21px; height: 21px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .ar-qcell { display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .ar-qcell input { margin: 0; width: 17px; height: 17px; cursor: pointer; accent-color: var(--navy); }
+    .ar-qcell-l { display: none; }
+    @media (max-width: 620px) {
+      .ar-qt-head { display: none; }
+      .ar-qrow { display: block; padding: 0.85rem 0.2rem; }
+      .ar-qcell-q { margin-bottom: 0.6rem; }
+      .ar-qcell { display: inline-flex; gap: 6px; margin: 0 6px 6px 0; border: 1px solid var(--line-strong); border-radius: 999px; padding: 5px 13px; }
+      .ar-qcell-l { display: inline; font-size: 0.86rem; color: var(--ink-2); }
+    }
   </style>
 </Layout>

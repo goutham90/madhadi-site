@@ -1620,7 +1620,7 @@
 "tag": "general"
 },
 {
-"q": "Is specificity demonstrated so the method can measure the analyte unequivocally in the presence of impurities, degradants, matrix, and excipients, supported by forced degradation or stress studies for stability-indicating methods?",
+"q": "Is specificity demonstrated so the method can distinguish and accurately quantify the target analyte even when impurities, degradation products, sample matrix, and excipients are present, supported by forced degradation or stress studies for stability-indicating methods?",
 "tag": "general"
 },
 {
@@ -2590,7 +2590,7 @@
 "tag": "sterile"
 },
 {
-"q": "Is the Grade A zone (critical processing) demonstrably maintained with unidirectional airflow at the guidance air speed (around 0.36 to 0.54 m/s at the working position) and supported by airflow visualization evidence?",
+"q": "Is the Grade A zone (critical processing) maintained with unidirectional airflow at the velocity range stated in the current guidance, measured at the working position, and supported by airflow visualization evidence?",
 "tag": "sterile"
 },
 {
@@ -3898,7 +3898,7 @@
 "tag": "biologics"
 },
 {
-"q": "Has the limit of in vitro cell age (maximum number of population doublings or passages) for production been defined and supported by data demonstrating stability of the production cells up to that limit?",
+"q": "Has a ceiling been set for how many times the production cells may be passaged or doubled, and is that ceiling backed by data showing the cells stay stable up to it?",
 "tag": "biologics"
 },
 {
@@ -3910,7 +3910,7 @@
 "tag": "biologics"
 },
 {
-"q": "Has the manufacturing process been evaluated for viral safety using the three complementary approaches in ICH Q5A: selection and testing of cell lines and raw materials, testing the capacity of the process to clear virus, and testing the product at appropriate steps?",
+"q": "Has the manufacturing process been assessed for viral safety across all three angles expected by ICH Q5A: screening the cell lines and input materials, measuring how well the process removes or inactivates virus, and testing the product itself at suitable steps?",
 "tag": "biologics"
 },
 {
@@ -4518,7 +4518,7 @@
 "tag": "clinical"
 },
 {
-"q": "For each trial, have you identified and documented the critical-to-quality factors (the data and processes essential to participant protection and reliability of results) and focused your quality and oversight activities on them?",
+"q": "For each trial, have you identified and documented the factors most important to quality (the data and processes that most affect participant safety and the reliability of the results) and focused your quality and oversight activities on them?",
 "tag": "clinical"
 },
 {
@@ -4681,5 +4681,6 @@
 }
 ],
 "total_questions": 1119,
-"reviewed": "2026-06-25 (independent multi-agent accuracy + framing review)"
+"reviewed": "2026-06-25 (independent multi-agent accuracy + framing review)",
+"copyright_reviewed": "2026-06-25 (independent verbatim-standard-text scan; 5 ICH-tracking questions reworded)"
 }
