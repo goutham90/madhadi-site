@@ -29,6 +29,12 @@ The practical translation: an OS patch, a database upgrade, a firmware update, a
 
 GAMP 5 Second Edition (ISPE, 2022) frames the same thing through the lifecycle: infrastructure and operational processes (change management, configuration management, backup, security, incident management) are part of keeping a system fit for intended use across the operational phase. The PIC/S guidance PI 011-3 "Good Practices for Computerised Systems in Regulated GxP Environments" reinforces that change control must cover the full system, including the platform and infrastructure it runs on, not only the application.
 
+### A revision is coming: draft Annex 11 and the new Annex 22
+
+The Annex 11 you control to today is the 2011 version, and it is the in-force text. But a substantial revision is moving. On 7 July 2025 the European Commission published, for stakeholder consultation, a draft revised Annex 11 on computerised systems, a brand-new draft Annex 22 on artificial intelligence in manufacturing, and an updated Chapter 4 on documentation. The consultation ran three months and closed on 7 October 2025; final versions are expected around mid-2026, after which a transition period is likely before compliance is mandatory.
+
+For IT change and configuration management, the direction of travel matters now even though the text is not yet final. The draft Annex 11 expands from a short document into a far more detailed framework that addresses cloud computing, cybersecurity, and data integrity with much greater specificity than the 2011 version, which is exactly the territory this article covers. The draft Annex 22 brings AI and machine-learning models under explicit lifecycle expectations including change control, performance monitoring, and human review. Do not rewrite your procedures around a draft, and do not cite draft clause numbers as if they were in force. Do track the revision, because a patch, a cloud change, or a model update that is lightly governed under the 2011 text may sit under sharper expectations once the revision lands. Verify the published status and effective dates before you rely on either annex.
+
 The risk rationale is concrete. A patch can silently change a rounding behavior, break a report, alter a time-zone handling, or disable an audit trail. A database upgrade can change a collation that reorders query results that feed a release calculation. A firewall rule can cut off a time server and let a system clock drift. None of these are application "features," yet every one can corrupt GxP data or invalidate a result. That is why infrastructure change is in scope.
 
 ---
@@ -129,6 +135,19 @@ Build a small, documented decision model and apply it to every patch or patch gr
 
 The key insight: a security-only patch with no change to the application's GxP behavior can usually be pre-approved as a standard change with a defined, repeatable regression test, so it does not need a fresh full change control every month. That is how you keep patching at IT speed without abandoning control. What makes it defensible is the documented rationale (vendor release notes reviewed, no GxP-relevant change identified), the standing regression test, and a record that it ran and passed.
 
+### Risk-based remediation timelines
+
+Classification tells you how to route a patch; severity and exposure tell you how fast it has to land. Set a target remediation window for security patches from the vulnerability severity and how exposed the system is, and track open items to closure against it. A patch backlog with no timeline is how a known-exploited vulnerability quietly ages on a GxP server for a year. The windows below are illustrative defaults to adapt to your own risk policy, not regulatory figures.
+
+| Vulnerability severity | Internet-facing / high exposure | Internal / segmented GxP system |
+|---|---|---|
+| Critical (e.g. actively exploited) | 48 to 72 hours, via the emergency path | 7 days |
+| High | 7 to 14 days | 30 days |
+| Medium | 30 to 60 days | Next maintenance window |
+| Low | Next scheduled cycle | Next scheduled cycle |
+
+The point is not the exact numbers, which you set, it is that the window is defined, risk-based, and tracked. "It is validated" is never a reason to leave a known critical vulnerability open; an unpatched, actively exploited flaw on a GxP system is itself a quality and compliance risk. The [Patch Management SOP](/templates/sop-patch-management-gxp) carries this table as a fillable policy and ties it to the standing regression test.
+
 ### Step-by-step patch procedure
 
 1. **Intake and triage.** Vendor or security team announces patches. The system owner and a CSV or IT-quality person review the release notes and security advisories. Classify each patch using the model above. Record the classification rationale, especially the "no GxP-relevant change" judgment.
@@ -186,6 +205,20 @@ This is the interface that earns or loses inspection points. Draw it explicitly 
 ### The triage gate
 
 Every change request hitting the IT change process must pass through a GxP-impact triage. The triage answers one question: **does this change touch a system, or the infrastructure of a system, that is in the validated GxP inventory.** The CMDB's GxP classification flag is what makes this fast and reliable. If yes, the change cannot close on the ITIL side alone; it requires the GxP path (impact assessment, validation activities, QA approval).
+
+The gate is a short decision, and drawing it as one keeps it from being skipped:
+
+<div class="flow-v">
+  <div class="flow-step">IT change request raised</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Does it touch a system, or the infrastructure of a system, in the validated GxP inventory? (CMDB GxP flag)</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">No &rarr; ITIL change only, close in the IT tool</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Yes &rarr; GxP path: validation impact assessment, defined testing, QA approval before go-live</div>
+</div>
+
+The gate is only as trustworthy as the CMDB flag behind it. If a GxP system is missing from the inventory or mis-flagged as non-GxP, its changes route around the gate silently, which is precisely the seam inspectors sample for.
 
 ### Roles and responsibilities at the seam
 

@@ -1669,6 +1669,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"form-audit-trail-review-scope-determination.md": {
+	id: "form-audit-trail-review-scope-determination.md";
+  slug: "form-audit-trail-review-scope-determination";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "form-capa-record.md": {
 	id: "form-capa-record.md";
   slug: "form-capa-record";
@@ -1714,6 +1721,13 @@ declare module 'astro:content' {
 "form-product-complaint-intake.md": {
 	id: "form-product-complaint-intake.md";
   slug: "form-product-complaint-intake";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"form-quality-event-triage-classification.md": {
+	id: "form-quality-event-triage-classification.md";
+  slug: "form-quality-event-triage-classification";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1784,6 +1798,13 @@ declare module 'astro:content' {
 "matrix-data-governance-raci.md": {
 	id: "matrix-data-governance-raci.md";
   slug: "matrix-data-governance-raci";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"matrix-quality-event-escalation-notification.md": {
+	id: "matrix-quality-event-escalation-notification.md";
+  slug: "matrix-quality-event-escalation-notification";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2425,9 +2446,30 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"sop-gxp-data-flow-mapping.md": {
+	id: "sop-gxp-data-flow-mapping.md";
+  slug: "sop-gxp-data-flow-mapping";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "sop-oos-investigation.md": {
 	id: "sop-oos-investigation.md";
   slug: "sop-oos-investigation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-patch-management-gxp.md": {
+	id: "sop-patch-management-gxp.md";
+  slug: "sop-patch-management-gxp";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-quality-event-classification-triage.md": {
+	id: "sop-quality-event-classification-triage.md";
+  slug: "sop-quality-event-classification-triage";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2561,6 +2603,13 @@ declare module 'astro:content' {
 "toolkit-root-cause-analysis.md": {
 	id: "toolkit-root-cause-analysis.md";
   slug: "toolkit-root-cause-analysis";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"wi-emergency-change-gxp.md": {
+	id: "wi-emergency-change-gxp.md";
+  slug: "wi-emergency-change-gxp";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">

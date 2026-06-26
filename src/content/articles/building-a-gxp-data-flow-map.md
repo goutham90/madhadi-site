@@ -35,6 +35,21 @@ A map is real, not decorative, when it does four things. It names the data eleme
 
 ---
 
+## What it is not: the data flow map versus adjacent artifacts
+
+People conflate the data flow map with four things it sits next to, and the conflation is where maps go wrong. Each adjacent artifact answers a different question, and a map that quietly turns into one of them stops doing its own job.
+
+| Artifact | The question it answers | Why it is not a data flow map |
+|---|---|---|
+| System inventory | What computerized systems do we have, and which are GxP? | Lists containers, not the data; tells you what you own, not where data can be hurt |
+| IT data-flow diagram (DFD) | How does data move between software components and interfaces? | Drawn from architecture, it shows designed integrations and misses the paper worksheet, the manual export, the local copy |
+| Process map / value-stream map | What are the process steps and who does them? | Follows the activity, not a single data element across its lifecycle and its alter/delete/orphan points |
+| Data governance RACI | Who is responsible and accountable for data and systems? | Assigns ownership; says nothing about where a record is exposed in transit |
+
+The data flow map is the only one of the five that follows one defined data element end to end and asks, at every boundary, who can change it and what stops them. Use the inventory to decide what to map, the RACI to decide who owns each map (see [the data governance framework](/articles/data-governance-framework)), and the process map for context, but do not let any of them stand in for the map itself.
+
+---
+
 ## The Six Stages You Are Mapping
 
 Before the method, fix the stages in your head, because the whole map hangs on them. Different guidances slice the lifecycle slightly differently, but this six-stage frame is enough and maps cleanly onto how inspectors think.
@@ -212,6 +227,26 @@ Walk one element all the way through to see the method produce something usable.
 **What the map then drives.** Criticality is high (the reading feeds disposition of a sterile product). So the LIMS micro audit trail for these counts goes into routine review scope, the paper-to-LIMS reconciliation goes into the periodic review, and the worksheet control goes into the procedure. One mapped element produced a criticality call, a review-scope decision, and two concrete controls, and it surfaced a paper workaround the SOP did not mention. That is the whole point.
 
 For the program around this kind of reading, see [the environmental monitoring program](/articles/environmental-monitoring-program); for the orphan-detection logic generalized, see [chromatography data system integrity](/articles/chromatography-data-system-integrity), which covers the injection-to-result reconciliation that catches orphaned data in the lab.
+
+---
+
+## Scaling the program across the data estate
+
+One map is a project. A site has hundreds of data elements, and you will never map them all at once, so the program lives or dies on prioritization. Drive the backlog from two lists you already maintain: the system inventory and the data criticality assessment. Map the highest-criticality elements first, because that is where the practice pays off fastest and where an inspector looks first.
+
+A workable order of attack:
+
+<div class="flow-v">
+  <div class="flow-step">Rank candidate data elements by criticality (what they decide downstream)</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Map the highest-criticality elements first, one at a time, end to end</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Reuse: shared boundaries (the same export, share, or interface) recur across elements</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Set a coverage milestone (all high-criticality elements mapped within a defined window)</div>
+</div>
+
+The reuse step is what makes the program finite rather than endless. The same load-bearing spreadsheet, the same shared drive, the same manual export shows up in element after element. Once you have controlled a boundary for one element, the control carries to every other element that crosses it, so later maps get faster and the early effort compounds. Track the backlog, the coverage milestone, and which boundaries are already controlled, so the program reads as managed rather than ad hoc. The [SOP for building and maintaining data flow maps](/templates/sop-gxp-data-flow-mapping) sets this prioritization and the periodic-review cadence out as a procedure.
 
 ---
 

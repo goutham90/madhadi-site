@@ -227,6 +227,41 @@ The principle from ICH Q10 is **proportionality**: effort commensurate with risk
 
 ---
 
+## Worked triage: a product complaint
+
+The deviation and OOS examples above start inside the building. A complaint starts outside it, with less information and a patient already exposed, which changes the triage. A pharmacy reports that several vials in one carton of a sterile injectable appear to have particulate matter.
+
+- **Contain.** You cannot quarantine distributed product instantly, but you secure retained samples of the implicated lot, pull the batch record, and hold any remaining inventory of that lot.
+- **Capture the facts.** Lot number, quantity affected, where reported, what the complainant observed, whether any product was administered. Request return of the affected units for examination.
+- **Scope.** Particulate in a parenteral is a container-closure and visual-inspection question that can implicate the whole lot and possibly adjacent lots filled in the same campaign. Scope is the lot plus the campaign until bounded.
+- **Patient impact.** SISPQ: yes, particulate in an injectable affects purity and safety. Could reach a patient: already distributed, possibly administered. Harm: serious (embolic or immunogenic risk by route). Population: parenteral patients.
+- **Tier.** Critical. Distributed sterile product with a credible safety defect.
+- **Reportability screen.** Trips the field alert screen for a distributed product quality problem and feeds the recall decision; the clock starts now, not after the lab confirms the particulate.
+
+The complaint is critical at open precisely because the product is already out and the harm is serious, even before you confirm the defect. That is "classify high at open, refine on evidence" with the stakes raised by distribution. Route confirmed defects through [product-complaint-handling](/articles/product-complaint-handling) and the [recall decision](/articles/recall-management-field-actions).
+
+---
+
+## Keeping classification consistent: the calibration program
+
+The most common quiet failure of a triage system is not a single wrong call, it is drift: the same event type called critical in January and minor in June because different reviewers, on different shifts, read the criteria differently. Written criteria and anchored examples slow the drift; a calibration program catches it. ICH Q9(R1) explicitly pushes to reduce subjectivity in risk assessment, and calibration is how you operationalize that.
+
+A practical calibration cycle:
+
+<div class="flow-v">
+  <div class="flow-step">Pick 8 to 12 real historical events spanning all three tiers</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Reviewers independently classify them, blind to each other and to the original tier</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Compare: where reviewers disagree, or differ from the original, is the drift</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Reconcile to the right tier, then fix the criteria or the anchored examples that allowed the spread</div>
+</div>
+
+Run it on a defined cadence (commonly twice a year), and after any event that exposed a classification weakness. Track two signals over time. First, reviewer agreement: how often independent reviewers land on the same tier for the same event. Falling agreement means the criteria need sharper anchors. Second, the tier distribution itself: a site reporting almost no critical events and a flood of minors is usually classifying down, not running clean. Neither signal proves a problem on its own, but a move in either is the prompt to look. Feed the outcomes back into the anchored-examples job aid posted where events are opened, so the next classifier inherits the calibrated judgment rather than re-deriving it.
+
+---
+
 ## Roles and responsibilities
 
 | Role | Responsibility in triage |
