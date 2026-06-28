@@ -26,6 +26,8 @@ No single regulation says "machine learning." The obligations are inherited from
 - **FDA guidance "Computer Software Assurance for Production and Quality Management System Software"** shifts the emphasis from documentation volume to critical thinking and risk. The 2022 draft was titled "...Quality System Software," first finalized on 24 September 2025 as "...Production and Quality System Software," then retitled with "Management" effective February 2026 to align with the Quality Management System Regulation (21 CFR Part 820). For ML, CSA is useful because it pushes you to spend assurance effort where the model can actually hurt a patient or a product, and to treat ongoing monitoring as part of the assurance story rather than a separate activity. See [computer software assurance FDA](/articles/computer-software-assurance-fda).
 - **FDA guidance "Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificial Intelligence-Enabled Device Software Functions" (final, 2024)** is written for medical devices, but it is the clearest regulatory thinking that exists on how to pre-authorize model changes. The Predetermined Change Control Plan (PCCP) concept, a pre-agreed envelope of allowed modifications plus the methods and acceptance criteria for making them, is directly transferable to GxP manufacturing and lab models even when no device submission is involved.
 - **ICH Q9(R1) Quality Risk Management (2023)** governs how you assess and document the risk that drives all of the above.
+- **EU GMP Annex 22, "Artificial Intelligence" (draft, 2025)** is the first GMP annex written specifically for AI in pharmaceutical manufacturing. The European Commission released the draft for public consultation on 7 July 2025; the consultation closed on 7 October 2025 and a final text is expected to follow. Verify its status and wording against the published source before you rely on it, because it is still a draft. As drafted, it takes a clear position that maps onto this article: static, deterministic AI/ML models can be used in critical GMP applications when they are qualified and kept under lifecycle control, while dynamic (continuously learning) models and generative AI are limited to non-critical uses with documented human oversight. That is the regulators putting the locked-by-default principle into a GMP text. A companion draft revision of **Annex 11 (Computerised Systems)** went out for consultation in the same period and reinforces data governance and periodic evaluation for systems that now include AI; treat both as direction-of-travel, not yet binding.
+- **FDA draft guidance "Considerations for the Use of Artificial Intelligence to Support Regulatory Decision-Making for Drug and Biological Products" (draft, 7 January 2025)** is the drug and biologic counterpart to the device PCCP guidance, and a better audience fit for most readers here. It introduces a risk-based credibility-assessment framework keyed to the model's context of use, and it explicitly covers the manufacturing and postmarketing phases where a model runs continuously and can drift. Where the article below talks about proving a model stays credible over its operating life, this is the guidance that frames it for drugs and biologics rather than devices.
 
 The risk rationale is simple. A degraded model does not crash. It keeps returning confident answers that are increasingly wrong. A false-negative on a defect classifier ships bad product. A drifted adverse-event triage model under-reports a safety signal. Because the failure mode is silent, the control has to be active and continuous. You cannot inspect your way to confidence after the fact.
 
@@ -50,7 +52,7 @@ A **locked model** has fixed parameters after training. It produces the same out
 
 A **continuously learning model** (also called adaptive or online learning) updates its parameters automatically as new data arrives in production. Its behavior at noon is not guaranteed to equal its behavior at 9am. This is genuinely difficult to validate because the validated state is a moving target, and most quality systems are not built to control software that changes itself.
 
-The FDA's own framing for AI-enabled devices uses "locked" versus "adaptive" algorithms, and the 2024 PCCP guidance exists precisely because adaptive algorithms cannot be handled by traditional one-time clearance. The same logic applies inside a GxP facility.
+The FDA's own framing for AI-enabled devices uses "locked" versus "adaptive" algorithms, and the 2024 PCCP guidance exists precisely because adaptive algorithms cannot be handled by traditional one-time clearance. The same logic applies inside a GxP facility. The draft EU GMP Annex 22 lands in the same place from the manufacturing side: as written, it allows static, deterministic models in critical applications and pushes continuously learning models and generative AI out to non-critical uses with human oversight. When two regulators reach the same conclusion from opposite directions, the design default is settled. Lock the model unless you can write down a risk-justified reason not to.
 
 ### How to decide
 
@@ -193,6 +195,24 @@ Document your triggers explicitly:
 - Data or process change: a known upstream change (new instrument, new product, process change) that you predict will move the input distribution.
 - Defect found in the model: a discovered failure mode.
 
+### The retraining decision path
+
+Before you start retraining, route the trigger through one decision: does this change fall inside the pre-authorized envelope, or not. That single fork decides whether you run a fast pre-approved protocol or a full change control. The path is the same shape every time.
+
+<div class="flow-v">
+  <div class="flow-step">Trigger fires: performance breach, drift act-threshold, scheduled cadence, upstream data/process change, or a found defect</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Is the change inside the approved PCCP envelope (same inputs, architecture, intended use; retrain on like data only)?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Inside the envelope: execute the pre-approved retraining protocol. Outside it (new feature, new architecture, new use): full change control with fresh impact assessment</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Curate and version the training data; retrain on the qualified pipeline; evaluate the challenger against the champion on an independent held-out set</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Meets every pre-defined acceptance criterion, including safety-critical subgroups, with no regression? If no: reject, document, iterate</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">If yes: QA approval, controlled deployment with a new version, retain rollback version, heightened post-deploy monitoring, close the change</div>
+</div>
+
 ### The retraining procedure, step by step
 
 1. **Open a change control** referencing the trigger (the monitoring report, the deviation, or the schedule).
@@ -291,6 +311,9 @@ Under change control. Trigger from monitoring, a deviation, or a schedule. Open 
 
 **"What is a Predetermined Change Control Plan?"**
 From the 2024 FDA AI device guidance, it pre-authorizes a bounded class of model changes by documenting the types of changes allowed, the methods used to make them, and the acceptance criteria they must meet. It lets you make controlled, pre-agreed changes like routine retraining without a full new validation each time, while anything outside the envelope still gets full change control.
+
+**"What is EU GMP Annex 22 and why does it matter here?"**
+It is the first GMP annex written specifically for AI in pharmaceutical manufacturing, released as a draft for consultation on 7 July 2025 with the consultation closing on 7 October 2025, so it is direction-of-travel rather than binding yet. As drafted it allows static, deterministic models in critical GMP applications under qualification and lifecycle control, and restricts continuously learning models and generative AI to non-critical uses with documented human oversight. It matters because it is the manufacturing-side regulator reaching the same locked-by-default conclusion the FDA reached for devices, so it strengthens the case for a locked model with controlled, periodic retraining. I would check its final status before quoting it.
 
 **"What evidence would you show an inspector that the model is still valid?"**
 A continuous, gap-free series of signed periodic monitoring reports showing performance against the validated floors, the drift monitoring data, any breaches linked to deviations or change controls, the change-control records for every retrain with their acceptance evidence, and the retained version history. That chain demonstrates the Annex 11 clause 11 requirement that the system remains in a validated state.

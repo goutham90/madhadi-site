@@ -834,6 +834,13 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
+"gamp-category-5-custom-system-validation.md": {
+	id: "gamp-category-5-custom-system-validation.md";
+  slug: "gamp-category-5-custom-system-validation";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "gamp5-csv-framework.md": {
 	id: "gamp5-csv-framework.md";
   slug: "gamp5-csv-framework";

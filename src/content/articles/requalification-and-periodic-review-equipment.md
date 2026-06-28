@@ -31,6 +31,20 @@ Maintaining qualified state is the set of controls that catch all three before t
 - **Change control**, which evaluates every proposed change for qualification impact and triggers requalification when needed.
 - **Periodic review**, which steps back at a defined cadence and asks: across everything that happened since the last review, is this system still qualified, and is the documentation that says so still complete and accurate?
 
+### Five related activities people confuse
+
+These terms get used interchangeably and they are not the same thing. Keeping them distinct is the difference between a clean answer in an inspection and a muddled one.
+
+| Activity | What it is | What triggers it | Output |
+|---|---|---|---|
+| Calibration | Confirms a measuring instrument reads true against a standard | A calendar interval set by risk | Calibration certificate, as-found/as-left data |
+| Preventive maintenance (PM) | Keeps the equipment physically in the condition qualification assumed | A schedule from critical functions | PM work order, completion record |
+| Periodic review | A documented look-back that judges whether the system is still qualified and its documentation still accurate | A risk-based interval (for example 12/24/36 months) | Periodic review report with a qualified-state conclusion |
+| Requalification | Re-execution of qualification testing, in whole or part, to re-establish the qualified state | A change with qualification impact, or a review/interval that calls for it | Executed requalification protocol and report |
+| Revalidation | Re-validation of a process (not just the equipment) when process-affecting change accumulates | Process change, trend, or periodic process review | Process validation report |
+
+The trap is treating periodic review and requalification as synonyms. Periodic review is the judgment; requalification is one of the actions that judgment can call for. A review can conclude that no requalification is needed, and that conclusion, when the data supports it, is just as valid as one that triggers a full re-mapping.
+
 ---
 
 ## Regulatory basis
@@ -183,6 +197,19 @@ Below is a condensed, realistic example of the body of a periodic review for a h
 
 **Why this is a good review:** it cites evidence, it catches a drift trend before it becomes a failure, it catches a documentation gap, and it ties cleanly into the separate annual requalification rather than duplicating it. The "remains qualified" sentence is earned.
 
+### Worked example: catching cumulative change
+
+The failure mode periodic review exists to catch is the one no single change control would ever flag. Here is what it looks like when the review does its job. A lyophilizer accumulated four changes over 18 months, each assessed at the time as low impact:
+
+| # | Change | Individual assessment at the time |
+|---|---|---|
+| 1 | Shelf-fluid pump replaced with a proven-equivalent model | Like-for-like, no qualification impact |
+| 2 | Condenser refrigerant changed to a drop-in replacement | Minor, no expected effect on condenser temperature |
+| 3 | Control software patched (security only) | No GxP-function change |
+| 4 | A second product family added to the load schedule | PQ performed for the new product; no change to the cycle for existing products |
+
+Each was reasonable in isolation. The periodic review looks at the sum. The reviewer plots the condenser pull-down time and the shelf temperature uniformity across the period and finds that pull-down time has crept up since change 2, and that the added load schedule (change 4) now runs the condenser closer to its capacity. Individually nothing breached; together the margin to the qualified condenser performance has thinned. The review raises an action: a targeted requalification of condenser performance under the combined worst-case load, not a full re-mapping. That action exists only because someone evaluated the aggregate. This is the single most valuable thing a periodic review does, and the one most often skipped.
+
 ---
 
 ## The linkage to calibration and preventive maintenance
@@ -207,6 +234,22 @@ PM keeps the equipment physically within the condition that qualification assume
 - **PM compliance is a periodic-review input.** Chronic late or skipped PMs are a direct argument that the qualified state is not being maintained.
 - **Corrective maintenance on a critical component can be a requalification trigger.** Replacing a worn heating element is maintenance; but if it changes the thermal profile, it can require re-mapping. The change-control/maintenance boundary must be defined in procedure so the decision is consistent.
 - **The maintenance-vs-change boundary must be written down.** Like-for-like replacement under maintenance vs. a modification under change control is a judgment that needs a documented rule, or different people will make it differently.
+
+The decision rule, as a flow, keeps that judgment consistent across whoever makes it:
+
+<div class="flow-v">
+  <div class="flow-step">A part is being replaced or a setting changed on qualified equipment</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Is the replacement genuinely like-for-like (same part number or proven-equivalent spec, fit, and function)?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">If NO, or if it touches a critical function, control logic, software, or the qualified envelope: raise change control and assess requalification scope</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">If YES and it touches no critical function: handle under maintenance; verify calibration of any affected measuring instrument and record the like-for-like justification</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Either way, capture it so periodic review can see the cumulative picture later</div>
+</div>
+
+The last step matters as much as the first: a string of individually defensible like-for-like swaps is exactly what periodic review has to be able to reconstruct and judge in aggregate.
 
 For the broader programs, see [Equipment Qualification Lifecycle](/articles/equipment-qualification-lifecycle) and [Change Control for Validated Systems](/articles/change-control-validated-systems).
 

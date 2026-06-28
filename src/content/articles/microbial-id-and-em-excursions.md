@@ -63,6 +63,33 @@ When phenotypic and MALDI-TOF results conflict, when the score is below threshol
 
 Genotypic identification is what you reach for when an inspector asks, "You called this Bacillus by MALDI with a low score and never confirmed it. How do you know it was not an objectionable spore-former in a sterile area?" Sequencing closes that gap.
 
+### Choosing a method: a comparison
+
+No single method is adequate for every situation, which is why a real lab runs a tiered workflow rather than picking one tool. The trade-offs:
+
+| Method | Discrimination | Speed | Cost per isolate | Best used as |
+|---|---|---|---|---|
+| Gram stain + morphology | Very low (broad category) | Minutes | Very low | First read; directs the next step |
+| Biochemical / substrate panels | Genus, sometimes species | Hours to overnight | Low-moderate | Routine, where the organism is in the database |
+| FAME (fatty acid profile) | Genus to species | Hours | Moderate | Niche, needs tightly standardized culturing |
+| MALDI-TOF | Genus to species | Minutes from a colony | Low | Front-line routine ID |
+| 16S / ITS sequencing | Species (most discriminating routine) | Days | High | Escalation when MALDI is low-score or challenged |
+| Strain typing (rep-PCR, MLST, WGS) | Strain | Days | High | Proving or disproving a link in an investigation |
+
+The pattern most labs settle on: Gram stain to direct, MALDI-TOF as the workhorse, sequencing as the escalation, and strain typing reserved for link investigations. The escalation decision is rule-based:
+
+<div class="flow-v">
+  <div class="flow-step">Pure isolate confirmed (subculture if mixed); Gram stain and morphology recorded</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">MALDI-TOF: direct smear, then formic-acid extraction for Gram-positives, yeasts, and molds</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Score at or above the species cutoff, and not disputed by the investigation? Accept the species call</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Score below species cutoff, organism poorly represented in the library, or the call is challenged? Escalate to 16S (bacteria) or ITS/D2 (fungi) sequencing</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Need to prove or disprove a link (sterility positive vs EM isolate, persistent contaminant)? Add strain typing</div>
+</div>
+
 ### A worked identification decision
 
 A Grade A glove print yields one colony. Workflow:
@@ -173,6 +200,20 @@ That narrative is what a good closed investigation reads like: each conclusion i
 - Product disposition documented and justified.
 - CAPA defined, with effectiveness verification planned.
 - QA approval recorded.
+
+### The sterility-positive linkage: when identification has to prove a connection
+
+The highest-stakes version of this work is a positive sterility test. The question the investigation must answer is whether the positive reflects genuine product contamination or laboratory contamination introduced during the test, because that determination drives whether a batch can be considered for any path other than rejection. Identification and strain typing are central to it, and the rules for invalidating a sterility test are strict (see USP <71> and the aseptic processing guidance; an invalidation needs demonstrable evidence of a lab cause, not a plausible story).
+
+The disciplined workflow:
+
+1. **Preserve and identify the sterility isolate to species.** A genus call is not enough here.
+2. **Pull every environmental and personnel isolate from the relevant window** (the fill session, the test session, the suite) and identify the candidates to species.
+3. **Compare species first.** If the sterility isolate species appears nowhere in the EM or personnel data, that absence is informative but not exonerating. If it matches an EM or personnel isolate, go to strain typing.
+4. **Strain type the matched isolates** (rep-PCR, MLST, or whole-genome sequencing) to determine whether they are the same strain. Same species, different strain weakens an environmental-source argument; same strain strengthens it.
+5. **Reach an evidence-based conclusion.** A strain match between the sterility positive and a Grade A EM isolate points to a genuine contamination event and against invalidation. A match to a microbiology-lab environmental isolate, with a documented lab breach, can support a lab-error conclusion. A clean Grade A EM record through the fill, with the positive matching a known lab organism, is the classic lab-contamination pattern, but it still needs the evidence, not just the pattern.
+
+A short worked outcome: a sterility positive identifies as *Ralstonia pickettii*. The microbiology lab's water-bath environmental monitoring recovered the same species the same week. Whole-genome sequencing shows the two isolates are the same strain, and the fill suite's Grade A EM was no-growth throughout the fill. The weight of evidence supports laboratory contamination from the water bath, documented and corrected; the batch disposition proceeds on that evidence-based conclusion rather than on a convenient assumption. Reverse the facts (the strain matches a Grade A isolate from the fill), and the same rigor forces the opposite conclusion.
 
 ---
 
