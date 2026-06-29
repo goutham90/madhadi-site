@@ -69,6 +69,19 @@ Each of these has to satisfy ALCOA+. The hard ones, where teams actually get cit
 
 A logger is an instrument generating GxP data. Treat it the way you treat any analytical instrument: qualify it, calibrate it, control its configuration, and protect its record. The convenient form factor does not lower the bar.
 
+### Choosing the logger type
+
+The device class you pick changes the integrity controls you need, so decide it deliberately against the shipment risk, not by what the freight forwarder hands you.
+
+| Logger type | How the record is produced | Integrity strengths | Integrity watch-outs | Typical fit |
+|---|---|---|---|---|
+| Single-use chemical indicator | Color change at a threshold | Cheap, tamper-evident, no clock to drift | No profile, no duration, no time stamps; pass/fail only | Low-risk ambient, as a secondary check |
+| Single-use electronic (USB / NFC read-out) | Records a full profile, read out on arrival | Full profile, per-lot calibration certificate, low cost | Read-out depends on receiver action; PDF must be tied to raw data | Most 2-8 C parcel shipments |
+| Reusable electronic | Records a profile, downloaded and reset between trips | Higher accuracy, configurable, reusable | Needs a recalibration interval and out-of-interval control; reset can truncate a profile | Lane-qualified reusable shippers |
+| Real-time connected (cellular / satellite) | Streams to a portal in transit | Live alarms, intervention before loss, continuous custody signal | Connectivity gaps create record holes; portal is a validated cloud system | High-value, ultra-cold, or CGT shipments |
+
+The decision rule: match the logger's accuracy, resolution, and logging mode to the product's excursion sensitivity and the value of intervening in transit. An ultra-cold cell therapy with a narrow window justifies a real-time connected device; a 2-8 C tablet shipment usually does not.
+
 ### What good looks like for the device
 
 **Calibration and metrology.** Every logger that produces a record used for a quality decision must be calibrated against a standard traceable to a national metrology institute (for example NIST in the US, NPL in the UK). This is the same expectation as any [calibration and metrology program](/articles/calibration-and-metrology-program). Practical points:
@@ -126,6 +139,42 @@ A 2-8 C biologic ships with a single-use electronic logger. On arrival, receivin
 | Mean kinetic temperature | 5.9 C |
 
 The 50 minute segment breaches the cumulative-over-30-min rule, so the portal raises an alarm and the unit is quarantined pending QA disposition. Two things make this record trustworthy: the calibration certificate is current and traceable, and every action (start, read-out, the alarm) is attributable and time-stamped. If the start time had been blank, or the read-out had been done by a generic "warehouse" login, or the calibration certificate were missing, the same numbers would be uninterpretable. The data-integrity work is what lets QA make a defensible call instead of a guess.
+
+---
+
+## Disposition after an excursion: the decision and the math
+
+The logger does not decide anything; it produces evidence. The disposition decision belongs to QA, applied against a pre-set rule and the product's stability data. Two failures dominate findings here: deciding by gut instead of by rule, and treating mean kinetic temperature (MKT) as a free pass.
+
+### The disposition decision
+
+<div class="flow-v">
+  <div class="flow-step">Excursion flagged: profile breaches a stability-derived limit (peak, cumulative time, or rate)</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Is the record itself trustworthy? Calibration current and traceable, logger serial matches the shipment, no custody or data gap?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">No &rarr; you cannot bound the risk. Default to reject / quarantine pending investigation; an untrustworthy record is not a basis for release.</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Yes &rarr; compare the profile against the pre-defined stability allowance (the studied excursion budget for this product)</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Within the studied allowance &rarr; release per the rule, record the rationale and the cumulative budget consumed</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Outside the allowance, or no studied basis &rarr; QA disposition with stability / regulatory input; reject if the risk cannot be bounded</div>
+</div>
+
+The point of the first branch is the one teams skip: a data-integrity defect in the record (no calibration, a serial mismatch, a custody hole) removes your ability to bound the risk, so the integrity question gates the quality question. You cannot release on a record you cannot trust.
+
+### Mean kinetic temperature, used honestly
+
+MKT is a single temperature that represents the cumulative thermal stress of a varying profile, weighting higher temperatures more heavily because degradation accelerates with temperature. The Haynes equation is the standard form:
+
+> MKT = (Ea / R) / -ln( ( e^(-Ea/RT1) + e^(-Ea/RT2) + ... + e^(-Ea/RTn) ) / n )
+
+where Ea is the activation energy (a common default is 83.144 kJ/mol), R is the gas constant (0.0083144 kJ/mol/K), and T1...Tn are the absolute temperatures (in kelvin) of equal time intervals.
+
+**Worked calculation.** Take four 6-hour intervals at 4, 6, 10, and 25 C (277.15, 279.15, 283.15, 298.15 K). With the default Ea, the ratio Ea/R is close to 10000 K, so each term is e^(-10000/T). Computing the four terms, averaging, and back-solving gives an MKT near 15.6 C, noticeably above the simple arithmetic mean of 11.25 C, because the 25 C interval dominates the sum. That gap is the whole reason MKT exists: a short hot spike pulls MKT up more than an average would suggest.
+
+The honest-use rule: MKT answers "what was the average thermal stress," not "did a hard limit get breached." A product with a strict upper limit (a freeze-sensitive biologic, a defined excursion ceiling in the stability data) can have an acceptable MKT and still be rejectable because a peak or a cumulative-time rule was broken. Use MKT alongside the peak and cumulative-time rules from the stability study, never as the only test. An inspector who sees an excursion released on MKT alone, with a clear peak breach ignored, will cite it.
 
 ---
 

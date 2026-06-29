@@ -63,6 +63,42 @@ The right column is the discipline. Classification is a judgment against defined
 
 Classification is done correctly when each deviation is judged against written criteria, the rationale is recorded (not just the verdict), the "important" set captures everything affecting safety, rights, or the primary or key secondary analyses, and an independent reviewer applying the same criteria to the same facts would land on the same tier. If classification rests on the originator's gut, it is not defensible.
 
+### Serious breaches: the EU's higher bar
+
+The EU adds a third concept on top of important and minor. Under the Clinical Trials Regulation (EU) No 536/2014, Article 52, a **serious breach** is a breach of the Regulation or of the protocol version applicable at the time that is likely to affect to a significant degree the safety and rights of a subject, or the reliability and robustness of the data generated. The sponsor must notify the Member States concerned, through the Clinical Trials Information System (CTIS), without undue delay and not later than **seven days** after becoming aware of the breach.
+
+A serious breach is not simply a more severe important deviation. It is a specific regulatory determination the sponsor makes, with its own short clock and its own audience (the competent authorities, not the IRB/EC). Two implications follow. First, the determination is the sponsor's, not the site's, so the site must escalate fast enough that the sponsor can assess and notify inside seven days. Second, the assessment turns on the word "significant": a single out-of-window non-critical assessment is not a serious breach, but a site systematically enrolling ineligible subjects, a pattern of unblinding, or fabricated source data almost certainly is. When unsure, the safer reading is to treat it as a candidate serious breach and let the assessment, documented, decide.
+
+The US has no identical single mechanism, but the components exist: 21 CFR 312.66 deviation reporting to the IRB, the IRB's prompt-reporting duties under 21 CFR 56.108, and, for the most serious conduct, the sponsor's obligations on noncompliance and, where it rises to it, reporting to FDA. Functionally, a finding that would be an EU serious breach is the same finding that drives expedited IRB reporting, sponsor escalation, and often a for-cause audit on the US side.
+
+### Important, minor, and serious breach side by side
+
+| Dimension | Minor deviation | Important deviation | Serious breach (EU) |
+|---|---|---|---|
+| Threshold | No safety, rights, or data-integrity impact | Could affect safety, rights, or the reliability of key data | Likely to significantly affect subject safety/rights or data reliability |
+| Who decides | Site / monitor against criteria | Site / monitor / sponsor against criteria | Sponsor (regulatory determination) |
+| Primary audience | Deviation log; continuing review | IRB/EC per its SOP; CSR section 10.2 | Competent authority via CTIS |
+| Clock | Log only | Per IRB SOP (commonly 5 to 10 working days) | 7 days from sponsor awareness |
+| Appears in CSR | Usually summarized | Yes, individually, in 10.2 and Appendix 16.2.2 | Yes, and typically narrated |
+
+### Classifying and routing: a decision aid
+
+<div class="flow-v">
+  <div class="flow-step">Departure from the approved protocol identified and documented (subject ID, section, dates)</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Did it affect, or could it affect, subject safety/rights or the reliability of key data?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">No &rarr; Minor. Log it; summarize at continuing review; trend it.</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Yes &rarr; Important. Report to the IRB/EC per its SOP; assess for CAPA; capture for CSR 10.2.</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Is the effect on safety/rights or data reliability significant (systematic, fraud, repeated, immediate-hazard pattern)?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Yes &rarr; candidate serious breach: escalate to the sponsor now so a 7-day CTIS notification can be assessed and, if confirmed, filed.</div>
+</div>
+
+The arrows are deliberately one-way down a rising severity ladder: every serious breach is also an important deviation and is logged like one, but not every important deviation is a serious breach. Build the ladder into the deviation plan so the site escalates before the clock is a problem, not after.
+
 ---
 
 ## The Deviation Lifecycle
