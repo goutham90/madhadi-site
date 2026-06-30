@@ -93,6 +93,24 @@ Cross-reads: [GAMP 5 and CSV framework](/articles/gamp5-csv-framework), [CSV ris
 
 The sample lifecycle is the workflow the LIMS enforces. Understanding it cold is the difference between configuring a useful system and fighting the system forever. Each state below is a configurable workflow status with defined entry/exit conditions, permitted roles, and audit-trail capture.
 
+<div class="flow">
+  <div class="flow-step">Login: unique ID, mandatory fields, auto test plan from material + stage</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Receipt and storage: custody, condition, location</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Test assignment and scheduling: tests, methods, specs, due dates</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Result entry: manual or interfaced, calculations, rounding</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Spec evaluation: pass/fail, OOS and OOT flagging</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Two-tier review and approval: e-signatures, no self-approval</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">CoA and reporting</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step">Disposition support and archival, audit trail intact</div>
+</div>
+
 ### 1. Sample login (registration)
 
 A sample is registered into the LIMS, given a unique sample ID, and linked to its context: material/product, batch/lot, sampling point, sampling date/time, sampled-by, container count, storage condition, and the reason/stage (release, in-process, stability, EM, raw material, water). At login, the system assigns the test plan automatically based on master data (material + stage drives the methods/specs that apply).
@@ -243,6 +261,8 @@ Because the LIMS holds regulated records and applies electronic signatures, the 
 
 A practical Part 11 trap specific to LIMS: the *e-signature meaning* must be configured and visible. A signature that just says "approved" without binding the meaning and the signer's printed name to the record, in a way that prints on the human-readable output, is incomplete.
 
+**Watch the Annex 11 revision.** The European Commission published a draft revision of EU GMP Annex 11 on 7 July 2025, with the public consultation closing 7 October 2025 and a final version expected around mid-2026; a companion new Annex 22 on artificial intelligence was drafted alongside it. The draft expands Annex 11 considerably, with much more detail on audit trails, supplier and service management, identity and access management, periodic review, and, for the first time, cybersecurity as a core expectation. None of this is in force yet, so do not validate against draft text. But if you are scoping a LIMS project now, design the audit-trail, access-control, and supplier-oversight controls with the direction of travel in mind, because retrofitting them after a 14-year-overdue revision lands is more expensive than building them in. Confirm the final text and its application dates against the published source before you cite it.
+
 ---
 
 ## Roles and responsibilities
@@ -292,6 +312,22 @@ These map onto the broader patterns in [FDA warning-letter patterns](/articles/f
 Validation is not a one-time event. The validated state has to be maintained.
 
 - **Change control** governs every configuration change, spec change, patch, and version upgrade. Each change gets a risk assessment that determines the revalidation scope (a new spec needs data verification plus a targeted functional check; a major version upgrade may need broad regression). See [change control for validated systems](/articles/change-control-validated-systems) and [IT change and configuration management (GxP)](/articles/it-change-and-configuration-management-gxp).
+
+The revalidation-scope question is the one teams get wrong most often, either re-testing everything (slow, expensive) or waving a change through (a finding waiting to happen). A risk-based read keeps it proportionate:
+
+<div class="flow-v">
+  <div class="flow-step">A change is proposed (new spec or method, configuration edit, patch, version upgrade)</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Does it touch a GxP-impacting function or master datum (spec, calculation, rounding, OOS logic, audit trail, e-signature, access, interface)?</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">No GxP impact: document the assessment, apply under change control, no functional retest</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">New or changed spec/method only: data-verify to source plus a targeted boundary test of the affected spec evaluation</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Configuration change to a high-risk function: re-test that function plus a regression check of what it touches</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Major version upgrade or platform change: broad regression against the RTM, re-run high-risk scripts, re-verify critical static data</div>
+</div>
 - **Periodic review** confirms the system remains validated, in support, patched appropriately, with access still correct, audit trail still on, change/deviation history clean, and the configuration spec still matching reality. See [validation master plan and periodic review](/articles/validation-master-plan-and-periodic-review) and [requalification and periodic review of equipment](/articles/requalification-and-periodic-review-equipment).
 - **Backup/restore and disaster recovery** must be validated and periodically tested; a LIMS holding years of GxP results that cannot be restored is a serious gap. See [backup, restore, and disaster recovery validation](/articles/backup-restore-disaster-recovery-validation).
 - **Access reviews** on a defined cadence confirm role assignments and segregation of duties remain correct as staff change. See [CSV cybersecurity and access control](/articles/csv-cybersecurity-access-control).

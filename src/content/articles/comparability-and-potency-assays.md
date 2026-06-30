@@ -33,9 +33,20 @@ Comparability does not stand alone. It pulls in:
 
 The quality rationale: a process change can shift glycosylation, aggregation, charge variants, impurity profile, or, for CGT, vector identity, transduction efficiency, or cell phenotype. Some of those shifts are clinically silent. Some are not. Comparability forces you to find the shifts before the patient does.
 
+For CGT products specifically, FDA's CBER finalized a guidance, **"Chemistry, Manufacturing, and Controls Flexibilities for Developing Human Cellular and Gene Therapy Products for a Biologics License Application" (issued 8 May 2026, for immediate implementation)**, that endorses a risk-based approach to comparability studies during development, alongside phase-appropriate CGMP and investigational-phase release acceptance criteria. The thrust is that the size and timing of a comparability exercise should scale with the risk of the change and the stage of development, rather than every change triggering the full commercial package. It does not lower the bar at licensure; it formalizes proportionality earlier in the lifecycle. Confirm the current text and scope against the published guidance before you rely on it.
+
 ### Comparability is not biosimilarity
 
 This distinction comes up in every serious interview. Comparability (ICH Q5E) is a single manufacturer comparing its own product before and after its own change, with full access to the historical process, samples, and clinical data. Biosimilarity (a different regulatory pathway, ICH-aligned but governed by region-specific frameworks such as the US 351(k) pathway and EMA biosimilar guidelines) is a different sponsor trying to match an originator product they did not make, with no access to the originator process. The analytical toolbox overlaps heavily, but the evidentiary burden and the statistical approaches differ. If an interviewer asks "is this comparability or biosimilarity," the answer hinges on who owns the reference and the process history.
+
+| Dimension | Comparability (ICH Q5E) | Biosimilarity (e.g. US 351(k), EMA) |
+|---|---|---|
+| Who runs it | One manufacturer, its own product, before vs after its own change | A different sponsor matching an originator it did not develop |
+| Reference material | Own pre-change product and full historical dataset | Licensed originator, reverse-engineered, no process access |
+| Process knowledge | Full: process, samples, clinical history available | None of the originator's process; inferred from the marketed product |
+| Statistical approach | Quality ranges or equivalence from own history | Tiered analytical similarity assessment against originator lots |
+| Clinical data | Often quality and nonclinical bridging, sometimes targeted clinical | Comparative PK/PD and usually a confirmatory clinical study |
+| Goal | No adverse impact from the change | Highly similar to the originator with no clinically meaningful differences |
 
 ### When comparability is triggered
 
@@ -107,6 +118,24 @@ The matrix is the heart of the package. Orthogonality matters: more than one ind
 8. **Analyze against pre-set criteria.** Where you used ranges, confirm overlap. Where you used statistical equivalence, apply the pre-specified test.
 9. **Adjudicate differences.** Any observed difference is assessed for clinical relevance, not just statistical significance. Document the rationale.
 10. **Conclude and classify.** State comparable / not comparable / comparable-with-conditions, decide if bridging data are needed, and assign the regulatory reporting category (PAS, CBE-30, CBE-0, annual report, or EU variation type).
+
+The decision path, from change to filing, follows one logic regardless of modality:
+
+<div class="flow-v">
+  <div class="flow-step">Manufacturing change proposed and defined</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Risk assessment maps the change to each CQA: which attributes could move, how would you detect it</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Pre-specify the comparability protocol: attributes, discriminating methods, lots, and acceptance criteria, approved before any data</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Execute side by side, including forced degradation and stability, against the pre-set criteria</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">All attributes within quality ranges? If yes and risk is low, quality data may suffice</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Any difference, or higher-risk change: assess clinical relevance, characterize new species, decide on nonclinical or clinical bridging</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Conclude comparable / not / with conditions, then assign the reporting category and file</div>
+</div>
 
 ### Setting acceptance criteria
 

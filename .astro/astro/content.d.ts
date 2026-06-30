@@ -1585,6 +1585,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"assessment-comparability-change-cqa.md": {
+	id: "assessment-comparability-change-cqa.md";
+  slug: "assessment-comparability-change-cqa";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "assessment-compendial-verification-characteristic-selection.md": {
 	id: "assessment-compendial-verification-characteristic-selection.md";
   slug: "assessment-compendial-verification-characteristic-selection";
@@ -1658,6 +1665,13 @@ declare module 'astro:content' {
 "checklist-deviation-classification-decision-tree.md": {
 	id: "checklist-deviation-classification-decision-tree.md";
   slug: "checklist-deviation-classification-decision-tree";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"checklist-gdocp-record-review.md": {
+	id: "checklist-gdocp-record-review.md";
+  slug: "checklist-gdocp-record-review";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -1837,6 +1851,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"log-controlled-form-issuance-reconciliation.md": {
+	id: "log-controlled-form-issuance-reconciliation.md";
+  slug: "log-controlled-form-issuance-reconciliation";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "log-data-stream-inventory.md": {
 	id: "log-data-stream-inventory.md";
   slug: "log-data-stream-inventory";
@@ -1854,6 +1875,13 @@ declare module 'astro:content' {
 "log-protocol-deviation-trending-register.md": {
 	id: "log-protocol-deviation-trending-register.md";
   slug: "log-protocol-deviation-trending-register";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"log-specimen-signature-register.md": {
+	id: "log-specimen-signature-register.md";
+  slug: "log-specimen-signature-register";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2117,6 +2145,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"protocol-comparability-study.md": {
+	id: "protocol-comparability-study.md";
+  slug: "protocol-comparability-study";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "protocol-compendial-method-verification.md": {
 	id: "protocol-compendial-method-verification.md";
   slug: "protocol-compendial-method-verification";
@@ -2243,9 +2278,23 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"protocol-lims-master-data-verification.md": {
+	id: "protocol-lims-master-data-verification.md";
+  slug: "protocol-lims-master-data-verification";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "protocol-media-fill-aps.md": {
 	id: "protocol-media-fill-aps.md";
   slug: "protocol-media-fill-aps";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"protocol-potency-relative-bioassay-validation.md": {
+	id: "protocol-potency-relative-bioassay-validation.md";
+  slug: "protocol-potency-relative-bioassay-validation";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2467,6 +2516,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"script-lims-spec-evaluation-rounding.md": {
+	id: "script-lims-spec-evaluation-rounding.md";
+  slug: "script-lims-spec-evaluation-rounding";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "script-performance-load.md": {
 	id: "script-performance-load.md";
   slug: "script-performance-load";
@@ -2547,6 +2603,13 @@ declare module 'astro:content' {
 "sop-environmental-monitoring-program.md": {
 	id: "sop-environmental-monitoring-program.md";
   slug: "sop-environmental-monitoring-program";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"sop-good-documentation-practices.md": {
+	id: "sop-good-documentation-practices.md";
+  slug: "sop-good-documentation-practices";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">
@@ -2684,6 +2747,13 @@ declare module 'astro:content' {
   collection: "templates";
   data: InferEntrySchema<"templates">
 } & { render(): Render[".md"] };
+"spec-urs-lims.md": {
+	id: "spec-urs-lims.md";
+  slug: "spec-urs-lims";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
 "spec-user-requirements-urs.md": {
 	id: "spec-user-requirements-urs.md";
   slug: "spec-user-requirements-urs";
@@ -2757,6 +2827,13 @@ declare module 'astro:content' {
 "wi-emergency-change-gxp.md": {
 	id: "wi-emergency-change-gxp.md";
   slug: "wi-emergency-change-gxp";
+  body: string;
+  collection: "templates";
+  data: InferEntrySchema<"templates">
+} & { render(): Render[".md"] };
+"wi-error-correction-late-entry.md": {
+	id: "wi-error-correction-late-entry.md";
+  slug: "wi-error-correction-late-entry";
   body: string;
   collection: "templates";
   data: InferEntrySchema<"templates">

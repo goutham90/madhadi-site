@@ -57,6 +57,20 @@ A transparent late entry is defensible. A back-dated entry is falsification, and
 
 > Step 7, mixing start time: 09:14 (event occurred 09:14, recorded as late entry 09:52 on exit from gowning. Reason: form not available inside suite. /AB 09:52/)
 
+The decision, when you realize you are writing down something that already happened, is short and always the same:
+
+<div class="flow-v">
+  <div class="flow-step">You need to write down something that already happened</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Record it now, in the next available space, with a clear pointer to the step it belongs to</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Write BOTH times: when the event actually happened, and the actual time you are writing the entry</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">Add a short reason it is late, then initial and date</div>
+  <span class="flow-arrow">&darr;</span>
+  <div class="flow-step">A transparent late entry is defensible. Writing the entry as if it had been made at the moment, showing only the event time, is back-dating, which is falsification</div>
+</div>
+
 **Acceptance criteria for contemporaneous recording.** The record was made by the person who performed the work, at or immediately after the moment of performance. Timestamps reflect when each event actually happened and run in a plausible sequence. Any entry not made in real time is flagged as a late entry with both times and a reason. Handwriting, ink, and pressure vary across a long record the way real work over hours produces.
 
 ---
@@ -188,6 +202,36 @@ Reconciliation: 3 issued = 2 used + 1 voided. Nothing unaccounted for.
 Equipment use logs deserve a specific mention: they tie a batch to the equipment, the cleaning status, and the prior use. A clean break in the log, a use with no preceding cleaning record, or an overlap where one instrument is logged as running two batches at once, is the kind of physical impossibility that turns a routine inspection into a for-cause one.
 
 **Acceptance criteria.** Forms in use are the current approved version only. Issued copies reconcile against used plus voided. Voided forms are retained. Logbooks are bound and pre-numbered with continuous page numbers, chronological entries, no blank lines left open, and no missing pages.
+
+---
+
+## Paper and electronic: the same mechanic, two forms
+
+People treat GDocP as a paper-era discipline and assume an electronic system takes care of itself. It does not. Every paper mechanic has an electronic counterpart, and the property each one protects is identical. The system enforces some of them for you, but only if it was configured and validated to. The table below maps the mechanic across both worlds so you can see that nothing was retired when the lab went electronic, it just moved into the configuration and the audit trail.
+
+| GDocP mechanic | Paper record | Electronic or hybrid equivalent |
+|---|---|---|
+| Contemporaneous | Write at the moment, controlled late entry with both times if not | System clock stamps the entry; the clock is synchronized and users cannot edit it (see [time stamps and system clock control](/articles/time-stamps-and-system-clock-control)) |
+| Attributable | Initials and signature tied to the signature log | Unique account, authenticated login, no shared logins; the audit trail names the actor |
+| Error correction | Single line, correct value, initials, date, reason | Original value retained, new value recorded, audit trail captures who, when, and why; no overwrite without a trace |
+| No blanks | N/A in unused fields, diagonal strike on unused space | Mandatory fields enforced; the record cannot be completed with a required field empty |
+| Permanent | Indelible ink, no pencil, no erasable pen | Records write-protected after signing; deletions blocked or captured; secure backup |
+| Raw data at full resolution | Record the instrument reading, round only where the method says | Raw acquisition data retained as the original; reporting rounds at the configured step, not before |
+| Sequence and completeness | Bound, pre-numbered logbook, no skipped lines | Workflow states with defined order; no gaps; entries cannot be inserted out of sequence |
+| Independent review | Second person signs the review | Two-tier electronic workflow that blocks self-approval and forces audit-trail review |
+
+The lesson for an inspection: when a system does not enforce one of these, the burden falls back on the procedure and the human, and that is exactly where findings cluster. A LIMS that allows a result to be typed over with no trace has not removed the white-out rule, it has reintroduced white-out.
+
+### True copies, instrument printouts, and fading paper
+
+A specific trap sits between the two worlds: the original record that lives on paper but degrades. Thermal printouts from balances, pH meters, and some chromatography integrators fade to blank within months to a few years. The thermal slip is the *original* data, so losing it loses original data, an ALCOA failure even though nobody touched it.
+
+Two defensible handling routes:
+
+- **Make a true copy** of the printout (a verified photocopy or scan), label it a true copy, and have a second person confirm it is complete and faithful, then retain the true copy as the controlled record. A true copy is a copy verified to preserve the full content and meaning of the original, including any metadata.
+- **Capture the data electronically** at the source where the instrument supports it, so the electronic file is the original and the printout is only a convenience.
+
+Either way, define in procedure which version is the official original (the "designated record") and retain it for the full retention period in a readable form. Pasting a fading slip into a logbook with no true copy is the common version of this finding. See [static vs dynamic records and true copies](/articles/static-dynamic-records-true-copies) and [hybrid paper and electronic records](/articles/hybrid-paper-electronic-records).
 
 ---
 
