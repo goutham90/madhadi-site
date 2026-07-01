@@ -31,6 +31,8 @@ EU GMP Annex 11, clause 4.4 makes the same point in regulatory terms: the User R
 
 That single clause is the regulatory hook for almost everything in this article: requirements must exist, must be risk-based, and must be traceable across the lifecycle.
 
+A development to watch: on 7 July 2025 the EMA GMP/GDP working group, with PIC/S, released a draft revision of Annex 11 (alongside a revised Chapter 4 on documentation and a brand-new Annex 22 on artificial intelligence) for public consultation, which closed on 7 October 2025, with final versions expected from 2026. The draft expands Annex 11 substantially and keeps requirements, risk basis, and lifecycle traceability at its core while adding depth on supplier oversight, audit trails, access management, and cybersecurity. It is a draft, not yet in force, so build to the current Annex 11 and treat the revision as direction of travel, not settled law. The discipline in this article, testable requirements traced to risk and to test evidence, is exactly what the revision reinforces.
+
 ---
 
 ## The User Requirements Specification (URS)
@@ -100,6 +102,21 @@ This is the part interviewers probe and inspectors exploit. A requirement is tes
 | URS-017 | The system shall retain electronic records and their audit trails in retrievable form for a minimum of the period defined in the records retention SOP. | Data Integrity | Yes | Mandatory |
 
 Compare URS-013 to a bad version: "The system shall have an audit trail." The bad version is true of almost any product and proves nothing. URS-013 names the fields, the trigger, and the attributes, so a tester can modify a record and check each captured element.
+
+### Turning untestable requirements into testable ones
+
+Most weak requirements fail in one of a few predictable ways: they are vague, compound, subjective, or they smuggle in a design choice. The fix is mechanical once you can see the pattern. Read the left column, name the flaw, then read the rewrite.
+
+| Weak requirement (as often written) | Why it fails | Rewritten so it can be tested |
+|---|---|---|
+| The system shall be user-friendly. | Subjective; no objective pass or fail. | The system shall allow a trained analyst to record a result in no more than `<<FILL: N>>` screens, confirmed by a scripted UAT task. |
+| The system shall be secure and compliant. | Vague; names an outcome, not a control. | The system shall lock an account after `<<FILL: N>>` failed login attempts and require a unique user ID per individual. |
+| The system shall have an audit trail and be fast. | Compound (two requirements); partly subjective. | Split into two: one requirement for the audit trail content, one for a measurable response time. |
+| The system shall use a database trigger to block self-approval. | Design/solution language in a URS. | The system shall prevent a user from electronically approving a result that the same user entered. (The trigger belongs in the design spec.) |
+| The system shall handle errors appropriately. | "Appropriately" has no acceptance criterion. | On a failed instrument import, the system shall reject the record, display a defined error, and write the failure to the audit trail with no partial save. |
+| The system shall retain data as needed. | "As needed" is undefined and untestable. | The system shall retain electronic records and their audit trails in retrievable form for at least the period in `<<FILL: retention SOP>>`. |
+
+Notice that every rewrite adds a trigger, a measurable value, or a named control, and removes the words a tester cannot act on. That is the whole craft of a testable requirement.
 
 ---
 
@@ -255,6 +272,8 @@ A workable scheme:
 - **Non-GxP / business**: usability, performance niceties. Verified to business satisfaction, often via UAT, with minimal formal CSV burden.
 
 This is the practical expression of the FDA CSA guidance and GAMP 5: spend assurance effort where the risk is, and use the least burdensome method that produces adequate confidence for the risk involved. The RTM's risk and GxP columns are where that decision is recorded and defended. See [data-criticality-and-data-risk](/articles/data-criticality-and-data-risk) and [computer-software-assurance-fda](/articles/computer-software-assurance-fda) for how criticality drives method selection.
+
+For an AI or machine-learning system, the same requirements discipline holds, but the acceptance requirement is statistical rather than pass/fail: instead of "the function returns X," you write a performance requirement (for example, a minimum recall on the consequential class, measured on a locked test set the model never saw) and trace it to the evidence the same way. Sizing that requirement to the model's role is a risk decision, covered in [AI risk assessment for GxP systems](/articles/ai-risk-assessment-gxp).
 
 ---
 
